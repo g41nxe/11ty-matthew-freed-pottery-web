@@ -1,0 +1,18 @@
+<div class="grid grid-cols-12 place-content-center w-100 md:my-24">
+
+    <div class="col-span-12 md:col-span-7 md:shadow-md order-last md:order-first">
+        <img class="w-100" src="{{ showcase.gallery[1].image | url }}" alt="Gallery Image 1" />
+    </div>
+
+    <div class="col-span-12 md:col-span-5 bg-white border-b border-t border-gray-light py-4 md:my-12 flex flex-col justify-center px-16">
+            
+        <h3 class="text-2xl font-bold">{{ showcase.title }}</h3>
+
+        <span class="block text-highlight text-2xl mb-4">...</span>
+
+        {%- for paragraph in showcase.text %}        
+            <p class="mb-4">{{ paragraph }}</p>
+        {%- endfor %}
+
+    </div>
+</div>

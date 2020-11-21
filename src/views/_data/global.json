@@ -1,0 +1,35 @@
+{
+    "newsletter":  {
+        "title": "Sign up to my Newsletter"
+    },
+    "contact":  {
+        "name": "Matthew Freed Pottery <sup>&copy;2020</sup>",
+        "address":"740 Jackson Avenue\nVancouver, B.C., V6A 3B9\nCanada",
+        "phone": "1-778-829-4526",
+        "email": "hello@matthewfreedpottery.com",
+        "text": "Send me an <mail>email</mail> or give me a <phone>call</phone>"
+    },
+    "shop": {
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/"
+    },
+    "socialmedia": {
+        "title": "Follow Me",
+        "services": {
+            "instagram": {
+                "name": "Instagram",
+                "icon": "fa-instagram",
+                "url": "https://www.instagram.com/matthewfreedpottery/"
+            },
+            "facebook": {
+                "name": "Facebook",
+                "icon": "fa-facebook",
+                "url": "https://www.twitter.com/matthewfreedpottery/"
+            },
+            "twitter": {
+                "name": "Twitter",
+                "icon": "fa-twitter",
+                "url": "https://www.facebook.com/matthewfreedpottery/"
+            }
+        }
+    }
+}

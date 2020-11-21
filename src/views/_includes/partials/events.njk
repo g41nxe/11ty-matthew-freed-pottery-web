@@ -1,0 +1,40 @@
+<div class="grid grid-cols-12 place-content-center w-100 md:my-24">
+    <div class="text-brand col-span-12 md:col-span-5 bg-white border-b border-t border-gray-light  md:my-12 py-4 flex flex-col items-center justify-center px-16">
+            
+        <h3 class="text-center text-2xl font-bold">{{ events.title }}</h3>
+
+        <span class="block text-highlight text-2xl text-center mb-4">...</span>
+
+        <div class="events__list">
+            <div class="events__dates text-center mb-8">
+                <svg class="h-6 w-6 inline-block mr-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            
+                <a class="text-sm font-bold mx-2">Jul 17</a> -
+                <a class="text-sm mx-2">Aug 20</a> -
+                <a class="text-sm mx-2">Aug 28</a>
+
+                <svg class="h-6 w-6 inline-block ml-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </div>
+            
+            <div class="events__event flex flex-col justify-content items-center">
+                <h4 class="text-center text-2xl font-bold">Trout Lake Farmer's Market</h4>
+                
+                <p class="text-center my-8">Jul 17, 9am - 2pm</p>
+            
+                <a href="{{ events.url | url }}" class="py-2 px-12 border text-base font-medium rounded-md text-brand hover:text-white border-brand hover:bg-brand">
+                    {{ events.label | upper }}
+                </a>
+            
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-span-12 md:col-span-7 md:shadow-md">
+        <img class="w-100" src="{{ events.image | url }}" alt="Events Image" />
+    </div>
+</div>
