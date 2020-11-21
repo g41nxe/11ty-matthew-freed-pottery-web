@@ -24,7 +24,7 @@ layout: base
             </div>
         </div>
 
-        <div class="bg-white p-8 md:text-center border border-gray-light">
+        <div class="bg-white p-8 md:text-center border border-gray-light shadow-sm">
             <p><i class="fas fa-map-marker mr-2"></i>{{ event.location }}</p>
             <p class="mb-4"><i class="far fa-calendar-alt mr-2"></i>{{ event.date }} : {{ event.time }}</p>
 
@@ -37,7 +37,7 @@ layout: base
             </div>
         </div>
 
-        <div class="relative">
+        <div class="relative shadow-sm">
             {%- if event.overlay %}
                 <div class="absolute w-full h-full bg-black bg-opacity-50 z-50 text-white text-2xl flex flex-col justify-center items-center font-bold">
                 {%- for paragraph in event.overlay -%}

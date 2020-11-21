@@ -27,4 +27,4 @@ $ npm run build
 
 Click the button below to deploy a new site from this starter project on Netlify.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ainarela/11ty-netlify-netlifycms&stack=cms)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/g41nxe/11ty-matthew-freed-pottery-web&stack=cms)

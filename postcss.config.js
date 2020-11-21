@@ -12,11 +12,13 @@ module.exports = ({
                 colors: {
                     'brand': '#050237',
                     'blue': {
-                        'hero-bg': '#E5F8FE',
+                        'hero-bg-start': '#E5F8FE',
+                        'hero-bg-stop': '#EEFCFF',
                         'hero-title': '#130B57',
                     },
                     'highlight': '#E9B45A',
                     'white': '#FFFFFF',
+                    'black': '#000000',
                     'gray': {
                         'light': '#EAEAEA',
                         'lighter': '#FAFAFA',
