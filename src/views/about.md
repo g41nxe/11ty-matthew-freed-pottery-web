@@ -7,6 +7,8 @@ eleventyNavigation:
   key: About
   order: 2
 
+headline: About Matthew 
+
 intro: "My love affair with clay began in the early 1990s when I began taking lessons at a local stoneware studio in Winnipeg.  Although there were some heavy duty sparks between us initially, we sadly parted ways when I moved to Montreal to study and then work in the marketing field." 
 
 sections:

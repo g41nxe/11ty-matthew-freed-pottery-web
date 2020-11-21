@@ -1,0 +1,20 @@
+---
+layout: base
+---
+
+{% include "hero.njk" %}
+
+{% include "notification.njk" %}
+
+<div class="container mx-auto w-5/6">
+    <div class="grid grid-cols-2 gap-x-20">
+        <div>
+           {% include "contact-details.njk" %}
+
+        </div>
+            
+        <div>
+            {% include "contact-form.njk" %}
+        </div>
+    </div>
+</div>

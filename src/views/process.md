@@ -3,8 +3,10 @@ layout: about-layout
 title: Process
 tags: about
 
-sections: 
-  -
+eleventyNavigation:
+  key: Process
+  parent: About
+  
 ---
 
 Hi!

@@ -8,8 +8,8 @@
                 
                 <p class="mb-4">
                     {{ global.contact.text | safe
-                        | replace("<mail>", "<a class=\"font-semibold\" href=\"mailto:" + global.contact.email + "\">") 
-                        | replace("<phone>", "<a class=\"font-semibold\" href=\"tel:" + global.contact.phone + "\">") 
+                        | replace("<mail>", "<a class=\"hover:underline font-semibold\" href=\"mailto:" + global.contact.email + "\">") 
+                        | replace("<phone>", "<a class=\"hover:underline font-semibold\" href=\"tel:" + global.contact.phone + "\">") 
                         | replace("</mail>", "</a>") 
                         | replace("</phone>", "</a>" ) 
                     }}
@@ -38,7 +38,7 @@
                     <input type="text" id="email" class="px-3 py-1 font-light text-sm focus:bg-gray-lighter bg-gray-DEFAULT border border-gray-dark" placeholder="you@email.com">
                     
                     <button class="align-middle px-3 py-1 bg-white rounded-r-md border hover:bg-white border-l-0 bg-gray-lighter border border-gray-dark">
-                        <i class="fas fa-bullhorn"></i>
+                        <i class="fas fa-envelope-open-text"></i>
                     </button>
 
                 </div>
