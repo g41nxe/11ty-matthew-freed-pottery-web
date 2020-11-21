@@ -17,11 +17,7 @@ events:
     image: /images/carousel-yaletown.jpg
     title: Upcomming Events
     label: Details
-    events:
-      - {date: 10-17-2020, time: 9am - 2pm,  name: West End Farmer's Market,       location: Nelson Park}
-      - {date: 10-24-2020, time: 9am - 2pm,  name: East Vancouvers Farmers Market, location: Trout Lake}
-      - {date: 11-12-2020, time: 10am - 6pm, name: Eastside Culture Crawl,         location: My Studio}
-
+    
 showcase:
     title: Explore my different glazing lines and pottery forms
     text: 

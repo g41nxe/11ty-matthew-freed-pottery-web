@@ -1,9 +1,9 @@
 <div class="bg-brand w-100">
-    <div class="md:w-1/2 w-100 mx-auto py-8 flex flex-col items-center justify-content">
-        <ul class="flex w-100 justify-around md:justify-start items-center">
+    <div class="md:w-1/2 w-100 mx-auto flex flex-col items-center justify-content">
+        <ul class="flex w-100 my-8 justify-around md:justify-start items-center divide-x divide-gray-lighter">
 
             {%- for entry in collections.about -%}
-                <li class="md:mr-6 md:py-8">
+                <li class="md:px-6 md:my-8">
                     <a class="border-b-2 border-transparent {{ 'text-highlight hover:border-highlight' if entry.url == page.url else 'text-gray-light hover:border-gray-light' }}  " href="{{ entry.url | url }}">{{ entry.data.title | upper }}</a>
                 </li>
             {%- endfor -%}
