@@ -5,11 +5,6 @@ title: Home
 eleventyNavigation:
   key: Home
   order: 1
-
-hero: 
-  image: /images/hero.jpg
-  title: Mathew Freed Pottery
-  subtitle: made with 🖤 in Vancouver
   
 notification:
   title: Online Shopping is now available

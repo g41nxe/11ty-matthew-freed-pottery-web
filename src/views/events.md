@@ -5,11 +5,6 @@ title: Events
 eleventyNavigation:
   key: Events
   order: 3
-
-hero: 
-    - image: /images/hero.jpg
-    - title: Mathew Freed Pottery
-    - subtitle: Made with 🖤 in Vancouver
   
 notification:
     - title: Online Shopping is now available
