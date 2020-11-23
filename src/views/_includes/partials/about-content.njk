@@ -1,9 +1,10 @@
 {% set order = cycler("order-first", "order-last") %}
+
 {%- for section in sections -%}
 <div class="grid grid-cols-12 place-content-center w-100 md:my-24">
 
     <div class="col-span-12 md:col-span-6 md:shadow-md md:{{ order.next() }} order-first">
-        <img class="h-full w-full object-cover" src="{{ section.image }}" alt="Section Image" />
+        <img class="h-full w-full object-cover" src="{{ section.image.url | url }}" alt="{{ section.image.alt }}" />
     </div>
 
     <div class="col-span-12 md:col-span-6 bg-white border-b border-t border-gray-light 
@@ -11,7 +12,7 @@
                 md:py-20 md:px-20 p-4">
 
         {%- for paragraph in section.paragraphs %}        
-            <p class="mb-4">{{ paragraph }}</p>
+            <p class="mb-4">{{ paragraph | safe }}</p>
         {%- endfor %}
 
     </div>

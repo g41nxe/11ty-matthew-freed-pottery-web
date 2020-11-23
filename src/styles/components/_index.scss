@@ -68,7 +68,10 @@ a, button {
 }
 
 .hero h1 {
-    text-shadow: 0px 0px 10px rgba(0,0,0,0.15);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    span {
+        text-shadow: none;
+    }
 }
 
 .hero--img {
