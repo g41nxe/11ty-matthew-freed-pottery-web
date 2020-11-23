@@ -1,12 +1,12 @@
 window.addEventListener("load", (event) => {
 
-    const filter = document.querySelectorAll('button.event--filter');
+    const filter = document.querySelectorAll("button.event--filter");
 
     for (const f of filter) {
         f.addEventListener("click", (e) => {  
             e.preventDefault();
 
-            const all = document.querySelectorAll('button.event--filter');
+            const all = document.querySelectorAll("button.event--filter");
             for (const a of all) {
                 a.classList.remove("font-bold");
             }
@@ -19,9 +19,9 @@ window.addEventListener("load", (event) => {
             }
 
         
-            const tag = this.dataset.filter;
+            const tag = e.currentTarget.dataset.filter;
             if (tag != "all") {
-                const events = document.querySelectorAll(`.event--item[data-event='${tag}']`);
+                const events = document.querySelectorAll(`.event--item[data-event="${tag}"]`);
 
                 for (const event of events) {
                     event.classList.add("hidden");
@@ -30,16 +30,35 @@ window.addEventListener("load", (event) => {
         })
     }
 
-    const toggler = document.querySelectorAll("button.event--item-toggle")
+    const toggler = document.querySelectorAll(".event--item-toggle")
 
     for (const t of toggler) {
         t.addEventListener("click", (e) => {
-            let target = document.getElementById(e.currentTarget.dataset.target)
+            e.preventDefault();
 
-            target.classList.toggle("hidden")
-            e.target.classList.toggle("fa-minus")
-            e.target.classList.toggle("fa-plus")
+            const target = document.getElementById(e.currentTarget.dataset.target)
+            let icon = document.getElementById(e.currentTarget.dataset.icon)
+            
+            //target.classList.toggle("max-h-0");
+            target.classList.toggle("full");
+
+            icon.classList.toggle("fa-minus")
+            icon.classList.toggle("fa-plus")
             
         })
     }
+
+    var url_string = window.location.href
+    var url = new URL(url_string);
+    var id = url.searchParams.get("open");
+    
+    let event_item = document.querySelector(`[id="${id}"] h2`)
+
+    if (event_item) {
+        event_item.click()
+        
+        const y = event_item.getBoundingClientRect().top + window.pageYOffset - 100;
+        window.scrollTo({top: y, behavior: "smooth"});
+    }
+
 })

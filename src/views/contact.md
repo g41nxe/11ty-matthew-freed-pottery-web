@@ -29,5 +29,5 @@ gmaps: <iframe scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" 
 contactform:
   title: Contact me
   submit: Send Away
-  info: Please fill at least all fields marked with a *.
+  info: All fields marked with an asterisk (*) are required.
 ---

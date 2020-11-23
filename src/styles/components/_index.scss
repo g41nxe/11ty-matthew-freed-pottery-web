@@ -77,3 +77,14 @@ a, button {
         object-fit: cover;
     }
 }
+
+.event--item--content {
+    overflow: hidden;
+    max-height: 0;
+    transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+
+    &.full {
+        max-height: 1000px;
+        transition: all 1s ease-in-out;
+    }
+}

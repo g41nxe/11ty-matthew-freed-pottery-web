@@ -5,7 +5,7 @@
             "alt": "2 Blue Bowls"
         },
         "title": "Matthew Freed Pottery",
-        "subtitle":" Made with 💙 in Vancouver"
+        "subtitle":"art for everyday life"
     },
     "newsletter":  {
         "title": "Sign up to my Newsletter"
@@ -14,7 +14,7 @@
         "name": "Matthew Freed Pottery <sup>&copy;2020</sup>",
         "address":"740 Jackson Avenue\nVancouver, B.C., V6A 3B9\nCanada",
         "phone": "1-778-829-4526",
-        "email": "hello@matthewfreedpottery.com",
+        "email": "mfreed74@gmail.com",
         "text": "Send me an <mail>email</mail> or give me a <phone>call</phone>"
     },
     "shop": {
@@ -26,17 +26,12 @@
             "instagram": {
                 "name": "Instagram",
                 "icon": "fa-instagram",
-                "url": "https://www.instagram.com/matthewfreedpottery/"
+                "url": "https://www.facebook.com/matthewfreedpottery/"
             },
             "facebook": {
                 "name": "Facebook",
                 "icon": "fa-facebook",
                 "url": "https://www.twitter.com/matthewfreedpottery/"
-            },
-            "twitter": {
-                "name": "Twitter",
-                "icon": "fa-twitter",
-                "url": "https://www.facebook.com/matthewfreedpottery/"
             }
         }
     }
