@@ -1,15 +1,6 @@
 { 
     "gallery": [
         {
-            "image": { 
-                "url": "/images/blue-mug-and-plate.jpg", 
-                "alt": "Blue Mug and Plate"
-            },
-            "title": "Explore my different glazing lines and pottery forms", 
-            "text": "Each piece is a complexity of nature, science, and art.\n\nBrowse through my different collections and choose between a large variaty of different glazes and forms.\n\nIf you can't find anything you like send me a message and we can talk about custom pieces.", 
-            "style": "left"
-        },
-        {
             "image": {
                 "url": "/images/carousel-yaletown2.jpg",  
                 "alt": "Large Yaletown Mug"
