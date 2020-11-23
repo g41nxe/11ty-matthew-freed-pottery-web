@@ -1,26 +1,114 @@
 backend:
   name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
+  branch: main # Branch to update (optional; defaults to master)
+
 media_folder: "src/images/uploads" # Media files will be stored in the repo under src/images/uploads
 public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
 collections:
   - label: "Pages"
     name: "pages"
     delete: false
+
     files:
       - label: "Home"
         name: "home"
         file: "src/views/index.md"
+        preview_path: /
         fields:
-          - {label: "Layout", name: "layout", widget: "hidden", default: "content-page"}
-          - {label: Image, name: image, widget: image}
-          - {label: Title, name: title, widget: string}
-          - {label: Content, name: body, widget: markdown}
-      - label: "Contact"
-        name: "contact"
-        file: "src/views/contact.md"
-        fields:
-          - {label: "Layout", name: "layout", widget: "hidden", default: "content-page"}
-          - {label: Image, name: image, widget: image}
-          - {label: Title, name: title, widget: string}
-          - {label: Content, name: body, widget: markdown}
+          - label: "Layout" 
+            name: "layout" 
+            widget: "hidden" 
+            default: "home-layout"
+
+          - label: "Title"
+            name: "title" 
+            widget: "string" 
+            default: "Home"
+
+          - label: "Navigation"
+            collapsed: true
+            name: "eleventyNavigation"
+            widget: "object"
+            fields:
+              - {label: "Key", name: "key", widget: "hidden", default: "Home"}
+              - {label: "Order", name: "order", widget: "number", default: 1}
+          
+          - label: "Notification"
+            name: "notification"
+            widget: "object"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+                default: "Online Shopping is now available"
+
+              - label: "Subtitle"
+                name: "subtitle"
+                widget: "string"
+                default: "Carefully crafted, fresh from the kiln"
+
+              - label: "Call to Action"
+                name: "cta"
+                widget: "object"
+                fields: 
+                  - label: "URL"
+                    name: "url"
+                    widget: "string"
+                    default: "https://matthew-freed-pottery.myshopify.com/collections/all/"
+
+                  - label: "URL"
+                    name: "label"
+                    widget: "string"
+                    default: "Shop Now"
+
+          - label: "Events"
+            name: "event"
+            widget: "object"
+            fields:
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields: 
+                  - label: "Image"
+                    name: "url"
+                    widget: "image"
+                    allow_multiple: false
+                    default: "/images/carousel-yaletown.jpg"
+
+                  - label: "Alt Text"
+                    name: "alt"
+                    widget: "string"
+                    default: "Yaletown Collection in the wild"
+              
+              - label: "Title"
+                name: "title"
+                widget: "string"
+                default: "Upcomming Events"
+              
+              - label: "Label"
+                name: "label"
+                widget: "string"
+                default: "Details"
+
+          - label: "Gallery"
+            name: "gallery"         
+            widget: "object"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+                default: "Explore my different glazing lines and pottery forms"
+              
+              - label: "Intro Texts"
+                name: "texts"
+                widget: "list"
+                allow_add: true
+                default: 
+                  - "Each piece is a complexity of nature, science, and art."
+                  - "Browse through my different collections and choose between a large variaty of different glazes and forms."
+                  - "If you can't find anything you like send me a message and we can talk about custom pieces."
+        
+
+
+

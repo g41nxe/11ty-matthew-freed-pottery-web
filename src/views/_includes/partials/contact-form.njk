@@ -1,7 +1,9 @@
 
-<h2 class="text-2xl text-brand font-bold my-12 mb-12">
+<h2 class="text-2xl text-brand font-bold my-12 mb-8">
     {{ contactform.title }}
 </h2>
+
+<p class="mb-4 text-xs text-gray-dark">{{ contactform.info }}</p>
 
 <form class="text-brand mb-8" netlify-honeypot="bot-field" data-netlify="true" name="contact" method="POST" data-netlify-recaptcha="true">
     <p class="hidden">
@@ -31,5 +33,4 @@
     >{{ contactform.submit | upper }}</button>
 </form>
 
-<p class="text-xs text-gray-dark">{{ contactform.info }}</p>
 

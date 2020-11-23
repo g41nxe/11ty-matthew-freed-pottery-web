@@ -20,7 +20,7 @@ window.addEventListener("load", (event) => {
         autoplay: false,
         gap: 0,
         direction: 'ltr',
-        animationDuration: 800
+        animationDuration: 200
     })
 
     gl1.mount();
