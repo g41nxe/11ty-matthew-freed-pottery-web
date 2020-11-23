@@ -1,6 +1,7 @@
-<div class="nav container mx-auto">
-    <nav class="fixed z-50 w-full py-2 md:bg-transparent bg-blue-800">
-        <ul class="flex w-100 justify-around md:justify-start items-center">
+<div id="nav" class="nav container w-full">
+    <nav class="fixed z-50 w-full md:h-20 h-12 md:px-24">
+
+        <ul class="main-nav w-100 justify-around md:justify-start items-center md:flex hidden">
         {% set navPages = collections.all | eleventyNavigation %}        
         {%- for entry in navPages %}        
             <li class="md:mr-6 md:py-8">
@@ -9,17 +10,57 @@
         {%- endfor %}
             
             <li class="md:mr-6 md:py-8">
-                <a href="{{ global.socialmedia.services.instagram.url | url }}" class="text-brand border-b-2 border-transparent hover:border-brand">
+                <a href="{{ global.socialmedia.services.instagram.url | url }}" class="text-brand hover:text-highlight">
                     <i class="fab fa-instagram"></i>                
                 </a>
             </li>
 
             <li class="md:mr-6 md:py-8">
-                <a href="{{ global.shop.url | url }}" class="text-brand border-b-2 border-transparent hover:border-brand">
+                <a href="{{ global.shop.url | url }}" class="text-brand hover:text-highlight">
                     <i class="fas fa-shopping-bag"></i>                
                 </a>
             </li>
 
         </ul>
-    </nav>
+
+        <ul class="w-100 justify-between md:hidden flex p-4 bg-brand">
+            <li>
+                <ul class="flex justify-start">
+                    <li class="pr-4">
+                        <a href="{{ global.socialmedia.services.instagram.url | url }}" class="text-gray-light hover:text-highlight">
+                            <i class="fab fa-instagram"></i>                
+                        </a>
+                    </li>
+
+                    <li class="pr-4">
+                        <a href="{{ global.shop.url | url }}" class="text-highlight hover:text-white">
+                            <i class="fas fa-shopping-bag"></i>                
+                        </a>
+                    </li>
+                </ul>
+
+                <li class="justify-end">
+                    <a id="mobile--btn" href="#" class="text-gray-light hover:text-highlight">
+                        <i class="fas fa-bars"></i>                
+                    </a>
+                </li>
+        </ul>
+
+        <ul id="mobile--menu" class="relative w-full justify-center items-center text-center border-t border-b border-gray-DEFAULT bg-brand shadow-lg py-4">
+            {% set navPages = collections.all | eleventyNavigation %}        
+            {%- for entry in navPages %}        
+                <li class="py-6">
+                    <a href="{{ entry.url | url }}" class="border-b-2 border-transparent hover:text-highlight text-gray-light {{ 'font-bold' if entry.url == page.url }} " href="{{ entry.url | url }}">{{ entry.title | upper }} </a>
+                </li>
+            {%- endfor %}
+        </ul>
 </div>
+
+
+{% set js %}
+    {% include "../javascript/nav.js" %}
+{% endset %}
+
+<script>
+    {{ js | jsmin | safe }}
+</script>

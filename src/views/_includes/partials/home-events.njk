@@ -1,40 +1,55 @@
 <div class="grid grid-cols-12 place-content-center w-100 md:my-24">
-    <div class="text-brand col-span-12 md:col-span-5 bg-white border-b border-t border-gray-light  md:my-12 py-4 flex flex-col items-center justify-center px-16">
-            
-        <h3 class="text-center text-2xl font-bold">{{ events.title }}</h3>
-
+    <div class="text-brand col-span-12 md:col-span-6 lg:col-span-5 bg-white border-b border-t border-gray-light md:my-12 py-4 md:py-16 px-4 md:px-16">
+        <h3 class="text-center text-xl lg:text-2xl font-bold">{{ event.title }}</h3>
         <span class="block text-highlight text-2xl text-center mb-4">...</span>
 
-        <div class="events__list">
-            <div class="events__dates text-center mb-8">
-                <svg class="h-6 w-6 inline-block mr-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-            
-                <a class="text-sm font-bold mx-2">Jul 17</a> -
-                <a class="text-sm mx-2">Aug 20</a> -
-                <a class="text-sm mx-2">Aug 28</a>
+        <div class="glide--events">
+            <div class="text-center mb-8 relative">
+                <div class="relative">
+          
+                    <div class="glide__bullets z-50 divide-x-2 divide-brand" data-glide-el="controls[nav]">
+                        {%- for entry in events.events -%}
+                            {%- if entry.featured -%}
+                                <button data-glide-dir="={{ loop.index0 }}" class="glide__bullet hover:text-highlight z-50 relative text-xs lg:text-sm px-2">
+                                    {{ entry.date | date('MMM D') }}
+                                </button>
+                            {%- endif -%}
+                        {%- endfor -%}
+                    </div>
 
-                <svg class="h-6 w-6 inline-block ml-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
+                    <div data-glide-el="controls" class="glide__arrows absolute w-full h-full flex top-0 justify-between items-center text-brand px-4 lg:px-8">
+                        <button class="glide__arrow glide__arrow--left hover:text-highlight" data-glide-dir="<">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="glide__arrow glide__arrow--right hover:text-highlight" data-glide-dir=">">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>   
+
+                </div>
             </div>
             
-            <div class="events__event flex flex-col justify-content items-center">
-                <h4 class="text-center text-2xl font-bold">Trout Lake Farmer's Market</h4>
-                
-                <p class="text-center my-8">Jul 17, 9am - 2pm</p>
-            
-                <a href="{{ events.url | url }}" class="py-2 px-12 border text-base font-medium rounded-md text-brand hover:text-white border-brand hover:bg-brand">
-                    {{ events.label | upper }}
-                </a>
-            
+            <div data-glide-el="track" class="glide__track">
+                <ul class="glide__slides">
+                    {%- for entry in events.events -%}
+                        {%- if entry.featured -%}
+                            <li class="glide__slide flex flex-col justify-content items-center py-4">
+                                <h4 class="text-center text-lg lg:text-xl font-bold">{{ entry.name }}</h4>
+                                <p class="text-center my-8 text-sm lg:text-base">
+                                    <span class="font-semibold">{{ entry.date | date('MMM Do') }}</span> &nbsp; {{ entry.time }}
+                                </p>
+                                <a href="/events/#{{ entry.id }}" class="py-2 px-12 border text-xs lg:text-sm font-medium rounded-md text-brand hover:text-white border-brand hover:bg-brand">
+                                    {{ event.label | upper }}
+                                </a>
+                            </li>
+                        {%- endif -%}
+                    {%- endfor -%}
+                </ul>
             </div>
         </div>
-
     </div>
 
-    <div class="col-span-12 md:col-span-7 md:shadow-md">
-        <img class="w-100" src="{{ events.image | url }}" alt="Events Image" />
+    <div class="col-span-12 md:col-span-6 lg:col-span-7 md:shadow-md hidden md:flex">
+        <img class="w-full h-full object-cover" src="{{ event.image.url | url }}" alt="{{ event.image.alt }}" />
     </div>
 </div>

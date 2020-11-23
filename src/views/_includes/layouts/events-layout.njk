@@ -7,47 +7,63 @@ layout: base
 {% include "notification.njk" %}
 
 <div class="container mx-auto my-20 mt-8">
-    <div class="flex divide-brand divide-x-2 text-sm mb-8">
-            <button class="px-2 py-0 my-0 font-bold">All</button>
-        <button class="px-2 py-0 my-0">Past</button>
-        <button class="px-2 py-0 my-0">Future</button>
+    <div class="flex divide-brand divide-x-2 text-sm mb-8 justify-center md:justify-start">
+        <button class="event--filter px-2 py-0 my-0 font-bold hover:text-highlight" data-filter="all">All</button>
+        <button class="event--filter px-2 py-0 my-0 hover:text-highlight" data-filter="past">Past</button>
+        <button class="event--filter px-2 py-0 my-0 hover:text-highlight" data-filter="future">Future</button>
     </div>
 
-    {%- for event in events.events -%}
-    <div class="grid grid-cols-2 text-brand">
+    <div id="event--list">
+        {%- for event in events.events|sort(false, true, 'date') -%}
+        <div class="{{ 'sizer' if loop.first }} event--item text-brand" id="{{ event.id }}" data-event="{{ event.date | getFutureOrPast }}">
 
-        <div class="grid grid-cols-8 col-span-2 font-bold text-lg my-4 py-4 px-2 border-b-2 border-brand">
-            <p class="col-span-1">{{ event.date }}</p>
-            <h2 class="col-span-6">{{ event.name }}</h2>
-            <div class="text-right">
-                <button><i class="fas fa-plus"></i></button>
-            </div>
-        </div>
-
-        <div class="bg-white p-8 md:text-center border border-gray-light shadow-sm">
-            <p><i class="fas fa-map-marker mr-2"></i>{{ event.location }}</p>
-            <p class="mb-4"><i class="far fa-calendar-alt mr-2"></i>{{ event.date }} : {{ event.time }}</p>
-
-            <p class="font-semibold">{{ event.comment }}</p>
-
-            <div class="map mt-8">
-                <iframe scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" 
-                        src="https://maps.google.com/maps?height=236&amp;hl=en&amp;q={{ event.query | url }}&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
-                        class="w-full" height="236" frameborder="0"></iframe>
-            </div>
-        </div>
-
-        <div class="relative shadow-sm">
-            {%- if event.overlay %}
-                <div class="absolute w-full h-full bg-black bg-opacity-50 z-50 text-white text-2xl flex flex-col justify-center items-center font-bold">
-                {%- for paragraph in event.overlay -%}
-                    <h3 class="mb-2 px-24 text-center">{{ paragraph | safe }}</h3>
-                {% endfor %}
+            <div class="grid grid-cols-8 col-span-2 font-bold my-4 py-4 px-2 border-b-2 border-brand">
+                <p class="md:text-lg text-small col-span-8 md:col-span-1">{{ event.date | date("MMM Do 'YY") }}</p>
+                <h2 class="text-lg col-span-7  md:col-span-6">{{ event.name }}</h2>
+                <div class="text-lg md:px-0 px-4 col-span-1 md:col-span-1 text-right">
+                    <button data-target="content-{{ event.id }}" class="hover:text-highlight event--item-toggle">
+                        <i class="fas fa-plus"></i>
+                    </button>
                 </div>
-            {%- endif -%}
+            </div>
+            
+            <div class="event--item--content grid grid-cols md:grid-cols-2 hidden" id="content-{{ event.id }}">
+                <div class="bg-white p-8 md:text-center border border-gray-light shadow-sm">
+                    <p><i class="fas fa-map-marker mr-2"></i>{{ event.location }}</p>
+                    <p class="mb-4"><i class="far fa-calendar-alt mr-2"></i>{{ event.date | date('L') }} : {{ event.time }}</p>
 
-            <img class="absolute w-full h-full object-cover" src="{{ event.image }}"/>
+                    <p class="font-semibold">{{ event.comment }}</p>
+
+                    <div class="map mt-8">
+                        <iframe scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" 
+                                src="https://maps.google.com/maps?height=236&amp;hl=en&amp;q={{ event.gmaps | url }}&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
+                                class="w-full" height="236" frameborder="0"></iframe>
+                    </div>
+                </div>
+
+                <div class="relative shadow-sm order-first md:order-last">
+                    {%- if event.overlay -%}
+                        <div class="absolute w-full h-full bg-black bg-opacity-50 z-50 text-white md:text-2xl flex flex-col justify-center items-center font-bold">
+                            {%- for paragraph in event.overlay -%}
+                                <h3 class="mb-2 px-24 text-center">{{ paragraph | safe }}</h3>
+                            {%- endfor -%}
+                        </div>
+                    {%- endif -%}
+
+                    <img class="relative w-full h-full object-cover" src="{{ event.image.url | url }}" alt="{{ event.image.alt }}"/>
+                </div>
+            </div>
+
         </div>
+        {%- endfor -%}
     </div>
-    {%- endfor -%}
 </div>
+
+
+{% set js %}
+    {% include "../javascript/events.js" %}
+{% endset %}
+
+<script>
+    {{ js | jsmin | safe }}
+</script>

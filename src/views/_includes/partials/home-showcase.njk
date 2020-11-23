@@ -1,18 +1,48 @@
 <div class="grid grid-cols-12 place-content-center w-100 md:my-24">
+    
+    <div class="relative col-span-12 md:col-span-6 lg:col-span-7 md:shadow-md">
+        <div class="glide--showcase--images relative h-full w-full">
+            <div data-glide-el="track" class="glide__track h-full w-full">
 
-    <div class="col-span-12 md:col-span-7 md:shadow-md order-last md:order-first">
-        <img class="w-100" src="{{ showcase.gallery[1].image | url }}" alt="Gallery Image 1" />
+                <ul class="glide__slides h-full w-full">
+                    {%- for entry in showcase.gallery -%}
+                        <li class="glide__slide">
+                            <img class="h-full w-full object-cover" src="{{ entry.image.url | url }}" alt="{{ entry.image.alt }}" />
+                        </li>
+                    {%- endfor -%}
+                </ul>
+
+            </div>
+
+            <div data-glide-el="controls" class="glide__arrows absolute w-full h-full flex top-0 justify-between items-center text-gray-lighter px-8">
+                <button class="glide__arrow glide__arrow--left hover:text-gray-light" data-glide-dir="<"><i class="fas fa-chevron-left fa-2x"></i></button>
+                <button class="glide__arrow glide__arrow--right hover:text-gray-light" data-glide-dir=">"><i class="fas fa-chevron-right fa-2x"></i></button>
+            </div>
+        </div>
     </div>
 
-    <div class="col-span-12 md:col-span-5 bg-white border-b border-t border-gray-light py-4 md:my-12 flex flex-col justify-center px-16">
-            
-        <h3 class="text-2xl font-bold">{{ showcase.title }}</h3>
+    <div class="col-span-12 md:col-span-6 lg:col-span-5 bg-white border-b border-t border-gray-light flex flex-col justify-center md:px-16 px-4 md:my-12 md:py-16 py-4">
+        
+        <div class="glide--showcase--content">
+            <div data-glide-el="track" class="glide__track">
 
-        <span class="block text-highlight text-2xl mb-4">...</span>
-
-        {%- for paragraph in showcase.text %}        
-            <p class="mb-4">{{ paragraph }}</p>
-        {%- endfor %}
-
+                <ul class="glide__slides">
+                    {%- for entry in showcase.gallery -%}
+                        <li class="glide__slide flex justify-center flex-col items-{{ entry.style }} text-{{ entry.style }}">
+                            
+                            <h3 class="text-brand text-xl lg:text-2xl font-bold">{{ entry.title }}</h3>
+                            <span class="block text-highlight text-xl lg:text-2xl mb-4">...</span>
+                            <p class="text-brand text-sm lg:text-md mb-4">{{ entry.text | nl2br | safe }}</p>
+                            
+                            {%- if entry.cta -%}
+                                <a href="{{ entry.cta.url | url }}" class="my-4 w-auto py-2 px-8 border text-xs lg:text-sm font-medium rounded-md text-brand hover:text-white border-brand hover:bg-brand">
+                                    {{ entry.cta.label | upper }}
+                                </a>
+                            {%- endif -%}
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

@@ -12,7 +12,7 @@ module.exports = ({
                 colors: {
                     'brand': '#050237',
                     'blue': {
-                        'hero-bg-start': '#E5F8FE',
+                        'hero-bg-start': '#E4F5FF;',
                         'hero-bg-stop': '#EEFCFF',
                         'hero-title': '#130B57',
                     },

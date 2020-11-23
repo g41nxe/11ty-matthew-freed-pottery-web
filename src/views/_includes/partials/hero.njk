@@ -1,17 +1,32 @@
-<div class="grid grid-cols-12 place-content-center">
+<div class="hero grid grid-cols-12 place-content-center">
     <div class="hidden md:flex md:col-span-4 col-span-12 mx-auto w-full h-full bg-gradient-to-b from-blue-hero-bg-start to-blue-hero-bg-stop items-center">
-        <div class="sm:text-center lg:text-left md:ml-20 p-8 pt-12 md:p-0">
-            <h2 class="text-blue-hero-title font-display md:text-5xl text-2xl">
+        <div class="sm:text-center md:text-left md:ml-24 p-8 pt-12 md:p-0">
+            <h1 class="text-blue-hero-title font-display lg:text-5xl md:text-3xl">
                 {{ global.hero.title }}
                 <br/>
                 <span class="text-sm font-sans">
                     {{ global.hero.subtitle }}
                 </span>
-            </h2>
+            </h1>
         </div>
     </div>
 
-    <div class="md:col-span-8 col-span-12">
-        <img class="h-100" src="{{ global.hero.image | url }}" alt="Hero Image" />
+    <div class="relative md:col-span-8 col-span-12">
+        <div class="relative">
+            <img class="h-100" src="{{ global.hero.image.url | url }}" alt="{{ global.hero.image.alt }}" />
+
+            <div class="md:hidden absolute top-0 w-full h-full">
+                <div class="flex justify-center items-end w-full h-full">
+                    <h2 class="text-white font-display text-3xl text-center w-full p-8 bg-gradient-to-b from-transparent to-brand">
+                        {{ global.hero.title }}
+                        <br/>
+                        <span class="text-sm font-sans">
+                            {{ global.hero.subtitle }}
+                        </span>
+                    </h2>
+                </div>
+            </div>
+        </div>
     </div>
+
 </div>

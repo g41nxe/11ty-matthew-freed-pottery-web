@@ -1,8 +1,11 @@
 {
     "hero": {  
-        "image": "/images/hero.jpg",
+        "image": {
+            "url": "/images/hero.jpg",
+            "alt": "2 Blue Bowls"
+        },
         "title": "Matthew Freed Pottery",
-        "subtitle":" Made with 🖤 in Vancouver"
+        "subtitle":" Made with 💙 in Vancouver"
     },
     "newsletter":  {
         "title": "Sign up to my Newsletter"

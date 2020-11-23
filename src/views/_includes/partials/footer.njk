@@ -1,28 +1,28 @@
 <footer class="bg-gray-light text-gray-dark">
-    <div class="container mx-auto py-24 px-12">
-        <div class="grid md:grid-cols-5 md:text-left text-center font-light gap-x-24">
-            <div class="col-span-2 md:grid-cols-1 grid-cols-3">
+    <div class="container mx-auto py-8 md:py-24 px-12">
+        <div class="grid md:grid-cols-6 md:text-left text-center font-light gap-x-24">
+            <div class="col-span-2 md:grid-cols grid-cols-3">
                 <h4 class="font-bold mb-4">{{ global.contact.name | safe }}</h4>
                 
                 <p class="mb-4">{{global.contact.address | nl2br | safe }}</p>
                 
                 <p class="mb-4">
                     {{ global.contact.text | safe
-                        | replace("<mail>", "<a class=\"hover:underline font-semibold\" href=\"mailto:" + global.contact.email + "\">") 
-                        | replace("<phone>", "<a class=\"hover:underline font-semibold\" href=\"tel:" + global.contact.phone + "\">") 
+                        | replace("<mail>", "<a class=\"hover:text-brand font-semibold\" href=\"mailto:" + global.contact.email + "\">") 
+                        | replace("<phone>", "<a class=\"hover:text-brand font-semibold\" href=\"tel:" + global.contact.phone + "\">") 
                         | replace("</mail>", "</a>") 
                         | replace("</phone>", "</a>" ) 
                     }}
                 </p>
             </div>
 
-            <div class="col-span-1 md:grid-cols-1 grid-cols-3 mt-8 md:mt-0">
+            <div class="col-span-2 md:grid-cols grid-cols-3 mt-8 md:mt-0">
                 <h4 class="font-bold mb-4">{{ global.socialmedia.title }} </h4>
 
                 <ul class="flex flex-row md:justify-start justify-center">
                     {%- for name, entry in global.socialmedia.services %}        
                     <li>
-                        <a class="mr-4" href="{{ entry.url | url }}">
+                        <a class="mr-4 hover:text-brand" href="{{ entry.url | url }}">
                             <i class="fab {{ entry.icon }}"></i>
                         </a>
                     </li>
@@ -30,18 +30,17 @@
                 </ul>
             </div>
 
-            <div class="col-span-2 md:grid-cols-1 grid-cols-3 mt-8 md:mt-0">
+            <div class="col-span-2 md:grid-cols grid-cols-3 mt-8 md:mt-0">
                 <h4 class="font-bold mb-4">{{ global.newsletter.title }}</h4>
 
-                <div class="flex justify-center md:justify-start">
-                
-                    <input type="text" id="email" class="w-full px-3 py-1 font-light text-sm focus:bg-gray-lighter bg-gray-DEFAULT border border-gray-dark" placeholder="you@email.com">
+                <form class="flex justify-center md:justify-start" data-netlify="true" name="newsletter" method="POST" data-netlify-recaptcha="true">
+                    <input type="text" id="email" class="w-3/5 md:w-full px-3 py-1 font-light text-sm focus:bg-gray-lighter bg-gray-DEFAULT border border-gray-dark" placeholder="your@email.com">
                     
-                    <button class="align-middle px-3 py-1 bg-white rounded-r-md border hover:bg-white border-l-0 bg-gray-lighter border border-gray-dark">
+                    <button type="submit" class="align-middle px-3 py-1 bg-white rounded-r-md border hover:bg-white border-l-0 bg-gray-lighter border border-gray-dark">
                         <i class="fas fa-envelope-open-text"></i>
                     </button>
-
-                </div>
+                </form>
+            </div>
         </div>
     </div>
 </footer>

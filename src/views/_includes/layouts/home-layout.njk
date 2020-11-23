@@ -9,3 +9,11 @@ layout: base
 {% include "home-events.njk" %}
 
 {% include "home-showcase.njk" %}
+
+{% set js %}
+    {% include "../javascript/home.js" %}
+{% endset %}
+
+<script>
+    {{ js | jsmin | safe }}
+</script>

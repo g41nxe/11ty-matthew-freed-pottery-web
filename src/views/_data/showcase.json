@@ -1,0 +1,52 @@
+{ 
+    "gallery": [
+        {
+            "image": { 
+                "url": "/images/blue-mug-and-plate.jpg", 
+                "alt": "Blue Mug and Plate"
+            },
+            "title": "Explore my different glazing lines and pottery forms", 
+            "text": "Each piece is a complexity of nature, science, and art.\n\nBrowse through my different collections and choose between a large variaty of different glazes and forms.\n\nIf you can't find anything you like send me a message and we can talk about custom pieces.", 
+            "style": "left"
+        },
+        {
+            "image": {
+                "url": "/images/carousel-yaletown2.jpg",  
+                "alt": "Large Yaletown Mug"
+            },
+            "title": "Yaletown Collection", 
+            "text": "Red, green or blue rims pop on a charcoal glazed base\n\nMugs\nChopstick Bowls\nFrench Butter Dish\nMeal Bow\n", 
+            "cta": { 
+                "label": "Browse All Items", 
+                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Yaletown" 
+            }, 
+            "style": "center"
+        },
+        {
+            "image": {
+                "url": "/images/carousel-galiano.jpg",
+                "alt": "Galiano Plates and Mugs"
+            },
+            "title": "Galiano Collection", 
+            "text": "A multi-tone deep blue glaze\n\nBelly Mugs\nChopstick Bowls\nShorty Mug\nSquare Wave", 
+            "cta": { 
+                "label": "Browse All Items",
+                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Galiano"
+            }, 
+            "style": "center"
+        },
+        {
+            "image": {
+                "url": "/images/carousel-dogwood.jpg",
+                "alt": "Dogwood Bowls"
+            },
+            "title": "Dogwood Collection", 
+            "text": "A semi-matte charcoal glaze with a hand-painted dogwood pattern\n\nServing Bowls\nLarge Bowls\nIndividual Requests", 
+            "cta": { 
+                "label": "Browse All Items",
+                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Galiano"
+            }, 
+            "style": "center"
+        }
+    ]
+}

@@ -12,7 +12,7 @@ notification:
   subtitle: Carefully crafted, fresh from the kiln
   cta:
     label: Shop Now
-    url: data.global.shop.url
+    url: https://matthew-freed-pottery.myshopify.com/collections/all/
 
 headline: Don't be a stranger
 subheadline: Just say hello.
@@ -29,5 +29,5 @@ gmaps: <iframe scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" 
 contactform:
   title: Contact me
   submit: Send Away
-  
+  info: Please fill at least all fields marked with a *.
 ---
