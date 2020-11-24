@@ -50,3 +50,4 @@ fields:
 pages:
 - src/views/about.md
 - src/views/pottery.md
+- src/views/process.md
