@@ -1,173 +1,173 @@
-{ 
-    "gallery": [
-        {
-            "image": {
-                "url": "/images/carousel-yaletown2.jpg",  
-                "alt": "Large Yaletown Mug by Matthew Freed"
-            },
-            "title": "Yaletown Collection", 
-            "text": "Red, green or blue rims pop on a charcoal glazed base\n\nMugs\nChopstick Bowls\nFrench Butter Dish\nMeal Bow\n", 
-            "cta": { 
-                "label": "Browse All Items", 
-                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Yaletown" 
-            }, 
-            "style": "center"
-        },
-        {
-            "image": {
-                "url": "/images/carousel-galiano.jpg",
-                "alt": "Galiano Plates and Mugs by Matthew Freed"
-            },
-            "title": "Galiano Collection", 
-            "text": "A multi-tone deep blue glaze\n\nBelly Mugs\nChopstick Bowls\nShorty Mug\nSquare Wave", 
-            "cta": { 
-                "label": "Browse All Items",
-                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Galiano"
-            }, 
-            "style": "center"
-        },
-        {
-            "image": {
-                "url": "/images/carousel-dogwood.jpg",
-                "alt": "Dogwood Bowls by Matthew Freed"
-            },
-            "title": "Dogwood Collection", 
-            "text": "A semi-matte charcoal glaze with a hand-painted dogwood pattern\n\nServing Bowls\nLarge Bowls\nIndividual Requests", 
-            "cta": { 
-                "label": "Browse All Items",
-                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Galiano"
-            }, 
-            "style": "center"
-        },
-        {
-            "image": {
-                "url": "/images/carousel-saltspring.jpg",
-                "alt": "Saltspring Collection: Plates and Bowls by Matthew Freed"
-            },
-            "title": "Saltspring Collection", 
-            "text": "A semi-matte charcoal glaze with vibrant bursts of glossy colour\n\nServing Plates\nBowls\nIndividual Requests", 
-            "cta": { 
-                "label": "Browse All Items",
-                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Saltspring"
-            }, 
-            "style": "center"
-        },
-        {
-            "image": {
-                "url": "/images/carousel-jericho.jpg",
-                "alt": "Jericho Bowls by Matthew Freed"
-            },
-            "title": "Jericho Collection", 
-            "text": "A pale grey/blue glaze with sand toned speckles\n\nServing Plates\nBowls\nIndividual Requests", 
-            "cta": { 
-                "label": "Browse All Items",
-                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Jericho"
-            }, 
-            "style": "center"
-        },
-        {
-            "image": {
-                "url": "/images/carousel-joffre.jpg",
-                "alt": "Joffre Plate and Vase by Matthew Freed"
-            },
-            "title": "Joffre Collection", 
-            "text": "A rich green/blue glaze with multi-toned variation\n\nServing Plates\nBowls\nIndividual Requests", 
-            "cta": { 
-                "label": "Browse All Items",
-                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Jericho"
-            }, 
-            "style": "center"
-        },
-        {
-            "image": {
-                "url": "/images/carousel-kitsilano.jpg",
-                "alt": "Kitsilano Bowls by Matthew Freed"
-            },
-            "title": "Kitsilano Collection", 
-            "text": "A satiny smooth lilac glaze with warm blue rim\n\nServing Plates\nBowls\nIndividual Requests", 
-            "cta": { 
-                "label": "Browse All Items",
-                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Kitsilano"
-            }, 
-            "style": "center"
-        },
-        {
-            "image": {
-                "url": "/images/carousel-pemberton-sky.jpg",
-                "alt": "Pemberton Sky Bowls by Matthew Freed"
-            },
-            "title": "Pemberton Sky Collection", 
-            "text": "A hand-painted leafing pattern with a textured finish in a two toned blue glossy finish\n\nServing Plates\nBowls\nIndividual Requests", 
-            "cta": { 
-                "label": "Browse All Items",
-                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Pemberton"
-            }, 
-            "style": "center"
-        },
-        {
-            "image": {
-                "url": "/images/carousel-pemberton-earth.jpg",
-                "alt": "Pemberton Earth Bowls by Matthew Freed"
-            },
-            "title": "Pemberton Earth Collection", 
-            "text": "A hand-painted leafing pattern with a textured finish in a medium brown and charcoal glaze\n\nServing Plates\nBowls\nIndividual Requests", 
-            "cta": { 
-                "label": "Browse All Items",
-                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Pemberton"
-            }, 
-            "style": "center"
-        },
-        {
-            "image": {
-                "url": "/images/carousel-stathcona.jpg",
-                "alt": "Strathcona Bowl, Plates and small Vase by Matthew Freed"
-            },
-            "title": "Strathcona", 
-            "text": "Semi-matte charcoal glaze with a hand-painted gold chevron pattern\n\nServing Plates\nBowls\nIndividual Requests", 
-            "cta": { 
-                "label": "Browse All Items",
-                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Strathcona"
-            }, 
-            "style": "center"
-        },
-        {
-            "image": {
-                "url": "/images/carousel-tofino.jpg",
-                "alt": "Tofino Chopstick Bowl by Matthew Freed"
-            },
-            "title": "Tofino", 
-            "text": "A stormy, landscape effect in complimentary hues of cobalt, mocha, and amber.\n\nServing Plates\nBowls\nIndividual Requests", 
-            "cta": { 
-                "label": "Browse All Items",
-                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/tofino"
-            }, 
-            "style": "center"
-        },
-        {
-            "image": {
-                "url": "/images/carousel-tree-of-life.jpg",
-                "alt": "Different items of the Tree of life Collection by Matthew Freed"
-            },
-            "title": "Tree of Life", 
-            "text": "A textured Tree of Life emblem on a semi-matte charcoal glaze\n\nServing Plates\nBowls\nIndividual Requests", 
-            "cta": { 
-                "label": "Browse All Items",
-                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/tree-of-life"
-            }, 
-            "style": "center"
-        },
-        {
-            "image": {
-                "url": "/images/carousel-zen.jpg",
-                "alt": "Zen Snack Bowl by Matthew Freed"
-            },
-            "title": "Tree of Life", 
-            "text": "A semi-matte charcoal glaze with a textured gold decorative accent tile\n\nServing Plates\nBowls\nIndividual Requests", 
-            "cta": { 
-                "label": "Browse All Items",
-                "url": "https://matthew-freed-pottery.myshopify.com/collections/all/zen"
-            }, 
-            "style": "center"
-        }
-    ]
+{
+  "gallery": [
+    {
+      "image": {
+        "url": "/images/carousel-yaletown2.jpg",
+        "alt": "Large Yaletown Mug by Matthew Freed"
+      },
+      "title": "Yaletown Collection",
+      "text": "Red, green or blue rims pop on a charcoal glazed base\n\nMugs\nChopstick Bowls\nFrench Butter Dish\nMeal Bow\n",
+      "cta": {
+        "label": "Browse All Items",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Yaletown"
+      },
+      "style": "center"
+    },
+    {
+      "image": {
+        "url": "/images/carousel-galiano.jpg",
+        "alt": "Galiano Plates and Mugs by Matthew Freed"
+      },
+      "title": "Galiano Collection",
+      "text": "A multi-tone deep blue glaze\n\nBelly Mugs\nChopstick Bowls\nShorty Mug\nSquare Wave",
+      "cta": {
+        "label": "Browse All Items",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Galiano"
+      },
+      "style": "center"
+    },
+    {
+      "image": {
+        "url": "/images/carousel-dogwood.jpg",
+        "alt": "Dogwood Bowls by Matthew Freed"
+      },
+      "title": "Dogwood Collection",
+      "text": "A semi-matte charcoal glaze with a hand-painted dogwood pattern\n\nServing Bowls\nLarge Bowls\nIndividual Requests",
+      "cta": {
+        "label": "Browse All Items",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Galiano"
+      },
+      "style": "center"
+    },
+    {
+      "image": {
+        "url": "/images/carousel-saltspring.jpg",
+        "alt": "Saltspring Collection: Plates and Bowls by Matthew Freed"
+      },
+      "title": "Saltspring Collection",
+      "text": "A semi-matte charcoal glaze with vibrant bursts of glossy colour\n\nServing Plates\nBowls\nIndividual Requests",
+      "cta": {
+        "label": "Browse All Items",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Saltspring"
+      },
+      "style": "center"
+    },
+    {
+      "image": {
+        "url": "/images/carousel-jericho.jpg",
+        "alt": "Jericho Bowls by Matthew Freed"
+      },
+      "title": "Jericho Collection",
+      "text": "A pale grey/blue glaze with sand toned speckles\n\nServing Plates\nBowls\nIndividual Requests",
+      "cta": {
+        "label": "Browse All Items",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Jericho"
+      },
+      "style": "center"
+    },
+    {
+      "image": {
+        "url": "/images/carousel-joffre.jpg",
+        "alt": "Joffre Plate and Vase by Matthew Freed"
+      },
+      "title": "Joffre Collection",
+      "text": "A rich green/blue glaze with multi-toned variation\n\nServing Plates\nBowls\nIndividual Requests",
+      "cta": {
+        "label": "Browse All Items",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Jericho"
+      },
+      "style": "center"
+    },
+    {
+      "image": {
+        "url": "/images/carousel-kitsilano.jpg",
+        "alt": "Kitsilano Bowls by Matthew Freed"
+      },
+      "title": "Kitsilano Collection",
+      "text": "A satiny smooth lilac glaze with warm blue rim\n\nServing Plates\nBowls\nIndividual Requests",
+      "cta": {
+        "label": "Browse All Items",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Kitsilano"
+      },
+      "style": "center"
+    },
+    {
+      "image": {
+        "url": "/images/carousel-pemberton-sky.jpg",
+        "alt": "Pemberton Sky Bowls by Matthew Freed"
+      },
+      "title": "Pemberton Sky Collection",
+      "text": "A hand-painted leafing pattern with a textured finish in a two toned blue glossy finish\n\nServing Plates\nBowls\nIndividual Requests",
+      "cta": {
+        "label": "Browse All Items",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Pemberton"
+      },
+      "style": "center"
+    },
+    {
+      "image": {
+        "url": "/images/carousel-pemberton-earth.jpg",
+        "alt": "Pemberton Earth Bowls by Matthew Freed"
+      },
+      "title": "Pemberton Earth Collection",
+      "text": "A hand-painted leafing pattern with a textured finish in a medium brown and charcoal glaze\n\nServing Plates\nBowls\nIndividual Requests",
+      "cta": {
+        "label": "Browse All Items",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Pemberton"
+      },
+      "style": "center"
+    },
+    {
+      "image": {
+        "url": "/images/carousel-stathcona.jpg",
+        "alt": "Strathcona Bowl, Plates and small Vase by Matthew Freed"
+      },
+      "title": "Strathcona",
+      "text": "Semi-matte charcoal glaze with a hand-painted gold chevron pattern\n\nServing Plates\nBowls\nIndividual Requests",
+      "cta": {
+        "label": "Browse All Items",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Strathcona"
+      },
+      "style": "center"
+    },
+    {
+      "image": {
+        "url": "/images/carousel-tofino.jpg",
+        "alt": "Tofino Chopstick Bowl by Matthew Freed"
+      },
+      "title": "Tofino",
+      "text": "A stormy, landscape effect in complimentary hues of cobalt, mocha, and amber.\n\nServing Plates\nBowls\nIndividual Requests",
+      "cta": {
+        "label": "Browse All Items",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/tofino"
+      },
+      "style": "center"
+    },
+    {
+      "image": {
+        "url": "/images/carousel-tree-of-life.jpg",
+        "alt": "Different items of the Tree of life Collection by Matthew Freed"
+      },
+      "title": "Tree of Life",
+      "text": "A textured Tree of Life emblem on a semi-matte charcoal glaze\n\nServing Plates\nBowls\nIndividual Requests",
+      "cta": {
+        "label": "Browse All Items",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/tree-of-life"
+      },
+      "style": "center"
+    },
+    {
+      "image": {
+        "url": "/images/carousel-zen.jpg",
+        "alt": "Zen Snack Bowl by Matthew Freed"
+      },
+      "title": "Zen",
+      "text": "A semi-matte charcoal glaze with a textured gold decorative accent tile\n\nServing Plates\nBowls\nIndividual Requests",
+      "cta": {
+        "label": "Browse All Items",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/zen"
+      },
+      "style": "center"
+    }
+  ]
 }
