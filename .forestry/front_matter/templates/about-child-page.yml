@@ -53,6 +53,8 @@ fields:
   - type: list
     name: paragraphs
     label: Text Paragraphs
+  config:
+    labelField: label
 pages:
 - src/views/about.md
 - src/views/pottery.md
