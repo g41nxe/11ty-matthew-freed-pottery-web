@@ -1,0 +1,45 @@
+---
+label: Data - Events
+hide_body: true
+fields:
+- type: field_group_list
+  name: events
+  label: events
+  fields:
+  - type: text
+    name: id
+    label: id
+  - type: text
+    name: date
+    label: date
+  - type: datetime
+    name: time
+    label: time
+  - type: text
+    name: name
+    label: name
+  - type: text
+    name: location
+    label: location
+  - type: text
+    name: comment
+    label: comment
+  - type: field_group
+    name: image
+    label: image
+    fields:
+    - type: file
+      name: url
+      label: url
+    - type: text
+      name: alt
+      label: alt
+    - type: list
+      name: overlay
+      label: overlay
+  - type: text
+    name: gmaps
+    label: gmaps
+  - type: boolean
+    name: featured
+    label: featured
