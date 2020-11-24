@@ -39,6 +39,6 @@ sections:
     in Craft by Circle Craft. So onward we proceed on this life journey together -
     slowly working our way to being old and gray and sitting on the front porch swing
     where we can reminisce about our long lifetime journey together.
-  label: ''
+  label: Section 2
 
 ---
