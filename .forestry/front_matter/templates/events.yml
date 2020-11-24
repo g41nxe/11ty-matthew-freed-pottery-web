@@ -42,3 +42,5 @@ fields:
         required: false
       label: URL
   label: Notification Section
+pages:
+- src/views/events.md
