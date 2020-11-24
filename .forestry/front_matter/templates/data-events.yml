@@ -4,42 +4,54 @@ hide_body: true
 fields:
 - type: field_group_list
   name: events
-  label: All Events
+  label: All Items
   fields:
   - type: text
     name: id
-    label: id
-  - type: text
-    name: date
-    label: date
-  - type: datetime
-    name: time
-    label: time
+    label: ID
+    description: make sure this is a unique value
+  - name: date
+    type: datetime
+    label: Date
+    description: ''
+    config:
+      required: false
+      date_format: MM-DD-YYYY
+      time_format: 
+      display_utc: false
+  - name: time
+    type: text
+    config:
+      required: false
+    label: Time
+    description: something like 2am - 4pm
   - type: text
     name: name
-    label: name
+    label: Name
   - type: text
     name: location
-    label: location
+    label: Location
   - type: text
     name: comment
-    label: comment
+    label: Comment
   - type: field_group
     name: image
-    label: image
+    label: Image
     fields:
     - type: file
       name: url
-      label: url
+      label: URL
     - type: text
       name: alt
-      label: alt
+      label: Alt Text
     - type: list
       name: overlay
-      label: overlay
+      label: Overlay Text
   - type: text
     name: gmaps
-    label: gmaps
+    label: 'Google Maps Query '
+    description: something like "2919 Woodland Drive"
   - type: boolean
     name: featured
-    label: featured
+    label: Is this a Featured Event?
+    description: Select if this event should appear on the Home page
