@@ -5,9 +5,10 @@ fields:
 - type: text
   name: layout
   label: layout
+  hidden: true
 - type: text
   name: title
-  label: title
+  label: Title
 - type: field_group
   name: eleventyNavigation
   label: eleventyNavigation
@@ -18,23 +19,26 @@ fields:
   - type: number
     name: order
     label: order
+  hidden: true
 - type: field_group
   name: notification
-  label: notification
   fields:
   - type: text
     name: title
-    label: title
+    label: Title
   - type: text
     name: subtitle
-    label: subtitle
+    label: Subtitle
   - type: field_group
     name: cta
-    label: cta
+    label: Call To Action
     fields:
     - type: text
       name: label
-      label: label
-    - type: text
-      name: url
-      label: url
+      label: Label
+    - name: url
+      type: text
+      config:
+        required: false
+      label: URL
+  label: Notification Section
