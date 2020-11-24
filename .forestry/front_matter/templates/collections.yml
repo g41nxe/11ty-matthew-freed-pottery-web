@@ -4,34 +4,50 @@ hide_body: true
 fields:
 - type: field_group_list
   name: gallery
-  label: gallery
+  label: All Entries
   fields:
   - type: field_group
     name: image
-    label: image
+    label: Image
     fields:
     - type: file
       name: url
-      label: url
+      label: URL
     - type: text
       name: alt
-      label: alt
+      label: Alt Text
   - type: text
     name: title
-    label: title
+    label: Title
+    config:
+      required: true
   - type: textarea
     name: text
-    label: text
+    label: Text
+    config:
+      required: true
   - type: field_group
     name: cta
-    label: cta
+    label: Call To Action
     fields:
     - type: text
       name: label
-      label: label
+      label: Label
     - type: text
       name: url
-      label: url
-  - type: text
-    name: style
-    label: style
+      label: URL
+  - name: style
+    type: select
+    default: center
+    config:
+      required: false
+      options:
+      - center
+      - left
+      - right
+      source:
+        type: simple
+        section: 
+        file: 
+        path: 
+    label: Style
