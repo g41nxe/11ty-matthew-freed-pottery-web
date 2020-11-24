@@ -5,12 +5,10 @@ fields:
 - type: text
   name: layout
   label: layout
-- type: file
-  name: image
-  label: image
+  hidden: true
 - type: text
   name: title
-  label: title
+  label: Title
 - type: field_group
   name: eleventyNavigation
   label: eleventyNavigation
@@ -21,57 +19,69 @@ fields:
   - type: number
     name: order
     label: order
+  hidden: true
 - type: field_group
   name: notification
-  label: notification
+  label: Notification Section
   fields:
   - type: text
     name: title
-    label: title
+    label: Title
   - type: text
     name: subtitle
-    label: subtitle
+    label: Subtitle
   - type: field_group
     name: cta
-    label: cta
+    label: Call To Action
     fields:
     - type: text
       name: label
-      label: label
+      label: Label
     - type: text
       name: url
-      label: url
+      label: URL
 - type: text
   name: headline
-  label: headline
+  label: Headline
+  description: Left Column Headline
 - type: text
   name: subheadline
-  label: subheadline
+  label: Subheading
+  description: Sub Heading Left Column
 - type: list
   name: intro
-  label: intro
+  label: Intro Text
 - type: text
   name: message
-  label: message
+  label: Text Block
 - type: text
   name: phone
-  label: phone
+  label: Phone Text
 - type: text
   name: address
-  label: address
-- type: textarea
-  name: gmaps
-  label: gmaps
+  label: Address Text
+- name: gmaps
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Google Maps iframe
 - type: field_group
   name: contactform
-  label: contactform
+  label: Contact Form Section
   fields:
   - type: text
     name: title
-    label: title
+    label: Headline
+    description: Headline Right Column (above contact form)
   - type: text
     name: submit
-    label: submit
+    label: Submit Label
+    description: Text of the submit button
   - type: text
     name: info
-    label: info
+    label: Info Message
+    description: Info message above the contact form
