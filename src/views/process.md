@@ -24,6 +24,7 @@ sections:
     clay is centered on the wheel, it is ready to be formed. The piece is formed by
     combining clay, water, and careful manipulation of hands, fingers, and some funny
     looking tools made of wood, plastic or metal.
+  label: Section 1
 - image:
     url: "/images/pottery-in-action-5.jpg"
     alt: Matthew throwing a cup
@@ -35,6 +36,7 @@ sections:
   - At this stage, bottoms of pots can be trimmed, a pot can be paddled or bent into
     a different shape, the pieces of a teapot can be put together, handles can be
     put on pitchers, and decorative patterns can be carved in the clay.
+  label: ''
 - image:
     url: "/images/kiln.jpg"
     alt: The kiln stuffed with cups and bowls
@@ -51,6 +53,7 @@ sections:
   - I mix all my glazes from scratched and have worked hard to developed my own unique
     palette of colours and textures. Once the glaze is applied, the piece goes back
     into the kiln for its final firing.
+  label: ''
 eleventyNavigation:
   key: ''
   order: 
