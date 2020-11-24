@@ -54,8 +54,4 @@ sections:
     palette of colours and textures. Once the glaze is applied, the piece goes back
     into the kiln for its final firing.
   label: Section 3
-eleventyNavigation:
-  key: ''
-  order: 
-
 ---
