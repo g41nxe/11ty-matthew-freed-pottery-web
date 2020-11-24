@@ -46,7 +46,7 @@ fields:
       label: URL
 - type: field_group
   name: event
-  label: Event
+  label: Event Section
   fields:
   - type: field_group
     name: image
@@ -68,7 +68,7 @@ fields:
     label: Label
 - type: field_group
   name: gallery
-  label: Gallery
+  label: Gallery Section
   fields:
   - type: text
     name: title
