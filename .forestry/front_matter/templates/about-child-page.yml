@@ -1,0 +1,46 @@
+---
+label: About Child Page
+hide_body: true
+fields:
+- type: text
+  name: layout
+  label: layout
+- type: text
+  name: title
+  label: title
+- type: text
+  name: tags
+  label: tags
+- type: field_group
+  name: eleventyNavigation
+  label: eleventyNavigation
+  fields:
+  - type: text
+    name: key
+    label: key
+  - type: number
+    name: order
+    label: order
+- type: text
+  name: headline
+  label: headline
+- type: textarea
+  name: intro
+  label: intro
+- type: field_group_list
+  name: sections
+  label: sections
+  fields:
+  - type: field_group
+    name: image
+    label: image
+    fields:
+    - type: file
+      name: url
+      label: url
+    - type: text
+      name: alt
+      label: alt
+  - type: list
+    name: paragraphs
+    label: paragraphs
