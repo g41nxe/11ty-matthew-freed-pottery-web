@@ -112,3 +112,5 @@ fields:
         label: Name
       label: Facebook
     label: Services
+pages:
+- src/views/_data/global.json
