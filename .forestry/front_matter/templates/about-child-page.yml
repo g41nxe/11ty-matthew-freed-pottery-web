@@ -5,12 +5,14 @@ fields:
 - type: text
   name: layout
   label: layout
+  hidden: true
 - type: text
   name: title
-  label: title
+  label: Page Title
 - type: text
   name: tags
   label: tags
+  hidden: true
 - type: field_group
   name: eleventyNavigation
   label: eleventyNavigation
@@ -21,26 +23,27 @@ fields:
   - type: number
     name: order
     label: order
+  hidden: true
 - type: text
   name: headline
-  label: headline
+  label: Headline
 - type: textarea
   name: intro
-  label: intro
+  label: Intro Text
 - type: field_group_list
   name: sections
-  label: sections
+  label: Sections
   fields:
   - type: field_group
     name: image
-    label: image
+    label: Image
     fields:
     - type: file
       name: url
-      label: url
+      label: URL
     - type: text
       name: alt
-      label: alt
+      label: Alt Text
   - type: list
     name: paragraphs
-    label: paragraphs
+    label: Text Paragraphs
