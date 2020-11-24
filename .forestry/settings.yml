@@ -5,6 +5,8 @@ admin_path:
 webhook_url: 
 sections:
 - type: heading
+  label: About
+- type: heading
   label: Pages
 - type: document
   path: src/views/index.md
@@ -14,13 +16,13 @@ sections:
   label: Events
 - type: document
   path: src/views/about.md
-  label: About - About
+  label: "- About"
 - type: document
   path: src/views/pottery.md
-  label: About - Pottery
+  label: "- Pottery"
 - type: document
   path: src/views/process.md
-  label: About - Process
+  label: "- Process"
 - type: document
   path: src/views/contact.md
   label: Contact
