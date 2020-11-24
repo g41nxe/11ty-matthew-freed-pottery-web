@@ -1,9 +1,14 @@
 var tailwindcss = require('tailwindcss')
 var autoprefixer = require('autoprefixer')
+var  purgecss = require('@fullhuman/postcss-purgecss')
+var cssnano = require('cssnano')
 
 module.exports = ({
-    plugins: {
-        tailwindcss: {
+    plugins: [
+        cssnano({
+            preset: 'default',
+        }),
+        tailwindcss({
             theme: {
                 fontFamily: {
                     'sans': ['Open Sans', 'Arial', 'sans-serif'],
@@ -28,9 +33,9 @@ module.exports = ({
                     'transparent': 'transparent'
                 }
             }
-        },
-        autoprefixer: { 
+        }),
+        autoprefixer({ 
             grid: 'autoplace'
-        },
-    }
+        }),
+    ]
 })
