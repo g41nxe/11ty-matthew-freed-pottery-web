@@ -1,0 +1,37 @@
+---
+label: Collections
+hide_body: true
+fields:
+- type: field_group_list
+  name: gallery
+  label: gallery
+  fields:
+  - type: field_group
+    name: image
+    label: image
+    fields:
+    - type: file
+      name: url
+      label: url
+    - type: text
+      name: alt
+      label: alt
+  - type: text
+    name: title
+    label: title
+  - type: textarea
+    name: text
+    label: text
+  - type: field_group
+    name: cta
+    label: cta
+    fields:
+    - type: text
+      name: label
+      label: label
+    - type: text
+      name: url
+      label: url
+  - type: text
+    name: style
+    label: style

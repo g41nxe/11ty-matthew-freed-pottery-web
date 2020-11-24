@@ -1,0 +1,82 @@
+---
+label: Home
+hide_body: true
+fields:
+- type: text
+  name: layout
+  label: layout
+  hidden: true
+- type: text
+  name: title
+  label: Page Title
+  config:
+    required: true
+- type: field_group
+  name: eleventyNavigation
+  label: eleventyNavigation
+  fields:
+  - type: text
+    name: key
+    label: key
+  - type: number
+    name: order
+    label: order
+  hidden: true
+- type: field_group
+  name: notification
+  label: Notification Section
+  fields:
+  - type: text
+    name: title
+    label: Title
+  - type: text
+    name: subtitle
+    label: Subtitle
+  - type: field_group
+    name: cta
+    label: Call To Action
+    fields:
+    - type: text
+      name: label
+      label: Label
+    - name: url
+      type: file
+      config:
+        maxSize: 64
+      label: URL
+- type: field_group
+  name: event
+  label: Event Section
+  fields:
+  - type: field_group
+    name: image
+    label: Image
+    fields:
+    - type: text
+      name: alt
+      label: Alt Text
+    - name: url
+      type: file
+      config:
+        maxSize: 64
+      label: URL
+  - type: text
+    name: title
+    label: Title
+  - type: text
+    name: label
+    label: Label
+- type: field_group
+  name: gallery
+  label: Gallery Section
+  fields:
+  - type: text
+    name: title
+    label: Title
+  - type: list
+    name: texts
+    label: Texts
+    config:
+      use_select: false
+pages:
+- src/views/index.md

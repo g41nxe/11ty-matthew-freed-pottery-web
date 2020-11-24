@@ -1,0 +1,51 @@
+---
+new_page_extension: md
+auto_deploy: false
+admin_path: 
+webhook_url: 
+sections:
+- type: heading
+  label: Pages
+- type: document
+  path: src/views/index.md
+  label: Home
+- type: document
+  path: src/views/events.md
+  label: Events
+- type: document
+  path: src/views/contact.md
+  label: Contact
+- type: heading
+  label: About
+- type: document
+  path: src/views/about.md
+  label: "- About"
+- type: document
+  path: src/views/pottery.md
+  label: "- Pottery"
+- type: document
+  path: src/views/process.md
+  label: "- Process"
+- type: heading
+  label: Data
+- type: document
+  path: src/views/_data/global.json
+  label: Global
+- type: document
+  path: src/views/_data/showcase.json
+  label: Collections
+- type: document
+  path: src/views/_data/events.json
+  label: Events
+upload_dir: src/images
+public_path: "/images"
+front_matter_path: ''
+use_front_matter_path: false
+file_template: ":filename:"
+build:
+  preview_output_directory: dist
+  install_dependencies_command: npm install
+  preview_docker_image: forestryio/node:12
+  mount_path: "/srv"
+  working_dir: "/srv"
+  instant_preview_command: npm run dev
