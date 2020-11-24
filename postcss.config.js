@@ -1,6 +1,5 @@
 var tailwindcss = require('tailwindcss')
 var autoprefixer = require('autoprefixer')
-var  purgecss = require('@fullhuman/postcss-purgecss')
 var cssnano = require('cssnano')
 
 module.exports = ({
