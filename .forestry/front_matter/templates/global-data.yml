@@ -1,0 +1,94 @@
+---
+label: Global Data
+hide_body: true
+fields:
+- type: field_group
+  name: hero
+  label: hero
+  fields:
+  - type: field_group
+    name: image
+    label: image
+    fields:
+    - type: file
+      name: url
+      label: url
+    - type: text
+      name: alt
+      label: alt
+  - type: text
+    name: title
+    label: title
+  - type: text
+    name: subtitle
+    label: subtitle
+- type: field_group
+  name: newsletter
+  label: newsletter
+  fields:
+  - type: text
+    name: title
+    label: title
+- type: field_group
+  name: contact
+  label: contact
+  fields:
+  - type: text
+    name: name
+    label: name
+  - type: text
+    name: address
+    label: address
+  - type: text
+    name: phone
+    label: phone
+  - type: text
+    name: email
+    label: email
+  - type: text
+    name: text
+    label: text
+- type: field_group
+  name: shop
+  label: shop
+  fields:
+  - type: text
+    name: url
+    label: url
+- type: field_group
+  name: socialmedia
+  label: socialmedia
+  fields:
+  - type: text
+    name: title
+    label: title
+  - type: field_group
+    name: services
+    label: services
+    fields:
+    - type: field_group
+      name: instagram
+      label: instagram
+      fields:
+      - type: text
+        name: name
+        label: name
+      - type: text
+        name: icon
+        label: icon
+      - type: text
+        name: url
+        label: url
+    - type: field_group
+      name: facebook
+      label: facebook
+      fields:
+      - type: text
+        name: name
+        label: name
+      - type: text
+        name: icon
+        label: icon
+      - type: text
+        name: url
+        label: url
