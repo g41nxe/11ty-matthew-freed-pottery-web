@@ -36,7 +36,7 @@ sections:
   - At this stage, bottoms of pots can be trimmed, a pot can be paddled or bent into
     a different shape, the pieces of a teapot can be put together, handles can be
     put on pitchers, and decorative patterns can be carved in the clay.
-  label: ''
+  label: Section 2
 - image:
     url: "/images/kiln.jpg"
     alt: The kiln stuffed with cups and bowls
@@ -53,7 +53,7 @@ sections:
   - I mix all my glazes from scratched and have worked hard to developed my own unique
     palette of colours and textures. Once the glaze is applied, the piece goes back
     into the kiln for its final firing.
-  label: ''
+  label: Section 3
 eleventyNavigation:
   key: ''
   order: 
