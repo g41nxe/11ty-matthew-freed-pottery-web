@@ -22,6 +22,7 @@ sections:
     that you enjoy my work.
   - <b class="text-highlight">2015 Gold Medal Recipient for Excellence In Craft at
     the Circle Craft Exhibition.</b>
+  label: Section 1
 eleventyNavigation:
   key: ''
   order: 
