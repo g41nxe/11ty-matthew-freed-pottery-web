@@ -49,3 +49,4 @@ fields:
     label: Text Paragraphs
 pages:
 - src/views/about.md
+- src/views/pottery.md
