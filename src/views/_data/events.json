@@ -1,64 +1,73 @@
 {
-    "events": [
-        {
-            "id": "10-17-2020-nelson-park",
-            "date": "10-17-2020", 
-            "time": "9am - 2pm",  
-            "name": "West End Farmer's Market",       
-            "location": "Nelson Park",
-            "comment": "You will find me at section C",
-            "image": {
-                "url": "/images/market.jpg",
-                "alt": "Matthew at the Farmers Market",
-                "overlay": [
-                    "Looking forward to meeting you at <span class='text-highlight'>Circle Craft Market!</span>",
-                    "I've prepared lots of new bowls"
-                ]
-            },
-            "gmaps": "Nelson Park Vancouver",
-            "featured": true
-        },
-        {
-            "id": "10-24-2020-trout-lake",
-            "date": "10-24-2020", 
-            "time": "9am - 2pm",  
-            "name": "East Vancouvers Farmers Market", 
-            "location": "Trout Lake",
-            "comment": "You will find me at section C",
-            "image": {
-                "url": "/images/market.jpg",
-                "alt": "Matthew at the Farmers Market"
-            },
-            "gmaps": "Trout Lake Vancouver",
-            "featured": true
-        },
-        {
-            "id": "culture-crawl-2020",
-            "date": "11-12-2020", 
-            "time": "10am - 6pm", 
-            "name": "Eastside Culture Crawl",         
-            "location": "My Studio",
-            "comment": "You will find me at section C",
-            "image": {
-                "url": "/images/market.jpg",
-                "alt": "Matthew at the Farmers Market"
-            },
-            "gmaps": "740 Jackson Avenue\nVancouver",
-            "featured": true
-        },
-        {
-            "id": "test-in-the-future",
-            "date": "11-12-2021", 
-            "time": "10am - 6pm", 
-            "name": "Test Event",         
-            "location": "My Studio",
-            "comment": "This is fake",
-            "image": {
-                "url": "/images/market.jpg",
-                "alt": "Matthew at the Farmers Market"
-            },
-            "gmaps": "740 Jackson Avenue\nVancouver",
-            "featured": false
-        }
-    ]
+  "events": [
+    {
+      "id": "10-17-2020-nelson-park",
+      "date": "10-17-2020",
+      "time": "9am - 2pm",
+      "name": "West End Farmer's Market",
+      "location": "Nelson Park",
+      "comment": "You will find me at section C",
+      "image": {
+        "url": "/images/market.jpg",
+        "alt": "Matthew at the Farmers Market",
+        "overlay": [
+          "Looking forward to meeting you at <span class='text-highlight'>Circle Craft Market!</span>",
+          "I've prepared lots of new bowls"
+        ]
+      },
+      "gmaps": "Nelson Park Vancouver",
+      "featured": true
+    },
+    {
+      "id": "10-24-2020-trout-lake",
+      "date": "10-24-2020",
+      "time": "9am - 2pm",
+      "name": "East Vancouvers Farmers Market",
+      "location": "Trout Lake",
+      "comment": "You will find me at section C",
+      "image": {
+        "url": "/images/market.jpg",
+        "alt": "Matthew at the Farmers Market",
+        "overlay": [
+
+        ]
+      },
+      "gmaps": "Trout Lake Vancouver",
+      "featured": true
+    },
+    {
+      "id": "culture-crawl-2020",
+      "date": "11-12-2020",
+      "time": "10am - 6pm",
+      "name": "Eastside Culture Crawl",
+      "location": "My Studio",
+      "comment": "You will find me at section C",
+      "image": {
+        "url": "/images/market.jpg",
+        "alt": "Matthew at the Farmers Market",
+        "overlay": [
+
+        ]
+      },
+      "gmaps": "740 Jackson Avenue\nVancouver",
+      "featured": true
+    },
+    {
+      "id": "test-in-the-future",
+      "date": "11-12-2021",
+      "time": "10am - 6pm",
+      "name": "Test Event",
+      "location": "My Studio",
+      "comment": "This is fake",
+      "image": {
+        "url": "/images/market.jpg",
+        "alt": "Matthew at the Farmers Market",
+        "overlay": [
+
+        ]
+      },
+      "gmaps": "740 Jackson Avenue\nVancouver",
+      "featured": false
+    }
+  ]
 }

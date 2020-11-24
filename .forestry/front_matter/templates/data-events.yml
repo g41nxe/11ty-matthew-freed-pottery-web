@@ -55,3 +55,5 @@ fields:
     name: featured
     label: Is this a Featured Event?
     description: Select if this event should appear on the Home page
+pages:
+- src/views/_data/events.json
