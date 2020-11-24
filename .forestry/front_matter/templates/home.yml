@@ -1,0 +1,70 @@
+---
+label: Home
+hide_body: true
+fields:
+- type: text
+  name: layout
+  label: layout
+- type: text
+  name: title
+  label: title
+- type: field_group
+  name: eleventyNavigation
+  label: eleventyNavigation
+  fields:
+  - type: text
+    name: key
+    label: key
+  - type: number
+    name: order
+    label: order
+- type: field_group
+  name: notification
+  label: notification
+  fields:
+  - type: text
+    name: title
+    label: title
+  - type: text
+    name: subtitle
+    label: subtitle
+  - type: field_group
+    name: cta
+    label: cta
+    fields:
+    - type: text
+      name: label
+      label: label
+    - type: text
+      name: url
+      label: url
+- type: field_group
+  name: event
+  label: event
+  fields:
+  - type: field_group
+    name: image
+    label: image
+    fields:
+    - type: file
+      name: url
+      label: url
+    - type: text
+      name: alt
+      label: alt
+  - type: text
+    name: title
+    label: title
+  - type: text
+    name: label
+    label: label
+- type: field_group
+  name: gallery
+  label: gallery
+  fields:
+  - type: text
+    name: title
+    label: title
+  - type: list
+    name: texts
+    label: texts

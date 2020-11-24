@@ -9,41 +9,32 @@ sections:
 - type: document
   path: src/views/index.md
   label: Home
-  match: "**/*"
 - type: document
   path: src/views/events.md
   label: Events
-  match: "**/*"
 - type: document
   path: src/views/about.md
   label: About - About
-  match: "**/*"
 - type: document
   path: src/views/pottery.md
   label: About - Pottery
-  match: "**/*"
 - type: document
   path: src/views/process.md
   label: About - Process
-  match: "**/*"
 - type: document
   path: src/views/contact.md
   label: Contact
-  match: "**/*"
 - type: heading
   label: Data
 - type: document
   path: src/views/_data/global.json
   label: Global
-  match: "**/*"
 - type: document
   path: src/views/_data/showcase.json
   label: Collections
-  match: "**/*"
 - type: document
   path: src/views/_data/events.json
   label: Events
-  match: "**/*"
 upload_dir: src/images
 public_path: "/images"
 front_matter_path: ''
