@@ -3,7 +3,21 @@ new_page_extension: md
 auto_deploy: false
 admin_path: 
 webhook_url: 
-sections: 
+sections:
+- type: directory
+  path: src/views/_data
+  label: Data
+  create: none
+  match: "**/*.json"
+- type: heading
+  label: Pages
+- type: directory
+  path: src/views
+  label: Pages
+  create: none
+  match: "**/*.md"
+- type: heading
+  label: Data
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
