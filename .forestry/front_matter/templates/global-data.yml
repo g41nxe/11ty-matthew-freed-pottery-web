@@ -4,91 +4,98 @@ hide_body: true
 fields:
 - type: field_group
   name: hero
-  label: hero
+  label: Hero Section
   fields:
   - type: field_group
     name: image
-    label: image
+    label: Hero Image
     fields:
-    - type: file
-      name: url
-      label: url
     - type: text
       name: alt
-      label: alt
+      label: ALT
+    - name: url
+      type: file
+      config:
+        maxSize: 64
+      label: URL
   - type: text
     name: title
-    label: title
+    label: Hero Title
   - type: text
     name: subtitle
-    label: subtitle
+    label: Hero Tagline
 - type: field_group
   name: newsletter
-  label: newsletter
+  label: Newsletter Details
   fields:
   - type: text
     name: title
-    label: title
+    label: Newsletter Title
+    description: used in the footer above the newsletter form
 - type: field_group
   name: contact
-  label: contact
+  label: Contact Details
   fields:
   - type: text
     name: name
-    label: name
+    label: Name
   - type: text
     name: address
-    label: address
+    label: Address
   - type: text
     name: phone
-    label: phone
+    label: Phone
   - type: text
     name: email
-    label: email
+    label: Email
   - type: text
     name: text
-    label: text
+    label: Text
 - type: field_group
   name: shop
-  label: shop
+  label: Shop Details
   fields:
   - type: text
     name: url
-    label: url
+    label: URL
 - type: field_group
   name: socialmedia
-  label: socialmedia
+  label: Social Media Details
   fields:
   - type: text
     name: title
     label: title
-  - type: field_group
-    name: services
-    label: services
+  - name: services
+    type: field_group_list
     fields:
-    - type: field_group
-      name: instagram
-      label: instagram
-      fields:
-      - type: text
-        name: name
-        label: name
-      - type: text
-        name: icon
-        label: icon
-      - type: text
-        name: url
-        label: url
-    - type: field_group
-      name: facebook
-      label: facebook
-      fields:
-      - type: text
-        name: name
-        label: name
-      - type: text
-        name: icon
-        label: icon
-      - type: text
-        name: url
-        label: url
+    - name: name
+      type: text
+      config:
+        required: false
+      label: Name
+    - name: icon
+      type: select
+      default: []
+      config:
+        required: false
+        options:
+        - fa-instagram
+        - fa-facebook
+        - fa-twitter
+        - fa-pinterest
+        source:
+          type: simple
+          section: 
+          file: 
+          path: 
+      label: Icon
+    - name: url
+      type: text
+      config:
+        required: false
+      label: URL
+    config:
+      min: 
+      max: 
+      labelField: 
+    label: Services
