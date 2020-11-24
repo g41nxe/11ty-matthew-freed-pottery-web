@@ -34,6 +34,12 @@ fields:
   name: sections
   label: Sections
   fields:
+  - name: label
+    type: text
+    config:
+      required: false
+    label: Label
+    description: this is for internal use only
   - type: field_group
     name: image
     label: Image
