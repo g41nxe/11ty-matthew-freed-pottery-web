@@ -51,6 +51,7 @@ fields:
 - type: list
   name: intro
   label: Intro Text
+  description: Text below the social icons
 - type: text
   name: message
   label: Text Block
