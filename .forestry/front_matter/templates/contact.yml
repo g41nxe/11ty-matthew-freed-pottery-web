@@ -47,7 +47,7 @@ fields:
 - type: text
   name: subheadline
   label: Subheading
-  description: Sub Heading Left Column
+  description: Left Column Sub Heading
 - type: list
   name: intro
   label: Intro Text
