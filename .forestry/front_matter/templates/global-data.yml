@@ -30,7 +30,7 @@ fields:
   fields:
   - type: text
     name: title
-    label: Newsletter Title
+    label: Footer Title
     description: used in the footer above the newsletter form
 - type: field_group
   name: contact
@@ -64,38 +64,51 @@ fields:
   fields:
   - type: text
     name: title
-    label: title
+    label: Footer Title
   - name: services
-    type: field_group_list
+    type: field_group
+    config: {}
     fields:
-    - name: name
-      type: text
-      config:
-        required: false
-      label: Name
-    - name: icon
-      type: select
-      default: []
-      config:
-        required: false
-        options:
-        - fa-instagram
-        - fa-facebook
-        - fa-twitter
-        - fa-pinterest
-        source:
-          type: simple
-          section: 
-          file: 
-          path: 
-      label: Icon
-    - name: url
-      type: text
-      config:
-        required: false
-      label: URL
-    config:
-      min: 
-      max: 
-      labelField: 
+    - name: instagram
+      type: field_group
+      config: {}
+      fields:
+      - name: name
+        type: text
+        config:
+          required: false
+        label: Name
+      - name: url
+        type: text
+        config:
+          required: false
+        label: URL
+      - name: icon
+        type: text
+        config:
+          required: false
+        label: Icon
+        hidden: true
+      label: Instagram
+    - name: facebook
+      type: field_group
+      config: {}
+      fields:
+      - name: url
+        type: text
+        config:
+          required: false
+        label: URL
+      - name: icon
+        type: text
+        config:
+          required: false
+        label: Icon
+        hidden: true
+      - name: name
+        type: text
+        config:
+          required: false
+        label: Name
+      label: Facebook
     label: Services
