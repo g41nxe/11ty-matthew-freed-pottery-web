@@ -42,7 +42,7 @@
                             <p class="text-brand text-sm lg:text-base mb-4">{{ entry.text | nl2br | safe }}</p>
                             
                             {%- if entry.cta -%}
-                                <a href="{{ entry.cta.url | url }}" class="my-4 w-auto py-2 px-8 border text-xs lg:text-sm font-medium rounded-md text-brand hover:text-white border-brand hover:bg-brand">
+                                <a target="_blank" href="{{ entry.cta.url | url }}" class="my-4 w-auto py-2 px-8 border text-xs lg:text-sm font-medium rounded-md text-brand hover:text-white border-brand hover:bg-brand">
                                     {{ entry.cta.label | upper }}
                                 </a>
                             {%- endif -%}

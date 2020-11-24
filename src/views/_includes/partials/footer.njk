@@ -22,7 +22,7 @@
                 <ul class="flex flex-row md:justify-start justify-center">
                     {%- for name, entry in global.socialmedia.services %}        
                     <li>
-                        <a class="mr-4 hover:text-brand" href="{{ entry.url | url }}">
+                        <a target="_blank" class="mr-4 hover:text-brand" href="{{ entry.url | url }}">
                             <i class="fab {{ entry.icon }}"></i>
                         </a>
                     </li>
