@@ -50,6 +50,6 @@
     </div>
 
     <div class="col-span-12 md:col-span-6 lg:col-span-7 md:shadow-md hidden md:flex">
-        <img class="w-full h-full object-cover" src="{{ event.image.url | url }}" alt="{{ event.image.alt }}" />
+        {% img event.image.url, event.image.alt, "(min-width: 1024px) 58.33vw, (min-width: 768px) 50vw, 100vw", "h-full w-full object-cover" %}
     </div>
 </div>

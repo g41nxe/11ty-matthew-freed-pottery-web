@@ -1,11 +1,39 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const moment = require("moment/moment");
 const { minify } = require("terser");
+const Image = require("@11ty/eleventy-img");
 
 module.exports = function (eleventyConfig) {
+
+    eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="",  classes="", format="jpg") {
+        if(alt === undefined) {
+          // You bet we throw an error on missing alt (alt="" works okay)
+          throw new Error(`Missing \`alt\` on image from: ${src}`);
+        }
+
+        src = 'src/' + src
+    
+        let stats = await Image(src, {
+          widths: [320, 640, 768, 1024, null],
+          formats: [format],
+          urlPath: "/images/",
+          outputDir: "./dist/images/",
+        });
+
+        let lowestSrc = stats[format][0];
+    
+        const srcset = stats[format].map(entry => `${entry.url} ${entry.width}w`).join(", ")
+      
+        const source = `<source type="image/${format}" srcset="${srcset}" sizes="${sizes}" />`;
+    
+        const img = `<img class="${classes}" alt="${alt}" src="${lowestSrc.url}" />`;
+      
+        return `<picture> ${source} ${img} </picture>`;
+    });
+
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-    eleventyConfig.addPassthroughCopy({ "src/images" : "images"});
+    //eleventyConfig.addPassthroughCopy({ "src/images" : "images"});
     eleventyConfig.addPassthroughCopy({ "src/admin" : "admin"});
     eleventyConfig.addPassthroughCopy({ "src/assets" : "assets"});
 

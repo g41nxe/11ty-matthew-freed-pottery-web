@@ -4,7 +4,7 @@
 <div class="grid grid-cols-12 place-content-center w-100 md:my-24">
 
     <div class="col-span-12 md:col-span-6 md:shadow-md md:{{ order.next() }} order-first">
-        <img class="h-full w-full object-cover" src="{{ section.image.url | url }}" alt="{{ section.image.alt }}" />
+        {% img  section.image.url, section.image.alt, "(min-width: 768px) 50vw, 100vw", "h-full w-full object-cover" %}
     </div>
 
     <div class="col-span-12 md:col-span-6 bg-white border-b border-t border-gray-light 

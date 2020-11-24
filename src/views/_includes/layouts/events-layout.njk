@@ -52,7 +52,8 @@ layout: base
                         </div>
                     {%- endif -%}
 
-                    <img class="relative w-full h-full object-cover" src="{{ event.image.url | url }}" alt="{{ event.image.alt }}"/>
+                    {% img event.image.url, event.image.alt, "(min-width: 768px) 50vw, 100vw", "h-full object-cover" %}
+              
                 </div>
             </div>
 
