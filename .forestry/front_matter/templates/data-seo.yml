@@ -1,0 +1,26 @@
+---
+label: Data - SEO
+hide_body: true
+fields:
+- type: text
+  name: title
+  label: title
+- type: textarea
+  name: description
+  label: description
+- type: text
+  name: url
+  label: url
+- type: text
+  name: author
+  label: author
+- type: file
+  name: image
+  label: image
+- type: field_group
+  name: options
+  label: options
+  fields:
+  - type: text
+    name: titleDivider
+    label: titleDivider
