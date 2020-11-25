@@ -2,9 +2,11 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const moment = require("moment/moment");
 const { minify } = require("terser");
 const Image = require("@11ty/eleventy-img");
+const pluginPWA = require("eleventy-plugin-pwa");
 
 module.exports = function (eleventyConfig) {
-
+    eleventyConfig.addPlugin(pluginPWA);
+    
     eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="",  classes="", format="jpg") {
         if(alt === undefined) {
           // You bet we throw an error on missing alt (alt="" works okay)
