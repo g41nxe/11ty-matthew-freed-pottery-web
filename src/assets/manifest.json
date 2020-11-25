@@ -46,11 +46,6 @@
             "sizes": "96x96"
         },
         {
-            "src": "/assets/apple-icon-76x76.png",
-            "type": "image/png",
-            "sizes": "76x76"
-        },
-        {
             "src": "/assets/apple-icon-72x72.png",
             "type": "image/png",
             "sizes": "72x72"
@@ -76,5 +71,5 @@
             "sizes": "16x16"
         }
     ],
-    "prefer_related_applications": "false"
+    "prefer_related_applications": false
 }

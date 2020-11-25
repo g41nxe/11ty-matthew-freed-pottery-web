@@ -4,11 +4,16 @@ var cssnano = require('cssnano')
 
 module.exports = ({
     plugins: [
-        cssnano({
-            preset: 'default',
-        }),
         tailwindcss({
+            purge: [
+                './dist/**/*.html'
+            ],
             theme: {
+                screens: {
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1024px',
+                },
                 fontFamily: {
                     'sans': ['Open Sans', 'Arial', 'sans-serif'],
                     'display': ['Playfair Display', 'Times New Roman']
@@ -35,6 +40,9 @@ module.exports = ({
         }),
         autoprefixer({ 
             grid: 'autoplace'
+        }),
+        cssnano({
+            preset: 'default',
         }),
     ]
 })
