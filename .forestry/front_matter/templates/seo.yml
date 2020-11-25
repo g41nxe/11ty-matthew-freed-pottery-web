@@ -2,24 +2,36 @@
 label: SEO
 hide_body: true
 fields:
+- name: custom_seo_settings
+  type: boolean
+  label: Custom SEO Settings
 - name: author
   type: text
   config:
     required: false
   label: Author
   description: FOR SEO PURPOSES
+  showOnly:
+    field: custom_seo_settings
+    value: true
 - name: excerpt
   type: text
   config:
     required: false
   label: Excerpt
   description: FOR SEO PURPOSES
+  showOnly:
+    field: custom_seo_settings
+    value: true
 - name: image
   type: file
   config:
     maxSize: 64
   label: Image
   description: FOR SEO PURPOSES
+  showOnly:
+    field: custom_seo_settings
+    value: true
 - name: ogtype
   type: text
   config:
@@ -28,3 +40,5 @@ fields:
   default: website
   hidden: true
   description: FOR SEO PURPOSES
+  showOnly:
+    field: custom_seo_settings
