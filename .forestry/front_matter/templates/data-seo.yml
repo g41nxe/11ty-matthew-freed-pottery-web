@@ -25,3 +25,5 @@ fields:
     name: titleDivider
     label: titleDivider
   hidden: true
+pages:
+- src/views/_data/seo.json
