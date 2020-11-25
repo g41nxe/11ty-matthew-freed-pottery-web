@@ -86,5 +86,10 @@ fields:
     name: info
     label: Info Message
     description: Info message above the contact form
+- name: seo
+  type: include
+  config: {}
+  template: seo
+  label: SEO
 pages:
 - src/views/contact.md
