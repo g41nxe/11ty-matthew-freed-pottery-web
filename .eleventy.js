@@ -5,8 +5,9 @@ const Image = require("@11ty/eleventy-img");
 const pluginPWA = require("eleventy-plugin-pwa");
 
 module.exports = function (eleventyConfig) {
+
     eleventyConfig.addPlugin(pluginPWA);
-    
+
     eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="",  classes="", format="jpg") {
         if(alt === undefined) {
           // You bet we throw an error on missing alt (alt="" works okay)
@@ -35,7 +36,7 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-    //eleventyConfig.addPassthroughCopy({ "src/images" : "images"});
+    eleventyConfig.addPassthroughCopy({ "src/manifest.json" : ""});
     eleventyConfig.addPassthroughCopy({ "src/admin" : "admin"});
     eleventyConfig.addPassthroughCopy({ "src/assets" : "assets"});
 
