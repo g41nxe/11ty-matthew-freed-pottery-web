@@ -1,0 +1,29 @@
+---
+label: Data - SEO
+hide_body: true
+fields:
+- type: text
+  name: title
+  label: Default Title
+- type: textarea
+  name: description
+  label: Default Description
+- type: text
+  name: url
+  label: URL
+- type: text
+  name: author
+  label: Author
+- type: file
+  name: image
+  label: Image
+- type: field_group
+  name: options
+  label: Options
+  fields:
+  - type: text
+    name: titleDivider
+    label: titleDivider
+  hidden: true
+pages:
+- src/views/_data/seo.json
