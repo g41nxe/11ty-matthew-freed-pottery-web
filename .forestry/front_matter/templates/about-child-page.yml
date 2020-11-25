@@ -55,6 +55,11 @@ fields:
     label: Text Paragraphs
   config:
     labelField: label
+- name: seo
+  type: include
+  config: {}
+  template: seo
+  label: SEO
 pages:
 - src/views/about.md
 - src/views/pottery.md
