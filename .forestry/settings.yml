@@ -37,6 +37,10 @@ sections:
 - type: document
   path: src/views/_data/events.json
   label: Events
+- type: document
+  path: src/views/_data/seo.json
+  label: SEO
+  match: "**/*"
 upload_dir: src/images
 public_path: "/images"
 front_matter_path: ''
