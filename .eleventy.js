@@ -3,9 +3,11 @@ const moment = require("moment/moment");
 const { minify } = require("terser");
 const Image = require("@11ty/eleventy-img");
 const pluginPWA = require("eleventy-plugin-pwa");
+const pluginSEO = require("eleventy-plugin-seo");
 
 module.exports = function (eleventyConfig) {
 
+    eleventyConfig.addPlugin(pluginSEO, require("./src/views/_data/seo.json"));
     eleventyConfig.addPlugin(pluginPWA);
 
     eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="",  classes="", format="jpg") {

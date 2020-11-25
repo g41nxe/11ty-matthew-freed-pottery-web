@@ -1,0 +1,11 @@
+{
+    "title": "Matthew Freed Pottery",
+    "description": "Vancouver pottery studio selling rustic elegant kitchen-friendly pottery, mugs, plates, bowls, teapots, pots, trays, bottles, platters.",
+    "url": "https://mf-pottery.netlify.com",
+    "author": "Matthew Freed",
+    "image": "/assets/blue-arrangement.jpg",
+    
+    "options": {
+        "titleDivider": "|"
+      }
+}
