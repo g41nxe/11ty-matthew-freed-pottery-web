@@ -78,10 +78,16 @@ fields:
     label: Texts
     config:
       use_select: false
+- name: custom_seo_settings
+  type: boolean
+  label: Custom SEO Settings
 - name: seo
   type: include
   config: {}
   template: seo
   label: SEO
+  showOnly:
+    field: custom_seo_settings
+    value: true
 pages:
 - src/views/index.md
