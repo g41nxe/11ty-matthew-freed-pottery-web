@@ -10,7 +10,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(pluginSEO, require("./src/views/_data/seo.json"));
     eleventyConfig.addPlugin(pluginPWA);
 
-    eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="",  classes="", format="jpg") {
+    eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="",  classes="", loading="auto", format="jpg") {
         if(alt === undefined) {
           // You bet we throw an error on missing alt (alt="" works okay)
           throw new Error(`Missing \`alt\` on image from: ${src}`);
@@ -31,7 +31,7 @@ module.exports = function (eleventyConfig) {
       
         const source = `<source type="image/${format}" srcset="${srcset}" sizes="${sizes}" />`;
     
-        const img = `<img class="${classes}" alt="${alt}" src="${lowestSrc.url}" />`;
+        const img = `<img loading="${loading}" class="${classes}" alt="${alt}" src="${lowestSrc.url}" />`;
       
         return `<picture> ${source} ${img} </picture>`;
     });

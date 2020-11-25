@@ -14,7 +14,7 @@
                 <ul class="glide__slides h-full w-full">
                     {%- for entry in showcase.gallery -%}
                         <li class="glide__slide">
-                            {% img entry.image.url, entry.image.alt, "(min-width: 1024px) 58.33vw, (min-width: 768px) 50vw, 100vw", "h-full w-full object-cover" %}
+                            {% img entry.image.url, entry.image.alt, "(min-width: 1024px) 58.33vw, (min-width: 768px) 50vw, 100vw", "h-full w-full object-cover", "lazy" if loop.index > 2 else "auto" %}
                         </li>
                     {%- endfor -%}
                 </ul>
