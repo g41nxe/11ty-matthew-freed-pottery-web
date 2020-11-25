@@ -83,8 +83,5 @@ fields:
   config: {}
   template: seo
   label: SEO
-  showOnly:
-    field: custom_seo_settings
-    value: true
 pages:
 - src/views/index.md
