@@ -78,9 +78,6 @@ fields:
     label: Texts
     config:
       use_select: false
-- name: custom_seo_settings
-  type: boolean
-  label: Custom SEO Settings
 - name: seo
   type: include
   config: {}
