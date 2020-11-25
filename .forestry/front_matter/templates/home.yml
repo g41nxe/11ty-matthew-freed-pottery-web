@@ -78,5 +78,10 @@ fields:
     label: Texts
     config:
       use_select: false
+- name: seo
+  type: include
+  config: {}
+  template: seo
+  label: SEO
 pages:
 - src/views/index.md
