@@ -4,23 +4,24 @@ hide_body: true
 fields:
 - type: text
   name: title
-  label: title
+  label: Default Title
 - type: textarea
   name: description
-  label: description
+  label: Default Description
 - type: text
   name: url
-  label: url
+  label: URL
 - type: text
   name: author
-  label: author
+  label: Author
 - type: file
   name: image
-  label: image
+  label: Image
 - type: field_group
   name: options
-  label: options
+  label: Options
   fields:
   - type: text
     name: titleDivider
     label: titleDivider
+  hidden: true
