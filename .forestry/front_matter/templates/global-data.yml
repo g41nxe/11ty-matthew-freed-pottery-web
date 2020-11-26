@@ -12,7 +12,7 @@ fields:
     fields:
     - type: text
       name: alt
-      label: ALT
+      label: Alt Text
     - name: url
       type: file
       config:
