@@ -4,7 +4,6 @@ hide_body: true
 fields:
 - type: field_group_list
   name: gallery
-  label: All Entries
   fields:
   - type: field_group
     name: image
@@ -51,5 +50,59 @@ fields:
         file: 
         path: 
     label: Style
+  label: Collections Gallery
+- name: features
+  type: field_group_list
+  fields:
+  - name: title
+    type: text
+    config:
+      required: false
+    label: Title
+  - name: overlay
+    type: field_group
+    config: {}
+    fields:
+    - name: text
+      type: text
+      config:
+        required: false
+      label: Text
+    label: Overlay
+  - name: cta
+    type: field_group
+    config: {}
+    fields:
+    - name: label
+      type: text
+      config:
+        required: false
+      label: Label
+    - name: url
+      type: text
+      config:
+        required: false
+      label: URL
+    label: Call To Action
+  - name: image
+    type: field_group
+    config: {}
+    fields:
+    - name: url
+      type: text
+      config:
+        required: false
+      label: URL
+    - name: alt
+      type: text
+      config:
+        required: false
+      label: Alt Text
+    label: Image
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Featured Items
 pages:
 - src/views/_data/showcase.json
