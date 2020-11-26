@@ -18,7 +18,7 @@ module.exports = function (eleventyConfig) {
 
         src = 'src/' + src
 
-        let formats = ["jpg", "webp"];
+        let formats = ["webp", "jpg"];
         let stats = await Image(src, {
           widths: [160, 320, 640, 768, 1024, 1280, 1536, null],
           formats: formats,
@@ -33,7 +33,7 @@ module.exports = function (eleventyConfig) {
             ${Object.values(stats).map(imageFormat => {
                 return `<source type="image/${imageFormat[0].format}" srcset="${imageFormat.map(entry => `${entry.url} ${entry.width}w`).join(", ")}" sizes="${sizes}">`;
             }).join("\n")}
-            <img class="${classes}" src="${lowestSrc.url}" alt="${alt}"/>
+            <img loading="${loading}" class="${classes}" src="${lowestSrc.url}" alt="${alt}"/>
             </picture>`;
       });
 
