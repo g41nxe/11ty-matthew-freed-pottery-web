@@ -1,6 +1,7 @@
 ---
 layout: events-layout
 title: Events
+permalink: /events.html
 eleventyNavigation:
   key: Events
   order: 3

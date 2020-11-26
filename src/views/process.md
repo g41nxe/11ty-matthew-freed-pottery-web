@@ -2,6 +2,8 @@
 layout: about-layout
 title: Process
 tags: about
+permalink: /about/process.html
+
 headline: The Process
 intro: Pottery is complicated. It is an art that requires creativity and a strong
   sense of design. It is also a science that requires a thorough understanding of

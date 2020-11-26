@@ -1,6 +1,8 @@
 ---
 layout: home-layout
 title: Home
+permalink: /index.html
+
 eleventyNavigation:
   key: Home
   order: 1

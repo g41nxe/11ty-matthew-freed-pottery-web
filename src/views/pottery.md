@@ -2,6 +2,8 @@
 layout: about-layout
 title: Art
 tags: about
+permalink: /about/pottery.html
+
 headline: Everyday art
 intro: 'Pottery is complicated. It is an art that requires creativity and a strong
   sense of design. It is also a science that requires a thorough understanding of

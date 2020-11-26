@@ -51,10 +51,16 @@
             <div class="col-span-3 md:grid-cols grid-cols-3 mt-8 md:mt-0">
                 <h4 class="font-bold mb-4">Links</h4>
 
-                <a class="hover:text-brand font-base" href="{{ global.privacy.url }}">
-                    <i class="fas fa-angle-right"></i>
-                    {{ global.privacy.title }}
-                </a>
+                <ul>
+                    {%- for entry in collections.footer -%}
+                    <li>
+                        <a class="hover:text-brand text-sm" href="{{ entry.url | url }}">
+                            <i class="fas fa-angle-right"></i>
+                            {{ entry.data.title }}
+                        </a>
+                    </li>
+                    {%- endfor -%}
+                </ul>
             </div>
 
         </div>

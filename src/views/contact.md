@@ -2,6 +2,8 @@
 layout: contact-layout
 image: "/images/uploads/contact.jpeg"
 title: Contact
+permalink: /contact.html
+
 eleventyNavigation:
   key: Contact
   order: 4

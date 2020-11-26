@@ -46,6 +46,12 @@ module.exports = function (eleventyConfig) {
         return str.replace(/\r|\n|\r\n/g, '<br />')
     });
 
+    eleventyConfig.addNunjucksFilter("sortByDate", function (arr, attribute="date", reverse=false) {
+        return arr.sort(function(a, b) {
+            return moment(b[attribute], 'MM-DD-YYYY').toDate() - moment(a[attribute], 'MM-DD-YYYY').toDate();
+        })
+    })
+
     eleventyConfig.addNunjucksFilter("date", function (date, format) {
         return moment(date, 'MM-DD-YYYY').format(format);
     });

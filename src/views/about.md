@@ -2,6 +2,8 @@
 layout: about-layout
 title: About
 tags: about
+permalink: /about/index.html
+
 eleventyNavigation:
   key: About
   order: 2

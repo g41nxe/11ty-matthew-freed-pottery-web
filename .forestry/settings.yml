@@ -7,7 +7,7 @@ sections:
 - type: heading
   label: Pages
 - type: document
-  path: src/views/index.md
+  path: src/views/home.md
   label: Home
 - type: document
   path: src/views/events.md
