@@ -2,7 +2,6 @@
 layout: general-layout
 title: Retail Stores
 tags: footer
-
 headline: Retail Stores
 intro: The following retail outlets carry one or more of Matthew's Glaze Styles
 image:
@@ -14,8 +13,8 @@ notification:
   cta:
     label: Shop Now
     url: https://matthew-freed-pottery.myshopify.com/collections/all/
----
 
+---
 ### [Arts Off Main](http://www.artsoffmain.ca/)
 1704 Charles Street, Vancouver, B.C.
 
