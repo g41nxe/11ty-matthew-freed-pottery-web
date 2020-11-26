@@ -12,11 +12,11 @@ module.exports = ({
                 screens: {
                     'sm': '640px',
                     'md': '768px',
-                    'lg': '1024px',
+                    'lg': '1024px'
                 },
                 fontFamily: {
                     'sans': ['Open Sans', 'Arial', 'sans-serif'],
-                    'display': ['Playfair Display', 'Times New Roman']
+                    'display': ['Playfair Display', 'Georgia', 'serif']
                 },
                 colors: {
                     'brand': '#050237',

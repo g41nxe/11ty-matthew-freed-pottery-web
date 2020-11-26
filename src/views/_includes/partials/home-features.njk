@@ -1,0 +1,58 @@
+
+<h2 class="mx-8 my-8 font-bold text-xl md:text-2xl text-center">{{ features.title }}</h2>
+
+{%- if features.texts.length > 0 -%}
+{%- for t in features.texts -%}
+    <p class="md:w-3/5 w-5/6 my-4 md:mb-0 text-sm md:text-base text-center mx-auto">{{ t }}</p>
+{%- endfor -%}
+{%- endif -%}
+
+    
+<div class="relative my-8 md:my-24 bg-gray-lighter py-8">
+    <div class="glide--features relative h-full w-full">
+        <div data-glide-el="track" class="glide__track h-full w-full">
+
+            <ul class="glide__slides z-30">
+                {%- for entry in showcase.features -%}
+                    <li class="glide__slide">
+                        
+                        <div class="relative">
+                            {%- if entry.overlay -%}
+                            <div class="flex md:hidden absolute left-0 m-4">
+                                <a target="_blank" href="{{ entry.cta.url | url }}" class="py-2 px-4 text-sm font-medium text-brand bg-highlight hover:text-highlight hover:bg-brand">
+                                    {{ entry.cta.label | upper }}
+                                </a>  
+                            </div>
+
+
+                            <div class="hidden md:flex absolute opacity-0 hover:opacity-100 transition-opacity ease-in-out duration-150 w-full h-full bg-black bg-opacity-50 z-50 text-white flex-col justify-center items-center">
+                                
+                                <div class="hidden lg:block">                        
+                                    {%- if entry.overlay.text -%}
+                                        <p class="mx-8 my-2 text-gray-lighter mb-2 text-center text-sm">{{ entry.overlay.text | safe }}</p>
+                                    {%- endif -%}
+                                </div>                        
+
+                                <a target="_blank" href="{{ entry.cta.url | url }}" class="my-2 py-2 px-4 text-sm font-medium rounded-md text-brand bg-highlight hover:text-highlight hover:bg-brand">
+                                    {{ entry.cta.label | upper }}
+                                </a>    
+                        
+                            </div>
+                            {%- endif -%}
+
+                            {% img entry.image.url, entry.image.alt, "(min-width: 1024px) 25vw, (min-width: 786px) 33.33vw, (min-width: 640px ) 50vw, 100vw", "h-full w-full object-cover", "lazy" if loop.index > 6 else "auto" %}
+                        </div>
+
+                        <h4 class="text-center mt-4 text-base md:text-sm lg:text-xs">{{ entry.title }}</h4>
+                    </li>
+                {%- endfor -%}
+            </ul>
+
+        </div>
+
+        <div data-glide-el="controls" class="glide__arrows absolute w-full h-full flex items-center top-0 justify-between text-gray-lighter px-4 md:px-8">
+            <button class="z-50 glide__arrow glide__arrow--left hover:text-gray-light" data-glide-dir="<"><i class="fas fa-chevron-left fa-2x"></i></button>
+            <button class="z-50 glide__arrow glide__arrow--right hover:text-gray-light" data-glide-dir=">"><i class="fas fa-chevron-right fa-2x"></i></button>
+        </div>
+    </div>
+</div>

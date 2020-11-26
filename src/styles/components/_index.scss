@@ -2,7 +2,7 @@
     font-weight: bold;
 }
 
-.glide--showcase--images {
+.glide--showcase--images, .glide--features {
     .glide__arrows i {
         text-shadow: 0px 0px 5px rgba(0,0,0,0.3);
     }
@@ -15,6 +15,7 @@
     }
     
     .glide__slide {
+        height: auto;
         position: absolute;
         top: 0;
         left: 0;
@@ -41,7 +42,7 @@
 }
 
 a, button {
-    transition: background-color, border, color, 0.3s ease-in-out;
+    transition: background-color, border, color, 0.15s ease-in-out;
 }
 
 .nav {

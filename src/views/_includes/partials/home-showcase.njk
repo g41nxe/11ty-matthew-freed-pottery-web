@@ -1,8 +1,8 @@
 
-<h2 class="my-8 md:my-8 mx-8 font-bold text-xl md:text-2xl text-center">{{ gallery.title }}</h2>
+<h2 class="my-8 mx-8 font-bold text-xl md:text-2xl text-center">{{ gallery.title }}</h2>
 
 {%- for t in gallery.texts -%}
-    <p class="md:w-3/5 w-5/6 mb-8 md:mb-0 text-sm md:text-base text-center mx-auto">{{ t }}</p>
+    <p class="md:w-3/5 w-5/6 my-4 text-sm md:text-base text-center mx-auto">{{ t }}</p>
 {%- endfor -%}
 
 <div class="grid grid-cols-12 place-content-center w-100 md:my-24">
@@ -21,7 +21,7 @@
 
             </div>
 
-            <div data-glide-el="controls" class="glide__arrows absolute w-full h-full flex top-0 justify-between items-center text-gray-lighter px-8">
+            <div data-glide-el="controls" class="glide__arrows absolute w-full h-full flex top-0 justify-between items-center text-gray-lighter px-4 md:px-8">
                 <button class="glide__arrow glide__arrow--left hover:text-gray-light" data-glide-dir="<"><i class="fas fa-chevron-left fa-2x"></i></button>
                 <button class="glide__arrow glide__arrow--right hover:text-gray-light" data-glide-dir=">"><i class="fas fa-chevron-right fa-2x"></i></button>
             </div>

@@ -19,7 +19,7 @@ module.exports = function (eleventyConfig) {
         src = 'src/' + src
     
         let stats = await Image(src, {
-          widths: [320, 640, 768, 1024, 1280, 1536, null],
+          widths: [160, 320, 640, 768, 1024, 1280, 1536, null],
           formats: [format],
           urlPath: "/images/",
           outputDir: "./dist/images/",

@@ -169,5 +169,77 @@
       },
       "style": "center"
     }
+  ],
+  "features": [
+    {
+      "title": "Jericho - Belly Mug",
+      "overlay": {
+        "text": "This large belly mug from the <span class=\"text-highlight font-bold\">Jericho Collection</span> is one of my favourites!"
+      },
+      "cta": {
+        "label": "Shop Now",
+        "url": "https://matthew-freed-pottery.myshopify.com/products/belly-mug-jericho"
+      },
+      "image": {
+        "url": "/images/features/feature-belly-mug-jericho.jpg",
+        "alt": "Jericho Belly Mug by Matthew Freed"
+      }
+    },
+    {
+      "title": "Yaletown - Belly Mug (green)",
+      "overlay": {
+        "text": "This large belly mug from the <span class=\"text-highlight font-bold\">Yaletown Collection</span> is one of my favourites!"
+      },
+      "cta": {
+        "label": "Shop Now",
+        "url": "https://matthew-freed-pottery.myshopify.com/products/belly-mug-yaletown-green"
+      },
+      "image": {
+        "url": "/images/features/feature-belly-mug-yaletown-green.jpg",
+        "alt": "Yaletown Belly Mug with green rim by Matthew Freed"
+      }
+    },
+    {
+      "title": "Galliano - Belly Mug",
+      "overlay": {
+        "text": "This large belly mug from the <span class=\"text-highlight font-bold\">Galliano Collection</span> is one of my favourites!"
+      },
+      "cta": {
+        "label": "Shop Now",
+        "url": "https://matthew-freed-pottery.myshopify.com/products/belly-mug-galliano"
+      },
+      "image": {
+        "url": "/images/features/feature-belly-mug-galliano.jpg",
+        "alt": "Yaletown Belly Mug with red rim by Matthew Freed"
+      }
+    },
+    {
+      "title": "Joffre - Chopstick Bowl",
+      "overlay": {
+        "text": "This chopstick bowl from the <span class=\"text-highlight font-bold\">Joffre Collection</span> is one of my favourites!"
+      },
+      "cta": {
+        "label": "Shop Now",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/products/chopstick-bowl-joffre"
+      },
+      "image": {
+        "url": "/images/features/feature-chopstick-bowl-joffre.jpg",
+        "alt": "Joffre Chopstick Bowl by Matthew Freed"
+      }
+    },
+    {
+      "title": "Yaletown - Chopstick Bowl (green)",
+      "overlay": {
+        "text": "This chopstick bowl from the <span class=\"text-highlight font-bold \">Yaletown Collection</span> is one of my favourites!"
+      },
+      "cta": {
+        "label": "Shop Now",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/products/chopstick-bowl-yaletown-green"
+      },
+      "image": {
+        "url": "/images/features/feature-chopstick-bowl-yaletown-green.jpg",
+        "alt": "Yaletown Chopstick Bowl with green rim by Matthew Freed"
+      } 
+    }
   ]
 }
