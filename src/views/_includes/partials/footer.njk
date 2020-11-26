@@ -40,9 +40,11 @@
                         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
                     </p>
                     
-                    <input required type="text" id="email" name="email" class="w-3/5 md:w-full px-3 py-1 font-light text-sm focus:bg-gray-lighter bg-gray-DEFAULT border border-gray-dark" placeholder="your@email.com">
+                    <label class="hidden" for="newsletter">Email</label>
+                    <input required type="text" id="newsletter" name="email" class="w-3/5 md:w-full px-3 py-1 font-light text-sm focus:bg-gray-lighter bg-gray-DEFAULT border border-gray-dark" placeholder="your@email.com">
                     
-                    <button type="submit" class="align-middle px-3 py-1 rounded-r-md border border-l-0 bg-white hover:bg-gray-light border border-gray-dark">
+                    <label class="hidden" for="signup">Sign Up</label>
+                    <button id="signup" type="submit" class="align-middle px-3 py-1 rounded-r-md border border-l-0 bg-white hover:bg-gray-light border border-gray-dark">
                         <i class="fas fa-envelope-open-text"></i>
                     </button>
                 </form>

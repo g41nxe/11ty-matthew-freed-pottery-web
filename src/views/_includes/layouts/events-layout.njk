@@ -8,9 +8,9 @@ layout: base
 
 <div class="container mx-auto my-20 mt-8">
     <div class="flex divide-brand divide-x-2 text-sm mb-8 justify-center md:justify-start">
-        <button class="event--filter px-2 py-0 my-0 font-bold hover:text-highlight" data-filter="all">All</button>
-        <button class="event--filter px-2 py-0 my-0 hover:text-highlight" data-filter="past">Past</button>
-        <button class="event--filter px-2 py-0 my-0 hover:text-highlight" data-filter="future">Future</button>
+        <button aria-label="Show all events" class="event--filter px-2 py-0 my-0 font-bold hover:text-highlight" data-filter="all">All</button>
+        <button aria-label="Show past events" class="event--filter px-2 py-0 my-0 hover:text-highlight" data-filter="past">Past</button>
+        <button aria-label="Show future events" class="event--filter px-2 py-0 my-0 hover:text-highlight" data-filter="future">Future</button>
     </div>
 
     <div id="event--list">
@@ -23,7 +23,7 @@ layout: base
                     <h2 class="text-lg  hover:text-highlight">{{ event.name }}</h2>
                 </a>
                 <div class="text-lg md:px-0 px-4 col-span-1 md:col-span-1 text-right">
-                    <button data-target="content-{{ event.id }}" data-icon="icon-{{ event.id }}" class="hover:text-highlight event--item-toggle">
+                    <button aria-label="Show event details" data-target="content-{{ event.id }}" data-icon="icon-{{ event.id }}" class="hover:text-highlight event--item-toggle">
                         <i class="fas fa-plus" id="icon-{{ event.id }}"></i>
                     </button>
                 </div>
