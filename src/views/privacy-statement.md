@@ -2,19 +2,21 @@
 layout: general-layout
 title: Privacy Statement
 tags: footer
-permalink: /privacy-statement.html
-
+permalink: "/privacy-statement.html"
 headline: Privacy Policy
-intro: This Privacy Policy describes how your personal information is collected, used, and shared when you visit our site.
+intro: This Privacy Policy describes how your personal information is collected, used,
+  and shared when you visit our site.
 image:
+  url: ''
+  alt: ''
 notification:
   title: Online Shopping is now available
   subtitle: Carefully crafted, fresh from the kiln
   cta:
     label: Shop Now
     url: https://matthew-freed-pottery.myshopify.com/collections/all/
----
 
+---
 # Privacy Policy
 
 This Privacy Policy describes how your personal information is collected, used, and shared when you visit our site.
