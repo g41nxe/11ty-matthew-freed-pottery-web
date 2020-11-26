@@ -14,7 +14,7 @@ layout: base
     </div>
 
     <div id="event--list">
-        {%- for event in events.events|sort(false, true, 'date') -%}
+        {%- for event in events.events | sortByDate -%}
         <div class="{{ 'sizer' if loop.first }} event--item text-brand" id="{{ event.id }}" data-event="{{ event.date | getFutureOrPast }}">
 
             <div class="grid grid-cols-8 col-span-2 font-bold my-4 py-4 px-2 border-b-2 border-brand">
@@ -34,7 +34,9 @@ layout: base
                     <p><i class="fas fa-map-marker mr-2"></i>{{ event.location }}</p>
                     <p class="mb-4"><i class="far fa-calendar-alt mr-2"></i>{{ event.date | date('L') }} : {{ event.time }}</p>
 
+                    {%- if event.comment %}
                     <p class="font-semibold">{{ event.comment }}</p>
+                    {%- endif -%}
 
                     <div class="map mt-8">
                         <iframe scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" 

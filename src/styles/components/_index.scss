@@ -92,3 +92,42 @@ a, button {
         transition: all 1s ease-in-out;
     }
 }
+
+.general {
+
+    ul {
+        @apply list-disc list-inside ml-4;
+    }
+
+    ol {
+        @apply list-decimal list-inside ml-4;
+    }
+
+    ul, ol, li {
+        @apply mb-4 text-base text-brand;
+    }
+
+    h1, h2, h3, p {
+        @apply mb-4 text-brand;
+    }
+
+    h1 {
+        @apply text-2xl font-bold;
+    }
+
+    h2 {
+        @apply text-xl font-semibold;
+    }
+
+    h3 {
+        @apply text-lg font-semibold;
+    }
+
+    p {
+        @apply text-base;
+    }
+
+    a:hover {
+        @apply text-highlight;
+    }
+}

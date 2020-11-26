@@ -1,6 +1,8 @@
 <footer class="bg-gray-light text-gray-dark">
     <div class="container mx-auto py-8 md:py-24 px-12">
-        <div class="grid md:grid-cols-8 md:text-left text-center font-light gap-x-24">
+        
+        <div class="grid md:grid-cols-11 md:text-left text-center font-light gap-x-12">
+            
             <div class="col-span-3 md:grid-cols grid-cols-3">
                 <h4 class="font-bold mb-4">{{ global.contact.name | safe }}</h4>
                 
@@ -45,6 +47,16 @@
                     </button>
                 </form>
             </div>
+
+            <div class="col-span-3 md:grid-cols grid-cols-3 mt-8 md:mt-0">
+                <h4 class="font-bold mb-4">Links</h4>
+
+                <a class="hover:text-brand font-base" href="{{ global.privacy.url }}">
+                    <i class="fas fa-angle-right"></i>
+                    {{ global.privacy.title }}
+                </a>
+            </div>
+
         </div>
     </div>
 </footer>

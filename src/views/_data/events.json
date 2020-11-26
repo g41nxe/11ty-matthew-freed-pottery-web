@@ -6,7 +6,6 @@
       "time": "9am - 2pm",
       "name": "West End Farmer's Market",
       "location": "Nelson Park",
-      "comment": "You will find me at section C",
       "image": {
         "url": "/images/market.jpg",
         "alt": "Matthew at the Farmers Market",
@@ -16,7 +15,7 @@
         ]
       },
       "gmaps": "Nelson Park Vancouver",
-      "featured": true
+      "featured": false
     },
     {
       "id": "10-24-2020-trout-lake",
@@ -24,16 +23,12 @@
       "time": "9am - 2pm",
       "name": "East Vancouvers Farmers Market",
       "location": "Trout Lake",
-      "comment": "You will find me at section C",
       "image": {
         "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market",
-        "overlay": [
-
-        ]
+        "alt": "Matthew at the Farmers Market"
       },
       "gmaps": "Trout Lake Vancouver",
-      "featured": true
+      "featured": false
     },
     {
       "id": "culture-crawl-2020",
@@ -41,33 +36,64 @@
       "time": "10am - 6pm",
       "name": "Eastside Culture Crawl",
       "location": "My Studio",
-      "comment": "You will find me at section C",
       "image": {
         "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market",
-        "overlay": [
-
-        ]
-      },
-      "gmaps": "740 Jackson Avenue\nVancouver",
-      "featured": true
-    },
-    {
-      "id": "test-in-the-future",
-      "date": "11-12-2021",
-      "time": "10am - 6pm",
-      "name": "Test Event",
-      "location": "My Studio",
-      "comment": "This is fake",
-      "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market",
-        "overlay": [
-
-        ]
+        "alt": "Matthew at the Farmers Market"
       },
       "gmaps": "740 Jackson Avenue\nVancouver",
       "featured": false
+    },
+    {
+      "id": "28-11-riley-park",
+      "date": "11-28-2020",
+      "time": "10am - 2pm",
+      "name": "Riley Park Winter Farmer's Market",
+      "location": "Riley Park",
+      "image": {
+        "url": "/images/market.jpg",
+        "alt": "Matthew at the Farmers Market"
+      },
+      "gmaps": "Riley park farmers market winter",
+      "featured": true
+    },
+    {
+      "id": "05-12-riley-park",
+      "date": "12-05-2020",
+      "time": "10am - 2pm",
+      "name": "Riley Park Winter Farmer's Market",
+      "location": "Riley Park",
+      "image": {
+        "url": "/images/market.jpg",
+        "alt": "Matthew at the Farmers Market"
+      },
+      "gmaps": "Riley park farmers market winter",
+      "featured": true
+    },
+    {
+      "id": "12-12-riley-park",
+      "date": "12-12-2020",
+      "time": "10am - 2pm",
+      "name": "Riley Park Winter Farmer's Market",
+      "location": "Riley Park",
+      "image": {
+        "url": "/images/market.jpg",
+        "alt": "Matthew at the Farmers Market"
+      },
+      "gmaps": "Riley park farmers market winter",
+      "featured": true
+    },
+    {
+      "id": "12-19-riley-park",
+      "date": "12-19-2020",
+      "time": "10am - 2pm",
+      "name": "Riley Park Winter Farmer's Market",
+      "location": "Riley Park",
+      "image": {
+        "url": "/images/market.jpg",
+        "alt": "Matthew at the Farmers Market"
+      },
+      "gmaps": "Riley park farmers market winter",
+      "featured": true
     }
   ]
 }
