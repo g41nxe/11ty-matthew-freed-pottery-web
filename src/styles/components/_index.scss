@@ -34,19 +34,21 @@
 }
 
 #mobile--menu {
-    top: -750px;
+    transition: top, .15s ease-in-out;
+    top: -1500px;
 }
 
 #mobile--menu.active {
     top: 0;
+    z-index: 40;
 }
 
 a, button {
     transition: background-color, border, color, 0.15s ease-in-out;
 }
 
-.nav {
-    .fixed::before {
+#nav {
+    &::before {
         position: absolute;
         content: "";
         top: 0;
@@ -62,7 +64,7 @@ a, button {
     }
 
     &.scrolling {
-        .fixed::before {
+        &::before {
             opacity: 1;
         }
     }

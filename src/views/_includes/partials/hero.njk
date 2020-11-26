@@ -1,4 +1,4 @@
-<div class="hero grid grid-cols-12 place-content-center">
+<div id="hero" class="hero grid grid-cols-12 place-content-center">
     <div class="hidden md:flex md:col-span-4 col-span-12 mx-auto w-full h-full bg-gradient-to-b from-blue-hero-bg-start to-blue-hero-bg-stop items-center">
         <div class="sm:text-center md:text-left md:ml-24 p-8 pt-12 md:p-0">
             <h1 class="text-blue-hero-title font-display lg:text-5xl md:text-3xl">
@@ -12,8 +12,8 @@
     </div>
 
     <div class="relative md:col-span-8 col-span-12">
-        <div class="relative pt-12 md:pt-0">
-            {% img global.hero.image.url, global.hero.image.alt, "(min-width: 768px) 66vw, 100vw", "hero--img h-full", "eager" %}
+        <div class="relative pt-16 md:pt-0">
+            {% img global.hero.image.url, global.hero.image.alt, "(min-width: 768px) 66vw, 100vw", "hero--img h-full w-full object-cover", "eager" %}
 
             <div class="md:hidden absolute top-0 w-full h-full">
                 <div class="flex justify-center items-end w-full h-full">

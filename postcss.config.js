@@ -6,7 +6,10 @@ module.exports = ({
     plugins: [
         tailwindcss({
             purge: [
-                './dist/**/*.html'
+                './src/**/*.njk', 
+                './src/**/*.md', 
+                './src/**/*.json', 
+                './src/**/*.js',  
             ],
             theme: {
                 screens: {

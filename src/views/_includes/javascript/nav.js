@@ -1,5 +1,3 @@
-let nav = document.getElementById("nav")
-
 window.addEventListener("load", (event) => {
 
     let mobile_btn = document.getElementById("mobile--btn")
@@ -18,16 +16,17 @@ window.addEventListener("load", (event) => {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.85,
+        threshold: 0.5,
     };
   
+    var el = document.getElementById("hero")
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-    
-    observer.observe(nav);
+    observer.observe(el);
 
 })
 
 function observerCallback(entries, observer) {
+    var nav = document.getElementById("nav")
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         nav.classList.remove('scrolling');
