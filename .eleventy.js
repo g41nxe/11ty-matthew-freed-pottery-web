@@ -10,31 +10,32 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(pluginSEO, require("./src/views/_data/seo.json"));
     eleventyConfig.addPlugin(pluginPWA);
 
-    eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="",  classes="", loading="auto", format="jpg") {
+    eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="",  classes="", loading="auto") {
         if(alt === undefined) {
           // You bet we throw an error on missing alt (alt="" works okay)
           throw new Error(`Missing \`alt\` on image from: ${src}`);
         }
 
         src = 'src/' + src
-    
+
+        let formats = ["jpg", "webp"];
         let stats = await Image(src, {
           widths: [160, 320, 640, 768, 1024, 1280, 1536, null],
-          formats: [format],
+          formats: formats,
           urlPath: "/images/",
           outputDir: "./dist/images/",
         });
 
-        let lowestSrc = stats[format][0];
-    
-        const srcset = stats[format].map(entry => `${entry.url} ${entry.width}w`).join(", ")
-      
-        const source = `<source type="image/${format}" srcset="${srcset}" sizes="${sizes}" />`;
-    
-        const img = `<img loading="${loading}" class="${classes}" alt="${alt}" src="${lowestSrc.url}" />`;
-      
-        return `<picture> ${source} ${img} </picture>`;
-    });
+        let lowestSrc = stats[formats[0]][0];
+
+        // Iterate over formats and widths
+        return `<picture>
+            ${Object.values(stats).map(imageFormat => {
+                return `<source type="image/${imageFormat[0].format}" srcset="${imageFormat.map(entry => `${entry.url} ${entry.width}w`).join(", ")}" sizes="${sizes}">`;
+            }).join("\n")}
+            <img class="${classes}" src="${lowestSrc.url}" alt="${alt}"/>
+            </picture>`;
+      });
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 

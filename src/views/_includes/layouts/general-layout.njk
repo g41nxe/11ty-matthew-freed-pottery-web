@@ -11,10 +11,10 @@ layout: base
 <div class="md:w-3/5 w-5/6 mb-8 md:mb-0 mx-auto text-center">{{ intro }}</div>
 
 
-{% set gridcols = "grid-cols-2" if image else "grid-cols-1" %}
+{% set gridcols = "grid-cols-2" if image.url else "grid-cols-1" %}
 <div class="general grid md:{{ gridcols }} grid-cols-1 place-content-center w-100 md:my-24">
 
-    {%- if image -%}
+    {%- if image.url -%}
     <div class="md:shadow-md">
         {% img image.url, image.alt, "(min-width: 768px) 50vw, 100vw", "h-full w-full object-cover" %}
     </div>
