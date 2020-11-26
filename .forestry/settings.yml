@@ -15,17 +15,23 @@ sections:
 - type: document
   path: src/views/contact.md
   label: Contact
-- type: heading
-  label: About
 - type: document
   path: src/views/about.md
-  label: "- About"
+  label: About - About
 - type: document
   path: src/views/pottery.md
-  label: "- Pottery"
+  label: About - Pottery
 - type: document
   path: src/views/process.md
-  label: "- Process"
+  label: About - Process
+- type: document
+  path: src/views/retail.md
+  label: Retail Stores
+  match: "**/*"
+- type: document
+  path: src/views/privacy.md
+  label: Privacy Statement
+  match: "**/*"
 - type: heading
   label: Data
 - type: document
