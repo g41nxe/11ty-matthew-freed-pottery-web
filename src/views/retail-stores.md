@@ -2,6 +2,7 @@
 layout: general-layout
 title: Retail Stores
 tags: footer
+permalink: /about/retail-stores.html
 headline: Retail Stores
 intro: The following retail outlets carry one or more of Matthew's Glaze Styles
 image:

@@ -16,7 +16,7 @@ window.addEventListener("load", (event) => {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5,
+        threshold: 0.7,
     };
   
     var el = document.getElementById("hero")
