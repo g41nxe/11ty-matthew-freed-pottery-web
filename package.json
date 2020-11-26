@@ -38,6 +38,6 @@
     "eleventy-plugin-pwa": "^1.0.8",
     "eleventy-plugin-seo": "^0.5.1",
     "moment": "^2.29.1",
-    "tailwindcss": "^1.9.6"
+    "tailwindcss": "^2.0.1"
   }
 }

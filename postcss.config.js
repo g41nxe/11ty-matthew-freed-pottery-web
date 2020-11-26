@@ -5,12 +5,16 @@ var cssnano = require('cssnano')
 module.exports = ({
     plugins: [
         tailwindcss({
-            purge: [
-                './src/**/*.njk', 
-                './src/**/*.md', 
-                './src/**/*.json', 
-                './src/**/*.js',  
-            ],
+            purge: {
+                enabled: true,
+                content: [
+                    './src/**/*.njk', 
+                    './src/**/*.md', 
+                    './src/**/*.json', 
+                    './src/**/*.js',  
+                    './src/**/*.css',  
+                ]
+            },
             theme: {
                 screens: {
                     'sm': '640px',
@@ -34,8 +38,9 @@ module.exports = ({
                     'gray': {
                         'light': '#EAEAEA',
                         'lighter': '#FAFAFA',
-                        'DEFAULT': '#F2F2F2',
-                        'dark': '#6C6C6C'
+                        'default': '#F2F2F2',
+                        'dark': '#D2D2D2',
+                        'darker': '#6C6C6C'
                     },
                     'transparent': 'transparent'
                 }

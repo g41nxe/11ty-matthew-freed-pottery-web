@@ -1,6 +1,6 @@
 <div id="nav" class="z-30 fixed nav w-screen h-16 md:h-20 md:px-24">
     
-    <nav id="desktop--menu" class="relative z-50 h-full w-full items-center">
+    <nav role="navigation" aria-label="Main" id="desktop--menu" class="relative z-50 h-full w-full items-center">
         <ul class="main-nav w-full h-full justify-around md:justify-start items-center md:flex hidden">
         {% set navPages = collections.all | eleventyNavigation %}        
         {%- for entry in navPages %}        
@@ -47,7 +47,7 @@
         </ul>
     </nav>
     
-    <nav id="mobile--menu" class="flex absolute md:hidden bg-brand w-full h-screen justify-center items-center">
+    <nav role="navigation" aria-label="Main" id="mobile--menu" class="flex absolute md:hidden bg-brand w-full h-screen justify-center items-center">
         <ul  class="flex flex-col justify-center items-center text-center py-4">
             {% set navPages = collections.all | eleventyNavigation %}        
             {%- for entry in navPages %}        
