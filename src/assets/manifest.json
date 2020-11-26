@@ -9,7 +9,30 @@
     "dir": "ltr",
     "display": "standalone",
     "orientation": "portrait",
+    "categories": ["art", "handmade", "pottery", "vancouver", "mugs", "plates", "bowls", "ceramics"],
+    "screenshots" : [
+        {
+            "src": "/assets/screenshot_web.webp",
+            "sizes": "1805x987",
+            "type": "image/webp"
+        },
+        {
+            "src": "/assets/screenshot_mobile.webp",
+            "sizes": "750x1334",
+            "type": "image/webp"
+        }
+    ],
     "icons": [
+        {
+            "src": "/assets/favicon.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "/assets/android-icon-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
         {
             "src": "/assets/android-icon-192x192.png",
             "type": "image/png",
