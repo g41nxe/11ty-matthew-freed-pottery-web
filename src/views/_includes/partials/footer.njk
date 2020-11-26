@@ -1,9 +1,9 @@
 <footer class="bg-gray-light text-gray-darker">
-    <div class="container mx-auto py-8 md:py-24 px-12">
+    <div class="container mx-auto py-8 md:py-12 lg:py-24">
         
-        <div class="grid md:grid-cols-11 md:text-left text-center font-light gap-x-12">
+        <div class="grid md:grid-cols3 lg:grid-cols-4 md:text-left text-center font-light gap-x-12 gap-y-8 md:gap-y-16">
             
-            <div class="col-span-3 md:grid-cols grid-cols-3">
+            <div class="">
                 <h4 class="font-bold mb-4">{{ global.contact.name | safe }}</h4>
                 
                 <p class="mb-4">{{global.contact.address | nl2br | safe }}</p>
@@ -18,7 +18,22 @@
                 </p>
             </div>
 
-            <div class="col-span-3 md:col-span-2 md:grid-cols grid-cols-3 mt-8 md:mt-0">
+            <div class="">
+                <h4 class="font-bold mb-4">Links</h4>
+
+                <ul>
+                    {%- for entry in collections.footer -%}
+                    <li>
+                        <a class="hover:text-brand text-sm" href="{{ entry.url | url }}">
+                            <i class="fas fa-angle-right"></i>
+                            {{ entry.data.title }}
+                        </a>
+                    </li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+
+            <div class="">
                 <h4 class="font-bold mb-4">{{ global.socialmedia.title }} </h4>
 
                 <ul class="flex flex-row md:justify-start justify-center">
@@ -32,11 +47,15 @@
                 </ul>
             </div>
 
-            <div class="col-span-3 md:grid-cols grid-cols-3 mt-8 md:mt-0">
+            <div class="md:order-first lg:order-last 
+                        md:col-span-3 lg:col-span-1 md:px-24 lg:px-0 
+                        md:text-center lg:text-left 
+                        flex flex-col items-center lg:items-start">
+
                 <h4 class="font-bold mb-4">{{ global.newsletter.title }}</h4>
 
                 <form id="newsletter_form" name="newsletter" method="POST" action="/success"
-                      class="flex justify-center md:justify-start"
+                      class="flex justify-center md:justify-start w-3/5 lg:w-full"
                       data-netlify="true" netlify-honeypot="bot-field">
 
                     <p class="hidden">
@@ -45,29 +64,14 @@
                     
                     <label class="hidden" for="newsletter_email">Email</label>
                     <input required type="text" id="newsletter_email" name="newsletter_email" 
-                           class="w-3/5 md:w-full px-3 py-1 font-light text-sm focus:bg-gray-lighter bg-gray-default border border-gray-darker" 
-                           placeholder="your@email.com" />
+                        class="w-1 flex-grow px-3 py-1 font-light text-sm focus:bg-gray-lighter bg-gray-default border border-gray-darker" 
+                        placeholder="your@email.com" />
                     
                     <button aria-label="Sign up" type="submit"
-                            class="align-middle px-3 py-1 rounded-r-md border border-l-0 bg-white hover:bg-gray-dark border border-gray-darker">
+                            class="flex-none align-middle px-3 py-1 rounded-r-md border border-l-0 bg-white hover:bg-gray-dark border border-gray-darker">
                         <i class="fas fa-envelope-open-text"></i>
                     </button>
                 </form>
-            </div>
-
-            <div class="col-span-3 md:grid-cols grid-cols-3 mt-8 md:mt-0">
-                <h4 class="font-bold mb-4">Links</h4>
-
-                <ul>
-                    {%- for entry in collections.footer -%}
-                    <li>
-                        <a class="hover:text-brand text-sm" href="{{ entry.url | url }}">
-                            <i class="fas fa-angle-right"></i>
-                            {{ entry.data.title }}
-                        </a>
-                    </li>
-                    {%- endfor -%}
-                </ul>
             </div>
 
         </div>

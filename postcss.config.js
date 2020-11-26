@@ -6,7 +6,7 @@ module.exports = ({
     plugins: [
         tailwindcss({
             purge: {
-                enabled: true,
+                // enabled: true, % to force purge (or use NODE_ENV=prodution)
                 content: [
                     './src/**/*.njk', 
                     './src/**/*.md', 
