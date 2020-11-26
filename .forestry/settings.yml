@@ -25,11 +25,11 @@ sections:
   path: src/views/process.md
   label: About - Process
 - type: document
-  path: src/views/retail.md
+  path: src/views/retail-stores.md
   label: Retail Stores
   match: "**/*"
 - type: document
-  path: src/views/privacy.md
+  path: src/views/privacy-statement.md
   label: Privacy Statement
   match: "**/*"
 - type: heading
