@@ -1,0 +1,54 @@
+---
+label: General
+hide_body: false
+fields:
+- type: text
+  name: layout
+  label: layout
+  hidden: true
+- type: text
+  name: title
+  label: Page Title
+- type: text
+  name: tags
+  label: tags
+  hidden: true
+- type: text
+  name: headline
+  label: Headline
+- type: text
+  name: intro
+  label: Intro Text
+- type: field_group
+  name: image
+  label: Image
+  fields:
+  - type: file
+    name: url
+    label: URL
+  - type: text
+    name: alt
+    label: Alt Text
+- type: field_group
+  name: notification
+  label: Notification
+  fields:
+  - type: text
+    name: title
+    label: Title
+  - type: text
+    name: subtitle
+    label: Subtitle
+  - type: field_group
+    name: cta
+    label: Call To Action
+    fields:
+    - type: text
+      name: label
+      label: Label
+    - type: text
+      name: url
+      label: URL
+pages:
+- src/views/privacy-statement.md
+- src/views/retail-stores.md
