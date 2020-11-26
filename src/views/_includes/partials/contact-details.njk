@@ -1,4 +1,4 @@
- <h2 class="text-2xl font-bold my-12 text-center md:text-left">
+ <h2 class="text-2xl font-bold my-12 ">
     {{ headline }}<br/>
     <span class="text-highlight">{{ subheadline }}</span>
 </h2>
@@ -13,24 +13,24 @@
 {%- endfor -%}
 </ul>
 
-<div class="mb-12 text-brand text-center md:text-left">
+<div class="mb-12 text-brand ">
     {%- for paragraph in intro %}    
         <p>{{ paragraph }}</p>   
     {%- endfor-%} 
 </div>
 
 
-<div class="mb-12 text-brand text-center md:text-left">
+<div class="mb-12 text-brand ">
     <p class="font-bold">{{ message }}</p>
     <a class="hover:text-highlight" href="mailto:{{ global.contact.email }}">{{ global.contact.email }}</a>
 </div>
 
-<div class="mb-12 text-brand text-center md:text-left">
+<div class="mb-12 text-brand ">
     <p class="font-bold">{{ phone }}</p>
     <a class="hover:text-highlight" href="tel:{{ global.contact.phone }}">{{ global.contact.phone }}</a>
 </div>
 
-<div class="mb-12 text-brand text-center md:text-left">
+<div class="mb-12 text-brand ">
     <p class="font-bold">{{ address }}</p>
     <p>{{ global.contact.address | nl2br | safe }}</p>
 </div>

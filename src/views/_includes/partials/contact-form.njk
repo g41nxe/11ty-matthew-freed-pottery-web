@@ -6,7 +6,7 @@
 <p class="mb-4 text-xs text-gray-darker">{{ contactform.info }}</p>
 
 <form class="text-brand mb-8" 
-      name="contact" id="contact_form" method="POST"
+      name="contact" id="contact_form" method="POST" action="/success"
       netlify-honeypot="bot-field" data-netlify="true" data-netlify-recaptcha="true">
         
     <p class="hidden">
@@ -40,6 +40,7 @@
             class="bg-highlight text-brand px-8 py-2 text-sm hover:bg-brand hover:text-highlight">
         {{ contactform.submit | upper }}
     </button>
+    
 
 </form>
 
