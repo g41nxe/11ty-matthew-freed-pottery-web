@@ -15,7 +15,8 @@
         ]
       },
       "gmaps": "Nelson Park Vancouver",
-      "featured": false
+      "featured": false,
+      "comment": ""
     },
     {
       "id": "10-24-2020-trout-lake",
@@ -25,21 +26,28 @@
       "location": "Trout Lake",
       "image": {
         "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
+        "alt": "Matthew at the Farmers Market",
+        "overlay": [
+
+        ]
       },
       "gmaps": "Trout Lake Vancouver",
-      "featured": false
+      "featured": false,
+      "comment": ""
     },
     {
       "id": "culture-crawl-2020",
       "date": "11-12-2020",
       "time": "10am - 6pm",
       "name": "Eastside Culture Crawl",
-      "comment": "The Eastside Culture Crawl is on. Appointments must be pre-booked: (click here)[www.culturecrawl.as.me/jacksonfive].",
+      "comment": "The Eastside Culture Crawl is on. Appointments must be pre-booked: <a href=\"www.culturecrawl.as.me/jacksonfive\" title=\"click here\" target=\"_blank\">click here</a>",
       "location": "My Studio",
       "image": {
         "url": "/images/culture-crawl-2020.jpg",
-        "alt": "Culture Crawl 2020"
+        "alt": "Culture Crawl 2020",
+        "overlay": [
+
+        ]
       },
       "gmaps": "740 Jackson Avenue\nVancouver",
       "featured": false
@@ -52,10 +60,14 @@
       "location": "Riley Park",
       "image": {
         "url": "/images/yaletown-display.jpg",
-        "alt": "Matthew at the Farmers Market"
+        "alt": "Matthew at the Farmers Market",
+        "overlay": [
+
+        ]
       },
       "gmaps": "Yaletown Collection by Matthew Freed at display",
-      "featured": true
+      "featured": true,
+      "comment": ""
     },
     {
       "id": "05-12-riley-park",
@@ -65,10 +77,14 @@
       "location": "Riley Park",
       "image": {
         "url": "/images/matthew-and-mugs.jpg",
-        "alt": "Matthew Freed and a variety of his Mugs on display"
+        "alt": "Matthew Freed and a variety of his Mugs on display",
+        "overlay": [
+
+        ]
       },
       "gmaps": "Riley park farmers market winter",
-      "featured": true
+      "featured": true,
+      "comment": ""
     },
     {
       "id": "12-12-riley-park",
@@ -78,10 +94,14 @@
       "location": "Riley Park",
       "image": {
         "url": "/images/mixed-display.jpg",
-        "alt": "Mixed items on displaya crafted by Matthew Freed"
+        "alt": "Mixed items on displaya crafted by Matthew Freed",
+        "overlay": [
+
+        ]
       },
       "gmaps": "Riley park farmers market winter",
-      "featured": true
+      "featured": true,
+      "comment": ""
     },
     {
       "id": "12-19-riley-park",
@@ -91,10 +111,14 @@
       "location": "Riley Park",
       "image": {
         "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
+        "alt": "Matthew at the Farmers Market",
+        "overlay": [
+
+        ]
       },
       "gmaps": "Riley park farmers market winter",
-      "featured": true
+      "featured": true,
+      "comment": ""
     }
   ]
 }
