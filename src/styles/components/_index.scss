@@ -84,6 +84,12 @@ a, button {
     }
 }
 
+.event--comment {
+    a {
+        @apply font-semibold hover:text-highlight;
+    }
+}
+
 .event--item--content {
     overflow: hidden;
     max-height: 0;

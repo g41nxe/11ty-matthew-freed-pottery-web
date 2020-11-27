@@ -17,13 +17,14 @@ layout: base
         {%- for event in events.events | sortByDate -%}
         <div class="{{ 'sizer' if loop.first }} event--item text-brand" id="{{ event.id }}" data-event="{{ event.date | getFutureOrPast }}">
 
-            <div class="grid grid-cols-8 col-span-2 font-bold my-4 py-4 px-2 border-b-2 border-brand">
+            <div class="grid grid-cols-8 col-span-2 my-4 py-4 px-2 border-b-2 border-brand">
                 
-                <p class="md:text-lg text-small col-span-8 md:col-span-2 lg:col-span-1">{{ event.date | date("MMM Do 'YY") }}</p>
+                <p class="md:text-md text-small col-span-8 md:col-span-2 lg:col-span-1">{{ event.date | date("MMM Do 'YY") }}</p>
                 
-                <a href="#" data-target="content-{{ event.id }}" data-icon="icon-{{ event.id }}" class="col-span-7 md:col-span-5 lg:col-span-6 event--item-toggle">
-                    <h2 class="text-lg  hover:text-highlight">{{ event.name }}</h2>
-                </a>
+                <button data-target="content-{{ event.id }}" data-icon="icon-{{ event.id }}" 
+                        class="font-bold text-left col-span-7 md:col-span-5 lg:col-span-6 text-lg hover:text-highlight event--item-toggle">
+                    {{ event.name }}
+                </button>
                 
                 <div class="text-lg md:px-0 px-4 text-right">
                     <button aria-label="Show event details" data-target="content-{{ event.id }}" data-icon="icon-{{ event.id }}" class="hover:text-highlight event--item-toggle">
@@ -33,12 +34,12 @@ layout: base
             </div>
             
             <div class="event--item--content grid grid-cols md:grid-cols-2" id="content-{{ event.id }}">
-                <div class="bg-white p-8 md:text-center border border-gray-light shadow-sm">
+                <div class="bg-white p-8 border border-gray-light shadow-sm">
                     <p><i class="fas fa-map-marker mr-2"></i>{{ event.location }}</p>
                     <p class="mb-4"><i class="far fa-calendar-alt mr-2"></i>{{ event.date | date('L') }} : {{ event.time }}</p>
 
                     {%- if event.comment %}
-                    <p class="font-semibold">{{ event.comment | safe }}</p>
+                    <p class="event--comment text-sm leading-relaxed">{{ event.comment | nl2br | safe }}</p>
                     {%- endif -%}
 
                     <div class="map mt-8">
