@@ -6,6 +6,12 @@ fields:
   name: layout
   label: layout
   hidden: true
+- name: permalink
+  type: text
+  config:
+    required: false
+  label: permalink
+  hidden: true
 - type: text
   name: title
   label: Page Title
