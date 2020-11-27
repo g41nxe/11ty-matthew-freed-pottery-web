@@ -6,9 +6,8 @@ eleventyNavigation:
   key: Events
   order: 3
 notification:
-  title: Last farmers market on October 21th!
-  subtitle: Market season comes to end and but you can still find all my pots and
-    bowls in my new online shop!
+  title:  Riley Park Winter farmers market starting October 31st!
+  subtitle: You can still find all my pots and bowls in my online shop!
   cta:
     label: Shop Now
     url: "/shop"

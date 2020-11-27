@@ -35,10 +35,11 @@
       "date": "11-12-2020",
       "time": "10am - 6pm",
       "name": "Eastside Culture Crawl",
+      "comment": "The Eastside Culture Crawl is on. Appointments must be pre-booked: (click here)[www.culturecrawl.as.me/jacksonfive].",
       "location": "My Studio",
       "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
+        "url": "/images/culture-crawl-2020.jpg",
+        "alt": "Culture Crawl 2020"
       },
       "gmaps": "740 Jackson Avenue\nVancouver",
       "featured": false
@@ -50,10 +51,10 @@
       "name": "Riley Park Winter Farmer's Market",
       "location": "Riley Park",
       "image": {
-        "url": "/images/market.jpg",
+        "url": "/images/yaletown-display.jpg",
         "alt": "Matthew at the Farmers Market"
       },
-      "gmaps": "Riley park farmers market winter",
+      "gmaps": "Yaletown Collection by Matthew Freed at display",
       "featured": true
     },
     {
@@ -63,8 +64,8 @@
       "name": "Riley Park Winter Farmer's Market",
       "location": "Riley Park",
       "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
+        "url": "/images/matthew-and-mugs.jpg",
+        "alt": "Matthew Freed and a variety of his Mugs on display"
       },
       "gmaps": "Riley park farmers market winter",
       "featured": true
@@ -76,8 +77,8 @@
       "name": "Riley Park Winter Farmer's Market",
       "location": "Riley Park",
       "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
+        "url": "/images/mixed-display.jpg",
+        "alt": "Mixed items on displaya crafted by Matthew Freed"
       },
       "gmaps": "Riley park farmers market winter",
       "featured": true
