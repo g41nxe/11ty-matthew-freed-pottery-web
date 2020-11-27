@@ -6,6 +6,12 @@ fields:
   name: layout
   label: layout
   hidden: true
+- name: permalin
+  type: text
+  config:
+    required: false
+  label: permalin
+  hidden: true
 - type: text
   name: title
   label: Title
