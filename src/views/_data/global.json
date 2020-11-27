@@ -1,4 +1,7 @@
 {
+  "gmaps": {
+    "key": "AIzaSyCFHnnqdvlsho-1eAgbRZwmIgqmq_X9jpI"
+  },
   "hero": {
     "image": {
       "url": "/images/hero.jpg",
