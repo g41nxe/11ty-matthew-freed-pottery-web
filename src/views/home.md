@@ -1,8 +1,7 @@
 ---
 layout: home-layout
 title: Home
-permalink: /index.html
-
+permalink: "/index.html"
 eleventyNavigation:
   key: Home
   order: 1
@@ -23,11 +22,18 @@ gallery:
   texts:
   - Each piece is a complexity of nature, science, and art.
   - Browse through my different collections and choose between a large variaty of
-    different glazes and forms. If you can't find anything you like send me a message and we can talk about custom
-    pieces.
+    different glazes and forms. If you can't find anything you like send me a message
+    and we can talk about custom pieces.
 features:
   title: Featured Items
-  texts: 
-    - Handcrafted pottery. Are you looking for that one of a kind coffee mug? 
-    - During the pandemic we are offering free local delivery for orders greater than $100 
+  texts:
+  - Handcrafted pottery. Are you looking for that one of a kind coffee mug?
+  - During the pandemic we are offering free local delivery for orders greater than
+    $100
+custom_seo_settings: false
+author: ''
+excerpt: ''
+image: ''
+ogtype: ''
+
 ---
