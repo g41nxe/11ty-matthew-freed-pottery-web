@@ -38,7 +38,7 @@ fields:
       required: false
       wysiwyg: true
       schema:
-        format: markdown
+        format: html
     label: Comment
   - type: field_group
     name: image
