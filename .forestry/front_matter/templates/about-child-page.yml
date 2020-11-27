@@ -1,10 +1,16 @@
 ---
-label: About Child Page
+label: About Page
 hide_body: true
 fields:
 - type: text
   name: layout
   label: layout
+  hidden: true
+- name: permalink
+  type: text
+  config:
+    required: false
+  label: permalink
   hidden: true
 - type: text
   name: title
