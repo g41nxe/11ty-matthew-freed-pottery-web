@@ -6,11 +6,11 @@ fields:
   name: layout
   label: layout
   hidden: true
-- name: permalin
+- name: permalink
   type: text
   config:
     required: false
-  label: permalin
+  label: permalink
   hidden: true
 - type: text
   name: title
