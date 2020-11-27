@@ -17,9 +17,6 @@ notification:
     url: https://matthew-freed-pottery.myshopify.com/collections/all/
 
 ---
-# Privacy Policy
-
-This Privacy Policy describes how your personal information is collected, used, and shared when you visit our site.
 
 ## Personal Information We Collect
 
