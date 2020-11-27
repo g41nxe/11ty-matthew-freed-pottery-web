@@ -24,6 +24,12 @@ fields:
   - type: text
     name: subtitle
     label: Hero Tagline
+  - name: key
+    type: text
+    config:
+      required: false
+    label: API key
+    description: for internal use
 - type: field_group
   name: newsletter
   label: Newsletter Details
@@ -112,5 +118,9 @@ fields:
         label: Name
       label: Facebook
     label: Services
+- name: gmaps
+  type: field_group
+  config: {}
+  label: Google Maps
 pages:
 - src/views/_data/global.json
