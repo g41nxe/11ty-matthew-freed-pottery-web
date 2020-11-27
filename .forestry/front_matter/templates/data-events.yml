@@ -40,6 +40,7 @@ fields:
       schema:
         format: html
     label: Comment
+    description: Don't overdo it ! Use HTML wisely (links are ok)
   - type: field_group
     name: image
     label: Image
