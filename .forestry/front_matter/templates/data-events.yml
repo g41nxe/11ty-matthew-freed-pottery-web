@@ -31,9 +31,6 @@ fields:
   - type: text
     name: location
     label: Location
-  - type: text
-    name: comment
-    label: Comment
   - type: field_group
     name: image
     label: Image
@@ -57,5 +54,14 @@ fields:
     description: Select if this event should appear on the Home page
   config:
     labelField: name
+- name: comment
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Comment
 pages:
 - src/views/_data/events.json
