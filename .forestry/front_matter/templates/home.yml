@@ -46,9 +46,9 @@ fields:
       name: label
       label: Label
     - name: url
-      type: file
+      type: text
       config:
-        maxSize: 64
+        required: false
       label: URL
 - type: field_group
   name: event
