@@ -40,7 +40,7 @@ sections:
   label: Collections
 - type: document
   path: src/views/_data/events.json
-  label: Events
+  label: Events & News
 - type: document
   path: src/views/_data/seo.json
   label: SEO
