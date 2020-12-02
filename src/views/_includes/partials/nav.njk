@@ -58,12 +58,3 @@
         </ul>
     </nav>
 </div>
-
-
-{% set js %}
-    {% include "../javascript/nav.js" %}
-{% endset %}
-
-<script>
-    {{ js | jsmin | safe }}
-</script>

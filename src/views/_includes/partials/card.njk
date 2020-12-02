@@ -1,0 +1,56 @@
+<div>
+    {% set id = id | uuid %}
+
+    {% for item in items %}
+
+    <div x-data="{count: {{ count | default(4) }}, step: {{ step | default(4) }}, open: {{ loop.index0 < 1 if open == 'first' else open }} }" 
+         x-show="count > {{loop.index0 }}" 
+         x-on:increment-{{ id }}.window="count+=step">
+
+        {# Title #}
+        {% block title %}
+        <div class="grid grid-cols-8 my-4 py-4 px-2 border-b-2 border-brand w-full">
+            <p class="col-span-8 md:col-span-2 lg:col-span-1 flex-none leading-8 align-baseline md:text-md text-sm">
+                {{ item.date | date("MMM Do 'YY") }}
+            </p>
+            
+            <button @click="open = !open" class="col-span-7 md:col-span-5 lg:col-span-6 font-bold text-left text-lg hover:text-highlight">
+                {{ item.name }}
+            </button>
+            
+            <button @click="open = !open" aria-label="Show details" class="flex-none hover:text-highlight text-right">
+                <i class="fas fa-plus"  x-show="open === false"></i>
+                <i class="fas fa-minus" x-show="open === true"></i>
+            </button>
+        </div>
+        {% endblock %}
+
+        <div :class="{'full' : open === true}" class="content grid {{ grid_cols | default('grid-cols md:grid-cols-2') }}">
+            
+            {# Body Content #}
+            {% block content %}
+            <div class="bg-white p-8 border border-gray-light">
+                <h3 class="font-bold text-lg mb-4">{{ item.content.title }}</h3>
+                <p class="text-sm leading-relaxed">{{ item.content.body | nl2br | safe }}</p>
+            </div>
+            {% endblock %}
+
+            {# Image #}
+            {% block image %}
+            <div class="relative order-first md:order-last">
+                
+                {% img item.image.url, item.image.alt, "(min-width: 768px) 50vw, 100vw", "h-full w-full object-cover" %}
+
+            </div>
+            {% endblock %}
+        </div>
+
+    </div>
+    {% endfor %}
+
+    {% if items | length > 4 %}
+        <div x-data="{ count: {{ count | default(4) }}, step: {{ step | default(4) }} }" x-on:click="$dispatch('increment-{{ id }}'); count+=step" x-show="count < {{ items | length }}" class="flex justify-center">
+            {% include "load-more.njk" %}
+        </div>
+    {% endif %}
+</div>

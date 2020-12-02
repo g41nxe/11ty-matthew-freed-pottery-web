@@ -1,0 +1,9 @@
+{% extends "card.njk" %}
+
+{% block content %}
+    <div class="bg-white p-10 border border-gray-light">
+        <h3 class="font-bold text-lg mb-6">{{ item.content.title }}</h3>
+        <p class="text-md leading-relaxed">{{ item.content.body | nl2br | safe }}</p>
+        {% img "/images/signature.jpg", "Cheers, Matthew", "13rem", "w-52 mt-8", "eager" %}
+    </div>
+{% endblock %}

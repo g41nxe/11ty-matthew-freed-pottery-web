@@ -12,10 +12,5 @@ layout: base
 
 {% include "home-features.njk" %}
 
-{% set js %}
-    {% include "../javascript/home.js" %}
-{% endset %}
+<script defer src="/js/home.js"></script>
 
-<script>
-    {{ js | jsmin | safe }}
-</script>

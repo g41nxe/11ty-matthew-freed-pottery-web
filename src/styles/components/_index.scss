@@ -86,13 +86,7 @@ a, button {
     }
 }
 
-.event--comment {
-    a {
-        @apply font-semibold hover:text-highlight;
-    }
-}
-
-.event--item--content {
+.content {
     overflow: hidden;
     max-height: 0;
     transition: all 0.5s cubic-bezier(0, 1, 0, 1);
@@ -101,7 +95,12 @@ a, button {
         max-height: 1000px;
         transition: all 1s ease-in-out;
     }
+    
+    a {
+        @apply font-semibold hover:text-highlight;
+    }
 }
+
 
 .general {
 
