@@ -3,7 +3,7 @@ layout: events-layout
 title: Updates
 permalink: /updates.html
 eleventyNavigation:
-  key: Events
+  key: Updates
   order: 3
 notification:
   title:  Riley Park Winter farmers market starting October 31st!
