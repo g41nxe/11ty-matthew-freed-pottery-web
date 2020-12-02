@@ -51,6 +51,8 @@ fields:
   - type: text
     name: text
     label: Text
+    description: use surrounding&lt;mail&gt;&lt;/mail&gt;and &lt;phone&gt;&lt;/phone&gt;
+      tags to add links
 - type: field_group
   name: shop
   label: Shop Details
