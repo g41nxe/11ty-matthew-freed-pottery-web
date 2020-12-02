@@ -4,12 +4,8 @@ hide_body: true
 fields:
 - type: field_group_list
   name: events
-  label: All Items
+  label: Events
   fields:
-  - type: text
-    name: id
-    label: ID
-    description: make sure this is a unique value
   - name: date
     type: datetime
     label: Date
@@ -31,16 +27,25 @@ fields:
   - type: text
     name: location
     label: Location
-  - name: comment
-    type: textarea
-    default: ''
-    config:
-      required: false
-      wysiwyg: true
-      schema:
-        format: html
-    label: Comment
-    description: Don't overdo it ! Use HTML wisely (links are ok)
+  - name: content
+    type: field_group
+    config: {}
+    fields:
+    - name: title
+      type: text
+      config:
+        required: false
+      label: Title
+    - name: body
+      type: textarea
+      default: ''
+      config:
+        required: false
+        wysiwyg: true
+        schema:
+          format: html
+      label: Body
+    label: Content
   - type: field_group
     name: image
     label: Image
@@ -51,9 +56,6 @@ fields:
     - type: text
       name: alt
       label: Alt Text
-    - type: list
-      name: overlay
-      label: Overlay Text
   - type: text
     name: gmaps
     label: 'Google Maps Query '
@@ -64,5 +66,62 @@ fields:
     description: Select if this event should appear on the Home page
   config:
     labelField: name
+- name: news
+  type: field_group_list
+  fields:
+  - name: date
+    type: datetime
+    label: Date
+    description: ''
+    config:
+      required: false
+      date_format: MM-DD-YYYY
+      time_format: 
+      display_utc: false
+      export_format: MM-DD-YYYY
+  - name: name
+    type: text
+    config:
+      required: false
+    label: Name
+  - name: content
+    type: field_group
+    config: {}
+    fields:
+    - name: title
+      type: text
+      config:
+        required: false
+      label: Title
+    - name: body
+      type: textarea
+      default: ''
+      config:
+        required: false
+        wysiwyg: true
+        schema:
+          format: html
+      label: Body
+    label: Content
+  - name: image
+    type: field_group
+    config: {}
+    fields:
+    - name: url
+      type: file
+      config:
+        maxSize: 64
+      label: URL
+    - name: alt
+      type: text
+      config:
+        required: false
+      label: Alt Text
+    label: Image
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: News
 pages:
 - src/views/_data/events.json
