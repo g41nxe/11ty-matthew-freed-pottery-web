@@ -10,7 +10,7 @@ layout: base
 <div class="md:px-24 mx-auto my-8">
 
     <section class="mb-8">
-        <h2 class="font-bold text-2xl text-brand mb-8"> Latest Update </h2>
+        <h2 class="text-center md:text-left font-bold text-2xl text-brand my-8 md:mt-0 "> Latest Update </h2>
 
         {% set open = true %}
         {% set items = [events.news | sortByDate | first] %}
@@ -18,8 +18,8 @@ layout: base
     </section>
 
     <section class="grid md:grid-cols-12">
-        <div class="col-span-6">
-            <h2 class="text-xl font-bold text-brand mb-4">
+        <div class="md:col-span-6">
+            <h2 class="text-center md:text-left text-xl font-bold text-brand my-4 md:mt-0">
                 <i class="fas fa-map-signs mr-2"></i>
                 News Archive
             </h2>
@@ -29,8 +29,8 @@ layout: base
 
         </div>
 
-        <div class="col-span-5 col-start-8">
-            <h2 class="text-xl font-bold text-brand mb-8">
+        <div class="md:col-span-5 md:col-start-8">
+            <h2 class="text-center md:text-left text-xl font-bold text-brand my-8 md:mt-0">
                 <i class="fas fa-bullhorn mr-2"></i>
                 Upcoming Events
             </h2>
@@ -39,7 +39,7 @@ layout: base
             {% include "card-sm-events-upcoming.njk" %}
 
 
-            <h2 class="text-xl font-bold text-brand mt-8 mb-4">
+            <h2 class="text-center md:text-left text-xl font-bold text-brand mt-8 my-4 md:mt-0">
                 Events Archive
             </h2>
 

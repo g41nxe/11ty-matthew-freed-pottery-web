@@ -141,7 +141,7 @@
       "name": "Riley Park Winter Farmer's Market",
       "location": "Riley Park in Vancouver, B.C.",
       "gmaps": "Yaletown Collection by Matthew Freed at display",
-      "featured": true,
+      "featured": false,
       "content": {
         "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>"
       }
@@ -152,7 +152,7 @@
       "name": "Riley Park Winter Farmer's Market",
       "location": "Riley Park in Vancouver, B.C.",
       "gmaps": "Riley park farmers market winter",
-      "featured": true,
+      "featured": false,
       "content": {
         "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>"
       }
@@ -163,7 +163,7 @@
       "name": "Riley Park Winter Farmer's Market",
       "location": "Riley Park in Vancouver, B.C.",
       "gmaps": "Riley park farmers market winter",
-      "featured": true,
+      "featured": false,
       "content": {
         "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>"
       }
