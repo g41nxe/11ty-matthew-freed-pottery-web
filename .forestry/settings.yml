@@ -10,8 +10,8 @@ sections:
   path: src/views/home.md
   label: Home
 - type: document
-  path: src/views/events.md
-  label: Events
+  path: src/views/updates.md
+  label: Updates
 - type: document
   path: src/views/contact.md
   label: Contact
