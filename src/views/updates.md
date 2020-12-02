@@ -12,4 +12,13 @@ notification:
     label: Shop Now
     url: "/shop"
 
+titles:
+  events_archive: Events Archive
+  events_upcoming: Upcoming Events
+  news_archive: News Archive
+  news_latest: Latest Update
+
+load_more: Load More
+
+follow_me: Follow me & stay updated
 ---

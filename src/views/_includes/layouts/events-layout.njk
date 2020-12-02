@@ -9,8 +9,10 @@ layout: base
 
 <div class="md:px-24 mx-auto my-8">
 
-    <section class="mb-8">
-        <h2 class="text-center md:text-left font-bold text-2xl text-brand my-8 md:mt-0 "> Latest Update </h2>
+    <section class="md:my-16 my-8">
+        <h2 class="text-center md:text-left font-bold text-2xl text-brand my-8 md:mt-0 "> 
+            {{ titles.news_latest }}
+        </h2>
 
         {% set open = true %}
         {% set items = [events.news | sortByDate | first] %}
@@ -21,7 +23,7 @@ layout: base
         <div class="md:col-span-6">
             <h2 class="text-center md:text-left text-xl font-bold text-brand my-4 md:mt-0">
                 <i class="fas fa-map-signs mr-2"></i>
-                News Archive
+                {{ titles.news_archive }}
             </h2>
 
             {% set items = events.news | sortByDate | removeFirst %}
@@ -32,7 +34,7 @@ layout: base
         <div class="md:col-span-5 md:col-start-8">
             <h2 class="text-center md:text-left text-xl font-bold text-brand my-8 md:mt-0">
                 <i class="fas fa-bullhorn mr-2"></i>
-                Upcoming Events
+                {{ titles.events_upcoming }}
             </h2>
 
             {% set items = events.events | filterFuture | sortByDate %}
@@ -40,7 +42,7 @@ layout: base
 
 
             <h2 class="text-center md:text-left text-xl font-bold text-brand mt-8 my-4 md:mt-0">
-                Events Archive
+                {{ titles.events_archive }}
             </h2>
 
             {% set items = events.events | filterPast | sortByDate %}
