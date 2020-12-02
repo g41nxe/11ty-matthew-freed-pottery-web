@@ -1,9 +1,19 @@
 {% extends "card.njk" %}
 
 {% block content %}
-    <div class="bg-white p-10 border border-gray-light">
+    <div class="bg-white p-10 border border-gray-light flex flex-col justify-between">
         <h3 class="font-bold text-lg mb-6">{{ item.content.title }}</h3>
+        
         <p class="text-md leading-relaxed">{{ item.content.body | nl2br | safe }}</p>
+        
         {% img "/images/signature.jpg", "Cheers, Matthew", "13rem", "w-52 mt-8", "eager" %}
+
+        <div class="border-t border-gray-light flex gap-x-4 items-center pt-4 mt-4">
+            {%- for name, entry in global.socialmedia.services -%}        
+                <a target="_blank" class="text-white bg-highlight px-4 py-3 hover:text-highlight hover:bg-brand shadow-md" href="{{ entry.url | url }}"><i class="fab {{ entry.icon }}"></i></a>
+            {%- endfor -%}
+
+            <p class="font-regular text-highlight font-semibold">Follow me &amp; stay updated</p>
+        </div>
     </div>
 {% endblock %}
