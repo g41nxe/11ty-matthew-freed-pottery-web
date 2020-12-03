@@ -64,19 +64,21 @@
                 <button aria-label="Show Details"  class="text-brand hover:text-higlight text-right" @click="open = false">
                     <i class="fas fa-times "></i>
                 </button>
+                
+                <div class="flex flex-col justify-center space-y-2">
+                    <h1 class="text-lg font-bold text-brand mb-4" x-text="name"></h1>
 
-                <h1 class="text-lg font-bold text-brand" x-text="name"></h1>
+                    <p class="text-brand">
+                        <i class="mr-1 fas fa-sn fa-calendar-alt"></i>
+                    <span x-text="date"></span> : <span x-text="time"></span>
+                    </p>
+                    <p class="text-brand">
+                        <i class="mr-1 fas fa-sm fa-map-marked-alt"></i>&nbsp;
+                        <span x-text="location"></span>
+                    </p>
 
-                <p class="text-brand">
-                    <i class="mr-1 fas fa-sn fa-calendar-alt"></i>
-                <span x-text="date"></span> : <span x-text="time"></span>
-                </p>
-                <p class="text-brand">
-                    <i class="mr-1 fas fa-sm fa-map-marked-alt"></i>&nbsp;
-                    <span x-text="location"></span>
-                </p>
-
-                <p class="text-brand" x-html="content"></p>
+                    <p class="text-brand" x-html="content"></p>
+                </div>
 
                 <iframe scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" :src="gmap_src"
                         class="w-full" height="236" frameborder="0"></iframe>

@@ -53,5 +53,40 @@ fields:
   config: {}
   template: seo
   label: SEO
+- name: titles
+  type: field_group
+  config: {}
+  fields:
+  - name: events_archive
+    type: text
+    config:
+      required: false
+    label: Event Archive
+  - name: events_upcoming
+    type: text
+    config:
+      required: false
+    label: Upcoming Events
+  - name: news_latest
+    type: text
+    config:
+      required: false
+    label: Latest News
+  - name: news_archive
+    type: text
+    config:
+      required: false
+    label: News Archive
+  label: Title Texts
+- name: load_more
+  type: text
+  config:
+    required: false
+  label: Load More Text
+- name: follow_me
+  type: text
+  config:
+    required: false
+  label: Follow Me Text
 pages:
 - src/views/updates.md
