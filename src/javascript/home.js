@@ -55,7 +55,7 @@ window.addEventListener("load", (event) => {
 
     gl1.on('run', (e) => {
         gl2.go(e.direction);
-    })
+    });
 
     window.addEventListener("resize", (e) => {
         if (window.matchMedia('(min-width: 768px)').matches) {

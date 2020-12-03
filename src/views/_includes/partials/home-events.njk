@@ -1,4 +1,4 @@
-<div class="grid grid-cols-12 place-content-center w-100 md:my-24">
+<div class="grid grid-cols-12 place-content-center w-100 md:my-24" x-data="{open: false, name: '', date: '', time: '', content: '', gmap_src: '', location: ''}">
     <div class="text-brand col-span-12 md:col-span-6 lg:col-span-5 bg-white border-b border-t border-gray-light md:my-12 py-4 md:py-16 px-4 md:px-16">
         <h3 class="text-center text-xl lg:text-2xl font-bold">{{ event.title }}</h3>
         <span class="block text-highlight text-2xl text-center mb-4">...</span>
@@ -10,7 +10,7 @@
                     <div class="glide__bullets z-50 divide-x-2 divide-brand" data-glide-el="controls[nav]">
                         {%- for entry in events.events -%}
                             {%- if entry.featured -%}
-                                <button aria-label="Jump to event {{entry.label}}" data-glide-dir="={{ loop.index0 }}" class="glide__bullet hover:text-highlight z-50 relative text-xs lg:text-sm px-2">
+                                <button @click="open = false" aria-label="Jump to event {{entry.label}}" data-glide-dir="={{ loop.index0 }}" class="glide__bullet hover:text-highlight z-50 relative text-xs lg:text-sm px-2">
                                     {{ entry.date | date('MMM D') }}
                                 </button>
                             {%- endif -%}
@@ -18,10 +18,10 @@
                     </div>
 
                     <div data-glide-el="controls" class="glide__arrows absolute w-full h-full flex top-0 justify-between items-center text-brand px-4 lg:px-8">
-                        <button aria-label="Previous event" class="glide__arrow glide__arrow--left hover:text-highlight" data-glide-dir="<">
+                        <button @click="open = false" aria-label="Previous event" class="glide__arrow glide__arrow--left hover:text-highlight" data-glide-dir="<">
                             <i class="fas fa-chevron-left"></i>
                         </button>
-                        <button aria-label="Next event" class="glide__arrow glide__arrow--right hover:text-highlight" data-glide-dir=">">
+                        <button @click="open = false" aria-label="Next event" class="glide__arrow glide__arrow--right hover:text-highlight" data-glide-dir=">">
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>   
@@ -38,9 +38,16 @@
                                 <p class="text-center my-8 text-sm lg:text-base">
                                     <span class="font-semibold">{{ entry.date | date('MMM Do') }}</span> &nbsp; {{ entry.time }}
                                 </p>
-                                <a href="/updates?open={{ entry.id }}" class="py-2 px-12 border text-xs lg:text-sm font-medium rounded-md text-brand hover:text-white border-brand hover:bg-brand">
+                                <button aria-label="Show Details" class="py-2 px-12 border text-xs lg:text-sm font-medium rounded-md text-brand hover:text-white border-brand hover:bg-brand"
+                                        @click='open = true; 
+                                                date = "{{ entry.date }}"; 
+                                                time = "{{ entry.time }}"; 
+                                                name = "{{ entry.name }}"; 
+                                                location = "{{ entry.location }}";
+                                                gmap_src = "https://maps.google.com/maps?amp;height=150&amp;hl=en&amp;q={{ entry.gmaps }}&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed&amp;key={{ global.gmaps.key }}";
+                                                content = "{{ entry.content.body | safe | replace('"', '\\"')}}";'>
                                     {{ event.label | upper }}
-                                </a>
+                                </button>
                             </li>
                         {%- endif -%}
                     {%- endfor -%}
@@ -49,7 +56,31 @@
         </div>
     </div>
 
-    <div class="col-span-12 md:col-span-6 lg:col-span-7 md:shadow-md hidden md:flex">
+    <div class="relative col-span-12 md:col-span-6 lg:col-span-7 md:shadow-md hidden md:flex">
         {% img event.image.url, event.image.alt, "(min-width: 1024px) 58.33vw, (min-width: 768px) 50vw, 100vw", "h-full w-full object-cover" %}
+
+        <div class="content full p-8 absolute top-0 w-full h-full">
+            <div class="p-8 w-full h-full bg-white bg-opacity-70 flex flex-col space-y-8 justify-between" x-show="open">
+                <button aria-label="Show Details"  class="text-brand hover:text-higlight text-right" @click="open = false">
+                    <i class="fas fa-times "></i>
+                </button>
+
+                <h1 class="text-lg font-bold text-brand" x-text="name"></h1>
+
+                <p class="text-brand">
+                    <i class="mr-1 fas fa-sn fa-calendar-alt"></i>
+                <span x-text="date"></span> : <span x-text="time"></span>
+                </p>
+                <p class="text-brand">
+                    <i class="mr-1 fas fa-sm fa-map-marked-alt"></i>&nbsp;
+                    <span x-text="location"></span>
+                </p>
+
+                <p class="text-brand" x-html="content"></p>
+
+                <iframe scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" :src="gmap_src"
+                        class="w-full" height="236" frameborder="0"></iframe>
+            </div>
+        </div>
     </div>
 </div>

@@ -27,3 +27,11 @@
         </button>
     </div>
 {% endblock %}
+
+{% block image %}
+<div class="relative order-first md:order-last">
+    
+    {% img item.image.url, item.image.alt, "(min-width: 768px) 25vw, 100vw", "h-full w-full object-cover" %}
+
+</div>
+{% endblock %}
