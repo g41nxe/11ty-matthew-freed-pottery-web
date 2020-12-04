@@ -14,6 +14,7 @@
 
             <ul class="glide__slides z-30">
                 {%- for entry in showcase.features -%}
+                    {% if entry.hide !== true %}
                     <li class="glide__slide">
                         
                         <div class="relative">
@@ -45,6 +46,7 @@
 
                         <h4 class="text-center mt-4 text-base md:text-sm lg:text-xs">{{ entry.title }}</h4>
                     </li>
+                    {% endif %}
                 {%- endfor -%}
             </ul>
 

@@ -67,7 +67,7 @@
     },
     {
       "image": {
-        "url": "/images/carousel-joffre.jpg",
+        "url": "/images/carousel-joffre2.jpg",
         "alt": "Joffre Collection: Plate and Vase by Matthew Freed"
       },
       "title": "Joffre Collection",
@@ -201,6 +201,7 @@
     },
     {
       "title": "Galliano - Belly Mug",
+      "hide": true,
       "overlay": {
         "text": "This large belly mug from the <span class=\"text-highlight font-bold\">Galliano Collection</span> is one of my favourites!"
       },
@@ -239,6 +240,34 @@
       "image": {
         "url": "/images/features/feature-chopstick-bowl-yaletown-green.jpg",
         "alt": "Yaletown Chopstick Bowl with green rim by Matthew Freed"
+      } 
+    }, 
+    {
+      "title": "Pemberton Earth - Large Square Platter",
+      "overlay": {
+        "text": "This large square  platter from the <span class=\"text-highlight font-bold \">Pemberton Earth Collection</span> is one of my favourites!"
+      },
+      "cta": {
+        "label": "Shop Now",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/platters/products/large-square-platter-in-capilano-charcoal"
+      },
+      "image": {
+        "url": "/images/features/feature-large-square-platter-pemberton-earth.jpg",
+        "alt": "Pemberton Earth Large Square Platter by Matthew Freed"
+      } 
+    },
+    {
+      "title": "Strathcona - Wide Rim Platter",
+      "overlay": {
+        "text": "This wide rim  platter from the <span class=\"text-highlight font-bold \">Strahtcona Collection</span> is one of my favourites!"
+      },
+      "cta": {
+        "label": "Shop Now",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/platters/products/wide-rim-platter-strathcona"
+      },
+      "image": {
+        "url": "/images/features/feature-wide-rim-platter-strathcona.jpg",
+        "alt": "Strathcona Wide Rim Platter by Matthew Freed"
       } 
     }
   ]
