@@ -54,6 +54,10 @@ fields:
 - name: features
   type: field_group_list
   fields:
+  - name: hide
+    type: boolean
+    label: Hide Item
+    description: Will hide the item from the slider so you dont need to delete it.
   - name: title
     type: text
     config:
