@@ -56,8 +56,8 @@
       "gmaps": "Riley park farmers market winter",
       "featured": true,
       "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a><br><br><span class=\"\">Unfortunately I will not be attending the Riley Park Winter Farmers Market due to new government restrictions.</span>",
-        "title": "Cancelled"
+        "body": "<strong> -- Cancelled --<br></strong><br>Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a><br><br><span class=\"\">Unfortunately I will not be attending the Riley Park Winter Farmers Market due to new government restrictions.</span>",
+        "title": ""
       },
       "image": {
         "url": "",
