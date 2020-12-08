@@ -22,8 +22,8 @@ gallery:
   title: Explore my different glazing lines and pottery forms
   texts:
   - Each piece is a complexity of nature, science, and art.
-  - Browse through my different collections and choose between a large variaty of
-    different glazes and forms. If you can't find anything you like send me a message
+  - Browse through my different collections and choose between a large variety of
+    different glazes and forms. If you can't find anything you like, send me a message
     and we can talk about custom pieces.
 features:
   title: Featured Items
