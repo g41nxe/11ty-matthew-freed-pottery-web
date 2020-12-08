@@ -2,8 +2,7 @@
 layout: about-layout
 title: Process
 tags: about
-permalink: /about/process.html
-
+permalink: "/about/process.html"
 headline: The Process
 intro: Pottery is complicated. It is an art that requires creativity and a strong
   sense of design. It is also a science that requires a thorough understanding of
@@ -48,12 +47,20 @@ sections:
     clay comes into contact with heat, it cannot be termed pottery. Bisque firing
     strengthens the pot considerably and allows the potter to handle the pot more
     readily without fear of breakage.
-  - Bisque firings are best done slowly ( the heat gradually rises to approximately
-    900-100 degrees Celsius ) so that the remaining water turns to steam and escapes
-    slowly so as not to force off sections from the wall of the pottery. When a piece
-    is bisqued, it is then ready to be glazed.
-  - I mix all my glazes from scratched and have worked hard to developed my own unique
+  - Bisque firings are best done slowly so that the remaining water turns to steam
+    and escapes slowly so as not to force off sections from the wall of the pottery.
+    When a piece is bisqued, it is then ready to be glazed.
+  - I mix all my glazes from scratch and have worked hard to developed my own unique
     palette of colours and textures. Once the glaze is applied, the piece goes back
     into the kiln for its final firing.
   label: Section 3
+eleventyNavigation:
+  key: ''
+  order: 
+custom_seo_settings: false
+author: ''
+excerpt: ''
+image: ''
+ogtype: ''
+
 ---
