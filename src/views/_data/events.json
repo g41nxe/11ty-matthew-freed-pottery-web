@@ -99,6 +99,18 @@
   ],
   "news": [
     {
+      "date": "12-08-2020",
+      "name": "New Website Launched!",
+      "content": {
+        "title": "New Website Launched!",
+        "body": "I am so thrilled to launch a new swish website this week!  I hope you all enjoy the new slick design and that you find it easy to navigate.  Any feedback is greatly appreciated.  I'm also excited to be able to post updates directly on my site so you can keep up to date with what I am up to.  Thanks to Dan for his brilliant work on this!"
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      }
+    },
+    {
       "date": "12-05-2020",
       "name": "Market Update",
       "content": {
