@@ -12,112 +12,8 @@
       "gmaps": "Nelson Park Vancouver",
       "featured": false,
       "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/west-end/\">eatlocal.org</a>"
-      }
-    },
-    {
-      "date": "10-17-2020",
-      "time": "9am - 2pm",
-      "name": "West End Farmer's Market",
-      "location": "Nelson Park",
-      "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
-      },
-      "gmaps": "Nelson Park Vancouver",
-      "featured": false,
-      "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/west-end/\">eatlocal.org</a>"
-      }
-    },
-    {
-      "date": "10-17-2020",
-      "time": "9am - 2pm",
-      "name": "West End Farmer's Market",
-      "location": "Nelson Park",
-      "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
-      },
-      "gmaps": "Nelson Park Vancouver",
-      "featured": false,
-      "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/west-end/\">eatlocal.org</a>"
-      }
-    },
-    {
-      "date": "10-17-2020",
-      "time": "9am - 2pm",
-      "name": "West End Farmer's Market",
-      "location": "Nelson Park",
-      "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
-      },
-      "gmaps": "Nelson Park Vancouver",
-      "featured": false,
-      "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/west-end/\">eatlocal.org</a>"
-      }
-    },
-    {
-      "date": "10-17-2020",
-      "time": "9am - 2pm",
-      "name": "West End Farmer's Market",
-      "location": "Nelson Park",
-      "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
-      },
-      "gmaps": "Nelson Park Vancouver",
-      "featured": false,
-      "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/west-end/\">eatlocal.org</a>"
-      }
-    },
-    {
-      "date": "10-17-2020",
-      "time": "9am - 2pm",
-      "name": "West End Farmer's Market",
-      "location": "Nelson Park",
-      "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
-      },
-      "gmaps": "Nelson Park Vancouver",
-      "featured": false,
-      "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/west-end/\">eatlocal.org</a>"
-      }
-    },
-    {
-      "date": "10-17-2020",
-      "time": "9am - 2pm",
-      "name": "West End Farmer's Market",
-      "location": "Nelson Park",
-      "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
-      },
-      "gmaps": "Nelson Park Vancouver",
-      "featured": false,
-      "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/west-end/\">eatlocal.org</a>"
-      }
-    },
-    {
-      "date": "10-17-2020",
-      "time": "9am - 2pm",
-      "name": "West End Farmer's Market",
-      "location": "Nelson Park",
-      "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
-      },
-      "gmaps": "Nelson Park Vancouver",
-      "featured": false,
-      "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/west-end/\">eatlocal.org</a>"
+        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/west-end/\">eatlocal.org</a>",
+        "title": ""
       }
     },
     {
@@ -132,7 +28,8 @@
       "gmaps": "Trout Lake Vancouver",
       "featured": false,
       "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/trout-lake/\">eatlocal.org</a>"
+        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/trout-lake/\">eatlocal.org</a>",
+        "title": ""
       }
     },
     {
@@ -143,7 +40,12 @@
       "gmaps": "Yaletown Collection by Matthew Freed at display",
       "featured": false,
       "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>"
+        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>",
+        "title": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
       }
     },
     {
@@ -154,7 +56,12 @@
       "gmaps": "Riley park farmers market winter",
       "featured": false,
       "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>"
+        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>",
+        "title": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
       }
     },
     {
@@ -165,52 +72,12 @@
       "gmaps": "Riley park farmers market winter",
       "featured": false,
       "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>"
-      }
-    },
-    {
-      "date": "12-21-2020",
-      "time": "10am - 2pm",
-      "name": "Riley Park Winter Farmer's Market 3",
-      "location": "Riley Park in Vancouver, B.C.",
-      "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
+        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>",
+        "title": ""
       },
-      "gmaps": "Riley park farmers market winter",
-      "featured": true,
-      "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>"
-      }
-    },
-    {
-      "date": "12-9-2020",
-      "time": "10am - 2pm",
-      "name": "Riley Park Winter Farmer's Market 2",
-      "location": "Riley Park in Vancouver, B.C.",
       "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
-      },
-      "gmaps": "Riley park farmers market winter",
-      "featured": true,
-      "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>"
-      }
-    },
-    {
-      "date": "12-30-2020",
-      "time": "10am - 2pm",
-      "name": "Riley Park Winter Farmer's Market 1",
-      "location": "Riley Park in Vancouver, B.C.",
-      "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
-      },
-      "gmaps": "Riley park farmers market winter",
-      "featured": true,
-      "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>"
+        "url": "",
+        "alt": ""
       }
     },
     {
@@ -225,7 +92,8 @@
       "gmaps": "Riley park farmers market winter",
       "featured": true,
       "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>"
+        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>",
+        "title": ""
       }
     }
   ],
@@ -243,111 +111,15 @@
       }
     },
     {
-      "date": "11-20-2020",
-      "name": "Workshop Udpate",
-      "content": {
-        "title": "More mugs comming!",
-        "body": "So many blank canvases in the works. It's great to see such a surge in web store activity the last few weeks and to see a whack of locals taking advantage of the delivery option. I'll be updating new products weekly as they are created so keep checking in."
-      },
-      "image": {
-        "url": "/images/mugs.jpg",
-        "alt": "100 blank mugs"
-      }
-    },
-    {
-      "date": "11-20-2020",
-      "name": "Workshop Udpate",
-      "content": {
-        "title": "More mugs comming!",
-        "body": "So many blank canvases in the works. It's great to see such a surge in web store activity the last few weeks and to see a whack of locals taking advantage of the delivery option. I'll be updating new products weekly as they are created so keep checking in."
-      },
-      "image": {
-        "url": "/images/mugs.jpg",
-        "alt": "100 blank mugs"
-      }
-    },
-    {
-      "date": "11-20-2020",
-      "name": "Workshop Udpate",
-      "content": {
-        "title": "More mugs comming!",
-        "body": "So many blank canvases in the works. It's great to see such a surge in web store activity the last few weeks and to see a whack of locals taking advantage of the delivery option. I'll be updating new products weekly as they are created so keep checking in."
-      },
-      "image": {
-        "url": "/images/mugs.jpg",
-        "alt": "100 blank mugs"
-      }
-    },
-    {
-      "date": "11-20-2020",
-      "name": "Workshop Udpate",
-      "content": {
-        "title": "More mugs comming!",
-        "body": "So many blank canvases in the works. It's great to see such a surge in web store activity the last few weeks and to see a whack of locals taking advantage of the delivery option. I'll be updating new products weekly as they are created so keep checking in."
-      },
-      "image": {
-        "url": "/images/mugs.jpg",
-        "alt": "100 blank mugs"
-      }
-    },
-    {
       "date": "11-12-2020",
       "name": "Eastside Culture Crawl 2020",
       "content": {
-        "title":"I'm happy!",
+        "title": "I'm happy!",
         "body": "The Eastside Culture Crawl is on (this weekend and next).\nNice to see so many familiar faces so far!\nIt's a year of quality versus quantity and I'm really pleased so far.\n\nAppointments must be pre-booked: <a href=\"www.culturecrawl.as.me/jacksonfive\" title=\"click here\" target=\"_blank\">click here</a>"
       },
       "image": {
         "url": "/images/culture-crawl-2020.jpg",
         "alt": "Culture Crawl 2020"
-      }
-    },
-    {
-      "date": "11-28-2020",
-      "name": "Circle Craft @ Granville Island",
-      "content": {
-        "title": "Support small businesses!",
-        "body": "Here's a sampling of my new work recently taken to the Circle Craft shop at Granville Island. Lots of small businesses on Granville Island could use your love this holiday season - if you are able to support them then please do so."
-      },
-      "image": {
-        "url": "/images/yaletown-display2.jpg",
-        "alt": "Yaletown collection by Matthew Freed"
-      }
-    },
-    {
-      "date": "11-28-2020",
-      "name": "Circle Craft @ Granville Island",
-      "content": {
-        "title": "Support small businesses!",
-        "body": "Here's a sampling of my new work recently taken to the Circle Craft shop at Granville Island. Lots of small businesses on Granville Island could use your love this holiday season - if you are able to support them then please do so."
-      },
-      "image": {
-        "url": "/images/yaletown-display2.jpg",
-        "alt": "Yaletown collection by Matthew Freed"
-      }
-    },
-    {
-      "date": "11-28-2020",
-      "name": "Circle Craft @ Granville Island",
-      "content": {
-        "title": "Support small businesses!",
-        "body": "Here's a sampling of my new work recently taken to the Circle Craft shop at Granville Island. Lots of small businesses on Granville Island could use your love this holiday season - if you are able to support them then please do so."
-      },
-      "image": {
-        "url": "/images/yaletown-display2.jpg",
-        "alt": "Yaletown collection by Matthew Freed"
-      }
-    },
-    {
-      "date": "11-28-2020",
-      "name": "Circle Craft @ Granville Island",
-      "content": {
-        "title": "Support small businesses!",
-        "body": "Here's a sampling of my new work recently taken to the Circle Craft shop at Granville Island. Lots of small businesses on Granville Island could use your love this holiday season - if you are able to support them then please do so."
-      },
-      "image": {
-        "url": "/images/yaletown-display2.jpg",
-        "alt": "Yaletown collection by Matthew Freed"
       }
     },
     {
