@@ -2,8 +2,7 @@
 layout: about-layout
 title: About
 tags: about
-permalink: /about/index.html
-
+permalink: "/about/index.html"
 eleventyNavigation:
   key: About
   order: 2
@@ -20,7 +19,7 @@ sections:
   - We toyed with the idea, but neither of us was into the long distance relationship
     thing at the time. We were young and not terribly interested in long-term commitments.
   - I moved to Vancouver in 1998 and have since made it my home. It is here that I
-    have gotten reacquainted, with pottery. We were casually seeing each other for
+    have gotten reacquainted with pottery. We were casually seeing each other for
     a few years while I continued to work as a marketer.
   - I kept pottery as a hobby but soon came to a realization that it was a passion
     that I wanted as a central fixture in my life. It was time to make a lifetime
@@ -42,5 +41,10 @@ sections:
     slowly working our way to being old and gray and sitting on the front porch swing
     where we can reminisce about our long lifetime journey together.
   label: Section 2
+custom_seo_settings: false
+author: ''
+excerpt: ''
+image: ''
+ogtype: ''
 
 ---
