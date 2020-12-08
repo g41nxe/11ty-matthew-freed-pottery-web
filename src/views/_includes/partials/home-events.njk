@@ -56,32 +56,32 @@
         </div>
     </div>
 
-    <div class="relative col-span-12 md:col-span-6 lg:col-span-7 md:shadow-md hidden md:flex">
+    <div class="relative col-span-12 md:col-span-6 lg:col-span-7 md:shadow-md flex md:order-last order-first">
         {% img event.image.url, event.image.alt, "(min-width: 1024px) 58.33vw, (min-width: 768px) 50vw, 100vw", "h-full w-full object-cover" %}
 
-        <div class="content full p-8 absolute top-0 w-full h-full">
-            <div class="p-8 w-full h-full bg-white bg-opacity-70 flex flex-col space-y-8 justify-between" x-show="open">
+        <div class="content full md:p-8 absolute top-0 w-full h-full">
+            <div class="p-4 md:p-8 w-full h-full bg-white bg-opacity-70 flex flex-col space-y-2 md:space-y-8 justify-between" x-show="open">
                 <button aria-label="Show Details"  class="text-brand hover:text-higlight text-right" @click="open = false">
                     <i class="fas fa-times "></i>
                 </button>
                 
                 <div class="flex flex-col justify-center space-y-2">
-                    <h1 class="text-lg font-bold text-brand mb-4" x-text="name"></h1>
+                    <h1 class="text-base md:text-lg font-bold text-brand md:mb-4" x-text="name"></h1>
 
-                    <p class="text-brand">
+                    <p class="text-xs md:text-base text-brand">
                         <i class="mr-1 fas fa-sn fa-calendar-alt"></i>
                     <span x-text="date"></span> : <span x-text="time"></span>
                     </p>
-                    <p class="text-brand">
+                    <p class="text-xs md:text-base text-brand">
                         <i class="mr-1 fas fa-sm fa-map-marked-alt"></i>&nbsp;
                         <span x-text="location"></span>
                     </p>
 
-                    <p class="text-brand" x-html="content"></p>
+                    <p class="text-xs md:text-base text-brand" x-html="content"></p>
                 </div>
 
                 <iframe scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" :src="gmap_src"
-                        class="w-full" height="236" frameborder="0"></iframe>
+                        class="w-full h-1/4 md:h-1/3" frameborder="0"></iframe>
             </div>
         </div>
     </div>
