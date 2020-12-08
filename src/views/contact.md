@@ -16,7 +16,7 @@ headline: Don't be a stranger
 subheadline: Just say hello.
 intro:
 - Feel free to get in touch with me.
-- I am always open for individual requests.
+- I am always open to individual requests.
 message: Want to leave a message?
 phone: Want to talk?
 address: Come visit, but please make an appointment in advance!
