@@ -7,10 +7,10 @@
             <div class="text-center mb-8 relative">
                 <div class="relative">
           
-                    <div class="glide__bullets z-50 divide-x-2 divide-brand" data-glide-el="controls[nav]">
+                    <div class="glide__bullets z-40 divide-x-2 divide-brand" data-glide-el="controls[nav]">
                         {%- for entry in events.events -%}
                             {%- if entry.featured -%}
-                                <button @click="open = false" aria-label="Jump to event {{entry.label}}" data-glide-dir="={{ loop.index0 }}" class="glide__bullet hover:text-highlight z-50 relative text-xs lg:text-sm px-2">
+                                <button @click="open = false" aria-label="Jump to event {{entry.label}}" data-glide-dir="={{ loop.index0 }}" class="glide__bullet hover:text-highlight z-40 relative text-xs lg:text-sm px-2">
                                     {{ entry.date | date('MMM D') }}
                                 </button>
                             {%- endif -%}
