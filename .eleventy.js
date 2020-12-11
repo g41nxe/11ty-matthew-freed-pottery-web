@@ -10,6 +10,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "src/admin" : "admin"});
     eleventyConfig.addPassthroughCopy({ "src/assets" : "assets"});
     eleventyConfig.addPassthroughCopy({ "src/javascript" : "js"});
+    eleventyConfig.addPassthroughCopy({ "src/_redirects" : "_redirects"});
 
 
     eleventyConfig.addPlugin(pluginSEO, require("./src/views/_data/seo.json"));
