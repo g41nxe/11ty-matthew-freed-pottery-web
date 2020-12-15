@@ -183,7 +183,8 @@
       "image": {
         "url": "/images/features/feature-belly-mug-jericho.jpg",
         "alt": "Jericho Belly Mug by Matthew Freed"
-      }
+      },
+      "hide": false
     },
     {
       "title": "Yaletown - Belly Mug (green)",
@@ -197,7 +198,8 @@
       "image": {
         "url": "/images/features/feature-belly-mug-yaletown-green.jpg",
         "alt": "Yaletown Belly Mug with green rim by Matthew Freed"
-      }
+      },
+      "hide": false
     },
     {
       "title": "Galliano - Belly Mug",
@@ -226,7 +228,8 @@
       "image": {
         "url": "/images/features/feature-chopstick-bowl-joffre.jpg",
         "alt": "Joffre Chopstick Bowl by Matthew Freed"
-      }
+      },
+      "hide": false
     },
     {
       "title": "Yaletown - Chopstick Bowl (green)",
@@ -240,8 +243,9 @@
       "image": {
         "url": "/images/features/feature-chopstick-bowl-yaletown-green.jpg",
         "alt": "Yaletown Chopstick Bowl with green rim by Matthew Freed"
-      } 
-    }, 
+      },
+      "hide": false
+    },
     {
       "title": "Pemberton Earth - Large Square Platter",
       "overlay": {
@@ -254,7 +258,8 @@
       "image": {
         "url": "/images/features/feature-large-square-platter-pemberton-earth.jpg",
         "alt": "Pemberton Earth Large Square Platter by Matthew Freed"
-      } 
+      },
+      "hide": false
     },
     {
       "title": "Strathcona - Wide Rim Platter",
@@ -268,7 +273,8 @@
       "image": {
         "url": "/images/features/feature-wide-rim-platter-strathcona.jpg",
         "alt": "Strathcona Wide Rim Platter by Matthew Freed"
-      } 
+      },
+      "hide": true
     }
   ]
 }
