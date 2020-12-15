@@ -47,22 +47,6 @@
         "url": "",
         "alt": ""
       }
-    },
-    {
-      "date": "12-19-2020",
-      "time": "10am - 2pm",
-      "name": "Riley Park Winter Farmer's Market",
-      "location": "Riley Park in Vancouver, B.C.",
-      "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
-      },
-      "gmaps": "Riley park farmers market winter",
-      "featured": true,
-      "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/riley-park/\">eatlocal.org</a>",
-        "title": ""
-      }
     }
   ],
   "news": [
