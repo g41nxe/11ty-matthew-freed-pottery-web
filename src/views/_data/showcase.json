@@ -203,7 +203,7 @@
     },
     {
       "title": "Yaletown Red - Belly Mug",
-      "hide": true,
+      "hide": false,
       "overlay": {
         "text": "This large belly mug from the <span class=\"text-highlight font-bold\">Yaletown Collection</span> is one of my favourites!"
       },
