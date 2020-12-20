@@ -77,31 +77,31 @@ fields:
     type: field_group
     config: {}
     fields:
+    - name: url
+      type: text
+      config:
+        required: false
+      label: URL
     - name: label
       type: text
       config:
         required: false
       label: Label
-    - name: url
-      type: text
-      config:
-        required: false
-      label: URL
     label: Call To Action
   - name: image
     type: field_group
     config: {}
     fields:
-    - name: url
-      type: text
-      config:
-        required: false
-      label: URL
     - name: alt
       type: text
       config:
         required: false
       label: Alt Text
+    - name: url
+      type: file
+      config:
+        maxSize: 64
+      label: URL
     label: Image
   config:
     min: 
