@@ -12,6 +12,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "src/javascript" : "js"});
     eleventyConfig.addPassthroughCopy({ "src/_redirects" : "_redirects"});
 
+    eleventyConfig.addPassthroughCopy({ "src/assets/favicon.ico" : "favicon.ico"});
+    eleventyConfig.addPassthroughCopy({ "src/assets/apple-icon-180x180.png" : "apple-touch-icon.png"});
 
     eleventyConfig.addPlugin(pluginSEO, require("./src/views/_data/seo.json"));
     eleventyConfig.addPlugin(pluginPWA);
