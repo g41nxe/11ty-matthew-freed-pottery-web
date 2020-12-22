@@ -5,7 +5,7 @@
 
         {% if (events.events | filterFeatured | length)  < 1 %}
 
-            <div>
+            <div class="no-events">
                 <p class="text-center my-8">
                     <i class="fas fa-store-slash fa-2x"></i>
                 </p>
@@ -20,19 +20,21 @@
 
             </div>
 
-        {% else %}
+        {% endif %}
 
-            <div class="glide--events">
-                <div class="text-center mb-8 relative">
-                    <div class="relative">
-            
-                        <div class="glide__bullets z-40 divide-x-2 divide-brand" data-glide-el="controls[nav]">
-                            {%- for entry in events.events | filterFeatured -%}
-                                <button @click="open = false" aria-label="Jump to event {{entry.label}}" data-glide-dir="={{ loop.index0 }}" class="glide__bullet hover:text-highlight z-40 relative text-xs lg:text-sm px-2">
-                                    {{ entry.date | date('MMM D') }}
-                                </button>
-                            {%- endfor -%}
-                        </div>
+        <div class="glide--events">
+            <div class="text-center mb-8 relative">
+                <div class="relative">
+        
+                    <div class="glide__bullets z-40 divide-x-2 divide-brand" data-glide-el="controls[nav]">
+                        {%- for entry in events.events | filterFeatured -%}
+                            <button @click="open = false" aria-label="Jump to event {{entry.label}}" data-glide-dir="={{ loop.index0 }}" class="glide__bullet hover:text-highlight z-40 relative text-xs lg:text-sm px-2">
+                                {{ entry.date | date('MMM D') }}
+                            </button>
+                        {%- endfor -%}
+                    </div>
+
+                    {% if (events.events | filterFeatured | length)  > 0 %}
 
                         <div data-glide-el="controls" class="glide__arrows absolute w-full h-full flex top-0 justify-between items-center text-brand px-4 lg:px-8">
                             <button @click="open = false" aria-label="Previous event" class="glide__arrow glide__arrow--left hover:text-highlight" data-glide-dir="<">
@@ -43,34 +45,35 @@
                             </button>
                         </div>   
 
-                    </div>
-                </div>
-                
-                <div data-glide-el="track" class="glide__track">
-                    <ul class="glide__slides">
-                        {%- for entry in events.events | filterFeatured -%}
-                            <li class="glide__slide flex flex-col justify-content items-center py-4">
-                                <h4 class="text-center text-lg lg:text-xl font-bold">{{ entry.name }}</h4>
-                                <p class="text-center my-8 text-sm lg:text-base">
-                                    <span class="font-semibold">{{ entry.date | date('MMM Do') }}</span> &nbsp; {{ entry.time }}
-                                </p>
-                                <button aria-label="Show Details" class="py-2 px-12 border text-xs lg:text-sm font-medium rounded-md text-brand hover:text-white border-brand hover:bg-brand"
-                                        @click='open = true; 
-                                                date = "{{ entry.date }}"; 
-                                                time = "{{ entry.time }}"; 
-                                                name = "{{ entry.name }}"; 
-                                                location = "{{ entry.location }}";
-                                                gmap_src = "https://maps.google.com/maps?amp;height=150&amp;hl=en&amp;q={{ entry.gmaps }}&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed&amp;key={{ global.gmaps.key }}";
-                                                content = "{{ entry.content.body | safe | replace('"', '\\"')}}";'>
-                                    {{ event.label | upper }}
-                                </button>
-                            </li>
-                        {%- endfor -%}
-                    </ul>
+                    {% endif %}
+
                 </div>
             </div>
+            
+            <div data-glide-el="track" class="glide__track">
+                <ul class="glide__slides">
+                    {%- for entry in events.events | filterFeatured -%}
+                        <li class="glide__slide flex flex-col justify-content items-center py-4">
+                            <h4 class="text-center text-lg lg:text-xl font-bold">{{ entry.name }}</h4>
+                            <p class="text-center my-8 text-sm lg:text-base">
+                                <span class="font-semibold">{{ entry.date | date('MMM Do') }}</span> &nbsp; {{ entry.time }}
+                            </p>
+                            <button aria-label="Show Details" class="py-2 px-12 border text-xs lg:text-sm font-medium rounded-md text-brand hover:text-white border-brand hover:bg-brand"
+                                    @click='open = true; 
+                                            date = "{{ entry.date }}"; 
+                                            time = "{{ entry.time }}"; 
+                                            name = "{{ entry.name }}"; 
+                                            location = "{{ entry.location }}";
+                                            gmap_src = "https://maps.google.com/maps?amp;height=150&amp;hl=en&amp;q={{ entry.gmaps }}&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed&amp;key={{ global.gmaps.key }}";
+                                            content = "{{ entry.content.body | safe | replace('"', '\\"')}}";'>
+                                {{ event.label | upper }}
+                            </button>
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+        </div>
 
-        {% endif %}
     </div>
 
     <div class="relative col-span-12 md:col-span-6 lg:col-span-7 md:shadow-md flex md:order-last order-first">

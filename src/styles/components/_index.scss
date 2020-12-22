@@ -101,6 +101,12 @@ a, button {
     }
 }
 
+.no-events p {
+    a {
+        @apply font-semibold hover:text-highlight;
+    }
+}
+
 
 .general {
 
