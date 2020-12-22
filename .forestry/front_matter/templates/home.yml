@@ -72,6 +72,22 @@ fields:
   - type: text
     name: label
     label: Label
+  - name: no_events
+    type: field_group
+    config: {}
+    fields:
+    - name: title
+      type: text
+      config:
+        required: false
+      label: Title
+    - name: text
+      type: text
+      config:
+        required: false
+      label: Text
+    label: No Events
+    description: These texts are shown when there are no featured events
 - type: field_group
   name: gallery
   label: Gallery Section
