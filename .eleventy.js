@@ -73,6 +73,11 @@ module.exports = function (eleventyConfig) {
             return !date.isAfter(moment());
         })
     });
+    eleventyConfig.addNunjucksFilter("filterFeatured", function(array) {
+        return array.filter(el => {
+            return el.featured
+        })
+    })
     eleventyConfig.addNunjucksFilter("uuid", function() {
         return uuidv4();
     })

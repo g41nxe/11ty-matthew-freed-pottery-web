@@ -13,6 +13,9 @@ notification:
     label: Shop Now
     url: https://matthew-freed-pottery.myshopify.com/collections/all/
 event:
+  no_events: 
+    title: Currently, no events are scheduled.
+    text: Watch out for <a class="font-bold" href="/updates">updates</a>. I'll keep you posted!
   image:
     url: "/images/carousel-yaletown.jpg"
     alt: Yaletown Collection in the wild
