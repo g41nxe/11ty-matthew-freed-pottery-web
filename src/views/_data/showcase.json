@@ -28,14 +28,14 @@
     },
     {
       "image": {
-        "url": "/images/carousel-dogwood2.jpg",
+        "url": "/images/carousel-dogwood3.jpg",
         "alt": "Dogwood Collection: Large Bowls by Matthew Freed"
       },
       "title": "Dogwood Collection",
       "text": "A semi-matte charcoal glaze with a hand-painted dogwood pattern.",
       "cta": {
         "label": "Browse All Items",
-        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Galiano"
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Dogwood"
       },
       "style": "center"
     },
@@ -74,7 +74,7 @@
       "text": "A rich green/blue glaze with multi-toned variation.",
       "cta": {
         "label": "Browse All Items",
-        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Jericho"
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Joffre"
       },
       "style": "center"
     },
@@ -139,7 +139,7 @@
       "text": "A stormy, landscape effect in complimentary hues of cobalt, mocha, and amber.",
       "cta": {
         "label": "Browse All Items",
-        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/tofino"
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Tofino"
       },
       "style": "center"
     },
@@ -152,7 +152,7 @@
       "text": "A textured Tree of Life emblem on a semi-matte charcoal glaze.",
       "cta": {
         "label": "Browse All Items",
-        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/tree-of-life"
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Tree-of-Life"
       },
       "style": "center"
     },
@@ -165,7 +165,7 @@
       "text": "A semi-matte charcoal glaze with a textured gold decorative accent tile.",
       "cta": {
         "label": "Browse All Items",
-        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/zen"
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Zen"
       },
       "style": "center"
     }
