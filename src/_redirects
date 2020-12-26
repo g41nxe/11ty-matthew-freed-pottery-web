@@ -1,14 +1,18 @@
 
-/home/glazes        /                       301
-/home/forms         /                       301
+/home/glazes            /                       301
+/home/forms             /                       301
 
-/home/schedule      /contact                301
-/home/contact       /contact                301
+/home/schedule          /contact                301
+/home/contact           /contact                301
+/home/mail              /contact                301
 
-/home/bio           /about                  301
-/home/process       /about/process          301
-/home/complicated   /about/pottery          301
+/home/bio               /about                  301
+/home/process           /about/process          301
+/home/complicated       /about/pottery          301
 
-/home/privacy       /privacy-statement      301
+/home/privacy           /privacy-statement      301
 
-/shop               shop.matthewfreed.ca    301
+/shop                   shop.matthewfreed.ca    301
+
+/home/productdetail/*   /                       301
+/home/produtlist        /                       301
