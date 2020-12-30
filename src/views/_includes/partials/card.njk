@@ -25,7 +25,7 @@
         </div>
         {% endblock %}
 
-        <div :class="{'full' : open === true}" class="content grid {{ grid_cols | default('grid-cols md:grid-cols-2') }}">
+        <div :class="{'full' : open === true}" class="content grid {{ grid_cols | default('grid-cols md:grid-cols-2') }} mx-2 md:mx-0">
             
             {# Body Content #}
             {% block content %}

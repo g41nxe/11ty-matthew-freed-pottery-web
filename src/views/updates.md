@@ -17,6 +17,7 @@ titles:
   events_upcoming: Upcoming Events
   news_archive: News Archive
   news_latest: Latest Update
+no_events: Currently, no events are scheduled.
 load_more: Load More
 follow_me: Follow me & stay updated
 custom_seo_settings: false

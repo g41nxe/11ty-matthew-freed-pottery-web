@@ -40,6 +40,15 @@ layout: base
             {% set items = events.events | filterFuture | sortByDate %}
             {% include "card-sm-events-upcoming.njk" %}
 
+            {% if items | length < 1 %}
+                <div class="bg-gray-lighter border border-gray-light p-4 mb-8 shadow-sm mx-2 md:mx-0">
+                    <h2 class="text-center font-bold text-brand"> 
+                        <i class="mr-2 fas fa-store-slash"></i>
+                        {{ no_events }} 
+                    </h2>
+                </div>
+            {% endif %}
+
 
             <h2 class="text-center md:text-left text-xl font-bold text-brand mt-8 my-4 md:mt-0">
                 {{ titles.events_archive }}
