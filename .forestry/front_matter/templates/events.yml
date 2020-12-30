@@ -78,6 +78,12 @@ fields:
       required: false
     label: News Archive
   label: Title Texts
+- name: no_events
+  type: text
+  config:
+    required: false
+  label: No Events Text
+  description: This text will show up when no featured events exist
 - name: load_more
   type: text
   config:
