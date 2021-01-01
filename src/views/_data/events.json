@@ -51,6 +51,18 @@
   ],
   "news": [
     {
+      "date": "01-01-2021",
+      "name": "A very Happy New Year to all!",
+      "content": {
+        "title": "All the very best in 2021",
+        "body": "Cheers to looking forward to a better year ahead!  Wishing everyone a happy, healthy and festive year ahead."
+      },
+      "image": {
+        "url": "/images/treeteaset.jpg",
+        "alt": ""
+      }
+    },
+    {
       "date": "12-24-2020",
       "name": "Happy Holidays!",
       "content": {
