@@ -2,7 +2,7 @@
 layout: faq-layout
 title: FAQ
 tags: footer
-permalink: "/about/faq.html"
+permalink: "/faq.html"
 headline: Do you have a question?
 intro: Eveything you need to know
 load_more: Load More
