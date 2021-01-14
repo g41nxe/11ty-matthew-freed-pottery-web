@@ -56,5 +56,6 @@ fields:
       name: url
       label: URL
 pages:
+- src/views/faq.md
 - src/views/privacy-statement.md
 - src/views/retail-stores.md

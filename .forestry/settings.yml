@@ -28,6 +28,9 @@ sections:
   path: src/views/retail-stores.md
   label: Retail Stores
 - type: document
+  path: src/views/faq.md
+  label: FAQ
+- type: document
   path: src/views/privacy-statement.md
   label: Privacy Statement
 - type: heading
@@ -41,6 +44,9 @@ sections:
 - type: document
   path: src/views/_data/events.json
   label: Events & News
+- type: document
+  path: src/views/_data/faq.json
+  label: FAQs
 - type: document
   path: src/views/_data/seo.json
   label: SEO
