@@ -1,0 +1,29 @@
+{% extends "card.njk" %}
+
+
+{% set open = 'first' %}
+{% set count = 8 %}
+{% set grid_cols = "" %}
+
+{% block content %}
+    <div class="bg-white p-6 border border-gray-light">
+        <p class="text-xs">{{ item.body | nl2br | safe }}</p>
+    </div>
+{% endblock %}
+
+{% block title %}
+    <div class="grid grid-cols-8 my-2 py-2 px-2 border-b-2 border-brand w-full">
+
+        <button @click="open = !open" class="col-span-7 font-bold text-left text-md hover:text-highlight">
+            {{ item.title }}
+        </button>
+        
+        <button @click="open = !open" aria-label="Show details" class="flex-none hover:text-highlight text-right">
+            <i class="fas fa-plus fa-xs"  x-show="open === false"></i>
+            <i class="fas fa-minus fa-xs" x-show="open === true"></i>
+        </button>
+    </div>
+{% endblock %}
+
+{% block image %}
+{% endblock %}
