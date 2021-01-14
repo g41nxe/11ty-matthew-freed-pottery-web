@@ -30,7 +30,6 @@ sections:
 - type: document
   path: src/views/faq.md
   label: FAQ
-  match: "**/*"
 - type: document
   path: src/views/privacy-statement.md
   label: Privacy Statement
