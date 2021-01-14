@@ -2,7 +2,7 @@
 layout: faq-layout
 title: FAQ
 tags: footer
-permalink: /about/faq.html
+permalink: "/about/faq.html"
 headline: Do you have a question?
 sub_headline: Eveything you need to know
 load_more: Load More
@@ -12,5 +12,9 @@ notification:
   cta:
     label: Shop Now
     url: https://matthew-freed-pottery.myshopify.com/collections/all/
+intro: ''
+image:
+  url: ''
+  alt: ''
 
 ---

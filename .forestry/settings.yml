@@ -47,7 +47,6 @@ sections:
 - type: document
   path: src/views/_data/faq.json
   label: FAQs
-  match: "**/*"
 - type: document
   path: src/views/_data/seo.json
   label: SEO
