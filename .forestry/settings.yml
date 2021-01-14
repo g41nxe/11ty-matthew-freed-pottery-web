@@ -24,6 +24,8 @@ sections:
 - type: document
   path: src/views/process.md
   label: About // Process
+- type: heading
+  label: Footer
 - type: document
   path: src/views/retail-stores.md
   label: Retail Stores
