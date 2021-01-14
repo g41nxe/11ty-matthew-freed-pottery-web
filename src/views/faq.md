@@ -12,7 +12,6 @@ notification:
   cta:
     label: Shop Now
     url: https://matthew-freed-pottery.myshopify.com/collections/all/
-intro: ''
 image:
   url: ''
   alt: ''
