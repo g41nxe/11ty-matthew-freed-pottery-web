@@ -4,7 +4,7 @@ title: FAQ
 tags: footer
 permalink: /about/faq.html
 headline: Do you have a question?
-sub_headline: Eveything you need to know
+intro: Eveything you need to know
 load_more: Load More
 notification:
   title: Online Shopping is now available
