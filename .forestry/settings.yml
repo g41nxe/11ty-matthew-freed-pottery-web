@@ -45,6 +45,10 @@ sections:
   path: src/views/_data/events.json
   label: Events & News
 - type: document
+  path: src/views/_data/faq.json
+  label: FAQs
+  match: "**/*"
+- type: document
   path: src/views/_data/seo.json
   label: SEO
 upload_dir: src/images
