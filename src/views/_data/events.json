@@ -51,6 +51,18 @@
   ],
   "news": [
     {
+      "date": "02-06-2021",
+      "name": "Time to Play!",
+      "content": {
+        "title": "Having fun in 2021",
+        "body": "The early months of the year are always full of a spark of creativity - less pressure means more time to play and try new things.  I'm working on some new projects that I can't wait to share with you very soon!"
+      },
+      "image": {
+        "url": "/images/overheadwork.jpg",
+        "alt": "Matthew Freed Pottery Studio work large bowl"
+      }
+    },
+    {
       "date": "01-01-2021",
       "name": "A very Happy New Year to all!",
       "content": {
