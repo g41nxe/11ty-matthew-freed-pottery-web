@@ -8,7 +8,7 @@ eleventyNavigation:
 notification:
   title: My studio is open to visitors!  Contact me to set up an appointment.
   subtitle: You can still find a selection of my work in my online shop!  Updated
-    daily!
+    weekly!
   cta:
     label: Shop Now
     url: "/shop"
