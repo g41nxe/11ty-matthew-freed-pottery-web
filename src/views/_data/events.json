@@ -1,6 +1,22 @@
 {
   "events": [
     {
+      "date": "2021-05-02T23:24:34Z",
+      "time": "9:30 am - 2:30 pm",
+      "name": "Kitsilano Farmer's Market",
+      "location": "2690 Larch St, Vancouver",
+      "content": {
+        "title": "Kitsilano Farmer's Market",
+        "body": "This outdoor farmer's market boasts a wide variety of local food and craft items.  Lots of options!"
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "",
+      "featured": false
+    },
+    {
       "date": "10-17-2020",
       "time": "9am - 2pm",
       "name": "West End Farmer's Market",
