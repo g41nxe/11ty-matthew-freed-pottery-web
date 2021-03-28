@@ -1,6 +1,22 @@
 {
   "events": [
     {
+      "date": "2021-05-30T23:29:27Z",
+      "time": "9:30 am - 2:30 pm",
+      "name": "Kitsilano Farmer's Market",
+      "location": "2690 Larch Street.  Vancouver, BC",
+      "content": {
+        "body": "Find out more about this market at www.eatlocal.org<br>",
+        "title": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "",
+      "featured": false
+    },
+    {
       "date": "2021-05-02T23:24:34Z",
       "time": "9:30 am - 2:30 pm",
       "name": "Kitsilano Farmer's Market",
