@@ -2,6 +2,19 @@
   "gallery": [
     {
       "image": {
+        "url": "/images/garibaldi-cropped.jpg",
+        "alt": ""
+      },
+      "title": "Garibaldi",
+      "text": "A deep forest green glaze with speckled cobalt tones and a warm blue accent around the rim",
+      "cta": {
+        "label": "",
+        "url": ""
+      },
+      "style": "center"
+    },
+    {
+      "image": {
         "url": "/images/carousel-yaletown2.jpg",
         "alt": "Large Yaletown Mug by Matthew Freed"
       },
