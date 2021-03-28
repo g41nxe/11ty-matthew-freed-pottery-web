@@ -24,7 +24,7 @@ notification:
 
 1666 Johnston Street. Granville Island, Vancouver, B.C.
 
-### [Little Cricket Gift Gallery](http://benee.com  "Canadian Artisan Gallery")
+### [Little Cricket Gift Gallery](http://benee.com/ "Canadian Artisan Gallery")
 
 2629 E. Hastings Street.  Vancouver, B.C.
 
