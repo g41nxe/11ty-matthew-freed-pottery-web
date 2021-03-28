@@ -20,7 +20,7 @@ titles:
 no_events: Currently, no events are scheduled.
 load_more: Load More
 follow_me: Follow me & stay updated
-custom_seo_settings: false
+custom_seo_settings: true
 author: ''
 excerpt: ''
 image: ''
