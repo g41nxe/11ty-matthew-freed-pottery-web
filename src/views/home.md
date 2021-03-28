@@ -13,7 +13,7 @@ notification:
     url: https://matthew-freed-pottery.myshopify.com/collections/all/
 event:
   no_events:
-    title: Currently, no events are scheduled.
+    title: Kitsilano Farmer's Market.  Sunday May 2nd from 9:30 am to 2:30 pm
     text: Watch out for <a href="/updates">updates</a>. I'll keep you posted!
   image:
     url: "/images/carousel-yaletown.jpg"
