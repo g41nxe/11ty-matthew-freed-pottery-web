@@ -14,7 +14,7 @@
     "styles:dev": "sass src/styles:dist/styles && postcss ./dist/styles/*.css --replace",
     "styles:prod": "sass --style=compressed src/styles:dist/styles && postcss ./dist/styles/*.css --replace",
     "dev": "npm-run-all clean styles:dev eleventy:default --parallel eleventy:watch serve --print-label",
-    "build": "run-s clean styles:prod eleventy:default --print-label"
+    "build": "npm-run-all clean styles:prod eleventy:default --print-label"
   },
   "keywords": [],
   "author": "",
