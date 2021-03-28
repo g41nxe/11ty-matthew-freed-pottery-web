@@ -51,6 +51,18 @@
   ],
   "news": [
     {
+      "date": "03-28-2021",
+      "name": "Introducing the Garibaldi Glaze Collection",
+      "content": {
+        "title": "A new deep green glaze with navy speckled undertones",
+        "body": "It's always fun and challenging to put on my chemistry hat and fiddle around with new interesting glazes.  I'm really please with the rich tones of my new Garibaldi Glaze Collection.  I hope you enjoy it as well!"
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      }
+    },
+    {
       "date": "02-06-2021",
       "name": "Time to Play!",
       "content": {
