@@ -4,7 +4,7 @@
       "date": "05-30-2021",
       "time": "9:30 am - 2:30 pm",
       "name": "Kitsilano Farmer's Market",
-      "location": "2690 Larch Street, Vancouver BC",
+      "location": "Kitsilano Community Centre",
       "content": {
         "title": "Kitsilano Farmer's Market",
         "body": "This outdoor farmer's market boasts a wide variety of local food and craft items. Lots of options!<br/>Find more information about the market at <a href=\"https://eatlocal.org/markets/kitsilano/\">eatlocal.org</a>"
@@ -20,7 +20,7 @@
       "date": "05-02-2021",
       "time": "9:30 am - 2:30 pm",
       "name": "Kitsilano Farmer's Market",
-      "location": "2690 Larch St, Vancouver BC",
+      "location": " Kitsilano Community Centre",
       "content": {
         "title": "Kitsilano Farmer's Market",
         "body": "This outdoor farmer's market boasts a wide variety of local food and craft items. Lots of options!<br/>Find more information about the market at <a href=\"https://eatlocal.org/markets/kitsilano/\">eatlocal.org</a>"
@@ -36,13 +36,13 @@
       "date": "06-12-2021",
       "time": "9am - 2pm",
       "name": "West End Farmer's Market",
-      "location": "Nelson Park",
+      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
       "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
+        "url": "",
+        "alt": ""
       },
       "gmaps": "Nelson Park Vancouver",
-      "featured": false,
+      "featured": true,
       "content": {
         "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/west-end/\">eatlocal.org</a>",
         "title": ""
@@ -51,14 +51,14 @@
     {
       "date": "05-29-2021",
       "time": "9am - 2pm",
-      "name": "East Vancouvers Farmers Market",
-      "location": "Trout Lake",
+      "name": "Trout Lake Farmers Market",
+      "location": "Lakewood Dr. & E 13th Ave., Vancouver BC",
       "image": {
-        "url": "/images/market.jpg",
-        "alt": "Matthew at the Farmers Market"
+        "url": "",
+        "alt": ""
       },
       "gmaps": "Trout Lake Vancouver",
-      "featured": false,
+      "featured": true,
       "content": {
         "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/trout-lake/\">eatlocal.org</a>",
         "title": ""
@@ -68,7 +68,7 @@
       "date": "11-27-2020",
       "time": "10am - 2pm",
       "name": "Riley Park Winter Farmer's Market",
-      "location": "Riley Park",
+      "location": "50 E 30th Ave & Ontario St, Vancouver BC",
       "gmaps": "Riley Park Vancouver",
       "featured": false,
       "content": {
