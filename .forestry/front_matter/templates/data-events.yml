@@ -15,6 +15,7 @@ fields:
       date_format: MM-DD-YYYY
       time_format: 
       display_utc: false
+      export_format: YYYY-MM-DD
   - name: time
     type: text
     config:
