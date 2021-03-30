@@ -37,7 +37,7 @@ layout: base
                 {{ titles.events_upcoming }}
             </h2>
 
-            {% set items = events.events | filterFuture | sortByDate %}
+            {% set items = events.events | filterFuture | sortByDate | reverse %}
             {% include "card-sm-events-upcoming.njk" %}
 
             {% if items | length < 1 %}

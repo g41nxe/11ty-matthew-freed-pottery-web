@@ -48,7 +48,7 @@
     </div>
     {% endfor %}
 
-    {% if items | length > 4 %}
+    {% if items | length > count | default(4) %}
         <div x-data="{ count: {{ count | default(4) }}, step: {{ step | default(4) }} }" x-on:click="$dispatch('increment-{{ id }}'); count+=step" x-show="count < {{ items | length }}" class="flex justify-center">
             {% include "load-more.njk" %}
         </div>
