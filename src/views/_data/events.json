@@ -14,7 +14,7 @@
         "alt": ""
       },
       "gmaps": "",
-      "featured": false
+      "featured": true
     },
     {
       "date": "2021-05-02T23:24:34Z",
@@ -29,8 +29,8 @@
         "url": "",
         "alt": ""
       },
-      "gmaps": "",
-      "featured": false
+      "gmaps": "2690 Larch St, Vancouver",
+      "featured": true
     },
     {
       "date": "2021-06-12T07:00:00Z",
@@ -65,7 +65,7 @@
       }
     },
     {
-      "date": "11-28-2020",
+      "date": "2020-11-27T23:00:00Z",
       "time": "10am - 2pm",
       "name": "Riley Park Winter Farmer's Market",
       "location": "Riley Park in Vancouver, B.C.",
