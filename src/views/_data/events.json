@@ -1,13 +1,13 @@
 {
   "events": [
     {
-      "date": "05-29-2021",
+      "date": "05-30-2021",
       "time": "9:30 am - 2:30 pm",
       "name": "Kitsilano Farmer's Market",
       "location": "2690 Larch Street.  Vancouver, BC",
       "content": {
-        "body": "Find out more about this market at www.eatlocal.org<br>",
-        "title": ""
+        "title": "Kitsilano Farmer's Market",
+        "body": "This outdoor farmer's market boasts a wide variety of local food and craft items. Lots of options!<br/>Find more information about the market at <a href=\"https://eatlocal.org/markets/kitsilano/\">eatlocal.org</a>"
       },
       "image": {
         "url": "",
@@ -17,13 +17,13 @@
       "featured": true
     },
     {
-      "date": "2021-05-02T23:24:34Z",
+      "date": "05-02-2021",
       "time": "9:30 am - 2:30 pm",
       "name": "Kitsilano Farmer's Market",
       "location": "2690 Larch St, Vancouver",
       "content": {
         "title": "Kitsilano Farmer's Market",
-        "body": "This outdoor farmer's market boasts a wide variety of local food and craft items.  Lots of options!"
+        "body": "This outdoor farmer's market boasts a wide variety of local food and craft items. Lots of options!<br/>Find more information about the market at <a href=\"https://eatlocal.org/markets/kitsilano/\">eatlocal.org</a>"
       },
       "image": {
         "url": "",
@@ -33,7 +33,7 @@
       "featured": true
     },
     {
-      "date": "2021-06-12T07:00:00Z",
+      "date": "06-12-2021",
       "time": "9am - 2pm",
       "name": "West End Farmer's Market",
       "location": "Nelson Park",
@@ -44,12 +44,12 @@
       "gmaps": "Nelson Park Vancouver",
       "featured": false,
       "content": {
-        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/west-end/\">eatlocal.org</a>",
+        "body": "Find more information about the market at <a href=\"https://eatlocal.org/markets/kitsilano/\">eatlocal.org</a>",
         "title": ""
       }
     },
     {
-      "date": "2021-05-29T07:00:00Z",
+      "date": "05-29-2021",
       "time": "9am - 2pm",
       "name": "East Vancouvers Farmers Market",
       "location": "Trout Lake",
@@ -65,7 +65,7 @@
       }
     },
     {
-      "date": "2020-11-27T23:00:00Z",
+      "date": "11-27-2020",
       "time": "10am - 2pm",
       "name": "Riley Park Winter Farmer's Market",
       "location": "Riley Park in Vancouver, B.C.",
