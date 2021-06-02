@@ -1,6 +1,22 @@
 {
   "events": [
     {
+      "date": "06-26-2021",
+      "time": "9 am - 2 pm",
+      "name": "West End Farmer's Market",
+      "location": "",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "",
+      "featured": false
+    },
+    {
       "date": "07-11-2021",
       "time": "9:30 am - 2:30 pm",
       "name": "Kitsilano Farmer's Market",
