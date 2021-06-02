@@ -1,6 +1,22 @@
 {
   "events": [
     {
+      "date": "08-28-2021",
+      "time": "9 am - 2pm",
+      "name": "Trout Lake Farmer's Market",
+      "location": "",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "",
+      "featured": false
+    },
+    {
       "date": "06-26-2021",
       "time": "9 am - 2 pm",
       "name": "West End Farmer's Market",
