@@ -1,6 +1,22 @@
 {
   "events": [
     {
+      "date": "08-01-2021",
+      "time": "Noon to 9 pm",
+      "name": "Harmony Arts Festival",
+      "location": "Ambleside Park, West Vancouver",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "",
+      "featured": false
+    },
+    {
       "date": "07-31-2021",
       "time": "Noon to 9 pm",
       "name": "Harmony Arts Festival",
