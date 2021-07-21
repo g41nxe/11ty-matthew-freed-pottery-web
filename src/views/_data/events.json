@@ -179,6 +179,18 @@
   ],
   "news": [
     {
+      "date": "07-20-2021",
+      "name": "Opening up again!",
+      "content": {
+        "title": "Markets begin to re-open",
+        "body": "I am thrilled to be able once again to attend festivals and events!  The pandemic made for a challenging year so it feels great to slowly be returning to normalcy. I think above all else I missed seeing familiar faces of colleagues and customers at markets and having little conversations and catch ups.  I look forward to more face to face interaction in the months ahead!"
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      }
+    },
+    {
       "date": "03-28-2021",
       "name": "Introducing the Garibaldi Glaze Collection",
       "content": {
