@@ -76,7 +76,8 @@ module.exports = function (eleventyConfig) {
     });
     eleventyConfig.addNunjucksFilter("filterFeatured", function(array) {
         return array.filter(el => {
-            return el.featured
+            date  = moment(el.date, 'MM-DD-YYYY');
+            return el.featured && date.isAfter(moment());
         })
     })
     eleventyConfig.addNunjucksFilter("uuid", function() {
