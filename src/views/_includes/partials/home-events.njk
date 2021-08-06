@@ -65,7 +65,7 @@
                                             name = "{{ entry.name }}"; 
                                             location = "{{ entry.location }}";
                                             gmap_src = "https://maps.google.com/maps?amp;height=150&amp;hl=en&amp;q={{ entry.gmaps }}&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed&amp;key={{ global.gmaps.key }}";
-                                            content = "{{ entry.content.body | safe | replace('"', '\\"')}}";'>
+                                            content = "{{ entry.content.body | e }}";'>
                                 {{ event.label | upper }}
                             </button>
                         </li>
@@ -80,7 +80,7 @@
         {% img event.image.url, event.image.alt, "(min-width: 1024px) 58.33vw, (min-width: 768px) 50vw, 100vw", "h-full w-full object-cover" %}
 
         <div class="content full md:p-8 absolute top-0 w-full h-full">
-            <div class="p-4 md:p-8 w-full h-full bg-white bg-opacity-70 flex flex-col space-y-2 md:space-y-8 justify-between" x-show="open">
+            <div class="p-4 md:p-8 w-full h-full bg-white bg-opacity-70 flex flex-col space-y-2 md:space-y-8 justify-between" style="display: none;" x-show="open">
                 <button aria-label="Show Details"  class="text-brand hover:text-higlight text-right" @click="open = false">
                     <i class="fas fa-times "></i>
                 </button>
