@@ -1,6 +1,22 @@
 {
   "events": [
     {
+      "date": "09-11-2021",
+      "time": "10 am - 4 pm",
+      "name": "Ladner Village Market",
+      "location": "48th Ave (between Delta and Elliott Streets)",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "5028A 48 Avenue, Delta, BC",
+      "featured": true
+    },
+    {
       "date": "08-29-2021",
       "time": "9:30 am - 2:30 pm",
       "name": "Kitsilano Farmer's Market",
