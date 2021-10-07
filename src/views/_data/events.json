@@ -1,10 +1,10 @@
 {
   "events": [
     {
-      "date": "",
-      "time": "",
-      "name": "",
-      "location": "",
+      "date": "11-18-2021",
+      "time": "5 - 9 pm",
+      "name": "Eastside C|ulture Crawl",
+      "location": "740 Jackson Avenue",
       "content": {
         "title": "",
         "body": ""
@@ -13,8 +13,8 @@
         "url": "",
         "alt": ""
       },
-      "gmaps": "",
-      "featured": false
+      "gmaps": "740 Jackson Avenue ",
+      "featured": true
     },
     {
       "date": "11-10-2021",
