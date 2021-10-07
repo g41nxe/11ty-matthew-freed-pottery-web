@@ -1,6 +1,22 @@
 {
   "events": [
     {
+      "date": "",
+      "time": "",
+      "name": "",
+      "location": "",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "",
+      "featured": false
+    },
+    {
       "date": "09-11-2021",
       "time": "10 am - 4 pm",
       "name": "Ladner Village Market",
@@ -129,7 +145,7 @@
       "featured": false
     },
     {
-      "date": "10-02-2021",
+      "date": "10-16-2021",
       "time": "9 am - 2 pm",
       "name": "West End Farmer's Market",
       "location": "1100 Comox Street btw. Bute and Thurlow",
