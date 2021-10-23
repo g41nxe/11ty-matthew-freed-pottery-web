@@ -1,6 +1,22 @@
 {
   "events": [
     {
+      "date": "11-14-2021",
+      "time": "10 am - 5 pm",
+      "name": "Circle Craft Christmas Market",
+      "location": "Vancouver Convention Center West",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "1055 Canada Place",
+      "featured": false
+    },
+    {
       "date": "11-13-2021",
       "time": "10 am - 7 pm",
       "name": "Circle Craft Christmas Market",
