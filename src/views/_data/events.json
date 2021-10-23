@@ -1,6 +1,22 @@
 {
   "events": [
     {
+      "date": "11-11-2021",
+      "time": "10 am - 9 pm",
+      "name": "Circle Craft Christmas Market",
+      "location": "Vancouver Convention Center",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "",
+      "featured": false
+    },
+    {
       "date": "11-18-2021",
       "time": "5 - 9 pm",
       "name": "Eastside Culture Crawl",
