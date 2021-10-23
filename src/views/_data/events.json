@@ -1,6 +1,22 @@
 {
   "events": [
     {
+      "date": "11-20-2021",
+      "time": "11 am - 6 pm",
+      "name": "Eastside Culture Crawl",
+      "location": "740 Jackson Avenue",
+      "content": {
+        "body": "One of Vancouver's most popular events. I will have a large selection of work for this self-guided open studio tour. This is also the one event of the year where I sell my seconds and they go fast!",
+        "title": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "740 Jackson Avenue",
+      "featured": true
+    },
+    {
       "date": "11-19-2021",
       "time": "5 pm - 9 pm",
       "name": "Eastside Culture Crawl",
