@@ -16,6 +16,24 @@ fields:
       time_format: 
       display_utc: false
       export_format: MM-DD-YYYY
+  - name: multi_day_event
+    type: boolean
+    label: Is this an event over more than 1 day?
+    description: Toggle yes if you want to display a date range rather than a start
+      date and a time range
+  - name: end_date
+    type: datetime
+    label: End Date
+    description: MM-DD-YYYY
+    config:
+      required: false
+      date_format: date_rangeMM-DD-YYYY
+      time_format: 
+      display_utc: false
+      export_format: MM-DD-YYYY
+    showOnly:
+      field: multi_day_event
+      value: true
   - name: time
     type: text
     config:
