@@ -8,7 +8,12 @@
     <h3 class="font-bold text-sm mb-2">{{ item.headline }}</h3>
     <p class="text-brand text-xs"><i class="mr-1 fas fa-sn fa-calendar-alt"></i>
         {{ item.date | date('MM/DD/YY') }}
-        {% if item.time %} 
+
+        {% if item.multi_day_event %}
+            - {{ item.end_date | date('MM/DD/YY') }}
+        {% endif %}
+
+        {% if item.time %}
             : {{ item.time }}
         {% endif %}
     </p>
@@ -20,8 +25,8 @@
 {% endblock %}
 
 {% block image %}
-    <div class="relative order-first md:order-last col-span-2"> 
-        <iframe scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" 
+    <div class="relative order-first md:order-last col-span-2">
+        <iframe scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas"
                 src="https://maps.google.com/maps?amp;height=150&amp;hl=en&amp;q={{ item.gmaps }}&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed&amp;key={{ global.gmaps.key }}"
                 class="w-full" height="150" frameborder="0"></iframe>
     </div>
@@ -32,11 +37,11 @@
         <p class="col-span-9 md:col-span-3 lg:col-span-2 flex-none leading-8 align-baseline text-sm">
             {{ item.date | date("MM/DD/YY") }}
         </p>
-        
+
         <button @click="open = !open" class="col-span-8 md:col-span-5 lg:col-span-6 font-bold text-left text-md hover:text-highlight">
             {{ item.name }}
         </button>
-        
+
         <button @click="open = !open" aria-label="Show details" class="flex-none hover:text-highlight text-right">
             <i class="fas fa-plus fa-xs"  x-show="open === false"></i>
             <i class="fas fa-minus fa-xs" x-show="open === true"></i>
