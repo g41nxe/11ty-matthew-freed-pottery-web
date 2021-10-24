@@ -14,7 +14,9 @@
         "alt": ""
       },
       "gmaps": "4601 Ontario Street",
-      "featured": false
+      "featured": false,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "12-04-2021",
@@ -30,7 +32,9 @@
         "alt": ""
       },
       "gmaps": "4601 Ontario Street",
-      "featured": false
+      "featured": false,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "11-21-2021",
@@ -46,7 +50,9 @@
         "alt": ""
       },
       "gmaps": "740 Jackson Avenue",
-      "featured": false
+      "featured": false,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "11-20-2021",
@@ -62,7 +68,9 @@
         "alt": ""
       },
       "gmaps": "740 Jackson Avenue",
-      "featured": true
+      "featured": true,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "11-19-2021",
@@ -78,7 +86,9 @@
         "alt": ""
       },
       "gmaps": "740 Jackson Avenue",
-      "featured": false
+      "featured": false,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "11-14-2021",
@@ -94,7 +104,9 @@
         "alt": ""
       },
       "gmaps": "1055 Canada Place",
-      "featured": false
+      "featured": false,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "11-13-2021",
@@ -110,7 +122,9 @@
         "alt": ""
       },
       "gmaps": "1055 Canada Place",
-      "featured": true
+      "featured": true,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "11-12-2021",
@@ -126,7 +140,9 @@
         "alt": ""
       },
       "gmaps": "1055 Canada Place",
-      "featured": true
+      "featured": true,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "11-11-2021",
@@ -142,7 +158,9 @@
         "alt": ""
       },
       "gmaps": "1055 Canada Place",
-      "featured": false
+      "featured": false,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "11-18-2021",
@@ -158,7 +176,9 @@
         "alt": ""
       },
       "gmaps": "740 Jackson Avenue ",
-      "featured": true
+      "featured": true,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "11-10-2021",
@@ -174,7 +194,9 @@
         "alt": ""
       },
       "gmaps": "1055 Canada Place",
-      "featured": true
+      "featured": true,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "09-11-2021",
@@ -190,7 +212,9 @@
         "alt": ""
       },
       "gmaps": "5028A 48 Avenue, Delta, BC",
-      "featured": true
+      "featured": true,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "08-02-2021",
@@ -206,7 +230,9 @@
         "alt": ""
       },
       "gmaps": "1414 Argyle Avenue, West Vancouver",
-      "featured": true
+      "featured": true,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "08-01-2021",
@@ -222,7 +248,9 @@
         "alt": ""
       },
       "gmaps": "1414 Argyle Avenue, West Vancouver",
-      "featured": true
+      "featured": true,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "07-31-2021",
@@ -238,7 +266,9 @@
         "alt": ""
       },
       "gmaps": "1414 Argyle Avenue, West Vancouver",
-      "featured": true
+      "featured": true,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "07-30-2021",
@@ -254,7 +284,9 @@
         "alt": ""
       },
       "gmaps": "1414 Argyle Avenue, West Vancouver",
-      "featured": true
+      "featured": true,
+      "multi_day_event": true,
+      "end_date": "08-01-2021"
     },
     {
       "date": "10-23-2021",
@@ -270,7 +302,9 @@
         "alt": ""
       },
       "gmaps": "Vancouver, BC V5N 5W8",
-      "featured": true
+      "featured": true,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "07-11-2021",
@@ -286,7 +320,9 @@
         "alt": ""
       },
       "gmaps": "Kitsilano Farmers Market",
-      "featured": true
+      "featured": true,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "10-17-2021",
@@ -302,7 +338,9 @@
         "alt": ""
       },
       "gmaps": "Kitsilano Farmers Market",
-      "featured": true
+      "featured": true,
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "10-16-2021",
@@ -318,7 +356,9 @@
       "content": {
         "body": "This outdoor farmer's market boasts a wide variety of local food and craft items. Lots of options!",
         "title": ""
-      }
+      },
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "07-17-2021",
@@ -334,7 +374,9 @@
       "content": {
         "body": "This outdoor farmer's market boasts a wide variety of local food and craft items. Lots of options!",
         "title": ""
-      }
+      },
+      "multi_day_event": false,
+      "end_date": ""
     },
     {
       "date": "11-27-2020",
@@ -350,7 +392,9 @@
       "image": {
         "url": "",
         "alt": ""
-      }
+      },
+      "multi_day_event": false,
+      "end_date": ""
     }
   ],
   "news": [
