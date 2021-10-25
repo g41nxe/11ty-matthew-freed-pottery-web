@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "date": "11-10-2021",
+      "multi_day_event": true,
+      "end_date": "11-14-2021",
+      "time": "10 am - 9 pm W - F.  10 am - 7 pm Sa.  10 am - 5 pm Su.",
+      "name": "Circle Craft Christmas Market",
+      "location": "Vancouver Convention Center West",
+      "content": {
+        "body": "Western Canada's premier artisan market featuring close to 200 talented creators.",
+        "title": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "1055 Canada Place",
+      "featured": true
+    },
+    {
       "date": "12-18-2021",
       "time": "9 am - 2 pm",
       "name": "Riley Park Winter Farmer's Market",
