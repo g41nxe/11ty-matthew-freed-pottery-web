@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "date": "11-18-2021",
+      "multi_day_event": true,
+      "end_date": "11-21-2021",
+      "time": "5 pm - 10 pm Th -Fr.  11 am - 6 pm Sa-Su.",
+      "name": "Eastside Culture Crawl",
+      "location": "740 Jackson Avenue (my home/studio!)",
+      "content": {
+        "title": "Eastside Culture Crawl",
+        "body": "One of Vancouver's most loved events!  I will be opening my doors for this self-guided artist tour once again.  Vaccine passports are required for entry.  I will have a large selection of work on display and this is the one time each year when I sell my seconds.  "
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "740 Jackson Avenue",
+      "featured": true
+    },
+    {
       "date": "11-10-2021",
       "multi_day_event": true,
       "end_date": "11-14-2021",
@@ -109,78 +127,6 @@
       "end_date": ""
     },
     {
-      "date": "11-14-2021",
-      "time": "10 am - 5 pm",
-      "name": "Circle Craft Christmas Market",
-      "location": "Vancouver Convention Center West",
-      "content": {
-        "title": "",
-        "body": ""
-      },
-      "image": {
-        "url": "",
-        "alt": ""
-      },
-      "gmaps": "1055 Canada Place",
-      "featured": false,
-      "multi_day_event": false,
-      "end_date": ""
-    },
-    {
-      "date": "11-13-2021",
-      "time": "10 am - 7 pm",
-      "name": "Circle Craft Christmas Market",
-      "location": "Vnacouver Convention Center West",
-      "content": {
-        "title": "",
-        "body": ""
-      },
-      "image": {
-        "url": "",
-        "alt": ""
-      },
-      "gmaps": "1055 Canada Place",
-      "featured": true,
-      "multi_day_event": false,
-      "end_date": ""
-    },
-    {
-      "date": "11-12-2021",
-      "time": "10 am - 9 pm",
-      "name": "Circle Craft Christmas Market",
-      "location": "Vancouver Convention Center West",
-      "content": {
-        "title": "",
-        "body": ""
-      },
-      "image": {
-        "url": "",
-        "alt": ""
-      },
-      "gmaps": "1055 Canada Place",
-      "featured": true,
-      "multi_day_event": false,
-      "end_date": ""
-    },
-    {
-      "date": "11-11-2021",
-      "time": "10 am - 9 pm",
-      "name": "Circle Craft Christmas Market",
-      "location": "Vancouver Convention Center",
-      "content": {
-        "title": "Western Canada's premier handmade goodies event!",
-        "body": ""
-      },
-      "image": {
-        "url": "",
-        "alt": ""
-      },
-      "gmaps": "1055 Canada Place",
-      "featured": false,
-      "multi_day_event": false,
-      "end_date": ""
-    },
-    {
       "date": "11-18-2021",
       "time": "5 - 9 pm",
       "name": "Eastside Culture Crawl",
@@ -194,24 +140,6 @@
         "alt": ""
       },
       "gmaps": "740 Jackson Avenue ",
-      "featured": true,
-      "multi_day_event": false,
-      "end_date": ""
-    },
-    {
-      "date": "11-10-2021",
-      "time": "10 am - 9 pm",
-      "name": "Circle Craft Christmas Market",
-      "location": "Vancouver Convention Center West",
-      "content": {
-        "title": "Circle Craft Christmas Market",
-        "body": "Western Canada's premier artisan event is back in action in 2021.  I'm looking forward to this one!"
-      },
-      "image": {
-        "url": "",
-        "alt": ""
-      },
-      "gmaps": "1055 Canada Place",
       "featured": true,
       "multi_day_event": false,
       "end_date": ""
