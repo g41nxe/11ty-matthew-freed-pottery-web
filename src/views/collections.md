@@ -21,10 +21,10 @@ features:
   texts:
   - Handcrafted pottery. Are you looking for that one of a kind coffee mug? 
   - During the pandemic we are offering free local delivery for orders greater than $100
-custom_seo_settings: false
-author: ''
-excerpt: ''
-image: ''
+custom_seo_settings: true
+author: 'Matthew Freed'
+excerpt: 'Explore my different glazing lines and pottery forms. Each piece is a complexity of nature, science, and art.'
+image: '/images/blue-arrangement.jpg'
 ogtype: ''
 
 ---
