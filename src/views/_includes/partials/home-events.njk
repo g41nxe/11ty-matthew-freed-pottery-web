@@ -25,11 +25,14 @@
         <div class="glide--events">
             <div class="text-center mb-8 relative">
                 <div class="relative">
-        
+
                     <div class="glide__bullets z-40 divide-x-2 divide-brand" data-glide-el="controls[nav]">
                         {%- for entry in events.events | filterFeatured -%}
                             <button @click="open = false" aria-label="Jump to event {{entry.label}}" data-glide-dir="={{ loop.index0 }}" class="glide__bullet hover:text-highlight z-40 relative text-xs lg:text-sm px-2">
                                 {{ entry.date | date('MMM D') }}
+                                {% if entry.multi_day_event %}
+                                    - {{ entry.end_date | date('MMM D') }}
+                                {% endif %}
                             </button>
                         {%- endfor -%}
                     </div>
@@ -43,26 +46,33 @@
                             <button @click="open = false" aria-label="Next event" class="glide__arrow glide__arrow--right hover:text-highlight" data-glide-dir=">">
                                 <i class="fas fa-chevron-right"></i>
                             </button>
-                        </div>   
+                        </div>
 
                     {% endif %}
 
                 </div>
             </div>
-            
+
             <div data-glide-el="track" class="glide__track">
                 <ul class="glide__slides">
                     {%- for entry in events.events | filterFeatured -%}
                         <li class="glide__slide flex flex-col justify-content items-center py-4">
                             <h4 class="text-center text-lg lg:text-xl font-bold">{{ entry.name }}</h4>
                             <p class="text-center my-8 text-sm lg:text-base">
-                                <span class="font-semibold">{{ entry.date | date('MMM Do') }}</span> &nbsp; {{ entry.time }}
+                                <span class="font-semibold">
+                                    {{ entry.date |  date('MMM Do') }}
+                                    {% if entry.multi_day_event %}
+                                        - {{ entry.end_date | date('MMM Do') }}
+                                    {% endif %}
+                                </span>
+
+                                &nbsp; {{ entry.time }}
                             </p>
                             <button aria-label="Show Details" class="py-2 px-12 border text-xs lg:text-sm font-medium rounded-md text-brand hover:text-white border-brand hover:bg-brand"
-                                    @click='open = true; 
-                                            date = "{{ entry.date }}"; 
-                                            time = "{{ entry.time }}"; 
-                                            name = "{{ entry.name }}"; 
+                                    @click='open = true;
+                                            date = "{{ entry.date }}{% if entry.multi_day_event %} - {{entry.end_date}}{% endif %}";
+                                            time = "{{ entry.time }}";
+                                            name = "{{ entry.name }}";
                                             location = "{{ entry.location }}";
                                             gmap_src = "https://maps.google.com/maps?amp;height=150&amp;hl=en&amp;q={{ entry.gmaps }}&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed&amp;key={{ global.gmaps.key }}";
                                             content = "{{ entry.content.body | e }}";'>
@@ -84,7 +94,7 @@
                 <button aria-label="Show Details"  class="text-brand hover:text-higlight text-right" @click="open = false">
                     <i class="fas fa-times "></i>
                 </button>
-                
+
                 <div class="flex flex-col justify-center space-y-2">
                     <h1 class="text-base md:text-lg font-bold text-brand md:mb-4" x-text="name"></h1>
 
