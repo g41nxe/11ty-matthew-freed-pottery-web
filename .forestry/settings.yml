@@ -29,7 +29,6 @@ sections:
 - type: document
   path: src/views/collections.md
   label: Collections
-  match: "**/*"
 - type: document
   path: src/views/retail-stores.md
   label: Retail Stores

@@ -15,16 +15,18 @@ intro:
   - Each piece is a complexity of nature, science, and art.
   - Browse through my different collections and choose between a large variety of
     different glazes and forms. If you can't find anything you like, send me a message
-    and we can talk about custom pieces. 
+    and we can talk about custom pieces.
 features:
   title: Featured Items
   texts:
-  - Handcrafted pottery. Are you looking for that one of a kind coffee mug? 
-  - During the pandemic we are offering free local delivery for orders greater than $100
+  - Handcrafted pottery. Are you looking for that one of a kind coffee mug?
+  - During the pandemic we are offering free local delivery for orders greater than
+    $100
 custom_seo_settings: true
-author: 'Matthew Freed'
-excerpt: 'Explore my different glazing lines and pottery forms. Each piece is a complexity of nature, science, and art.'
-image: '/images/blue-arrangement.jpg'
+author: Matthew Freed
+excerpt: Explore my different glazing lines and pottery forms. Each piece is a complexity
+  of nature, science, and art.
+image: "/assets/blue-arrangement.jpg"
 ogtype: ''
 
 ---
