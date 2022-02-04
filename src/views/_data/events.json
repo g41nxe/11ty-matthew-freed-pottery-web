@@ -6,7 +6,7 @@
       "end_date": "",
       "time": "10am -2 pm",
       "name": "Riley Park Winter Farmer's Market",
-      "location": "",
+      "location": "4601 Ontario Street",
       "content": {
         "title": "",
         "body": ""
@@ -15,8 +15,8 @@
         "url": "",
         "alt": ""
       },
-      "gmaps": "",
-      "featured": false
+      "gmaps": "4601 Ontario Street",
+      "featured": true
     },
     {
       "date": "11-18-2021",
