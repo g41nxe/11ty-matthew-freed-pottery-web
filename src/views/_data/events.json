@@ -230,7 +230,7 @@
         "alt": ""
       },
       "gmaps": "Kitsilano Farmers Market",
-      "featured": true,
+      "featured": false,
       "multi_day_event": false,
       "end_date": ""
     },
