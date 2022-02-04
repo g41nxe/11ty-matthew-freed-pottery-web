@@ -273,6 +273,18 @@
   ],
   "news": [
     {
+      "date": "02-04-2022",
+      "name": "Getting muddy in 2022!",
+      "content": {
+        "title": "A Fresh Start",
+        "body": "For me, the start of a new calendar year is an opportunity to pause and re-energize after what is always a very busy holiday season.  It's important to keep playing and to try new things - to keep the creativity flowing and to embrace challenge and failure.  I look forward to this quieter time of the year and to trying new things to keep myself and all of you excited with my work!  Wish me luck!"
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      }
+    },
+    {
       "date": "07-20-2021",
       "name": "Opening up again!",
       "content": {
