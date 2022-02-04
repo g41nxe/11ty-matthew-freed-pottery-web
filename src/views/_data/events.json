@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "date": "04-30-2022",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "10am -2 pm",
+      "name": "Riley Park Winter Farmer's Market",
+      "location": "",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "",
+      "featured": false
+    },
+    {
       "date": "11-18-2021",
       "multi_day_event": true,
       "end_date": "11-21-2021",
