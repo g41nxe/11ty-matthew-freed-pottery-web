@@ -1,24 +1,6 @@
 {
   "events": [
     {
-      "date": "12-18-2021",
-      "multi_day_event": false,
-      "end_date": "",
-      "time": "10am -2 pm",
-      "name": "Riley Park Winter Farmer's Market",
-      "location": "4601 Ontario Street",
-      "content": {
-        "title": "",
-        "body": ""
-      },
-      "image": {
-        "url": "",
-        "alt": ""
-      },
-      "gmaps": "4601 Ontario Street",
-      "featured": true
-    },
-    {
       "date": "11-18-2021",
       "multi_day_event": true,
       "end_date": "11-21-2021",
@@ -91,7 +73,7 @@
       "end_date": ""
     },
     {
-      "date": "09-11-2021",
+      "date": "06-12-2022",
       "time": "10 am - 4 pm",
       "name": "Ladner Village Market",
       "location": "48th Ave (between Delta and Elliott Streets)",
