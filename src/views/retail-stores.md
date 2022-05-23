@@ -24,10 +24,6 @@ notification:
 
 1666 Johnston Street. Granville Island, Vancouver, B.C.
 
-### [Canadian Artisan Gallery](http://benee.com/ "Canadian Artisan Gallery")
-
-2629 E. Hastings Street.  Vancouver, B.C.
-
 ### [Salish Sea Market](https://salishseamarket.com/password)
 
 110 6996 Island Highway W., Bowser, B.C.
