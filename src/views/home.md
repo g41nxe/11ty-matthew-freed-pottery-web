@@ -7,7 +7,7 @@ eleventyNavigation:
   order: 1
 notification:
   title: Online Shopping is now available
-  subtitle: 'Covid19 Promotion!  Free local delivery for orders over $150.  '
+  subtitle: 'Right to your front door!  Free local delivery for orders over $150.  '
   cta:
     label: Shop Now
     url: https://matthew-freed-pottery.myshopify.com/collections/all/
