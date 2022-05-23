@@ -176,7 +176,7 @@
         "alt": ""
       },
       "gmaps": "Vancouver, BC V5N 5W8",
-      "featured": true,
+      "featured": false,
       "multi_day_event": false,
       "end_date": ""
     },
