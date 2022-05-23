@@ -1,6 +1,42 @@
 {
   "events": [
     {
+      "date": "06-25-2022",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "9 am - 2 pm",
+      "name": "West End Farmer's Market",
+      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "Nelson Park Vancouver",
+      "featured": false
+    },
+    {
+      "date": "",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "",
+      "name": "",
+      "location": "",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "",
+      "featured": false
+    },
+    {
       "date": "11-18-2021",
       "multi_day_event": true,
       "end_date": "11-21-2021",
