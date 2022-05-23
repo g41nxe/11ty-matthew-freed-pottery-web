@@ -19,12 +19,12 @@
       "featured": false
     },
     {
-      "date": "",
+      "date": "07-24-2022",
       "multi_day_event": false,
       "end_date": "",
-      "time": "",
-      "name": "",
-      "location": "",
+      "time": "10 am - 5 pm",
+      "name": "Ladner Village Market",
+      "location": "48 Avenue ",
       "content": {
         "title": "",
         "body": ""
@@ -33,7 +33,7 @@
         "url": "",
         "alt": ""
       },
-      "gmaps": "",
+      "gmaps": "5028A 48 Avenue, Delta, BC",
       "featured": false
     },
     {
