@@ -109,8 +109,8 @@
       "end_date": "08-01-2022"
     },
     {
-      "date": "08-01-2021",
-      "time": "Noon to 9 pm",
+      "date": "08-05-2022",
+      "time": "11 am - 9 pm (2 pm - 9 pm Friday)",
       "name": "Harmony Arts Festival",
       "location": "Ambleside Park, West Vancouver",
       "content": {
@@ -123,8 +123,8 @@
       },
       "gmaps": "1414 Argyle Avenue, West Vancouver",
       "featured": true,
-      "multi_day_event": false,
-      "end_date": ""
+      "multi_day_event": true,
+      "end_date": "08-07-2022"
     },
     {
       "date": "07-31-2021",
