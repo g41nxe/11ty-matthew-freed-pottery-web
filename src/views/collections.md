@@ -20,8 +20,8 @@ features:
   title: Featured Items
   texts:
   - Handcrafted pottery. Are you looking for that one of a kind coffee mug?
-  - During the pandemic we are offering free local delivery for orders greater than
-    $100
+  - I'll be right there...I am offering free local delivery for orders greater than
+    $150 (within 30 km)
 custom_seo_settings: true
 author: Matthew Freed
 excerpt: Explore my different glazing lines and pottery forms. Each piece is a complexity
