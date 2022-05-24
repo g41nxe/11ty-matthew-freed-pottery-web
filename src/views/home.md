@@ -25,8 +25,8 @@ gallery:
   texts:
   - Each piece is a complexity of nature, science, and art.
   - Browse through my different collections and choose between a large variety of
-    different glazes and forms. If you can't find anything you like, send me a message
-    and we can talk about custom pieces.
+    different glazes and forms. If you can't find what you are looking for, send me
+    a message and we can talk about custom pieces.
 features:
   title: Featured Items
   texts:
