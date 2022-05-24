@@ -5,7 +5,7 @@ tags: footer
 permalink: "/collections.html"
 notification:
   title: Online Shopping is now available
-  subtitle: 'Free local delivery for orders over $150.  '
+  subtitle: 'Free local delivery for orders over $150.   '
   cta:
     label: Shop Now
     url: https://matthew-freed-pottery.myshopify.com/collections/all/
