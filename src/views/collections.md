@@ -19,7 +19,7 @@ intro:
 features:
   title: Featured Items
   texts:
-  - Handcrafted pottery. Are you looking for that one of a kind coffee mug?
+  - 'Handcrafted pottery. Are you looking for that one of a kind coffee mug? '
   - I'll be right there!  I am offering free local delivery for orders greater than
     $150 (within 30 km)
 custom_seo_settings: true
