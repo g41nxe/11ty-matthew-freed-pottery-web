@@ -24,10 +24,6 @@ notification:
 
 1666 Johnston Street. Granville Island, Vancouver, B.C.
 
-### [Salish Sea Market](https://salishseamarket.com/password)
-
-110 6996 Island Highway W., Bowser, B.C.
-
 ### [Seymour Art gallery gift Shop](https://www.seymourartgallery.com/)
 
 4360 Gallant Avenue, North Vancouver, B.C.
