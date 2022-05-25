@@ -109,5 +109,22 @@ fields:
   config: {}
   template: seo
   label: SEO
+- name: features
+  type: field_group
+  config: {}
+  fields:
+  - name: title
+    type: text
+    config:
+      required: false
+    label: Title
+  - name: texts
+    type: list
+    config:
+      use_select: false
+      min: 
+      max: 
+    label: Texts
+  label: Feature Section
 pages:
 - src/views/home.md
