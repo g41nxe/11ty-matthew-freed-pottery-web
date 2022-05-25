@@ -104,11 +104,6 @@ fields:
     label: Texts
     config:
       use_select: false
-- name: seo
-  type: include
-  config: {}
-  template: seo
-  label: SEO
 - name: features
   type: field_group
   config: {}
@@ -126,5 +121,10 @@ fields:
       max: 
     label: Texts
   label: Feature Section
+- name: seo
+  type: include
+  config: {}
+  template: seo
+  label: SEO
 pages:
 - src/views/home.md
