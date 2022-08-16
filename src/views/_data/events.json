@@ -217,7 +217,7 @@
       "end_date": ""
     },
     {
-      "date": "05-01-2022",
+      "date": "09-18-2022",
       "time": "10 am - 2 pm",
       "name": "Kitsilano Farmer's Market",
       "location": "Kitsilano Community Centre",
@@ -230,7 +230,7 @@
         "alt": ""
       },
       "gmaps": "Kitsilano Farmers Market",
-      "featured": false,
+      "featured": true,
       "multi_day_event": false,
       "end_date": ""
     },
