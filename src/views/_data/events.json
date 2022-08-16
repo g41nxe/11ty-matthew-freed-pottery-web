@@ -253,7 +253,7 @@
       "end_date": ""
     },
     {
-      "date": "05-28-2022",
+      "date": "09-17-2022",
       "time": "9am - 2pm",
       "name": "West End Farmer's Market",
       "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
@@ -262,7 +262,7 @@
         "alt": ""
       },
       "gmaps": "Nelson Park Vancouver",
-      "featured": false,
+      "featured": true,
       "content": {
         "body": "This outdoor farmer's market boasts a wide variety of local food and craft items. Lots of options!",
         "title": ""
