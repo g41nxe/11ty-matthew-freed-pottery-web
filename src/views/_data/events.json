@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "date": "",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "",
+      "name": "",
+      "location": "",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "",
+      "featured": false
+    },
+    {
       "date": "10-22-2022",
       "multi_day_event": false,
       "end_date": "",
@@ -73,12 +91,12 @@
       "featured": true
     },
     {
-      "date": "12-18-2021",
-      "time": "9 am - 2 pm",
+      "date": "12-17-2022",
+      "time": "10 am - 2 pm",
       "name": "Riley Park Winter Farmer's Market",
       "location": "4601 Ontario Street",
       "content": {
-        "title": "",
+        "title": "My last market of the year!",
         "body": ""
       },
       "image": {
@@ -86,7 +104,7 @@
         "alt": ""
       },
       "gmaps": "4601 Ontario Street",
-      "featured": false,
+      "featured": true,
       "multi_day_event": false,
       "end_date": ""
     },
