@@ -33,7 +33,7 @@ features:
   - Handcrafted pottery. Are you looking for that one of a kind coffee mug?
   - I'll be right there!  Free delivery to your front door for orders over $150 (within
     30 km).
-custom_seo_settings: false
+custom_seo_settings: true
 author: ''
 excerpt: ''
 image: ''
