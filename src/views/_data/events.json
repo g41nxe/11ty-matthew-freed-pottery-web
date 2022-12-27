@@ -327,6 +327,18 @@
   ],
   "news": [
     {
+      "date": "12-31-2022",
+      "name": "Happy New Year!",
+      "content": {
+        "title": "All the best in 2023!",
+        "body": "Wishing everyone a wonderful year ahead!  Thanks for all your support in 2022.  For me and my business, the new year offers a chance to slow down and play - to try new things and experiment.  "
+      },
+      "image": {
+        "url": "/images/frankie-torres-47.JPG",
+        "alt": "Matthew Freed Pottery Holiday "
+      }
+    },
+    {
       "date": "02-04-2022",
       "name": "Getting muddy in 2022!",
       "content": {
