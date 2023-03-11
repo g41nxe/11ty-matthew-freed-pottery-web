@@ -104,7 +104,7 @@
         "alt": ""
       },
       "gmaps": "4601 Ontario Street",
-      "featured": true,
+      "featured": false,
       "multi_day_event": false,
       "end_date": ""
     },
