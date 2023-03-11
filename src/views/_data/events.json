@@ -1,12 +1,12 @@
 {
   "events": [
     {
-      "date": "",
+      "date": "06-17-2023",
       "multi_day_event": false,
       "end_date": "",
-      "time": "",
-      "name": "",
-      "location": "",
+      "time": "9 am - 2 pm",
+      "name": "Trout Lake Farmer's Market",
+      "location": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
       "content": {
         "title": "",
         "body": ""
@@ -15,7 +15,7 @@
         "url": "",
         "alt": ""
       },
-      "gmaps": "",
+      "gmaps": "John Hendry Park Vancouver",
       "featured": false
     },
     {
