@@ -217,7 +217,7 @@
       "end_date": "08-02-2021"
     },
     {
-      "date": "09-24-2022",
+      "date": "04-22-2023",
       "time": "9 am - 2pm",
       "name": "Trout Lake Farmer's Market",
       "location": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
@@ -230,7 +230,7 @@
         "alt": ""
       },
       "gmaps": "Vancouver, BC V5N 5W8",
-      "featured": false,
+      "featured": true,
       "multi_day_event": false,
       "end_date": ""
     },
