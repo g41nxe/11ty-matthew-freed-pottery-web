@@ -37,6 +37,24 @@
       "featured": false
     },
     {
+      "date": "06-10-2023",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "9 am - 2 pm",
+      "name": "West End Farmer's Market",
+      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "Nelson Park Vancouver",
+      "featured": false
+    },
+    {
       "date": "06-11-2023",
       "multi_day_event": false,
       "end_date": "",
