@@ -1,6 +1,24 @@
 {
   "events": [
     {
+      "date": "07-16-2023",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "10 am - 2 pm",
+      "name": "Kitsilano Farmer's Market",
+      "location": "Kitsilano Community Center",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "Kitsilano Farmer's Market",
+      "featured": false
+    },
+    {
       "date": "06-17-2023",
       "multi_day_event": false,
       "end_date": "",
