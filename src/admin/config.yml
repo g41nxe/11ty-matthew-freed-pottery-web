@@ -8,9 +8,19 @@ media_folder: "src/images"
 public_folder: "/images"
 
 collections:
+  - name: "Seo"
+    label: "Seo"
+    folder: "src/views"
+    fields:
+      - {label: "custom_seo_settings", name: "Custom SEO settings", widget: "boolean", default: true}
+      - {label: "author", name: "Author", widget: "boolean", default: ''}
+      - {label: "excerpt", name: "Except", widget: "text", default: ''}
+      - {label: "image", name: "Image", widget: "image", default: ''}
+      - {label: "ogtype", name: "OGType", widget: "text", default: ''}
+
   - name: "Home"
     label: "Home"
-    folder: "src/views/"
+    file: "src/views/home.md"
     create: false
     slug: "home"
     fields:
@@ -18,7 +28,7 @@ collections:
       - {label: "title", name: "Title", widget: "text", default: "Home"}
       - {label: "permalink", name: "Permalink", widget: "text", default: "/index.html"}
       - label: "eleventyNavigation"
-        name: "eleventyNavigation"
+        name: "Navigation"
         widget: "object"
         collapsed: true
         fields:
@@ -85,9 +95,3 @@ collections:
             default: 
               - Handcrafted pottery. Are you looking for that one of a kind coffee mug?
               - I'll be right there! Free delivery to your front door for orders over $150 (within 30 km)
-      - {label: "custom_seo_settings", name: "Custom SEO settings", widget: "boolean", default: true}
-      - {label: "author", name: "Author", widget: "boolean", default: ''}
-      - {label: "excerpt", name: "Except", widget: "text", default: ''}
-      - {label: "image", name: "Image", widget: "image", default: ''}
-      - {label: "ogtype", name: "OGType", widget: "text", default: ''}
-
