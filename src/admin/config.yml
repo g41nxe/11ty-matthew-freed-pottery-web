@@ -89,15 +89,10 @@ collections:
                 allow_add: true
                 default: 
                   - Handcrafted pottery. Are you looking for that one of a kind coffee mug?
-                  - I'll be right there! Free delivery to your front door for orders over $150 (within 30 km)
-          
-          - label: "seo"
-            name: "seo"
-            widget: "object"
-            collapsed: true
-            fields:
-              - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "boolean", default: true}
-              - {label: "author", name: "author", widget: "boolean", default: ''}
-              - {label: "excerpt", name: "excerpt", widget: "string", default: ''}
-              - {label: "image", name: "image", widget: "image", default: ''}
-              - {label: "ogtype", name: "ogtype", widget: "string", default: ''}
+                  - I'll be right there! Free delivery to your front door for orders over $150 (within 30 km)        
+
+          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "boolean", default: true}
+          - {label: "author", name: "author", widget: "boolean", default: ''}
+          - {label: "excerpt", name: "excerpt", widget: "string", default: ''}
+          - {label: "image", name: "image", widget: "image", default: ''}
+          - {label: "ogtype", name: "ogtype", widget: "string", default: ''}
