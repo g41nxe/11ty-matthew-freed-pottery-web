@@ -21,21 +21,21 @@ collections:
           
           - label: "eleventyNavigation"
             name: "eleventyNavigation"
-            widget: "list"
+            widget: "object"
             fields:
               - {label: "key", name: "key", widget: "string", default: "Home"}
               - {label: "order", name: "order", widget: "number", default: "1"}
           
           - label: "notification"
             name: "notification"
-            widget: "list"
+            widget: "object"
             collapsed: false
             fields:
               - {label: "title", name: "title", widget: "string", default: "Online Shopping is now available"}
               - {label: "subtitle", name: "subtitle", widget: "string", default: "Right to your front door! Free local delivery for orders over $150."}
               - label: "cta"
                 name: "cta"
-                widget: "list"
+                widget: "object"
                 collapsed: false
                 fields: 
                   - {label: "label", name: "label", widget: "string", default: "Shop Now"}
@@ -43,19 +43,19 @@ collections:
           
           - label: "event"
             name: "event"
-            widget: "list"
+            widget: "object"
             collapsed: false
             fields:
               - label: "no_events"
                 name: "no_events"
-                widget: "list"
+                widget: "object"
                 collapsed: false
                 fields:
                   - {label: "title", name: "title", widget: "text", default: "Kitsilano Farmer's Market. Sunday May 2nd from 9:30 am to 2:30 pm"}
                   - {label: "text", name: "text", widget: "text", default: "Watch out for <a href=\"/updates\">updates</a>. I'll keep you posted!"}
               - label: "image"
                 name: "image"
-                widget: "list"
+                widget: "object"
                 collapsed: false
                 fields:
                   - {label: "url", name: "url", widget: "image", default: "/images/carousel-yaletown.jpg"}
@@ -65,13 +65,13 @@ collections:
           
           - label: "gallery"
             name: "gallery"
-            widget: "list"
+            widget: "object"
             collapsed: false
             fields:
               - {label: "title", name: "title", widget: "string", default: "Explore my different glazing lines and pottery forms"}
               - label: "texts"
                 name: "texts"
-                widget: "list"
+                widget: "object"
                 allow_add: true
                 default: 
                   - Each piece is a complexity of nature, science, and art.
@@ -89,7 +89,7 @@ collections:
                 allow_add: true
                 default: 
                   - Handcrafted pottery. Are you looking for that one of a kind coffee mug?
-                  - I'll be right there! Free delivery to your front door for orders over $150 (within 30 km)        
+                  - I'll be right there! Free delivery to your front door for orders over $150 (within 30 km)
 
           - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "boolean", default: true}
           - {label: "author", name: "author", widget: "boolean", default: ''}
