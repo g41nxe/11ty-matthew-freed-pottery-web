@@ -71,9 +71,7 @@ collections:
                 allow_add: true
                 default: 
                   - Each piece is a complexity of nature, science, and art.
-                  - Browse through my different collections and choose between a large variety of
-                    different glazes and forms. If you can't find what you are looking for, send me
-                    a message and we can talk about custom pieces.
+                  - Browse through my different collections and choose between a large variety of different glazes and forms. If you can't find what you are looking for, send me a message and we can talk about custom pieces.
           - label: "features"
             name: "Features"
             widget: "object"
@@ -86,8 +84,7 @@ collections:
                 allow_add: true
                 default: 
                   - Handcrafted pottery. Are you looking for that one of a kind coffee mug?
-                  - I'll be right there!  Free delivery to your front door for orders over $150 (within
-                  30 km)
+                  - I'll be right there! Free delivery to your front door for orders over $150 (within 30 km)
           - {label: "custom_seo_settings", name: "Custom SEO settings", widget: "boolean", default: true}
           - {label: "author", name: "Author", widget: "boolean", default: ''}
           - {label: "excerpt", name: "Except", widget: "text", default: ''}
