@@ -8,11 +8,11 @@ public_folder: "/images"
 collections:
   - label: "pages"
     name: "Pages"
-    files: 
+    files:
       - label: "contact"
         name: "contact"
         file: "src/views/contact.md"
-        fields:
+        fields: 
           - {label: "layout", name: "layout", widget: "hidden"}
           - {label: "title", name: "title", widget: "string"}
           - {label: "permalink", name: "permalink", widget: "string"}
