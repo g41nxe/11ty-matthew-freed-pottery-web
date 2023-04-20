@@ -51,8 +51,8 @@ collections:
                 widget: "object"
                 collapsed: false
                 fields:
-                  - {label: "title", name: "title", widget: "text", default: "Kitsilano Farmer's Market. Sunday May 2nd from 9:30 am to 2:30 pm"}
-                  - {label: "text", name: "text", widget: "text", default: "Watch out for <a href=\"/updates\">updates</a>. I'll keep you posted!"}
+                  - {label: "title", name: "title", widget: "string", default: "Kitsilano Farmer's Market. Sunday May 2nd from 9:30 am to 2:30 pm"}
+                  - {label: "text", name: "text", widget: "string", default: "Watch out for <a href=\"/updates\">updates</a>. I'll keep you posted!"}
               - label: "image"
                 name: "image"
                 widget: "object"
@@ -84,7 +84,7 @@ collections:
                 widget: "list"
 
           - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "boolean", default: true}
-          - {label: "author", name: "author", widget: "boolean", default: ''}
-          - {label: "excerpt", name: "excerpt", widget: "string", default: ''}
-          - {label: "image", name: "image", widget: "image", default: ''}
-          - {label: "ogtype", name: "ogtype", widget: "string", default: ''}
+          - {label: "author", name: "author", widget: "boolean", default: '', required: false}
+          - {label: "excerpt", name: "excerpt", widget: "string", default: '', required: false}
+          - {label: "image", name: "image", widget: "image", default: '', required: false}
+          - {label: "ogtype", name: "ogtype", widget: "string", default: '', required: false}
