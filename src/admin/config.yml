@@ -9,6 +9,48 @@ collections:
   - label: "pages"
     name: "Pages"
     files: 
+      - label: "about"
+        name: "about"
+        file: "src/views/about.md"
+        fields:
+          - {label: "layout", name: "layout", widget: "hidden", default: "about-layout"}
+          - {label: "title", name: "title", widget: "string", default: "About"}
+          - {label: "permalink", name: "permalink", widget: "string", default: "/about/index.html"}
+
+          - {label: "headline", name: "headline", widget: "string"}
+          - {label: "intro", name: "intro", widget: "text"}
+
+          - label: "sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - label: "image"
+                name: "image"
+                widget: "object"
+                collapsed: false
+                fields:
+                  - {label: "url", name: "url", widget: "image"}
+                  - {label: "alt", name: "alt", widget: "string"}
+              - label: "paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                fields: 
+                  - {label: "text", name: "text", widget: "string"}
+              - {label: "label", name: "label", widget: "string"}
+
+          - label: "eleventyNavigation"
+            name: "eleventyNavigation"
+            widget: "object"
+            fields:
+              - {label: "key", name: "key", widget: "string", default: "Home"}
+              - {label: "order", name: "order", widget: "number", default: "1"}
+
+          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "boolean", default: false}
+          - {label: "author", name: "author", widget: "boolean", default: '', required: false}
+          - {label: "excerpt", name: "excerpt", widget: "string", default: '', required: false}
+          - {label: "image", name: "image", widget: "image", default: '', required: false}
+          - {label: "ogtype", name: "ogtype", widget: "string", default: '', required: false}
+
       - label: "home"
         name: "home"
         file: "src/views/home.md"
@@ -16,14 +58,7 @@ collections:
           - {label: "layout", name: "layout", widget: "hidden", default: "home-layout"}
           - {label: "title", name: "title", widget: "string", default: "Home"}
           - {label: "permalink", name: "permalink", widget: "string", default: "/index.html"}
-          
-          - label: "eleventyNavigation"
-            name: "eleventyNavigation"
-            widget: "object"
-            fields:
-              - {label: "key", name: "key", widget: "string", default: "Home"}
-              - {label: "order", name: "order", widget: "number", default: "1"}
-          
+
           - label: "notification"
             name: "notification"
             widget: "object"
@@ -92,6 +127,13 @@ collections:
                 default:
                   - {text: "Handcrafted pottery. Are you looking for that one of a kind coffee mug?"}
                   - {text: "I'll be right there! Free delivery to your front door for orders over $150 (within 30 km)."}
+
+          - label: "eleventyNavigation"
+            name: "eleventyNavigation"
+            widget: "object"
+            fields:
+              - {label: "key", name: "key", widget: "string", default: "Home"}
+              - {label: "order", name: "order", widget: "number", default: "1"}
 
           - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "boolean", default: true}
           - {label: "author", name: "author", widget: "boolean", default: '', required: false}
