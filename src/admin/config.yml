@@ -49,7 +49,7 @@ collections:
             collapsed: false
             fields:
               - {label: "title", name: "Title", widget: "text", default: "Kitsilano Farmer's Market.  Sunday May 2nd from 9:30 am to 2:30 pm"}
-              - {label: "text", name: "Text", widget: "text", default: "Watch out for <a href="/updates">updates</a>. I'll keep you posted!"}
+              - {label: "text", name: "Text", widget: "text", default: 'Watch out for <a href="/updates">updates</a>. I'll keep you posted!'}
           - label: "image"
             name: "Image"
             widget: "object"
