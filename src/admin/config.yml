@@ -70,7 +70,9 @@ collections:
               - label: "texts"
                 name: "texts"
                 widget: "list"
-          
+                field: 
+                  - {label: "text", name: "text", widget: "string"}
+
           - label: "features"
             name: "features"
             widget: "object"
