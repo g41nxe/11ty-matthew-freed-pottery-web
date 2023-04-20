@@ -8,90 +8,92 @@ media_folder: "src/images"
 public_folder: "/images"
 
 collections:
-  - name: "Seo"
-    label: "Seo"
-    folder: "src/views"
-    fields:
-      - {label: "custom_seo_settings", name: "Custom SEO settings", widget: "boolean", default: true}
-      - {label: "author", name: "Author", widget: "boolean", default: ''}
-      - {label: "excerpt", name: "Except", widget: "text", default: ''}
-      - {label: "image", name: "Image", widget: "image", default: ''}
-      - {label: "ogtype", name: "OGType", widget: "text", default: ''}
-
-  - name: "Home"
-    label: "Home"
-    file: "src/views/home.md"
-    create: false
-    slug: "home"
-    fields:
-      - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
-      - {label: "title", name: "Title", widget: "text", default: "Home"}
-      - {label: "permalink", name: "Permalink", widget: "text", default: "/index.html"}
-      - label: "eleventyNavigation"
-        name: "Navigation"
-        widget: "object"
-        collapsed: true
-        fields:
-          - {label: "key", name: "key", widget: "text", default: "Home"}
-          - {label: "order", name: "order", widget: "text", default: "1"}
-      - label: "notification"
-        name: "Notification"
-        widget: "object"
-        collapsed: false
-        fields:
-          - {label: "title", name: "title", widget: "text", default: "Online Shopping is now available"}
-          - {label: "subtitle", name: "subtitle", widget: "text", default: "Right to your front door!  Free local delivery for orders over $150."}
-          - label: "cta"
-            name: "CTA"
-            widget: "object"
-            collapsed: false
-            fields: 
-              - {label: "label", name: "Label", widget: "text", default: "Shop Now"}
-              - {label: "url", name: "Url", widget: "text", default: "https://matthew-freed-pottery.myshopify.com/collections/all/1"}
-      - label: "event"
-        name: "Event"
-        widget: "object"
-        collapsed: false
-        fields:
-          - label: "no_events"
-            name: "No Events"
-            widget: "object"
-            collapsed: false
-            fields:
-              - {label: "title", name: "Title", widget: "text", default: "Kitsilano Farmer's Market.  Sunday May 2nd from 9:30 am to 2:30 pm"}
-              - {label: "text", name: "Text", widget: "text", default: "Watch out for <a href=\"/updates\">updates</a>. I'll keep you posted!"}
-          - label: "image"
-            name: "Image"
-            widget: "object"
-            collapsed: false
-            fields:
-              - {label: "url", name: "Url", widget: "image", default: "/images/carousel-yaletown.jpg"}
-              - {label: "alt", name: "alt", widget: "text", default: "Yaletown Collection in the wild"}
-          - {label: "title", name: "Title", widget: "text", default: "Upcoming Events"}
-          - {label: "label", name: "Label", widget: "text", default: "Details"}
-      - label: "gallery"
-        name: "Gallery"
-        widget: "object"
-        collapsed: false
-        fields:
-          - {label: "title", name: "Title", widget: "text", default: "Explore my different glazing lines and pottery forms"}
-          - label: "texts"
-            name: "Texts"
-            widget: "list"
-            allow_add: true
-            default: 
-              - Each piece is a complexity of nature, science, and art.
-              - Browse through my different collections and choose between a large variety of different glazes and forms. If you can't find what you are looking for, send me a message and we can talk about custom pieces.
-      - label: "features"
-        name: "Features"
-        widget: "object"
-        collapsed: false
-        fields:
-          - {label: "title", name: "Title", widget: "text", default: "Featured Items"}
-          - label: "texts"
-            name: "Texts"
-            widget: "list"
-            allow_add: true
-            default: 
-              - Handcrafted pottery. Are you looking for that one of a kind coffee mug?
-              - I'll be right there! Free delivery to your front door for orders over $150 (within 30 km)
+  - name: "Pages"
+    label: "pages"
+    files: 
+      - label: "Home"
+      - name: "home"
+      - file: "src/views/home.md"
+      fields:
+        - {label: "Layout", name: "layout", widget: "hidden", default: "home"}
+        - {label: "title", name: "Title", widget: "text", default: "Home"}
+        - {label: "permalink", name: "Permalink", widget: "text", default: "/index.html"}
+        - label: "eleventyNavigation"
+          name: "Navigation"
+          widget: "object"
+          collapsed: true
+          fields:
+            - {label: "key", name: "key", widget: "text", default: "Home"}
+            - {label: "order", name: "order", widget: "text", default: "1"}
+        - label: "notification"
+          name: "Notification"
+          widget: "object"
+          collapsed: false
+          fields:
+            - {label: "title", name: "title", widget: "text", default: "Online Shopping is now available"}
+            - {label: "subtitle", name: "subtitle", widget: "text", default: "Right to your front door!  Free local delivery for orders over $150."}
+            - label: "cta"
+              name: "CTA"
+              widget: "object"
+              collapsed: false
+              fields: 
+                - {label: "label", name: "Label", widget: "text", default: "Shop Now"}
+                - {label: "url", name: "Url", widget: "text", default: "https://matthew-freed-pottery.myshopify.com/collections/all/1"}
+        - label: "event"
+          name: "Event"
+          widget: "object"
+          collapsed: false
+          fields:
+            - label: "no_events"
+              name: "No Events"
+              widget: "object"
+              collapsed: false
+              fields:
+                - {label: "title", name: "Title", widget: "text", default: "Kitsilano Farmer's Market.  Sunday May 2nd from 9:30 am to 2:30 pm"}
+                - {label: "text", name: "Text", widget: "text", default: "Watch out for <a href=\"/updates\">updates</a>. I'll keep you posted!"}
+            - label: "image"
+              name: "Image"
+              widget: "object"
+              collapsed: false
+              fields:
+                - {label: "url", name: "Url", widget: "image", default: "/images/carousel-yaletown.jpg"}
+                - {label: "alt", name: "alt", widget: "text", default: "Yaletown Collection in the wild"}
+            - {label: "title", name: "Title", widget: "text", default: "Upcoming Events"}
+            - {label: "label", name: "Label", widget: "text", default: "Details"}
+        - label: "gallery"
+          name: "Gallery"
+          widget: "object"
+          collapsed: false
+          fields:
+            - {label: "title", name: "Title", widget: "text", default: "Explore my different glazing lines and pottery forms"}
+            - label: "texts"
+              name: "Texts"
+              widget: "list"
+              allow_add: true
+              default: 
+                - Each piece is a complexity of nature, science, and art.
+                - Browse through my different collections and choose between a large variety of different glazes and forms. If you can't find what you are looking for, send me a message and we can talk about custom pieces.
+        - label: "features"
+          name: "Features"
+          widget: "object"
+          collapsed: false
+          fields:
+            - {label: "title", name: "Title", widget: "text", default: "Featured Items"}
+            - label: "texts"
+              name: "Texts"
+              widget: "list"
+              allow_add: true
+              default: 
+                - Handcrafted pottery. Are you looking for that one of a kind coffee mug?
+                - I'll be right there! Free delivery to your front door for orders over $150 (within 30 km)
+            - name: "Seo"
+        - label: "seo"
+          name: "Seo"
+          widget: "object"
+          collapsed: true
+          fields:
+            - {label: "custom_seo_settings", name: "Custom SEO settings", widget: "boolean", default: true}
+            - {label: "author", name: "Author", widget: "boolean", default: ''}
+            - {label: "excerpt", name: "Except", widget: "text", default: ''}
+            - {label: "image", name: "Image", widget: "image", default: ''}
+            - {label: "ogtype", name: "OGType", widget: "text", default: ''}
