@@ -20,14 +20,12 @@ collections:
           - label: "notification"
             name: "notification"
             widget: "object"
-            collapsed: false
             fields:
               - {label: "title", name: "title", widget: "string"}
               - {label: "subtitle", name: "subtitle", widget: "string"}
               - label: "cta"
                 name: "cta"
                 widget: "object"
-                collapsed: false
                 fields: 
                   - {label: "label", name: "label", widget: "string"}
                   - {label: "url", name: "url", widget: "string"}
@@ -44,8 +42,15 @@ collections:
            - {label: "message", name: "message", widget: "string"}
            - {label: "phone", name: "phone", widget: "string"}
            - {label: "address", name: "address", widget: "string"}
-           - {label: "gmaps", name: "gmaps", widget: "string"}
+           - {label: "gmaps", name: "code", widget: "string"}
 
+           - label: "contactform"
+             name: "contactform"
+             widget: "object"
+             fields:
+              - {label: "title", name: "title", widget: "string"}
+              - {label: "submit", name: "submit", widget: "string"}
+              - {label: "info", name: "info", widget: "string"}
 
           - label: "eleventyNavigation"
             name: "eleventyNavigation"
@@ -78,7 +83,6 @@ collections:
               - label: "image"
                 name: "image"
                 widget: "object"
-                collapsed: false
                 fields:
                   - {label: "url", name: "url", widget: "image"}
                   - {label: "alt", name: "alt", widget: "string"}
@@ -113,14 +117,12 @@ collections:
           - label: "notification"
             name: "notification"
             widget: "object"
-            collapsed: false
             fields:
               - {label: "title", name: "title", widget: "string"}
               - {label: "subtitle", name: "subtitle", widget: "string"}
               - label: "cta"
                 name: "cta"
                 widget: "object"
-                collapsed: false
                 fields: 
                   - {label: "label", name: "label", widget: "string"}
                   - {label: "url", name: "url", widget: "string"}
@@ -128,19 +130,16 @@ collections:
           - label: "event"
             name: "event"
             widget: "object"
-            collapsed: false
             fields:
               - label: "no_events"
                 name: "no_events"
                 widget: "object"
-                collapsed: false
                 fields:
                   - {label: "title", name: "title", widget: "string"}
                   - {label: "text", name: "text", widget: "string"}
               - label: "image"
                 name: "image"
                 widget: "object"
-                collapsed: false
                 fields:
                   - {label: "url", name: "url", widget: "image"}
                   - {label: "alt", name: "alt", widget: "string"}
@@ -150,7 +149,6 @@ collections:
           - label: "gallery"
             name: "gallery"
             widget: "object"
-            collapsed: false
             fields:
               - {label: "title", name: "title", widget: "string"}
               - label: "texts"
@@ -162,7 +160,6 @@ collections:
           - label: "features"
             name: "features"
             widget: "object"
-            collapsed: false
             fields:
               - {label: "title", name: "title", widget: "string"}
               - label: "texts"
