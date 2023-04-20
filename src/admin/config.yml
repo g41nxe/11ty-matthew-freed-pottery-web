@@ -32,7 +32,7 @@ collections:
           - {label: "title", name: "title", widget: "text", default: "Online Shopping is now available"}
           - {label: "subtitle", name: "subtitle", widget: "text", default: "Right to your front door!  Free local delivery for orders over $150."}
           - label: "cta"
-            name: "Notification"
+            name: "CTA"
             widget: "object"
             collapsed: false
             fields: 
