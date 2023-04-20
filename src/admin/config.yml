@@ -39,18 +39,18 @@ collections:
             fields:
               - {label: "text", name: "text", widget: "string"}
 
-           - {label: "message", name: "message", widget: "string"}
-           - {label: "phone", name: "phone", widget: "string"}
-           - {label: "address", name: "address", widget: "string"}
-           - {label: "gmaps", name: "code", widget: "string"}
+          - {label: "message", name: "message", widget: "string"}
+          - {label: "phone", name: "phone", widget: "string"}
+          - {label: "address", name: "address", widget: "string"}
+          - {label: "gmaps", name: "code", widget: "string"}
 
-           - label: "contactform"
-             name: "contactform"
-             widget: "object"
-             fields:
-              - {label: "title", name: "title", widget: "string"}
-              - {label: "submit", name: "submit", widget: "string"}
-              - {label: "info", name: "info", widget: "string"}
+          - label: "contactform"
+            name: "contactform"
+            widget: "object"
+            fields:
+            - {label: "title", name: "title", widget: "string"}
+            - {label: "submit", name: "submit", widget: "string"}
+            - {label: "info", name: "info", widget: "string"}
 
           - label: "eleventyNavigation"
             name: "eleventyNavigation"
