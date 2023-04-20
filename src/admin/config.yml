@@ -9,13 +9,64 @@ collections:
   - label: "pages"
     name: "Pages"
     files: 
+      - label: "contact"
+        name: "contact"
+        file: "src/views/contact.md"
+        fields: 
+          - {label: "layout", name: "layout", widget: "hidden"}
+          - {label: "title", name: "title", widget: "string"}
+          - {label: "permalink", name: "permalink", widget: "string"}
+
+          - label: "notification"
+            name: "notification"
+            widget: "object"
+            collapsed: false
+            fields:
+              - {label: "title", name: "title", widget: "string"}
+              - {label: "subtitle", name: "subtitle", widget: "string"}
+              - label: "cta"
+                name: "cta"
+                widget: "object"
+                collapsed: false
+                fields: 
+                  - {label: "label", name: "label", widget: "string"}
+                  - {label: "url", name: "url", widget: "string"}
+
+          - {label: "headline", name: "headline", widget: "string"}
+          - {label: "subheadline", name: "subheadline", widget: "string"}
+
+          - label: "intro"
+            name: "intro"
+            widget: "list"
+            fields:
+              - {label: "text", name: "text", widget: "string"}
+
+           - {label: "message", name: "message", widget: "string"}
+           - {label: "phone", name: "phone", widget: "string"}
+           - {label: "address", name: "address", widget: "string"}
+           - {label: "gmaps", name: "gmaps", widget: "string"}
+
+
+          - label: "eleventyNavigation"
+            name: "eleventyNavigation"
+            widget: "object"
+            fields:
+              - {label: "key", name: "key", widget: "string"}
+              - {label: "order", name: "order", widget: "number"}
+
+          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "boolean"}
+          - {label: "author", name: "author", widget: "boolean", required: false}
+          - {label: "excerpt", name: "excerpt", widget: "string", required: false}
+          - {label: "image", name: "image", widget: "image", required: false}
+          - {label: "ogtype", name: "ogtype", widget: "string", required: false}
+
       - label: "about"
         name: "about"
         file: "src/views/about.md"
         fields:
-          - {label: "layout", name: "layout", widget: "hidden", default: "about-layout"}
-          - {label: "title", name: "title", widget: "string", default: "About"}
-          - {label: "permalink", name: "permalink", widget: "string", default: "/about/index.html"}
+          - {label: "layout", name: "layout", widget: "hidden"}
+          - {label: "title", name: "title", widget: "string"}
+          - {label: "permalink", name: "permalink", widget: "string"}
 
           - {label: "headline", name: "headline", widget: "string"}
           - {label: "intro", name: "intro", widget: "text"}
@@ -42,37 +93,37 @@ collections:
             name: "eleventyNavigation"
             widget: "object"
             fields:
-              - {label: "key", name: "key", widget: "string", default: "Home"}
-              - {label: "order", name: "order", widget: "number", default: "1"}
+              - {label: "key", name: "key", widget: "string"}
+              - {label: "order", name: "order", widget: "number"}
 
-          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "boolean", default: false}
-          - {label: "author", name: "author", widget: "boolean", default: '', required: false}
-          - {label: "excerpt", name: "excerpt", widget: "string", default: '', required: false}
-          - {label: "image", name: "image", widget: "image", default: '', required: false}
-          - {label: "ogtype", name: "ogtype", widget: "string", default: '', required: false}
+          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "boolean"}
+          - {label: "author", name: "author", widget: "boolean", required: false}
+          - {label: "excerpt", name: "excerpt", widget: "string", required: false}
+          - {label: "image", name: "image", widget: "image", required: false}
+          - {label: "ogtype", name: "ogtype", widget: "string", required: false}
 
       - label: "home"
         name: "home"
         file: "src/views/home.md"
         fields:
-          - {label: "layout", name: "layout", widget: "hidden", default: "home-layout"}
-          - {label: "title", name: "title", widget: "string", default: "Home"}
-          - {label: "permalink", name: "permalink", widget: "string", default: "/index.html"}
+          - {label: "layout", name: "layout", widget: "hidden"}
+          - {label: "title", name: "title", widget: "string"}
+          - {label: "permalink", name: "permalink", widget: "string"}
 
           - label: "notification"
             name: "notification"
             widget: "object"
             collapsed: false
             fields:
-              - {label: "title", name: "title", widget: "string", default: "Online Shopping is now available"}
-              - {label: "subtitle", name: "subtitle", widget: "string", default: "Right to your front door! Free local delivery for orders over $150."}
+              - {label: "title", name: "title", widget: "string"}
+              - {label: "subtitle", name: "subtitle", widget: "string"}
               - label: "cta"
                 name: "cta"
                 widget: "object"
                 collapsed: false
                 fields: 
-                  - {label: "label", name: "label", widget: "string", default: "Shop Now"}
-                  - {label: "url", name: "url", widget: "string", default: "https://matthew-freed-pottery.myshopify.com/collections/all/1"}
+                  - {label: "label", name: "label", widget: "string"}
+                  - {label: "url", name: "url", widget: "string"}
           
           - label: "event"
             name: "event"
@@ -84,59 +135,51 @@ collections:
                 widget: "object"
                 collapsed: false
                 fields:
-                  - {label: "title", name: "title", widget: "string", default: "Kitsilano Farmer's Market. Sunday May 2nd from 9:30 am to 2:30 pm"}
-                  - {label: "text", name: "text", widget: "string", default: "Watch out for <a href=\"/updates\">updates</a>. I'll keep you posted!"}
+                  - {label: "title", name: "title", widget: "string"}
+                  - {label: "text", name: "text", widget: "string"}
               - label: "image"
                 name: "image"
                 widget: "object"
                 collapsed: false
                 fields:
-                  - {label: "url", name: "url", widget: "image", default: "/images/carousel-yaletown.jpg"}
-                  - {label: "alt", name: "alt", widget: "string", default: "Yaletown Collection in the wild"}
-              - {label: "title", name: "title", widget: "string", default: "Upcoming Events"}
-              - {label: "label", name: "label", widget: "string", default: "Details"}
+                  - {label: "url", name: "url", widget: "image"}
+                  - {label: "alt", name: "alt", widget: "string"}
+              - {label: "title", name: "title", widget: "string"}
+              - {label: "label", name: "label", widget: "string"}
           
           - label: "gallery"
             name: "gallery"
             widget: "object"
             collapsed: false
             fields:
-              - {label: "title", name: "title", widget: "string", default: "Explore my different glazing lines and pottery forms"}
+              - {label: "title", name: "title", widget: "string"}
               - label: "texts"
                 name: "texts"
                 widget: "list"
-                summary: '{{fields.text}}'
                 fields: 
                   - {label: "text", name: "text", widget: "string"}
-                default:
-                  - {text: "Each piece is a complexity of nature, science, and art."}
-                  - {text: "Browse through my different collections and choose between a large variety of different glazes and forms. If you can't find what you are looking for, send me a message and we can talk about custom pieces."}
 
           - label: "features"
             name: "features"
             widget: "object"
             collapsed: false
             fields:
-              - {label: "title", name: "title", widget: "string", default: "Featured Items"}
+              - {label: "title", name: "title", widget: "string"}
               - label: "texts"
                 name: "texts"
                 widget: "list"
-                summary: '{{fields.text}}'
                 fields: 
                   - {label: "text", name: "text", widget: "string"}
-                default:
-                  - {text: "Handcrafted pottery. Are you looking for that one of a kind coffee mug?"}
-                  - {text: "I'll be right there! Free delivery to your front door for orders over $150 (within 30 km)."}
 
           - label: "eleventyNavigation"
             name: "eleventyNavigation"
             widget: "object"
             fields:
-              - {label: "key", name: "key", widget: "string", default: "Home"}
-              - {label: "order", name: "order", widget: "number", default: "1"}
+              - {label: "key", name: "key", widget: "string"}
+              - {label: "order", name: "order", widget: "number"}
 
-          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "boolean", default: true}
-          - {label: "author", name: "author", widget: "boolean", default: '', required: false}
-          - {label: "excerpt", name: "excerpt", widget: "string", default: '', required: false}
-          - {label: "image", name: "image", widget: "image", default: '', required: false}
-          - {label: "ogtype", name: "ogtype", widget: "string", default: '', required: false}
+          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "boolean"}
+          - {label: "author", name: "author", widget: "boolean", required: false}
+          - {label: "excerpt", name: "excerpt", widget: "string", required: false}
+          - {label: "image", name: "image", widget: "image", required: false}
+          - {label: "ogtype", name: "ogtype", widget: "string", required: false}
