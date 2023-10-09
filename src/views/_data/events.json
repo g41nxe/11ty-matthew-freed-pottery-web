@@ -1,6 +1,96 @@
 {
   "events": [
     {
+      "date": "12-23-2023",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "10 am - 2 pm",
+      "name": "Riley Park Winter Farmer's Market",
+      "location": "30th Ave. & Ontario St, Vancouver, BC",
+      "content": {
+        "title": "",
+        "body": "My last market of the year!"
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "30th Ave. & Ontario St, Vancouver, BC",
+      "featured": true
+    },
+    {
+      "date": "12-16-2023",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "10 am - 2 pm",
+      "name": "Riley Park Winter Farmer's Market",
+      "location": "30th Ave. & Ontario St, Vancouver, BC",
+      "content": {
+        "title": "",
+        "body": "This outdoor farmer's market boasts a wide variety of local food and craft items. Lots of options!"
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "30th Ave. & Ontario St, Vancouver, BC",
+      "featured": true
+    },
+    {
+      "date": "11-16-2023",
+      "multi_day_event": true,
+      "end_date": "11-19-2023",
+      "time": "5 pm - 10 pm (Thur - Fri) 11 am - 6 pm (Sat - Sun)",
+      "name": "Eastside Culture Crawl",
+      "location": "My Studio (740 Jackson Avenue)",
+      "content": {
+        "title": "",
+        "body": "One of Vancouver's most loved events! I will be opening my doors for this self-guided artist tour once again. I will have a large selection of work on display and this is the one time each year when I sell my seconds."
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "740 Jackson Ave, Vancouver, BC V6A 3B9, Canada",
+      "featured": true
+    },
+    {
+      "date": "11-08-2023",
+      "multi_day_event": true,
+      "end_date": "11-12-2023",
+      "time": "10 am - 9 pm (Wed - Fri) 10 am - 7 pm (Sat) 10 am - 5 pm (Sun)",
+      "name": "Circle Craft Holiday Market",
+      "location": "Vancouver Convention Center",
+      "content": {
+        "title": "",
+        "body": "Western Canada's premier artisan market featuring close to 200 talented creators."
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "1055 Canada Pl, Vancouver, BC V6C 0C3, Canada",
+      "featured": true
+    },
+    {
+      "date": "10-21-2023",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "9 am - 2 pm",
+      "name": "Trout Lake Farmer's Market",
+      "location": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
+      "content": {
+        "title": "",
+        "body": "This outdoor farmer's market boasts a wide variety of local food and craft items. Lots of options!"
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
+      "featured": true
+    },
+    {
       "date": "07-16-2023",
       "multi_day_event": false,
       "end_date": "",
@@ -176,7 +266,7 @@
         "alt": ""
       },
       "gmaps": "5028A 48 Avenue, Delta, BC",
-      "featured": true,
+      "featured": false,
       "multi_day_event": false,
       "end_date": ""
     },
@@ -194,7 +284,7 @@
         "alt": ""
       },
       "gmaps": "1414 Argyle Avenue, West Vancouver",
-      "featured": true,
+      "featured": false,
       "multi_day_event": true,
       "end_date": "08-01-2022"
     },
@@ -212,7 +302,7 @@
         "alt": ""
       },
       "gmaps": "1414 Argyle Avenue, West Vancouver",
-      "featured": true,
+      "featured": false,
       "multi_day_event": true,
       "end_date": "08-07-2022"
     },
@@ -230,7 +320,7 @@
         "alt": ""
       },
       "gmaps": "1414 Argyle Avenue, West Vancouver",
-      "featured": true,
+      "featured": false,
       "multi_day_event": false,
       "end_date": ""
     },
@@ -248,7 +338,7 @@
         "alt": ""
       },
       "gmaps": "1414 Argyle Avenue, West Vancouver",
-      "featured": true,
+      "featured": false,
       "multi_day_event": true,
       "end_date": "08-02-2021"
     },
@@ -266,7 +356,7 @@
         "alt": ""
       },
       "gmaps": "Vancouver, BC V5N 5W8",
-      "featured": true,
+      "featured": false,
       "multi_day_event": false,
       "end_date": ""
     },
@@ -284,7 +374,7 @@
         "alt": ""
       },
       "gmaps": "Kitsilano Farmers Market",
-      "featured": true,
+      "featured": false,
       "multi_day_event": false,
       "end_date": ""
     },
@@ -316,7 +406,7 @@
         "alt": ""
       },
       "gmaps": "Nelson Park Vancouver",
-      "featured": true,
+      "featured": false,
       "content": {
         "body": "This outdoor farmer's market along a beautiful tree-lined street has an array of locally grown and made offerings.  ",
         "title": ""
@@ -334,7 +424,7 @@
         "alt": ""
       },
       "gmaps": "Trout Lake Vancouver",
-      "featured": true,
+      "featured": false,
       "content": {
         "body": "This outdoor farmer's market boasts a wide variety of local food and craft items. Lots of options!",
         "title": ""
