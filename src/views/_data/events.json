@@ -10,7 +10,7 @@
         "alt": ""
       },
       "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
-      "featured": false,
+      "featured": true,
       "content": {
         "body": "",
         "title": ""
@@ -32,7 +32,7 @@
         "alt": ""
       },
       "gmaps": "5028A 48 Avenue, Delta, BC",
-      "featured": false,
+      "featured": true,
       "multi_day_event": false,
       "end_date": ""
     },
@@ -52,7 +52,7 @@
         "alt": ""
       },
       "gmaps": "Kitsilano Farmer's Market",
-      "featured": false
+      "featured": true
     },
     {
       "date": "07-06-2024",
@@ -86,7 +86,7 @@
         "alt": ""
       },
       "gmaps": "5028A 48 Avenue, Delta, BC",
-      "featured": false,
+      "featured": true,
       "multi_day_event": false,
       "end_date": ""
     },
@@ -106,7 +106,7 @@
         "alt": ""
       },
       "gmaps": "Kitsilano Farmer's Market",
-      "featured": false
+      "featured": true
     },
     {
       "date": "06-01-2024",
@@ -136,7 +136,7 @@
         "alt": ""
       },
       "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
-      "featured": false,
+      "featured": true,
       "content": {
         "body": "",
         "title": ""
@@ -160,7 +160,7 @@
         "alt": ""
       },
       "gmaps": "Kitsilano Farmer's Market",
-      "featured": false
+      "featured": true
     },
     {
       "date": "05-04-2024",
@@ -250,7 +250,7 @@
         "alt": ""
       },
       "gmaps": "30th Ave. & Ontario St, Vancouver, BC",
-      "featured": true
+      "featured": false
     },
     {
       "date": "11-16-2023",
@@ -268,7 +268,7 @@
         "alt": ""
       },
       "gmaps": "740 Jackson Ave, Vancouver, BC V6A 3B9, Canada",
-      "featured": true
+      "featured": false
     },
     {
       "date": "11-08-2023",
@@ -286,7 +286,7 @@
         "alt": ""
       },
       "gmaps": "1055 Canada Pl, Vancouver, BC V6C 0C3, Canada",
-      "featured": true
+      "featured": false
     },
     {
       "date": "10-21-2023",
@@ -304,7 +304,7 @@
         "alt": ""
       },
       "gmaps": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
-      "featured": true
+      "featured": false
     },
     {
       "date": "07-16-2023",
