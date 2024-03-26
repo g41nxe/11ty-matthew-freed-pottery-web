@@ -10,7 +10,7 @@
         "alt": ""
       },
       "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
-      "featured": true,
+      "featured": false,
       "content": {
         "body": "",
         "title": ""
@@ -32,7 +32,7 @@
         "alt": ""
       },
       "gmaps": "5028A 48 Avenue, Delta, BC",
-      "featured": true,
+      "featured": false,
       "multi_day_event": false,
       "end_date": ""
     },
@@ -52,7 +52,7 @@
         "alt": ""
       },
       "gmaps": "Kitsilano Farmer's Market",
-      "featured": true
+      "featured": false
     },
     {
       "date": "07-06-2024",
@@ -70,7 +70,7 @@
         "alt": ""
       },
       "gmaps": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
-      "featured": true
+      "featured": false
     },
     {
       "date": "06-09-2024",
@@ -86,7 +86,7 @@
         "alt": ""
       },
       "gmaps": "5028A 48 Avenue, Delta, BC",
-      "featured": true,
+      "featured": false,
       "multi_day_event": false,
       "end_date": ""
     },
@@ -106,7 +106,7 @@
         "alt": ""
       },
       "gmaps": "Kitsilano Farmer's Market",
-      "featured": true
+      "featured": false
     },
     {
       "date": "06-01-2024",
@@ -124,7 +124,7 @@
         "alt": ""
       },
       "gmaps": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
-      "featured": true
+      "featured": false
     },
     {
       "date": "05-18-2024",
