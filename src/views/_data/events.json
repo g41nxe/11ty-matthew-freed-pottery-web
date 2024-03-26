@@ -1,6 +1,222 @@
 {
   "events": [
     {
+      "date": "08-17-2024",
+      "time": "9 am - 2pm",
+      "name": "West End Farmer's Market",
+      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "featured": false,
+      "content": {
+        "body": "",
+        "title": ""
+      },
+      "multi_day_event": false,
+      "end_date": ""
+    },
+    {
+      "date": "07-14-2024",
+      "time": "10 am - 4 pm",
+      "name": "Ladner Village Market",
+      "location": "48th Ave (between Delta and Elliott Streets)",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "5028A 48 Avenue, Delta, BC",
+      "featured": false,
+      "multi_day_event": false,
+      "end_date": ""
+    },
+    {
+      "date": "07-07-2024",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "10 am - 2 pm",
+      "name": "Kitsilano Farmer's Market",
+      "location": "Kitsilano Community Center",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "Kitsilano Farmer's Market",
+      "featured": false
+    },
+    {
+      "date": "07-06-2024",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "9 am - 2 pm",
+      "name": "Trout Lake Farmer's Market",
+      "location": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
+      "featured": true
+    },
+    {
+      "date": "06-09-2024",
+      "time": "10 am - 4 pm",
+      "name": "Ladner Village Market",
+      "location": "48th Ave (between Delta and Elliott Streets)",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "5028A 48 Avenue, Delta, BC",
+      "featured": false,
+      "multi_day_event": false,
+      "end_date": ""
+    },
+    {
+      "date": "06-02-2024",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "10 am - 2 pm",
+      "name": "Kitsilano Farmer's Market",
+      "location": "Kitsilano Community Center",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "Kitsilano Farmer's Market",
+      "featured": false
+    },
+    {
+      "date": "06-01-2024",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "9 am - 2 pm",
+      "name": "Trout Lake Farmer's Market",
+      "location": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
+      "featured": true
+    },
+    {
+      "date": "05-18-2024",
+      "time": "9 am - 2pm",
+      "name": "West End Farmer's Market",
+      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "featured": false,
+      "content": {
+        "body": "",
+        "title": ""
+      },
+      "multi_day_event": false,
+      "end_date": ""
+    },
+    {
+      "date": "05-05-2024",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "10 am - 2 pm",
+      "name": "Kitsilano Farmer's Market",
+      "location": "Kitsilano Community Center",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "Kitsilano Farmer's Market",
+      "featured": false
+    },
+    {
+      "date": "05-04-2024",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "9 am - 2 pm",
+      "name": "Trout Lake Farmer's Market",
+      "location": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
+      "featured": true
+    },
+    {
+      "date": "04-06-2024",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "9 am - 2 pm",
+      "name": "Trout Lake Farmer's Market",
+      "location": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "Lakewood Dr. and E. 13th Ave.  Vancouver, BC",
+      "featured": true
+    },
+    {
+      "date": "03-30-2024",
+      "multi_day_event": false,
+      "end_date": "",
+      "time": "10 am - 2 pm",
+      "name": "Riley Park Farmer's Market",
+      "location": "30th Ave. & Ontario St, Vancouver, BC",
+      "content": {
+        "title": "",
+        "body": ""
+      },
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "gmaps": "30th Ave. & Ontario St, Vancouver, BC",
+      "featured": true
+    },
+    {
       "date": "12-23-2023",
       "multi_day_event": false,
       "end_date": "",
@@ -595,7 +811,6 @@
         "url": "/images/updates/yaletown-display2.jpg",
         "alt": "Yaletown collection by Matthew Freed"
       }
-    },
-  
+    }
   ]
 }
