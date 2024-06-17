@@ -1,12 +1,1 @@
-[
-  {
-    "name": "Home",
-    "description": "",
-    "modelId": "home",
-    "path": "src/views",
-    "localization": false,
-    "type": "MD",
-    "createdBy": "user",
-    "isServerless": false
-  }
-]
+[]
