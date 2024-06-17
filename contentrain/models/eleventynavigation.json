@@ -67,5 +67,14 @@
     "options": {},
     "validations": {},
     "fieldType": "string"
+  },
+  {
+    "name": "order",
+    "fieldId": "order",
+    "modelId": "eleventynavigation",
+    "componentId": "integer",
+    "options": {},
+    "validations": {},
+    "fieldType": "number"
   }
 ]
