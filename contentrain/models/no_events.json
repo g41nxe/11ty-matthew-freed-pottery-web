@@ -67,5 +67,14 @@
     "options": {},
     "validations": {},
     "fieldType": "string"
+  },
+  {
+    "name": "text",
+    "fieldId": "text",
+    "modelId": "no_events",
+    "componentId": "multi-line-text",
+    "options": {},
+    "validations": {},
+    "fieldType": "string"
   }
 ]
