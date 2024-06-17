@@ -94,5 +94,14 @@
     },
     "validations": {},
     "fieldType": "relation"
+  },
+  {
+    "name": "title",
+    "fieldId": "title",
+    "modelId": "event",
+    "componentId": "single-line-text",
+    "options": {},
+    "validations": {},
+    "fieldType": "string"
   }
 ]
