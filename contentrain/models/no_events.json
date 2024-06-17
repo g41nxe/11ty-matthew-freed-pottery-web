@@ -58,5 +58,14 @@
     "system": true,
     "defaultField": false,
     "modelId": "no_events"
+  },
+  {
+    "name": "title",
+    "fieldId": "title",
+    "modelId": "no_events",
+    "componentId": "single-line-text",
+    "options": {},
+    "validations": {},
+    "fieldType": "string"
   }
 ]
