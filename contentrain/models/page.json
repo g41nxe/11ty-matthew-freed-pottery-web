@@ -85,14 +85,5 @@
     "options": {},
     "validations": {},
     "fieldType": "string"
-  },
-  {
-    "name": "eleventyNavigation",
-    "fieldId": "eleventynavigation",
-    "modelId": "page",
-    "componentId": "single-line-text",
-    "options": {},
-    "validations": {},
-    "fieldType": "array"
   }
 ]
