@@ -85,5 +85,14 @@
     "options": {},
     "validations": {},
     "fieldType": "string"
+  },
+  {
+    "name": "eleventyNavigation",
+    "fieldId": "eleventynavigation",
+    "modelId": "page",
+    "componentId": "json",
+    "options": {},
+    "validations": {},
+    "fieldType": "string"
   }
 ]
