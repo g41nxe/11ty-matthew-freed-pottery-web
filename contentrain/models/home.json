@@ -88,5 +88,23 @@
     "system": true,
     "defaultField": false,
     "modelId": "home"
+  },
+  {
+    "name": "layout",
+    "fieldId": "layout",
+    "modelId": "home",
+    "componentId": "single-line-text",
+    "options": {
+      "default-value": {
+        "value": true,
+        "form": {
+          "single-line-text": {
+            "value": "home-layout"
+          }
+        }
+      }
+    },
+    "validations": {},
+    "fieldType": "string"
   }
 ]
