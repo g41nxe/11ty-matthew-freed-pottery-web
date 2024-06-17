@@ -97,5 +97,14 @@
     "options": {},
     "validations": {},
     "fieldType": "string"
+  },
+  {
+    "name": "url",
+    "fieldId": "url",
+    "modelId": "cta",
+    "componentId": "url",
+    "options": {},
+    "validations": {},
+    "fieldType": "string"
   }
 ]
