@@ -94,5 +94,14 @@
     },
     "validations": {},
     "fieldType": "relation"
+  },
+  {
+    "name": "title",
+    "fieldId": "title",
+    "modelId": "page",
+    "componentId": "single-line-text",
+    "options": {},
+    "validations": {},
+    "fieldType": "string"
   }
 ]
