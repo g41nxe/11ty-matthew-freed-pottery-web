@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "name": "Page",
+    "modelId": "page",
+    "localization": false,
+    "type": "JSON",
+    "createdBy": "user",
+    "isServerless": false
+  }
+]
