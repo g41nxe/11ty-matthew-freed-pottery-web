@@ -1,13 +1,5 @@
 [
   {
-    "name": "eleventyNavigation",
-    "modelId": "eleventynavigation",
-    "localization": false,
-    "type": "MD",
-    "createdBy": "user",
-    "isServerless": false
-  },
-  {
     "name": "Page",
     "modelId": "page",
     "localization": false,
