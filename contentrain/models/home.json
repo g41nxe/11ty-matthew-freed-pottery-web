@@ -106,5 +106,23 @@
     },
     "validations": {},
     "fieldType": "string"
+  },
+  {
+    "name": "title",
+    "fieldId": "title",
+    "modelId": "home",
+    "componentId": "single-line-text",
+    "options": {
+      "default-value": {
+        "value": true,
+        "form": {
+          "single-line-text": {
+            "value": "Home"
+          }
+        }
+      }
+    },
+    "validations": {},
+    "fieldType": "string"
   }
 ]
