@@ -88,5 +88,14 @@
     "system": true,
     "defaultField": false,
     "modelId": "cta"
+  },
+  {
+    "name": "label",
+    "fieldId": "label",
+    "modelId": "cta",
+    "componentId": "single-line-text",
+    "options": {},
+    "validations": {},
+    "fieldType": "string"
   }
 ]
