@@ -81,7 +81,7 @@
     "name": "permalink",
     "fieldId": "permalink",
     "modelId": "page",
-    "componentId": "single-line-text",
+    "componentId": "slug",
     "options": {},
     "validations": {},
     "fieldType": "string"
