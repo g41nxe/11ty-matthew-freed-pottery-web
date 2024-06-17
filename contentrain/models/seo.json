@@ -88,5 +88,14 @@
     "system": true,
     "defaultField": false,
     "modelId": "seo"
+  },
+  {
+    "name": "custom_seo_settings",
+    "fieldId": "custom_seo_settings",
+    "modelId": "seo",
+    "componentId": "switch",
+    "options": {},
+    "validations": {},
+    "fieldType": "boolean"
   }
 ]
