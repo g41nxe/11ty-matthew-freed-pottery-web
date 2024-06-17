@@ -58,5 +58,14 @@
     "system": true,
     "defaultField": false,
     "modelId": "eleventynavigation"
+  },
+  {
+    "name": "key",
+    "fieldId": "key",
+    "modelId": "eleventynavigation",
+    "componentId": "single-line-text",
+    "options": {},
+    "validations": {},
+    "fieldType": "string"
   }
 ]
