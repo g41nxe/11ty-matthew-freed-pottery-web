@@ -1,13 +1,5 @@
 [
   {
-    "name": "Page",
-    "modelId": "page",
-    "localization": false,
-    "type": "JSON",
-    "createdBy": "user",
-    "isServerless": false
-  },
-  {
     "name": "eleventyNavigation",
     "modelId": "eleventynavigation",
     "localization": false,
