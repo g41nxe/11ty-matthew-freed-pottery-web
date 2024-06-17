@@ -1,20 +1,5 @@
 [
   {
-    "name": "slug",
-    "fieldId": "slug",
-    "componentId": "slug",
-    "validations": {
-      "required-field": {
-        "value": true
-      }
-    },
-    "options": {},
-    "fieldType": "string",
-    "system": false,
-    "defaultField": true,
-    "modelId": "gallery"
-  },
-  {
     "name": "content",
     "fieldId": "content",
     "componentId": "md-editor",
