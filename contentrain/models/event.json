@@ -58,5 +58,23 @@
     "system": true,
     "defaultField": false,
     "modelId": "event"
+  },
+  {
+    "name": "no_events",
+    "fieldId": "no_events",
+    "modelId": "event",
+    "componentId": "one-to-one",
+    "options": {
+      "reference": {
+        "value": true,
+        "form": {
+          "reference": {
+            "value": "no_events"
+          }
+        }
+      }
+    },
+    "validations": {},
+    "fieldType": "relation"
   }
 ]
