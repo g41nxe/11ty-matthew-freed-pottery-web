@@ -88,5 +88,14 @@
     "system": true,
     "defaultField": false,
     "modelId": "notification"
+  },
+  {
+    "name": "title",
+    "fieldId": "title",
+    "modelId": "notification",
+    "componentId": "single-line-text",
+    "options": {},
+    "validations": {},
+    "fieldType": "string"
   }
 ]
