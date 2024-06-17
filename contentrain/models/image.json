@@ -58,5 +58,14 @@
     "system": true,
     "defaultField": false,
     "modelId": "image"
+  },
+  {
+    "name": "url",
+    "fieldId": "url",
+    "modelId": "image",
+    "componentId": "media",
+    "options": {},
+    "validations": {},
+    "fieldType": "media"
   }
 ]
