@@ -148,5 +148,23 @@
     },
     "validations": {},
     "fieldType": "relation"
+  },
+  {
+    "name": "seo",
+    "fieldId": "seo",
+    "modelId": "page",
+    "componentId": "one-to-one",
+    "options": {
+      "reference": {
+        "value": true,
+        "form": {
+          "reference": {
+            "value": "seo"
+          }
+        }
+      }
+    },
+    "validations": {},
+    "fieldType": "relation"
   }
 ]
