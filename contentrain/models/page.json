@@ -130,5 +130,23 @@
     },
     "validations": {},
     "fieldType": "relation"
+  },
+  {
+    "name": "event",
+    "fieldId": "event",
+    "modelId": "page",
+    "componentId": "one-to-one",
+    "options": {
+      "reference": {
+        "value": true,
+        "form": {
+          "reference": {
+            "value": "event"
+          }
+        }
+      }
+    },
+    "validations": {},
+    "fieldType": "relation"
   }
 ]
