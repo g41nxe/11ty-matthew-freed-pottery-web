@@ -58,5 +58,23 @@
     "system": true,
     "defaultField": false,
     "modelId": "page"
+  },
+  {
+    "name": "eleventyNavigation",
+    "fieldId": "eleventynavigation",
+    "modelId": "page",
+    "componentId": "one-to-one",
+    "options": {
+      "reference": {
+        "value": true,
+        "form": {
+          "reference": {
+            "value": "eleventynavigation"
+          }
+        }
+      }
+    },
+    "validations": {},
+    "fieldType": "relation"
   }
 ]
