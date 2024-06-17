@@ -58,5 +58,14 @@
     "system": true,
     "defaultField": false,
     "modelId": "page"
+  },
+  {
+    "name": "layout",
+    "fieldId": "layout",
+    "modelId": "page",
+    "componentId": "single-line-text",
+    "options": {},
+    "validations": {},
+    "fieldType": "string"
   }
 ]
