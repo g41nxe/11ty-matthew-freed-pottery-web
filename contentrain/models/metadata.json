@@ -38,5 +38,13 @@
     "type": "MD",
     "createdBy": "user",
     "isServerless": false
+  },
+  {
+    "name": "no_events",
+    "modelId": "no_events",
+    "localization": false,
+    "type": "MD",
+    "createdBy": "user",
+    "isServerless": false
   }
 ]
