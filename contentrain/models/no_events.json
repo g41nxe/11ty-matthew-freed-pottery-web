@@ -72,7 +72,7 @@
     "name": "text",
     "fieldId": "text",
     "modelId": "no_events",
-    "componentId": "multi-line-text",
+    "componentId": "md-editor",
     "options": {},
     "validations": {},
     "fieldType": "string"
