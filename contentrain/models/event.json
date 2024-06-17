@@ -76,5 +76,23 @@
     },
     "validations": {},
     "fieldType": "relation"
+  },
+  {
+    "name": "image",
+    "fieldId": "image",
+    "modelId": "event",
+    "componentId": "one-to-one",
+    "options": {
+      "reference": {
+        "value": true,
+        "form": {
+          "reference": {
+            "value": "image"
+          }
+        }
+      }
+    },
+    "validations": {},
+    "fieldType": "relation"
   }
 ]
