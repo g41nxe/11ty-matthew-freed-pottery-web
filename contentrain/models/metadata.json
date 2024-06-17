@@ -46,5 +46,13 @@
     "type": "MD",
     "createdBy": "user",
     "isServerless": false
+  },
+  {
+    "name": "image",
+    "modelId": "image",
+    "localization": false,
+    "type": "MD",
+    "createdBy": "user",
+    "isServerless": false
   }
 ]
