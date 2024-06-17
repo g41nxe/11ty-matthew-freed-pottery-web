@@ -1,20 +1,5 @@
 [
   {
-    "name": "content",
-    "fieldId": "content",
-    "componentId": "md-editor",
-    "options": {},
-    "validations": {
-      "required-field": {
-        "value": true
-      }
-    },
-    "fieldType": "string",
-    "system": false,
-    "defaultField": true,
-    "modelId": "features"
-  },
-  {
     "name": "createdAt",
     "fieldId": "createdAt",
     "componentId": "date",
