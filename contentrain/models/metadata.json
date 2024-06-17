@@ -6,5 +6,13 @@
     "type": "MD",
     "createdBy": "user",
     "isServerless": false
+  },
+  {
+    "name": "eleventyNavigation",
+    "modelId": "eleventynavigation",
+    "localization": false,
+    "type": "MD",
+    "createdBy": "user",
+    "isServerless": false
   }
 ]
