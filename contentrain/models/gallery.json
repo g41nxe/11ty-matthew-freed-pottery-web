@@ -58,5 +58,14 @@
     "system": true,
     "defaultField": false,
     "modelId": "gallery"
+  },
+  {
+    "name": "title",
+    "fieldId": "title",
+    "modelId": "gallery",
+    "componentId": "single-line-text",
+    "options": {},
+    "validations": {},
+    "fieldType": "string"
   }
 ]
