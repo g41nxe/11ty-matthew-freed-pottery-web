@@ -1,6 +1,5 @@
 ---
 layout: contact-layout
-image: "/images/uploads/contact.jpeg"
 title: Contact
 permalink: "/contact.html"
 eleventyNavigation:
@@ -30,5 +29,6 @@ custom_seo_settings: false
 author: ''
 excerpt: ''
 ogtype: ''
+image: "/images/uploads/contact.jpeg"
 
 ---

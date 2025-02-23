@@ -2,14 +2,92 @@ backend:
   name: git-gateway
   branch: decap
 
+local_backend: true
+
 media_folder: "src/images"
-public_folder: "/images"
+public_folder: "images"
+
+editor:
+     preview: false
 
 collections:
-  - label: "pages"
-    name: "Pages"
+  - name: news
+    label: News
     files:
-      - label: "contact"
+      - label: News
+        name: News
+        file: "src/views/_data/events.json"
+        fields:
+          - label: News List
+            name: news
+            widget: list
+            summary: "{{date}} - {{name}}"
+            fields: 
+            - label: Date
+              name: date
+              widget: datetime
+              format: "MM-DD-YYYY"
+            - name: name
+              widget: string
+            - name: content
+              widget: object
+              collapsed: true
+              fields:
+                - {name: title, widget: string}
+                - {name: body, widget: string}
+            - name: image
+              widget: object
+              collapsed: true
+              fields:
+                - {name: url, widget: image, media_folder: "src/images/updates"}
+                - {name: alt, widget: string}
+
+  - name: events 
+    label: Events
+    files:
+      - label: Events
+        name: events
+        file: "src/views/_data/events.json"
+        fields:
+          - label: Event List
+            name: events
+            widget: list
+            summary: "{{date}} - {{name}}"
+            fields: 
+            - label: "Is it a multi day event?"
+              name: multi_day_event
+              widget: boolean
+              default: false
+            - label: Date
+              name: date
+              widget: datetime
+              format: "MM-DD-YYYY"
+              time_format: false
+            - name: end_date
+              widget: datetime
+              time_format: false
+            - name: time
+              widget: string
+            - name: name
+              widget: string
+            - name: location
+              widget: string
+            - name: content
+              widget: object
+              collapsed: true
+              fields:
+                - {name: title, widget: string}
+                - {name: body, widget: string}
+            - name: gmaps
+              widget: code
+            - name: featured
+              widget: boolean
+            default: true
+
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Contact"
         name: "contact"
         file: "src/views/contact.md"
         fields:
@@ -33,16 +111,16 @@ collections:
           - {label: "headline", name: "headline", widget: "string"}
           - {label: "subheadline", name: "subheadline", widget: "string"}
 
-          - label: "intro"
+          - label: "Intro"
             name: "intro"
             widget: "list"
-            fields:
-              - {label: "text", name: "text", widget: "string"}
+            summary: '{{fields.text}}'
+            field: {label: "text", name: "text", widget: "string"}
 
           - {label: "message", name: "message", widget: "string"}
           - {label: "phone", name: "phone", widget: "string"}
           - {label: "address", name: "address", widget: "string"}
-          - {label: "gmaps", name: "code", widget: "string"}
+          - {label: "gmaps", name: "gmaps", widget: "string"}
 
           - label: "contactform"
             name: "contactform"
@@ -54,21 +132,23 @@ collections:
 
           - label: "eleventyNavigation"
             name: "eleventyNavigation"
-            widget: "object"
+            widget: "hidden"
             fields:
-              - {label: "key", name: "key", widget: "string"}
-              - {label: "order", name: "order", widget: "number"}
+              - {label: "key", name: "key", widget: "hidden"}
+              - {label: "order", name: "order", widget: "hidden"}
 
-          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "boolean"}
-          - {label: "author", name: "author", widget: "boolean", required: false}
-          - {label: "excerpt", name: "excerpt", widget: "string", required: false}
-          - {label: "image", name: "image", widget: "image", required: false}
-          - {label: "ogtype", name: "ogtype", widget: "string", required: false}
+          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
+          - {label: "author", name: "author", widget: "hidden"}
+          - {label: "excerpt", name: "excerpt", widget: "hidden"}
+          - {label: "image", name: "image", widget: "hidden"}
+          - {label: "ogtype", name: "ogtype", widget: "hidden"}
 
-      - label: "about"
+
+      - label: "About"
         name: "about"
         file: "src/views/about.md"
         fields:
+
           - {label: "layout", name: "layout", widget: "hidden"}
           - {label: "title", name: "title", widget: "string"}
           - {label: "permalink", name: "permalink", widget: "string"}
@@ -79,6 +159,7 @@ collections:
           - label: "sections"
             name: "sections"
             widget: "list"
+            summary: '{{fields.label}}'
             fields:
               - label: "image"
                 name: "image"
@@ -95,18 +176,19 @@ collections:
 
           - label: "eleventyNavigation"
             name: "eleventyNavigation"
-            widget: "object"
+            widget: "hidden"
             fields:
-              - {label: "key", name: "key", widget: "string"}
-              - {label: "order", name: "order", widget: "number"}
+              - {label: "key", name: "key", widget: "hidden"}
+              - {label: "order", name: "order", widget: "hidden"}
 
-          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "boolean"}
-          - {label: "author", name: "author", widget: "boolean", required: false}
-          - {label: "excerpt", name: "excerpt", widget: "string", required: false}
-          - {label: "image", name: "image", widget: "image", required: false}
-          - {label: "ogtype", name: "ogtype", widget: "string", required: false}
+          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
+          - {label: "author", name: "author", widget: "hidden"}
+          - {label: "excerpt", name: "excerpt", widget: "hidden"}
+          - {label: "image", name: "image", widget: "hidden"}
+          - {label: "ogtype", name: "ogtype", widget: "hidden"}
 
-      - label: "home"
+
+      - label: "Home"
         name: "home"
         file: "src/views/home.md"
         fields:
@@ -131,7 +213,7 @@ collections:
             name: "event"
             widget: "object"
             fields:
-              - label: "no_events"
+              - label: "What to show when there is no upcoming Event"
                 name: "no_events"
                 widget: "object"
                 fields:
@@ -150,33 +232,37 @@ collections:
             name: "gallery"
             widget: "object"
             fields:
-              - {label: "title", name: "title", widget: "string"}
-              - label: "texts"
+              - {label: "Title", name: "title", widget: "string"}
+              - label: "Texts"
+                label_singular: " "
                 name: "texts"
                 widget: "list"
-                fields: 
-                  - {label: "text", name: "text", widget: "string"}
+                collapsed: false
+                summary: '{{fields.text}}'
+                field: {label: "text", name: "text", widget: "string"}
 
           - label: "features"
             name: "features"
             widget: "object"
             fields:
               - {label: "title", name: "title", widget: "string"}
-              - label: "texts"
+              - label: "Texts"
+                label_singular: " "
                 name: "texts"
+                collapsed: false
+                summary: '{{fields.text}}'
                 widget: "list"
-                fields: 
-                  - {label: "text", name: "text", widget: "string"}
+                field: {label: "text", name: "text", widget: "string"}
 
           - label: "eleventyNavigation"
             name: "eleventyNavigation"
-            widget: "object"
+            widget: "hidden"
             fields:
-              - {label: "key", name: "key", widget: "string"}
-              - {label: "order", name: "order", widget: "number"}
+              - {label: "key", name: "key", widget: "hidden"}
+              - {label: "order", name: "order", widget: "hidden"}
 
-          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "boolean"}
-          - {label: "author", name: "author", widget: "boolean", required: false}
-          - {label: "excerpt", name: "excerpt", widget: "string", required: false}
-          - {label: "image", name: "image", widget: "image", required: false}
-          - {label: "ogtype", name: "ogtype", widget: "string", required: false}
+          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
+          - {label: "author", name: "author", widget: "hidden"}
+          - {label: "excerpt", name: "excerpt", widget: "hidden"}
+          - {label: "image", name: "image", widget: "hidden"}
+          - {label: "ogtype", name: "ogtype", widget: "hidden"}
