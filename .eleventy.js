@@ -11,6 +11,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "src/assets" : "assets"});
     eleventyConfig.addPassthroughCopy({ "src/javascript" : "js"});
     eleventyConfig.addPassthroughCopy({ "src/_redirects" : "_redirects"});
+    eleventyConfig.addPassthroughCopy({ "src/netlify.toml" : "netlify.toml"});
+
 
     eleventyConfig.addPassthroughCopy({ "src/assets/favicon.ico" : "favicon.ico"});
     eleventyConfig.addPassthroughCopy({ "src/assets/apple-icon-180x180.png" : "apple-touch-icon.png"});
