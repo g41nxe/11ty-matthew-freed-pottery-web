@@ -2,6 +2,19 @@
   "gallery": [
     {
       "image": {
+        "url": "/images/squamish-nights.jpg",
+        "alt": "Squamish Nights Teardrop Vase by Matthew Freed"
+      },
+      "title": "Squamish Nights Collection",
+      "text": "A speckled deep green and blue glaze with a celestial look",
+      "cta": {
+        "label": "Browse All Items",
+        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Squamish"
+      },
+      "style": "center"
+    },
+    {
+      "image": {
         "url": "/images/garibaldi-cropped.jpg",
         "alt": "Large Garibaldi Mug by Matthew Freed"
       },
