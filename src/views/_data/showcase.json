@@ -198,6 +198,81 @@
   ],
   "features": [
     {
+      "title": "Tofino - Chopstick Bowl",
+      "overlay": {
+        "text": "This chopstick bowl from the <span class=\"text-highlight font-bold\">Tofino Collection</span> is one of my best selling items"
+      },
+      "cta": {
+        "label": "Shop Now",
+        "url": "https://shop.matthewfreed.net/products/chopstick-bowl-tofino?_pos=1&_psq=tofino+cho&_ss=e&_v=1.0"
+      },
+      "image": {
+        "url": "/images/features/tofino-chopstick-bowl.jpg",
+        "alt": "Tofino Chopstick Bowl by Matthew Freed"
+      },
+      "hide": false
+    },
+    {
+      "title": "Jericho - Teardrop Vase",
+      "overlay": {
+        "text": "This teardrop vase from the <span class=\"text-highlight font-bold\">Jericho Collection</span> is one of my best selling items"
+      },
+      "cta": {
+        "label": "Shop Now",
+        "url": "https://shop.matthewfreed.net/products/copy-teardrop-vase-tofino"
+      },
+      "image": {
+        "url": "/images/features/jericho-teardrop-vase.jpg",
+        "alt": "Jericho Teardrop Vase by Matthew Freed"
+      },
+      "hide": false
+    },
+    {
+      "title": "Squamish Nights - Shorty Mug",
+      "overlay": {
+        "text": "This shorty mug from the <span class=\"text-highlight font-bold\">Squamish Nights Collection</span> is one of my best selling items"
+      },
+      "cta": {
+        "label": "Shop Now",
+        "url": "https://shop.matthewfreed.net/products/shorty-mug-squamish-night"
+      },
+      "image": {
+        "url": "/images/features/squamish-nights-shorty-mug.jpg",
+        "alt": "Squamish Nights Shorty Mug by Matthew Freed"
+      },
+      "hide": false
+    },
+    {
+      "title": "Tree of Life - Pitcher",
+      "overlay": {
+        "text": "This pitcher from the <span class=\"text-highlight font-bold\">Tree of Life Collection</span> is one of my best selling items"
+      },
+      "cta": {
+        "label": "Shop Now",
+        "url": "https://shop.matthewfreed.net/products/pitcher-tree-of-life"
+      },
+      "image": {
+        "url": "/images/features/tree-of-life-pitcher.jpg",
+        "alt": "Tree of Life Pitcher by Matthew Freed"
+      },
+      "hide": false
+    },
+    {
+      "title": "Yaletown - Red Teapot",
+      "overlay": {
+        "text": "This medium teapot from the <span class=\"text-highlight font-bold\">Yaletown Collection</span> is one of my best selling items"
+      },
+      "cta": {
+        "label": "Shop Now",
+        "url": "https://shop.matthewfreed.net/products/copy-large-teapot-tofino"
+      },
+      "image": {
+        "url": "/images/features/yaletown-red-teapot.jpg",
+        "alt": "Yaletown Red Teapot by Matthew Freed"
+      },
+      "hide": false
+    },
+    {
       "title": "Jericho - Belly Mug",
       "overlay": {
         "text": "This large belly mug from the <span class=\"text-highlight font-bold\">Jericho Collection</span> is one of my best selling items"
@@ -235,7 +310,7 @@
       },
       "cta": {
         "label": "Shop Now",
-        "url": "https://shop.matthewfreed.net/products/belly-mug-yaletown-red.jpg"
+        "url": "https://shop.matthewfreed.net/products/belly-mug-yaletown-red?_pos=2&_sid=b3bc40889&_ss=r"
       },
       "image": {
         "url": "/images/features/feature-belly-mug-yaletown-red.jpg",
