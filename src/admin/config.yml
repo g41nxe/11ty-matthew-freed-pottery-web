@@ -499,7 +499,7 @@ collections:
                 - {name: body, widget: string}
             - name: gmaps
               label: "Location on Google Maps"
-              widget: strng
+              widget: string
             - name: featured
               widget: boolean
               default: true
