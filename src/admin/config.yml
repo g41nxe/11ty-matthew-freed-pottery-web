@@ -182,7 +182,7 @@ collections:
                 widget: "list"
                 fields: 
                   - {label: "text", name: "text", widget: "text"}
-              - {label: "label", name: "label", widget: "hidden"}
+              - {label: "label", name: "label", widget: "string"}
 
           - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
           - {label: "author", name: "author", widget: "hidden"}
@@ -219,8 +219,51 @@ collections:
                 widget: "list"
                 fields: 
                   - {label: "text", name: "text", widget: "text"}
-              - {label: "label", name: "label", widget: "hidden"}
-              
+              - {label: "label", name: "label", widget: "string"}
+
+      - label: "About - Process"
+        name: "process"
+        file: "src/views/process.md"
+        fields:
+          - {label: "layout", name: "layout", widget: "hidden"}
+          - {label: "title", name: "title", widget: "string"}
+          - {label: "permalink", name: "permalink", widget: "hidden"}
+          - {label: "tags", name: "tags", widget: "hidden"}
+
+          - {label: "headline", name: "headline", widget: "string"}
+          - {label: "intro", name: "intro", widget: "text"}
+
+          - label: "sections"
+            name: "sections"
+            widget: "list"
+            summary: '{{fields.label}}'
+            fields:
+              - label: "image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "url", name: "url", widget: "image", choose_url: false}
+                  - {label: "alt", name: "alt", widget: "string"}
+              - label: "paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                fields: 
+                  - {label: "text", name: "text", widget: "text"}
+              - {label: "label", name: "label", widget: "string"}
+
+          - label: "eleventyNavigation"
+            name: "eleventyNavigation"
+            widget: "hidden"
+            fields:
+              - {label: "key", name: "key", widget: "hidden"}
+              - {label: "order", name: "order", widget: "hidden"}
+
+          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
+          - {label: "author", name: "author", widget: "hidden"}
+          - {label: "excerpt", name: "excerpt", widget: "hidden"}
+          - {label: "image", name: "image", widget: "hidden"}
+          - {label: "ogtype", name: "ogtype", widget: "hidden"}
+
       - label: "Home"
         name: "home"
         file: "src/views/home.md"
