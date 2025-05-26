@@ -278,6 +278,13 @@ collections:
           - {label: "permalink", name: "permalink", widget: "hidden"}
           - {label: "tags", name: "tags", widget: "hidden"}
 
+          - label: "eleventyNavigation"
+            name: "eleventyNavigation"
+            widget: "hidden"
+            fields:
+              - {label: "key", name: "key", widget: "hidden"}
+              - {label: "order", name: "order", widget: "hidden"}
+
           - label: "notification"
             name: "notification"
             widget: "object"
@@ -291,6 +298,14 @@ collections:
                 fields: 
                   - {label: "label", name: "label", widget: "string"}
                   - {label: "url", name: "url", widget: "string"}
+
+          - label: "headline"
+            name: "headline"
+            widget: "string"
+
+          - label: "subheadline"
+            name: "subheadline"
+            widget: "string"
 
           - label: "intro"
             name: "intro"
