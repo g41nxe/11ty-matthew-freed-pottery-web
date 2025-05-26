@@ -15,7 +15,7 @@ layout: base
         </h2>
 
         {% set open = true %}
-        {% set items = [events.news | sortByDate | first] %}
+        {% set items = [news.news | sortByDate | first] %}
         {% include "card-feature.njk" %}
     </section>
 
@@ -26,7 +26,7 @@ layout: base
                 {{ titles.news_archive }}
             </h2>
 
-            {% set items = events.news | sortByDate | removeFirst %}
+            {% set items = news.news | sortByDate | removeFirst %}
             {% include "card-sm.njk" %}
 
         </div>
