@@ -431,12 +431,12 @@ collections:
             name: "body"
             widget: "markdown"
 
-  - name: news
-    label: News
+  - label: "News & Events"
+    name: "news-and-events"
     files:
-      - label: News
-        name: News
-        file: "src/views/_data/events.json"
+      - label: "News"
+        name: "news"
+        file: "src/views/_data/news.json"
         fields:
           - label: News List
             name: news
@@ -463,11 +463,8 @@ collections:
                 - {name: url, widget: image, media_folder: "/src/images/updates/", choose_url: false}
                 - {name: alt, widget: string}
 
-  - name: events 
-    label: Events
-    files:
-      - label: Events
-        name: events
+      - label: "Events"
+        name: "events"
         file: "src/views/_data/events.json"
         fields:
           - label: Event List
