@@ -408,6 +408,78 @@ collections:
           - {label: "image", name: "image", widget: "hidden"}
           - {label: "ogtype", name: "ogtype", widget: "hidden"}
 
+      - label: "Retail Stores"
+        name: "retail-stores"
+        file: "src/views/retail-stores.md"
+        fields:
+          - {label: "layout", name: "layout", widget: "hidden"}
+          - {label: "title", name: "title", widget: "string"}
+          - {label: "permalink", name: "permalink", widget: "hidden"}
+          - {label: "tags", name: "tags", widget: "hidden"}
+
+          - {label: "headline", name: "headline", widget: "string"}
+          - {label: "intro", name: "intro", widget: "text"}
+
+          - label: "image"
+            name: "image"
+            widget: "object"
+            fields:
+              - {label: "url", name: "url", widget: "image", choose_url: false}
+              - {label: "alt", name: "alt", widget: "string"}
+
+          - label: "notification"
+            name: "notification"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "title", name: "title", widget: "string"}
+              - {label: "subtitle", name: "subtitle", widget: "string"}
+              - label: "cta"
+                name: "cta"
+                widget: "object"
+                fields: 
+                  - {label: "label", name: "label", widget: "string"}
+                  - {label: "url", name: "url", widget: "string"}
+          - label: "body"
+            name: "body"
+            widget: "markdown"       
+
+      - label: "Privacy Statement"
+        name: "privacy-statement"
+        file: "src/views/privacy-statement.md"
+        fields:
+          - {label: "layout", name: "layout", widget: "hidden"}
+          - {label: "title", name: "title", widget: "string"}
+          - {label: "permalink", name: "permalink", widget: "hidden"}
+          - {label: "tags", name: "tags", widget: "hidden"}
+
+          - {label: "headline", name: "headline", widget: "string"}
+          - {label: "intro", name: "intro", widget: "text"}
+
+          - label: "image"
+            name: "image"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "url", name: "url", widget: "image", choose_url: false}
+              - {label: "alt", name: "alt", widget: "string"}
+
+          - label: "notification"
+            name: "notification"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "title", name: "title", widget: "string"}
+              - {label: "subtitle", name: "subtitle", widget: "string"}
+              - label: "cta"
+                name: "cta"
+                widget: "object"
+                fields: 
+                  - {label: "label", name: "label", widget: "string"}
+                  - {label: "url", name: "url", widget: "string"}
+          - label: "body"
+            name: "body"
+            widget: "markdown"
 
   - name: "showcase"
     label: "Home Gallery"
