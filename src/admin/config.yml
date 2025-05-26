@@ -269,3 +269,188 @@ collections:
           - {label: "excerpt", name: "excerpt", widget: "hidden"}
           - {label: "image", name: "image", widget: "hidden"}
           - {label: "ogtype", name: "ogtype", widget: "hidden"}
+
+  - name: "showcase"
+    label: "Home Gallery"
+    files:
+      - label: "Home Gallery"
+        name: "showcase"
+        file: "src/views/_data/showcase.json"        
+        fields:
+          - label: "Gallery Items"
+            name: "gallery"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "URL", name: "url", widget: "image", choose_url: false}
+                  - {label: "Alt Text", name: "alt", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+              - label: "CTA"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+              - {label: "Style", name: "style", widget: "string"}              
+
+  - name: "features"
+    label: "Featured Shop Items"
+    files:
+      - label: "Featured Shop Items"
+        name: "features"
+        file: "src/views/_data/showcase.json"
+        fields:
+          - name: "features"
+            label: "Featured Shop Items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - label: "Overlay"
+                name: "overlay"
+                widget: "object"
+                fields:
+                  - {label: "Text", name: "text", widget: "text"}
+              - label: "CTA"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "URL", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/features"}
+                  - {label: "Alt Text", name: "alt", widget: "string"}
+              - {label: "Hide", name: "hide", widget: "boolean", default: false}
+
+  - name: "global"
+    label: "Global Settings"
+    files:
+      - label: "General Data"
+        name: "global"
+        file: "src/views/_data/global.json"
+        fields:
+          - label: "Google Maps"
+            name: "gmaps"
+            widget: "object"
+            minimize_collapsed: true
+            collapsed: true
+            fields:
+              - {label: "API Key", name: "key", widget: "string"}
+
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            minimize_collapsed: true
+            collapsed: true
+            fields:
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "URL", name: "url", widget: "image", choose_url: false}
+                  - {label: "Alt Text", name: "alt", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "string"}
+
+          - label: "Newsletter"
+            name: "newsletter"
+            widget: "object"
+            minimize_collapsed: true
+            collapsed: true
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+
+          - label: "Contact Information"
+            name: "contact"
+            widget: "object"
+            minimize_collapsed: true
+            collapsed: true
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Address", name: "address", widget: "text"}
+              - {label: "Phone", name: "phone", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+
+          - label: "Shop"
+            name: "shop"
+            widget: "object"
+            minimize_collapsed: true
+            collapsed: true
+            fields:
+              - {label: "URL", name: "url", widget: "string"}
+
+          - label: "Social Media"
+            name: "socialmedia"
+            widget: "object"
+            minimize_collapsed: true
+            collapsed: true
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - label: "Services"
+                name: "services"
+                widget: "object"
+                fields:
+                  - label: "Instagram"
+                    name: "instagram"
+                    widget: "object"
+                    fields:
+                      - {label: "Name", name: "name", widget: "string"}
+                      - {label: "Icon", name: "icon", widget: "string"}
+                      - {label: "URL", name: "url", widget: "string"}
+                  - label: "Facebook"
+                    name: "facebook"
+                    widget: "object"
+                    fields:
+                      - {label: "Name", name: "name", widget: "string"}
+                      - {label: "Icon", name: "icon", widget: "string"}
+                      - {label: "URL", name: "url", widget: "string"}
+
+      - label: "SEO Settings"
+        name: "seo"
+        file: "src/views/_data/seo.json"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "URL", name: "url", widget: "string"}
+          - {label: "Author", name: "author", widget: "string"}
+          - label: "Image"
+            name: "image"
+            widget: "object"
+            fields:
+              - {label: "URL", name: "url", widget: "image", choose_url: false}
+              - {label: "Alt Text", name: "alt", widget: "string"}
+          - label: "Options"
+            name: "options"
+            widget: "object"
+            fields:
+              - {label: "Title Divider", name: "titleDivider", widget: "string"}
+
+  - name: "faq"
+    label: "FAQ"
+    files:
+      - label: "FAQ Sections"
+        name: "faq"
+        file: "src/views/_data/faq.json"
+        fields:
+          - label: "FAQ Sections"
+            name: "sections"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string"}
+              - label: "Questions"
+                name: "questions"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - {label: "Question", name: "title", widget: "string"}
+                  - {label: "Answer", name: "body", widget: "text"}
