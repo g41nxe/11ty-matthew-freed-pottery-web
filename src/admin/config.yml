@@ -26,7 +26,8 @@ collections:
             - label: Date
               name: date
               widget: datetime
-              format: "MM-DD-YYYY"
+              date_format: "MM-DD-YYYY"
+              picker_utc: true
             - name: name
               widget: string
             - name: content
@@ -34,12 +35,12 @@ collections:
               collapsed: true
               fields:
                 - {name: title, widget: string}
-                - {name: body, widget: string}
+                - {name: body, widget: text}
             - name: image
               widget: object
               collapsed: true
               fields:
-                - {name: url, widget: image, media_folder: "src/images/updates"}
+                - {name: url, widget: image, media_folder: "/src/images/updates/", choose_url: false}
                 - {name: alt, widget: string}
 
   - name: events 
@@ -61,11 +62,12 @@ collections:
             - label: Date
               name: date
               widget: datetime
-              format: "MM-DD-YYYY"
-              time_format: false
+              date_format: "MM-DD-YYYY"
+              picker_utc: true
             - name: end_date
               widget: datetime
-              time_format: false
+              date_format: "MM-DD-YYYY"
+              picker_utc: true
             - name: time
               widget: string
             - name: name
@@ -79,10 +81,11 @@ collections:
                 - {name: title, widget: string}
                 - {name: body, widget: string}
             - name: gmaps
-              widget: code
+              label: "Location on Google Maps"
+              widget: strng
             - name: featured
               widget: boolean
-            default: true
+              default: true
 
   - label: "Pages"
     name: "pages"
@@ -165,13 +168,13 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - {label: "url", name: "url", widget: "image"}
+                  - {label: "url", name: "url", widget: "image", choose_url: false}
                   - {label: "alt", name: "alt", widget: "string"}
               - label: "paragraphs"
                 name: "paragraphs"
                 widget: "list"
                 fields: 
-                  - {label: "text", name: "text", widget: "string"}
+                  - {label: "text", name: "text", widget: "text"}
               - {label: "label", name: "label", widget: "string"}
 
           - label: "eleventyNavigation"
@@ -223,7 +226,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - {label: "url", name: "url", widget: "image"}
+                  - {label: "url", name: "url", widget: "image", choose_url: false}
                   - {label: "alt", name: "alt", widget: "string"}
               - {label: "title", name: "title", widget: "string"}
               - {label: "label", name: "label", widget: "string"}
