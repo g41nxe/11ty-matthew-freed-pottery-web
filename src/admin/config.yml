@@ -196,11 +196,19 @@ collections:
         fields:
           - {label: "layout", name: "layout", widget: "hidden"}
           - {label: "title", name: "title", widget: "string"}
-          - {label: "permalink", name: "permalink", widget: "string"}
+          - {label: "permalink", name: "permalink", widget: "hidden"}
+
+          - label: "eleventyNavigation"
+            name: "eleventyNavigation"
+            widget: "hidden"
+            fields:
+              - {label: "key", name: "key", widget: "hidden"}
+              - {label: "order", name: "order", widget: "hidden"}
 
           - label: "notification"
             name: "notification"
             widget: "object"
+            collapsed: true
             fields:
               - {label: "title", name: "title", widget: "string"}
               - {label: "subtitle", name: "subtitle", widget: "string"}
@@ -210,7 +218,7 @@ collections:
                 fields: 
                   - {label: "label", name: "label", widget: "string"}
                   - {label: "url", name: "url", widget: "string"}
-          
+
           - label: "event"
             name: "event"
             widget: "object"
@@ -220,7 +228,7 @@ collections:
                 widget: "object"
                 fields:
                   - {label: "title", name: "title", widget: "string"}
-                  - {label: "text", name: "text", widget: "string"}
+                  - {label: "text", name: "text", widget: "text"}
               - label: "image"
                 name: "image"
                 widget: "object"
@@ -229,39 +237,29 @@ collections:
                   - {label: "alt", name: "alt", widget: "string"}
               - {label: "title", name: "title", widget: "string"}
               - {label: "label", name: "label", widget: "string"}
-          
+
           - label: "gallery"
             name: "gallery"
             widget: "object"
             fields:
               - {label: "Title", name: "title", widget: "string"}
               - label: "Texts"
-                label_singular: " "
                 name: "texts"
                 widget: "list"
-                collapsed: false
                 summary: '{{fields.text}}'
-                field: {label: "text", name: "text", widget: "string"}
+                field: {label: "text", name: "text", widget: "text"}
 
           - label: "features"
             name: "features"
             widget: "object"
+            collapsed: true
             fields:
               - {label: "title", name: "title", widget: "string"}
               - label: "Texts"
-                label_singular: " "
                 name: "texts"
-                collapsed: false
-                summary: '{{fields.text}}'
                 widget: "list"
-                field: {label: "text", name: "text", widget: "string"}
-
-          - label: "eleventyNavigation"
-            name: "eleventyNavigation"
-            widget: "hidden"
-            fields:
-              - {label: "key", name: "key", widget: "hidden"}
-              - {label: "order", name: "order", widget: "hidden"}
+                summary: '{{fields.text}}'
+                field: {label: "text", name: "text", widget: "text"}
 
           - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
           - {label: "author", name: "author", widget: "hidden"}
