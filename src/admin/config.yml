@@ -11,85 +11,112 @@ editor:
      preview: false
 
 collections:
-  - name: news
-    label: News
-    files:
-      - label: News
-        name: News
-        file: "src/views/_data/events.json"
-        fields:
-          - label: News List
-            name: news
-            widget: list
-            summary: "{{date}} - {{name}}"
-            fields: 
-            - label: Date
-              name: date
-              widget: datetime
-              date_format: "MM-DD-YYYY"
-              picker_utc: true
-            - name: name
-              widget: string
-            - name: content
-              widget: object
-              collapsed: true
-              fields:
-                - {name: title, widget: string}
-                - {name: body, widget: text}
-            - name: image
-              widget: object
-              collapsed: true
-              fields:
-                - {name: url, widget: image, media_folder: "/src/images/updates/", choose_url: false}
-                - {name: alt, widget: string}
-
-  - name: events 
-    label: Events
-    files:
-      - label: Events
-        name: events
-        file: "src/views/_data/events.json"
-        fields:
-          - label: Event List
-            name: events
-            widget: list
-            summary: "{{date}} - {{name}}"
-            fields: 
-            - label: "Is it a multi day event?"
-              name: multi_day_event
-              widget: boolean
-              default: false
-            - label: Date
-              name: date
-              widget: datetime
-              date_format: "MM-DD-YYYY"
-              picker_utc: true
-            - name: end_date
-              widget: datetime
-              date_format: "MM-DD-YYYY"
-              picker_utc: true
-            - name: time
-              widget: string
-            - name: name
-              widget: string
-            - name: location
-              widget: string
-            - name: content
-              widget: object
-              collapsed: true
-              fields:
-                - {name: title, widget: string}
-                - {name: body, widget: string}
-            - name: gmaps
-              label: "Location on Google Maps"
-              widget: strng
-            - name: featured
-              widget: boolean
-              default: true
 
   - label: "Pages"
     name: "pages"
     files:
+      - label: "Home"
+        name: "home"
+        file: "src/views/home.md"
+        fields:
+          - {label: "layout", name: "layout", widget: "hidden"}
+          - {label: "title", name: "title", widget: "string"}
+          - {label: "permalink", name: "permalink", widget: "hidden"}
+
+          - label: "eleventyNavigation"
+            name: "eleventyNavigation"
+            widget: "hidden"
+            fields:
+              - {label: "key", name: "key", widget: "hidden"}
+              - {label: "order", name: "order", widget: "hidden"}
+
+          - label: "notification"
+            name: "notification"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "title", name: "title", widget: "string"}
+              - {label: "subtitle", name: "subtitle", widget: "string"}
+              - label: "cta"
+                name: "cta"
+                widget: "object"
+                fields: 
+                  - {label: "label", name: "label", widget: "string"}
+                  - {label: "url", name: "url", widget: "string"}
+
+          - label: "event"
+            name: "event"
+            widget: "object"
+            fields:
+              - label: "What to show when there is no upcoming Event"
+                name: "no_events"
+                widget: "object"
+                fields:
+                  - {label: "title", name: "title", widget: "string"}
+                  - {label: "text", name: "text", widget: "text"}
+              - label: "image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "url", name: "url", widget: "image", choose_url: false}
+                  - {label: "alt", name: "alt", widget: "string"}
+              - {label: "title", name: "title", widget: "string"}
+              - {label: "label", name: "label", widget: "string"}
+
+          - label: "gallery"
+            name: "gallery"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - label: "Texts"
+                name: "texts"
+                widget: "list"
+                summary: '{{fields.text}}'
+                field: {label: "text", name: "text", widget: "text"}
+
+          - label: "features"
+            name: "features"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "title", name: "title", widget: "string"}
+              - label: "Texts"
+                name: "texts"
+                widget: "list"
+                summary: '{{fields.text}}'
+                field: {label: "text", name: "text", widget: "text"}
+
+          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
+          - {label: "author", name: "author", widget: "hidden"}
+          - {label: "excerpt", name: "excerpt", widget: "hidden"}
+          - {label: "image", name: "image", widget: "hidden"}
+          - {label: "ogtype", name: "ogtype", widget: "hidden"}
+
+      - label: "Home - Gallery"
+        name: "showcase"
+        file: "src/views/_data/showcase.json"        
+        fields:
+          - label: "Gallery Items"
+            name: "gallery"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "URL", name: "url", widget: "image", choose_url: false}
+                  - {label: "Alt Text", name: "alt", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+              - label: "CTA"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+              - {label: "Style", name: "style", widget: "string"}
+
       - label: "Contact"
         name: "contact"
         file: "src/views/contact.md"
@@ -264,83 +291,6 @@ collections:
           - {label: "image", name: "image", widget: "hidden"}
           - {label: "ogtype", name: "ogtype", widget: "hidden"}
 
-      - label: "Home"
-        name: "home"
-        file: "src/views/home.md"
-        fields:
-          - {label: "layout", name: "layout", widget: "hidden"}
-          - {label: "title", name: "title", widget: "string"}
-          - {label: "permalink", name: "permalink", widget: "hidden"}
-
-          - label: "eleventyNavigation"
-            name: "eleventyNavigation"
-            widget: "hidden"
-            fields:
-              - {label: "key", name: "key", widget: "hidden"}
-              - {label: "order", name: "order", widget: "hidden"}
-
-          - label: "notification"
-            name: "notification"
-            widget: "object"
-            collapsed: true
-            fields:
-              - {label: "title", name: "title", widget: "string"}
-              - {label: "subtitle", name: "subtitle", widget: "string"}
-              - label: "cta"
-                name: "cta"
-                widget: "object"
-                fields: 
-                  - {label: "label", name: "label", widget: "string"}
-                  - {label: "url", name: "url", widget: "string"}
-
-          - label: "event"
-            name: "event"
-            widget: "object"
-            fields:
-              - label: "What to show when there is no upcoming Event"
-                name: "no_events"
-                widget: "object"
-                fields:
-                  - {label: "title", name: "title", widget: "string"}
-                  - {label: "text", name: "text", widget: "text"}
-              - label: "image"
-                name: "image"
-                widget: "object"
-                fields:
-                  - {label: "url", name: "url", widget: "image", choose_url: false}
-                  - {label: "alt", name: "alt", widget: "string"}
-              - {label: "title", name: "title", widget: "string"}
-              - {label: "label", name: "label", widget: "string"}
-
-          - label: "gallery"
-            name: "gallery"
-            widget: "object"
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - label: "Texts"
-                name: "texts"
-                widget: "list"
-                summary: '{{fields.text}}'
-                field: {label: "text", name: "text", widget: "text"}
-
-          - label: "features"
-            name: "features"
-            widget: "object"
-            collapsed: true
-            fields:
-              - {label: "title", name: "title", widget: "string"}
-              - label: "Texts"
-                name: "texts"
-                widget: "list"
-                summary: '{{fields.text}}'
-                field: {label: "text", name: "text", widget: "text"}
-
-          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
-          - {label: "author", name: "author", widget: "hidden"}
-          - {label: "excerpt", name: "excerpt", widget: "hidden"}
-          - {label: "image", name: "image", widget: "hidden"}
-          - {label: "ogtype", name: "ogtype", widget: "hidden"}
-
       - label: "Collections"
         name: "collections"
         file: "src/views/collections.md"
@@ -481,65 +431,81 @@ collections:
             name: "body"
             widget: "markdown"
 
-  - name: "showcase"
-    label: "Home Gallery"
+  - name: news
+    label: News
     files:
-      - label: "Home Gallery"
-        name: "showcase"
-        file: "src/views/_data/showcase.json"        
+      - label: News
+        name: News
+        file: "src/views/_data/events.json"
         fields:
-          - label: "Gallery Items"
-            name: "gallery"
-            widget: "list"
-            summary: "{{fields.title}}"
-            fields:
-              - label: "Image"
-                name: "image"
-                widget: "object"
-                fields:
-                  - {label: "URL", name: "url", widget: "image", choose_url: false}
-                  - {label: "Alt Text", name: "alt", widget: "string"}
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Text", name: "text", widget: "text"}
-              - label: "CTA"
-                name: "cta"
-                widget: "object"
-                fields:
-                  - {label: "Label", name: "label", widget: "string"}
-                  - {label: "URL", name: "url", widget: "string"}
-              - {label: "Style", name: "style", widget: "string"}              
+          - label: News List
+            name: news
+            widget: list
+            summary: "{{date}} - {{name}}"
+            fields: 
+            - label: Date
+              name: date
+              widget: datetime
+              date_format: "MM-DD-YYYY"
+              picker_utc: true
+            - name: name
+              widget: string
+            - name: content
+              widget: object
+              collapsed: true
+              fields:
+                - {name: title, widget: string}
+                - {name: body, widget: text}
+            - name: image
+              widget: object
+              collapsed: true
+              fields:
+                - {name: url, widget: image, media_folder: "/src/images/updates/", choose_url: false}
+                - {name: alt, widget: string}
 
-  - name: "features"
-    label: "Featured Shop Items"
+  - name: events 
+    label: Events
     files:
-      - label: "Featured Shop Items"
-        name: "features"
-        file: "src/views/_data/showcase.json"
+      - label: Events
+        name: events
+        file: "src/views/_data/events.json"
         fields:
-          - name: "features"
-            label: "Featured Shop Items"
-            widget: "list"
-            summary: "{{fields.title}}"
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - label: "Overlay"
-                name: "overlay"
-                widget: "object"
-                fields:
-                  - {label: "Text", name: "text", widget: "text"}
-              - label: "CTA"
-                name: "cta"
-                widget: "object"
-                fields:
-                  - {label: "Label", name: "label", widget: "string"}
-                  - {label: "URL", name: "url", widget: "string"}
-              - label: "Image"
-                name: "image"
-                widget: "object"
-                fields:
-                  - {label: "URL", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/features"}
-                  - {label: "Alt Text", name: "alt", widget: "string"}
-              - {label: "Hide", name: "hide", widget: "boolean", default: false}
+          - label: Event List
+            name: events
+            widget: list
+            summary: "{{date}} - {{name}}"
+            fields: 
+            - label: "Is it a multi day event?"
+              name: multi_day_event
+              widget: boolean
+              default: false
+            - label: Date
+              name: date
+              widget: datetime
+              date_format: "MM-DD-YYYY"
+              picker_utc: true
+            - name: end_date
+              widget: datetime
+              date_format: "MM-DD-YYYY"
+              picker_utc: true
+            - name: time
+              widget: string
+            - name: name
+              widget: string
+            - name: location
+              widget: string
+            - name: content
+              widget: object
+              collapsed: true
+              fields:
+                - {name: title, widget: string}
+                - {name: body, widget: string}
+            - name: gmaps
+              label: "Location on Google Maps"
+              widget: strng
+            - name: featured
+              widget: boolean
+              default: true
 
   - name: "global"
     label: "Global Settings"
@@ -644,6 +610,35 @@ collections:
             widget: "object"
             fields:
               - {label: "Title Divider", name: "titleDivider", widget: "string"}
+
+      - label: "Featured Shop Items"
+        name: "features"
+        file: "src/views/_data/showcase.json"
+        fields:
+          - name: "features"
+            label: "Featured Shop Items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - label: "Overlay"
+                name: "overlay"
+                widget: "object"
+                fields:
+                  - {label: "Text", name: "text", widget: "text"}
+              - label: "CTA"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "URL", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/features"}
+                  - {label: "Alt Text", name: "alt", widget: "string"}
+              - {label: "Hide", name: "hide", widget: "boolean", default: false}
 
   - name: "faq"
     label: "FAQ"
