@@ -873,6 +873,20 @@
         "body": "East Vancouver Winter Farmer's Market"
       },
       "gmaps": "https://www.bing.com/search?filters=ufn%3a%22Google+Maps%22+sid%3a%22f6847295-954b-eab6-6c2a-cc9c0033811a%22&qs=MB&pq=google&sk=CSYN1UAS8LS8AS4&sc=25-6&pglt=425&q=google+maps&cvid=6e5849fc651a4eea958453498deaa7c0&gs_lcrp=EgRlZGdlKgYIAhAuGEAyBggAEAAYQDIGCAEQLhhAMgYIAhAuGEAyBggDEC4YQDIGCAQQABhAMgYIBRAuGEAyBggGEC4YQDIGCAcQRRg8MgYICBBFGEHSAQg1Mzg2ajBqMagCALACAA&FORM=ANNTA1&adppc=EDGEESS&PC=EDGEDSE"
+    },
+    {
+      "name": "Riley Park Farmer's Market ",
+      "time": "10 am to 2 pm",
+      "featured": true,
+      "date": "12-20-2025",
+      "multi_day_event": false,
+      "end_date": "12-20-2025",
+      "location": "50 East 30th Avenue, Vancouver, BC",
+      "content": {
+        "title": "Riley Park Farmer's Market",
+        "body": "East Vancouver Farmer's Market"
+      },
+      "gmaps": "https://www.bing.com/search?filters=ufn%3a%22Google+Maps%22+sid%3a%22f6847295-954b-eab6-6c2a-cc9c0033811a%22&qs=MB&pq=google&sk=CSYN1UAS8LS8AS4&sc=25-6&pglt=425&q=google+maps&cvid=6e5849fc651a4eea958453498deaa7c0&gs_lcrp=EgRlZGdlKgYIAhAuGEAyBggAEAAYQDIGCAEQLhhAMgYIAhAuGEAyBggDEC4YQDIGCAQQABhAMgYIBRAuGEAyBggGEC4YQDIGCAcQRRg8MgYICBBFGEHSAQg1Mzg2ajBqMagCALACAA&FORM=ANNTA1&adppc=EDGEESS&PC=EDGEDSE"
     }
   ]
 }
