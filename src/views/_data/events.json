@@ -901,6 +901,20 @@
         "body": "Weekly Winter Farmer's Market"
       },
       "gmaps": "https://www.google.ca/maps/place/2706+Trafalgar+St,+Vancouver,+BC+V6K+2J6/@49.2626511,-123.1685591,17z/data=!3m1!4b1!4m6!3m5!1s0x548673ae60fbc861:0x4f8127ca5145d3b8!8m2!3d49.2626512!4d-123.1636882!16s%2Fg%2F11cplg22wp?entry=ttu&g_ep=EgoyMDI1MTAwOC4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "name": "Kitsilano Farmer's Market",
+      "time": "10 am to 2 pm",
+      "featured": true,
+      "date": "12-21-2025",
+      "multi_day_event": false,
+      "end_date": "12-21-2025",
+      "location": "2706 Trafalgar Street, Vancouver, BC",
+      "content": {
+        "title": "Kitlsilano Farmer's Market",
+        "body": "Weekly Winter Farmer's Market"
+      },
+      "gmaps": "https://www.google.ca/maps/place/2706+Trafalgar+St,+Vancouver,+BC+V6K+2J6/@49.2626511,-123.1685591,17z/data=!3m1!4b1!4m6!3m5!1s0x548673ae60fbc861:0x4f8127ca5145d3b8!8m2!3d49.2626512!4d-123.1636882!16s%2Fg%2F11cplg22wp?entry=ttu&g_ep=EgoyMDI1MTAwOC4wIKXMDSoASAFQAw%3D%3D"
     }
   ]
 }
