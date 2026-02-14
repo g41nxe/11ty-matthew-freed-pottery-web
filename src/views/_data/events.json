@@ -1167,6 +1167,20 @@
         "body": "Bi-weekly summer market"
       },
       "gmaps": "5028A 48 Avenue, Delta, BC"
+    },
+    {
+      "name": "Ladner Village Market ",
+      "time": "10 a.m. to 4 p.m. ",
+      "featured": false,
+      "date": "07-19-2026",
+      "multi_day_event": false,
+      "end_date": "07-19-2026",
+      "location": "5028A 48 Avenue, Delta, BC",
+      "content": {
+        "title": "Ladner Village Market ",
+        "body": "Bi-weekly summer market"
+      },
+      "gmaps": "5028A 48 Avenue, Delta, BC"
     }
   ]
 }
