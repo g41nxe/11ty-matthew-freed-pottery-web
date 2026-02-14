@@ -875,20 +875,6 @@
       "gmaps": "https://www.bing.com/search?filters=ufn%3a%22Google+Maps%22+sid%3a%22f6847295-954b-eab6-6c2a-cc9c0033811a%22&qs=MB&pq=google&sk=CSYN1UAS8LS8AS4&sc=25-6&pglt=425&q=google+maps&cvid=6e5849fc651a4eea958453498deaa7c0&gs_lcrp=EgRlZGdlKgYIAhAuGEAyBggAEAAYQDIGCAEQLhhAMgYIAhAuGEAyBggDEC4YQDIGCAQQABhAMgYIBRAuGEAyBggGEC4YQDIGCAcQRRg8MgYICBBFGEHSAQg1Mzg2ajBqMagCALACAA&FORM=ANNTA1&adppc=EDGEESS&PC=EDGEDSE"
     },
     {
-      "name": "Riley Park Farmer's Market ",
-      "time": "10 am to 2 pm",
-      "featured": true,
-      "date": "12-20-2025",
-      "multi_day_event": false,
-      "end_date": "12-20-2025",
-      "location": "50 East 30th Avenue, Vancouver, BC",
-      "content": {
-        "title": "Riley Park Farmer's Market",
-        "body": "East Vancouver Farmer's Market"
-      },
-      "gmaps": "https://www.bing.com/search?filters=ufn%3a%22Google+Maps%22+sid%3a%22f6847295-954b-eab6-6c2a-cc9c0033811a%22&qs=MB&pq=google&sk=CSYN1UAS8LS8AS4&sc=25-6&pglt=425&q=google+maps&cvid=6e5849fc651a4eea958453498deaa7c0&gs_lcrp=EgRlZGdlKgYIAhAuGEAyBggAEAAYQDIGCAEQLhhAMgYIAhAuGEAyBggDEC4YQDIGCAQQABhAMgYIBRAuGEAyBggGEC4YQDIGCAcQRRg8MgYICBBFGEHSAQg1Mzg2ajBqMagCALACAA&FORM=ANNTA1&adppc=EDGEESS&PC=EDGEDSE"
-    },
-    {
       "name": "Kitsilano Farmer's Market",
       "time": "10 am t0 2 pm",
       "featured": true,
@@ -915,6 +901,20 @@
         "body": "Weekly Winter Farmer's Market"
       },
       "gmaps": "https://www.google.ca/maps/place/2706+Trafalgar+St,+Vancouver,+BC+V6K+2J6/@49.2626511,-123.1685591,17z/data=!3m1!4b1!4m6!3m5!1s0x548673ae60fbc861:0x4f8127ca5145d3b8!8m2!3d49.2626512!4d-123.1636882!16s%2Fg%2F11cplg22wp?entry=ttu&g_ep=EgoyMDI1MTAwOC4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "name": "Riley Park Farmer's Market ",
+      "time": "10 am to 2 pm",
+      "featured": true,
+      "date": "12-20-2025",
+      "multi_day_event": false,
+      "end_date": "12-20-2025",
+      "location": "50 East 30th Avenue, Vancouver, BC",
+      "content": {
+        "title": "Riley Park Farmer's Market",
+        "body": "East Vancouver Farmer's Market"
+      },
+      "gmaps": "https://www.bing.com/search?filters=ufn%3a%22Google+Maps%22+sid%3a%22f6847295-954b-eab6-6c2a-cc9c0033811a%22&qs=MB&pq=google&sk=CSYN1UAS8LS8AS4&sc=25-6&pglt=425&q=google+maps&cvid=6e5849fc651a4eea958453498deaa7c0&gs_lcrp=EgRlZGdlKgYIAhAuGEAyBggAEAAYQDIGCAEQLhhAMgYIAhAuGEAyBggDEC4YQDIGCAQQABhAMgYIBRAuGEAyBggGEC4YQDIGCAcQRRg8MgYICBBFGEHSAQg1Mzg2ajBqMagCALACAA&FORM=ANNTA1&adppc=EDGEESS&PC=EDGEDSE"
     },
     {
       "name": "Trout Lake Farmer's Market ",
@@ -1007,6 +1007,20 @@
       "date": "05-31-2026",
       "multi_day_event": false,
       "end_date": "05-31-2026",
+      "location": "Kitsilano Community Center ",
+      "content": {
+        "title": "Kitsilano Farmer's Market ",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "Kitsilano Farmer's Market"
+    },
+    {
+      "name": "Kitsilano Farmer's Market ",
+      "time": "10 a.m. to 2 p.m.",
+      "featured": false,
+      "date": "06-21-2026",
+      "multi_day_event": false,
+      "end_date": "06-21-2026",
       "location": "Kitsilano Community Center ",
       "content": {
         "title": "Kitsilano Farmer's Market ",
