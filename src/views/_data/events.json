@@ -41,7 +41,7 @@
       "time": "9 am - 2pm",
       "featured": false,
       "date": "10-18-2025",
-      "multi_day_event": false,
+      "multi_day_event": true,
       "end_date": "10-18-2025",
       "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
       "content": {
@@ -1153,6 +1153,20 @@
         "body": "Weekly Farmer's market "
       },
       "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+    },
+    {
+      "name": "Ladner Village Market ",
+      "time": "10 a.m. to 4 p.m...",
+      "featured": true,
+      "date": "06-07-2026",
+      "multi_day_event": false,
+      "end_date": "06-07-2026",
+      "location": "5028A 48 Avenue, Delta, BC",
+      "content": {
+        "title": "Ladner Village Market ",
+        "body": "Bi-weekly summer market"
+      },
+      "gmaps": "5028A 48 Avenue, Delta, BC"
     }
   ]
 }
