@@ -1195,6 +1195,20 @@
         "body": "Bi-weekly summer market "
       },
       "gmaps": "5028A 48 Avenue, Delta, BC"
+    },
+    {
+      "name": " West End Farmer's Market ",
+      "time": "9 a.m to 2 p.m.",
+      "featured": false,
+      "date": "07-11-2026",
+      "multi_day_event": false,
+      "end_date": "07-11-2026",
+      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "content": {
+        "title": "West End Farmer's Market ",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
     }
   ]
 }
