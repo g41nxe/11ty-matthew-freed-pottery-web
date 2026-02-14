@@ -1069,6 +1069,20 @@
         "body": "Weekly Farmer's market "
       },
       "gmaps": "Kitsilano Farmer's Market"
+    },
+    {
+      "name": "Kitsilano Farmer's Market ",
+      "time": "10 a.m. to 2 p.m. .",
+      "featured": false,
+      "date": "10-18-2026",
+      "multi_day_event": false,
+      "end_date": "10-18-2026",
+      "location": "Kitsilano Community Center ",
+      "content": {
+        "title": "Kitsilano Farmer's Market ",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "Kitsilano Farmer's Market"
     }
   ]
 }
