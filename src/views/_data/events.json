@@ -925,7 +925,7 @@
       "end_date": "04-18-2026",
       "location": "Trout Lake John Hendry Park",
       "content": {
-        "title": "Trout Lak Market ",
+        "title": "Trout Lake Market ",
         "body": "Weekly Farmer's Market"
       },
       "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
@@ -959,12 +959,26 @@
       "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
     },
     {
-      "name": "Trout Lake ",
+      "name": "Trout Lake Farmer's Market ",
       "time": "9 a.m. to 2 p.m.",
       "featured": false,
       "date": "07-18-2026",
       "multi_day_event": false,
       "end_date": "07-18-2026",
+      "location": "Trout Lake John Hendry Park ",
+      "content": {
+        "title": "Trout Lake ",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+    },
+    {
+      "name": "Trout Lake Farmer's Market ",
+      "time": "9 a.m. to 2 p.m. ",
+      "featured": false,
+      "date": "09-26-2026",
+      "multi_day_event": false,
+      "end_date": "09-26-2026",
       "location": "Trout Lake John Hendry Park ",
       "content": {
         "title": "Trout Lake ",
