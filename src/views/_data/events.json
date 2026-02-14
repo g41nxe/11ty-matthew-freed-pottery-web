@@ -1161,7 +1161,7 @@
       "date": "06-07-2026",
       "multi_day_event": false,
       "end_date": "06-07-2026",
-      "location": "5028A 48 Avenue, Delta, BC",
+      "location": "48th Ave (between Delta and Elliott Streets)",
       "content": {
         "title": "Ladner Village Market ",
         "body": "Bi-weekly summer market"
@@ -1175,10 +1175,24 @@
       "date": "07-19-2026",
       "multi_day_event": false,
       "end_date": "07-19-2026",
-      "location": "5028A 48 Avenue, Delta, BC",
+      "location": "48th Ave (between Delta and Elliott Streets)",
       "content": {
         "title": "Ladner Village Market ",
         "body": "Bi-weekly summer market"
+      },
+      "gmaps": "5028A 48 Avenue, Delta, BC"
+    },
+    {
+      "name": "Ladner Village Market ",
+      "time": "10 a.m. to 4 p.m.",
+      "featured": false,
+      "date": "09-20-2026",
+      "multi_day_event": false,
+      "end_date": "09-20-2026",
+      "location": "48th Ave (between Delta and Elliott Streets)",
+      "content": {
+        "title": "Ladner Village Market ",
+        "body": "Bi-weekly summer market "
       },
       "gmaps": "5028A 48 Avenue, Delta, BC"
     }
