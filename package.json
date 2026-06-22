@@ -9,9 +9,10 @@
     "eleventy:default": "npx eleventy",
     "eleventy:watch": "npx eleventy --watch",
     "eleventy:serve": "npx eleventy --serve",
-    "styles:dev": "sass src/styles:dist/styles && postcss ./dist/styles/*.css --replace",
-    "styles:prod": "sass --style=compressed src/styles:dist/styles && postcss ./dist/styles/*.css --replace",
-    "dev": "npm-run-all clean styles:dev eleventy:default --parallel eleventy:watch eleventy:serve --print-label",
+    "styles:dev": "postcss src/styles/main.css --output dist/styles/main.css",
+    "styles:watch": "postcss src/styles/main.css --output dist/styles/main.css --watch",
+    "styles:prod": "postcss src/styles/main.css --output dist/styles/main.css",
+    "dev": "npm-run-all clean styles:dev eleventy:default --parallel styles:watch eleventy:watch eleventy:serve --print-label",
     "build": "npm-run-all clean styles:prod eleventy:default --print-label"
   },
   "keywords": [],
@@ -24,7 +25,7 @@
     "@11ty/eleventy": "^3.1.6",
     "@11ty/eleventy-img": "^6.0.4",
     "@11ty/eleventy-navigation": "^1.0.5",
-    "autoprefixer": "^10.4.21",
+    "@tailwindcss/postcss": "^4.3.1",
     "cssnano": "^8.0.0",
     "eleventy-plugin-pwa-v2": "^1.0.2",
     "eleventy-plugin-seo": "^0.5.2",
@@ -32,7 +33,6 @@
     "npm-run-all2": "^9.0.2",
     "postcss": "^8.5.15",
     "postcss-cli": "^11.0.1",
-    "sass": "^1.101.0",
-    "tailwindcss": "^2.2.17"
+    "tailwindcss": "^4.3.1"
   }
 }
