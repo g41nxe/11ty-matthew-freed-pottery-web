@@ -961,7 +961,7 @@
     {
       "name": "Trout Lake Farmer's Market ",
       "time": "9 a.m. to 2 p.m.",
-      "featured": false,
+      "featured": true,
       "date": "07-18-2026",
       "multi_day_event": false,
       "end_date": "07-18-2026",
@@ -975,7 +975,7 @@
     {
       "name": "Trout Lake Farmer's Market ",
       "time": "9 a.m. to 2 p.m. ",
-      "featured": false,
+      "featured": true,
       "date": "09-26-2026",
       "multi_day_event": false,
       "end_date": "09-26-2026",
@@ -989,7 +989,7 @@
     {
       "name": "Trout Lake Farmer's Market ",
       "time": "9 a.m. to 2 p.m.",
-      "featured": false,
+      "featured": true,
       "date": "10-17-2026",
       "multi_day_event": false,
       "end_date": "10-17-2026",
@@ -1031,7 +1031,7 @@
     {
       "name": "Kitsilano Farmer's Market ",
       "time": "10 a.m. to 2 p.m. ",
-      "featured": false,
+      "featured": true,
       "date": "07-05-2026",
       "multi_day_event": false,
       "end_date": "07-05-2026",
@@ -1045,7 +1045,7 @@
     {
       "name": "Kitsilano Farmer's Market ",
       "time": "10 a.m. to 2 p.m.",
-      "featured": false,
+      "featured": true,
       "date": "07-12-2026",
       "multi_day_event": false,
       "end_date": "07-12-2026",
@@ -1059,7 +1059,7 @@
     {
       "name": "Kitsilano Farmer's Market ",
       "time": "10 a.m. to 2 p.m. .",
-      "featured": false,
+      "featured": true,
       "date": "09-27-2026",
       "multi_day_event": false,
       "end_date": "09-27-2026",
@@ -1073,7 +1073,7 @@
     {
       "name": "Kitsilano Farmer's Market ",
       "time": "10 a.m. to 2 p.m. .",
-      "featured": false,
+      "featured": true,
       "date": "10-18-2026",
       "multi_day_event": false,
       "end_date": "10-18-2026",
@@ -1129,7 +1129,7 @@
     {
       "name": "West End Farmer's Market ",
       "time": "9 a.m. to 2 p.m.",
-      "featured": false,
+      "featured": true,
       "date": "09-19-2026",
       "multi_day_event": false,
       "end_date": "09-19-2026",
@@ -1143,7 +1143,7 @@
     {
       "name": "West End Farmer's Market ",
       "time": "9 a.m. to 2 p.m. ",
-      "featured": false,
+      "featured": true,
       "date": "10-03-2026",
       "multi_day_event": false,
       "end_date": "10-03-2026",
@@ -1171,7 +1171,7 @@
     {
       "name": "Ladner Village Market ",
       "time": "10 a.m. to 4 p.m. ",
-      "featured": false,
+      "featured": true,
       "date": "07-19-2026",
       "multi_day_event": false,
       "end_date": "07-19-2026",
@@ -1185,7 +1185,7 @@
     {
       "name": "Ladner Village Market ",
       "time": "10 a.m. to 4 p.m.",
-      "featured": false,
+      "featured": true,
       "date": "09-20-2026",
       "multi_day_event": false,
       "end_date": "09-20-2026",
@@ -1199,7 +1199,7 @@
     {
       "name": " West End Farmer's Market ",
       "time": "9 a.m to 2 p.m.",
-      "featured": false,
+      "featured": true,
       "date": "07-11-2026",
       "multi_day_event": false,
       "end_date": "07-11-2026",
