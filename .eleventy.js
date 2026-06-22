@@ -1,7 +1,7 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const moment = require("moment/moment");
 const Image = require("@11ty/eleventy-img");
-const pluginPWA = require("eleventy-plugin-pwa");
+const pluginPWA = require("eleventy-plugin-pwa-v2");
 const pluginSEO = require("eleventy-plugin-seo");
 
 module.exports = function (eleventyConfig) {
@@ -94,8 +94,7 @@ module.exports = function (eleventyConfig) {
             layouts: "_includes/layouts"
         },
         templateFormats: ["md", "njk"],
-        markdownTemplateEngine: "njk",
-        passthroughFileCopy: true
+        markdownTemplateEngine: "njk"
     };
 };
 
