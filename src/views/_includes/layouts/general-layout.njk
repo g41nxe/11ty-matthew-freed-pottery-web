@@ -12,7 +12,7 @@ layout: base
 
 
 {% set gridcols = "grid-cols-2" if image.url else "grid-cols-1" %}
-<div class="general grid md:{{ gridcols }} grid-cols-1 place-content-center w-100 md:my-24">
+<div class="general grid md:{{ gridcols }} grid-cols-1 place-content-center w-full md:my-24">
 
     {%- if image.url -%}
     <div class="md:shadow-md">
