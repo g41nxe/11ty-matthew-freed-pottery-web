@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/*
+ * Safelist for data-driven classes built at render time from CMS input:
+ *   items-{{ entry.style }} / text-{{ entry.style }}
+ * (collections-collection.njk, home-showcase.njk)
+ * Tailwind cannot detect interpolated class names, so we force-generate the
+ * alignment utilities an editor might choose. Values valid for both
+ * align-items and text-align: start | center | end.
+ */
+@source inline("items-{start,center,end}");
+@source inline("text-{left,center,right,start,end}");
+
 @theme {
     --breakpoint-sm: 640px;
     --breakpoint-md: 768px;
