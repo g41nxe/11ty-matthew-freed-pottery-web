@@ -29,9 +29,9 @@
                     <div class="glide__bullets z-40 divide-x-2 divide-brand" data-glide-el="controls[nav]">
                         {%- for entry in events.events | filterFeatured -%}
                             <button @click="open = false" aria-label="Jump to event {{entry.label}}" data-glide-dir="={{ loop.index0 }}" class="glide__bullet hover:text-highlight z-40 relative text-xs lg:text-sm px-2">
-                                {{ entry.date | date('MMM D') }}
+                                {{ entry.date | date('MMM d') }}
                                 {% if entry.multi_day_event %}
-                                    - {{ entry.end_date | date('MMM D') }}
+                                    - {{ entry.end_date | date('MMM d') }}
                                 {% endif %}
                             </button>
                         {%- endfor -%}
@@ -60,9 +60,9 @@
                             <h4 class="text-center text-lg lg:text-xl font-bold">{{ entry.name }}</h4>
                             <p class="text-center my-8 text-sm lg:text-base">
                                 <span class="font-semibold">
-                                    {{ entry.date |  date('MMM Do') }}
+                                    {{ entry.date |  date('MMM d') }}
                                     {% if entry.multi_day_event %}
-                                        - {{ entry.end_date | date('MMM Do') }}
+                                        - {{ entry.end_date | date('MMM d') }}
                                     {% endif %}
                                 </span>
 

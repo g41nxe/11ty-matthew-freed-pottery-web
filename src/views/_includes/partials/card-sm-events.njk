@@ -7,10 +7,10 @@
 <div class="bg-white p-4 border border-gray-light col-span-3">
     <h3 class="font-bold text-sm mb-2">{{ item.headline }}</h3>
     <p class="text-brand text-xs"><i class="mr-1 fas fa-sn fa-calendar-alt"></i>
-        {{ item.date | date('MM/DD/YY') }}
+        {{ item.date | date('MM/dd/yy') }}
 
         {% if item.multi_day_event %}
-            - {{ item.end_date | date('MM/DD/YY') }}
+            - {{ item.end_date | date('MM/dd/yy') }}
         {% endif %}
 
         {% if item.time %}
@@ -35,7 +35,7 @@
 {% block title %}
     <div class="grid grid-cols-9 my-2 py-2 px-2 border-b-2 border-brand w-full">
         <p class="col-span-9 md:col-span-3 lg:col-span-2 flex-none leading-8 align-baseline text-sm">
-            {{ item.date | date("MM/DD/YY") }}
+            {{ item.date | date("MM/dd/yy") }}
         </p>
 
         <button @click="open = !open" class="col-span-8 md:col-span-5 lg:col-span-6 font-bold text-left text-md hover:text-highlight">

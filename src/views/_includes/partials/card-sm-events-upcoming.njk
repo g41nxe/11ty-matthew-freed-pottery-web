@@ -12,10 +12,10 @@
 <div class="bg-white p-4 border border-gray-light col-span-3">
     <h3 class="font-bold text-sm mb-2">{{ item.headline }}</h3>
     <p class="text-brand text-xs"><i class="mr-1 fas fa-sn fa-calendar-alt"></i>
-        {{ item.date | date('MM/DD/YY') }}
+        {{ item.date | date('MM/dd/yy') }}
 
         {% if item.multi_day_event %}
-            - {{ item.end_date | date('MM/DD/YY') }}
+            - {{ item.end_date | date('MM/dd/yy') }}
         {% endif %}
 
         {% if item.time %}
