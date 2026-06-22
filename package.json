@@ -28,7 +28,7 @@
     "cssnano": "^8.0.0",
     "eleventy-plugin-pwa-v2": "^1.0.2",
     "eleventy-plugin-seo": "^0.5.2",
-    "moment": "^2.30.1",
+    "luxon": "^3.7.2",
     "npm-run-all2": "^9.0.2",
     "postcss": "^8.5.15",
     "postcss-cli": "^11.0.1",

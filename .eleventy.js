@@ -1,5 +1,5 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-const moment = require("moment/moment");
+const { DateTime } = require("luxon");
 const Image = require("@11ty/eleventy-img");
 const { generateHTML } = require("@11ty/eleventy-img");
 const pluginPWA = require("eleventy-plugin-pwa-v2");
@@ -39,37 +39,35 @@ module.exports = function (eleventyConfig) {
         return generateHTML(metadata, { alt, sizes, loading, class: classes });
       });
 
-    eleventyConfig.addNunjucksFilter("sortByDate", function (arr, attribute="date", reverse=false) {
-        return arr.sort(function(a, b) {
-            return moment(b[attribute], 'MM-DD-YYYY').toDate() - moment(a[attribute], 'MM-DD-YYYY').toDate();
-        })
+    eleventyConfig.addNunjucksFilter("sortByDate", function (arr, attribute="date") {
+        return arr.slice().sort(function(a, b) {
+            return DateTime.fromFormat(b[attribute], 'MM-dd-yyyy').toJSDate()
+                 - DateTime.fromFormat(a[attribute], 'MM-dd-yyyy').toJSDate();
+        });
     });
     eleventyConfig.addNunjucksFilter("hashtagURL", function (hashtag) {
         return `https://www.instagram.com/explore/tags/${hashtag}/`;
     });
     eleventyConfig.addNunjucksFilter("date", function (date, format) {
-        return moment(date, 'MM-DD-YYYY').format(format);
+        return DateTime.fromFormat(date, 'MM-dd-yyyy').toFormat(format);
     });
     eleventyConfig.addNunjucksFilter("removeFirst", function (array) {
-        return array.slice(1,array.length);
+        return array.slice(1, array.length);
     });
     eleventyConfig.addNunjucksFilter("filterFuture", function(array) {
         return array.filter(el => {
-            date  = moment(el.date, 'MM-DD-YYYY');
-            return date.isAfter(moment());
-        })
+            return DateTime.fromFormat(el.date, 'MM-dd-yyyy') > DateTime.now();
+        });
     });
     eleventyConfig.addNunjucksFilter("filterPast", function(array) {
         return array.filter(el => {
-            date  = moment(el.date, 'MM-DD-YYYY');
-            return !date.isAfter(moment());
-        })
+            return DateTime.fromFormat(el.date, 'MM-dd-yyyy') <= DateTime.now();
+        });
     });
     eleventyConfig.addNunjucksFilter("filterFeatured", function(array) {
         return array.filter(el => {
-            date  = moment(el.date, 'MM-DD-YYYY');
-            return el.featured && date.isAfter(moment());
-        }).reverse().slice(0,5);
+            return el.featured && DateTime.fromFormat(el.date, 'MM-dd-yyyy') > DateTime.now();
+        }).reverse().slice(0, 5);
     })
     eleventyConfig.addNunjucksFilter("uuid", function() {
         return uuidv4();
