@@ -65,9 +65,10 @@ module.exports = function (eleventyConfig) {
         });
     });
     eleventyConfig.addNunjucksFilter("filterFeatured", function(array) {
-        return array.filter(el => {
-            return el.featured && DateTime.fromFormat(el.date, 'MM-dd-yyyy') > DateTime.now();
-        }).reverse().slice(0, 5);
+        return array
+            .filter(el => el.featured && DateTime.fromFormat(el.date, 'MM-dd-yyyy') > DateTime.now())
+            .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'))
+            .slice(0, 5);
     })
     eleventyConfig.addNunjucksFilter("uuid", function() {
         return uuidv4();
