@@ -56,7 +56,7 @@
             <div data-glide-el="track" class="glide__track">
                 <ul class="glide__slides">
                     {%- for entry in events.events | filterFeatured -%}
-                        <li class="glide__slide flex flex-col justify-content items-center py-4">
+                        <li class="glide__slide flex flex-col justify-center items-center py-4">
                             <h4 class="text-center text-lg lg:text-xl font-bold">{{ entry.name }}</h4>
                             <p class="text-center my-8 text-sm lg:text-base">
                                 <span class="font-semibold">
@@ -90,7 +90,7 @@
         {% img event.image.url, event.image.alt, "(min-width: 1024px) 58.33vw, (min-width: 768px) 50vw, 100vw", "h-full w-full object-cover" %}
 
         <div class="content full md:p-8 absolute top-0 w-full h-full">
-            <div class="p-4 md:p-8 w-full h-full bg-white bg-opacity-70 flex flex-col space-y-2 md:space-y-8 justify-between" style="display: none;" x-show="open">
+            <div class="p-4 md:p-8 w-full h-full bg-white/70 flex flex-col space-y-2 md:space-y-8 justify-between" style="display: none;" x-show="open">
                 <button aria-label="Show Details"  class="text-brand hover:text-higlight text-right" @click="open = false">
                     <i class="fas fa-times "></i>
                 </button>
