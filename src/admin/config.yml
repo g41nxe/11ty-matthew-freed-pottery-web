@@ -125,7 +125,7 @@ collections:
                 fields:
                   - {label: "URL", name: "url", widget: "image", choose_url: false}
                   - {label: "Alt Text", name: "alt", widget: "string"}
-                  - {label: "Crop Focus", name: "focal", widget: "select", options: ["center", "top", "bottom", "left", "right"], default: "center", hint: "Which part of the image to keep when cropped"}
+                  - {label: "Crop Focus", name: "focal", widget: "select", options: ["auto", "center", "top", "bottom", "left", "right"], default: "auto", hint: "Cropped to 3:2. Auto chooses the focus; pick a side to override."}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Text", name: "text", widget: "text"}
               - label: "CTA"
@@ -406,7 +406,7 @@ collections:
             fields:
               - {label: "url", name: "url", widget: "image", choose_url: false}
               - {label: "alt", name: "alt", widget: "string"}
-              - {label: "Crop Focus", name: "focal", widget: "select", options: ["center", "top", "bottom", "left", "right"], default: "center", hint: "Which part of the image to keep when cropped"}
+              - {label: "Crop Focus", name: "focal", widget: "select", options: ["auto", "center", "top", "bottom", "left", "right"], default: "auto", hint: "Cropped to 7:5. Auto chooses the focus; pick a side to override."}
 
           - label: "notification"
             name: "notification"
@@ -496,7 +496,7 @@ collections:
               fields:
                 - {name: url, widget: image, media_folder: "/src/images/updates/", public_folder: "/images/updates", choose_url: false}
                 - {name: alt, widget: string}
-                - {name: focal, label: "Crop Focus", widget: select, options: ["center", "top", "bottom", "left", "right"], default: "center", hint: "Which part of the image to keep when cropped"}
+                - {name: focal, label: "Crop Focus", widget: select, options: ["auto", "center", "top", "bottom", "left", "right"], default: "auto", hint: "Cropped to 3:2. Auto chooses the focus; pick a side to override."}
 
       - label: "Events"
         name: "events"
@@ -570,7 +570,7 @@ collections:
                 fields:
                   - {label: "URL", name: "url", widget: "image", choose_url: false}
                   - {label: "Alt Text", name: "alt", widget: "string"}
-                  - {label: "Crop Focus", name: "focal", widget: "select", options: ["center", "top", "bottom", "left", "right"], default: "center", hint: "Which part of the image to keep when cropped"}
+                  - {label: "Crop Focus", name: "focal", widget: "select", options: ["auto", "center", "top", "bottom", "left", "right"], default: "auto", hint: "Cropped to 5:3. Auto chooses the focus; pick a side to override."}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Subtitle", name: "subtitle", widget: "string"}
 

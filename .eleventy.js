@@ -53,9 +53,11 @@ module.exports = function (eleventyConfig) {
 
     // Maps the editor-chosen focal point (CMS select widget) to a sharp
     // `position` used for `fit: cover` cropping.
-    const FOCAL_POSITIONS = { center: "centre", top: "top", bottom: "bottom", left: "left", right: "right" };
+    // "auto" uses sharp's attention strategy (keeps the most visually salient
+    // region); the rest are fixed gravities the editor can pick to override.
+    const FOCAL_POSITIONS = { auto: "attention", center: "centre", top: "top", bottom: "bottom", left: "left", right: "right" };
 
-    eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="", classes="", loading="lazy", ratio="", focal="center") {
+    eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="", classes="", loading="lazy", ratio="", focal="auto") {
         if(alt === undefined) {
           throw new Error(`Missing \`alt\` on image from: ${src}`);
         }
@@ -76,7 +78,7 @@ module.exports = function (eleventyConfig) {
             cropH = meta.height;
             cropW = Math.round(meta.height * targetRatio);
           }
-          const position = FOCAL_POSITIONS[focal] || "centre";
+          const position = FOCAL_POSITIONS[focal] || "attention";
           input = await sharp(input).resize(cropW, cropH, { fit: "cover", position }).toBuffer();
         }
 
