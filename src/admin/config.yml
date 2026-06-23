@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: g41nxe/11ty-matthew-freed-pottery-web
-  branch: decap
+  branch: feat/sveltia-cms-migration
 
 omit_empty_optional_fields: true
 
