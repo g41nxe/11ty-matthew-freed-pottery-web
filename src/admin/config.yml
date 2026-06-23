@@ -656,7 +656,7 @@ collections:
 
       - label: "Featured Shop Items"
         name: "features"
-        file: "src/views/_data/showcase.json"
+        file: "src/views/_data/features.json"
         fields:
           - name: "features"
             label: "Featured Shop Items"
