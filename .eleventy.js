@@ -27,7 +27,26 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "src/images" : "images" });
 
     eleventyConfig.addPlugin(pluginSEO, require("./src/views/_data/seo.json"));
-    eleventyConfig.addPlugin(pluginPWA);
+    eleventyConfig.addPlugin(pluginPWA, {
+        // Keep the CMS out of the service worker entirely. Precaching or
+        // stale-while-revalidating /admin/ serves an outdated editor shell
+        // after deploys, which is why force-pushed changes appeared stale.
+        // Also exclude /images/ from the precache: it holds the ~45 MB of
+        // originals kept only for CMS previews plus the eleventy-img variants;
+        // images are still cached on demand via runtimeCaching below.
+        globIgnores: ["admin/**", "images/**"],
+        navigateFallbackDenylist: [/^\/admin/],
+        runtimeCaching: [
+            // Admin must always come from the network — never the SW cache.
+            { urlPattern: /\/admin\//, handler: "NetworkOnly" },
+            // Defaults from the plugin, preserved (Object.assign replaces the whole array):
+            {
+                urlPattern: /^.*\.(html|jpg|png|gif|webp|ico|svg|woff2|woff|eot|ttf|otf|ttc|json)$/,
+                handler: "StaleWhileRevalidate",
+            },
+            { urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/, handler: "StaleWhileRevalidate" },
+        ],
+    });
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
 
