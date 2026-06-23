@@ -15,8 +15,10 @@ layout: base
 <div class="general grid md:{{ gridcols }} grid-cols-1 place-content-center w-full md:my-24">
 
     {%- if image.url -%}
+    {% set img_ratio = "7:5" if page.fileSlug == "retail-stores" else "" %}
+    {% set img_classes = "w-full aspect-[7/5] object-cover" if page.fileSlug == "retail-stores" else "h-full w-full object-cover" %}
     <div class="md:shadow-md">
-        {% img image.url, image.alt, "(min-width: 768px) 50vw, 100vw", "h-full w-full object-cover" %}
+        {% img image.url, image.alt, "(min-width: 768px) 50vw, 100vw", img_classes, "lazy", img_ratio, image.focal %}
     </div>
     {%-endif -%}
 

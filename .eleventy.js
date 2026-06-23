@@ -2,6 +2,7 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const { DateTime } = require("luxon");
 const Image = require("@11ty/eleventy-img");
 const { generateHTML } = require("@11ty/eleventy-img");
+const sharp = require("sharp");
 const pluginPWA = require("eleventy-plugin-pwa-v2");
 const pluginSEO = require("eleventy-plugin-seo");
 
@@ -50,12 +51,36 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
 
-    eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="", classes="", loading="lazy") {
+    // Maps the editor-chosen focal point (CMS select widget) to a sharp
+    // `position` used for `fit: cover` cropping.
+    const FOCAL_POSITIONS = { center: "centre", top: "top", bottom: "bottom", left: "left", right: "right" };
+
+    eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="", classes="", loading="lazy", ratio="", focal="center") {
         if(alt === undefined) {
           throw new Error(`Missing \`alt\` on image from: ${src}`);
         }
 
-        let metadata = await Image('src/' + src, {
+        let input = 'src/' + src;
+
+        // When a ratio like "3:2" is passed, crop the source to that aspect
+        // ratio at the editor's focal point before generating responsive
+        // variants. We crop the largest box of the target ratio that fits
+        // inside the original, so we never upscale.
+        if (ratio) {
+          const [rw, rh] = ratio.split(":").map(Number);
+          const targetRatio = rw / rh;
+          const meta = await sharp(input).metadata();
+          let cropW = meta.width;
+          let cropH = Math.round(meta.width / targetRatio);
+          if (cropH > meta.height) {
+            cropH = meta.height;
+            cropW = Math.round(meta.height * targetRatio);
+          }
+          const position = FOCAL_POSITIONS[focal] || "centre";
+          input = await sharp(input).resize(cropW, cropH, { fit: "cover", position }).toBuffer();
+        }
+
+        let metadata = await Image(input, {
           widths: [160, 320, 640, 768, 1024, 1280, 1536, 1920],
           formats: ["avif", "webp", "jpg"],
           urlPath: "/images/",

@@ -17,3 +17,9 @@
         </div>
     </div>
 {% endblock %}
+
+{% block image %}
+    <div class="relative order-first md:order-last">
+        {% img item.image.url, item.image.alt, "(min-width: 768px) 50vw, 100vw", "w-full aspect-[3/2] object-cover", "eager", "3:2", item.image.focal %}
+    </div>
+{% endblock %}
