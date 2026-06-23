@@ -228,6 +228,7 @@ collections:
                 fields:
                   - {label: "url", name: "url", widget: "image", choose_url: false}
                   - {label: "alt", name: "alt", widget: "string"}
+                  - {label: "Crop Focus", name: "focal", widget: "select", options: ["auto", "center", "top", "bottom", "left", "right"], default: "auto", hint: "Cropped to 3:2. Auto chooses the focus; pick a side to override."}
               - label: "paragraphs"
                 name: "paragraphs"
                 widget: "list"
@@ -267,6 +268,7 @@ collections:
                 fields:
                   - {label: "url", name: "url", widget: "image", choose_url: false}
                   - {label: "alt", name: "alt", widget: "string"}
+                  - {label: "Crop Focus", name: "focal", widget: "select", options: ["auto", "center", "top", "bottom", "left", "right"], default: "auto", hint: "Cropped to 3:2. Auto chooses the focus; pick a side to override."}
               - label: "paragraphs"
                 name: "paragraphs"
                 widget: "list"
@@ -299,6 +301,7 @@ collections:
                 fields:
                   - {label: "url", name: "url", widget: "image", choose_url: false}
                   - {label: "alt", name: "alt", widget: "string"}
+                  - {label: "Crop Focus", name: "focal", widget: "select", options: ["auto", "center", "top", "bottom", "left", "right"], default: "auto", hint: "Cropped to 3:2. Auto chooses the focus; pick a side to override."}
               - label: "paragraphs"
                 name: "paragraphs"
                 widget: "list"
