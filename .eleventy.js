@@ -19,6 +19,14 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "src/assets/apple-icon-180x180.png" : "apple-touch-icon.png"});
     eleventyConfig.addPassthroughCopy({ "src/assets/apple-icon-180x180.png" : "apple-touch-icon-retina.png"});
 
+    // Dev only: serve the original images at /images/ so the Decap CMS editor
+    // can render preview thumbnails (it loads the stored /images/... path).
+    // The live site uses the {% img %} shortcode (hashed variants), never the
+    // originals, so they are intentionally excluded from production builds.
+    if (process.env.ELEVENTY_RUN_MODE !== "build") {
+        eleventyConfig.addPassthroughCopy({ "src/images" : "images" });
+    }
+
     eleventyConfig.addPlugin(pluginSEO, require("./src/views/_data/seo.json"));
     eleventyConfig.addPlugin(pluginPWA);
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
