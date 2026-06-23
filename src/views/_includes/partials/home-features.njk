@@ -41,7 +41,7 @@
                             </div>
                             {%- endif -%}
 
-                            {% img entry.image.url, entry.image.alt, "(min-width: 1024px) 25vw, (min-width: 786px) 33.33vw, (min-width: 640px ) 50vw, 100vw", "h-full w-full object-cover", "lazy" if loop.index > 6 else "auto" %}
+                            {% img entry.image.url, entry.image.alt, "(min-width: 1024px) 25vw, (min-width: 786px) 33.33vw, (min-width: 640px ) 50vw, 100vw", "w-full aspect-[4/3] object-cover", ("lazy" if loop.index > 6 else "auto"), "4:3", entry.image.focal %}
                         </div>
 
                         <h4 class="text-center mt-4 text-base md:text-sm lg:text-xs">{{ entry.title }}</h4>

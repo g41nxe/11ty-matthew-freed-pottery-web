@@ -11,7 +11,7 @@
         <div class="relative col-span-12 md:col-span-6 lg:col-span-7 md:shadow-md {% if loop.index % 2 == 0 %} md:order-last {% endif %}">
 
             <div class="relative h-full w-full">
-                {% img entry.image.url, entry.image.alt, "(min-width: 1024px) 58.33vw, (min-width: 768px) 50vw, 100vw", "h-full w-full object-cover", "lazy" if loop.index > 2 else "auto" %}
+                {% img entry.image.url, entry.image.alt, "(min-width: 1024px) 58.33vw, (min-width: 768px) 50vw, 100vw", "w-full aspect-[3/2] object-cover", ("lazy" if loop.index > 2 else "auto"), "3:2", entry.image.focal %}
             </div>
 
         </div>

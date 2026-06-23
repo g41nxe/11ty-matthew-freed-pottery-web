@@ -75,6 +75,7 @@ collections:
                 fields:
                   - {label: "url", name: "url", widget: "image", choose_url: false}
                   - {label: "alt", name: "alt", widget: "string"}
+                  - {label: "Crop Focus", name: "focal", widget: "select", options: ["auto", "center", "top", "bottom", "left", "right"], default: "auto", hint: "Cropped to 3:2. Auto chooses the focus; pick a side to override."}
               - {label: "title", name: "title", widget: "string"}
               - {label: "label", name: "label", widget: "string"}
 
@@ -682,6 +683,7 @@ collections:
                 fields:
                   - {label: "URL", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/features", public_folder: "/images/features"}
                   - {label: "Alt Text", name: "alt", widget: "string"}
+                  - {label: "Crop Focus", name: "focal", widget: "select", options: ["auto", "center", "top", "bottom", "left", "right"], default: "auto", hint: "Cropped to 4:3. Auto chooses the focus; pick a side to override."}
               - {label: "Hide", name: "hide", widget: "boolean", default: false}
 
   - name: "faq"
