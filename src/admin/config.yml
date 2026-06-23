@@ -419,7 +419,8 @@ collections:
               name: date
               widget: datetime
               date_format: "MM-DD-YYYY"
-              picker_utc: true
+              time_format: false
+              input_timezone: utc
             - name: name
               widget: string
             - name: content
@@ -455,11 +456,13 @@ collections:
               name: date
               widget: datetime
               date_format: "MM-DD-YYYY"
-              picker_utc: true
+              time_format: false
+              input_timezone: utc
             - name: end_date
               widget: datetime
               date_format: "MM-DD-YYYY"
-              picker_utc: true
+              time_format: false
+              input_timezone: utc
               required: false
             - name: time
               widget: string
