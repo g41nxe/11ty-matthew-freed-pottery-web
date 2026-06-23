@@ -465,7 +465,7 @@ collections:
               widget: object
               collapsed: true
               fields:
-                - {name: url, widget: image, media_folder: "/src/images/updates/", choose_url: false}
+                - {name: url, widget: image, media_folder: "/src/images/updates/", public_folder: "/images/updates", choose_url: false}
                 - {name: alt, widget: string}
 
       - label: "Events"
@@ -502,7 +502,7 @@ collections:
               collapsed: true
               fields:
                 - {name: title, widget: string}
-                - {name: body, widget: string}
+                - {name: body, widget: text}
             - name: gmaps
               label: "Location on Google Maps"
               widget: string
@@ -640,7 +640,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - {label: "URL", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/features"}
+                  - {label: "URL", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/features", public_folder: "/images/features"}
                   - {label: "Alt Text", name: "alt", widget: "string"}
               - {label: "Hide", name: "hide", widget: "boolean", default: false}
 
