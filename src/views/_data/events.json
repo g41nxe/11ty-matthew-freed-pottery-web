@@ -1,74 +1,18 @@
 {
   "events": [
     {
-      "name": "Trout Lake Farmer's Market ",
-      "time": "9 a.m. to 2 p.m.",
+      "name": "Kitsilano Farmer's Market ",
+      "time": "10 a.m. to 2 p.m. .",
       "featured": true,
-      "date": "04-18-2026",
+      "date": "10-18-2026",
       "multi_day_event": false,
-      "end_date": "04-18-2026",
-      "location": "Trout Lake John Hendry Park",
+      "end_date": "10-18-2026",
+      "location": "Kitsilano Community Center ",
       "content": {
-        "title": "Trout Lake Market ",
-        "body": "Weekly Farmer's Market"
-      },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
-    },
-    {
-      "name": "Trout Lake Farmer's Market ",
-      "time": "9 a.m. to 2 p.m.",
-      "featured": true,
-      "date": "05-02-2026",
-      "multi_day_event": false,
-      "end_date": "05-02-2026",
-      "location": "Trout Lake John Hendry Park",
-      "content": {
-        "title": "Trout Lake",
+        "title": "Kitsilano Farmer's Market ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
-    },
-    {
-      "name": "Trout Lake Farmer's Market ",
-      "time": "9 a.m. to 2 p.m.",
-      "featured": false,
-      "date": "05-23-2026",
-      "multi_day_event": false,
-      "end_date": "05-23-2026",
-      "location": "Trout Lake John Hendry Park",
-      "content": {
-        "title": "Trout Lake ",
-        "body": "Weekly Farmer's market "
-      },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
-    },
-    {
-      "name": "Trout Lake Farmer's Market ",
-      "time": "9 a.m. to 2 p.m.",
-      "featured": true,
-      "date": "07-18-2026",
-      "multi_day_event": false,
-      "end_date": "07-18-2026",
-      "location": "Trout Lake John Hendry Park ",
-      "content": {
-        "title": "Trout Lake ",
-        "body": "Weekly Farmer's market "
-      },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
-    },
-    {
-      "name": "Trout Lake Farmer's Market ",
-      "time": "9 a.m. to 2 p.m. ",
-      "featured": true,
-      "date": "09-26-2026",
-      "multi_day_event": false,
-      "end_date": "09-26-2026",
-      "location": "Trout Lake John Hendry Park ",
-      "content": {
-        "title": "Trout Lake ",
-        "body": "Weekly Farmer's market "
-      },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Kitsilano Farmer's Market"
     },
     {
       "name": "Trout Lake Farmer's Market ",
@@ -85,12 +29,138 @@
       "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
     },
     {
+      "name": "West End Farmer's Market ",
+      "time": "9 a.m. to 2 p.m. ",
+      "featured": true,
+      "date": "10-03-2026",
+      "multi_day_event": false,
+      "end_date": "10-03-2026",
+      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "content": {
+        "title": "West End Farmer's Market ",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+    },
+    {
+      "name": "Kitsilano Farmer's Market ",
+      "time": "10 a.m. to 2 p.m. .",
+      "featured": true,
+      "date": "09-27-2026",
+      "multi_day_event": false,
+      "end_date": "09-27-2026",
+      "location": "Kitsilano Community Center ",
+      "content": {
+        "title": "Kitsilano Farmer's Market ",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "Kitsilano Farmer's Market"
+    },
+    {
+      "name": "Trout Lake Farmer's Market ",
+      "time": "9 a.m. to 2 p.m. ",
+      "featured": true,
+      "date": "09-26-2026",
+      "multi_day_event": false,
+      "end_date": "09-26-2026",
+      "location": "Trout Lake John Hendry Park ",
+      "content": {
+        "title": "Trout Lake ",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+    },
+    {
+      "name": "Ladner Village Market ",
+      "time": "10 a.m. to 4 p.m.",
+      "featured": true,
+      "date": "09-20-2026",
+      "multi_day_event": false,
+      "end_date": "09-20-2026",
+      "location": "48th Ave (between Delta and Elliott Streets)",
+      "content": {
+        "title": "Ladner Village Market ",
+        "body": "Bi-weekly summer market "
+      },
+      "gmaps": "5028A 48 Avenue, Delta, BC"
+    },
+    {
+      "name": "West End Farmer's Market ",
+      "time": "9 a.m. to 2 p.m.",
+      "featured": true,
+      "date": "09-19-2026",
+      "multi_day_event": false,
+      "end_date": "09-19-2026",
+      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "content": {
+        "title": "West End Farmer's Market ",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+    },
+    {
+      "name": "Ladner Village Market ",
+      "time": "10 a.m. to 4 p.m. ",
+      "featured": true,
+      "date": "07-19-2026",
+      "multi_day_event": false,
+      "end_date": "07-19-2026",
+      "location": "48th Ave (between Delta and Elliott Streets)",
+      "content": {
+        "title": "Ladner Village Market ",
+        "body": "Bi-weekly summer market"
+      },
+      "gmaps": "5028A 48 Avenue, Delta, BC"
+    },
+    {
+      "name": "Trout Lake Farmer's Market ",
+      "time": "9 a.m. to 2 p.m.",
+      "featured": true,
+      "date": "07-18-2026",
+      "multi_day_event": false,
+      "end_date": "07-18-2026",
+      "location": "Trout Lake John Hendry Park ",
+      "content": {
+        "title": "Trout Lake ",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+    },
+    {
       "name": "Kitsilano Farmer's Market ",
       "time": "10 a.m. to 2 p.m.",
       "featured": true,
-      "date": "05-31-2026",
+      "date": "07-12-2026",
       "multi_day_event": false,
-      "end_date": "05-31-2026",
+      "end_date": "07-12-2026",
+      "location": "Kitsilano Community Center ",
+      "content": {
+        "title": "Kitsilano Farmer's Market ",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "Kitsilano Farmer's Market"
+    },
+    {
+      "name": " West End Farmer's Market ",
+      "time": "9 a.m to 2 p.m.",
+      "featured": true,
+      "date": "07-11-2026",
+      "multi_day_event": false,
+      "end_date": "07-11-2026",
+      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "content": {
+        "title": "West End Farmer's Market ",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+    },
+    {
+      "name": "Kitsilano Farmer's Market ",
+      "time": "10 a.m. to 2 p.m. ",
+      "featured": true,
+      "date": "07-05-2026",
+      "multi_day_event": false,
+      "end_date": "07-05-2026",
       "location": "Kitsilano Community Center ",
       "content": {
         "title": "Kitsilano Farmer's Market ",
@@ -113,124 +183,12 @@
       "gmaps": "Kitsilano Farmer's Market"
     },
     {
-      "name": "Kitsilano Farmer's Market ",
-      "time": "10 a.m. to 2 p.m. ",
-      "featured": true,
-      "date": "07-05-2026",
-      "multi_day_event": false,
-      "end_date": "07-05-2026",
-      "location": "Kitsilano Community Center ",
-      "content": {
-        "title": "Kitsilano Farmer's Market ",
-        "body": "Weekly Farmer's market "
-      },
-      "gmaps": "Kitsilano Farmer's Market"
-    },
-    {
-      "name": "Kitsilano Farmer's Market ",
-      "time": "10 a.m. to 2 p.m.",
-      "featured": true,
-      "date": "07-12-2026",
-      "multi_day_event": false,
-      "end_date": "07-12-2026",
-      "location": "Kitsilano Community Center ",
-      "content": {
-        "title": "Kitsilano Farmer's Market ",
-        "body": "Weekly Farmer's market "
-      },
-      "gmaps": "Kitsilano Farmer's Market"
-    },
-    {
-      "name": "Kitsilano Farmer's Market ",
-      "time": "10 a.m. to 2 p.m. .",
-      "featured": true,
-      "date": "09-27-2026",
-      "multi_day_event": false,
-      "end_date": "09-27-2026",
-      "location": "Kitsilano Community Center ",
-      "content": {
-        "title": "Kitsilano Farmer's Market ",
-        "body": "Weekly Farmer's market "
-      },
-      "gmaps": "Kitsilano Farmer's Market"
-    },
-    {
-      "name": "Kitsilano Farmer's Market ",
-      "time": "10 a.m. to 2 p.m. .",
-      "featured": true,
-      "date": "10-18-2026",
-      "multi_day_event": false,
-      "end_date": "10-18-2026",
-      "location": "Kitsilano Community Center ",
-      "content": {
-        "title": "Kitsilano Farmer's Market ",
-        "body": "Weekly Farmer's market "
-      },
-      "gmaps": "Kitsilano Farmer's Market"
-    },
-    {
-      "name": "West End Farmer's Market ",
-      "time": "9 a.m. to 2 p.m.",
-      "featured": true,
-      "date": "05-09-2026",
-      "multi_day_event": false,
-      "end_date": "05-09-2026",
-      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
-      "content": {
-        "title": "West End Farmer's Market ",
-        "body": "Weekly Farmer's market "
-      },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
-    },
-    {
       "name": "West End Farmer's Market ",
       "time": "9 a.m. to 2 p.m. ",
       "featured": false,
       "date": "06-20-2026",
       "multi_day_event": false,
       "end_date": "06-20-2026",
-      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
-      "content": {
-        "title": "West End Farmer's Market ",
-        "body": "Weekly Farmer's market "
-      },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
-    },
-    {
-      "name": "West End Farmer's Market ",
-      "time": "9 a.m. to 2 p.m. ",
-      "featured": false,
-      "date": "06-06-2026",
-      "multi_day_event": false,
-      "end_date": "06-06-2026",
-      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
-      "content": {
-        "title": "West End Farmer's Market ",
-        "body": "Weekly Farmer's market "
-      },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
-    },
-    {
-      "name": "West End Farmer's Market ",
-      "time": "9 a.m. to 2 p.m.",
-      "featured": true,
-      "date": "09-19-2026",
-      "multi_day_event": false,
-      "end_date": "09-19-2026",
-      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
-      "content": {
-        "title": "West End Farmer's Market ",
-        "body": "Weekly Farmer's market "
-      },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
-    },
-    {
-      "name": "West End Farmer's Market ",
-      "time": "9 a.m. to 2 p.m. ",
-      "featured": true,
-      "date": "10-03-2026",
-      "multi_day_event": false,
-      "end_date": "10-03-2026",
       "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
       "content": {
         "title": "West End Farmer's Market ",
@@ -253,46 +211,88 @@
       "gmaps": "5028A 48 Avenue, Delta, BC"
     },
     {
-      "name": "Ladner Village Market ",
-      "time": "10 a.m. to 4 p.m. ",
-      "featured": true,
-      "date": "07-19-2026",
+      "name": "West End Farmer's Market ",
+      "time": "9 a.m. to 2 p.m. ",
+      "featured": false,
+      "date": "06-06-2026",
       "multi_day_event": false,
-      "end_date": "07-19-2026",
-      "location": "48th Ave (between Delta and Elliott Streets)",
-      "content": {
-        "title": "Ladner Village Market ",
-        "body": "Bi-weekly summer market"
-      },
-      "gmaps": "5028A 48 Avenue, Delta, BC"
-    },
-    {
-      "name": "Ladner Village Market ",
-      "time": "10 a.m. to 4 p.m.",
-      "featured": true,
-      "date": "09-20-2026",
-      "multi_day_event": false,
-      "end_date": "09-20-2026",
-      "location": "48th Ave (between Delta and Elliott Streets)",
-      "content": {
-        "title": "Ladner Village Market ",
-        "body": "Bi-weekly summer market "
-      },
-      "gmaps": "5028A 48 Avenue, Delta, BC"
-    },
-    {
-      "name": " West End Farmer's Market ",
-      "time": "9 a.m to 2 p.m.",
-      "featured": true,
-      "date": "07-11-2026",
-      "multi_day_event": false,
-      "end_date": "07-11-2026",
+      "end_date": "06-06-2026",
       "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
       "content": {
         "title": "West End Farmer's Market ",
         "body": "Weekly Farmer's market "
       },
       "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+    },
+    {
+      "name": "Kitsilano Farmer's Market ",
+      "time": "10 a.m. to 2 p.m.",
+      "featured": true,
+      "date": "05-31-2026",
+      "multi_day_event": false,
+      "end_date": "05-31-2026",
+      "location": "Kitsilano Community Center ",
+      "content": {
+        "title": "Kitsilano Farmer's Market ",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "Kitsilano Farmer's Market"
+    },
+    {
+      "name": "Trout Lake Farmer's Market ",
+      "time": "9 a.m. to 2 p.m.",
+      "featured": false,
+      "date": "05-23-2026",
+      "multi_day_event": false,
+      "end_date": "05-23-2026",
+      "location": "Trout Lake John Hendry Park",
+      "content": {
+        "title": "Trout Lake ",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+    },
+    {
+      "name": "West End Farmer's Market ",
+      "time": "9 a.m. to 2 p.m.",
+      "featured": true,
+      "date": "05-09-2026",
+      "multi_day_event": false,
+      "end_date": "05-09-2026",
+      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "content": {
+        "title": "West End Farmer's Market ",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+    },
+    {
+      "name": "Trout Lake Farmer's Market ",
+      "time": "9 a.m. to 2 p.m.",
+      "featured": true,
+      "date": "05-02-2026",
+      "multi_day_event": false,
+      "end_date": "05-02-2026",
+      "location": "Trout Lake John Hendry Park",
+      "content": {
+        "title": "Trout Lake",
+        "body": "Weekly Farmer's market "
+      },
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+    },
+    {
+      "name": "Trout Lake Farmer's Market ",
+      "time": "9 a.m. to 2 p.m.",
+      "featured": true,
+      "date": "04-18-2026",
+      "multi_day_event": false,
+      "end_date": "04-18-2026",
+      "location": "Trout Lake John Hendry Park",
+      "content": {
+        "title": "Trout Lake Market ",
+        "body": "Weekly Farmer's Market"
+      },
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
     }
   ]
 }
