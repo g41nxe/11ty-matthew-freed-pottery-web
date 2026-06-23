@@ -11,6 +11,15 @@ locale: "en"
 media_folder: "src/images"
 public_folder: "/images"
 
+media_libraries:
+  default:
+    config:
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 2048
+
 editor:
   preview: false
 
