@@ -27,6 +27,8 @@ collections:
 
   - label: "Pages"
     name: "pages"
+    icon: article
+    description: "Content for the main site pages."
     delete: false
     files:
       - label: "Home"
@@ -121,6 +123,7 @@ collections:
             collapsed: true
             add_to_top: true
             summary: "{{fields.title}}"
+            thumbnail: "image.url"
             fields:
               - label: "Image"
                 name: "image"
@@ -402,6 +405,8 @@ collections:
 
   - label: "News & Events"
     name: "news-and-events"
+    icon: event
+    description: "News updates and event listings."
     delete: false
     files:
       - label: "News"
@@ -414,7 +419,8 @@ collections:
             collapsed: true
             add_to_top: true
             summary: "{{date}} - {{name}}"
-            fields: 
+            thumbnail: "image.url"
+            fields:
             - label: Date
               name: date
               widget: datetime
@@ -485,6 +491,8 @@ collections:
 
   - name: "global"
     label: "Global Settings"
+    icon: settings
+    description: "Site-wide data: hero, contact, social links, SEO, featured items."
     delete: false
     files:
       - label: "General Data"
@@ -601,6 +609,7 @@ collections:
             collapsed: true
             add_to_top: true
             summary: "{{fields.title}}"
+            thumbnail: "image.url"
             fields:
               - {label: "Title", name: "title", widget: "string"}
               - label: "Overlay"
@@ -625,6 +634,8 @@ collections:
 
   - name: "faq"
     label: "FAQ"
+    icon: help
+    description: "FAQ page intro and Q&A sections."
     delete: false
     files:
       - label: "FAQ Page"
