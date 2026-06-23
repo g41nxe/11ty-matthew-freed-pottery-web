@@ -19,13 +19,12 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "src/assets/apple-icon-180x180.png" : "apple-touch-icon.png"});
     eleventyConfig.addPassthroughCopy({ "src/assets/apple-icon-180x180.png" : "apple-touch-icon-retina.png"});
 
-    // Dev only: serve the original images at /images/ so the Decap CMS editor
-    // can render preview thumbnails (it loads the stored /images/... path).
-    // The live site uses the {% img %} shortcode (hashed variants), never the
-    // originals, so they are intentionally excluded from production builds.
-    if (process.env.ELEVENTY_RUN_MODE !== "build") {
-        eleventyConfig.addPassthroughCopy({ "src/images" : "images" });
-    }
+    // Serve the original images at /images/ so the Decap CMS editor can render
+    // preview thumbnails (it loads the stored /images/... path). Needed in both
+    // dev and production builds, since the deployed CMS resolves previews via
+    // the public URL too. The live site itself uses the {% img %} shortcode
+    // (hashed variants) and never references these originals.
+    eleventyConfig.addPassthroughCopy({ "src/images" : "images" });
 
     eleventyConfig.addPlugin(pluginSEO, require("./src/views/_data/seo.json"));
     eleventyConfig.addPlugin(pluginPWA);
