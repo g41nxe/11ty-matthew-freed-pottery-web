@@ -9,7 +9,7 @@ site_url: "https://matthewfreed.ca"
 locale: "en"
 
 media_folder: "src/images"
-public_folder: "images"
+public_folder: "/images"
 
 editor:
   preview: false
