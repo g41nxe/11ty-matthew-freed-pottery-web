@@ -1,8 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: g41nxe/11ty-matthew-freed-pottery-web
   branch: decap
 
-local_backend: true
+omit_empty_optional_fields: true
 
 site_url: "https://matthewfreed.ca"
 locale: "en"
