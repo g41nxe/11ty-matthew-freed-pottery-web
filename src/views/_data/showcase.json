@@ -3,7 +3,8 @@
     {
       "image": {
         "url": "/images/squamish-nights.jpg",
-        "alt": "Squamish Nights Teardrop Vase by Matthew Freed"
+        "alt": "Squamish Nights Teardrop Vase by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Squamish Nights Collection",
       "text": "A speckled deep green and blue glaze with a celestial look",
@@ -16,7 +17,8 @@
     {
       "image": {
         "url": "/images/garibaldi-cropped.jpg",
-        "alt": "Large Garibaldi Mug by Matthew Freed"
+        "alt": "Large Garibaldi Mug by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Garibaldi Collection",
       "text": "A deep forest green glaze with speckled cobalt tones and a warm blue accent around the rim",
@@ -29,7 +31,8 @@
     {
       "image": {
         "url": "/images/carousel-yaletown2.jpg",
-        "alt": "Large Yaletown Mug by Matthew Freed"
+        "alt": "Large Yaletown Mug by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Yaletown Collection",
       "text": "Red, green or blue rims pop on a charcoal glazed base.",
@@ -42,7 +45,8 @@
     {
       "image": {
         "url": "/images/carousel-galiano.jpg",
-        "alt": "Galiano Plates and Mugs by Matthew Freed"
+        "alt": "Galiano Plates and Mugs by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Galiano Collection",
       "text": "A multi-tone deep blue glaze.",
@@ -55,7 +59,8 @@
     {
       "image": {
         "url": "/images/carousel-dogwood3.jpg",
-        "alt": "Dogwood Collection: Large Bowls by Matthew Freed"
+        "alt": "Dogwood Collection: Large Bowls by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Dogwood Collection",
       "text": "A semi-matte charcoal glaze with a hand-painted dogwood pattern.",
@@ -68,7 +73,8 @@
     {
       "image": {
         "url": "/images/carousel-saltspring2.jpg",
-        "alt": "Saltspring Collection: Large Platter by Matthew Freed"
+        "alt": "Saltspring Collection: Large Platter by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Saltspring Collection",
       "text": "A semi-matte charcoal glaze with vibrant bursts of glossy colour.",
@@ -81,7 +87,8 @@
     {
       "image": {
         "url": "/images/carousel-jericho2.jpg",
-        "alt": "Jericho Collection: Bowls and a Platter by Matthew Freed"
+        "alt": "Jericho Collection: Bowls and a Platter by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Jericho Collection",
       "text": "A pale grey/blue glaze with sand toned speckles.",
@@ -94,7 +101,8 @@
     {
       "image": {
         "url": "/images/carousel-joffre2.jpg",
-        "alt": "Joffre Collection: Plate and Vase by Matthew Freed"
+        "alt": "Joffre Collection: Plate and Vase by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Joffre Collection",
       "text": "A rich green/blue glaze with multi-toned variation.",
@@ -107,7 +115,8 @@
     {
       "image": {
         "url": "/images/carousel-kitsilano3.jpg",
-        "alt": "Kitsilano Collection: Bowls by Matthew Freed"
+        "alt": "Kitsilano Collection: Bowls by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Kitsilano Collection",
       "text": "A satiny smooth lilac glaze with warm blue rim.",
@@ -120,7 +129,8 @@
     {
       "image": {
         "url": "/images/carousel-pemberton-sky2.jpg",
-        "alt": "Pemberton Sky Collection: A Bowl by Matthew Freed"
+        "alt": "Pemberton Sky Collection: A Bowl by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Pemberton Sky Collection",
       "text": "A hand-painted leafing pattern with a textured finish in a two toned blue glossy finish.",
@@ -133,7 +143,8 @@
     {
       "image": {
         "url": "/images/carousel-pemberton-earth2.jpg",
-        "alt": "Pemberton Earth Collection: Bowls and a Platter by Matthew Freed"
+        "alt": "Pemberton Earth Collection: Bowls and a Platter by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Pemberton Earth Collection",
       "text": "A hand-painted leafing pattern with a textured finish in a medium brown and charcoal glaze.",
@@ -146,7 +157,8 @@
     {
       "image": {
         "url": "/images/carousel-strathcona2.jpg",
-        "alt": "Strathcona Collection: A Platter by Matthew Freed"
+        "alt": "Strathcona Collection: A Platter by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Strathcona Collection",
       "text": "Semi-matte charcoal glaze with a hand-painted gold chevron pattern.",
@@ -159,7 +171,8 @@
     {
       "image": {
         "url": "/images/carousel-tofino2.jpg",
-        "alt": "Tofino Collection: A close-up of a Mug by Matthew Freed"
+        "alt": "Tofino Collection: A close-up of a Mug by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Tofino  Collection",
       "text": "A stormy, landscape effect in complimentary hues of cobalt, mocha, and amber.",
@@ -172,7 +185,8 @@
     {
       "image": {
         "url": "/images/carousel-tree-of-life.jpg",
-        "alt": "Tree of Life Collection: Bowls and a Jar by Matthew Freed"
+        "alt": "Tree of Life Collection: Bowls and a Jar by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Tree of Life Collection",
       "text": "A textured Tree of Life emblem on a semi-matte charcoal glaze.",
@@ -185,7 +199,8 @@
     {
       "image": {
         "url": "/images/carousel-zen4.jpg",
-        "alt": "Zen Collection: Snack Bowl by Matthew Freed"
+        "alt": "Zen Collection: Snack Bowl by Matthew Freed",
+        "focal": "auto"
       },
       "title": "Zen Collection",
       "text": "A semi-matte charcoal glaze with a textured gold decorative accent tile.",

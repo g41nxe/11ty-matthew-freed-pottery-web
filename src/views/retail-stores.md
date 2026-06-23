@@ -8,6 +8,7 @@ intro: The following retail outlets carry one or more of Matthew's Glaze Lines
 image:
   url: "/images/seymourartgallery.jpg"
   alt: Display of Matthew Freeds pottery work
+  focal: auto
 notification:
   title: Online Shopping is now available
   subtitle: Carefully crafted, fresh from the kiln

@@ -8,7 +8,8 @@
       "date": "04-28-2025",
       "image": {
         "alt": "Squamish Nights Vase closeup",
-        "url": "/images/updates/squamish-nights-close.jpg"
+        "url": "/images/updates/squamish-nights-close.jpg",
+        "focal": "auto"
       },
       "name": "New Glaze Line Added to Web Store!"
     },
@@ -20,7 +21,8 @@
       "date": "08-25-2024",
       "image": {
         "alt": "Matthew Freed Pottery Holiday",
-        "url": "/images/updates/summer-2024.jpg"
+        "url": "/images/updates/summer-2024.jpg",
+        "focal": "auto"
       },
       "name": "Summer Markets & Lake Time: Prepping for a Busy Fall!"
     },
@@ -32,7 +34,8 @@
       "date": "12-31-2022",
       "image": {
         "alt": "Matthew Freed Pottery Holiday ",
-        "url": "/images/updates/frankie-torres-47.JPG"
+        "url": "/images/updates/frankie-torres-47.JPG",
+        "focal": "auto"
       },
       "name": "Happy 2023!"
     },
@@ -44,7 +47,8 @@
       "date": "02-04-2022",
       "image": {
         "alt": "Matthew Freed Pottery Studio tools ",
-        "url": "/images/updates/dsc06224-cropped.jpg"
+        "url": "/images/updates/dsc06224-cropped.jpg",
+        "focal": "auto"
       },
       "name": "Getting muddy in 2022!"
     },
@@ -56,7 +60,8 @@
       "date": "07-20-2021",
       "image": {
         "alt": "Harmony Arts Festival, Matthew Freed Pottery, ",
-        "url": "/images/updates/market-1.jpg"
+        "url": "/images/updates/market-1.jpg",
+        "focal": "auto"
       },
       "name": "Opening up again!"
     },
@@ -68,7 +73,8 @@
       "date": "03-28-2021",
       "image": {
         "alt": "Garibaldi, Matthew Freed, Shorty mug, forest green pottery, pottery mug",
-        "url": "/images/updates/garibaldi-cropped.jpg"
+        "url": "/images/updates/garibaldi-cropped.jpg",
+        "focal": "auto"
       },
       "name": "Introducing the Garibaldi Glaze Collection"
     },
@@ -80,7 +86,8 @@
       "date": "02-06-2021",
       "image": {
         "alt": "Matthew Freed Pottery Studio work large bowl",
-        "url": "/images/updates/overheadwork-cropped.jpg"
+        "url": "/images/updates/overheadwork-cropped.jpg",
+        "focal": "auto"
       },
       "name": "Time to Play!"
     },
@@ -92,7 +99,8 @@
       "date": "01-01-2021",
       "image": {
         "alt": "Tree of Life Teaset by Matthew Freed",
-        "url": "/images/updates/treeoflife-teaset.jpg"
+        "url": "/images/updates/treeoflife-teaset.jpg",
+        "focal": "auto"
       },
       "name": "A very Happy New Year to all!"
     },
@@ -104,7 +112,8 @@
       "date": "12-24-2020",
       "image": {
         "alt": "Yaletown Belly Mug in a winter wonderland by Matthew Freed",
-        "url": "/images/updates/yaletown-happyholidays.jpg"
+        "url": "/images/updates/yaletown-happyholidays.jpg",
+        "focal": "auto"
       },
       "name": "Happy Holidays!"
     },
@@ -116,7 +125,8 @@
       "date": "12-08-2020",
       "image": {
         "alt": "Matthew Freed - art for everyday life",
-        "url": "/images/updates/website-screenshot.jpg"
+        "url": "/images/updates/website-screenshot.jpg",
+        "focal": "auto"
       },
       "name": "New Website Launched!"
     },
@@ -128,7 +138,8 @@
       "date": "12-05-2020",
       "image": {
         "alt": "Kitsilano Collection: Bowls, Mugs and a Vase by Matthew Freed",
-        "url": "/images/carousel-kitsilano2.jpg"
+        "url": "/images/carousel-kitsilano2.jpg",
+        "focal": "auto"
       },
       "name": "Market Update"
     },
@@ -140,7 +151,8 @@
       "date": "11-20-2020",
       "image": {
         "alt": "100 blank mugs by Matthew Freed",
-        "url": "/images/updates/mugs.jpg"
+        "url": "/images/updates/mugs.jpg",
+        "focal": "auto"
       },
       "name": "Workshop Update"
     },
@@ -152,7 +164,8 @@
       "date": "11-12-2020",
       "image": {
         "alt": "Culture Crawl 2020",
-        "url": "/images/updates/culture-crawl-2020.jpg"
+        "url": "/images/updates/culture-crawl-2020.jpg",
+        "focal": "auto"
       },
       "name": "Eastside Culture Crawl 2020"
     },
@@ -164,7 +177,8 @@
       "date": "11-28-2020",
       "image": {
         "alt": "Yaletown collection by Matthew Freed",
-        "url": "/images/updates/yaletown-display2.jpg"
+        "url": "/images/updates/yaletown-display2.jpg",
+        "focal": "auto"
       },
       "name": "Circle Craft @ Granville Island"
     },
@@ -177,7 +191,8 @@
       },
       "image": {
         "url": "/images/updates/mvimg_20190727_093817.jpg",
-        "alt": "Busy times in my little studio"
+        "alt": "Busy times in my little studio",
+        "focal": "auto"
       }
     }
   ]

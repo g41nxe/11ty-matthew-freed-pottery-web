@@ -18,6 +18,7 @@ event:
   image:
     url: /images/carousel-yaletown.jpg
     alt: Yaletown Collection in the wild
+    focal: auto
   title: Upcoming Events
   label: Details
 gallery:

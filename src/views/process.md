@@ -12,6 +12,7 @@ sections:
 - image:
     url: "/images/pottery-in-action-2.jpg"
     alt: Matthew throwing a cup
+    focal: auto
   paragraphs:
   - "<b>Think it</b>"
   - The process begins with an idea. The idea can be initiated by the end function
@@ -29,6 +30,7 @@ sections:
 - image:
     url: "/images/pottery-in-action-5.jpg"
     alt: Matthew throwing a cup
+    focal: auto
   paragraphs:
   - "<b>Finish it</b>"
   - The finishing stage fine-tunes the form and design of the piece. Finishing takes
@@ -41,6 +43,7 @@ sections:
 - image:
     url: "/images/kiln.jpg"
     alt: The kiln stuffed with cups and bowls
+    focal: auto
   paragraphs:
   - "<b>Fire it</b>"
   - When a finished piece has dried further, it is ready to be bisque fired. Until

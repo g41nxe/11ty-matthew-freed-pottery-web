@@ -5,7 +5,8 @@
   "hero": {
     "image": {
       "url": "/images/hero.jpg",
-      "alt": "2 blue Galliano Bowls on a board by Matthew Freed"
+      "alt": "2 blue Galliano Bowls on a board by Matthew Freed",
+      "focal": "auto"
     },
     "title": "Matthew Freed Pottery",
     "subtitle": "Art for everyday life"

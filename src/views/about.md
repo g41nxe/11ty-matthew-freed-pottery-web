@@ -15,6 +15,7 @@ sections:
 - image:
     url: "/images/pottery-in-action-3.jpg"
     alt: Matthew throwing a cup
+    focal: auto
   paragraphs:
   - We toyed with the idea, but neither of us was into the long distance relationship
     thing at the time. We were young and not terribly interested in long-term commitments.
@@ -28,6 +29,7 @@ sections:
 - image:
     url: "/images/pottery-in-action-2.jpg"
     alt: Matthew throwing a cup
+    focal: auto
   paragraphs:
   - It was a frightening leap to make, but I got down on one knee and we got engaged.
     Soon after we moved in together (a natural progression of our relationship), and

@@ -12,6 +12,7 @@ sections:
 - image:
     url: "/images/blue-arrangement.jpg"
     alt: Blue arrangement - Galiano
+    focal: auto
   paragraphs:
     - <b class="text-highlight">2015 Gold Medal Recipient for Excellence In Craft at
       the Circle Craft Exhibition.</b>
