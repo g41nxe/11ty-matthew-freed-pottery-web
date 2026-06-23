@@ -52,6 +52,7 @@ collections:
           - label: "event"
             name: "event"
             widget: "object"
+            collapsed: true
             fields:
               - label: "What to show when there is no upcoming Event"
                 name: "no_events"
@@ -71,6 +72,7 @@ collections:
           - label: "gallery"
             name: "gallery"
             widget: "object"
+            collapsed: true
             fields:
               - {label: "Title", name: "title", widget: "string"}
               - label: "Texts"
@@ -104,6 +106,8 @@ collections:
           - label: "Gallery Items"
             name: "gallery"
             widget: "list"
+            collapsed: true
+            add_to_top: true
             summary: "{{fields.title}}"
             fields:
               - label: "Image"
@@ -150,6 +154,8 @@ collections:
           - label: "Intro"
             name: "intro"
             widget: "list"
+            collapsed: true
+            add_to_top: true
             summary: '{{fields.text}}'
             field: {label: "text", name: "text", widget: "string"}
 
@@ -161,6 +167,7 @@ collections:
           - label: "contactform"
             name: "contactform"
             widget: "object"
+            collapsed: true
             fields:
             - {label: "title", name: "title", widget: "string"}
             - {label: "submit", name: "submit", widget: "string"}
@@ -201,6 +208,8 @@ collections:
           - label: "sections"
             name: "sections"
             widget: "list"
+            collapsed: true
+            add_to_top: true
             summary: '{{fields.label}}'
             fields:
               - label: "image"
@@ -238,6 +247,8 @@ collections:
           - label: "sections"
             name: "sections"
             widget: "list"
+            collapsed: true
+            add_to_top: true
             summary: '{{fields.label}}'
             fields:
               - label: "image"
@@ -268,6 +279,8 @@ collections:
           - label: "sections"
             name: "sections"
             widget: "list"
+            collapsed: true
+            add_to_top: true
             summary: '{{fields.label}}'
             fields:
               - label: "image"
@@ -337,6 +350,7 @@ collections:
           - label: "intro"
             name: "intro"
             widget: "object"
+            collapsed: true
             fields:
               - {label: "title", name: "title", widget: "string"}
               - label: "texts"
@@ -378,6 +392,7 @@ collections:
           - label: "image"
             name: "image"
             widget: "object"
+            collapsed: true
             fields:
               - {label: "url", name: "url", widget: "image", choose_url: false}
               - {label: "alt", name: "alt", widget: "string"}
@@ -447,6 +462,8 @@ collections:
           - label: News List
             name: news
             widget: list
+            collapsed: true
+            add_to_top: true
             summary: "{{date}} - {{name}}"
             fields: 
             - label: Date
@@ -476,6 +493,8 @@ collections:
           - label: Event List
             name: events
             widget: list
+            collapsed: true
+            add_to_top: true
             summary: "{{date}} - {{name}}"
             fields: 
             - label: "Is it a multi day event?"
@@ -607,12 +626,14 @@ collections:
           - label: "Image"
             name: "image"
             widget: "object"
+            collapsed: true
             fields:
               - {label: "URL", name: "url", widget: "image", choose_url: false}
               - {label: "Alt Text", name: "alt", widget: "string"}
           - label: "Options"
             name: "options"
             widget: "object"
+            collapsed: true
             fields:
               - {label: "Title Divider", name: "titleDivider", widget: "string"}
 
@@ -623,6 +644,8 @@ collections:
           - name: "features"
             label: "Featured Shop Items"
             widget: "list"
+            collapsed: true
+            add_to_top: true
             summary: "{{fields.title}}"
             fields:
               - {label: "Title", name: "title", widget: "string"}
@@ -691,6 +714,8 @@ collections:
           - label: "FAQ Sections"
             name: "sections"
             widget: "list"
+            collapsed: true
+            add_to_top: true
             summary: "{{fields.title}}"
             fields:
               - {label: "Section Title", name: "title", widget: "string"}
