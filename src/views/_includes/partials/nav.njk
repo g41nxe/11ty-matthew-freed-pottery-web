@@ -1,60 +1,27 @@
-<div id="nav" class="z-50 fixed nav w-screen h-16 md:h-20 md:px-24">
-    
-    <nav role="navigation" aria-label="Main" id="desktop--menu" class="relative z-50 h-full w-full items-center">
-        <ul class="main-nav w-full h-full justify-around md:justify-start items-center md:flex hidden">
-        {% set navPages = collections.all | eleventyNavigation %}        
-        {%- for entry in navPages %}{% if entry.title %}     
-            <li class="md:mr-6">
-                <a class="border-b-2 border-transparent hover:border-brand text-brand {{ 'font-bold' if entry.url == page.url }} " href="{{ entry.url | url }}">{{ entry.title | upper }} </a>
-            </li>
-        {% endif %}{%- endfor %}
-            
-            <li class="md:mr-6">
-                <a target="_blank" href="{{ global.socialmedia.services.instagram.url | url }}" class="text-brand hover:text-highlight">
-                    <i class="fab fa-instagram"></i>                
-                </a>
-            </li>
+<div id="nav" class="ca-nav-wrap">
+  <div class="ca-nav">
+    <a href="/" class="ca-logo ca-disp">Matthew Freed</a>
 
-            <li class="md:mr-6">
-                <a target="_blank" href="{{ global.shop.url | url }}" class="text-brand hover:text-highlight">
-                    <i class="fas fa-shopping-bag"></i>                
-                </a>
-            </li>
-
-        </ul>
-
-        <ul class="w-full justify-between md:hidden flex p-4 bg-brand">
-            <li>
-                <ul class="flex justify-start">
-                    <li class="pr-6">
-                        <a target="_blank" href="{{ global.socialmedia.services.instagram.url | url }}" class="text-gray-light hover:text-highlight">
-                            <i class="fab fa-2x fa-instagram"></i>                
-                        </a>
-                    </li>
-
-                    <li class="pr-6">
-                        <a target="_blank" href="{{ global.shop.url | url }}" class="text-highlight hover:text-white">
-                            <i class="fas fa-2x fa-shopping-bag"></i>                
-                        </a>
-                    </li>
-                </ul>
-
-                <li class="justify-end">
-                    <button id="mobile--btn" class="text-gray-light hover:text-highlight">
-                        <i class="fa-2x fas fa-bars"></i>                
-                    </button>
-                </li>
-        </ul>
+    <nav role="navigation" aria-label="Main" id="desktop--menu" class="ca-nav-links">
+      {% set navPages = collections.all | eleventyNavigation %}
+      {%- for entry in navPages %}{% if entry.title and entry.url != "/" %}
+        <a class="{{ 'is-active' if entry.url == page.url }}" href="{{ entry.url | url }}">{{ entry.title }}</a>
+      {% endif %}{%- endfor %}
+      <a class="ca-nav-ig" target="_blank" rel="noopener" aria-label="Instagram" href="{{ global.socialmedia.services.instagram.url | url }}"><i class="fab fa-instagram"></i></a>
+      <a class="ca-shop-btn" target="_blank" rel="noopener" href="{{ global.shop.url | url }}">Shop</a>
     </nav>
-    
-    <nav role="navigation" aria-label="Main" id="mobile--menu" class="flex absolute md:hidden bg-brand w-full h-screen justify-center items-center">
-        <ul  class="flex flex-col justify-center items-center text-center py-4">
-            {% set navPages = collections.all | eleventyNavigation %}        
-            {%- for entry in navPages %}{% if entry.title %}   
-                <li class="py-6">
-                    <a href="{{ entry.url | url }}" class="text-xl py-6 px-8 {{ "border-b border-highlight" if loop.last != true }} hover: text-highlight active:text-highlight text-gray-light {{ 'font-bold' if entry.url == page.url }} " href="{{ entry.url | url }}">{{ entry.title | upper }} </a>
-                </li>
-            {% endif %}{%- endfor %}
-        </ul>
-    </nav>
+
+    <button id="mobile--btn" class="ca-mobile-btn" aria-label="Open menu"><i class="fa-2x fas fa-bars"></i></button>
+  </div>
+
+  <nav role="navigation" aria-label="Mobile" id="mobile--menu" class="flex absolute w-full bg-brand justify-center items-center">
+    <ul class="flex flex-col justify-center items-center text-center py-4">
+      {% set navPages = collections.all | eleventyNavigation %}
+      {%- for entry in navPages %}{% if entry.title and entry.url != "/" %}
+        <li class="py-4"><a href="{{ entry.url | url }}" class="text-xl px-8 text-gray-light hover:text-highlight {{ 'font-bold' if entry.url == page.url }}">{{ entry.title }}</a></li>
+      {% endif %}{%- endfor %}
+      <li class="py-4"><a target="_blank" rel="noopener" href="{{ global.socialmedia.services.instagram.url | url }}" class="text-xl px-8 text-gray-light hover:text-highlight">Instagram</a></li>
+      <li class="py-4"><a target="_blank" rel="noopener" href="{{ global.shop.url | url }}" class="text-xl px-8 text-highlight">Shop</a></li>
+    </ul>
+  </nav>
 </div>
