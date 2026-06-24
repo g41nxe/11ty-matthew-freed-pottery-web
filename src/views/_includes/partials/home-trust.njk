@@ -1,0 +1,5 @@
+<div class="ca-marquee">
+  {%- for item in global.trust -%}
+    <span class="ca-trust-item">{{ item }}</span>{% if not loop.last %}<i class="ca-diamond" aria-hidden="true">&#9670;</i>{% endif %}
+  {%- endfor -%}
+</div>

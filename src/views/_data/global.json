@@ -14,6 +14,12 @@
     "cta_primary": { "label": "Shop the collection" },
     "cta_secondary": { "label": "My story", "url": "/about/" }
   },
+  "trust": [
+    "One of a kind",
+    "Free local delivery over $150",
+    "Find me at local markets",
+    "Handmade in Vancouver"
+  ],
   "newsletter": {
     "title": "Sign up to my Newsletter"
   },

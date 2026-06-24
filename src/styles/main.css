@@ -245,3 +245,8 @@ body.bg-gray-default { background: var(--color-paper); color: var(--color-ink); 
 .ca-cta-btn:hover { background: var(--color-brand); color: var(--color-gold); }
 .ca-cta { font-family: var(--font-display); font-style: italic; font-size: 19px; border-bottom: 1.5px solid var(--color-brand); padding-bottom: 2px; transition: border-color .25s; color: var(--color-ink); }
 .ca-cta:hover { border-color: var(--color-gold); }
+
+/* trust marquee */
+.ca-marquee { position: relative; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); padding: 28px 0; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: -80px; }
+.ca-trust-item { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--color-ink); font-weight: 500; }
+.ca-diamond { color: var(--color-gold); font-size: 10px; font-style: normal; }
