@@ -299,3 +299,16 @@ body.bg-gray-default { background: var(--color-paper); color: var(--color-ink); 
 .ca-coll-more { text-align: center; margin-top: 36px; position: relative; z-index: 1; }
 .ca-show-all { display: inline-block; background: none; border: 1px solid var(--color-brand); color: var(--color-brand); font-family: var(--font-display); font-style: italic; font-size: 16px; padding: 10px 26px; border-radius: 40px; cursor: pointer; transition: background .25s, border-color .25s, color .25s; }
 .ca-show-all:hover { background: var(--color-gold); border-color: var(--color-gold); color: var(--color-brand); }
+
+/* meet the maker */
+.ca-maker { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; background: var(--color-brand); color: #edebf5; border-radius: 6px; overflow: hidden; margin-top: 36px; }
+.ca-maker .ca-mimg { position: relative; overflow: hidden; min-height: 340px; }
+.ca-maker .ca-mimg picture { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ca-maker .ca-mimg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ca-maker .ca-mtext { padding: 54px; }
+.ca-maker .ca-idx--gold { color: var(--color-gold); }
+.ca-maker h2 { font-family: var(--font-display); font-size: 40px; font-weight: 600; margin: 14px 0 18px; line-height: 1.05; color: #fff; }
+.ca-maker p { color: #bdbace; margin-bottom: 14px; }
+.ca-pquote { font-family: var(--font-display); font-style: italic; font-size: 22px; color: var(--color-gold); line-height: 1.4; }
+.ca-maker-link { display: inline-block; margin-top: 18px; font-family: var(--font-display); font-style: italic; font-size: 18px; color: var(--color-gold); border-bottom: 1px solid var(--color-gold); padding-bottom: 2px; }
+.ca-maker-link:hover { color: #fff; border-color: #fff; }

@@ -1,0 +1,14 @@
+<section class="ca-wrap ca-maker-sec">
+  <div class="ca-maker">
+    <div class="ca-mimg">
+      {% img maker.image.url, maker.image.alt, "(min-width:768px) 50vw, 100vw", "", "lazy", "4:5", maker.image.focal %}
+    </div>
+    <div class="ca-mtext">
+      <span class="ca-idx ca-idx--gold">04 &mdash; {{ maker.eyebrow }}</span>
+      <h2 class="ca-disp">{{ maker.heading }}</h2>
+      <p>{{ maker.body }}</p>
+      <p class="ca-pquote">&ldquo;{{ maker.quote }}&rdquo;</p>
+      <a class="ca-maker-link" href="{{ maker.link.url | url }}">{{ maker.link.label }} &rarr;</a>
+    </div>
+  </div>
+</section>
