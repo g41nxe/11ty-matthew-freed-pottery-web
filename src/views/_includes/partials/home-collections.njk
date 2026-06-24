@@ -1,0 +1,12 @@
+<section class="ca-wrap ca-coll-sec">
+  <div class="ca-shead"><span class="ca-idx">03</span><h2 class="ca-disp">{{ gallery.title }}</h2></div>
+  <div class="ca-coll" id="collGrid">
+    {%- for entry in showcase.gallery -%}
+    <a href="{{ entry.cta.url | url }}" target="_blank" rel="noopener" class="ca-c ca-c{{ (loop.index0 % 5) + 1 }}">
+      {% img entry.image.url, entry.image.alt, "(min-width:768px) 45vw, 90vw", "", ("lazy" if loop.index > 5 else "auto"), "", entry.image.focal %}
+      <span class="ca-cap"><span class="ca-cap-name">{{ entry.title | replace(" Collection", "") | trim }}</span><span class="ca-cap-desc">{{ entry.text | trim }}</span></span>
+    </a>
+    {%- endfor -%}
+  </div>
+  <div class="ca-coll-more"><button class="ca-show-all" id="showColl">Show all 15 collections &rarr;</button></div>
+</section>
