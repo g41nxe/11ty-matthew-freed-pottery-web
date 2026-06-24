@@ -1,0 +1,25 @@
+<section class="ca-wrap ca-feat-sec">
+  <div class="ca-shead">
+    <span class="ca-idx">02</span>
+    <h2 class="ca-disp">{{ features.title }}</h2>
+    <div class="ca-feat-nav">
+      <button class="ca-fbtn" data-dir="-1" aria-label="Previous">&lsaquo;</button>
+      <button class="ca-fbtn" data-dir="1" aria-label="Next">&rsaquo;</button>
+    </div>
+  </div>
+  <div class="ca-feat" id="featTrack">
+    {%- for entry in features.features -%}{% if entry.hide !== true %}
+    <a class="ca-p" href="{{ entry.cta.url | url }}" target="_blank" rel="noopener">
+      <div class="ca-pic">
+        {% img entry.image.url, entry.image.alt, "(min-width:768px) 232px, 70vw", "", ("lazy" if loop.index > 4 else "auto"), "1:1", "auto" %}
+        <div class="ca-ov">
+          {%- if entry.overlay.text -%}<p>{{ entry.overlay.text | safe }}</p>{%- endif -%}
+          <span class="ca-cta2">Shop &#8599;</span>
+        </div>
+      </div>
+      <h4>{{ entry.title | trim }}</h4>
+      {% if entry.price %}<div class="ca-row"><span>{{ entry.price }}</span></div>{% endif %}
+    </a>
+    {% endif %}{%- endfor -%}
+  </div>
+</section>

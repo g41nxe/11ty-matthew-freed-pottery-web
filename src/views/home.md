@@ -29,7 +29,7 @@ gallery:
       of different glazes and forms. If you can't find what you are looking for,
       send me a message and we can talk about custom pieces.
 features:
-  title: Featured Items
+  title: Featured pieces
   texts:
     - Handcrafted pottery. Are you looking for that one of a kind coffee mug?
     - I'll be right there!  Free delivery to your front door for orders over
