@@ -16,14 +16,20 @@
     --breakpoint-md: 768px;
     --breakpoint-lg: 1024px;
 
-    --font-sans: 'Open Sans', Arial, sans-serif;
-    --font-display: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Space Grotesk', system-ui, sans-serif;
+    --font-display: 'Fraunces', Georgia, serif;
 
     --color-brand: #050237;
     --color-blue-hero-bg-start: #E4F5FF;
     --color-blue-hero-bg-stop: #EEFCFF;
     --color-blue-hero-title: #130B57;
     --color-highlight: #E9B45A;
+    --color-gold: #E9B45A;
+    --color-gold-deep: #b8862f;
+    --color-paper: #FBF8F1;
+    --color-ink: #26233d;
+    --color-line: #e7ddcf;
+    --color-carved: #6e4a22;
     --color-white: #FFFFFF;
     --color-black: #000000;
     --color-gray-light: #EAEAEA;
@@ -186,3 +192,14 @@ button {
         @apply text-highlight;
     }
 }
+
+/* ===== Concept A homepage =====
+ * Markup/CSS ported from docs/mockups/A-studio-art-zine.html.
+ * Tokens: --color-paper (cream), --color-ink, --color-gold(-deep),
+ * --color-line, --color-carved, --color-brand (navy). Later tasks append
+ * section styles below this banner.
+ */
+body.bg-gray-default { background: var(--color-paper); color: var(--color-ink); }
+.ca-wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+.ca-disp { font-family: var(--font-display); }
+.ca-idx { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--color-gold-deep); font-weight: 600; }
