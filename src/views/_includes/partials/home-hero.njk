@@ -1,0 +1,15 @@
+<section id="hero" class="ca-hero ca-wrap">
+  <div class="ca-hero-grid">
+    <div>
+      <span class="ca-idx">{{ global.hero.eyebrow }}</span>
+      <h1 class="ca-disp">{{ global.hero.title | replace("everyday", "<em>everyday</em>") | safe }}</h1>
+      <p>{{ global.hero.subtitle }}</p>
+      <a class="ca-cta-btn" href="{{ global.shop.url | url }}" target="_blank" rel="noopener">{{ global.hero.cta_primary.label }}</a>
+      <a class="ca-cta" href="{{ global.hero.cta_secondary.url | url }}">{{ global.hero.cta_secondary.label }} →</a>
+    </div>
+    <div class="ca-hero-img">
+      <span class="ca-blob">{% set cf = { variant: "hero" } %}{% include "carved-flower.njk" %}</span>
+      {% img global.hero.image.url, global.hero.image.alt, "(min-width: 768px) 50vw, 100vw", "ca-hero-photo", "eager", "1:1", global.hero.image.focal %}
+    </div>
+  </div>
+</section>

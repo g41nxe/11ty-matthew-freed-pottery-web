@@ -4,12 +4,15 @@
   },
   "hero": {
     "image": {
-      "url": "/images/hero.jpg",
-      "alt": "2 blue Galliano Bowls on a board by Matthew Freed",
+      "url": "/images/mthw-22-cropped.jpg",
+      "alt": "A cobalt leaf-dish styled with a lemon by Matthew Freed",
       "focal": "auto"
     },
-    "title": "Matthew Freed Pottery",
-    "subtitle": "Art for everyday life"
+    "eyebrow": "01",
+    "title": "Art for everyday life",
+    "subtitle": "Each piece is a complexity of nature, science, and art.",
+    "cta_primary": { "label": "Shop the collection" },
+    "cta_secondary": { "label": "My story", "url": "/about/" }
   },
   "newsletter": {
     "title": "Sign up to my Newsletter"
