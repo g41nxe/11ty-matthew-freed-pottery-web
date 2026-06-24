@@ -203,3 +203,8 @@ body.bg-gray-default { background: var(--color-paper); color: var(--color-ink); 
 .ca-wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
 .ca-disp { font-family: var(--font-display); }
 .ca-idx { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--color-gold-deep); font-weight: 600; }
+
+/* carved-flower motif */
+.cf-svg { width: 100%; height: 100%; display: block; }
+.cf-svg--hero { color: var(--color-carved); opacity: .5; }
+.cf-svg--news { color: var(--color-gold); opacity: .14; }
