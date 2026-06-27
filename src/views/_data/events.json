@@ -141,20 +141,6 @@
       "gmaps": "Kitsilano Farmer's Market"
     },
     {
-      "name": " West End Farmer's Market ",
-      "time": "9 a.m to 2 p.m.",
-      "featured": true,
-      "date": "07-11-2026",
-      "multi_day_event": false,
-      "end_date": "07-11-2026",
-      "location": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
-      "content": {
-        "title": "West End Farmer's Market ",
-        "body": "Weekly Farmer's market "
-      },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
-    },
-    {
       "name": "Kitsilano Farmer's Market ",
       "time": "10 a.m. to 2 p.m. ",
       "featured": true,
