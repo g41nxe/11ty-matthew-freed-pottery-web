@@ -1,118 +1,24 @@
-<div class="grid grid-cols-12 place-content-center w-full md:my-24" x-data="{open: false, name: '', date: '', time: '', content: '', gmap_src: '', location: ''}">
-    <div class="text-brand col-span-12 md:col-span-6 lg:col-span-5 bg-white border-b border-t border-gray-light md:my-12 py-4 md:py-16 px-4 md:px-16">
-        <h3 class="text-center text-xl lg:text-2xl font-bold">{{ event.title }}</h3>
-        <span class="block text-highlight text-2xl text-center mb-4">...</span>
-
-        {% if (events.events | filterFeatured | length)  < 1 %}
-
-            <div class="no-events">
-                <p class="text-center my-8">
-                    <i class="fas fa-store-slash fa-2x"></i>
-                </p>
-
-                <h2 class="text-center text-lg my-4 font-bold">
-                    {{ event.no_events.title }}
-                </h2>
-
-                <p class="text-center text-base my-4">
-                    {{ event.no_events.text | safe }}
-                </p>
-
-            </div>
-
-        {% endif %}
-
-        <div class="glide--events">
-            <div class="text-center mb-8 relative">
-                <div class="relative">
-
-                    <div class="glide__bullets z-40 divide-x-2 divide-brand" data-glide-el="controls[nav]">
-                        {%- for entry in events.events | filterFeatured -%}
-                            <button @click="open = false" aria-label="Jump to event {{entry.label}}" data-glide-dir="={{ loop.index0 }}" class="glide__bullet hover:text-highlight z-40 relative text-xs lg:text-sm px-2">
-                                {{ entry.date | date('MMM d') }}
-                                {% if entry.multi_day_event %}
-                                    - {{ entry.end_date | date('MMM d') }}
-                                {% endif %}
-                            </button>
-                        {%- endfor -%}
-                    </div>
-
-                    {% if (events.events | filterFeatured | length)  > 0 %}
-
-                        <div data-glide-el="controls" class="glide__arrows absolute w-full h-full flex top-0 justify-between items-center text-brand px-4 lg:px-8">
-                            <button @click="open = false" aria-label="Previous event" class="glide__arrow glide__arrow--left hover:text-highlight" data-glide-dir="<">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button @click="open = false" aria-label="Next event" class="glide__arrow glide__arrow--right hover:text-highlight" data-glide-dir=">">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
-
-                    {% endif %}
-
-                </div>
-            </div>
-
-            <div data-glide-el="track" class="glide__track">
-                <ul class="glide__slides">
-                    {%- for entry in events.events | filterFeatured -%}
-                        <li class="glide__slide flex flex-col justify-center items-center py-4">
-                            <h4 class="text-center text-lg lg:text-xl font-bold">{{ entry.name }}</h4>
-                            <p class="text-center my-8 text-sm lg:text-base">
-                                <span class="font-semibold">
-                                    {{ entry.date |  date('MMM d') }}
-                                    {% if entry.multi_day_event %}
-                                        - {{ entry.end_date | date('MMM d') }}
-                                    {% endif %}
-                                </span>
-
-                                &nbsp; {{ entry.time }}
-                            </p>
-                            <button aria-label="Show Details" class="py-2 px-12 border text-xs lg:text-sm font-medium rounded-md text-brand hover:text-white border-brand hover:bg-brand"
-                                    @click='open = true;
-                                            date = "{{ entry.date }}{% if entry.multi_day_event %} - {{entry.end_date}}{% endif %}";
-                                            time = "{{ entry.time }}";
-                                            name = "{{ entry.name }}";
-                                            location = "{{ entry.location }}";
-                                            gmap_src = "https://maps.google.com/maps?amp;height=150&amp;hl=en&amp;q={{ entry.gmaps }}&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed&amp;key={{ global.gmaps.key }}";
-                                            content = "{{ entry.content.body | e }}";'>
-                                {{ event.label | upper }}
-                            </button>
-                        </li>
-                    {%- endfor -%}
-                </ul>
-            </div>
-        </div>
-
+<section class="ca-wrap ca-ev-sec">
+  <div class="ca-shead"><span class="ca-idx">05</span><h2 class="ca-disp">{{ event.title }}</h2></div>
+  {% set upcoming = events.events | filterFeatured %}
+  {% if upcoming | length %}
+  <div class="ca-ev-list">
+    {%- for entry in upcoming -%}
+    <div class="ca-ev-item">
+      <button class="ca-ev" aria-expanded="false">
+        <span class="ca-ev-date">{{ entry.date | date('MMM d') }}{% if entry.multi_day_event %} &ndash; {{ entry.end_date | date('MMM d') }}{% endif %}</span>
+        <span class="ca-ev-info"><span class="ca-ev-title">{{ entry.name | trim }}</span><span>{{ entry.location | trim }} &middot; {{ entry.time | trim }}</span></span>
+        <span class="ca-chev">&#9662;</span>
+      </button>
+      <div class="ca-ev-detail"><div class="ca-ev-detail-in">
+        <p>{{ entry.content.body | trim }}</p>
+        <p style="margin-top:8px">{{ entry.location | trim }} &middot; <a href="https://maps.google.com/?q={{ entry.gmaps | urlencode }}" target="_blank" rel="noopener">Get directions &#8599;</a></p>
+      </div></div>
     </div>
-
-    <div class="relative col-span-12 md:col-span-6 lg:col-span-7 md:shadow-md flex md:order-last order-first">
-        {% img event.image.url, event.image.alt, "(min-width: 1024px) 58.33vw, (min-width: 768px) 50vw, 100vw", "w-full aspect-[3/2] object-cover", "lazy", "3:2", event.image.focal %}
-
-        <div class="content full md:p-8 absolute top-0 w-full h-full">
-            <div class="p-4 md:p-8 w-full h-full bg-white/70 flex flex-col space-y-2 md:space-y-8 justify-between" style="display: none;" x-show="open">
-                <button aria-label="Show Details"  class="text-brand hover:text-higlight text-right" @click="open = false">
-                    <i class="fas fa-times "></i>
-                </button>
-
-                <div class="flex flex-col justify-center space-y-2">
-                    <h1 class="text-base md:text-lg font-bold text-brand md:mb-4" x-text="name"></h1>
-
-                    <p class="text-xs md:text-base text-brand">
-                        <i class="mr-1 fas fa-sn fa-calendar-alt"></i>
-                    <span x-text="date"></span> : <span x-text="time"></span>
-                    </p>
-                    <p class="text-xs md:text-base text-brand">
-                        <i class="mr-1 fas fa-sm fa-map-marked-alt"></i>&nbsp;
-                        <span x-text="location"></span>
-                    </p>
-
-                    <p class="text-xs md:text-base text-brand" x-html="content"></p>
-                </div>
-
-                <iframe scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" :src="gmap_src"
-                        class="w-full h-1/4 md:h-1/3" frameborder="0"></iframe>
-            </div>
-        </div>
-    </div>
-</div>
+    {%- endfor -%}
+  </div>
+  {% else %}
+  <p class="ca-ev-empty">{{ event.no_events.title }}</p>
+  {% endif %}
+  <div class="ca-coll-more"><a class="ca-show-all" href="/updates/">See all events &rarr;</a></div>
+</section>

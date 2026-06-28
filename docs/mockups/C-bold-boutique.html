@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matthew Freed — C · Bold Boutique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#050237;--navy2:#0c0a4a;--gold:#E9B45A;--paper:#fff;--ink:#1b1a28;--mut:#6b6979;--soft:#f3f1fb}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+  .disp{font-family:'Sora',sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+  .lbl{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .banner{background:var(--gold);color:var(--navy);text-align:center;font-size:13px;font-weight:600;padding:8px;letter-spacing:.5px}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:20px 32px;max-width:1140px;margin:0 auto}
+  nav .logo{font-family:'Sora',sans-serif;font-size:21px;font-weight:800;color:var(--navy);letter-spacing:-.5px}
+  nav .links a{font-size:14px;font-weight:500;margin:0 13px;color:var(--ink)}
+  nav .links a:hover{color:var(--navy)}
+  nav .shop{background:var(--navy);color:#fff!important;padding:11px 22px;border-radius:40px;font-weight:600;font-size:14px}
+  .hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+  .hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:64px 0 72px}
+  .hero h1{font-family:'Sora',sans-serif;font-size:78px;line-height:.98;font-weight:800;letter-spacing:-2.5px}
+  .hero h1 span{color:var(--gold)}
+  .hero p{color:#c4c2da;font-size:18px;max-width:400px;margin:22px 0 30px}
+  .btn{display:inline-block;font-weight:600;font-size:15px;padding:15px 30px;border-radius:40px}
+  .btn-g{background:var(--gold);color:var(--navy);margin-right:12px}
+  .btn-o{border:1.5px solid #4b487e;color:#fff}
+  .hero-img{position:relative}
+  .hero-img img{width:100%;border-radius:14px;display:block}
+  .hdot{position:absolute;width:150px;height:150px;background:var(--gold);border-radius:50%;bottom:-40px;left:-40px;z-index:-1}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--navy2);border-top:1px solid #211e5e}
+  .stats div{padding:24px;text-align:center;border-right:1px solid #211e5e}
+  .stats .n{font-family:'Sora',sans-serif;font-size:30px;font-weight:800;color:var(--gold)}
+  .stats .s{font-size:13px;color:#b6b4d2;letter-spacing:1px;text-transform:uppercase}
+  section{padding:78px 0}
+  .shead{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:34px}
+  .shead h2{font-family:'Sora',sans-serif;font-size:40px;font-weight:700;letter-spacing:-1px}
+  .shead a{font-weight:600;color:var(--navy);font-size:15px}
+  .coll{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .c{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:1}
+  .c img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .c:hover img{transform:scale(1.06)}
+  .c .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,2,55,.8),transparent 55%);display:flex;align-items:flex-end;padding:18px}
+  .c .ov h3{font-family:'Sora',sans-serif;color:#fff;font-size:22px;font-weight:700}
+  .maker{background:var(--soft);border-radius:20px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;align-items:stretch}
+  .maker img{width:100%;height:100%;object-fit:cover;min-height:420px}
+  .maker .mt{padding:54px}
+  .maker h2{font-family:'Sora',sans-serif;font-size:38px;font-weight:700;color:var(--navy);margin:12px 0 16px;letter-spacing:-1px;line-height:1.05}
+  .maker p{color:var(--mut);margin-bottom:14px}
+  .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .t{border:2px solid var(--soft);border-radius:16px;padding:28px}
+  .t .stars{color:var(--gold);letter-spacing:3px;margin-bottom:12px;font-size:15px}
+  .t .q{font-size:18px;font-weight:500;line-height:1.45;margin-bottom:16px}
+  .t .who{font-size:13px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+  .feat{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .p{border-radius:14px;overflow:hidden;background:var(--soft)}
+  .p img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+  .p .pb{padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+  .p h4{font-family:'Sora',sans-serif;font-size:16px;font-weight:600}
+  .p span{color:var(--navy);font-weight:700}
+  .news{background:var(--navy);color:#fff;border-radius:20px;text-align:center;padding:64px 34px}
+  .news h2{font-family:'Sora',sans-serif;font-size:40px;font-weight:800;letter-spacing:-1px;margin-bottom:8px}
+  .news h2 span{color:var(--gold)}
+  .news p{color:#c4c2da;margin-bottom:24px}
+  .news form{display:flex;gap:10px;max-width:440px;margin:0 auto}
+  .news input{flex:1;border:none;border-radius:40px;padding:15px 22px;font-family:inherit;font-size:15px}
+  .news button{background:var(--gold);color:var(--navy);border:none;font-weight:700;padding:15px 28px;border-radius:40px;cursor:pointer;font-family:inherit}
+  footer{padding:46px 0;border-top:1px solid #eee;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;color:var(--mut);font-size:14px}
+  footer .logo{font-family:'Sora',sans-serif;font-weight:800;color:var(--navy);font-size:20px}
+</style>
+</head>
+<body>
+<div class="banner">Concept C · Bold Boutique — navy/gold blocks / big type / commerce-forward</div>
+<nav>
+  <span class="logo">MATTHEW FREED</span>
+  <span class="links">
+    <a href="#">Collections</a><a href="#">About</a><a href="#">Events</a><a href="#">Contact</a><a href="#">Instagram</a>
+    <a class="shop" href="https://shop.matthewfreed.net" target="_blank" rel="noopener">Shop now</a>
+  </span>
+</nav>
+
+<header class="hero">
+  <div class="hero-in wrap">
+    <div>
+      <span class="lbl">Handmade in Vancouver</span>
+      <h1 class="disp">Art for <span>everyday</span> life</h1>
+      <p>Wheel-thrown stoneware, glazed by hand. Built to be used every single day.</p>
+      <a class="btn btn-g" href="https://shop.matthewfreed.net" target="_blank" rel="noopener">Shop the collection</a>
+      <a class="btn btn-o" href="#">My story</a>
+    </div>
+    <div class="hero-img"><span class="hdot"></span><img src="https://matthewfreed.ca/images/mixed-display.jpg" alt="Display of pottery"></div>
+  </div>
+  <div class="stats wrap" style="max-width:1140px;margin:0 auto;border-radius:14px 14px 0 0">
+    <div><div class="n">12+</div><div class="s">Years at the wheel</div></div>
+    <div><div class="n">6</div><div class="s">Local markets</div></div>
+    <div style="border-right:none"><div class="n">1 of 1</div><div class="s">Every piece unique</div></div>
+  </div>
+</header>
+
+<section>
+  <div class="shead wrap"><h2 class="disp">Shop by collection</h2><a href="https://shop.matthewfreed.net" target="_blank" rel="noopener">View all →</a></div>
+  <div class="coll wrap">
+    <figure class="c"><img src="https://matthewfreed.ca/images/carousel-tofino.jpg" alt=""><div class="ov"><h3>Tofino</h3></div></figure>
+    <figure class="c"><img src="https://matthewfreed.ca/images/squamish-nights.jpg" alt=""><div class="ov"><h3>Squamish Nights</h3></div></figure>
+    <figure class="c"><img src="https://matthewfreed.ca/images/carousel-jericho.jpg" alt=""><div class="ov"><h3>Jericho</h3></div></figure>
+    <figure class="c"><img src="https://matthewfreed.ca/images/carousel-joffre.jpg" alt=""><div class="ov"><h3>Joffre</h3></div></figure>
+    <figure class="c"><img src="https://matthewfreed.ca/images/garibaldi-cropped.jpg" alt=""><div class="ov"><h3>Garibaldi</h3></div></figure>
+    <figure class="c"><img src="https://matthewfreed.ca/images/carousel-pemberton-sky.jpg" alt=""><div class="ov"><h3>Pemberton Sky</h3></div></figure>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:0">
+  <div class="maker">
+    <img src="https://matthewfreed.ca/images/matthew-and-mugs.jpg" alt="Matthew with his mugs">
+    <div class="mt">
+      <span class="lbl">Meet the maker</span>
+      <h2>One potter. Every piece.</h2>
+      <p>I've spent over a decade at the wheel in Vancouver. From the first lump of clay to the final glaze, every piece passes through my hands alone.</p>
+      <p>That's the difference you feel when you drink from one of my mugs.</p>
+      <a class="btn btn-g" href="#" style="margin-top:8px">My story</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="shead wrap"><h2 class="disp">Loved by customers</h2></div>
+  <div class="tgrid wrap">
+    <div class="t"><div class="stars">★★★★★</div><p class="q">I have small bowls and plates in the same pattern and I use them every day. I love them.</p><p class="who">Maya · North Vancouver</p></div>
+    <div class="t"><div class="stars">★★★★★</div><p class="q">I just received my online order and love the mugs.</p><p class="who">Claire · Vancouver</p></div>
+    <div class="t"><div class="stars">★★★★★</div><p class="q">Your pottery is so beautiful.</p><p class="who">Sophie · North Vancouver</p></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="shead wrap"><h2 class="disp">Featured pieces</h2><a href="https://shop.matthewfreed.net" target="_blank" rel="noopener">Shop all →</a></div>
+  <div class="feat wrap">
+    <a class="p" href="https://shop.matthewfreed.net" target="_blank" rel="noopener"><img src="https://matthewfreed.ca/images/carousel-tofino2.jpg" alt=""><div class="pb"><h4>Tofino mug</h4><span>$48</span></div></a>
+    <a class="p" href="https://shop.matthewfreed.net" target="_blank" rel="noopener"><img src="https://matthewfreed.ca/images/carousel-jericho2.jpg" alt=""><div class="pb"><h4>Jericho bowl</h4><span>$62</span></div></a>
+    <a class="p" href="https://shop.matthewfreed.net" target="_blank" rel="noopener"><img src="https://matthewfreed.ca/images/blue-mug-and-plate.jpg" alt=""><div class="pb"><h4>Pemberton plate</h4><span>$54</span></div></a>
+    <a class="p" href="https://shop.matthewfreed.net" target="_blank" rel="noopener"><img src="https://matthewfreed.ca/images/carousel-joffre2.jpg" alt=""><div class="pb"><h4>Joffre vase</h4><span>$95</span></div></a>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:0">
+  <div class="news">
+    <h2 class="disp">Know when new pieces <span>drop</span></h2>
+    <p>Small batches sell out fast. Get first access and the markets I'll be at.</p>
+    <form onsubmit="return false"><input type="email" placeholder="your@email.com"><button>Subscribe</button></form>
+  </div>
+</section>
+
+<footer class="wrap"><span class="logo">MATTHEW FREED</span><span>Collections · About · Events · FAQ · Privacy</span><span>Vancouver, BC · Instagram · Facebook</span></footer>
+</body>
+</html>

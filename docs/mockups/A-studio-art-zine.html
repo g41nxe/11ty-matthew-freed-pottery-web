@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matthew Freed — A · Studio Art-Zine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#26233d;--paper:#FBF8F1;--navy:#050237;--gold:#E9B45A;--gold-deep:#b8862f;--clay:#E9B45A;--mut:#757287;--line:#e7ddcf;--shadow:rgba(5,2,55,.4)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Space Grotesk',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;overflow-x:hidden}
+  .disp{font-family:'Fraunces',serif}
+  .hero h1,.shead h2,.news h2{color:var(--navy)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 32px}
+  .idx{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep)}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:26px 32px;max-width:1100px;margin:0 auto}
+  nav .logo{font-family:'Fraunces',serif;font-size:23px;font-style:italic}
+  nav .links a{font-size:14px;margin:0 14px;color:var(--ink)}
+  nav .links a:hover{color:var(--gold-deep)}
+  nav .shop{background:var(--gold);border:1px solid var(--gold);padding:7px 18px;border-radius:40px;color:var(--navy)!important;font-weight:500;transition:background .25s,border-color .25s,color .25s}
+  nav .shop:hover{background:var(--navy);border-color:var(--navy);color:var(--gold)!important}
+  .hero{position:relative;padding:40px 0 56px}
+  .hero-img .blob{position:absolute;width:300px;height:300px;top:50%;right:-100px;transform:translateY(-50%);background:#E9B45A;border-radius:50%;overflow:hidden;z-index:0}
+  .hero-img .blob svg{width:100%;height:100%;display:block}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:stretch}
+  .hero-grid>div{min-width:0}
+  .hero h1{font-family:'Fraunces',serif;font-size:clamp(42px,5vw,70px);line-height:.96;font-weight:600;letter-spacing:-1.5px;overflow-wrap:break-word}
+  .hero h1 em{font-style:italic;color:#E9B45A}
+  .hero p{max-width:300px;margin:26px 0 28px;color:var(--mut)}
+  .hero-img{position:relative;isolation:isolate;padding:18px 0}
+  .hero-img img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;border-radius:38% 62% 63% 37%/41% 44% 56% 59%;box-shadow:0 26px 50px -28px var(--shadow)}
+  .cta{font-family:'Fraunces',serif;font-style:italic;font-size:19px;border-bottom:1.5px solid var(--navy);padding-bottom:2px;margin-right:24px;transition:border-color .25s}
+  .cta:hover{border-color:var(--gold)}
+  .cta-btn{display:inline-block;background:var(--gold);color:var(--navy);font-family:'Fraunces',serif;font-style:italic;font-size:18px;font-weight:500;padding:11px 28px;border-radius:40px;margin-right:18px;transition:background .25s,color .25s}
+  .cta-btn:hover{background:var(--navy);color:var(--gold)}
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 0;display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;margin-top:-80px}
+  .marquee span{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);font-weight:500;position:relative;z-index:2}
+  .marquee i{color:var(--clay);font-size:10px;font-style:normal;position:relative;z-index:2}
+  section{padding:92px 0}
+  .shead{display:flex;align-items:baseline;gap:18px;margin:36px 0}
+  .shead h2{font-family:'Fraunces',serif;font-size:42px;font-weight:600}
+  .divider{display:flex;align-items:center;gap:22px;max-width:1100px;margin:0 auto;padding:0 32px}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
+  .divider .dm{flex:none}
+  .coll{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;position:relative}
+  .coll-sec{position:relative;padding:96px 32px}
+  .coll::before{content:"";position:absolute;top:0;bottom:-40px;left:50%;transform:translateX(-50%);width:100vw;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='150'%20height='150'%3E%3Cg%20fill='%23b8862f'%20fill-opacity='0.55'%3E%3Ccircle%20cx='14'%20cy='24'%20r='2.3'/%3E%3Ccircle%20cx='58'%20cy='9'%20r='1.1'/%3E%3Ccircle%20cx='103'%20cy='31'%20r='2.9'/%3E%3Ccircle%20cx='133'%20cy='16'%20r='1'/%3E%3Ccircle%20cx='33'%20cy='66'%20r='1.6'/%3E%3Ccircle%20cx='82'%20cy='57'%20r='1.1'/%3E%3Ccircle%20cx='119'%20cy='78'%20r='2.1'/%3E%3Ccircle%20cx='21'%20cy='112'%20r='1.3'/%3E%3Ccircle%20cx='64'%20cy='101'%20r='2.5'/%3E%3Ccircle%20cx='107'%20cy='126'%20r='1.4'/%3E%3Ccircle%20cx='142'%20cy='107'%20r='1'/%3E%3Ccircle%20cx='46'%20cy='137'%20r='1.8'/%3E%3C/g%3E%3C/svg%3E");background-size:150px 150px;z-index:0}
+  .coll .c{z-index:1}
+  .coll-sec .shead{margin-top:0}
+  .coll .c:nth-child(n+6){display:none}
+  .coll.expanded .c:nth-child(n+6){display:block}
+  .coll-more{text-align:center;margin-top:36px;position:relative;z-index:1}
+  .show-all{display:inline-block;background:none;border:1px solid var(--navy);color:var(--navy);font-family:'Fraunces',serif;font-style:italic;font-size:16px;padding:10px 26px;border-radius:40px;cursor:pointer;transition:background .25s,border-color .25s,color .25s}
+  .show-all:hover{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+  .ev-sec{padding:88px 32px}
+  .ev-list{position:relative;z-index:1}
+  .ev-item{border-top:1px solid var(--line)}
+  .ev-item:last-child{border-bottom:1px solid var(--line)}
+  .ev{width:100%;font:inherit;color:inherit;background:none;border:none;text-align:left;cursor:pointer;display:flex;align-items:center;gap:24px;padding:22px 4px;transition:padding-left .25s}
+  .ev:hover{padding-left:14px}
+  .ev .date{font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--gold-deep);flex:0 0 100px}
+  .ev .info{flex:1;display:flex;flex-direction:column;gap:3px}
+  .ev .info .ev-title{font-family:'Fraunces',serif;font-size:21px;font-weight:600;color:var(--navy)}
+  .ev .info span{color:var(--mut);font-size:14px}
+  .ev .chev{margin-left:auto;color:var(--gold-deep);font-size:13px;transition:transform .3s}
+  .ev-item.open .chev{transform:rotate(180deg)}
+  .ev-detail{max-height:0;overflow:hidden;transition:max-height .4s ease}
+  .ev-item.open .ev-detail{max-height:240px}
+  .ev-detail-in{padding:0 4px 26px 124px;color:var(--mut);font-size:14px;line-height:1.6}
+  .ev-detail-in a{color:var(--gold-deep);font-weight:500;border-bottom:1px solid var(--gold);padding-bottom:1px}
+  .c{overflow:hidden;border-radius:4px;position:relative;cursor:pointer}
+  .c img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+  .c:hover img{transform:scale(1.06)}
+  .c .cap{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:42px 16px 16px;background:linear-gradient(to top,rgba(5,2,55,.9) 0%,rgba(5,2,55,.45) 55%,transparent 100%);color:#fff;display:flex;flex-direction:column;gap:5px;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+  .c .cap .cap-name{font-family:'Fraunces',serif;font-style:italic;font-size:20px;line-height:1.1}
+  .c .cap .cap-desc{font-family:'Space Grotesk',sans-serif;font-size:12.5px;line-height:1.45;max-height:0;opacity:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease}
+  .c:hover .cap .cap-desc{max-height:72px;opacity:1}
+  .c1{grid-column:1/6;aspect-ratio:4/5;margin-top:50px}
+  .c2{grid-column:6/13;aspect-ratio:16/10}
+  .c3{grid-column:1/5;aspect-ratio:1}
+  .c4{grid-column:5/9;aspect-ratio:1;margin-top:40px}
+  .c5{grid-column:9/13;aspect-ratio:1;margin-top:-60px}
+  .maker{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;background:var(--navy);color:#edebf5;border-radius:6px;overflow:hidden;margin-top:36px}
+  .maker .mimg{position:relative;overflow:hidden}
+  .maker .mimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .maker .mtext{padding:54px}
+  .maker h2{font-family:'Fraunces',serif;font-size:40px;font-weight:600;margin:14px 0 18px;line-height:1.05}
+  .maker p{color:#bdbace;margin-bottom:14px}
+  .pquote{font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--gold);line-height:1.4}
+  .t-sec{padding:88px 32px}
+  .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+  .t{position:relative;padding-top:34px}
+  .t .mark{position:absolute;top:-10px;left:-10px;font-family:'Fraunces',serif;font-size:180px;line-height:1;color:var(--gold);opacity:.2;z-index:0;pointer-events:none}
+  .t .q{position:relative;z-index:1;font-family:'Fraunces',serif;font-size:21px;font-weight:500;line-height:1.45}
+  .t .who{margin-top:18px;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--gold-deep)}
+  .feat{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 16px;scrollbar-width:none}
+  .feat::-webkit-scrollbar{display:none}
+  .feat .p{flex:0 0 232px;scroll-snap-align:start}
+  .feat-nav{margin-left:auto;align-self:center;display:flex;gap:8px}
+  .fbtn{width:40px;height:40px;border-radius:50%;border:1px solid var(--navy);background:none;color:var(--navy);font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s,border-color .25s,color .25s}
+  .fbtn:hover{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+  .p{display:block}
+  .p .pic{position:relative;overflow:hidden;border-radius:4px}
+  .p .pic img{width:100%;aspect-ratio:1;object-fit:cover;display:block;transition:transform .6s ease}
+  .p:hover .pic img{transform:scale(1.05)}
+  .p .ov{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:center;padding:40px 14px 14px;background:linear-gradient(to top,rgba(5,2,55,.85),rgba(5,2,55,0));opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s}
+  .p:hover .ov{opacity:1;transform:none}
+  .p .ov p{display:none}
+  .p .ov .gold{color:#E9B45A;font-weight:500}
+  .p .ov .cta2{background:#E9B45A;color:var(--navy);font-weight:500;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:9px 18px;border-radius:40px}
+  .p h4{font-family:'Fraunces',serif;font-size:19px;font-weight:500;margin:12px 0 4px}
+  .p .row{display:flex;justify-content:space-between;align-items:center}
+  .p span{color:var(--mut);font-size:14px}
+  .news{text-align:center;padding:84px 0 96px}
+  .news .idx{color:var(--gold-deep)}
+  .news h2{font-family:'Fraunces',serif;font-size:48px;font-weight:600;font-style:italic;margin:6px 0 10px}
+  .news p{color:var(--mut);max-width:460px;margin:0 auto}
+  .news form{display:flex;gap:10px;max-width:420px;margin:24px auto 0}
+  .news input{flex:1;border:none;border-bottom:1.5px solid var(--ink);background:none;padding:12px 4px;font-family:inherit;font-size:15px}
+  .news button{font-family:'Fraunces',serif;font-style:italic;font-size:17px;background:var(--gold);color:var(--navy);border:none;padding:12px 24px;border-radius:40px;cursor:pointer;transition:background .25s,color .25s}
+  .news button:hover{background:var(--navy);color:var(--gold)}
+  footer{border-top:1px solid var(--line);padding:40px 0;display:flex;justify-content:space-between;align-items:center;color:var(--mut);font-size:14px;flex-wrap:wrap;gap:16px}
+  .banner{background:var(--ink);color:var(--paper);text-align:center;font-size:13px;padding:8px;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div class="banner">Concept A · Studio Art-Zine — expressive / asymmetric / gallery</div>
+<nav>
+  <span class="logo">Matthew Freed</span>
+  <span class="links">
+    <a href="#">Collections</a><a href="#">About</a><a href="#">Events</a><a href="#">Contact</a><a href="#">Instagram</a>
+    <a class="shop" href="https://shop.matthewfreed.net" target="_blank" rel="noopener">Shop</a>
+  </span>
+</nav>
+
+<header class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <span class="idx">01 — Handmade in Vancouver</span>
+      <h1 class="disp">Art for <em>everyday</em> life.</h1>
+      <p>Wheel-thrown stoneware, glazed by hand in my Strathcona studio. No two pieces are ever quite the same.</p>
+      <a class="cta-btn" href="https://shop.matthewfreed.net" target="_blank" rel="noopener">Shop the collection</a>
+      <a class="cta" href="#">My story →</a>
+    </div>
+    <div class="hero-img"><span class="blob"><svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><g id="bigpet"><path d="M0,0 C5,-11 5,-23 0,-31 C-5,-23 -5,-11 0,0"/><path d="M0,-6 L0,-26"/></g><path id="drop" d="M0,-12 C5.5,-15 5.5,-23 0,-29 C-5.5,-23 -5.5,-15 0,-12"/><path id="mp" d="M0,0 C3,-5 3,-10 0,-13 C-3,-10 -3,-5 0,0"/><g id="fl" fill="none" stroke="#6e4a22" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#bigpet"/><use href="#bigpet" transform="rotate(90)"/><use href="#bigpet" transform="rotate(180)"/><use href="#bigpet" transform="rotate(270)"/><use href="#drop" transform="rotate(45)"/><use href="#drop" transform="rotate(135)"/><use href="#drop" transform="rotate(225)"/><use href="#drop" transform="rotate(315)"/><circle r="3.2" stroke-width="1.3"/><circle r="0.9" fill="#6e4a22" stroke="none"/></g><g id="mini" fill="none" stroke="#6e4a22" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#mp"/><use href="#mp" transform="rotate(72)"/><use href="#mp" transform="rotate(144)"/><use href="#mp" transform="rotate(216)"/><use href="#mp" transform="rotate(288)"/><circle r="1.6"/></g><pattern id="carve" width="60" height="60" patternUnits="userSpaceOnUse"><use href="#fl"/><use href="#fl" x="60"/><use href="#fl" y="60"/><use href="#fl" x="60" y="60"/><use href="#mini" x="30" y="30"/></pattern></defs><rect width="300" height="300" fill="url(#carve)" opacity="0.5"/></svg></span><img src="https://matthewfreed.ca/images/mthw-22-cropped.jpg" alt="Cobalt leaf dish styled with a lemon"></div>
+  </div>
+</header>
+
+<div class="marquee">
+  <span>One of a kind</span><i>◆</i><span>Free local delivery over $150</span><i>◆</i><span>Found at 6 local markets</span><i>◆</i><span>Small batches</span>
+</div>
+
+<section class="wrap">
+  <div class="shead"><span class="idx">02</span><h2 class="disp">Featured pieces</h2>
+    <div class="feat-nav"><button class="fbtn" data-dir="-1" aria-label="Previous">‹</button><button class="fbtn" data-dir="1" aria-label="Next">›</button></div>
+  </div>
+  <div class="feat">
+    <a class="p" href="https://shop.matthewfreed.net" target="_blank" rel="noopener"><div class="pic"><img src="https://matthewfreed.ca/images/carousel-tofino2.jpg" alt=""><div class="ov"><p>This belly mug from the <b class="gold">Tofino Collection</b> is one of my best-selling pieces.</p><span class="cta2">Shop ↗</span></div></div><h4>Tofino mug</h4><div class="row"><span>$48</span></div></a>
+    <a class="p" href="https://shop.matthewfreed.net" target="_blank" rel="noopener"><div class="pic"><img src="https://matthewfreed.ca/images/carousel-jericho2.jpg" alt=""><div class="ov"><p>A little bowl from the <b class="gold">Jericho Collection</b>, hand-glazed in soft lilac.</p><span class="cta2">Shop ↗</span></div></div><h4>Jericho bowl</h4><div class="row"><span>$62</span></div></a>
+    <a class="p" href="https://shop.matthewfreed.net" target="_blank" rel="noopener"><div class="pic"><img src="https://matthewfreed.ca/images/blue-mug-and-plate.jpg" alt=""><div class="ov"><p>My blue belly mug — a customer favourite, and every glaze pour is one of a kind.</p><span class="cta2">Shop ↗</span></div></div><h4>Blue belly mug</h4><div class="row"><span>$54</span></div></a>
+    <a class="p" href="https://shop.matthewfreed.net" target="_blank" rel="noopener"><div class="pic"><img src="https://matthewfreed.ca/images/carousel-joffre2.jpg" alt=""><div class="ov"><p>My Joffre jug in glacier teal, from the <b class="gold">Joffre Collection</b>.</p><span class="cta2">Shop ↗</span></div></div><h4>Joffre jug</h4><div class="row"><span>$95</span></div></a>
+    <a class="p" href="https://shop.matthewfreed.net" target="_blank" rel="noopener"><div class="pic"><img src="https://matthewfreed.ca/images/carousel-yaletown2.jpg" alt=""><div class="ov"><p>A serving plate from the <b class="gold">Yaletown Collection</b> — everyday elegance.</p><span class="cta2">Shop ↗</span></div></div><h4>Yaletown plate</h4><div class="row"><span>$46</span></div></a>
+    <a class="p" href="https://shop.matthewfreed.net" target="_blank" rel="noopener"><div class="pic"><img src="https://matthewfreed.ca/images/carousel-pemberton-sky2.jpg" alt=""><div class="ov"><p>A bowl in pale blue from the <b class="gold">Pemberton Sky Collection</b>.</p><span class="cta2">Shop ↗</span></div></div><h4>Pemberton bowl</h4><div class="row"><span>$58</span></div></a>
+    <a class="p" href="https://shop.matthewfreed.net" target="_blank" rel="noopener"><div class="pic"><img src="https://matthewfreed.ca/images/carousel-zen4.jpg" alt=""><div class="ov"><p>A quiet vase from the <b class="gold">Zen Collection</b> — calm, simple lines.</p><span class="cta2">Shop ↗</span></div></div><h4>Zen vase</h4><div class="row"><span>$88</span></div></a>
+    <a class="p" href="https://shop.matthewfreed.net" target="_blank" rel="noopener"><div class="pic"><img src="https://matthewfreed.ca/images/carousel-saltspring2.jpg" alt=""><div class="ov"><p>A tray from the <b class="gold">Saltspring Collection</b> — every reactive glaze is unique.</p><span class="cta2">Shop ↗</span></div></div><h4>Saltspring tray</h4><div class="row"><span>$72</span></div></a>
+    <a class="p" href="https://shop.matthewfreed.net" target="_blank" rel="noopener"><div class="pic"><img src="https://matthewfreed.ca/images/carousel-tree-of-life.jpg" alt=""><div class="ov"><p>A statement pitcher from the <b class="gold">Tree of Life Collection</b>.</p><span class="cta2">Shop ↗</span></div></div><h4>Tree of Life pitcher</h4><div class="row"><span>$110</span></div></a>
+    <a class="p" href="https://shop.matthewfreed.net" target="_blank" rel="noopener"><div class="pic"><img src="https://matthewfreed.ca/images/oil-dispenser.jpg" alt=""><div class="ov"><p>A hand-thrown oil dispenser — a favourite for the everyday kitchen.</p><span class="cta2">Shop ↗</span></div></div><h4>Oil dispenser</h4><div class="row"><span>$64</span></div></a>
+  </div>
+</section>
+
+<section class="wrap coll-sec">
+  <div class="shead"><span class="idx">03</span><h2 class="disp">The glaze collections</h2></div>
+  <div class="coll">
+    <a href="#" class="c c1"><img src="https://matthewfreed.ca/images/squamish-nights.jpg" alt="Squamish Nights"><span class="cap"><span class="cap-name">Squamish Nights</span><span class="cap-desc">A speckled deep green and blue glaze with a celestial look.</span></span></a>
+    <a href="#" class="c c2"><img src="https://matthewfreed.ca/images/garibaldi-cropped.jpg" alt="Garibaldi"><span class="cap"><span class="cap-name">Garibaldi</span><span class="cap-desc">A deep forest green glaze with speckled cobalt tones and a warm blue rim.</span></span></a>
+    <a href="#" class="c c3"><img src="https://matthewfreed.ca/images/carousel-yaletown2.jpg" alt="Yaletown"><span class="cap"><span class="cap-name">Yaletown</span><span class="cap-desc">Red, green or blue rims pop on a charcoal glazed base.</span></span></a>
+    <a href="#" class="c c4"><img src="https://matthewfreed.ca/images/carousel-galiano.jpg" alt="Galiano"><span class="cap"><span class="cap-name">Galiano</span><span class="cap-desc">A multi-tone deep blue glaze.</span></span></a>
+    <a href="#" class="c c5"><img src="https://matthewfreed.ca/images/carousel-dogwood3.jpg" alt="Dogwood"><span class="cap"><span class="cap-name">Dogwood</span><span class="cap-desc">A semi-matte charcoal glaze with a hand-painted dogwood pattern.</span></span></a>
+    <a href="#" class="c c1"><img src="https://matthewfreed.ca/images/carousel-saltspring2.jpg" alt="Saltspring"><span class="cap"><span class="cap-name">Saltspring</span><span class="cap-desc">A semi-matte charcoal glaze with vibrant bursts of glossy colour.</span></span></a>
+    <a href="#" class="c c2"><img src="https://matthewfreed.ca/images/carousel-jericho2.jpg" alt="Jericho"><span class="cap"><span class="cap-name">Jericho</span><span class="cap-desc">A pale grey-blue glaze with sand-toned speckles.</span></span></a>
+    <a href="#" class="c c3"><img src="https://matthewfreed.ca/images/carousel-joffre2.jpg" alt="Joffre"><span class="cap"><span class="cap-name">Joffre</span><span class="cap-desc">A rich green-blue glaze with multi-toned variation.</span></span></a>
+    <a href="#" class="c c4"><img src="https://matthewfreed.ca/images/carousel-kitsilano3.jpg" alt="Kitsilano"><span class="cap"><span class="cap-name">Kitsilano</span><span class="cap-desc">A satiny-smooth lilac glaze with a warm blue rim.</span></span></a>
+    <a href="#" class="c c5"><img src="https://matthewfreed.ca/images/carousel-pemberton-sky2.jpg" alt="Pemberton Sky"><span class="cap"><span class="cap-name">Pemberton Sky</span><span class="cap-desc">A hand-painted leafing pattern in a two-toned glossy blue.</span></span></a>
+    <a href="#" class="c c1"><img src="https://matthewfreed.ca/images/carousel-pemberton-earth2.jpg" alt="Pemberton Earth"><span class="cap"><span class="cap-name">Pemberton Earth</span><span class="cap-desc">A hand-painted leafing pattern in medium brown and charcoal.</span></span></a>
+    <a href="#" class="c c2"><img src="https://matthewfreed.ca/images/carousel-strathcona2.jpg" alt="Strathcona"><span class="cap"><span class="cap-name">Strathcona</span><span class="cap-desc">Semi-matte charcoal with a hand-painted gold chevron pattern.</span></span></a>
+    <a href="#" class="c c3"><img src="https://matthewfreed.ca/images/carousel-tofino2.jpg" alt="Tofino"><span class="cap"><span class="cap-name">Tofino</span><span class="cap-desc">A stormy landscape effect in cobalt, mocha, and amber.</span></span></a>
+    <a href="#" class="c c4"><img src="https://matthewfreed.ca/images/carousel-tree-of-life.jpg" alt="Tree of Life"><span class="cap"><span class="cap-name">Tree of Life</span><span class="cap-desc">A textured Tree of Life emblem on semi-matte charcoal.</span></span></a>
+    <a href="#" class="c c5"><img src="https://matthewfreed.ca/images/carousel-zen4.jpg" alt="Zen"><span class="cap"><span class="cap-name">Zen</span><span class="cap-desc">A semi-matte charcoal glaze with a textured gold accent tile.</span></span></a>
+  </div>
+  <div class="coll-more"><button class="show-all" id="showColl">Show all 15 collections →</button></div>
+</section>
+
+<section class="wrap">
+  <div class="maker">
+    <div class="mimg"><img src="https://matthewfreed.ca/images/overheadwork.jpg" alt="Matthew at the wheel"></div>
+    <div class="mtext">
+      <span class="idx" style="color:var(--gold)">04 — Meet the maker</span>
+      <h2 class="disp">Twelve years at the wheel.</h2>
+      <p>My love affair with clay began in the early 1990s. I kept it as a hobby for years before realizing it was the passion I wanted at the centre of my life.</p>
+      <p class="pquote">“It was time to make a lifetime commitment to one another.”</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap ev-sec">
+  <div class="shead"><span class="idx">05</span><h2 class="disp">Upcoming events</h2></div>
+  <div class="ev-list">
+    <div class="ev-item">
+      <button class="ev" aria-expanded="false"><span class="date">Jul 18</span><span class="info"><span class="ev-title">Trout Lake Farmers Market</span><span>John Hendry Park · 9 am – 2 pm</span></span><span class="chev">▾</span></button>
+      <div class="ev-detail"><div class="ev-detail-in"><p>Most Saturdays through the summer — a full table of mugs, bowls, and my seconds.</p><p style="margin-top:8px">John Hendry Park, Vancouver · <a href="https://maps.google.com/?q=Trout%20Lake%20John%20Hendry%20Park%20Vancouver" target="_blank" rel="noopener">Get directions ↗</a></p></div></div>
+    </div>
+    <div class="ev-item">
+      <button class="ev" aria-expanded="false"><span class="date">Aug 5–7</span><span class="info"><span class="ev-title">Bespoke Summer Night Market</span><span>Ambleside, West Vancouver · 3 – 9 pm</span></span><span class="chev">▾</span></button>
+      <div class="ev-detail"><div class="ev-detail-in"><p>An evening market by Ambleside Beach with 40+ local makers and live music.</p><p style="margin-top:8px">Ambleside, West Vancouver · <a href="https://maps.google.com/?q=Ambleside%20West%20Vancouver" target="_blank" rel="noopener">Get directions ↗</a></p></div></div>
+    </div>
+    <div class="ev-item">
+      <button class="ev" aria-expanded="false"><span class="date">Sep 20</span><span class="info"><span class="ev-title">Eastside Culture Crawl — studio open</span><span>740 Jackson Ave · 11 am – 6 pm</span></span><span class="chev">▾</span></button>
+      <div class="ev-detail"><div class="ev-detail-in"><p>My studio doors open for Vancouver's biggest artist tour — come see where it's made, and shop my seconds.</p><p style="margin-top:8px">740 Jackson Ave, Vancouver · <a href="https://maps.google.com/?q=740%20Jackson%20Ave%20Vancouver" target="_blank" rel="noopener">Get directions ↗</a></p></div></div>
+    </div>
+    <div class="ev-item">
+      <button class="ev" aria-expanded="false"><span class="date">Nov 11</span><span class="info"><span class="ev-title">Circle Craft Holiday Market</span><span>Vancouver Convention Centre</span></span><span class="chev">▾</span></button>
+      <div class="ev-detail"><div class="ev-detail-in"><p>Western Canada's premier artisan market — find me there in the lead-up to the holidays.</p><p style="margin-top:8px">Vancouver Convention Centre · <a href="https://maps.google.com/?q=Vancouver%20Convention%20Centre" target="_blank" rel="noopener">Get directions ↗</a></p></div></div>
+    </div>
+  </div>
+  <div class="coll-more"><a class="show-all" href="#">See all events →</a></div>
+</section>
+
+<div class="divider"><svg class="dm" width="42" height="42" viewBox="-23 -23 46 46" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="none" stroke="#b8862f" stroke-linecap="round" stroke-linejoin="round"><g stroke-width="1.5"><path d="M0,0 C4,-7 4,-15 0,-20 C-4,-15 -4,-7 0,0"/><path d="M0,0 C4,-7 4,-15 0,-20 C-4,-15 -4,-7 0,0" transform="rotate(90)"/><path d="M0,0 C4,-7 4,-15 0,-20 C-4,-15 -4,-7 0,0" transform="rotate(180)"/><path d="M0,0 C4,-7 4,-15 0,-20 C-4,-15 -4,-7 0,0" transform="rotate(270)"/></g><g stroke-width="1.3"><path d="M0,-6 C3,-9 3,-13 0,-16 C-3,-13 -3,-9 0,-6" transform="rotate(45)"/><path d="M0,-6 C3,-9 3,-13 0,-16 C-3,-13 -3,-9 0,-6" transform="rotate(135)"/><path d="M0,-6 C3,-9 3,-13 0,-16 C-3,-13 -3,-9 0,-6" transform="rotate(225)"/><path d="M0,-6 C3,-9 3,-13 0,-16 C-3,-13 -3,-9 0,-6" transform="rotate(315)"/></g><circle r="2.2" stroke-width="1.2"/></g></svg></div>
+
+<section class="news wrap">
+  <span class="idx">Stay in touch</span>
+  <h2 class="disp">Never miss a drop or a date.</h2>
+  <p>Can't make it to a market? Join the list for first access to new pieces — and every upcoming date.</p>
+  <form onsubmit="return false"><input type="email" placeholder="your@email.com"><button>Subscribe</button></form>
+</section>
+
+<footer class="wrap">
+  <span class="disp" style="font-size:20px;font-style:italic">Matthew Freed</span>
+  <span>Collections · About · Events · FAQ</span>
+  <span>Vancouver, BC · Instagram · Facebook</span>
+</footer>
+<script>
+  (function(){
+    var s=document.querySelector('.feat');
+    document.querySelectorAll('.feat-nav .fbtn').forEach(function(b){
+      b.addEventListener('click',function(){ s.scrollBy({left:b.dataset.dir*260,behavior:'smooth'}); });
+    });
+    var coll=document.querySelector('.coll');
+    var cbtn=document.getElementById('showColl');
+    cbtn.addEventListener('click',function(){
+      var exp=coll.classList.toggle('expanded');
+      cbtn.textContent=exp?'Show fewer ↑':'Show all 15 collections →';
+    });
+    document.querySelectorAll('.ev').forEach(function(b){
+      b.addEventListener('click',function(){
+        var open=b.parentElement.classList.toggle('open');
+        b.setAttribute('aria-expanded',open);
+      });
+    });
+  })();
+</script>
+</body>
+</html>
