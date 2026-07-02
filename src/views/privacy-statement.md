@@ -9,12 +9,6 @@ intro: This Privacy Policy describes how your personal information is collected,
 image:
   url: ''
   alt: ''
-notification:
-  title: Online Shopping is now available
-  subtitle: Carefully crafted, fresh from the kiln
-  cta:
-    label: Shop Now
-    url: https://matthew-freed-pottery.myshopify.com/collections/all/
 
 ---
 

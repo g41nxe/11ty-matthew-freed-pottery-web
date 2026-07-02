@@ -5,12 +5,6 @@ permalink: "/contact.html"
 eleventyNavigation:
   key: Contact
   order: 4
-notification:
-  title: Online Shopping is now available
-  subtitle: Carefully crafted, fresh from the kiln
-  cta:
-    label: Shop Now
-    url: https://matthew-freed-pottery.myshopify.com/collections/all/
 headline: Don't be a stranger
 subheadline: Just say hello.
 intro:
