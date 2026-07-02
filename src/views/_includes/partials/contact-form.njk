@@ -1,47 +1,38 @@
+<h2 class="font-display text-2xl font-black text-ink">{{ contactform.title }}</h2>
 
-<h2 class="text-2xl text-brand font-bold my-12 mb-8">
-    {{ contactform.title }}
-</h2>
+<p class="mb-4 mt-2 text-sm text-soft">{{ contactform.info }}</p>
 
-<p class="mb-4 text-xs text-gray-darker">{{ contactform.info }}</p>
-
-<form class="text-brand mb-8" 
-      name="contact" id="contact_form" method="POST" action="/success"
+<form name="contact" id="contact_form" method="POST" action="/success"
       netlify-honeypot="bot-field" data-netlify="true" data-netlify-recaptcha="true">
-        
+
     <p class="hidden">
         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
     </p>
 
-    <label class="hidden" for="contact_name">Name</label>
+    <label class="sr-only" for="contact_name">Name</label>
     <input id="contact_name" name="name" type="text" placeholder="Name"
-            class="w-full text-sm p-2 border border-gray-darker mb-4 bg-gray-lighter focus:border-brand focus:bg-white"
+            class="mb-4 w-full rounded-lg border border-hairline bg-white px-4 py-3 text-base text-ink placeholder:text-soft focus:border-blue focus:outline-none"
     />
-    
-    <label class="hidden" for="email">Email</label>
+
+    <label class="sr-only" for="email">Email</label>
     <input id="email" name="email" type="text" placeholder="Email *" required
-           class="w-full text-sm p-2 border border-gray-darker mb-4 bg-gray-lighter focus:border-brand focus:bg-white"
+           class="mb-4 w-full rounded-lg border border-hairline bg-white px-4 py-3 text-base text-ink placeholder:text-soft focus:border-blue focus:outline-none"
     />
 
-
-    <label class="hidden" for="contact_phone">Phone</label>
+    <label class="sr-only" for="contact_phone">Phone</label>
     <input id="contact_phone" name="phone" type="text" placeholder="Phone"
-           class="w-full text-sm p-2 border border-gray-darker mb-4 bg-gray-lighter focus:border-brand focus:bg-white"
+           class="mb-4 w-full rounded-lg border border-hairline bg-white px-4 py-3 text-base text-ink placeholder:text-soft focus:border-blue focus:outline-none"
     />
-    
-    <label    class="hidden" for="contact_message">Message</label>
-    <textarea id="contact_message" name="message" placeholder="Whats on your mind? *" required
-              class="md:h-48 w-full text-sm p-2 border border-gray-darker mb-4 bg-gray-lighter focus:border-brand focus:bg-white"
+
+    <label class="sr-only" for="contact_message">Message</label>
+    <textarea id="contact_message" name="message" placeholder="What's on your mind? *" required
+              class="mb-4 w-full rounded-lg border border-hairline bg-white px-4 py-3 text-base text-ink placeholder:text-soft focus:border-blue focus:outline-none md:h-48"
     ></textarea>
-        
+
     <div data-netlify-recaptcha="true" class="mb-4"></div>
 
-    <button aria-label="Send" type="submit"
-            class="bg-highlight text-brand px-8 py-2 text-sm hover:bg-brand hover:text-highlight">
-        {{ contactform.submit | upper }}
+    <button aria-label="Send" type="submit" class="btn-primary">
+        {{ contactform.submit }}
     </button>
-    
 
 </form>
-
-

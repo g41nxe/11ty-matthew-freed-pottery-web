@@ -40,6 +40,14 @@
     .chip.is-active {
         @apply border-blue bg-blue text-paper;
     }
+    .prose-pottery {
+        @apply text-base leading-relaxed text-muted;
+    }
+    .prose-pottery h2 { @apply mb-3 mt-8 font-display text-2xl font-black text-ink; }
+    .prose-pottery h3 { @apply mb-2 mt-6 font-display text-xl font-black text-ink; }
+    .prose-pottery p  { @apply mb-4; }
+    .prose-pottery a  { @apply border-b border-blue pb-0.5 font-medium text-blue transition-colors hover:border-sand; }
+    .prose-pottery ul { @apply mb-4 list-disc pl-6; }
 }
 
 @media (prefers-reduced-motion: reduce) {

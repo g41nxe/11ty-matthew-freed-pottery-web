@@ -8,13 +8,6 @@ intro: The following retail outlets carry one or more of Matthew's Glaze Lines
 image:
   url: "/images/seymourartgallery.jpg"
   alt: Display of Matthew Freeds pottery work
-notification:
-  title: Online Shopping is now available
-  subtitle: Carefully crafted, fresh from the kiln
-  cta:
-    label: Shop Now
-    url: https://matthew-freed-pottery.myshopify.com/collections/all/
-
 ---
 ### [Arts Off Main](http://www.artsoffmain.ca/)
 

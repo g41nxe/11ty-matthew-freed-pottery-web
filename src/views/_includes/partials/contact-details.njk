@@ -1,40 +1,42 @@
- <h2 class="text-2xl font-bold my-12 ">
+<h2 class="font-display text-2xl font-black text-ink">
     {{ headline }}<br/>
-    <span class="text-highlight">{{ subheadline }}</span>
+    <span class="text-blue">{{ subheadline }}</span>
 </h2>
 
-<ul class="mb-12 flex flex-row justify-start">
-    {%- for name, entry in global.socialmedia.services %}        
+<ul class="mt-4 flex flex-row justify-start gap-4">
     <li>
-        <a class="mr-4 text-brand" href="{{ entry.url | url }}">
-            <i class="fab {{ entry.icon }}"></i>
+        <a href="{{ global.socialmedia.services.instagram.url }}" target="_blank" aria-label="Instagram" class="text-muted transition-colors hover:text-blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.8" fill="currentColor"/></svg>
         </a>
     </li>
-{%- endfor -%}
+    <li>
+        <a href="{{ global.socialmedia.services.facebook.url }}" target="_blank" aria-label="Facebook" class="text-muted transition-colors hover:text-blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 8h3V5h-3a4 4 0 0 0-4 4v2H7v3h3v7h3v-7h3l1-3h-4V9a1 1 0 0 1 1-1z"/></svg>
+        </a>
+    </li>
 </ul>
 
-<div class="mb-12 text-brand ">
-    {%- for paragraph in intro %}    
-        <p>{{ paragraph }}</p>   
-    {%- endfor-%} 
+<div class="mt-6 text-base leading-relaxed text-muted">
+    {%- for paragraph in intro %}
+        <p class="mb-3">{{ paragraph }}</p>
+    {%- endfor -%}
 </div>
 
-
-<div class="mb-12 text-brand ">
-    <p class="font-bold">{{ message }}</p>
-    <a class="hover:text-highlight" href="mailto:{{ global.contact.email }}">{{ global.contact.email }}</a>
+<div class="mt-6">
+    <p class="cap-label text-soft">{{ message }}</p>
+    <a class="link-underline text-sm" href="mailto:{{ global.contact.email }}">{{ global.contact.email }}</a>
 </div>
 
-<div class="mb-12 text-brand ">
-    <p class="font-bold">{{ phone }}</p>
-    <a class="hover:text-highlight" href="tel:{{ global.contact.phone }}">{{ global.contact.phone }}</a>
+<div class="mt-6">
+    <p class="cap-label text-soft">{{ phone }}</p>
+    <a class="link-underline text-sm" href="tel:{{ global.contact.phone }}">{{ global.contact.phone }}</a>
 </div>
 
-<div class="mb-12 text-brand ">
-    <p class="font-bold">{{ address }}</p>
-    <p>{{ global.contact.address | nl2br | safe }}</p>
+<div class="mt-6">
+    <p class="cap-label text-soft">{{ address }}</p>
+    <p class="mt-1 text-base text-muted">{{ global.contact.address | nl2br | safe }}</p>
 </div>
 
-<div id="map" class="mb-12">
+<div id="map" class="mt-6 overflow-hidden rounded-xl">
     {{ gmaps | safe }}
 </div>

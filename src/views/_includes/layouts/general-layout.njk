@@ -2,25 +2,13 @@
 layout: base
 ---
 
-{% include "hero.njk" %}
-
-{% include "notification.njk" %}
-
-<h2 class="my-8 md:my-16 font-bold text-3xl text-center">{{ title }}</h2>
-
-<div class="md:w-3/5 w-5/6 mb-8 md:mb-0 mx-auto text-center">{{ intro }}</div>
-
-
-{% set gridcols = "grid-cols-2" if image.url else "grid-cols-1" %}
-<div class="general grid md:{{ gridcols }} grid-cols-1 place-content-center w-full md:my-24">
-
-    {%- if image.url -%}
-    <div class="md:shadow-md">
-        {% img image.url, image.alt, "(min-width: 768px) 50vw, 100vw", "h-full w-full object-cover" %}
+<article class="mx-auto max-w-3xl px-6 py-12">
+    <h1 class="font-display text-4xl font-black leading-tight text-ink">{{ headline | default(title) }}</h1>
+    {% if intro %}<p class="mt-4 text-base leading-relaxed text-muted">{{ intro }}</p>{% endif %}
+    {% if image.url %}
+    <div class="mt-8 overflow-hidden rounded-xl bg-tile">
+        {% img image.url, image.alt, "(min-width: 768px) 48rem, 100vw", "w-full object-cover" %}
     </div>
-    {%-endif -%}
-
-    <div class="bg-white border-b border-t border-gray-light flex flex-col justify-center md:py-20 md:px-20 p-4">
-       {{ content | safe    }}
-    </div>
-</div>
+    {% endif %}
+    <div class="prose-pottery mt-8">{{ content | safe }}</div>
+</article>
