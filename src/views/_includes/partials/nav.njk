@@ -1,60 +1,27 @@
-<div id="nav" class="z-50 fixed nav w-screen h-16 md:h-20 md:px-24">
-    
-    <nav role="navigation" aria-label="Main" id="desktop--menu" class="relative z-50 h-full w-full items-center">
-        <ul class="main-nav w-full h-full justify-around md:justify-start items-center md:flex hidden">
-        {% set navPages = collections.all | eleventyNavigation %}        
-        {%- for entry in navPages %}{% if entry.title %}     
-            <li class="md:mr-6">
-                <a class="border-b-2 border-transparent hover:border-brand text-brand {{ 'font-bold' if entry.url == page.url }} " href="{{ entry.url | url }}">{{ entry.title | upper }} </a>
-            </li>
-        {% endif %}{%- endfor %}
-            
-            <li class="md:mr-6">
-                <a target="_blank" href="{{ global.socialmedia.services.instagram.url | url }}" class="text-brand hover:text-highlight">
-                    <i class="fab fa-instagram"></i>                
-                </a>
-            </li>
+<header class="border-b border-hairline bg-paper">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <a href="/" class="font-display text-xl font-black text-blue">Matthew Freed</a>
 
-            <li class="md:mr-6">
-                <a target="_blank" href="{{ global.shop.url | url }}" class="text-brand hover:text-highlight">
-                    <i class="fas fa-shopping-bag"></i>                
-                </a>
-            </li>
+        <nav class="hidden items-center gap-8 md:flex" aria-label="Main">
+            <a href="/collections.html" class="text-base text-muted transition-colors hover:text-blue">Collections</a>
+            <a href="/events.html" class="text-base text-muted transition-colors hover:text-blue">Events</a>
+            <a href="/about/" class="text-base text-muted transition-colors hover:text-blue">About</a>
+            <a href="/contact.html" class="text-base text-muted transition-colors hover:text-blue">Contact</a>
+            <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" class="btn-primary px-5 py-2 text-sm">Shop</a>
+        </nav>
 
-        </ul>
+        <div class="flex items-center gap-3 md:hidden">
+            <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" class="btn-primary px-5 py-2.5 text-sm">Shop</a>
+            <button id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu" class="flex h-11 w-11 items-center justify-center text-ink">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            </button>
+        </div>
+    </div>
 
-        <ul class="w-full justify-between md:hidden flex p-4 bg-brand">
-            <li>
-                <ul class="flex justify-start">
-                    <li class="pr-6">
-                        <a target="_blank" href="{{ global.socialmedia.services.instagram.url | url }}" class="text-gray-light hover:text-highlight">
-                            <i class="fab fa-2x fa-instagram"></i>                
-                        </a>
-                    </li>
-
-                    <li class="pr-6">
-                        <a target="_blank" href="{{ global.shop.url | url }}" class="text-highlight hover:text-white">
-                            <i class="fas fa-2x fa-shopping-bag"></i>                
-                        </a>
-                    </li>
-                </ul>
-
-                <li class="justify-end">
-                    <button id="mobile--btn" class="text-gray-light hover:text-highlight">
-                        <i class="fa-2x fas fa-bars"></i>                
-                    </button>
-                </li>
-        </ul>
+    <nav id="nav-menu" hidden class="border-t border-hairline px-6 py-4 md:hidden" aria-label="Main mobile">
+        <a href="/collections.html" class="block py-3 text-base text-ink">Collections</a>
+        <a href="/events.html" class="block py-3 text-base text-ink">Events</a>
+        <a href="/about/" class="block py-3 text-base text-ink">About</a>
+        <a href="/contact.html" class="block py-3 text-base text-ink">Contact</a>
     </nav>
-    
-    <nav role="navigation" aria-label="Main" id="mobile--menu" class="flex absolute md:hidden bg-brand w-full h-screen justify-center items-center">
-        <ul  class="flex flex-col justify-center items-center text-center py-4">
-            {% set navPages = collections.all | eleventyNavigation %}        
-            {%- for entry in navPages %}{% if entry.title %}   
-                <li class="py-6">
-                    <a href="{{ entry.url | url }}" class="text-xl py-6 px-8 {{ "border-b border-highlight" if loop.last != true }} hover: text-highlight active:text-highlight text-gray-light {{ 'font-bold' if entry.url == page.url }} " href="{{ entry.url | url }}">{{ entry.title | upper }} </a>
-                </li>
-            {% endif %}{%- endfor %}
-        </ul>
-    </nav>
-</div>
+</header>

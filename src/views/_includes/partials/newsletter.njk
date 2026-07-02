@@ -1,0 +1,19 @@
+<section class="border-t border-hairline bg-paper" aria-label="Newsletter">
+    <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-6 py-10 md:flex-row md:items-center">
+        <div>
+            <h2 class="font-display text-2xl font-black text-ink">First to know about firings and markets</h2>
+            <p class="mt-1 text-sm text-soft">One email a month, no clutter.</p>
+        </div>
+        <form id="newsletter_form" name="newsletter" method="POST" action="/success"
+              data-netlify="true" netlify-honeypot="bot-field"
+              class="flex w-full max-w-md gap-2">
+            <p class="hidden">
+                <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+            </p>
+            <label for="newsletter_email" class="sr-only">Email address</label>
+            <input id="newsletter_email" type="email" name="newsletter_email" required placeholder="you@email.com"
+                   class="w-full rounded-full border border-hairline bg-white px-5 py-3 text-base text-ink placeholder:text-soft focus:border-blue focus:outline-none">
+            <button type="submit" aria-label="Sign up" class="btn-primary whitespace-nowrap">Sign up</button>
+        </form>
+    </div>
+</section>

@@ -1,79 +1,34 @@
-<footer class="bg-gray-light text-gray-darker">
-    <div class="container mx-auto py-8 md:py-12 lg:py-24">
-        
-        <div class="grid md:grid-cols3 lg:grid-cols-4 md:text-left text-center font-light gap-x-12 gap-y-8 md:gap-y-16">
-            
-            <div class="">
-                <h4 class="font-bold mb-4">{{ global.contact.name | safe }}</h4>
-                
-                <p class="mb-4">{{global.contact.address | nl2br | safe }}</p>
-                
-                <p class="mb-4">
-                    {{ global.contact.text | safe
-                        | replace("<mail>", "<a class=\"hover:text-brand font-semibold\" href=\"mailto:" + global.contact.email + "\">") 
-                        | replace("<phone>", "<a class=\"hover:text-brand font-semibold\" href=\"tel:" + global.contact.phone + "\">") 
-                        | replace("</mail>", "</a>") 
-                        | replace("</phone>", "</a>" ) 
-                    }}
-                </p>
-            </div>
-
-            <div class="">
-                <h4 class="font-bold mb-4">Links</h4>
-
-                <ul>
-                    {%- for entry in collections.footer -%}
-                    <li>
-                        <a class="hover:text-brand text-sm" href="{{ entry.url | url }}">
-                            <i class="fas fa-angle-right"></i>
-                            {{ entry.data.title }}
-                        </a>
-                    </li>
-                    {%- endfor -%}
-                </ul>
-            </div>
-
-            <div class="">
-                <h4 class="font-bold mb-4">{{ global.socialmedia.title }} </h4>
-
-                <ul class="flex flex-row md:justify-start justify-center">
-                    {%- for name, entry in global.socialmedia.services %}        
-                    <li class="{{ '' if loop.last else 'mr-4' }}">
-                        <a target="_blank" class="hover:text-brand" href="{{ entry.url | url }}">
-                            <i class="fab {{ entry.icon }}"></i>
-                        </a>
-                    </li>
-                {%- endfor -%}
-                </ul>
-            </div>
-
-            <div class="md:order-first lg:order-last 
-                        md:col-span-3 lg:col-span-1 md:px-24 lg:px-0 
-                        md:text-center lg:text-left 
-                        flex flex-col items-center lg:items-start">
-
-                <h4 class="font-bold mb-4">{{ global.newsletter.title }}</h4>
-
-                <form id="newsletter_form" name="newsletter" method="POST" action="/success"
-                      class="flex justify-center md:justify-start w-3/5 lg:w-full"
-                      data-netlify="true" netlify-honeypot="bot-field">
-
-                    <p class="hidden">
-                        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-                    </p>
-                    
-                    <label class="hidden" for="newsletter_email">Email</label>
-                    <input required type="email" id="newsletter_email" name="newsletter_email" 
-                        class="w-1 flex-grow px-3 py-1 font-light text-sm focus:bg-gray-lighter bg-gray-default border border-gray-darker" 
-                        placeholder="your@email.com" />
-                    
-                    <button aria-label="Sign up" type="submit"
-                            class="flex-none align-middle px-3 py-1 rounded-r-md border border-l-0 bg-white hover:bg-gray-dark border border-gray-darker">
-                        <i class="fas fa-envelope-open-text"></i>
-                    </button>
-                </form>
-            </div>
-
+{% include "newsletter.njk" %}
+<footer class="bg-ink text-paper">
+    <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 md:flex-row md:items-start md:justify-between">
+        <div>
+            <p class="font-display text-lg font-black">Matthew Freed Pottery</p>
+            <p class="mt-2 text-sm text-soft">{{ global.contact.address | nl2br | safe }}</p>
+            <p class="mt-2 text-sm text-soft">
+                {{ global.contact.text | safe
+                    | replace("<mail>", "<a class=\"underline hover:text-sand\" href=\"mailto:" + global.contact.email + "\">")
+                    | replace("<phone>", "<a class=\"underline hover:text-sand\" href=\"tel:" + global.contact.phone + "\">")
+                    | replace("</mail>", "</a>")
+                    | replace("</phone>", "</a>" )
+                }}
+            </p>
         </div>
+        <nav class="flex flex-col gap-2 text-sm" aria-label="Footer">
+            <a href="/retail-stores.html" class="text-soft transition-colors hover:text-sand">Retail stores</a>
+            <a href="/faq.html" class="text-soft transition-colors hover:text-sand">FAQ</a>
+            <a href="/about/process.html" class="text-soft transition-colors hover:text-sand">My process</a>
+            <a href="/privacy-statement.html" class="text-soft transition-colors hover:text-sand">Privacy</a>
+        </nav>
+        <div class="flex gap-4">
+            <a href="{{ global.socialmedia.services.instagram.url }}" target="_blank" aria-label="Instagram" class="text-soft transition-colors hover:text-sand">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.8" fill="currentColor"/></svg>
+            </a>
+            <a href="{{ global.socialmedia.services.facebook.url }}" target="_blank" aria-label="Facebook" class="text-soft transition-colors hover:text-sand">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 8h3V5h-3a4 4 0 0 0-4 4v2H7v3h3v7h3v-7h3l1-3h-4V9a1 1 0 0 1 1-1z"/></svg>
+            </a>
+        </div>
+    </div>
+    <div class="border-t border-blue-light/30 px-6 py-4 text-center text-xs text-soft">
+        © Matthew Freed Pottery
     </div>
 </footer>
