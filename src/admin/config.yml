@@ -34,61 +34,97 @@ collections:
               - {label: "key", name: "key", widget: "hidden"}
               - {label: "order", name: "order", widget: "hidden"}
 
-          - label: "notification"
-            name: "notification"
+          - label: "Hero"
+            name: "hero"
             widget: "object"
             collapsed: true
             fields:
-              - {label: "title", name: "title", widget: "string"}
-              - {label: "subtitle", name: "subtitle", widget: "string"}
-              - label: "cta"
-                name: "cta"
-                widget: "object"
-                fields: 
-                  - {label: "label", name: "label", widget: "string"}
-                  - {label: "url", name: "url", widget: "string"}
-
-          - label: "event"
-            name: "event"
-            widget: "object"
-            fields:
-              - label: "What to show when there is no upcoming Event"
-                name: "no_events"
+              - {label: "Eyebrow", name: "eyebrow", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+              - label: "Primary button"
+                name: "cta_primary"
                 widget: "object"
                 fields:
-                  - {label: "title", name: "title", widget: "string"}
-                  - {label: "text", name: "text", widget: "text"}
-              - label: "image"
+                  - {label: "Label", name: "label", widget: "string"}
+              - label: "Secondary link"
+                name: "cta_secondary"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+              - label: "Image"
                 name: "image"
                 widget: "object"
                 fields:
                   - {label: "url", name: "url", widget: "image", choose_url: false}
                   - {label: "alt", name: "alt", widget: "string"}
-              - {label: "title", name: "title", widget: "string"}
-              - {label: "label", name: "label", widget: "string"}
 
-          - label: "gallery"
-            name: "gallery"
-            widget: "object"
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - label: "Texts"
-                name: "texts"
-                widget: "list"
-                summary: '{{fields.text}}'
-                field: {label: "text", name: "text", widget: "text"}
+          - label: "Trust strip"
+            name: "trust"
+            widget: "list"
+            collapsed: true
+            field: {label: "Item", name: "item", widget: "string"}
 
-          - label: "features"
-            name: "features"
+          - label: "Featured piece"
+            name: "featured_piece"
             widget: "object"
             collapsed: true
             fields:
-              - {label: "title", name: "title", widget: "string"}
-              - label: "Texts"
-                name: "texts"
-                widget: "list"
-                summary: '{{fields.text}}'
-                field: {label: "text", name: "text", widget: "text"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Glaze caption", name: "caption", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "url", name: "url", widget: "image", choose_url: false}
+                  - {label: "alt", name: "alt", widget: "string"}
+              - label: "Shop link"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+
+          - label: "Collections teaser"
+            name: "collections_teaser"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+
+          - label: "Products section"
+            name: "products"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Note under the grid", name: "note", widget: "string"}
+
+          - label: "Events band"
+            name: "events_band"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Text when no events", name: "no_events", widget: "text"}
+
+          - label: "Story teaser"
+            name: "story_teaser"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+              - {label: "Link label", name: "label", widget: "string"}
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "url", name: "url", widget: "image", choose_url: false}
+                  - {label: "alt", name: "alt", widget: "string"}
 
           - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
           - {label: "author", name: "author", widget: "hidden"}
@@ -113,6 +149,12 @@ collections:
                   - {label: "Alt Text", name: "alt", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Text", name: "text", widget: "text"}
+              - {label: "Shop collection slug (tail of the shop URL)", name: "slug", widget: "string"}
+              - {label: "Swatch colour (hex)", name: "swatch", widget: "string", pattern: ["^#[0-9A-Fa-f]{6}$", "Must be a hex colour like #1F3A52"]}
+              - label: "Filter group"
+                name: "filterGroup"
+                widget: "select"
+                options: ["Blues", "Charcoals", "Earth tones", "Patterned"]
               - label: "CTA"
                 name: "cta"
                 widget: "object"
@@ -194,8 +236,11 @@ collections:
               - {label: "key", name: "key", widget: "hidden"}
               - {label: "order", name: "order", widget: "hidden"}
 
+          - {label: "eyebrow", name: "eyebrow", widget: "string"}
+          - {label: "show_medal", name: "show_medal", widget: "hidden"}
           - {label: "headline", name: "headline", widget: "string"}
           - {label: "intro", name: "intro", widget: "text"}
+          - {label: "Pull quote", name: "quote", widget: "text", required: false}
 
           - label: "sections"
             name: "sections"
@@ -211,7 +256,7 @@ collections:
               - label: "paragraphs"
                 name: "paragraphs"
                 widget: "list"
-                fields: 
+                fields:
                   - {label: "text", name: "text", widget: "text"}
               - {label: "label", name: "label", widget: "string"}
 
@@ -311,50 +356,18 @@ collections:
               - {label: "key", name: "key", widget: "hidden"}
               - {label: "order", name: "order", widget: "hidden"}
 
-          - label: "notification"
-            name: "notification"
-            widget: "object"
-            collapsed: true
-            fields:
-              - {label: "title", name: "title", widget: "string"}
-              - {label: "subtitle", name: "subtitle", widget: "string"}
-              - label: "cta"
-                name: "cta"
-                widget: "object"
-                fields: 
-                  - {label: "label", name: "label", widget: "string"}
-                  - {label: "url", name: "url", widget: "string"}
-
-          - label: "headline"
-            name: "headline"
-            widget: "string"
-
-          - label: "subheadline"
-            name: "subheadline"
-            widget: "string"
-
-          - label: "intro"
+          - label: "Intro"
             name: "intro"
             widget: "object"
             fields:
-              - {label: "title", name: "title", widget: "string"}
-              - label: "texts"
-                name: "texts"
-                widget: "list"
-                summary: '{{fields.text}}'
-                field: {label: "text", name: "text", widget: "string"}
+              - {label: "Eyebrow", name: "eyebrow", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
 
-          - label: "features"
-            name: "features"
-            widget: "object"
-            collapsed: true
-            fields:
-              - {label: "title", name: "title", widget: "string"}
-              - label: "texts"
-                name: "texts"
-                widget: "list"
-                summary: '{{fields.text}}'
-                field: {label: "text", name: "text", widget: "string"}
+          - label: "Filter chips"
+            name: "filters"
+            widget: "list"
+            field: {label: "Filter", name: "filter", widget: "string"}
 
           - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
           - {label: "author", name: "author", widget: "hidden"}
@@ -435,6 +448,52 @@ collections:
             name: "body"
             widget: "markdown"
 
+      - label: "Events Page"
+        name: "events-page"
+        file: "src/views/events.md"
+        fields:
+          - {label: "layout", name: "layout", widget: "hidden"}
+          - {label: "title", name: "title", widget: "string"}
+          - {label: "permalink", name: "permalink", widget: "hidden"}
+
+          - label: "eleventyNavigation"
+            name: "eleventyNavigation"
+            widget: "hidden"
+            fields:
+              - {label: "key", name: "key", widget: "hidden"}
+              - {label: "order", name: "order", widget: "hidden"}
+
+          - label: "Intro"
+            name: "intro"
+            widget: "object"
+            fields:
+              - {label: "Eyebrow", name: "eyebrow", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+
+          - {label: "Annual rhythm note", name: "rhythm", widget: "text"}
+
+          - label: "Visit the studio card"
+            name: "studio"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+              - label: "Button"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+              - {label: "Footnote", name: "footnote", widget: "text"}
+
+          - {label: "Text when no events", name: "no_events", widget: "text"}
+
+          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
+          - {label: "author", name: "author", widget: "hidden"}
+          - {label: "excerpt", name: "excerpt", widget: "hidden"}
+          - {label: "image", name: "image", widget: "hidden"}
+          - {label: "ogtype", name: "ogtype", widget: "hidden"}
+
   - label: "News & Events"
     name: "news-and-events"
     delete: false
@@ -509,6 +568,10 @@ collections:
             - name: featured
               widget: boolean
               default: true
+            - label: "Takes place at my studio"
+              name: atStudio
+              widget: boolean
+              default: false
 
   - name: "global"
     label: "Global Settings"
@@ -567,7 +630,8 @@ collections:
             minimize_collapsed: true
             collapsed: true
             fields:
-              - {label: "URL", name: "url", widget: "string"}
+              - {label: "Base URL (no trailing slash)", name: "base", widget: "string"}
+              - {label: "Collections path", name: "collectionsPath", widget: "string"}
 
           - label: "Social Media"
             name: "socialmedia"
