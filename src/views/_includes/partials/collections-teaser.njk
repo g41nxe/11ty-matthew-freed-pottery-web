@@ -1,0 +1,26 @@
+<section class="mx-auto max-w-6xl px-6 py-12" aria-label="Collections">
+    <div class="flex items-baseline justify-between gap-4">
+        <h2 class="font-display text-3xl font-black text-ink">{{ collections_teaser.title }}</h2>
+        <a href="/collections.html" class="link-underline hidden whitespace-nowrap text-sm sm:inline">All collections</a>
+    </div>
+    <p class="mt-2 max-w-xl text-sm text-muted">{{ collections_teaser.text }}</p>
+    <div class="mt-8 grid grid-cols-2 gap-5 md:grid-cols-4">
+        {% for item in showcase.gallery %}
+        {% if loop.index <= 3 %}
+        <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/{{ item.slug }}" class="group">
+            <div class="aspect-[4/3] w-full overflow-hidden" style="background-color: {{ item.swatch }}">
+                {% if item.image.url %}{% img item.image.url, item.image.alt, "(min-width: 768px) 25vw, 50vw", "h-full w-full object-cover opacity-90 transition-opacity group-hover:opacity-100" %}{% endif %}
+            </div>
+            <p class="mt-3 font-display text-base font-black text-ink">{{ item.title | replace(" Collection", "") }}</p>
+            <p class="cap-label mt-1 text-[11px] text-soft">{{ item.text | truncate(28, true, "…") }}</p>
+        </a>
+        {% endif %}
+        {% endfor %}
+        <a href="/collections.html" class="group">
+            <div class="flex aspect-[4/3] w-full items-center justify-center bg-tile text-sm text-muted">+ {{ showcase.gallery.length - 3 }} more</div>
+            <p class="mt-3 font-display text-base font-black text-blue">View all</p>
+            <p class="cap-label mt-1 text-[11px] text-soft">The full field guide</p>
+        </a>
+    </div>
+    <a href="/collections.html" class="link-underline mt-6 inline-block text-sm sm:hidden">All collections</a>
+</section>
