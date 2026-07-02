@@ -19,14 +19,20 @@
             {% for item in showcase.features | rejectattr("hide") %}
             {% if loop.index <= 4 %}
             <a href="{{ item.cta.url }}" class="group">
-                <div class="overflow-hidden bg-tile">
+                <div class="relative overflow-hidden bg-tile">
                     {% img item.image.url, item.image.alt, "(min-width: 768px) 25vw, 50vw", "img-zoom w-full object-cover" %}
+                    {% if item.overlay.text %}
+                    <div class="absolute inset-x-0 bottom-0 hidden translate-y-3 bg-linear-to-t from-ink via-ink/75 to-transparent px-3 pb-3 pt-12 font-display text-sm leading-snug text-paper opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 md:block">
+                        {{ item.overlay.text | safe }}
+                    </div>
+                    {% endif %}
                 </div>
                 <div class="mt-2 flex items-baseline justify-between gap-2">
                     <p class="font-display text-sm font-black text-ink transition-colors group-hover:text-blue">{{ item.title.split(" - ")[1] | default(item.title) }}</p>
                     {% if item.price %}<p class="flex-none text-sm font-medium text-muted">{{ item.price }}</p>{% endif %}
                 </div>
                 <p class="cap-label mt-0.5 text-[10px] text-soft">{{ item.title.split(" - ")[0] }}</p>
+                {% if item.overlay.text %}<p class="blurb-inline mt-1.5 text-xs leading-relaxed text-muted md:hidden">{{ item.overlay.text | safe }}</p>{% endif %}
             </a>
             {% endif %}
             {% endfor %}

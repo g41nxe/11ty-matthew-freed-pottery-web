@@ -78,6 +78,16 @@
         transform: scaleX(1);
     }
 
+    /* Collection-name emphasis inside CMS overlay blurbs (legacy markup).
+       Sand on the dark image scrim; blue in the light inline variant. */
+    .text-highlight {
+        color: var(--color-sand);
+        font-weight: 500;
+    }
+    .blurb-inline .text-highlight {
+        color: var(--color-blue);
+    }
+
     /* Hide the scrollbar on snap-scroll sliders (content stays scrollable) */
     .no-scrollbar {
         scrollbar-width: none;
