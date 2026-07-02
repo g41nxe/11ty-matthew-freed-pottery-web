@@ -9,9 +9,13 @@ layout: base
 
 <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10 lg:flex-row">
     <div class="lg:flex-[1.4]">
-        {% set upcoming = events.events | filterFuture | sortByDate | reverse %}
-        {% if upcoming.length %}
-        {% for event in upcoming %}
+        {% set upcoming = events.events | filterFuture %}
+        {% set special = upcoming | specialEvents %}
+        {% set markets = upcoming | groupByVenue %}
+
+        {% if special.length %}
+        <p class="cap-label mb-4 text-blue">Special events</p>
+        {% for event in special %}
         <article class="mb-4 flex gap-4 rounded-xl border border-hairline bg-white p-5">
             <div class="flex h-fit flex-none flex-col items-center rounded-lg px-4 py-2 {% if event.atStudio %}bg-blue{% else %}bg-tile{% endif %}">
                 <span class="cap-label text-[11px] {% if event.atStudio %}text-sand{% else %}text-soft{% endif %}">{{ event.date | date("MMM") }}</span>
@@ -28,18 +32,42 @@ layout: base
             </div>
         </article>
         {% endfor %}
-        {% else %}
+        {% endif %}
+
+        {% if markets.length %}
+        <p class="cap-label mb-4 text-blue{% if special.length %} mt-10{% endif %}">Market schedule</p>
+        {% for group in markets %}
+        <article class="mb-4 rounded-xl border border-hairline bg-white p-5">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h2 class="font-display text-xl font-black text-ink">{{ group.name }}</h2>
+                {% if group.first.gmaps %}<a href="https://www.google.com/maps/search/?api=1&query={{ group.first.gmaps | urlencode }}" class="link-underline text-sm">Directions</a>{% endif %}
+            </div>
+            <p class="mt-1 text-sm text-muted">{{ group.first.location }} · {{ group.first.time }}</p>
+            {% if group.first.content.body %}<p class="mt-2 text-sm leading-relaxed text-muted">{{ group.first.content.body }}</p>{% endif %}
+            <div class="mt-4 flex flex-wrap items-center gap-2">
+                {% for d in group.dates %}
+                <span class="rounded-lg px-3 py-1.5 text-sm font-medium {% if loop.first %}bg-blue text-paper{% else %}bg-tile text-ink{% endif %}"{% if loop.first %} title="Next date"{% endif %}>{{ d | date("MMM d") }}</span>
+                {% endfor %}
+            </div>
+        </article>
+        {% endfor %}
+        {% endif %}
+
+        {% if not special.length and not markets.length %}
         <p class="rounded-xl border border-hairline bg-white p-6 text-base text-muted">{{ no_events }}</p>
         {% endif %}
         <p class="mt-6 text-center text-sm text-soft">{{ rhythm }}</p>
     </div>
 
-    <aside class="h-fit rounded-xl bg-blue p-6 lg:flex-1">
-        <h2 class="font-display text-xl font-black text-paper">{{ studio.title }}</h2>
-        <p class="mt-3 text-sm leading-relaxed text-paper/80">{{ studio.text }}</p>
-        <a href="{{ studio.cta.url }}" class="mt-5 inline-block rounded-full bg-paper px-5 py-2.5 text-sm font-medium text-blue">{{ studio.cta.label }}</a>
-        <p class="mt-5 border-t border-blue-light pt-4 text-sm text-paper/80">{{ studio.footnote }}</p>
-    </aside>
+    <div class="lg:flex-1">
+        <p class="cap-label mb-4 text-blue">The studio</p>
+        <aside class="h-fit rounded-xl bg-blue p-6">
+            <h2 class="font-display text-xl font-black text-paper">{{ studio.title }}</h2>
+            <p class="mt-3 text-sm leading-relaxed text-paper/80">{{ studio.text }}</p>
+            <a href="{{ studio.cta.url }}" class="mt-5 inline-block rounded-full bg-paper px-5 py-2.5 text-sm font-medium text-blue">{{ studio.cta.label }}</a>
+            <p class="mt-5 border-t border-blue-light pt-4 text-sm text-paper/80">{{ studio.footnote }}</p>
+        </aside>
+    </div>
 </div>
 
 <script type="application/ld+json">

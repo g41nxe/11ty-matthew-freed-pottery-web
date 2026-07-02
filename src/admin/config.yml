@@ -41,6 +41,7 @@ collections:
             fields:
               - {label: "Eyebrow", name: "eyebrow", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
+              - {label: "Highlight word (shown in blue)", name: "highlight", widget: "string", required: false}
               - {label: "Text", name: "text", widget: "text"}
               - label: "Primary button"
                 name: "cta_primary"
@@ -74,6 +75,7 @@ collections:
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Glaze caption", name: "caption", widget: "string"}
               - {label: "Text", name: "text", widget: "text"}
+              - {label: "Price", name: "price", widget: "string", required: false}
               - label: "Image"
                 name: "image"
                 widget: "object"
@@ -689,6 +691,7 @@ collections:
             summary: "{{fields.title}}"
             fields:
               - {label: "Title", name: "title", widget: "string"}
+              - {label: "Price", name: "price", widget: "string", required: false}
               - label: "Overlay"
                 name: "overlay"
                 widget: "object"

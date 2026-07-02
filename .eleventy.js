@@ -71,6 +71,42 @@ module.exports = function (eleventyConfig) {
             return DateTime.fromFormat(el.date, 'MM-dd-yyyy') <= DateTime.now();
         });
     });
+    // Special events: studio openings and multi-day shows (Culture Crawl, Circle Craft).
+    // These get the large date-block treatment on the events page.
+    eleventyConfig.addNunjucksFilter("specialEvents", function(array) {
+        return array
+            .filter(e => e.atStudio || e.multi_day_event)
+            .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'));
+    });
+    // Recurring markets grouped by venue name: one entry per market with all
+    // upcoming dates, soonest venue first. Excludes special events.
+    eleventyConfig.addNunjucksFilter("groupByVenue", function(array) {
+        const groups = new Map();
+        array
+            .filter(e => !(e.atStudio || e.multi_day_event))
+            .forEach(e => {
+                const key = e.name.trim();
+                if (!groups.has(key)) groups.set(key, { name: key, first: e, dates: [] });
+                groups.get(key).dates.push(e.date);
+            });
+        const byDate = (a, b) => DateTime.fromFormat(a, 'MM-dd-yyyy') - DateTime.fromFormat(b, 'MM-dd-yyyy');
+        return Array.from(groups.values())
+            .map(g => { g.dates.sort(byDate); return g; })
+            .sort((a, b) => byDate(a.dates[0], b.dates[0]));
+    });
+    // One entry per event name (its next occurrence), soonest first.
+    // Used by the homepage events band to avoid listing the same market twice.
+    eleventyConfig.addNunjucksFilter("nextUp", function(array) {
+        const seen = new Set();
+        return array.slice()
+            .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'))
+            .filter(e => {
+                const key = e.name.trim();
+                if (seen.has(key)) return false;
+                seen.add(key);
+                return true;
+            });
+    });
     eleventyConfig.addNunjucksFilter("filterFeatured", function(array) {
         return array
             .filter(el => el.featured && DateTime.fromFormat(el.date, 'MM-dd-yyyy') > DateTime.now())

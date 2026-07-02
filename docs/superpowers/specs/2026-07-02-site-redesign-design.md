@@ -1,8 +1,44 @@
 # Matthew Freed Pottery — site redesign design spec
 
-Date: 2026-07-02
+Date: 2026-07-02 (revised 2026-07-03 after design review)
 Status: approved direction, pending final user review
 Supersedes: any earlier redesign concepts (fresh start requested 2026-07-02)
+
+## Revision 2026-07-03
+
+Outcome of a live design review against the first build ("safe but boring";
+weak events section; no interaction; glazes underweighted vs. products):
+
+- Featured piece and products merged into one "From the current firing"
+  section: large featured spotlight (badge, price, outlined CTA) beside a
+  2×2 grid of four pieces with prices. Separate sections removed, along with
+  the mobile reordering hack.
+- Collections teaser became a snap-scroll slider of all 15 glazes (chevron
+  buttons on desktop, swipe on mobile, ~3 KB JS total incl. nav + filters),
+  followed by a full-width "palette strip": all 15 swatch dots with a
+  staggered hover wave — the "glazes as palette" idea made visible.
+- Events band moved up (directly after the firing section) and rebuilt as
+  four date-block cards, deduped to one per venue via `nextUp` filter.
+- Events page went hybrid: special events (studio/multi-day) keep large
+  date-block cards on top; recurring markets grouped by venue
+  (`groupByVenue` filter) with date chips, next date highlighted. Sidebar
+  got a "The studio" eyebrow for column alignment.
+- Interaction pass: slow image zoom on all cards, animated nav underline,
+  title ink→blue shifts, events-row hovers. All behind the existing
+  `prefers-reduced-motion` kill switch.
+- Trust strip: white band, uppercase ink labels, sand dogwood separators.
+- Story teaser: Squamish-blue band (inverted), square rounded photo
+  (replaces the round photo of §4.8), sand link.
+- Hero: optional CMS `highlight` word rendered in blue ("life").
+- Newsletter: flush color-edge on the homepage (`newsletter_flush` flag),
+  hairline divider elsewhere. Boundary-straddling ornament explored and
+  rejected (reads as a floating badge against the flat-field language).
+- Dogwood mark now appears exactly three times, always in-field: trust
+  strip separators, collections intro, footer seal beside the wordmark.
+- CMS additions: `hero.highlight`, `featured_piece.price`,
+  `features[].price` (all optional).
+- ⚠ Prices currently in the repo are placeholders — Matthew must supply
+  real prices before launch (added to §11).
 
 ## 1. Context and goals
 
@@ -205,4 +241,8 @@ fallback message); story teaser from `about.md`.
 - Review of all drafted copy.
 - Product photography for: hero (if replacing current), featured piece, any
   collection missing a clean tile shot.
-- Choice of the first "featured piece".
+- Choice of the first "featured piece" — ideally a different silhouette than
+  the pieces shown beside it in the firing grid (currently two teardrop
+  vases sit adjacent).
+- **Real prices** for the featured piece and the four firing-grid pieces —
+  the values currently in the repo are invented placeholders.

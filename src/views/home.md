@@ -2,12 +2,14 @@
 layout: home-layout
 title: Home
 permalink: /index.html
+newsletter_flush: true
 eleventyNavigation:
   key: Home
   order: 1
 hero:
   eyebrow: Handthrown in Vancouver
   title: Art for everyday life
+  highlight: life
   text: Functional pottery in glazes named after the West Coast places that inspired them.
   cta_primary:
     label: Shop the collections
@@ -25,6 +27,7 @@ featured_piece:
   title: Teardrop vase
   caption: Squamish Nights · celestial speckle
   text: Wheel-thrown stoneware — no two alike.
+  price: "$145"
   image:
     url: /images/squamish-nights.jpg
     alt: Squamish Nights Teardrop Vase by Matthew Freed

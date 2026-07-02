@@ -1,10 +1,12 @@
-<section class="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 py-12 md:flex-row" aria-label="About Matthew">
-    <div class="h-28 w-28 flex-none overflow-hidden rounded-full bg-tile">
-        {% img story_teaser.image.url, story_teaser.image.alt, "112px", "h-full w-full object-cover" %}
-    </div>
-    <div>
-        <h2 class="font-display text-2xl font-black text-ink">{{ story_teaser.title }}</h2>
-        <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted">{{ story_teaser.text }}</p>
-        <a href="/about/" class="link-underline mt-4 inline-block text-sm">{{ story_teaser.label }}</a>
+<section class="bg-blue" aria-label="About Matthew">
+    <div class="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 py-14 md:flex-row">
+        <div class="h-36 w-36 flex-none overflow-hidden rounded-xl bg-tile">
+            {% img story_teaser.image.url, story_teaser.image.alt, "144px", "h-full w-full object-cover" %}
+        </div>
+        <div>
+            <h2 class="font-display text-2xl font-black text-paper">{{ story_teaser.title }}</h2>
+            <p class="mt-2 max-w-xl text-sm leading-relaxed text-paper/70">{{ story_teaser.text }}</p>
+            <a href="/about/" class="mt-4 inline-block border-b border-sand pb-0.5 text-sm font-medium text-sand transition-colors hover:text-paper">{{ story_teaser.label }}</a>
+        </div>
     </div>
 </section>

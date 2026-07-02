@@ -244,6 +244,7 @@
   "features": [
     {
       "title": "Tofino - Chopstick Bowl",
+      "price": "$48",
       "overlay": {
         "text": "This chopstick bowl from the <span class=\"text-highlight font-bold\">Tofino Collection</span> is one of my best selling items"
       },
@@ -259,6 +260,7 @@
     },
     {
       "title": "Jericho - Teardrop Vase",
+      "price": "$145",
       "overlay": {
         "text": "This teardrop vase from the <span class=\"text-highlight font-bold\">Jericho Collection</span> is one of my best selling items"
       },
@@ -274,6 +276,7 @@
     },
     {
       "title": "Squamish Nights - Shorty Mug",
+      "price": "$52",
       "overlay": {
         "text": "This shorty mug from the <span class=\"text-highlight font-bold\">Squamish Nights Collection</span> is one of my best selling items"
       },
@@ -289,6 +292,7 @@
     },
     {
       "title": "Tree of Life - Pitcher",
+      "price": "$130",
       "overlay": {
         "text": "This pitcher from the <span class=\"text-highlight font-bold\">Tree of Life Collection</span> is one of my best selling items"
       },

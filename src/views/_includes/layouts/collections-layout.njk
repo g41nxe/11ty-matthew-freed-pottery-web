@@ -17,12 +17,15 @@ layout: base
 
 <section class="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 py-10 sm:grid-cols-2 md:grid-cols-3" id="collection-grid" aria-label="All collections">
     {% for item in showcase.gallery %}
-    <article class="overflow-hidden rounded-xl border border-hairline bg-white" data-group="{{ item.filterGroup | lower | replace(" ", "-") }}">
+    <article class="group overflow-hidden rounded-xl border border-hairline bg-white" data-group="{{ item.filterGroup | lower | replace(" ", "-") }}">
         <div class="aspect-[4/3] overflow-hidden" style="background-color: {{ item.swatch }}">
-            {% if item.image.url %}{% img item.image.url, item.image.alt, "(min-width: 768px) 33vw, 50vw", "h-full w-full object-cover" %}{% endif %}
+            {% if item.image.url %}{% img item.image.url, item.image.alt, "(min-width: 768px) 33vw, 50vw", "img-zoom h-full w-full object-cover" %}{% endif %}
         </div>
         <div class="p-4">
-            <h2 class="font-display text-lg font-black text-ink">{{ item.title | replace(" Collection", "") }}</h2>
+            <h2 class="flex items-center gap-2 font-display text-lg font-black text-ink">
+                <span class="h-2.5 w-2.5 flex-none rounded-full" style="background-color: {{ item.swatch }}" aria-hidden="true"></span>
+                {{ item.title | replace(" Collection", "") }}
+            </h2>
             <p class="mt-1 text-sm text-muted">{{ item.text }}</p>
             <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/{{ item.slug }}" class="link-underline mt-3 inline-block text-sm">Browse in shop</a>
         </div>

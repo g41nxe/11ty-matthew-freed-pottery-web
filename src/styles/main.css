@@ -48,6 +48,53 @@
     .prose-pottery p  { @apply mb-4; }
     .prose-pottery a  { @apply border-b border-blue pb-0.5 font-medium text-blue transition-colors hover:border-sand; }
     .prose-pottery ul { @apply mb-4 list-disc pl-6; }
+
+    /* Slow, gallery-style image zoom on card hover. Wrapper needs overflow-hidden. */
+    .img-zoom {
+        transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .group:hover .img-zoom {
+        transform: scale(1.045);
+    }
+
+    /* Animated underline for main nav links */
+    .nav-link {
+        position: relative;
+    }
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        height: 1px;
+        width: 100%;
+        background-color: var(--color-blue);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.25s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after {
+        transform: scaleX(1);
+    }
+
+    /* Hide the scrollbar on snap-scroll sliders (content stays scrollable) */
+    .no-scrollbar {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* "Fifteen glazes" palette strip: dots wave up in sequence on hover */
+    .palette-dots span {
+        transition: transform 0.25s ease;
+        transition-delay: calc(var(--i) * 20ms);
+    }
+    .palette-strip:hover .palette-dots span {
+        transform: scale(1.3);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
