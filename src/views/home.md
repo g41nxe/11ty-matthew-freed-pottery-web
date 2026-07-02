@@ -5,34 +5,48 @@ permalink: /index.html
 eleventyNavigation:
   key: Home
   order: 1
-notification:
-  title: Online Shopping is now available
-  subtitle: "Right to your front door!  Free local delivery for orders over $150.  "
-  cta:
-    label: Shop Now
-    url: https://matthew-freed-pottery.myshopify.com/collections/all/
-event:
-  no_events:
-    title: Kitsilano Farmer's Market.  Sunday May 2nd from 9:30 am to 2:30 pm
-    text: Watch out for <a href="/updates">updates</a>. I'll keep you posted!
+hero:
+  eyebrow: Handthrown in Vancouver
+  title: Art for everyday life
+  text: Functional pottery in glazes named after the West Coast places that inspired them.
+  cta_primary:
+    label: Shop the collections
+  cta_secondary:
+    label: Upcoming events
+    url: /events.html
   image:
-    url: /images/carousel-yaletown.jpg
-    alt: Yaletown Collection in the wild
-  title: Upcoming Events
-  label: Details
-gallery:
-  title: Explore my different glazing lines and pottery forms
-  texts:
-    - Each piece is a complexity of nature, science, and art.
-    - Browse through my different collections and choose between a large variety
-      of different glazes and forms. If you can't find what you are looking for,
-      send me a message and we can talk about custom pieces.
-features:
-  title: Featured Items
-  texts:
-    - Handcrafted pottery. Are you looking for that one of a kind coffee mug?
-    - I'll be right there!  Free delivery to your front door for orders over
-      $150 (within 30 km).123123
+    url: /images/hero.jpg
+    alt: Two blue Galiano bowls on a board by Matthew Freed
+trust:
+  - Circle Craft gold medal
+  - Every piece one of a kind
+  - Free local delivery over $150
+featured_piece:
+  title: Teardrop vase
+  caption: Squamish Nights · celestial speckle
+  text: Wheel-thrown stoneware — no two alike.
+  image:
+    url: /images/squamish-nights.jpg
+    alt: Squamish Nights Teardrop Vase by Matthew Freed
+  cta:
+    label: View in the shop
+    url: https://shop.matthewfreed.net/collections/all/Squamish
+collections_teaser:
+  title: Fifteen glazes, fifteen places
+  text: Each collection is named for the coast, mountain, or neighbourhood that shaped its colour.
+products:
+  title: From the current firing
+  note: Checkout happens on the Shopify shop — the site hands over seamlessly.
+events_band:
+  title: Where to find me next
+  no_events: Nothing on the calendar right now — join the newsletter below and you'll hear about the next market first.
+story_teaser:
+  title: A love affair with clay since the early '90s
+  text: From lessons in a Winnipeg stoneware studio to a gold medal and a Strathcona studio of our own.
+  label: Read our story
+  image:
+    url: /images/matthew-and-mugs.jpg
+    alt: Matthew Freed holding a stack of his mugs
 custom_seo_settings: false
 author: ""
 excerpt: ""

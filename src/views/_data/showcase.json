@@ -7,6 +7,9 @@
       },
       "title": "Squamish Nights Collection",
       "text": "A speckled deep green and blue glaze with a celestial look",
+      "slug": "Squamish",
+      "swatch": "#22333B",
+      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Squamish"
@@ -20,6 +23,9 @@
       },
       "title": "Garibaldi Collection",
       "text": "A deep forest green glaze with speckled cobalt tones and a warm blue accent around the rim",
+      "slug": "Garibaldi",
+      "swatch": "#2E4636",
+      "filterGroup": "Earth tones",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Garibaldi"
@@ -33,6 +39,9 @@
       },
       "title": "Yaletown Collection",
       "text": "Red, green or blue rims pop on a charcoal glazed base.",
+      "slug": "Yaletown",
+      "swatch": "#3A3835",
+      "filterGroup": "Charcoals",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Yaletown"
@@ -46,6 +55,9 @@
       },
       "title": "Galiano Collection",
       "text": "A multi-tone deep blue glaze.",
+      "slug": "Galiano",
+      "swatch": "#2B4A6F",
+      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Galiano"
@@ -59,6 +71,9 @@
       },
       "title": "Dogwood Collection",
       "text": "A semi-matte charcoal glaze with a hand-painted dogwood pattern.",
+      "slug": "Dogwood",
+      "swatch": "#3A3835",
+      "filterGroup": "Patterned",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Dogwood"
@@ -72,6 +87,9 @@
       },
       "title": "Saltspring Collection",
       "text": "A semi-matte charcoal glaze with vibrant bursts of glossy colour.",
+      "slug": "Saltspring",
+      "swatch": "#4A4741",
+      "filterGroup": "Patterned",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Saltspring"
@@ -85,6 +103,9 @@
       },
       "title": "Jericho Collection",
       "text": "A pale grey/blue glaze with sand toned speckles.",
+      "slug": "Jericho",
+      "swatch": "#7A8B7F",
+      "filterGroup": "Earth tones",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Jericho"
@@ -98,6 +119,9 @@
       },
       "title": "Joffre Collection",
       "text": "A rich green/blue glaze with multi-toned variation.",
+      "slug": "Joffre",
+      "swatch": "#2B4A6F",
+      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Joffre"
@@ -111,6 +135,9 @@
       },
       "title": "Kitsilano Collection",
       "text": "A satiny smooth lilac glaze with warm blue rim.",
+      "slug": "Kitsilano",
+      "swatch": "#6B7A85",
+      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Kitsilano"
@@ -124,6 +151,9 @@
       },
       "title": "Pemberton Sky Collection",
       "text": "A hand-painted leafing pattern with a textured finish in a two toned blue glossy finish.",
+      "slug": "Pemberton",
+      "swatch": "#7A96AD",
+      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Pemberton"
@@ -137,6 +167,9 @@
       },
       "title": "Pemberton Earth Collection",
       "text": "A hand-painted leafing pattern with a textured finish in a medium brown and charcoal glaze.",
+      "slug": "Pemberton",
+      "swatch": "#6B4430",
+      "filterGroup": "Earth tones",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Pemberton"
@@ -150,6 +183,9 @@
       },
       "title": "Strathcona Collection",
       "text": "Semi-matte charcoal glaze with a hand-painted gold chevron pattern.",
+      "slug": "Strathcona",
+      "swatch": "#55524A",
+      "filterGroup": "Charcoals",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Strathcona"
@@ -163,6 +199,9 @@
       },
       "title": "Tofino  Collection",
       "text": "A stormy, landscape effect in complimentary hues of cobalt, mocha, and amber.",
+      "slug": "Tofino",
+      "swatch": "#33556E",
+      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Tofino"
@@ -176,6 +215,9 @@
       },
       "title": "Tree of Life Collection",
       "text": "A textured Tree of Life emblem on a semi-matte charcoal glaze.",
+      "slug": "Tree-of-Life",
+      "swatch": "#5C4A38",
+      "filterGroup": "Patterned",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Tree-of-Life"
@@ -189,6 +231,9 @@
       },
       "title": "Zen Collection",
       "text": "A semi-matte charcoal glaze with a textured gold decorative accent tile.",
+      "slug": "Zen",
+      "swatch": "#4A4741",
+      "filterGroup": "Charcoals",
       "cta": {
         "label": "Browse All Items",
         "url": "https://matthew-freed-pottery.myshopify.com/collections/all/Zen"
@@ -204,7 +249,7 @@
       },
       "cta": {
         "label": "Shop Now",
-        "url": "https://shop.matthewfreed.net/products/chopstick-bowl-tofino?_pos=1&_psq=tofino+cho&_ss=e&_v=1.0"
+        "url": "https://shop.matthewfreed.net/products/chopstick-bowl-tofino"
       },
       "image": {
         "url": "/images/features/tofino-chopstick-bowl.jpg",
@@ -279,7 +324,7 @@
       },
       "cta": {
         "label": "Shop Now",
-        "url": "https://matthew-freed-pottery.myshopify.com/products/belly-mug-jericho"
+        "url": "https://shop.matthewfreed.net/products/belly-mug-jericho"
       },
       "image": {
         "url": "/images/features/feature-belly-mug-jericho.jpg",
@@ -294,7 +339,7 @@
       },
       "cta": {
         "label": "Shop Now",
-        "url": "https://matthew-freed-pottery.myshopify.com/products/belly-mug-yaletown-green"
+        "url": "https://shop.matthewfreed.net/products/belly-mug-yaletown-green"
       },
       "image": {
         "url": "/images/features/feature-belly-mug-yaletown-green.jpg",
@@ -310,7 +355,7 @@
       },
       "cta": {
         "label": "Shop Now",
-        "url": "https://shop.matthewfreed.net/products/belly-mug-yaletown-red?_pos=2&_sid=b3bc40889&_ss=r"
+        "url": "https://shop.matthewfreed.net/products/belly-mug-yaletown-red"
       },
       "image": {
         "url": "/images/features/feature-belly-mug-yaletown-red.jpg",
@@ -324,7 +369,7 @@
       },
       "cta": {
         "label": "Shop Now",
-        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/products/chopstick-bowl-joffre"
+        "url": "https://shop.matthewfreed.net/collections/all/products/chopstick-bowl-joffre"
       },
       "image": {
         "url": "/images/features/feature-chopstick-bowl-joffre.jpg",
@@ -339,7 +384,7 @@
       },
       "cta": {
         "label": "Shop Now",
-        "url": "https://matthew-freed-pottery.myshopify.com/collections/all/products/chopstick-bowl-yaletown-green"
+        "url": "https://shop.matthewfreed.net/collections/all/products/chopstick-bowl-yaletown-green"
       },
       "image": {
         "url": "/images/features/feature-chopstick-bowl-yaletown-green.jpg",
@@ -354,7 +399,7 @@
       },
       "cta": {
         "label": "Shop Now",
-        "url": "https://matthew-freed-pottery.myshopify.com/collections/platters/products/large-square-platter-in-capilano-charcoal"
+        "url": "https://shop.matthewfreed.net/collections/platters/products/large-square-platter-in-capilano-charcoal"
       },
       "image": {
         "url": "/images/features/feature-large-square-platter-pemberton-earth.jpg",
@@ -369,7 +414,7 @@
       },
       "cta": {
         "label": "Shop Now",
-        "url": "https://matthew-freed-pottery.myshopify.com/collections/platters/products/wide-rim-platter-strathcona"
+        "url": "https://shop.matthewfreed.net/collections/platters/products/wide-rim-platter-strathcona"
       },
       "image": {
         "url": "/images/features/feature-wide-rim-platter-strathcona.jpg",

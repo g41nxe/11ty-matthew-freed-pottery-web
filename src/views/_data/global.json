@@ -21,7 +21,8 @@
     "text": "Send me an <mail>email</mail> or give me a <phone>call</phone>"
   },
   "shop": {
-    "url": "https://matthew-freed-pottery.myshopify.com/collections/all/"
+    "base": "https://shop.matthewfreed.net",
+    "collectionsPath": "/collections/all"
   },
   "socialmedia": {
     "title": "Follow Me",

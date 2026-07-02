@@ -33,3 +33,5 @@
 /Home/ProdutList        /                           301
 
 /about/retail-stores    /retail-stores              301
+/updates.html            /events.html                301
+/updates                 /events.html                301
