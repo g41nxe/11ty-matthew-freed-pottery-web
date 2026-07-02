@@ -4,9 +4,9 @@ title: Collections
 tags: footer
 permalink: "/collections.html"
 intro:
-  eyebrow: The collections
-  title: Fifteen glazes, named after the places that made them
-  text: Each glaze began somewhere — a night sky over Squamish, dogwoods on the boulevard. Find yours.
+  eyebrow: The field guide
+  title: Fifteen glazes, fifteen stories
+  text: Each glaze began somewhere — a night sky over Squamish, dogwoods on the boulevard, a quiet morning at the wheel. Find yours.
 filters:
   - All
   - Blues

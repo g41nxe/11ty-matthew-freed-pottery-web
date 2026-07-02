@@ -118,8 +118,10 @@ collections:
             widget: "object"
             collapsed: true
             fields:
+              - {label: "Eyebrow", name: "eyebrow", widget: "string", required: false}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Text", name: "text", widget: "text"}
+              - {label: "Quote", name: "quote", widget: "string", required: false}
               - {label: "Link label", name: "label", widget: "string"}
               - label: "Image"
                 name: "image"

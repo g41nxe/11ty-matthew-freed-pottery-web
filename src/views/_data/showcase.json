@@ -291,6 +291,22 @@
       "hide": false
     },
     {
+      "title": "Pemberton Earth - Large Square Platter",
+      "price": "$95",
+      "overlay": {
+        "text": "This large square platter from the <span class=\"text-highlight font-bold \">Pemberton Earth Collection</span> is such a versatile serving piece!"
+      },
+      "cta": {
+        "label": "Shop Now",
+        "url": "https://shop.matthewfreed.net/collections/platters/products/large-square-platter-in-capilano-charcoal"
+      },
+      "image": {
+        "url": "/images/features/feature-large-square-platter-pemberton-earth.jpg",
+        "alt": "Pemberton Earth Large Square Platter by Matthew Freed"
+      },
+      "hide": false
+    },
+    {
       "title": "Tree of Life - Pitcher",
       "price": "$130",
       "overlay": {
@@ -393,21 +409,6 @@
       "image": {
         "url": "/images/features/feature-chopstick-bowl-yaletown-green.jpg",
         "alt": "Yaletown Chopstick Bowl with green rim by Matthew Freed"
-      },
-      "hide": false
-    },
-    {
-      "title": "Pemberton Earth - Large Square Platter",
-      "overlay": {
-        "text": "This large square platter from the <span class=\"text-highlight font-bold \">Pemberton Earth Collection</span> is such a versatile serving piece!"
-      },
-      "cta": {
-        "label": "Shop Now",
-        "url": "https://shop.matthewfreed.net/collections/platters/products/large-square-platter-in-capilano-charcoal"
-      },
-      "image": {
-        "url": "/images/features/feature-large-square-platter-pemberton-earth.jpg",
-        "alt": "Pemberton Earth Large Square Platter by Matthew Freed"
       },
       "hide": false
     },

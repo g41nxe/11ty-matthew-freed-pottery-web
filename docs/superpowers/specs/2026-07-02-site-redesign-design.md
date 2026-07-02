@@ -246,3 +246,9 @@ fallback message); story teaser from `about.md`.
   vases sit adjacent).
 - **Real prices** for the featured piece and the four firing-grid pieces —
   the values currently in the repo are invented placeholders.
+- **Hero headline decision.** "Art for everyday life" is serviceable but
+  generic for the category. Candidates to consider (the highlighted sand
+  word can move): "The coast, fired into stoneware" · "Pottery the colour
+  of British Columbia" · promoting "Fifteen glazes, fifteen stories" to
+  the H1. Note: "fifteen places" was corrected to "fifteen stories"
+  everywhere (Dogwood, Tree of Life and Zen are not places).
