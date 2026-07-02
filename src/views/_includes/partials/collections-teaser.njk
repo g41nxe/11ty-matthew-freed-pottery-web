@@ -36,7 +36,7 @@
         </button>
     </div>
     <a href="/collections.html" class="palette-strip group mt-8 flex flex-col gap-4 border-y border-hairline py-5 sm:flex-row sm:items-center sm:justify-between">
-        <span class="strip-label font-display text-lg font-black text-blue">The full field guide — all fifteen glazes <span class="inline-block transition-transform group-hover:translate-x-1" aria-hidden="true">&rarr;</span></span>
+        <span class="strip-label font-display text-lg font-black text-blue"><span class="hidden sm:inline">The full field guide — all fifteen</span><span class="sm:hidden">All fifteen</span> <span class="whitespace-nowrap">glazes <span class="inline-block transition-transform group-hover:translate-x-1" aria-hidden="true">&rarr;</span></span></span>
         <span class="palette-dots flex flex-wrap items-center gap-1.5">
             {% for item in showcase.gallery %}
             <span class="h-3.5 w-3.5 rounded-full" style="background-color: {{ item.swatch }}; --i: {{ loop.index0 }}" title="{{ item.title | replace(' Collection', '') }}"></span>
