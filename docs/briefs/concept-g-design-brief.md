@@ -31,24 +31,41 @@ Two agreed directions fused:
   circles, never sharp cards. A single wavy divider line may separate sections.
 
 Explicitly rejected in session: dark/moody atmospheric direction, elegant
-high-contrast gallery type (Instrument Serif was voted out).
+high-contrast gallery type (Instrument Serif was voted out), and — important —
+**organic shapes inside piece galleries** (tried twice, felt restless).
+Organic shapes live in the hero, the glaze walk, and section accents only;
+piece galleries stay rectangular and calm (§3).
 
 ## 3. Presenting the fifteen glazes
 
-Two agreed patterns combined:
+Agreed in session (2026-07-02, revised): **never show more than one glaze at
+a time.** A tile grid ("library") was explicitly rejected as overwhelming.
 
-- **Glaze explorer** (homepage section, the heart of the page): mood filter
-  pills — `all · blues · greens · charcoal · warm` — above a grid of 15
-  organic-shaped tiles. Each tile shows the glaze's real photo inside an
-  irregular blob mask, with its Yeseva name beneath. Filtering hides/reveals
-  tiles with a soft transition. Every tile links to the glaze stage.
-- **Glaze stage** (detail page, one per glaze — mockup shows Squamish Nights):
-  the page opens full-bleed in the glaze's own color world. Handwritten
+- **Glaze walk / Rundgang** (homepage section, the heart of the page): a
+  single stage showing one glaze at a time — its real photo in an organic
+  blob mask, Caveat counter `glaze no. 01 of 15`, Yeseva name, one italic
+  Vollkorn line. Prev/next arrows and swipe move through the collection;
+  a strip of 15 dots in the glazes' own colors doubles as jump navigation
+  (current dot enlarged, others dimmed). Transitions are soft crossfades.
+  The stage links to the glaze's detail page.
+- The walk follows a curated order through color moods, like rooms of an
+  exhibition: blues (01–05) → greens (06–07) → warm (08–09) → charcoals
+  (10–15), closing on Zen's gold accent as the finale. See the table in §7.
+- **Glaze stage** (detail page, one per glaze — mockup shows Squamish
+  Nights): the walk's destination. The page opens full-bleed in the glaze's
+  own color world. Handwritten
   `glaze no. 01`, Yeseva title, a short story paragraph (Vollkorn, light on
-  dark). Below, on cream: the purchasable pieces in this glaze with prices and
-  shop links, a short "how it's made" studio note, and a prev/next
-  navigation through all 15 glazes (dot strip + neighbor names) so the
-  collection can be leafed through like a book.
+  dark; use the official collection one-liners from
+  matthewfreedpottery.com/collections as the basis). Below, on cream: the
+  **quiet gallery** ("The pieces") — uncropped rectangular photos in a
+  uniform grid (aspect 4:3, 3px radius, no borders or shadows), generous
+  gaps, museum-label captions (Yeseva piece name, Vollkorn price +
+  "in the shop →"). The last grid cell stays empty except for the screen's
+  single Caveat note ("more coming out of the kiln soon — Matt"). Warmth
+  comes from the paper ground and typography; liveliness stays inside the
+  photos, never in the layout. Then a short "how it's made" studio note and
+  a prev/next navigation through all 15 glazes (dot strip + neighbor names)
+  so the collection can be leafed through like a book.
 
 ## 4. Homepage structure (top to bottom)
 
@@ -59,7 +76,7 @@ Two agreed patterns combined:
    an organic mask, and the
    15-glaze dot strip that anchors down to the explorer
    ("↓ fifteen glazes, one studio").
-3. **Glaze explorer:** as in §3. Section title "The fifteen glazes".
+3. **Glaze walk:** as in §3. Section title "The fifteen glazes".
 4. **Markets band:** dark band (navy or charcoal), Caveat "find me this
    weekend —", the next 2–3 market dates with day/place/time, link to the
    full calendar. Prominent but after the glazes.
@@ -106,30 +123,27 @@ it reads personal, not crafty.
 | Mocha (handwriting, small accents) | `#8A5A3B` | warm clay browns |
 | Gold (sparse highlights, e.g. market band accent) | `#C9A44A` | Strathcona/Zen gold |
 
-Glaze tile colors come from the photos themselves; each tile carries a
-representative swatch hex for its blob background while the photo loads
-(and for the stage page ground):
+Each glaze carries a representative swatch hex (walk dot color, stage
+ground, photo placeholder while loading). The table is in **walk order**
+(§3): blues → greens → warm → charcoals, Zen as finale.
 
-| # | Glaze | Swatch | Photo (matthewfreed.ca/images/) |
-|---|---|---|---|
-| 01 | Squamish Nights | `#1D3A5F` | `squamish-nights.jpg` |
-| 02 | Garibaldi | `#2F4A3C` | `garibaldi-cropped.jpg` |
-| 03 | Yaletown | `#33343A` | `carousel-yaletown.jpg` |
-| 04 | Galiano | `#24446B` | `carousel-galiano.jpg` |
-| 05 | Dogwood | `#3A3A3E` | `carousel-dogwood.jpg` |
-| 06 | Saltspring | `#41424A` | `carousel-saltspring.jpg` |
-| 07 | Jericho | `#7D93A5` | `carousel-jericho.jpg` |
-| 08 | Joffre | `#3D6060` | `carousel-joffre.jpg` |
-| 09 | Kitsilano | `#B9A6C9` | `carousel-kitsilano.jpg` |
-| 10 | Pemberton Sky | `#6E8FB5` | `carousel-pemberton-sky.jpg` |
-| 11 | Pemberton Earth | `#6B4A35` | `carousel-pemberton-earth.jpg` |
-| 12 | Strathcona | `#2E2E30` | `carousel-strathcona.jpg` |
-| 13 | Tofino | `#4A5C74` | `carousel-tofino.jpg` |
-| 14 | Tree of Life | `#35363B` | `carousel-tree-of-life.jpg` |
-| 15 | Zen | `#2B2B2E` | `carousel-zen.jpg` |
-
-Mood filter groups: **blues** 01·04·07·10·13 — **greens** 02·08 —
-**charcoal** 03·05·06·12·14·15 — **warm** 09·11.
+| # | Glaze | Family | Swatch | Photo (matthewfreed.ca/images/) |
+|---|---|---|---|---|
+| 01 | Squamish Nights | blues | `#1D3A5F` | `squamish-nights.jpg` |
+| 02 | Galiano | blues | `#24446B` | `carousel-galiano.jpg` |
+| 03 | Jericho | blues | `#7D93A5` | `carousel-jericho.jpg` |
+| 04 | Pemberton Sky | blues | `#6E8FB5` | `carousel-pemberton-sky.jpg` |
+| 05 | Tofino | blues | `#4A5C74` | `carousel-tofino.jpg` |
+| 06 | Garibaldi | greens | `#2F4A3C` | `garibaldi-cropped.jpg` |
+| 07 | Joffre | greens | `#3D6060` | `carousel-joffre.jpg` |
+| 08 | Kitsilano | warm | `#B9A6C9` | `carousel-kitsilano.jpg` |
+| 09 | Pemberton Earth | warm | `#6B4A35` | `carousel-pemberton-earth.jpg` |
+| 10 | Yaletown | charcoal | `#33343A` | `carousel-yaletown.jpg` |
+| 11 | Dogwood | charcoal | `#3A3A3E` | `carousel-dogwood.jpg` |
+| 12 | Saltspring | charcoal | `#41424A` | `carousel-saltspring.jpg` |
+| 13 | Strathcona | charcoal | `#2E2E30` | `carousel-strathcona.jpg` |
+| 14 | Tree of Life | charcoal | `#35363B` | `carousel-tree-of-life.jpg` |
+| 15 | Zen | charcoal | `#2B2B2E` | `carousel-zen.jpg` |
 
 ## 8. Mockup conventions (match A–F)
 
@@ -137,7 +151,7 @@ Mood filter groups: **blues** 01·04·07·10·13 — **greens** 02·08 —
 - Concept banner at the top (`CONCEPT G — GLAZE ANTHOLOGY`) and a collapsible
   "designer's note" with the palette swatches and rationale.
 - Photos hotlinked from `https://matthewfreed.ca/images/…`.
-- Responsive down to mobile; smooth scroll; light JS only (filter pills,
-  no framework).
+- Responsive down to mobile; smooth scroll; light JS only (glaze walk
+  navigation with crossfade, no framework).
 - The stage page's prev/next links may point to `#` except the link back to
   the homepage mockup, which must work.

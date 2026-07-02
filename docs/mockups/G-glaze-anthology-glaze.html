@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Squamish Nights — Matthew Freed · Glaze Anthology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Vollkorn:ital,wght@0,400;0,500;1,400&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F4EC; --ink:#2E2E30; --navy:#050237; --mocha:#8A5A3B;
+    --gold:#C9A44A; --line:#DFD7C4; --mut:#6B6357;
+    --glaze:#1D3A5F; --glaze-deep:#16304F; --glaze-text:#E9EFF7; --glaze-soft:#9FB3CC;
+    --title:'Yeseva One',serif; --body:'Vollkorn',serif; --hand:'Caveat',cursive;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.65;overflow-x:hidden;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cg fill='%238A5A3B' fill-opacity='0.045'%3E%3Ccircle cx='31' cy='47' r='1.4'/%3E%3Ccircle cx='118' cy='22' r='1'/%3E%3Ccircle cx='201' cy='64' r='1.7'/%3E%3Ccircle cx='66' cy='131' r='1'/%3E%3Ccircle cx='157' cy='109' r='1.3'/%3E%3Ccircle cx='233' cy='158' r='1'/%3E%3Ccircle cx='42' cy='208' r='1.6'/%3E%3Ccircle cx='129' cy='231' r='1'/%3E%3Ccircle cx='196' cy='214' r='1.2'/%3E%3C/g%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  ::selection{background:var(--navy);color:var(--paper)}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,44px)}
+  .hand{font-family:var(--hand);transform:rotate(-2deg);display:inline-block}
+
+  .banner{background:var(--navy);color:var(--paper);text-align:center;font-size:12.5px;letter-spacing:2.5px;text-transform:uppercase;padding:9px 16px}
+  .banner a{border-bottom:1px solid var(--gold)}
+
+  .stagehead{background:var(--glaze);color:var(--glaze-text);position:relative;overflow:hidden}
+  .stagehead .nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;gap:20px}
+  .stagehead .logo{font-family:var(--title);font-size:24px;color:var(--paper)}
+  .stagehead .nav ul{display:flex;list-style:none;gap:clamp(14px,3vw,30px);font-size:16px}
+  .stagehead .nav a{position:relative;padding-bottom:3px}
+  .stagehead .nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);transition:width .25s}
+  .stagehead .nav a:hover::after{width:100%}
+  .headgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px);align-items:center;padding:clamp(36px,6vw,80px) 0 clamp(44px,7vw,96px)}
+  .headgrid .hand{font-size:clamp(20px,2.4vw,26px);color:var(--gold)}
+  .headgrid .fam{font-size:13.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--glaze-soft);margin:16px 0 6px}
+  .headgrid h1{font-family:var(--title);font-size:clamp(42px,6.5vw,78px);font-weight:400;color:var(--paper);line-height:1.05;margin-bottom:18px}
+  .headgrid p.official{font-style:italic;font-size:clamp(17px,1.8vw,20px);color:var(--glaze-text);max-width:44ch;margin-bottom:14px}
+  .headgrid p.story{font-size:clamp(15.5px,1.5vw,17px);color:var(--glaze-soft);max-width:50ch}
+  .headpic img{width:100%;aspect-ratio:1/1.08;object-fit:cover;border-radius:56% 44% 51% 49%/48% 54% 46% 52%}
+  .headpic{position:relative}
+  .headpic::after{content:"";position:absolute;inset:-14px;border:1.5px solid var(--gold);border-radius:53% 47% 50% 50%/51% 49% 52% 48%;opacity:.4;pointer-events:none}
+
+  section.gallery{padding:clamp(48px,7vw,90px) 0 clamp(36px,5vw,60px)}
+  h2{font-family:var(--title);font-size:clamp(28px,3.4vw,40px);color:var(--navy);font-weight:400}
+  .lede{font-style:italic;color:var(--mut);margin:6px 0 38px;font-size:17px}
+  .pieces{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,3.5vw,38px)}
+  .piece img{aspect-ratio:4/3;object-fit:cover;width:100%;border-radius:3px}
+  .piece .pn{font-family:var(--title);font-size:17.5px;color:var(--navy);margin-top:12px}
+  .piece .pp{font-size:15.5px;color:var(--mut)}
+  .piece .pp a{color:var(--mocha)}
+  .piece .pp a:hover{border-bottom:1px solid var(--gold)}
+  .notecell{display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:26px}
+  .notecell .hand{font-size:24px;color:var(--mocha);line-height:1.3}
+
+  .wavy{display:block;width:min(320px,60%);margin:0 auto;opacity:.7}
+
+  section.made{padding:clamp(40px,6vw,72px) 0;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:center}
+  .made .kiln{background:var(--glaze-deep);border-radius:56% 44% 51% 49%/48% 54% 46% 52%;aspect-ratio:1/0.9;display:flex;align-items:center;justify-content:center;max-width:300px;margin:0 auto;width:100%}
+  .made .kiln span{font-family:var(--hand);font-size:26px;color:var(--gold);transform:rotate(-2deg);text-align:center;padding:0 30px}
+  .made h2{margin-bottom:14px}
+  .made p{color:var(--mut);font-size:17px;max-width:54ch;margin-bottom:10px}
+
+  nav.leaf{border-top:1px solid var(--line);padding:clamp(32px,5vw,52px) 0}
+  .leafrow{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .leaf a.step{display:flex;flex-direction:column;gap:2px}
+  .leaf a.step .lbl{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--mut)}
+  .leaf a.step .gn{font-family:var(--title);font-size:21px;color:var(--navy);transition:color .2s}
+  .leaf a.step:hover .gn{color:var(--mocha)}
+  .leaf .dots{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .leaf .dots span{width:12px;height:12px;border-radius:50%;display:block;opacity:.32;border:1px solid rgba(0,0,0,.12)}
+  .leaf .dots span.on{opacity:1;transform:scale(1.5);box-shadow:0 0 0 2px var(--paper),0 0 0 3.5px var(--gold)}
+  .backline{text-align:center;margin-top:30px;font-size:16px}
+  .backline a{color:var(--mocha);border-bottom:1.5px solid var(--gold);padding-bottom:2px}
+  .backline a:hover{color:var(--navy)}
+
+  footer{background:#EFE9D9;border-top:1px solid var(--line);padding:36px 0 44px;font-size:15.5px;color:var(--mut)}
+  .frow{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:baseline}
+  footer a:hover{color:var(--navy)}
+
+  @media (max-width:780px){
+    .headgrid,section.made{grid-template-columns:1fr}
+    .headpic{max-width:320px;margin:0 auto;order:-1}
+    .pieces{grid-template-columns:1fr 1fr}
+    .stagehead .nav ul{gap:12px;font-size:14.5px}
+  }
+  @media (max-width:480px){.pieces{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="banner">Concept G — Glaze Anthology · <a href="G-glaze-anthology.html">back to homepage mockup</a></div>
+
+<header class="stagehead">
+  <div class="wrap nav">
+    <a class="logo" href="G-glaze-anthology.html">Matthew Freed</a>
+    <ul>
+      <li><a href="G-glaze-anthology.html#glazes">glazes</a></li>
+      <li><a href="G-glaze-anthology.html#markets">markets</a></li>
+      <li><a href="G-glaze-anthology.html#shop">shop</a></li>
+      <li><a href="G-glaze-anthology.html#about">about</a></li>
+    </ul>
+  </div>
+  <div class="wrap headgrid">
+    <div>
+      <span class="hand">glaze no. 01 of 15</span>
+      <div class="fam">the blues · first room of the walk</div>
+      <h1>Squamish Nights</h1>
+      <p class="official">A speckled deep green and blue glaze with a celestial look.</p>
+      <p class="story">Named for the valley sky an hour north of the studio, where the last light pools between the mountains. The glaze breaks deep where the walls curve and scatters into fine speckle at the rim — fired in reduction, so no two pieces ever come out alike.</p>
+    </div>
+    <div class="headpic">
+      <img src="https://matthewfreed.ca/images/squamish-nights.jpg" alt="Squamish Nights glazed vase, deep blue with speckles">
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="gallery">
+    <div class="wrap">
+      <h2>The pieces</h2>
+      <p class="lede">every piece one of a kind — glazed in Squamish Nights</p>
+      <div class="pieces">
+        <div class="piece">
+          <img src="https://matthewfreed.ca/images/squamish-nights.jpg" alt="Belly mug in Squamish Nights">
+          <div class="pn">Belly Mug</div>
+          <div class="pp">$45 · <a href="https://shop.matthewfreed.net/search?q=Squamish+Nights" target="_blank" rel="noopener">in the shop →</a></div>
+        </div>
+        <div class="piece">
+          <img src="https://matthewfreed.ca/images/blue-mug-and-plate.jpg" alt="Shorty mug in Squamish Nights">
+          <div class="pn">Shorty Mug</div>
+          <div class="pp">$38 · <a href="https://shop.matthewfreed.net/search?q=Squamish+Nights" target="_blank" rel="noopener">in the shop →</a></div>
+        </div>
+        <div class="piece">
+          <img src="https://matthewfreed.ca/images/blue-arrangement.jpg" alt="Medium serving bowl in Squamish Nights">
+          <div class="pn">Medium Serving Bowl</div>
+          <div class="pp">$60 · <a href="https://shop.matthewfreed.net/search?q=Squamish+Nights" target="_blank" rel="noopener">in the shop →</a></div>
+        </div>
+        <div class="piece">
+          <img src="https://matthewfreed.ca/images/carousel-galiano.jpg" alt="Meal bowl in Squamish Nights">
+          <div class="pn">Meal Bowl</div>
+          <div class="pp">$35 · <a href="https://shop.matthewfreed.net/search?q=Squamish+Nights" target="_blank" rel="noopener">in the shop →</a></div>
+        </div>
+        <div class="piece">
+          <img src="https://matthewfreed.ca/images/carousel-tofino2.jpg" alt="Chopstick bowl in Squamish Nights">
+          <div class="pn">Chopstick Bowl</div>
+          <div class="pp">$45 · <a href="https://shop.matthewfreed.net/search?q=Squamish+Nights" target="_blank" rel="noopener">in the shop →</a></div>
+        </div>
+        <div class="notecell">
+          <span class="hand">more coming out of<br>the kiln soon — Matt</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="wavy" viewBox="0 0 320 14" aria-hidden="true"><path d="M0 7 Q 20 1 40 7 T 80 7 T 120 7 T 160 7 T 200 7 T 240 7 T 280 7 T 320 7" fill="none" stroke="#8A5A3B" stroke-width="1.6"/></svg>
+
+  <div class="wrap">
+    <section class="made">
+      <div class="kiln"><span>cone 6, reduction —<br>the kiln decides the rest</span></div>
+      <div>
+        <h2>How it's made</h2>
+        <p>Squamish Nights starts as a charcoal stoneware body, dipped twice and fired to cone 6 in reduction. Oxygen starved, the cobalt and iron in the glaze pull apart into deep blues and green-black speckle.</p>
+        <p>Where the glaze runs thick it goes nearly midnight; where it thins over an edge, the clay glows through warm. That balance can't be repeated — only invited.</p>
+      </div>
+    </section>
+  </div>
+
+  <nav class="leaf" aria-label="Walk through the glazes">
+    <div class="wrap">
+      <div class="leafrow">
+        <a class="step" href="#" aria-label="Previous glaze: Zen">
+          <span class="lbl">← previous</span>
+          <span class="gn">Zen</span>
+        </a>
+        <div class="dots" aria-hidden="true">
+          <span class="on" style="background:#1D3A5F"></span><span style="background:#24446B"></span><span style="background:#7D93A5"></span><span style="background:#6E8FB5"></span><span style="background:#4A5C74"></span><span style="background:#2F4A3C"></span><span style="background:#3D6060"></span><span style="background:#B9A6C9"></span><span style="background:#6B4A35"></span><span style="background:#33343A"></span><span style="background:#3A3A3E"></span><span style="background:#41424A"></span><span style="background:#2E2E30"></span><span style="background:#35363B"></span><span style="background:#2B2B2E"></span>
+        </div>
+        <a class="step" href="#" style="text-align:right" aria-label="Next glaze: Galiano">
+          <span class="lbl">next →</span>
+          <span class="gn">Galiano</span>
+        </a>
+      </div>
+      <p class="backline"><a href="G-glaze-anthology.html#glazes">back to the walk — all fifteen glazes</a></p>
+    </div>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap frow">
+    <span style="font-family:'Yeseva One',serif;color:var(--navy);font-size:19px">Matthew Freed</span>
+    <span>740 Jackson Avenue, Vancouver, B.C.</span>
+    <a href="https://www.instagram.com/matthewfreedpottery" target="_blank" rel="noopener">@matthewfreedpottery</a>
+    <a href="https://shop.matthewfreed.net" target="_blank" rel="noopener">Online shop ↗</a>
+  </div>
+</footer>
+
+</body>
+</html>
