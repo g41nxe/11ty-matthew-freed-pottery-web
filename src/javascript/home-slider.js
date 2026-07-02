@@ -14,4 +14,23 @@
             });
         });
     });
+
+    // Touch devices can't hover the palette strip — play its marble roll
+    // and marker sweep whenever the strip scrolls into view instead.
+    const strip = document.querySelector(".palette-strip");
+    if (
+        strip &&
+        window.matchMedia("(hover: none)").matches &&
+        !reduceMotion &&
+        "IntersectionObserver" in window
+    ) {
+        new IntersectionObserver(
+            function (entries) {
+                entries.forEach(function (entry) {
+                    strip.classList.toggle("is-inview", entry.isIntersecting);
+                });
+            },
+            { threshold: 0.6 }
+        ).observe(strip);
+    }
 })();

@@ -41,7 +41,7 @@ collections:
             fields:
               - {label: "Eyebrow", name: "eyebrow", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
-              - {label: "Highlight word (shown in blue)", name: "highlight", widget: "string", required: false}
+              - {label: "Highlight word (shown in sand)", name: "highlight", widget: "string", required: false}
               - {label: "Text", name: "text", widget: "text"}
               - label: "Primary button"
                 name: "cta_primary"

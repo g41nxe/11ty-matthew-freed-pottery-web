@@ -27,8 +27,16 @@
         </a>
         {% endfor %}
     </div>
+    <div class="mt-5 flex justify-center gap-3 md:hidden">
+        <button type="button" data-slide="prev" aria-label="Previous collections" class="flex h-11 w-11 items-center justify-center rounded-full border border-blue text-blue transition-colors hover:bg-blue hover:text-paper">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button type="button" data-slide="next" aria-label="Next collections" class="flex h-11 w-11 items-center justify-center rounded-full border border-blue text-blue transition-colors hover:bg-blue hover:text-paper">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+    </div>
     <a href="/collections.html" class="palette-strip group mt-8 flex flex-col gap-4 border-y border-hairline py-5 sm:flex-row sm:items-center sm:justify-between">
-        <span class="font-display text-lg font-black text-blue">The full field guide — all fifteen glazes <span class="inline-block transition-transform group-hover:translate-x-1" aria-hidden="true">&rarr;</span></span>
+        <span class="strip-label font-display text-lg font-black text-blue">The full field guide — all fifteen glazes <span class="inline-block transition-transform group-hover:translate-x-1" aria-hidden="true">&rarr;</span></span>
         <span class="palette-dots flex flex-wrap items-center gap-1.5">
             {% for item in showcase.gallery %}
             <span class="h-3.5 w-3.5 rounded-full" style="background-color: {{ item.swatch }}; --i: {{ loop.index0 }}" title="{{ item.title | replace(' Collection', '') }}"></span>
