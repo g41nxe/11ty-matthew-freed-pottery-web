@@ -3,21 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="theme-color" content="#050237"/>
+    <meta name="theme-color" content="#1F3A52"/>
 
     <link rel='manifest' href='/assets/manifest.json'>
     <link rel="apple-touch-icon" href="/assets/apple-icon-180x180.png">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon-96x96.png" width="96" height="96" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,900&family=Karla:wght@400;500&display=swap">
+
     <link rel="stylesheet" href="/styles/main.css">
-    
-    <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.3.0/dist/css/glide.core.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-    <script defer src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js"></script>
-    <script defer src="https://unpkg.com/@glidejs/glide@3.3.0/dist/glide.min.js"></script>
     <script defer src="/js/nav.js"></script>
 
     {% seo "" %}
@@ -33,10 +30,11 @@
     });
   }
 </script>
-<body class="bg-gray-default">
+<body class="bg-paper font-sans text-ink">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-blue focus:px-4 focus:py-2 focus:text-paper">Skip to content</a>
     {% include "nav.njk" %}
 
-    <main>
+    <main id="main">
         {{ content | safe }}
     </main>
 
