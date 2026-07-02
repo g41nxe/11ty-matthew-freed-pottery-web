@@ -16,7 +16,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "740 Jackson Ave, Vancouver, BC V6A 3B9, Canada"
+      "gmaps": "740 Jackson Ave, Vancouver, BC V6A 3B9, Canada",
+      "atStudio": true
     },
     {
       "name": "Circle Craft Holiday Market",
@@ -34,7 +35,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "1055 Canada Pl, Vancouver, BC V6C 0C3, Canada"
+      "gmaps": "1055 Canada Pl, Vancouver, BC V6C 0C3, Canada",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market",
@@ -52,7 +54,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market",
@@ -70,7 +73,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "atStudio": false
     },
     {
       "name": "Ladner Village Market",
@@ -88,7 +92,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "5028A 48 Avenue, Delta, BC"
+      "gmaps": "5028A 48 Avenue, Delta, BC",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market",
@@ -106,7 +111,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market",
@@ -124,7 +130,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market",
@@ -142,7 +149,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market",
@@ -160,7 +168,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market",
@@ -178,7 +187,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "atStudio": false
     },
     {
       "name": "Harmony Arts Festival",
@@ -196,7 +206,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Harmony Arts Festival | West Vancouver, 1564 Argyle Ave, West Vancouver, BC V7V 1A1, Kanada"
+      "gmaps": "Harmony Arts Festival | West Vancouver, 1564 Argyle Ave, West Vancouver, BC V7V 1A1, Kanada",
+      "atStudio": false
     },
     {
       "name": "Harmony Arts Festival",
@@ -214,7 +225,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Harmony Arts Festival | West Vancouver, 1564 Argyle Ave, West Vancouver, BC V7V 1A1, Kanada"
+      "gmaps": "Harmony Arts Festival | West Vancouver, 1564 Argyle Ave, West Vancouver, BC V7V 1A1, Kanada",
+      "atStudio": false
     },
     {
       "name": "Harmony Arts Festival",
@@ -232,7 +244,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Harmony Arts Festival | West Vancouver, 1564 Argyle Ave, West Vancouver, BC V7V 1A1, Kanada"
+      "gmaps": "Harmony Arts Festival | West Vancouver, 1564 Argyle Ave, West Vancouver, BC V7V 1A1, Kanada",
+      "atStudio": false
     },
     {
       "name": "Ladner Village Market",
@@ -250,7 +263,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "5028A 48 Avenue, Delta, BC"
+      "gmaps": "5028A 48 Avenue, Delta, BC",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market",
@@ -268,7 +282,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market",
@@ -286,7 +301,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market",
@@ -304,7 +320,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "Ladner Village Market",
@@ -322,7 +339,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "5028A 48 Avenue, Delta, BC"
+      "gmaps": "5028A 48 Avenue, Delta, BC",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market",
@@ -340,7 +358,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market",
@@ -358,7 +377,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market",
@@ -376,7 +396,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market",
@@ -394,7 +415,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market",
@@ -412,7 +434,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "1100 Comox St, Vancouver, BC V6E 1K5, Canada"
+      "gmaps": "1100 Comox St, Vancouver, BC V6E 1K5, Canada",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market",
@@ -430,7 +453,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "Dunbar Holiday Craft Fair",
@@ -448,7 +472,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "4747 Dunbar Street, Vancouver"
+      "gmaps": "4747 Dunbar Street, Vancouver",
+      "atStudio": false
     },
     {
       "name": "Eastside Culture Crawl",
@@ -466,7 +491,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "740 Jackson Ave, Vancouver, BC V6A 3B9, Canada"
+      "gmaps": "740 Jackson Ave, Vancouver, BC V6A 3B9, Canada",
+      "atStudio": true
     },
     {
       "name": "Circle Craft Holiday Market",
@@ -484,7 +510,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "1055 Canada Pl, Vancouver, BC V6C 0C3, Canada"
+      "gmaps": "1055 Canada Pl, Vancouver, BC V6C 0C3, Canada",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market",
@@ -502,7 +529,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "1100 Comox St, Vancouver, BC V6E 1K5, Canada"
+      "gmaps": "1100 Comox St, Vancouver, BC V6E 1K5, Canada",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market",
@@ -520,7 +548,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "1100 Comox St, Vancouver, BC V6E 1K5, Canada"
+      "gmaps": "1100 Comox St, Vancouver, BC V6E 1K5, Canada",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market",
@@ -538,7 +567,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market",
@@ -556,7 +586,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market",
@@ -574,7 +605,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market",
@@ -592,7 +624,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market",
@@ -610,7 +643,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "1100 Comox St, Vancouver, BC V6E 1K5, Canada"
+      "gmaps": "1100 Comox St, Vancouver, BC V6E 1K5, Canada",
+      "atStudio": false
     },
     {
       "name": "Ladner Village Market",
@@ -628,7 +662,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "5028A 48 Avenue, Delta, BC"
+      "gmaps": "5028A 48 Avenue, Delta, BC",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market",
@@ -646,7 +681,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "atStudio": false
     },
     {
       "name": "Ladner Village Market",
@@ -664,7 +700,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "5028A 48 Avenue, Delta, BC"
+      "gmaps": "5028A 48 Avenue, Delta, BC",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market",
@@ -682,7 +719,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market",
@@ -700,7 +738,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market",
@@ -718,7 +757,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "Ladner Village Market",
@@ -736,7 +776,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "5028A 48 Avenue, Delta, BC"
+      "gmaps": "5028A 48 Avenue, Delta, BC",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market",
@@ -754,7 +795,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market",
@@ -772,7 +814,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market",
@@ -790,7 +833,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market",
@@ -808,7 +852,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market",
@@ -826,7 +871,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "Riley Park Farmer's Market",
@@ -844,7 +890,8 @@
         "alt": "",
         "url": ""
       },
-      "gmaps": "30th Ave. & Ontario St, Vancouver, BC"
+      "gmaps": "30th Ave. & Ontario St, Vancouver, BC",
+      "atStudio": false
     },
     {
       "name": "Bespoke Summer Night Market",
@@ -858,7 +905,8 @@
         "title": "Bespoke Summer Night Market",
         "body": "40+ artisans line the street near Ambleside Beach"
       },
-      "gmaps": "https://maps.app.goo.gl/6ow7uEVtdQA6XBkJ8?g_st=ac"
+      "gmaps": "https://maps.app.goo.gl/6ow7uEVtdQA6XBkJ8?g_st=ac",
+      "atStudio": false
     },
     {
       "name": "Riley Park Farmer's Market",
@@ -872,7 +920,8 @@
         "title": "Riley Park Farmer's Market",
         "body": "East Vancouver Winter Farmer's Market"
       },
-      "gmaps": "https://www.bing.com/search?filters=ufn%3a%22Google+Maps%22+sid%3a%22f6847295-954b-eab6-6c2a-cc9c0033811a%22&qs=MB&pq=google&sk=CSYN1UAS8LS8AS4&sc=25-6&pglt=425&q=google+maps&cvid=6e5849fc651a4eea958453498deaa7c0&gs_lcrp=EgRlZGdlKgYIAhAuGEAyBggAEAAYQDIGCAEQLhhAMgYIAhAuGEAyBggDEC4YQDIGCAQQABhAMgYIBRAuGEAyBggGEC4YQDIGCAcQRRg8MgYICBBFGEHSAQg1Mzg2ajBqMagCALACAA&FORM=ANNTA1&adppc=EDGEESS&PC=EDGEDSE"
+      "gmaps": "https://www.bing.com/search?filters=ufn%3a%22Google+Maps%22+sid%3a%22f6847295-954b-eab6-6c2a-cc9c0033811a%22&qs=MB&pq=google&sk=CSYN1UAS8LS8AS4&sc=25-6&pglt=425&q=google+maps&cvid=6e5849fc651a4eea958453498deaa7c0&gs_lcrp=EgRlZGdlKgYIAhAuGEAyBggAEAAYQDIGCAEQLhhAMgYIAhAuGEAyBggDEC4YQDIGCAQQABhAMgYIBRAuGEAyBggGEC4YQDIGCAcQRRg8MgYICBBFGEHSAQg1Mzg2ajBqMagCALACAA&FORM=ANNTA1&adppc=EDGEESS&PC=EDGEDSE",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market",
@@ -886,7 +935,8 @@
         "title": "Kitsilano Farmer's Market ",
         "body": "Weekly Winter Farmer's Market"
       },
-      "gmaps": "https://www.google.ca/maps/place/2706+Trafalgar+St,+Vancouver,+BC+V6K+2J6/@49.2626511,-123.1685591,17z/data=!3m1!4b1!4m6!3m5!1s0x548673ae60fbc861:0x4f8127ca5145d3b8!8m2!3d49.2626512!4d-123.1636882!16s%2Fg%2F11cplg22wp?entry=ttu&g_ep=EgoyMDI1MTAwOC4wIKXMDSoASAFQAw%3D%3D"
+      "gmaps": "https://www.google.ca/maps/place/2706+Trafalgar+St,+Vancouver,+BC+V6K+2J6/@49.2626511,-123.1685591,17z/data=!3m1!4b1!4m6!3m5!1s0x548673ae60fbc861:0x4f8127ca5145d3b8!8m2!3d49.2626512!4d-123.1636882!16s%2Fg%2F11cplg22wp?entry=ttu&g_ep=EgoyMDI1MTAwOC4wIKXMDSoASAFQAw%3D%3D",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market",
@@ -900,7 +950,8 @@
         "title": "Kitlsilano Farmer's Market",
         "body": "Weekly Winter Farmer's Market"
       },
-      "gmaps": "https://www.google.ca/maps/place/2706+Trafalgar+St,+Vancouver,+BC+V6K+2J6/@49.2626511,-123.1685591,17z/data=!3m1!4b1!4m6!3m5!1s0x548673ae60fbc861:0x4f8127ca5145d3b8!8m2!3d49.2626512!4d-123.1636882!16s%2Fg%2F11cplg22wp?entry=ttu&g_ep=EgoyMDI1MTAwOC4wIKXMDSoASAFQAw%3D%3D"
+      "gmaps": "https://www.google.ca/maps/place/2706+Trafalgar+St,+Vancouver,+BC+V6K+2J6/@49.2626511,-123.1685591,17z/data=!3m1!4b1!4m6!3m5!1s0x548673ae60fbc861:0x4f8127ca5145d3b8!8m2!3d49.2626512!4d-123.1636882!16s%2Fg%2F11cplg22wp?entry=ttu&g_ep=EgoyMDI1MTAwOC4wIKXMDSoASAFQAw%3D%3D",
+      "atStudio": false
     },
     {
       "name": "Riley Park Farmer's Market ",
@@ -914,7 +965,8 @@
         "title": "Riley Park Farmer's Market",
         "body": "East Vancouver Farmer's Market"
       },
-      "gmaps": "https://www.bing.com/search?filters=ufn%3a%22Google+Maps%22+sid%3a%22f6847295-954b-eab6-6c2a-cc9c0033811a%22&qs=MB&pq=google&sk=CSYN1UAS8LS8AS4&sc=25-6&pglt=425&q=google+maps&cvid=6e5849fc651a4eea958453498deaa7c0&gs_lcrp=EgRlZGdlKgYIAhAuGEAyBggAEAAYQDIGCAEQLhhAMgYIAhAuGEAyBggDEC4YQDIGCAQQABhAMgYIBRAuGEAyBggGEC4YQDIGCAcQRRg8MgYICBBFGEHSAQg1Mzg2ajBqMagCALACAA&FORM=ANNTA1&adppc=EDGEESS&PC=EDGEDSE"
+      "gmaps": "https://www.bing.com/search?filters=ufn%3a%22Google+Maps%22+sid%3a%22f6847295-954b-eab6-6c2a-cc9c0033811a%22&qs=MB&pq=google&sk=CSYN1UAS8LS8AS4&sc=25-6&pglt=425&q=google+maps&cvid=6e5849fc651a4eea958453498deaa7c0&gs_lcrp=EgRlZGdlKgYIAhAuGEAyBggAEAAYQDIGCAEQLhhAMgYIAhAuGEAyBggDEC4YQDIGCAQQABhAMgYIBRAuGEAyBggGEC4YQDIGCAcQRRg8MgYICBBFGEHSAQg1Mzg2ajBqMagCALACAA&FORM=ANNTA1&adppc=EDGEESS&PC=EDGEDSE",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market ",
@@ -928,7 +980,8 @@
         "title": "Trout Lake Market ",
         "body": "Weekly Farmer's Market"
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market ",
@@ -942,7 +995,8 @@
         "title": "Trout Lake",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market ",
@@ -956,7 +1010,8 @@
         "title": "Trout Lake ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market ",
@@ -970,7 +1025,8 @@
         "title": "Trout Lake ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market ",
@@ -984,7 +1040,8 @@
         "title": "Trout Lake ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "Trout Lake Farmer's Market ",
@@ -998,7 +1055,8 @@
         "title": "Trout Lake ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada"
+      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market ",
@@ -1012,7 +1070,8 @@
         "title": "Kitsilano Farmer's Market ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market ",
@@ -1026,7 +1085,8 @@
         "title": "Kitsilano Farmer's Market ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market ",
@@ -1040,7 +1100,8 @@
         "title": "Kitsilano Farmer's Market ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market ",
@@ -1054,7 +1115,8 @@
         "title": "Kitsilano Farmer's Market ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market ",
@@ -1068,7 +1130,8 @@
         "title": "Kitsilano Farmer's Market ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "Kitsilano Farmer's Market ",
@@ -1082,7 +1145,8 @@
         "title": "Kitsilano Farmer's Market ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "Kitsilano Farmer's Market"
+      "gmaps": "Kitsilano Farmer's Market",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market ",
@@ -1096,7 +1160,8 @@
         "title": "West End Farmer's Market ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market ",
@@ -1110,7 +1175,8 @@
         "title": "West End Farmer's Market ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market ",
@@ -1124,7 +1190,8 @@
         "title": "West End Farmer's Market ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market ",
@@ -1138,7 +1205,8 @@
         "title": "West End Farmer's Market ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "atStudio": false
     },
     {
       "name": "West End Farmer's Market ",
@@ -1152,7 +1220,8 @@
         "title": "West End Farmer's Market ",
         "body": "Weekly Farmer's market "
       },
-      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC"
+      "gmaps": "1100 Comox St btw. Bute & Thurlow, Vancouver BC",
+      "atStudio": false
     },
     {
       "name": "Ladner Village Market ",
@@ -1166,7 +1235,8 @@
         "title": "Ladner Village Market ",
         "body": "Bi-weekly summer market"
       },
-      "gmaps": "5028A 48 Avenue, Delta, BC"
+      "gmaps": "5028A 48 Avenue, Delta, BC",
+      "atStudio": false
     },
     {
       "name": "Ladner Village Market ",
@@ -1180,7 +1250,8 @@
         "title": "Ladner Village Market ",
         "body": "Bi-weekly summer market"
       },
-      "gmaps": "5028A 48 Avenue, Delta, BC"
+      "gmaps": "5028A 48 Avenue, Delta, BC",
+      "atStudio": false
     },
     {
       "name": "Ladner Village Market ",
@@ -1194,7 +1265,8 @@
         "title": "Ladner Village Market ",
         "body": "Bi-weekly summer market "
       },
-      "gmaps": "5028A 48 Avenue, Delta, BC"
+      "gmaps": "5028A 48 Avenue, Delta, BC",
+      "atStudio": false
     }
   ]
 }

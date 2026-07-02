@@ -2,61 +2,64 @@
 layout: base
 ---
 
+<section class="mx-auto max-w-6xl px-6 pt-12">
+    <p class="cap-label text-blue">{{ intro.eyebrow }}</p>
+    <h1 class="mt-3 font-display text-4xl font-black text-ink">{{ intro.title }}</h1>
+</section>
 
-{% include "hero.njk" %}
+<div class="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10 lg:flex-row">
+    <div class="lg:flex-[1.4]">
+        {% set upcoming = events.events | filterFuture | sortByDate | reverse %}
+        {% if upcoming.length %}
+        {% for event in upcoming %}
+        <article class="mb-4 flex gap-4 rounded-xl border border-hairline bg-white p-5">
+            <div class="flex h-fit flex-none flex-col items-center rounded-lg px-4 py-2 {% if event.atStudio %}bg-blue{% else %}bg-tile{% endif %}">
+                <span class="cap-label text-[11px] {% if event.atStudio %}text-sand{% else %}text-soft{% endif %}">{{ event.date | date("MMM") }}</span>
+                <span class="font-display text-xl font-black {% if event.atStudio %}text-paper{% else %}text-ink{% endif %}">{{ event.date | date("d") }}{% if event.multi_day_event and event.end_date != event.date %}–{{ event.end_date | date("d") }}{% endif %}</span>
+            </div>
+            <div>
+                <h2 class="font-display text-xl font-black text-ink">
+                    {{ event.name }}
+                    {% if event.atStudio %}<span class="cap-label ml-2 text-[11px] text-sand">At my studio</span>{% endif %}
+                </h2>
+                <p class="mt-1 text-sm text-muted">{{ event.location }} · {{ event.time }}</p>
+                {% if event.content.body %}<p class="mt-2 text-sm leading-relaxed text-muted">{{ event.content.body }}</p>{% endif %}
+                {% if event.gmaps %}<a href="https://www.google.com/maps/search/?api=1&query={{ event.gmaps | urlencode }}" class="link-underline mt-3 inline-block text-sm">Directions</a>{% endif %}
+            </div>
+        </article>
+        {% endfor %}
+        {% else %}
+        <p class="rounded-xl border border-hairline bg-white p-6 text-base text-muted">{{ no_events }}</p>
+        {% endif %}
+        <p class="mt-6 text-center text-sm text-soft">{{ rhythm }}</p>
+    </div>
 
-{% include "notification.njk" %}
-
-<div class="md:px-24 mx-auto my-8">
-
-    <section class="md:my-16 my-8">
-        <h2 class="text-center md:text-left font-bold text-2xl text-brand my-8 md:mt-0 "> 
-            {{ titles.news_latest }}
-        </h2>
-
-        {% set open = true %}
-        {% set items = [news.news | sortByDate | first] %}
-        {% include "card-feature.njk" %}
-    </section>
-
-    <section class="grid md:grid-cols-12">
-        <div class="md:col-span-6">
-            <h2 class="text-center md:text-left text-xl font-bold text-brand my-4 md:mt-0">
-                <i class="fas fa-map-signs mr-2"></i>
-                {{ titles.news_archive }}
-            </h2>
-
-            {% set items = news.news | sortByDate | removeFirst %}
-            {% include "card-sm.njk" %}
-
-        </div>
-
-        <div class="md:col-span-5 md:col-start-8">
-            <h2 class="text-center md:text-left text-xl font-bold text-brand my-8 md:mt-0">
-                <i class="fas fa-bullhorn mr-2"></i>
-                {{ titles.events_upcoming }}
-            </h2>
-
-            {% set items = events.events | filterFuture | sortByDate | reverse %}
-            {% include "card-sm-events-upcoming.njk" %}
-
-            {% if items | length < 1 %}
-                <div class="bg-gray-lighter border border-gray-light p-4 mb-8 shadow-sm mx-2 md:mx-0">
-                    <h2 class="text-center font-bold text-brand"> 
-                        <i class="mr-2 fas fa-store-slash"></i>
-                        {{ no_events }} 
-                    </h2>
-                </div>
-            {% endif %}
-
-
-            <h2 class="text-center md:text-left text-xl font-bold text-brand mt-8 my-4 md:mt-0">
-                {{ titles.events_archive }}
-            </h2>
-
-            {% set items = events.events | filterPast | sortByDate %}
-            {% include "card-sm-events.njk" %}
-        </div>
-    </section>
-
+    <aside class="h-fit rounded-xl bg-blue p-6 lg:flex-1">
+        <h2 class="font-display text-xl font-black text-paper">{{ studio.title }}</h2>
+        <p class="mt-3 text-sm leading-relaxed text-paper/80">{{ studio.text }}</p>
+        <a href="{{ studio.cta.url }}" class="mt-5 inline-block rounded-full bg-paper px-5 py-2.5 text-sm font-medium text-blue">{{ studio.cta.label }}</a>
+        <p class="mt-5 border-t border-blue-light pt-4 text-sm text-paper/80">{{ studio.footnote }}</p>
+    </aside>
 </div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {% for event in events.events | filterFuture %}
+    {
+      "@type": "Event",
+      "name": {{ event.name | dump | safe }},
+      "startDate": "{{ event.date | date("yyyy-MM-dd") }}",
+      "endDate": "{{ event.end_date | date("yyyy-MM-dd") }}",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": {{ event.location | dump | safe }},
+        "address": {{ event.gmaps | dump | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
