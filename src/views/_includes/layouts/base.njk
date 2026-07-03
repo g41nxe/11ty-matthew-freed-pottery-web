@@ -41,8 +41,18 @@
     {% include "footer.njk" %}
 
     <script>
-    if ("serviceWorker" in navigator)
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+        // Local dev: never cache — unregister any existing worker and clear
+        // its caches so previews always show the latest build.
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.getRegistrations().then((rs) => rs.forEach((r) => r.unregister()));
+        }
+        if (window.caches) {
+            caches.keys().then((keys) => keys.forEach((k) => caches.delete(k)));
+        }
+    } else if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("/service-worker.js");
+    }
     </script>
 
 </body>
