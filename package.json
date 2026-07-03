@@ -6,14 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist",
-    "eleventy:default": "npx eleventy",
-    "eleventy:watch": "npx eleventy --watch",
-    "eleventy:serve": "npx eleventy --serve",
+    "eleventy:default": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npx eleventy",
+    "eleventy:serve": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npx eleventy --serve",
     "styles:dev": "postcss src/styles/main.css --output dist/styles/main.css",
     "styles:watch": "postcss src/styles/main.css --output dist/styles/main.css --watch",
     "styles:prod": "postcss src/styles/main.css --output dist/styles/main.css",
     "cms": "npx decap-server",
-    "dev": "npm-run-all clean styles:dev eleventy:default --parallel styles:watch eleventy:watch eleventy:serve --print-label",
+    "dev": "npm-run-all clean styles:dev --parallel styles:watch eleventy:serve --print-label",
     "dev:cms": "npm-run-all --parallel cms dev --print-label",
     "build": "npm-run-all clean styles:prod eleventy:default --print-label"
   },
@@ -37,5 +36,8 @@
     "postcss-cli": "^11.0.1",
     "sharp": "^0.35.3",
     "tailwindcss": "^4.3.1"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0"
   }
 }
