@@ -11,7 +11,6 @@ filters:
   - All
   - Blues
   - Charcoals
-  - Earth tones
   - Patterned
 custom_seo_settings: true
 author: Matthew Freed

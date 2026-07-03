@@ -155,10 +155,11 @@ collections:
               - {label: "Text", name: "text", widget: "text"}
               - {label: "Shop collection slug (tail of the shop URL)", name: "slug", widget: "string"}
               - {label: "Swatch colour (hex)", name: "swatch", widget: "string", pattern: ["^#[0-9A-Fa-f]{6}$", "Must be a hex colour like #1F3A52"]}
-              - label: "Filter group"
-                name: "filterGroup"
+              - label: "Filter groups"
+                name: "filterGroups"
                 widget: "select"
-                options: ["Blues", "Charcoals", "Earth tones", "Patterned"]
+                multiple: true
+                options: ["Blues", "Charcoals", "Patterned"]
               - label: "CTA"
                 name: "cta"
                 widget: "object"

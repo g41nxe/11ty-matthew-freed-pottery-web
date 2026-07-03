@@ -9,12 +9,14 @@
       "text": "A speckled deep green and blue glaze with a celestial look",
       "slug": "Squamish",
       "swatch": "#1F6E88",
-      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Squamish"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Blues"
+      ]
     },
     {
       "image": {
@@ -25,12 +27,14 @@
       "text": "A deep forest green glaze with speckled cobalt tones and a warm blue accent around the rim",
       "slug": "Garibaldi",
       "swatch": "#1D6468",
-      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Garibaldi"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Blues"
+      ]
     },
     {
       "image": {
@@ -41,12 +45,14 @@
       "text": "Red, green or blue rims pop on a charcoal glazed base.",
       "slug": "Yaletown",
       "swatch": "#2E2C29",
-      "filterGroup": "Charcoals",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Yaletown"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Charcoals"
+      ]
     },
     {
       "image": {
@@ -57,12 +63,14 @@
       "text": "A multi-tone deep blue glaze.",
       "slug": "Galiano",
       "swatch": "#2438A6",
-      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Galiano"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Blues"
+      ]
     },
     {
       "image": {
@@ -73,12 +81,15 @@
       "text": "A semi-matte charcoal glaze with a hand-painted dogwood pattern.",
       "slug": "Dogwood",
       "swatch": "#38322C",
-      "filterGroup": "Patterned",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Dogwood"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Charcoals",
+        "Patterned"
+      ]
     },
     {
       "image": {
@@ -89,12 +100,15 @@
       "text": "A semi-matte charcoal glaze with vibrant bursts of glossy colour.",
       "slug": "Saltspring",
       "swatch": "#3A3833",
-      "filterGroup": "Patterned",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Saltspring"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Charcoals",
+        "Patterned"
+      ]
     },
     {
       "image": {
@@ -105,12 +119,14 @@
       "text": "A pale grey/blue glaze with sand toned speckles.",
       "slug": "Jericho",
       "swatch": "#9A93B4",
-      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Jericho"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Blues"
+      ]
     },
     {
       "image": {
@@ -121,12 +137,14 @@
       "text": "A rich green/blue glaze with multi-toned variation.",
       "slug": "Joffre",
       "swatch": "#1C6478",
-      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Joffre"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Blues"
+      ]
     },
     {
       "image": {
@@ -137,12 +155,14 @@
       "text": "A satiny smooth lilac glaze with warm blue rim.",
       "slug": "Kitsilano",
       "swatch": "#4E5AC4",
-      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Kitsilano"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Blues"
+      ]
     },
     {
       "image": {
@@ -153,12 +173,15 @@
       "text": "A hand-painted leafing pattern with a textured finish in a two toned blue glossy finish.",
       "slug": "Pemberton",
       "swatch": "#2E4BA0",
-      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Pemberton"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Blues",
+        "Patterned"
+      ]
     },
     {
       "image": {
@@ -169,12 +192,15 @@
       "text": "A hand-painted leafing pattern with a textured finish in a medium brown and charcoal glaze.",
       "slug": "Pemberton",
       "swatch": "#443A31",
-      "filterGroup": "Earth tones",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Pemberton"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Charcoals",
+        "Patterned"
+      ]
     },
     {
       "image": {
@@ -185,12 +211,15 @@
       "text": "Semi-matte charcoal glaze with a hand-painted gold chevron pattern.",
       "slug": "Strathcona",
       "swatch": "#55524A",
-      "filterGroup": "Charcoals",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Strathcona"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Charcoals",
+        "Patterned"
+      ]
     },
     {
       "image": {
@@ -201,12 +230,14 @@
       "text": "A stormy, landscape effect in complimentary hues of cobalt, mocha, and amber.",
       "slug": "Tofino",
       "swatch": "#33556E",
-      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Tofino"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Blues"
+      ]
     },
     {
       "image": {
@@ -217,12 +248,14 @@
       "text": "A textured Tree of Life emblem on a semi-matte charcoal glaze.",
       "slug": "Tree-of-Life",
       "swatch": "#29261F",
-      "filterGroup": "Patterned",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Tree-of-Life"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Charcoals"
+      ]
     },
     {
       "image": {
@@ -233,12 +266,14 @@
       "text": "A semi-matte charcoal glaze with a textured gold decorative accent tile.",
       "slug": "Zen",
       "swatch": "#3B382F",
-      "filterGroup": "Charcoals",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Zen"
       },
-      "style": "center"
+      "style": "center",
+      "filterGroups": [
+        "Charcoals"
+      ]
     }
   ],
   "features": [
