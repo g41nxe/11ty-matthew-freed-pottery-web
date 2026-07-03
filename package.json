@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist",
-    "eleventy:default": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npx eleventy",
+    "eleventy:default": "npx eleventy",
     "eleventy:serve": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npx eleventy --serve",
     "styles:dev": "postcss src/styles/main.css --output dist/styles/main.css",
     "styles:watch": "postcss src/styles/main.css --output dist/styles/main.css --watch",
