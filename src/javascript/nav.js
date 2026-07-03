@@ -8,3 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
         toggle.setAttribute("aria-expanded", String(open));
     });
 });
+
+// Condense the sticky header once the page is scrolled.
+document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("site-header");
+    if (!header) return;
+    const update = () => header.classList.toggle("is-stuck", window.scrollY > 8);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+});

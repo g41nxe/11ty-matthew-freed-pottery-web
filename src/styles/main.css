@@ -88,6 +88,16 @@
         color: var(--color-blue);
     }
 
+    /* Sticky header: borderless + roomy at the top of the page, condensed
+       with a hairline divider once scrolled (no shadow — per design guide). */
+    #site-header.is-stuck {
+        border-bottom-color: var(--color-hairline);
+    }
+    #site-header.is-stuck .site-nav-bar {
+        padding-top: 0.625rem;
+        padding-bottom: 0.625rem;
+    }
+
     /* Hide the scrollbar on snap-scroll sliders (content stays scrollable) */
     .no-scrollbar {
         scrollbar-width: none;
