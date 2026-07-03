@@ -2,7 +2,6 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const { DateTime } = require("luxon");
 const Image = require("@11ty/eleventy-img");
 const { generateHTML } = require("@11ty/eleventy-img");
-const pluginPWA = require("eleventy-plugin-pwa-v2");
 const pluginSEO = require("eleventy-plugin-seo");
 
 module.exports = function (eleventyConfig) {
@@ -27,8 +26,11 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "src/images" : "images" });
 
     eleventyConfig.addPlugin(pluginSEO, require("./src/views/_data/seo.json"));
-    eleventyConfig.addPlugin(pluginPWA);
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+    // Serve a self-destroying worker at the old SW URL so any previously
+    // installed service worker unregisters itself (see src/service-worker.js).
+    eleventyConfig.addPassthroughCopy({ "src/service-worker.js": "service-worker.js" });
 
 
     eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="", classes="", loading="lazy") {
