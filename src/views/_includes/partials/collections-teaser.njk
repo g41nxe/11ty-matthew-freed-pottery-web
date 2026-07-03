@@ -15,7 +15,7 @@
     </div>
     <div id="glaze-slider" class="no-scrollbar -mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2">
         {% for item in showcase.gallery %}
-        <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/{{ item.slug }}" class="group w-[70%] flex-none snap-start sm:w-[45%] md:w-[31%]">
+        <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/{{ item.slug }}" target="_blank" rel="noopener" class="group w-[70%] flex-none snap-start sm:w-[45%] md:w-[31%]">
             <div class="aspect-[4/3] w-full overflow-hidden" style="background-color: {{ item.swatch }}">
                 {% if item.image.url %}{% img item.image.url, item.image.alt, "(min-width: 768px) 31vw, 70vw", "img-zoom h-full w-full object-cover" %}{% endif %}
             </div>

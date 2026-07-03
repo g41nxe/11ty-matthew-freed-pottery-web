@@ -5,6 +5,7 @@ layout: base
 <section class="mx-auto max-w-6xl px-6 pt-12">
     <p class="cap-label text-blue">{{ intro.eyebrow }}</p>
     <h1 class="mt-3 font-display text-4xl font-black text-ink">{{ intro.title }}</h1>
+    {% if rhythm %}<p class="mt-4 max-w-2xl text-base leading-relaxed text-muted">{{ rhythm }}</p>{% endif %}
 </section>
 
 <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10 lg:flex-row">
@@ -59,7 +60,7 @@ layout: base
     </div>
 
     <div class="lg:flex-1">
-        <p class="cap-label mb-4 text-blue">The studio</p>
+        <p class="cap-label mb-4 text-blue">In person</p>
         <div class="space-y-6 lg:sticky lg:top-6">
             {% if studio.image.url %}
             <figure class="overflow-hidden rounded-xl bg-tile">
@@ -73,12 +74,6 @@ layout: base
                 <a href="{{ studio.cta.url }}" class="mt-5 inline-block rounded-full bg-paper px-5 py-2.5 text-sm font-medium text-blue transition-colors hover:bg-blue-light hover:text-paper">{{ studio.cta.label }}</a>
                 <p class="mt-5 border-t border-blue-light pt-4 text-sm text-paper/80">{{ studio.footnote }}</p>
             </aside>
-            {% if rhythm %}
-            <aside class="rounded-xl border border-hairline p-6">
-                <p class="cap-label text-sand">The yearly rhythm</p>
-                <p class="mt-2 text-sm leading-relaxed text-muted">{{ rhythm }}</p>
-            </aside>
-            {% endif %}
         </div>
     </div>
 </div>

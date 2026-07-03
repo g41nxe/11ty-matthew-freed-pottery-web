@@ -208,7 +208,9 @@ fallback message); story teaser from `about.md`.
 
 - Base shop URL centralized in `global.json`; collections store only their
   Shopify slug; templates compose links. Domain change = one-line edit.
-- Buttons say "View in the shop" / "Browse in shop"; same-tab navigation.
+- Buttons say "View in the shop" / "Browse in shop". Shop links open in a
+  new tab (`target="_blank" rel="noopener"`) so the site stays open behind
+  the Shopify shop (revised 2026-07-03; originally same-tab).
 - Recommended follow-up (out of scope): restyle the Shopify theme with the same
   paper/blue/Fraunces system; suggest connecting a branded shop domain
   (e.g. `shop.matthewfreed.ca`) in Shopify settings.

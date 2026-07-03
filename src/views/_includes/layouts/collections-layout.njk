@@ -27,7 +27,7 @@ layout: base
                 {{ item.title | replace(" Collection", "") }}
             </h2>
             <p class="mt-1 text-sm text-muted">{{ item.text }}</p>
-            <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/{{ item.slug }}" class="link-underline mt-3 inline-block text-sm">Browse in shop</a>
+            <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/{{ item.slug }}" target="_blank" rel="noopener" class="link-underline mt-3 inline-block text-sm">Browse in shop</a>
         </div>
     </article>
     {% endfor %}

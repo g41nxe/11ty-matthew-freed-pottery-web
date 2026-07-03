@@ -1,10 +1,10 @@
 <section class="mx-auto max-w-6xl px-6 py-12" aria-label="From the current firing">
     <div class="flex items-baseline justify-between gap-4">
         <h2 class="font-display text-3xl font-black text-ink">{{ products.title }}</h2>
-        <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" class="link-underline whitespace-nowrap text-sm">Shop all pieces</a>
+        <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">Shop all pieces</a>
     </div>
     <div class="mt-8 grid gap-10 md:grid-cols-2 lg:gap-12">
-        <a href="{{ featured_piece.cta.url }}" class="group">
+        <a href="{{ featured_piece.cta.url }}" target="_blank" rel="noopener" class="group">
             <div class="overflow-hidden bg-tile">
                 {% img featured_piece.image.url, featured_piece.image.alt, "(min-width: 768px) 50vw, 100vw", "img-zoom w-full object-cover" %}
             </div>
@@ -18,7 +18,7 @@
         <div class="grid grid-cols-2 content-start gap-5">
             {% for item in showcase.features | rejectattr("hide") %}
             {% if loop.index <= 4 %}
-            <a href="{{ item.cta.url }}" class="group">
+            <a href="{{ item.cta.url }}" target="_blank" rel="noopener" class="group">
                 <div class="relative overflow-hidden bg-tile">
                     {% img item.image.url, item.image.alt, "(min-width: 768px) 25vw, 50vw", "img-zoom w-full object-cover" %}
                     {% if item.overlay.text %}

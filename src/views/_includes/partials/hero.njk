@@ -5,7 +5,7 @@
         <h1 class="mt-3 font-display text-4xl font-black leading-tight text-ink md:text-5xl">{% if hero.highlight and hero.highlight in hero.title %}{{ hero.title | replace(hero.highlight, '<span class="text-sand">' ~ hero.highlight ~ '</span>') | safe }}{% else %}{{ hero.title }}{% endif %}</h1>
         <p class="mt-4 max-w-md text-base leading-relaxed text-muted">{{ hero.text }}</p>
         <div class="mt-7 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
-            <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" class="btn-primary text-center">{{ hero.cta_primary.label }}</a>
+            <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" target="_blank" rel="noopener" class="btn-primary text-center">{{ hero.cta_primary.label }}</a>
             <a href="{{ hero.cta_secondary.url }}" class="link-underline self-center">{{ hero.cta_secondary.label }}</a>
         </div>
     </div>
