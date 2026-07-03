@@ -251,4 +251,17 @@ fallback message); story teaser from `about.md`.
   word can move): "The coast, fired into stoneware" · "Pottery the colour
   of British Columbia" · promoting "Fifteen glazes, fifteen stories" to
   the H1. Note: "fifteen places" was corrected to "fifteen stories"
-  everywhere (Dogwood, Tree of Life and Zen are not places).
+  everywhere (Dogwood, Tree of Life and Zen are not places). Hero sub-line
+  is now "Functional stoneware in fifteen glazes, each with a name and a
+  story."
+- **Glaze swatch confirmation.** The `swatch` hexes now render as visible
+  dots (palette strip + card names), so accuracy matters. A first-pass
+  correction was applied from the product photos — Matthew should fine-tune
+  against the physical glazes. Two open questions: (1) **Garibaldi** — the
+  photo reads teal-blue but the copy says "deep forest green"; swatch left
+  unchanged (`#2E4636`) and its category ("Earth tones" vs "Blues") depends
+  on the true colour. (2) **Pemberton Sky vs Pemberton Earth** — same carved
+  leafing pattern but filed under "Blues" and "Earth tones" respectively;
+  confirm whether that split is intentional or both belong in "Patterned".
+- **Product blurbs** (`overlay.text`) now display again as gallery captions;
+  the "one of my best selling items" claims should be re-verified as current.

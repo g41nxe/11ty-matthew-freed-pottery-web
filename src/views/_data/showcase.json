@@ -8,7 +8,7 @@
       "title": "Squamish Nights Collection",
       "text": "A speckled deep green and blue glaze with a celestial look",
       "slug": "Squamish",
-      "swatch": "#22333B",
+      "swatch": "#1F6E88",
       "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
@@ -40,7 +40,7 @@
       "title": "Yaletown Collection",
       "text": "Red, green or blue rims pop on a charcoal glazed base.",
       "slug": "Yaletown",
-      "swatch": "#3A3835",
+      "swatch": "#2E2C29",
       "filterGroup": "Charcoals",
       "cta": {
         "label": "Browse All Items",
@@ -56,7 +56,7 @@
       "title": "Galiano Collection",
       "text": "A multi-tone deep blue glaze.",
       "slug": "Galiano",
-      "swatch": "#2B4A6F",
+      "swatch": "#2438A6",
       "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
@@ -72,7 +72,7 @@
       "title": "Dogwood Collection",
       "text": "A semi-matte charcoal glaze with a hand-painted dogwood pattern.",
       "slug": "Dogwood",
-      "swatch": "#3A3835",
+      "swatch": "#38322C",
       "filterGroup": "Patterned",
       "cta": {
         "label": "Browse All Items",
@@ -88,7 +88,7 @@
       "title": "Saltspring Collection",
       "text": "A semi-matte charcoal glaze with vibrant bursts of glossy colour.",
       "slug": "Saltspring",
-      "swatch": "#4A4741",
+      "swatch": "#3A3833",
       "filterGroup": "Patterned",
       "cta": {
         "label": "Browse All Items",
@@ -104,8 +104,8 @@
       "title": "Jericho Collection",
       "text": "A pale grey/blue glaze with sand toned speckles.",
       "slug": "Jericho",
-      "swatch": "#7A8B7F",
-      "filterGroup": "Earth tones",
+      "swatch": "#9A93B4",
+      "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
         "url": "https://shop.matthewfreed.net/collections/all/Jericho"
@@ -120,7 +120,7 @@
       "title": "Joffre Collection",
       "text": "A rich green/blue glaze with multi-toned variation.",
       "slug": "Joffre",
-      "swatch": "#2B4A6F",
+      "swatch": "#1C6478",
       "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
@@ -136,7 +136,7 @@
       "title": "Kitsilano Collection",
       "text": "A satiny smooth lilac glaze with warm blue rim.",
       "slug": "Kitsilano",
-      "swatch": "#6B7A85",
+      "swatch": "#4E5AC4",
       "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
@@ -152,7 +152,7 @@
       "title": "Pemberton Sky Collection",
       "text": "A hand-painted leafing pattern with a textured finish in a two toned blue glossy finish.",
       "slug": "Pemberton",
-      "swatch": "#7A96AD",
+      "swatch": "#2E4BA0",
       "filterGroup": "Blues",
       "cta": {
         "label": "Browse All Items",
@@ -168,7 +168,7 @@
       "title": "Pemberton Earth Collection",
       "text": "A hand-painted leafing pattern with a textured finish in a medium brown and charcoal glaze.",
       "slug": "Pemberton",
-      "swatch": "#6B4430",
+      "swatch": "#443A31",
       "filterGroup": "Earth tones",
       "cta": {
         "label": "Browse All Items",
@@ -216,7 +216,7 @@
       "title": "Tree of Life Collection",
       "text": "A textured Tree of Life emblem on a semi-matte charcoal glaze.",
       "slug": "Tree-of-Life",
-      "swatch": "#5C4A38",
+      "swatch": "#29261F",
       "filterGroup": "Patterned",
       "cta": {
         "label": "Browse All Items",
@@ -232,7 +232,7 @@
       "title": "Zen Collection",
       "text": "A semi-matte charcoal glaze with a textured gold decorative accent tile.",
       "slug": "Zen",
-      "swatch": "#4A4741",
+      "swatch": "#3B382F",
       "filterGroup": "Charcoals",
       "cta": {
         "label": "Browse All Items",

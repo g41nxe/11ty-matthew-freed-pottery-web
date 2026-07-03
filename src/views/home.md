@@ -10,7 +10,7 @@ hero:
   eyebrow: Handthrown in Vancouver
   title: Art for everyday life
   highlight: life
-  text: Functional stoneware in fifteen glazes — most named for the West Coast places that inspired them.
+  text: Functional stoneware in fifteen glazes, each with a name and a story.
   cta_primary:
     label: Shop the collections
   cta_secondary:
