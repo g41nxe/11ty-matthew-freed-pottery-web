@@ -389,6 +389,7 @@ collections:
           - {label: "permalink", name: "permalink", widget: "hidden"}
           - {label: "tags", name: "tags", widget: "hidden"}
 
+          - {label: "eyebrow", name: "eyebrow", widget: "string", required: false}
           - {label: "headline", name: "headline", widget: "string"}
           - {label: "intro", name: "intro", widget: "text"}
 
@@ -399,22 +400,17 @@ collections:
               - {label: "url", name: "url", widget: "image", choose_url: false}
               - {label: "alt", name: "alt", widget: "string"}
 
-          - label: "notification"
-            name: "notification"
-            widget: "object"
-            collapsed: true
+          - label: "Stores"
+            name: "stores"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.city}}"
             fields:
-              - {label: "title", name: "title", widget: "string"}
-              - {label: "subtitle", name: "subtitle", widget: "string"}
-              - label: "cta"
-                name: "cta"
-                widget: "object"
-                fields: 
-                  - {label: "label", name: "label", widget: "string"}
-                  - {label: "url", name: "url", widget: "string"}
-          - label: "body"
-            name: "body"
-            widget: "markdown"       
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Website URL", name: "url", widget: "string"}
+              - {label: "Street address", name: "address", widget: "string"}
+              - {label: "City", name: "city", widget: "string"}
+
+          - {label: "body", name: "body", widget: "markdown", required: false}
 
       - label: "Privacy Statement"
         name: "privacy-statement"

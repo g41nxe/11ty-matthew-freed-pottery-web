@@ -1,0 +1,32 @@
+---
+layout: base
+---
+
+<section class="mx-auto max-w-3xl px-6 py-12">
+    {% if eyebrow %}<p class="cap-label text-blue">{{ eyebrow }}</p>{% endif %}
+    <h1 class="mt-3 font-display text-4xl font-black leading-tight text-ink">{{ headline | default(title) }}</h1>
+    {% if intro %}<p class="mt-4 max-w-xl text-base leading-relaxed text-muted">{{ intro }}</p>{% endif %}
+
+    {% if image.url %}
+    <div class="mt-8 overflow-hidden rounded-xl bg-tile">
+        {% img image.url, image.alt, "(min-width: 768px) 48rem, 100vw", "aspect-[16/9] w-full object-cover" %}
+    </div>
+    {% endif %}
+
+    <ul class="mt-10">
+        {% for store in stores %}
+        <li class="group border-t border-hairline py-6 last:border-b">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <a href="{{ store.url }}" target="_blank" rel="noopener" class="font-display text-xl font-black text-ink transition-colors hover:text-blue">{{ store.name }}
+                    <span class="ml-1 inline-block text-sand transition-transform group-hover:translate-x-0.5" aria-hidden="true">&#8599;</span>
+                </a>
+                <span class="cap-label text-[11px] text-soft">{{ store.city }}</span>
+            </div>
+            <p class="mt-1 text-sm text-muted">{{ store.address }}</p>
+            <a href="https://www.google.com/maps/search/?api=1&query={{ (store.address + ', ' + store.city + ', BC') | urlencode }}" target="_blank" rel="noopener" class="link-underline mt-3 inline-block text-sm">Directions</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% if content %}<div class="prose-pottery mt-8">{{ content | safe }}</div>{% endif %}
+</section>
