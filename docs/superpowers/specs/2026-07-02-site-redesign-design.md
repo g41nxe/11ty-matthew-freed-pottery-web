@@ -257,10 +257,8 @@ fallback message); story teaser from `about.md`.
 - **Glaze swatch confirmation.** The `swatch` hexes now render as visible
   dots (palette strip + card names), so accuracy matters. A first-pass
   correction was applied from the product photos — Matthew should fine-tune
-  against the physical glazes. Two open questions: (1) **Garibaldi** — the
-  photo reads teal-blue but the copy says "deep forest green"; swatch left
-  unchanged (`#2E4636`) and its category ("Earth tones" vs "Blues") depends
-  on the true colour. (2) **Pemberton Sky vs Pemberton Earth** — same carved
+  against the physical glazes. Open question: **Pemberton Sky vs Pemberton
+  Earth** — same carved
   leafing pattern but filed under "Blues" and "Earth tones" respectively;
   confirm whether that split is intentional or both belong in "Patterned".
 - **Product blurbs** (`overlay.text`) now display again as gallery captions;
