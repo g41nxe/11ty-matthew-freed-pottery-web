@@ -1129,7 +1129,7 @@
     {
       "name": "West End Farmer's Market ",
       "time": "9 a.m. to 2 p.m.",
-      "featured": true,
+      "featured": false,
       "date": "09-19-2026",
       "multi_day_event": false,
       "end_date": "09-19-2026",
