@@ -961,7 +961,7 @@
     {
       "name": "Trout Lake Farmer's Market ",
       "time": "9 a.m. to 2 p.m.",
-      "featured": false,
+      "featured": true,
       "date": "07-18-2026",
       "multi_day_event": false,
       "end_date": "07-18-2026",
