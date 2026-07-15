@@ -183,7 +183,7 @@
     {
       "name": "Harmony Arts Festival",
       "time": "2pm -  9pm Friday, 11 am - 9 pm Saturday & Sunday",
-      "featured": false,
+      "featured": true,
       "date": "08-07-2026",
       "multi_day_event": true,
       "end_date": "08-09-2026",
