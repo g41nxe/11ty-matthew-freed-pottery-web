@@ -1185,7 +1185,7 @@
     {
       "name": "Ladner Village Market ",
       "time": "10 a.m. to 4 p.m.",
-      "featured": true,
+      "featured": false,
       "date": "09-20-2026",
       "multi_day_event": false,
       "end_date": "09-20-2026",
