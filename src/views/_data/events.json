@@ -200,11 +200,11 @@
     },
     {
       "name": "Harmony Arts Festival",
-      "time": "11 am - 9pm",
-      "featured": false,
-      "date": "08-02-2025",
+      "time": "2 pm - 9pm Friday, 11 am - 9 pm Saturday, Sunday and Monday",
+      "featured": true,
+      "date": "07-31-2026",
       "multi_day_event": true,
-      "end_date": "08-04-2025",
+      "end_date": "08-03-2026",
       "location": "Argyle Avenue",
       "content": {
         "body": "The Harmony Arts Festival takes place from August 1 to 10, 2025. Join us for live music and celebrate visual and culinary art in our community.",
