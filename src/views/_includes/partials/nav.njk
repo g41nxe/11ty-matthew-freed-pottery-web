@@ -1,6 +1,6 @@
 <header id="site-header" class="sticky top-0 z-40 border-b border-transparent bg-paper transition-colors duration-300">
     <div class="site-nav-bar mx-auto flex max-w-6xl items-center justify-between px-6 py-4 transition-[padding] duration-300">
-        <a href="/" class="whitespace-nowrap font-display text-lg font-black text-blue sm:text-xl">Matthew Freed Pottery</a>
+        <a href="/" class="mr-3 whitespace-nowrap font-display text-lg font-black text-blue sm:text-xl"><span class="sm:hidden">Matthew Freed</span><span class="hidden sm:inline">Matthew Freed Pottery</span></a>
 
         <nav class="hidden items-center gap-8 md:flex" aria-label="Main">
             <a href="/collections.html" class="nav-link text-base text-muted transition-colors hover:text-blue">Collections</a>
@@ -13,7 +13,11 @@
         <div class="flex items-center gap-3 md:hidden">
             <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" target="_blank" rel="noopener" class="btn-primary px-5 py-2.5 text-sm">Shop</a>
             <button id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu" class="flex h-11 w-11 items-center justify-center text-ink">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                    <line class="nav-line-top" x1="3" y1="6" x2="21" y2="6"/>
+                    <line class="nav-line-mid" x1="3" y1="12" x2="21" y2="12"/>
+                    <line class="nav-line-bot" x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
             </button>
         </div>
     </div>
