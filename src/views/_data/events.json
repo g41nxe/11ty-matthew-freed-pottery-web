@@ -192,11 +192,11 @@
     },
     {
       "name": "Harmony Arts Festival",
-      "time": "11 am - 9pm",
-      "featured": false,
-      "date": "08-09-2025",
+      "time": "2pm -  9pm Friday, 11 am - 9 pm Saturday & Sunday",
+      "featured": true,
+      "date": "08-07-2026",
       "multi_day_event": true,
-      "end_date": "08-10-2025",
+      "end_date": "08-09-2026",
       "location": "Argyle Avenue",
       "content": {
         "body": "The Harmony Arts Festival takes place from August 1 to 10, 2025. Join us for live music and celebrate visual and culinary art in our community.",
@@ -211,11 +211,11 @@
     },
     {
       "name": "Harmony Arts Festival",
-      "time": "11 am - 9pm",
-      "featured": false,
-      "date": "08-02-2025",
+      "time": "2 pm - 9pm Friday, 11 am - 9 pm Saturday, Sunday and Monday",
+      "featured": true,
+      "date": "07-31-2026",
       "multi_day_event": true,
-      "end_date": "08-04-2025",
+      "end_date": "08-03-2026",
       "location": "Argyle Avenue",
       "content": {
         "body": "The Harmony Arts Festival takes place from August 1 to 10, 2025. Join us for live music and celebrate visual and culinary art in our community.",
@@ -897,9 +897,9 @@
       "name": "Bespoke Summer Night Market",
       "time": "3 pm to 9 pm",
       "featured": true,
-      "date": "08-05-2025",
+      "date": "08-04-2026",
       "multi_day_event": true,
-      "end_date": "08-07-2025",
+      "end_date": "08-06-2026",
       "location": "Ambleside",
       "content": {
         "title": "Bespoke Summer Night Market",
@@ -1196,7 +1196,7 @@
     {
       "name": "West End Farmer's Market ",
       "time": "9 a.m. to 2 p.m.",
-      "featured": true,
+      "featured": false,
       "date": "09-19-2026",
       "multi_day_event": false,
       "end_date": "09-19-2026",
@@ -1256,7 +1256,7 @@
     {
       "name": "Ladner Village Market ",
       "time": "10 a.m. to 4 p.m.",
-      "featured": true,
+      "featured": false,
       "date": "09-20-2026",
       "multi_day_event": false,
       "end_date": "09-20-2026",
