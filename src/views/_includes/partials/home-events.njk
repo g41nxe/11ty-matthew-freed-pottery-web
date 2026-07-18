@@ -2,7 +2,7 @@
     <div class="mx-auto max-w-6xl px-6 py-12">
         <div class="flex items-baseline justify-between gap-4">
             <h2 class="font-display text-3xl font-black text-paper">{{ events_band.title }}</h2>
-            <a href="/events.html" class="whitespace-nowrap border-b border-sand pb-0.5 text-sm font-medium text-sand">All events</a>
+            <a href="/events.html" class="link-underline link-invert whitespace-nowrap text-sm">All events</a>
         </div>
         {% set upcoming = events.events | filterFuture | nextUp %}
         {% if upcoming.length %}
