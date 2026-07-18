@@ -1,12 +1,32 @@
 <section class="border-y border-hairline bg-white" aria-label="Why buy from Matthew">
-    <ul class="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-4 gap-y-2 px-6 py-5 md:justify-between md:gap-x-8">
+    <div class="trust-marquee py-4 md:hidden">
+        <div class="trust-track">
+            <ul class="trust-seq flex flex-none items-center">
+                {% for item in trust %}
+                <li class="cap-label mx-3 whitespace-nowrap text-[12px] text-ink">{{ item }}</li>
+                <li aria-hidden="true" class="mx-3 text-sand">
+                    <svg viewBox="0 0 40 40" width="11" height="11" fill="currentColor"><ellipse cx="20" cy="9" rx="6" ry="9"/><ellipse cx="20" cy="31" rx="6" ry="9"/><ellipse cx="9" cy="20" rx="9" ry="6"/><ellipse cx="31" cy="20" rx="9" ry="6"/></svg>
+                </li>
+                {% endfor %}
+            </ul>
+            <ul class="trust-seq flex flex-none items-center" aria-hidden="true">
+                {% for item in trust %}
+                <li class="cap-label mx-3 whitespace-nowrap text-[12px] text-ink">{{ item }}</li>
+                <li class="mx-3 text-sand">
+                    <svg viewBox="0 0 40 40" width="11" height="11" fill="currentColor"><ellipse cx="20" cy="9" rx="6" ry="9"/><ellipse cx="20" cy="31" rx="6" ry="9"/><ellipse cx="9" cy="20" rx="9" ry="6"/><ellipse cx="31" cy="20" rx="9" ry="6"/></svg>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <ul class="trust-static mx-auto hidden max-w-6xl flex-col items-center gap-2.5 px-6 py-5 md:flex md:flex-row md:flex-wrap md:justify-between md:gap-x-8 md:gap-y-2">
         {% for item in trust %}
         {% if not loop.first %}
-        <li aria-hidden="true" class="hidden text-sand md:block">
+        <li aria-hidden="true" class="text-sand">
             <svg viewBox="0 0 40 40" width="13" height="13" fill="currentColor"><ellipse cx="20" cy="9" rx="6" ry="9"/><ellipse cx="20" cy="31" rx="6" ry="9"/><ellipse cx="9" cy="20" rx="9" ry="6"/><ellipse cx="31" cy="20" rx="9" ry="6"/></svg>
         </li>
         {% endif %}
-        <li class="cap-label text-[12px] text-ink">{{ item }}</li>
+        <li class="cap-label text-center text-[12px] text-ink">{{ item }}</li>
         {% endfor %}
     </ul>
 </section>
