@@ -4,6 +4,8 @@ title: Process
 tags: about
 permalink: "/about/process.html"
 headline: The Process
+eyebrow: How it's made
+quote: Inspiration can strike in strange ways.
 intro: Pottery is complicated. It is an art that requires creativity and a strong
   sense of design. It is also a science that requires a thorough understanding of
   natural materials and how they will react in combination with extreme heat. Each

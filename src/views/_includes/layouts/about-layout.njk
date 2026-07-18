@@ -9,11 +9,11 @@ layout: base
 </section>
 
 {% for section in sections %}
-<section class="mx-auto flex max-w-5xl flex-col items-center gap-8 px-6 py-10 md:flex-row {% if loop.index % 2 == 0 %}md:flex-row-reverse{% endif %}">
-    <div class="w-full overflow-hidden rounded-xl bg-tile md:flex-1">
-        {% img section.image.url, section.image.alt, "(min-width: 768px) 50vw, 100vw", "w-full object-cover" %}
+<section class="mx-auto flex max-w-5xl flex-col items-stretch gap-8 px-6 py-10 md:flex-row {% if loop.index % 2 == 0 %}md:flex-row-reverse{% endif %}">
+    <div class="w-full overflow-hidden rounded-xl bg-tile md:flex-1 md:self-stretch">
+        {% img section.image.url, section.image.alt, "(min-width: 768px) 50vw, 100vw", "w-full object-cover md:h-full md:min-h-[20rem]" %}
     </div>
-    <div class="w-full md:flex-1">
+    <div class="step-headings w-full md:flex-1">
         {% for p in section.paragraphs %}
         <p class="mb-4 text-base leading-relaxed text-muted">{{ p | safe }}</p>
         {% endfor %}
@@ -30,7 +30,7 @@ layout: base
 <section class="mx-auto max-w-3xl px-6 pb-14 pt-4">
     <div class="flex items-center gap-5 rounded-xl border border-hairline bg-white p-6">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C8A876" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5 7 22l5-3 5 3-1.5-7.5"/></svg>
-        <p class="text-sm leading-relaxed text-muted">Gold Medal for Excellence in Craft — Circle Craft. The story ends where the shop begins: <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" target="_blank" rel="noopener" class="link-underline">see what we've made together</a>.</p>
+        <p class="text-sm leading-relaxed text-muted">Gold Medal for Excellence in Craft — Circle Craft. The story ends where the shop begins: <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" target="_blank" rel="noopener" class="font-medium text-blue underline decoration-1 underline-offset-2 transition-colors hover:text-blue-light">see what we've made together</a>.</p>
     </div>
 </section>
 {% endif %}
