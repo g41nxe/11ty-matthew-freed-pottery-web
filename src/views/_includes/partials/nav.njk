@@ -1,12 +1,18 @@
+{# Active-page detection: About stays active on its subpages (/about/process etc.) #}
+{% set navItems = [
+    { href: "/collections.html", label: "Collections", active: page.url == "/collections.html" },
+    { href: "/events.html", label: "Events", active: page.url == "/events.html" },
+    { href: "/about/", label: "About", active: "/about/" in page.url },
+    { href: "/contact.html", label: "Contact", active: page.url == "/contact.html" }
+] %}
 <header id="site-header" class="sticky top-0 z-40 border-b border-transparent bg-paper transition-colors duration-300">
     <div class="site-nav-bar mx-auto flex max-w-6xl items-center justify-between px-6 py-4 transition-[padding] duration-300">
         <a href="/" class="mr-3 whitespace-nowrap font-display text-lg font-black text-blue sm:text-xl"><span class="sm:hidden">Matthew Freed</span><span class="hidden sm:inline">Matthew Freed Pottery</span></a>
 
         <nav class="hidden items-center gap-8 md:flex" aria-label="Main">
-            <a href="/collections.html" class="nav-link text-base text-muted transition-colors hover:text-blue">Collections</a>
-            <a href="/events.html" class="nav-link text-base text-muted transition-colors hover:text-blue">Events</a>
-            <a href="/about/" class="nav-link text-base text-muted transition-colors hover:text-blue">About</a>
-            <a href="/contact.html" class="nav-link text-base text-muted transition-colors hover:text-blue">Contact</a>
+            {% for item in navItems %}
+            <a href="{{ item.href }}"{% if item.active %} aria-current="page"{% endif %} class="nav-link text-base {% if item.active %}text-blue{% else %}text-muted{% endif %} transition-colors hover:text-blue">{{ item.label }}</a>
+            {% endfor %}
             <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" target="_blank" rel="noopener" class="btn-primary px-5 py-2 text-sm">Shop</a>
         </nav>
 
@@ -23,9 +29,8 @@
     </div>
 
     <nav id="nav-menu" hidden class="border-t border-hairline px-6 py-4 md:hidden" aria-label="Main mobile">
-        <a href="/collections.html" class="block py-3 text-base text-ink">Collections</a>
-        <a href="/events.html" class="block py-3 text-base text-ink">Events</a>
-        <a href="/about/" class="block py-3 text-base text-ink">About</a>
-        <a href="/contact.html" class="block py-3 text-base text-ink">Contact</a>
+        {% for item in navItems %}
+        <a href="{{ item.href }}"{% if item.active %} aria-current="page"{% endif %} class="block py-3 text-base {% if item.active %}font-medium text-blue{% else %}text-ink{% endif %}">{{ item.label }}</a>
+        {% endfor %}
     </nav>
 </header>

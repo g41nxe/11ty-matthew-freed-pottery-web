@@ -110,6 +110,11 @@
     .nav-link:focus-visible::after {
         transform: scaleX(1);
     }
+    /* Active page: the underline stays in (paired with aria-current + blue text
+       set in nav.njk) so visitors always see where they are. */
+    .nav-link[aria-current="page"]::after {
+        transform: scaleX(1);
+    }
 
     /* Collection-name emphasis inside CMS overlay blurbs (legacy markup).
        Sand on the dark image scrim; blue in the light inline variant. */
@@ -206,6 +211,13 @@
         display: flex;
         width: max-content;
         animation: trust-scroll 20s linear infinite;
+    }
+    /* WCAG 2.2.2 pause mechanism: hovering (desktop) or tapping (touch — tap sets
+       sticky :hover / :active) holds the ribbon still while the user reads it. */
+    .trust-marquee:hover .trust-track,
+    .trust-marquee:active .trust-track,
+    .trust-marquee:focus-within .trust-track {
+        animation-play-state: paused;
     }
     @keyframes trust-scroll {
         from { transform: translateX(0); }

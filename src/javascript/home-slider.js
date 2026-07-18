@@ -70,6 +70,7 @@
     let dir = 1;
     let onScreen = true;
     let held = false;
+    let stopped = false;
 
     function step() {
         let i = leadingIndex();
@@ -78,7 +79,7 @@
         goToCard(i + dir);
     }
     function play() {
-        if (!timer && onScreen && !held) timer = setInterval(step, 4500);
+        if (!timer && onScreen && !held && !stopped) timer = setInterval(step, 4500);
     }
     function pause() {
         if (timer) {
@@ -86,6 +87,19 @@
             timer = null;
         }
     }
+    // Deliberate interaction = the user has taken over; auto-advance stays off
+    // for the rest of the visit (WCAG 2.2.2 — motion until intent, then respect it).
+    function stop() {
+        stopped = true;
+        pause();
+    }
+
+    ["pointerdown", "wheel", "keydown"].forEach(function (e) {
+        slider.addEventListener(e, stop, { passive: true });
+    });
+    dots.forEach(function (dot) {
+        dot.addEventListener("click", stop);
+    });
 
     ["pointerenter", "focusin"].forEach(function (e) {
         slider.addEventListener(e, function () {
