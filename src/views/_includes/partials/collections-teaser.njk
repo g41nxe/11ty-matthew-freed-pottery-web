@@ -1,47 +1,32 @@
 <section class="mx-auto max-w-6xl px-6 py-12" aria-label="Collections">
-    <div class="flex items-end justify-between gap-4">
-        <div>
-            <h2 class="font-display text-3xl font-black text-ink">{{ collections_teaser.title }}</h2>
-            <p class="mt-2 max-w-xl text-sm text-muted">{{ collections_teaser.text }}</p>
-        </div>
-        <div class="hidden flex-none gap-2 md:flex">
-            <button type="button" data-slide="prev" aria-label="Previous collections" class="flex h-10 w-10 items-center justify-center rounded-full border border-blue text-blue transition-colors hover:bg-blue hover:text-paper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <button type="button" data-slide="next" aria-label="Next collections" class="flex h-10 w-10 items-center justify-center rounded-full border border-blue text-blue transition-colors hover:bg-blue hover:text-paper">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-            </button>
-        </div>
+    <div>
+        <h2 class="font-display text-3xl font-black text-ink">{{ collections_teaser.title }}</h2>
+        <p class="mt-2 max-w-xl text-sm text-muted">{{ collections_teaser.text }}</p>
     </div>
-    <div id="glaze-slider" class="no-scrollbar -mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2">
+    <div id="glaze-slider" class="no-scrollbar -mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-6 px-6 pb-2">
         {% for item in showcase.gallery %}
-        <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/{{ item.slug }}" target="_blank" rel="noopener" class="group w-[70%] flex-none snap-start sm:w-[45%] md:w-[31%]">
+        <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/{{ item.slug }}" target="_blank" rel="noopener" class="group w-[86%] flex-none snap-start sm:w-[45%] md:w-[31%]">
             <div class="aspect-[4/3] w-full overflow-hidden" style="background-color: {{ item.swatch }}">
-                {% if item.image.url %}{% img item.image.url, item.image.alt, "(min-width: 768px) 31vw, 70vw", "img-zoom h-full w-full object-cover" %}{% endif %}
+                {% if item.image.url %}{% img item.image.url, item.image.alt, "(min-width: 768px) 31vw, 86vw", "img-zoom h-full w-full object-cover" %}{% endif %}
             </div>
             <p class="mt-3 flex items-center gap-2 font-display text-base font-black text-ink transition-colors group-hover:text-blue">
                 <span class="h-2.5 w-2.5 flex-none rounded-full" style="background-color: {{ item.swatch }}" aria-hidden="true"></span>
                 {{ item.title | replace(" Collection", "") }}
             </p>
             <p class="mt-1 text-sm text-muted">{{ item.text }}</p>
+            <span class="link-underline mt-2 inline-block text-sm">View in the shop</span>
         </a>
         {% endfor %}
     </div>
-    <div class="mt-5 flex justify-center gap-3 md:hidden">
-        <button type="button" data-slide="prev" aria-label="Previous collections" class="flex h-11 w-11 items-center justify-center rounded-full border border-blue text-blue transition-colors hover:bg-blue hover:text-paper">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <button type="button" data-slide="next" aria-label="Next collections" class="flex h-11 w-11 items-center justify-center rounded-full border border-blue text-blue transition-colors hover:bg-blue hover:text-paper">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-        </button>
-    </div>
-    <a href="/collections.html" class="palette-strip group mt-8 flex flex-col gap-4 border-y border-hairline py-5 sm:flex-row sm:items-center sm:justify-between">
-        <span class="strip-label font-display text-lg font-black text-blue"><span class="hidden sm:inline">The full field guide — all fifteen</span><span class="sm:hidden">All fifteen</span> <span class="whitespace-nowrap">glazes <span class="inline-block transition-transform group-hover:translate-x-1" aria-hidden="true">&rarr;</span></span></span>
-        <span class="palette-dots flex flex-wrap items-center gap-1.5">
+    <div class="palette-strip mt-8 flex flex-col gap-4 border-y border-hairline py-5 sm:flex-row sm:items-center sm:justify-between">
+        <a href="/collections.html" class="strip-label self-start font-display text-lg font-black text-blue sm:self-auto"><span class="hidden sm:inline">The full field guide — all fifteen</span><span class="sm:hidden">All fifteen</span> glazes</a>
+        <div class="palette-dots -mx-1 flex flex-wrap items-center" aria-label="Jump to a glaze">
             {% for item in showcase.gallery %}
-            <span class="h-3.5 w-3.5 rounded-full" style="background-color: {{ item.swatch }}; --i: {{ loop.index0 }}" title="{{ item.title | replace(' Collection', '') }}"></span>
+            <button type="button" data-goto="{{ loop.index0 }}" class="glaze-dot" title="{{ item.title | replace(' Collection', '') }}" aria-label="Show {{ item.title | replace(' Collection', '') }}">
+                <span class="dot" style="background-color: {{ item.swatch }}"></span>
+            </button>
             {% endfor %}
-        </span>
-    </a>
+        </div>
+    </div>
     <script defer src="/js/home-slider.js"></script>
 </section>
