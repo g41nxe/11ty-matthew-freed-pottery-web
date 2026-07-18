@@ -61,11 +61,12 @@ collections:
                   - {label: "url", name: "url", widget: "image", choose_url: false}
                   - {label: "alt", name: "alt", widget: "string"}
 
-          - label: "Trust strip"
+          - label: "Trust ribbon (below the hero)"
             name: "trust"
             widget: "list"
             collapsed: true
-            field: {label: "Item", name: "item", widget: "string"}
+            hint: "Short claims in the ribbon under the hero. The same list drives both views — it scrolls on mobile and spreads across on desktop — and shows in uppercase."
+            field: {label: "Claim", name: "item", widget: "string"}
 
           - label: "Featured piece"
             name: "featured_piece"
