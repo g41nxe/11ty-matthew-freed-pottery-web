@@ -18,9 +18,9 @@ layout: base
         <p class="cap-label mb-4 text-blue">Special events</p>
         {% for event in special %}
         <article class="mb-4 flex gap-4 rounded-xl border border-hairline bg-white p-5">
-            <div class="flex h-fit flex-none flex-col items-center rounded-lg px-4 py-2 {% if event.atStudio %}bg-blue{% else %}bg-tile{% endif %}">
-                <span class="cap-label text-[11px] {% if event.atStudio %}text-sand{% else %}text-soft{% endif %}">{{ event.date | date("MMM") }}</span>
-                <span class="font-display text-xl font-black {% if event.atStudio %}text-paper{% else %}text-ink{% endif %}">{{ event.date | date("d") }}{% if event.multi_day_event and event.end_date != event.date %}–{{ event.end_date | date("d") }}{% endif %}</span>
+            <div class="flex h-fit flex-none flex-col items-center rounded-lg px-4 py-2 {% if event.atStudio %}bg-sand{% else %}bg-tile{% endif %}">
+                <span class="cap-label text-[11px] {% if event.atStudio %}text-ink{% else %}text-soft{% endif %}">{{ event.date | date("MMM") }}</span>
+                <span class="font-display text-xl font-black text-ink">{{ event.date | date("d") }}{% if event.multi_day_event and event.end_date != event.date %}–{{ event.end_date | date("d") }}{% endif %}</span>
             </div>
             <div>
                 <h2 class="font-display text-xl font-black text-ink">
@@ -47,7 +47,7 @@ layout: base
             {% if group.first.content.body %}<p class="mt-2 text-sm leading-relaxed text-muted">{{ group.first.content.body }}</p>{% endif %}
             <div class="mt-4 flex flex-wrap items-center gap-2">
                 {% for d in group.dates %}
-                <span class="rounded-lg px-3 py-1.5 text-sm font-medium {% if loop.first %}bg-blue text-paper{% else %}bg-tile text-ink{% endif %}"{% if loop.first %} title="Next date"{% endif %}>{{ d | date("MMM d") }}</span>
+                <span class="rounded-lg px-3 py-1.5 text-sm font-medium {% if loop.first %}bg-sand{% else %}bg-tile{% endif %} text-ink"{% if loop.first %} title="Next date"{% endif %}>{{ d | date("MMM d") }}</span>
                 {% endfor %}
             </div>
         </article>
