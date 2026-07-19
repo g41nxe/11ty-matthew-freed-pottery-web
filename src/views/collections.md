@@ -12,4 +12,8 @@ filters:
   - Blues
   - Charcoals
   - Patterned
+author: Matthew Freed
+excerpt: Explore my different glazing lines and pottery forms. Each piece is a complexity
+  of nature, science, and art.
+image: "/assets/blue-arrangement.jpg"
 ---

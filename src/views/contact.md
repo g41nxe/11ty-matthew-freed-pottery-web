@@ -19,4 +19,5 @@ contactform:
   title: Contact me
   submit: Send Away
   info: All fields marked with an asterisk (*) are required.
+image: "/images/uploads/contact.jpeg"
 ---
