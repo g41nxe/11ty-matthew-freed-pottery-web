@@ -60,10 +60,11 @@ layout: base
     </div>
 
     <div class="lg:flex-1">
+        <div class="lg:sticky lg:top-20">
         <p class="cap-label mb-4 text-blue">Latest from the studio</p>
         {% set latestNews = news.news | sortByDate | first %}
         {% if latestNews or studio.title %}
-        <div class="overflow-hidden rounded-xl border border-hairline bg-white lg:sticky lg:top-20">
+        <div class="overflow-hidden rounded-xl border border-hairline bg-white">
             {% if latestNews %}
             <div>
                 {% if latestNews.image.url %}
@@ -92,6 +93,7 @@ layout: base
             {% endif %}
         </div>
         {% endif %}
+        </div>
     </div>
 </div>
 
