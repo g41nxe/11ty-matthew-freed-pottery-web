@@ -5,3 +5,9 @@ dist
 .sass-cache
 tina/__generated__/
 .env
+
+# Local Netlify folder
+.netlify
+
+# Netlify CLI's Deno/Edge Functions bootstrap lockfile (we don't use Edge Functions)
+deno.lock
