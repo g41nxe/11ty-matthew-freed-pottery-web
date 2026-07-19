@@ -13,7 +13,7 @@
     "styles:prod": "postcss src/styles/main.css --output dist/styles/main.css",
     "cms": "npx decap-server",
     "typecheck": "tsc --noEmit",
-    "tina:build": "tinacms build",
+    "tina:build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 tinacms build",
     "tina:dev": "cross-env TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"npm run eleventy:serve\"",
     "dev": "npm-run-all clean styles:dev --parallel styles:watch tina:dev --print-label",
     "dev:cms": "npm-run-all --parallel cms dev --print-label",
