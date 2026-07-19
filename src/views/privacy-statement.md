@@ -6,10 +6,6 @@ permalink: "/privacy-statement.html"
 headline: Privacy Policy
 intro: This Privacy Policy describes how your personal information is collected, used,
   and shared when you visit our site.
-image:
-  url: ''
-  alt: ''
-
 ---
 
 ## Personal Information We Collect

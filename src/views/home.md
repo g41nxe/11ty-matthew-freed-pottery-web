@@ -52,9 +52,4 @@ story_teaser:
   image:
     url: /images/overheadwork.jpg
     alt: Matthew at the pottery wheel, centering a plate
-custom_seo_settings: false
-author: ""
-excerpt: ""
-image: ""
-ogtype: ""
 ---
