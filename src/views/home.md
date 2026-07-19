@@ -11,8 +11,7 @@ hero:
   title: Art for everyday life
   highlight: life
   text: Functional stoneware in fifteen glazes, each with a name and a story.
-  cta_primary:
-    label: Shop the collections
+  cta_primary: Shop the collections
   cta_secondary:
     label: Upcoming events
     url: /events.html

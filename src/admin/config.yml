@@ -43,11 +43,7 @@ collections:
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Highlight word (shown in sand)", name: "highlight", widget: "string", required: false}
               - {label: "Text", name: "text", widget: "text"}
-              - label: "Primary button"
-                name: "cta_primary"
-                widget: "object"
-                fields:
-                  - {label: "Label", name: "label", widget: "string"}
+              - {label: "Primary button", name: "cta_primary", widget: "string"}
               - label: "Secondary link"
                 name: "cta_secondary"
                 widget: "object"
@@ -568,14 +564,6 @@ collections:
         name: "global"
         file: "src/views/_data/global.json"
         fields:
-          - label: "Google Maps"
-            name: "gmaps"
-            widget: "object"
-            minimize_collapsed: true
-            collapsed: true
-            fields:
-              - {label: "API Key", name: "key", widget: "string"}
-
           - label: "Hero Section"
             name: "hero"
             widget: "object"
@@ -590,14 +578,6 @@ collections:
                   - {label: "Alt Text", name: "alt", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Subtitle", name: "subtitle", widget: "string"}
-
-          - label: "Newsletter"
-            name: "newsletter"
-            widget: "object"
-            minimize_collapsed: true
-            collapsed: true
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
 
           - label: "Contact Information"
             name: "contact"

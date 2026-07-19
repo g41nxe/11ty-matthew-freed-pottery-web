@@ -1,7 +1,4 @@
 {
-  "gmaps": {
-    "key": "AIzaSyCFHnnqdvlsho-1eAgbRZwmIgqmq_X9jpI"
-  },
   "hero": {
     "image": {
       "url": "/images/hero.jpg",
@@ -9,9 +6,6 @@
     },
     "title": "Matthew Freed Pottery",
     "subtitle": "Art for everyday life"
-  },
-  "newsletter": {
-    "title": "Sign up to my Newsletter"
   },
   "contact": {
     "name": "Matthew Freed Pottery <sup>&copy;2021</sup>",
