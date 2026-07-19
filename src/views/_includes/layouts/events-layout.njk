@@ -61,35 +61,44 @@ layout: base
 
     <div class="lg:flex-1">
         <p class="cap-label mb-4 text-blue">Latest from the studio</p>
-        <div class="space-y-6 lg:sticky lg:top-20">
-            {% set latestNews = news.news | sortByDate | first %}
+        {% set latestNews = news.news | sortByDate | first %}
+        {% if latestNews or studio.title %}
+        <div class="overflow-hidden rounded-xl border border-hairline bg-white lg:sticky lg:top-20">
             {% if latestNews %}
-            <article class="overflow-hidden rounded-xl border border-hairline bg-white">
+            <div>
                 {% if latestNews.image.url %}
                 {% img latestNews.image.url, latestNews.image.alt, "(min-width: 1024px) 30vw, 100vw", "aspect-[4/3] w-full object-cover" %}
                 {% endif %}
                 <div class="p-6">
                     <p class="cap-label text-[11px] text-soft">From the studio &middot; {{ latestNews.date | date("MMM d") }}</p>
-                    <h2 class="mt-2 font-display text-lg font-black text-ink">{{ latestNews.content.title }}</h2>
+                    <h2 class="mt-2 font-display text-xl font-black text-ink">{{ latestNews.content.title }}</h2>
                     <p class="mt-3 text-sm leading-relaxed text-muted">{{ latestNews.content.body | safe }}</p>
-                    {% img "images/signature.jpg", "Cheers, Matthew", "128px", "mt-4 ml-auto block h-auto w-28" %}
+                    {% img "images/signature.jpg", "Cheers, Matthew", "144px", "mt-4 ml-auto block h-auto w-32" %}
                 </div>
-            </article>
+            </div>
             {% endif %}
 
-            {% if studio.image.url %}
-            <figure class="overflow-hidden rounded-xl bg-tile">
-                {% img studio.image.url, studio.image.alt, "(min-width: 1024px) 30vw, 100vw", "aspect-[4/3] w-full object-cover" %}
-                {% if studio.image.caption %}<figcaption class="px-4 py-3 text-sm text-muted">{{ studio.image.caption }}</figcaption>{% endif %}
-            </figure>
+            {% if latestNews and studio.title %}
+            <div class="mx-6 border-t border-hairline"></div>
             {% endif %}
-            <aside class="rounded-xl bg-blue p-6">
-                <h2 class="font-display text-xl font-black text-paper">{{ studio.title }}</h2>
-                <p class="mt-3 text-sm leading-relaxed text-paper/80">{{ studio.text }}</p>
-                <a href="{{ studio.cta.url }}" class="mt-5 inline-block rounded-full bg-paper px-5 py-2.5 text-sm font-medium text-blue transition-colors hover:bg-blue-light hover:text-paper">{{ studio.cta.label }}</a>
-                <p class="mt-5 border-t border-blue-light pt-4 text-sm text-paper/80">{{ studio.footnote }}</p>
-            </aside>
+
+            {% if studio.title %}
+            <div class="flex gap-4 p-6">
+                {% if studio.image.url %}
+                <div class="h-14 w-14 flex-none overflow-hidden rounded-lg bg-tile">
+                    {% img studio.image.url, studio.image.alt, "56px", "h-full w-full object-cover" %}
+                </div>
+                {% endif %}
+                <div class="min-w-0">
+                    <h2 class="font-display text-base font-black text-ink">{{ studio.title }}</h2>
+                    <p class="mt-1.5 text-sm leading-relaxed text-muted">{{ studio.text }}</p>
+                    <a href="{{ studio.cta.url }}" class="btn-primary mt-3 inline-block">{{ studio.cta.label }}</a>
+                    {% if studio.footnote %}<p class="mt-3 text-xs leading-relaxed text-soft">{{ studio.footnote }}</p>{% endif %}
+                </div>
+            </div>
+            {% endif %}
         </div>
+        {% endif %}
     </div>
 </div>
 
