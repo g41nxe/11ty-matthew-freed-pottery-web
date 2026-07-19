@@ -17,7 +17,7 @@ layout: base
         {% if special.length %}
         <p class="cap-label mb-4 text-blue">Special events</p>
         {% for event in special %}
-        <article class="mb-4 flex gap-4 rounded-xl border border-hairline bg-white p-5">
+        <article class="mb-4 flex gap-4 rounded-xl border border-hairline bg-white p-5 last:mb-0">
             <div class="flex h-fit flex-none flex-col items-center rounded-lg px-4 py-2 {% if event.atStudio %}bg-sand{% else %}bg-tile{% endif %}">
                 <span class="cap-label text-[11px] {% if event.atStudio %}text-ink{% else %}text-soft{% endif %}">{{ event.date | date("MMM") }}</span>
                 <span class="font-display text-xl font-black text-ink">{{ event.date | date("d") }}{% if event.multi_day_event and event.end_date != event.date %}–{{ event.end_date | date("d") }}{% endif %}</span>
@@ -38,7 +38,7 @@ layout: base
         {% if markets.length %}
         <p class="cap-label mb-4 text-blue{% if special.length %} mt-10{% endif %}">Market schedule</p>
         {% for group in markets %}
-        <article class="mb-4 rounded-xl border border-hairline bg-white p-5">
+        <article class="mb-4 rounded-xl border border-hairline bg-white p-5 last:mb-0">
             <div class="flex flex-wrap items-baseline justify-between gap-2">
                 <h2 class="font-display text-xl font-black text-ink">{{ group.name }}</h2>
                 {% if group.first.gmaps %}<a href="https://www.google.com/maps/search/?api=1&query={{ group.first.gmaps | urlencode }}" class="link-underline text-sm">Directions</a>{% endif %}
