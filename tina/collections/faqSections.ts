@@ -6,5 +6,5 @@ export const faqSections: Collection = {
   path: "src/content/faq",
   format: "md",
   ui: { allowedActions: { create: true, delete: true } },
-  fields: [{ type: "string", name: "__placeholder", label: "placeholder" }],
+  fields: [{ type: "string", name: "placeholder", label: "Placeholder" }],
 };

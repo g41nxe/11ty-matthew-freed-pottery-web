@@ -7,5 +7,5 @@ export const eventsPage: Collection = {
   format: "md",
   match: { include: "events" },
   ui: { allowedActions: { create: false, delete: false } },
-  fields: [{ type: "string", name: "__placeholder", label: "placeholder" }],
+  fields: [{ type: "string", name: "placeholder", label: "Placeholder" }],
 };

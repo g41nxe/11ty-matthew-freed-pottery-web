@@ -6,5 +6,5 @@ export const features: Collection = {
   path: "src/content/features",
   format: "md",
   ui: { allowedActions: { create: true, delete: true } },
-  fields: [{ type: "string", name: "__placeholder", label: "placeholder" }],
+  fields: [{ type: "string", name: "placeholder", label: "Placeholder" }],
 };

@@ -6,5 +6,5 @@ export const gallery: Collection = {
   path: "src/content/gallery",
   format: "md",
   ui: { allowedActions: { create: true, delete: true } },
-  fields: [{ type: "string", name: "__placeholder", label: "placeholder" }],
+  fields: [{ type: "string", name: "placeholder", label: "Placeholder" }],
 };
