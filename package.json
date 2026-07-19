@@ -12,9 +12,11 @@
     "styles:watch": "postcss src/styles/main.css --output dist/styles/main.css --watch",
     "styles:prod": "postcss src/styles/main.css --output dist/styles/main.css",
     "cms": "npx decap-server",
-    "dev": "npm-run-all clean styles:dev --parallel styles:watch eleventy:serve --print-label",
+    "tina:build": "cross-env tinacms build",
+    "tina:dev": "cross-env TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"npm run eleventy:serve\"",
+    "dev": "npm-run-all clean styles:dev --parallel styles:watch tina:dev --print-label",
     "dev:cms": "npm-run-all --parallel cms dev --print-label",
-    "build": "npm-run-all clean styles:prod eleventy:default --print-label"
+    "build": "npm-run-all clean styles:prod tina:build eleventy:default --print-label"
   },
   "keywords": [],
   "author": "",
