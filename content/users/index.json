@@ -1,0 +1,6 @@
+{ "users": [
+  { "name": "Dan", "email": "g41nxe@gmail.com", "username": "dan",
+    "password": { "value": "CHANGE_ME_ON_FIRST_LOGIN", "passwordChangeRequired": true } },
+  { "name": "Matthew Freed", "email": "mfreed74@gmail.com", "username": "matthew",
+    "password": { "value": "CHANGE_ME_ON_FIRST_LOGIN", "passwordChangeRequired": true } }
+] }
