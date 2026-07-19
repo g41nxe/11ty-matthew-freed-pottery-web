@@ -13,11 +13,7 @@ layout: base
     <div class="w-full overflow-hidden rounded-xl bg-tile md:flex-1 md:self-stretch">
         {% img section.image.url, section.image.alt, "(min-width: 768px) 50vw, 100vw", "w-full object-cover md:h-full md:min-h-[20rem]" %}
     </div>
-    <div class="step-headings w-full md:flex-1">
-        {% for p in section.paragraphs %}
-        <p class="mb-4 text-base leading-relaxed text-muted">{{ p | safe }}</p>
-        {% endfor %}
-    </div>
+    <div class="step-headings prose-pottery w-full md:flex-1">{{ section.body | markdownify | safe }}</div>
 </section>
 {% if loop.index == 1 and quote %}
 <section class="mx-auto max-w-3xl px-6 py-6">

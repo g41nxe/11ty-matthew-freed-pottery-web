@@ -3,6 +3,8 @@ const { DateTime } = require("luxon");
 const Image = require("@11ty/eleventy-img");
 const { generateHTML } = require("@11ty/eleventy-img");
 const pluginSEO = require("eleventy-plugin-seo");
+const markdownIt = require("markdown-it");
+const md = markdownIt({ html: true }); // html:true is required — process.md's paragraphs include raw <b> tags
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget("src/javascript/*.js");
@@ -118,6 +120,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addNunjucksFilter("uuid", function() {
         return uuidv4();
     })
+    eleventyConfig.addNunjucksFilter("markdownify", (s) => (s ? md.render(s) : ""));
 
     return {
         dir: {
