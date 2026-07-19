@@ -25,5 +25,5 @@ const tinaBackend = TinaNodeBackend({
   databaseClient,
 });
 
-app.all("/api/tina/*", async (req, res) => tinaBackend(req, res));
+app.all("/api/tina/*splat", async (req, res) => tinaBackend(req, res));
 export const handler = ServerlessHttp(app);
