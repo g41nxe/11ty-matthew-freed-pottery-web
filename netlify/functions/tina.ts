@@ -5,6 +5,7 @@ import cors from "cors";
 import { TinaNodeBackend, LocalBackendAuthProvider } from "@tinacms/datalayer";
 import { AuthJsBackendAuthProvider, TinaAuthJSOptions } from "tinacms-authjs";
 import databaseClient from "../../tina/__generated__/databaseClient";
+import { requireEnv } from "../../tina/util/env";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -19,7 +20,7 @@ const tinaBackend = TinaNodeBackend({
     : AuthJsBackendAuthProvider({
         authOptions: TinaAuthJSOptions({
           databaseClient,
-          secret: process.env.NEXTAUTH_SECRET!,
+          secret: requireEnv(["NEXTAUTH_SECRET"] as const).NEXTAUTH_SECRET,
         }),
       }),
   databaseClient,
