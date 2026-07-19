@@ -24,6 +24,4 @@ sections:
     - All of these factors, the bounty of creative potential, and the limitless opportunity
       to learn and grow, have joined together to form my passion for this art. I hope
       that you enjoy my work.
-
-  label: Section 1
 ---
