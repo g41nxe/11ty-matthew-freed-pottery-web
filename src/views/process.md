@@ -59,10 +59,4 @@ sections:
 eleventyNavigation:
   key: ''
   order: 
-custom_seo_settings: false
-author: ''
-excerpt: ''
-image: ''
-ogtype: ''
-
 ---

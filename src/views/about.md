@@ -44,10 +44,4 @@ sections:
     where we can reminisce about our long lifetime journey together.
   label: Section 2
 quote: Pottery can be somewhat unpredictable and moody — so we fight on occasion. But our foundation is strong and we always patch things up.
-custom_seo_settings: false
-author: ''
-excerpt: ''
-image: ''
-ogtype: ''
-
 ---
