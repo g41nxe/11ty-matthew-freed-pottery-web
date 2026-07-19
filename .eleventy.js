@@ -6,6 +6,12 @@ const pluginSEO = require("eleventy-plugin-seo");
 const markdownIt = require("markdown-it");
 const md = markdownIt({ html: true }); // html:true is required — process.md's paragraphs include raw <b> tags
 
+function parseDate(s) {
+  if (!s) return DateTime.invalid("empty");
+  const iso = DateTime.fromISO(s);
+  return iso.isValid ? iso : DateTime.fromFormat(s, "MM-dd-yyyy");
+}
+
 module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget("src/javascript/*.js");
 
@@ -52,27 +58,27 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addNunjucksFilter("sortByDate", function (arr, attribute="date") {
         return arr.slice().sort(function(a, b) {
-            return DateTime.fromFormat(b[attribute], 'MM-dd-yyyy').toJSDate()
-                 - DateTime.fromFormat(a[attribute], 'MM-dd-yyyy').toJSDate();
+            return parseDate(b[attribute]).toJSDate()
+                 - parseDate(a[attribute]).toJSDate();
         });
     });
     eleventyConfig.addNunjucksFilter("hashtagURL", function (hashtag) {
         return `https://www.instagram.com/explore/tags/${hashtag}/`;
     });
     eleventyConfig.addNunjucksFilter("date", function (date, format) {
-        return DateTime.fromFormat(date, 'MM-dd-yyyy').toFormat(format);
+        return parseDate(date).toFormat(format);
     });
     eleventyConfig.addNunjucksFilter("removeFirst", function (array) {
         return array.slice(1, array.length);
     });
     eleventyConfig.addNunjucksFilter("filterFuture", function(array) {
         return array.filter(el => {
-            return DateTime.fromFormat(el.date, 'MM-dd-yyyy') > DateTime.now();
+            return parseDate(el.date) > DateTime.now();
         });
     });
     eleventyConfig.addNunjucksFilter("filterPast", function(array) {
         return array.filter(el => {
-            return DateTime.fromFormat(el.date, 'MM-dd-yyyy') <= DateTime.now();
+            return parseDate(el.date) <= DateTime.now();
         });
     });
     // Special events: studio openings and multi-day shows (Culture Crawl, Circle Craft).
@@ -80,7 +86,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addNunjucksFilter("specialEvents", function(array) {
         return array
             .filter(e => e.atStudio || e.multi_day_event)
-            .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'));
+            .sort((a, b) => parseDate(a.date) - parseDate(b.date));
     });
     // Recurring markets grouped by venue name: one entry per market with all
     // upcoming dates, soonest venue first. Excludes special events.
@@ -93,7 +99,7 @@ module.exports = function (eleventyConfig) {
                 if (!groups.has(key)) groups.set(key, { name: key, first: e, dates: [] });
                 groups.get(key).dates.push(e.date);
             });
-        const byDate = (a, b) => DateTime.fromFormat(a, 'MM-dd-yyyy') - DateTime.fromFormat(b, 'MM-dd-yyyy');
+        const byDate = (a, b) => parseDate(a) - parseDate(b);
         return Array.from(groups.values())
             .map(g => { g.dates.sort(byDate); return g; })
             .sort((a, b) => byDate(a.dates[0], b.dates[0]));
@@ -103,7 +109,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addNunjucksFilter("nextUp", function(array) {
         const seen = new Set();
         return array.slice()
-            .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'))
+            .sort((a, b) => parseDate(a.date) - parseDate(b.date))
             .filter(e => {
                 const key = e.name.trim();
                 if (seen.has(key)) return false;
@@ -113,8 +119,8 @@ module.exports = function (eleventyConfig) {
     });
     eleventyConfig.addNunjucksFilter("filterFeatured", function(array) {
         return array
-            .filter(el => el.featured && DateTime.fromFormat(el.date, 'MM-dd-yyyy') > DateTime.now())
-            .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'))
+            .filter(el => el.featured && parseDate(el.date) > DateTime.now())
+            .sort((a, b) => parseDate(a.date) - parseDate(b.date))
             .slice(0, 5);
     })
     eleventyConfig.addNunjucksFilter("uuid", function() {
