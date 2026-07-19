@@ -251,7 +251,7 @@ collections:
           - label: "sections"
             name: "sections"
             widget: "list"
-            summary: '{{fields.label}}'
+            summary: '{{fields.image.alt}}'
             fields:
               - label: "image"
                 name: "image"
@@ -259,12 +259,7 @@ collections:
                 fields:
                   - {label: "url", name: "url", widget: "image", choose_url: false}
                   - {label: "alt", name: "alt", widget: "string"}
-              - label: "paragraphs"
-                name: "paragraphs"
-                widget: "list"
-                fields:
-                  - {label: "text", name: "text", widget: "text"}
-              - {label: "label", name: "label", widget: "string"}
+              - {label: "body", name: "body", widget: "markdown"}
 
           - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
           - {label: "author", name: "author", widget: "hidden"}
@@ -288,7 +283,7 @@ collections:
           - label: "sections"
             name: "sections"
             widget: "list"
-            summary: '{{fields.label}}'
+            summary: '{{fields.image.alt}}'
             fields:
               - label: "image"
                 name: "image"
@@ -296,12 +291,7 @@ collections:
                 fields:
                   - {label: "url", name: "url", widget: "image", choose_url: false}
                   - {label: "alt", name: "alt", widget: "string"}
-              - label: "paragraphs"
-                name: "paragraphs"
-                widget: "list"
-                fields: 
-                  - {label: "text", name: "text", widget: "text"}
-              - {label: "label", name: "label", widget: "string"}
+              - {label: "body", name: "body", widget: "markdown"}
 
       - label: "About - Process"
         name: "process"
@@ -318,7 +308,7 @@ collections:
           - label: "sections"
             name: "sections"
             widget: "list"
-            summary: '{{fields.label}}'
+            summary: '{{fields.image.alt}}'
             fields:
               - label: "image"
                 name: "image"
@@ -326,12 +316,7 @@ collections:
                 fields:
                   - {label: "url", name: "url", widget: "image", choose_url: false}
                   - {label: "alt", name: "alt", widget: "string"}
-              - label: "paragraphs"
-                name: "paragraphs"
-                widget: "list"
-                fields: 
-                  - {label: "text", name: "text", widget: "text"}
-              - {label: "label", name: "label", widget: "string"}
+              - {label: "body", name: "body", widget: "markdown"}
 
           - label: "eleventyNavigation"
             name: "eleventyNavigation"
