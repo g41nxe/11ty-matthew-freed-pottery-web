@@ -26,7 +26,6 @@ sections:
   - I kept pottery as a hobby but soon came to a realization that it was a passion
     that I wanted as a central fixture in my life. It was time to make a lifetime
     commitment to one another.
-  label: Section 1
 - image:
     url: "/images/pottery-in-action-2.jpg"
     alt: Matthew throwing a cup
@@ -42,6 +41,5 @@ sections:
     in Craft by Circle Craft. So onward we proceed on this life journey together -
     slowly working our way to being old and gray and sitting on the front porch swing
     where we can reminisce about our long lifetime journey together.
-  label: Section 2
 quote: Pottery can be somewhat unpredictable and moody — so we fight on occasion. But our foundation is strong and we always patch things up.
 ---
