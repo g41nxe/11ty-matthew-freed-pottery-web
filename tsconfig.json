@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true
+  },
+  "include": ["tina/**/*.ts", "netlify/functions/**/*.ts"],
+  "exclude": ["node_modules", "tina/__generated__"]
+}

@@ -12,6 +12,7 @@
     "styles:watch": "postcss src/styles/main.css --output dist/styles/main.css --watch",
     "styles:prod": "postcss src/styles/main.css --output dist/styles/main.css",
     "cms": "npx decap-server",
+    "typecheck": "tsc --noEmit",
     "tina:build": "cross-env tinacms build",
     "tina:dev": "cross-env TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"npm run eleventy:serve\"",
     "dev": "npm-run-all clean styles:dev --parallel styles:watch tina:dev --print-label",
@@ -51,9 +52,13 @@
     "tinacms-gitprovider-github": "^4.1.16"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
     "@types/node": "^26.1.1",
     "cross-env": "^10.1.0",
-    "netlify-cli": "^26.2.0"
+    "netlify-cli": "^26.2.0",
+    "typescript": "^5.9.3"
   },
   "overrides": {
     "gray-matter": {
