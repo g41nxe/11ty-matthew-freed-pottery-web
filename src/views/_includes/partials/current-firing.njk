@@ -6,7 +6,7 @@
     <div class="mt-8 grid gap-10 md:grid-cols-2 lg:gap-12">
         <a href="{{ featured_piece.cta.url }}" target="_blank" rel="noopener" class="group">
             <div class="overflow-hidden bg-tile">
-                {% img featured_piece.image.url, featured_piece.image.alt, "(min-width: 768px) 50vw, 100vw", "img-zoom w-full object-cover" %}
+                {% img featured_piece.image.url, featured_piece.image.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "img-zoom w-full object-cover" %}
             </div>
             {% if featured_piece.eyebrow %}<p class="cap-label mt-4 text-[11px] text-sand">{{ featured_piece.eyebrow }}</p>{% endif %}
             <h3 class="mt-1 font-display text-2xl font-black text-ink transition-colors group-hover:text-blue">{{ featured_piece.title }}</h3>
@@ -20,7 +20,7 @@
             {% if loop.index <= 4 %}
             <a href="{{ item.cta.url }}" target="_blank" rel="noopener" class="group">
                 <div class="relative overflow-hidden bg-tile">
-                    {% img item.image.url, item.image.alt, "(min-width: 768px) 25vw, 50vw", "img-zoom w-full object-cover" %}
+                    {% img item.image.url, item.image.alt, "(min-width: 1152px) 254px, (min-width: 768px) 25vw, 50vw", "img-zoom w-full object-cover" %}
                     {% if item.overlay.text %}
                     <div class="absolute inset-x-0 bottom-0 hidden translate-y-3 bg-linear-to-t from-ink via-ink/75 to-transparent px-3 pb-3 pt-12 font-display text-sm leading-snug text-paper opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 md:block">
                         {{ item.overlay.text | safe }}

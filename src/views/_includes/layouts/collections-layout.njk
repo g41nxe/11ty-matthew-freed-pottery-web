@@ -19,7 +19,7 @@ layout: base
     {% for item in showcase.gallery %}
     <article class="group overflow-hidden rounded-xl border border-hairline bg-white" data-group="{{ item.filterGroups | join(" ") | lower }}">
         <div class="aspect-[4/3] overflow-hidden" style="background-color: {{ item.swatch }}">
-            {% if item.image.url %}{% img item.image.url, item.image.alt, "(min-width: 768px) 33vw, 50vw", "img-zoom h-full w-full object-cover" %}{% endif %}
+            {% if item.image.url %}{% img item.image.url, item.image.alt, "(min-width: 1152px) 350px, (min-width: 768px) 33vw, 50vw", "img-zoom h-full w-full object-cover" %}{% endif %}
         </div>
         <div class="p-4">
             <h2 class="flex items-center gap-2 font-display text-lg font-black text-ink">

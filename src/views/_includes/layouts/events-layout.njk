@@ -68,7 +68,7 @@ layout: base
             {% if latestNews %}
             <div>
                 {% if latestNews.image.url %}
-                {% img latestNews.image.url, latestNews.image.alt, "(min-width: 1024px) 30vw, 100vw", "aspect-[4/3] w-full object-cover" %}
+                {% img latestNews.image.url, latestNews.image.alt, "(min-width: 1152px) 445px, (min-width: 1024px) 30vw, 100vw", "aspect-[4/3] w-full object-cover" %}
                 {% endif %}
                 <div class="p-6">
                     <p class="cap-label text-[11px] text-soft">{{ section_labels.from_studio }} &middot; {{ latestNews.date | date("MMM d") }}</p>
