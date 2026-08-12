@@ -7,7 +7,10 @@
 ] %}
 <header id="site-header" class="sticky top-0 z-40 border-b border-transparent bg-paper transition-colors duration-300">
     <div class="site-nav-bar mx-auto flex max-w-6xl items-center justify-between px-6 py-4 transition-[padding] duration-300">
-        <a href="/" class="mr-3 whitespace-nowrap font-display text-lg font-black text-blue sm:text-xl"><span class="sm:hidden">Matthew Freed</span><span class="hidden sm:inline">Matthew Freed Pottery</span></a>
+        <a href="/" class="mr-3 font-display text-lg font-black leading-[0.95] text-blue sm:whitespace-nowrap sm:text-xl sm:leading-normal">
+            <span class="block sm:inline">Matthew Freed</span>
+            <span class="block sm:inline">Pottery</span>
+        </a>
 
         <nav class="hidden items-center gap-8 md:flex" aria-label="Main">
             {% for item in navItems %}
