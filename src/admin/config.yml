@@ -700,14 +700,9 @@ collections:
         fields:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Description", name: "description", widget: "text"}
-          - {label: "URL", name: "url", widget: "string"}
+          - {label: "Site URL (no trailing slash)", name: "url", widget: "string", pattern: ["^https?://[^/]+$", "Enter the site URL with no trailing slash, e.g. https://matthewfreed.ca"]}
           - {label: "Author", name: "author", widget: "string"}
-          - label: "Image"
-            name: "image"
-            widget: "object"
-            fields:
-              - {label: "URL", name: "url", widget: "image", choose_url: false}
-              - {label: "Alt Text", name: "alt", widget: "string"}
+          - {label: "Social share image", name: "image", widget: "image", choose_url: false}
           - label: "Options"
             name: "options"
             widget: "object"
