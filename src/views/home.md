@@ -2,7 +2,7 @@
 layout: home-layout
 title: Home
 permalink: /index.html
-newsletter_flush: true
+social_flush: true
 eleventyNavigation:
   key: Home
   order: 1

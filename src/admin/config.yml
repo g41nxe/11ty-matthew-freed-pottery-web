@@ -642,13 +642,16 @@ collections:
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Subtitle", name: "subtitle", widget: "string"}
 
-          - label: "Newsletter"
-            name: "newsletter"
+          - label: "Follow band (shown at the bottom of every page)"
+            name: "social"
             widget: "object"
             minimize_collapsed: true
             collapsed: true
             fields:
-              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Heading", name: "title", widget: "string"}
+              - {label: "Text under the heading", name: "text", widget: "string"}
+              - {label: "Instagram button text", name: "instagram_label", widget: "string"}
+              - {label: "Facebook button text", name: "facebook_label", widget: "string"}
 
           - label: "Footer links (text only — the pages they point to are fixed)"
             name: "footer"

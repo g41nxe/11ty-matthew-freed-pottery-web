@@ -10,8 +10,11 @@
     "title": "Matthew Freed Pottery",
     "subtitle": "Art for everyday life"
   },
-  "newsletter": {
-    "title": "Sign up to my Newsletter"
+  "social": {
+    "title": "Follow along on Instagram",
+    "text": "New pieces, firings and market dates go up there first.",
+    "instagram_label": "Follow on Instagram",
+    "facebook_label": "Facebook"
   },
   "contact": {
     "name": "Matthew Freed Pottery <sup>&copy;2021</sup>",
