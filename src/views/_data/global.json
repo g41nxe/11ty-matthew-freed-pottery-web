@@ -24,6 +24,16 @@
     "base": "https://shop.matthewfreed.net",
     "collectionsPath": "/collections/all"
   },
+  "labels": {
+    "at_studio": "At my studio",
+    "directions": "Directions"
+  },
+  "footer": {
+    "retail": "Retail stores",
+    "faq": "FAQ",
+    "process": "My process",
+    "privacy": "Privacy"
+  },
   "socialmedia": {
     "title": "Follow Me",
     "services": {

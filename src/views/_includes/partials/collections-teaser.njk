@@ -14,12 +14,12 @@
                 {{ item.title | replace(" Collection", "") }}
             </p>
             <p class="mt-1 text-sm text-muted">{{ item.text }}</p>
-            <span class="link-underline mt-2 inline-block text-sm">View in the shop</span>
+            <span class="link-underline mt-2 inline-block text-sm">{{ collections_teaser.item_cta | default("View in the shop", true) }}</span>
         </a>
         {% endfor %}
     </div>
     <div class="palette-strip mt-8 flex flex-col gap-4 border-y border-hairline py-5 sm:flex-row sm:items-center sm:justify-between">
-        <a href="/collections.html" class="strip-label self-start font-display text-lg font-black text-blue sm:self-auto"><span class="hidden sm:inline">The full field guide — all fifteen</span><span class="sm:hidden">All fifteen</span> glazes</a>
+        <a href="/collections.html" class="strip-label self-start font-display text-lg font-black text-blue sm:self-auto"><span class="hidden sm:inline">{{ collections_teaser.link_label }}</span><span class="sm:hidden">{{ collections_teaser.link_label_short | default(collections_teaser.link_label, true) }}</span></a>
         <div class="palette-dots -mx-1 flex flex-wrap items-center" aria-label="Jump to a glaze">
             {% for item in showcase.gallery %}
             <button type="button" data-goto="{{ loop.index0 }}" class="glaze-dot" title="{{ item.title | replace(' Collection', '') }}" aria-label="Show {{ item.title | replace(' Collection', '') }}">

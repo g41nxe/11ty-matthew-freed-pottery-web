@@ -7,7 +7,9 @@ eleventyNavigation:
   key: About
   order: 2
 eyebrow: About Matthew
-show_medal: true
+medal:
+  text: "Gold Medal for Excellence in Craft — Circle Craft. The story ends where the shop begins"
+  link_label: see what we've made together
 headline: A love affair with clay, thirty years on
 intro: My love affair with clay began in the early 1990s when I began taking lessons
   at a local stoneware studio in Winnipeg.  Although there were some heavy duty sparks

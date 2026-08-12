@@ -73,6 +73,7 @@ collections:
             widget: "object"
             collapsed: true
             fields:
+              - {label: "Small label above the title", name: "eyebrow", widget: "string", required: false}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Glaze caption", name: "caption", widget: "string"}
               - {label: "Text", name: "text", widget: "text"}
@@ -97,6 +98,9 @@ collections:
             fields:
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Text", name: "text", widget: "text"}
+              - {label: "Link text on each glaze card", name: "item_cta", widget: "string", required: false}
+              - {label: "Field-guide link (wide screens)", name: "link_label", widget: "string"}
+              - {label: "Field-guide link (phones)", name: "link_label_short", widget: "string", required: false}
 
           - label: "Products section"
             name: "products"
@@ -105,6 +109,7 @@ collections:
             fields:
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Note under the grid", name: "note", widget: "string"}
+              - {label: "Shop-all link text", name: "link_label", widget: "string", required: false}
 
           - label: "Events band"
             name: "events_band"
@@ -112,6 +117,7 @@ collections:
             collapsed: true
             fields:
               - {label: "Title", name: "title", widget: "string"}
+              - {label: "All-events link text", name: "link_label", widget: "string", required: false}
               - {label: "Text when no events", name: "no_events", widget: "text"}
 
           - label: "Story teaser"
@@ -191,8 +197,10 @@ collections:
                   - {label: "label", name: "label", widget: "string"}
                   - {label: "url", name: "url", widget: "string"}
 
+          - {label: "Small label above the headline", name: "eyebrow", widget: "string", required: false}
           - {label: "headline", name: "headline", widget: "string"}
           - {label: "subheadline", name: "subheadline", widget: "string"}
+          - {label: "Heading above the social icons", name: "social_title", widget: "string"}
 
           - label: "Intro"
             name: "intro"
@@ -212,6 +220,15 @@ collections:
             - {label: "title", name: "title", widget: "string"}
             - {label: "submit", name: "submit", widget: "string"}
             - {label: "info", name: "info", widget: "string"}
+            - label: "Field labels (the asterisk on required fields is added automatically)"
+              name: "placeholders"
+              widget: "object"
+              collapsed: true
+              fields:
+                - {label: "Name", name: "name", widget: "string"}
+                - {label: "Email (required field)", name: "email", widget: "string"}
+                - {label: "Phone", name: "phone", widget: "string"}
+                - {label: "Message (required field)", name: "message", widget: "string"}
 
           - label: "eleventyNavigation"
             name: "eleventyNavigation"
@@ -243,7 +260,14 @@ collections:
               - {label: "order", name: "order", widget: "hidden"}
 
           - {label: "eyebrow", name: "eyebrow", widget: "string"}
-          - {label: "show_medal", name: "show_medal", widget: "hidden"}
+          - label: "Award note (leave the text empty to hide the whole block)"
+            name: "medal"
+            widget: "object"
+            collapsed: true
+            required: false
+            fields:
+              - {label: "Text", name: "text", widget: "text", required: false}
+              - {label: "Shop link text", name: "link_label", widget: "string", required: false}
           - {label: "headline", name: "headline", widget: "string"}
           - {label: "intro", name: "intro", widget: "text"}
           - {label: "Pull quote", name: "quote", widget: "text", required: false}
@@ -370,6 +394,8 @@ collections:
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Text", name: "text", widget: "text"}
 
+          - {label: "Link text on each collection card", name: "item_cta", widget: "string", required: false}
+
           - label: "Filter chips"
             name: "filters"
             widget: "list"
@@ -473,6 +499,16 @@ collections:
               - {label: "Title", name: "title", widget: "string"}
 
           - {label: "Annual rhythm note", name: "rhythm", widget: "text"}
+
+          - label: "Section headings"
+            name: "section_labels"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Special events heading", name: "special", widget: "string"}
+              - {label: "Market schedule heading", name: "markets", widget: "string"}
+              - {label: "Studio news heading", name: "studio_news", widget: "string"}
+              - {label: "Dateline above the studio note", name: "from_studio", widget: "string"}
 
           - label: "Visit the studio card"
             name: "studio"
@@ -613,6 +649,26 @@ collections:
             collapsed: true
             fields:
               - {label: "Title", name: "title", widget: "string"}
+
+          - label: "Footer links (text only — the pages they point to are fixed)"
+            name: "footer"
+            widget: "object"
+            minimize_collapsed: true
+            collapsed: true
+            fields:
+              - {label: "Retail stores", name: "retail", widget: "string"}
+              - {label: "FAQ", name: "faq", widget: "string"}
+              - {label: "Process", name: "process", widget: "string"}
+              - {label: "Privacy", name: "privacy", widget: "string"}
+
+          - label: "Shared labels (used on more than one page)"
+            name: "labels"
+            widget: "object"
+            minimize_collapsed: true
+            collapsed: true
+            fields:
+              - {label: "Studio-event badge", name: "at_studio", widget: "string"}
+              - {label: "Map link text", name: "directions", widget: "string"}
 
           - label: "Contact Information"
             name: "contact"

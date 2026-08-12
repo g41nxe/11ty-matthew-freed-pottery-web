@@ -23,7 +23,7 @@ layout: base
                 <span class="cap-label text-[11px] text-soft">{{ store.city }}</span>
             </div>
             <p class="mt-1 text-sm text-muted">{{ store.address }}</p>
-            <a href="https://www.google.com/maps/search/?api=1&query={{ (store.address + ', ' + store.city + ', BC') | urlencode }}" target="_blank" rel="noopener" class="link-underline mt-3 inline-block text-sm">Directions</a>
+            <a href="https://www.google.com/maps/search/?api=1&query={{ (store.address + ', ' + store.city + ', BC') | urlencode }}" target="_blank" rel="noopener" class="link-underline mt-3 inline-block text-sm">{{ global.labels.directions }}</a>
         </li>
         {% endfor %}
     </ul>

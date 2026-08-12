@@ -9,6 +9,11 @@ intro:
   eyebrow: Events
   title: Where to find me
 rhythm: "The annual rhythm: farmers markets through the summer, then the Eastside Culture Crawl and Circle Craft Holiday Market each November."
+section_labels:
+  special: Special events
+  markets: Market schedule
+  studio_news: Latest from the studio
+  from_studio: From the studio
 studio:
   title: Visit the studio
   text: Between events, the studio opens by appointment — send a note and come see where the work happens.

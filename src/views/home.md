@@ -24,6 +24,7 @@ trust:
   - Every piece one of a kind
   - Free local delivery over $150
 featured_piece:
+  eyebrow: Featured piece
   title: Tree of Life tea set
   caption: Tree of Life · hand-carved emblem
   text: Teapot, tumbler, sugar jar and creamer — each carrying the carved tree, no two sets alike.
@@ -37,11 +38,16 @@ featured_piece:
 collections_teaser:
   title: Fifteen glazes, fifteen stories
   text: Named for the coasts, mountains and neighbourhoods that shaped their colours — and a few quieter inspirations.
+  item_cta: View in the shop
+  link_label: The full field guide — all fifteen glazes
+  link_label_short: All fifteen glazes
 products:
   title: From the current firing
   note: Checkout happens in my Shopify shop.
+  link_label: Shop all pieces
 events_band:
   title: Where to find me next
+  link_label: All events
   no_events: Nothing on the calendar right now — join the newsletter below and you'll hear about the next market first.
 story_teaser:
   eyebrow: Meet the maker
