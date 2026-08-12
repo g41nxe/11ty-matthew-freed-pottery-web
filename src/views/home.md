@@ -48,7 +48,7 @@ products:
 events_band:
   title: Where to find me next
   link_label: All events
-  no_events: Nothing on the calendar right now — join the newsletter below and you'll hear about the next market first.
+  no_events: Nothing on the calendar right now — follow along on Instagram and you'll hear about the next market first.
 story_teaser:
   eyebrow: Meet the maker
   title: My love affair with clay

@@ -20,10 +20,10 @@ studio:
   cta:
     label: Get in touch
     url: /contact.html
-  footnote: Can't make it? The newsletter announces every market and firing.
+  footnote: Can't make it? Every market and firing gets announced on Instagram.
   image:
     url: /images/market.jpg
     alt: Matthew Freed at his market booth, surrounded by his pottery
     caption: Say hello at the next market.
-no_events: Nothing on the calendar right now — the newsletter is the first to know when that changes.
+no_events: Nothing on the calendar right now — new dates go up on Instagram first.
 ---
