@@ -9,8 +9,8 @@
            selection in the browser, so a date that passed since the build
            drops out and the one behind it moves up. Without JavaScript the
            build-time selection simply stays. #}
-        {% set upcoming = events.events | filterFuture | byDateAsc %}
-        {% set shortlist = events.events | filterFuture | nextUp %}
+        {% set upcoming = events.events | filterUpcoming | byDateAsc %}
+        {% set shortlist = events.events | filterUpcoming | nextUp %}
         {% if upcoming.length %}
         {# Shown by events.js once every rendered date has passed. #}
         <p data-events-soon hidden class="mt-6 max-w-xl text-base text-paper/80">{{ global.labels.dates_soon }}</p>

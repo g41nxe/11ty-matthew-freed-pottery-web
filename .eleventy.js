@@ -54,34 +54,24 @@ module.exports = function (eleventyConfig) {
                  - DateTime.fromFormat(a[attribute], 'MM-dd-yyyy').toJSDate();
         });
     });
-    eleventyConfig.addNunjucksFilter("hashtagURL", function (hashtag) {
-        return `https://www.instagram.com/explore/tags/${hashtag}/`;
-    });
     eleventyConfig.addNunjucksFilter("date", function (date, format) {
         return DateTime.fromFormat(date, 'MM-dd-yyyy').toFormat(format);
     });
-    eleventyConfig.addNunjucksFilter("removeFirst", function (array) {
-        return array.slice(1, array.length);
-    });
-    // An event stays upcoming until the end of its last day: a multi-day show
-    // is still listed while it is running, and a market still shows on the
-    // morning it happens. Comparing against the start of today rather than
-    // the current instant is what keeps today's date in. `lastDay` guards
-    // against an end_date that predates the start.
+    // "Upcoming", not "future": an event stays in this list until the end of
+    // its last day, so a multi-day show is still listed while it is running
+    // and a market still shows on the morning it happens. Comparing against
+    // the start of today rather than the current instant is what keeps
+    // today's date in. `lastDay` guards against an end_date that predates
+    // the start.
     function lastDay(event) {
         const start = DateTime.fromFormat(event.date, 'MM-dd-yyyy');
         if (!event.end_date) return start;
         const end = DateTime.fromFormat(event.end_date, 'MM-dd-yyyy');
         return end > start ? end : start;
     }
-    eleventyConfig.addNunjucksFilter("filterFuture", function(array) {
+    eleventyConfig.addNunjucksFilter("filterUpcoming", function(array) {
         const today = DateTime.now().startOf('day');
         return array.filter(el => lastDay(el) >= today);
-    });
-    eleventyConfig.addNunjucksFilter("filterPast", function(array) {
-        return array.filter(el => {
-            return DateTime.fromFormat(el.date, 'MM-dd-yyyy') <= DateTime.now();
-        });
     });
     // Special events: studio openings and multi-day shows (Culture Crawl, Circle Craft).
     // These get the large date-block treatment on the events page.
@@ -106,10 +96,9 @@ module.exports = function (eleventyConfig) {
             .map(g => { g.dates.sort(byDate); return g; })
             .sort((a, b) => byDate(a.dates[0], b.dates[0]));
     });
-    // Every upcoming event oldest-first. Note the direction: sortByDate
-    // above sorts newest-first. The home band
-    // renders all of them so events.js can refill the grid in the browser
-    // when a date has passed since the last build.
+    // Every upcoming event oldest-first. Note the direction: sortByDate above
+    // sorts newest-first. The home band renders all of them so events.js can
+    // refill the grid in the browser when a date has passed since the build.
     eleventyConfig.addNunjucksFilter("byDateAsc", function(array) {
         return array.slice()
             .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'));
@@ -127,15 +116,6 @@ module.exports = function (eleventyConfig) {
                 return true;
             });
     });
-    eleventyConfig.addNunjucksFilter("filterFeatured", function(array) {
-        return array
-            .filter(el => el.featured && DateTime.fromFormat(el.date, 'MM-dd-yyyy') > DateTime.now())
-            .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'))
-            .slice(0, 5);
-    })
-    eleventyConfig.addNunjucksFilter("uuid", function() {
-        return uuidv4();
-    })
 
     return {
         dir: {
@@ -148,10 +128,3 @@ module.exports = function (eleventyConfig) {
         markdownTemplateEngine: "njk"
     };
 };
-
-function uuidv4() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
-  }

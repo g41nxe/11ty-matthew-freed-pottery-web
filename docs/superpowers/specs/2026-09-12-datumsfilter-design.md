@@ -1,7 +1,7 @@
 # Datumsfilter aufräumen — Design
 
 Datum: 2026-09-12
-Status: recherchiert, Umsetzung im Aufräum-Durchgang
+Status: Punkt 1 und 2 umgesetzt (Commit folgt), Punkt 3 offen
 Branch: `feat/site-redesign-v2`
 Auslöser: Commit `5fb9c13` ändert `filterFuture` auf die Enddatum-Regel und
 lässt `filterPast` unangetastet zurück.
@@ -81,7 +81,7 @@ Keine drei Listen-Filter. Stattdessen:
 2. **Die fünf unbenutzten Filter löschen**, `filterPast` eingeschlossen.
    Eine Reparatur an Code, den niemand ausführt, ist Pflege ohne Nutzen und
    täuscht Geprüftheit vor.
-3. **Eine Prüfung pro Termin ergänzen**, ob er heute läuft, also
+3. **Offen — eine Prüfung pro Termin ergänzen**, ob er heute läuft, also
    `Startdatum <= heute <= letzter Tag`. Genau zwei Abnehmer: die Hero-Zeile
    und die Bandkarte. Dort steht dann "Happening now" statt "Next market"
    und der Zeitraum statt des Starttags.
