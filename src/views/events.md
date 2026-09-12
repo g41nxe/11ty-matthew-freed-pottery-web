@@ -22,7 +22,7 @@ studio:
     url: /contact.html
   footnote: Can't make it? Every market and firing gets announced on Instagram.
   image:
-    url: /images/market.jpg
+    url: /images/workshop/market-booth.jpg
     alt: Matthew Freed at his market booth, surrounded by his pottery
     caption: Say hello at the next market.
 no_events: Nothing on the calendar right now — new dates go up on Instagram first.

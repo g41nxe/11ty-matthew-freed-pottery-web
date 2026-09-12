@@ -17,7 +17,7 @@ intro: My love affair with clay began in the early 1990s when I began taking les
   then work in the marketing field.
 sections:
 - image:
-    url: "/images/pottery-in-action-3.jpg"
+    url: "/images/workshop/throwing-a-cup-2.jpg"
     alt: Matthew throwing a cup
   paragraphs:
   - We toyed with the idea, but neither of us was into the long distance relationship
@@ -30,7 +30,7 @@ sections:
     commitment to one another.
   label: Section 1
 - image:
-    url: "/images/pottery-in-action-2.jpg"
+    url: "/images/workshop/throwing-a-cup-1.jpg"
     alt: Matthew throwing a cup
   paragraphs:
   - It was a frightening leap to make, but I got down on one knee and we got engaged.

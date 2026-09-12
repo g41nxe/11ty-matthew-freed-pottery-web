@@ -56,6 +56,6 @@ story_teaser:
   quote: It was time to make a lifetime commitment to one another.
   label: Read my story
   image:
-    url: /images/overheadwork.jpg
+    url: /images/workshop/wheel-centering-plate.jpg
     alt: Matthew at the pottery wheel, centering a plate
 ---

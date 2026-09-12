@@ -7,7 +7,7 @@ eyebrow: Stockists
 headline: Find my work in person
 intro: These galleries and shops carry a rotating selection of my glaze lines across British Columbia. Call ahead for current stock.
 image:
-  url: "/images/seymourartgallery.jpg"
+  url: "/images/workshop/seymour-art-gallery.jpg"
   alt: Display of Matthew Freed's pottery at a gallery gift shop
 stores:
   - name: Arts Off Main

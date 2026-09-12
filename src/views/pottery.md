@@ -10,7 +10,7 @@ intro: 'Pottery is complicated. It is an art that requires creativity and a stro
   natural materials and how they will react in combination with extreme heat. '
 sections:
 - image:
-    url: "/images/blue-arrangement.jpg"
+    url: "/images/workshop/blue-arrangement-galiano.jpg"
     alt: Blue arrangement - Galiano
   paragraphs:
     - <b class="text-highlight">2015 Gold Medal Recipient for Excellence In Craft at

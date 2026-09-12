@@ -12,7 +12,7 @@ intro: Pottery is complicated. It is an art that requires creativity and a stron
   piece is a complexity of nature, science, and art. It amazes me.
 sections:
 - image:
-    url: "/images/pottery-in-action-2.jpg"
+    url: "/images/workshop/throwing-a-cup-1.jpg"
     alt: Matthew throwing a cup
   paragraphs:
   - "<b>Think it</b>"
@@ -29,7 +29,7 @@ sections:
     looking tools made of wood, plastic or metal.
   label: Section 1
 - image:
-    url: "/images/pottery-in-action-5.jpg"
+    url: "/images/workshop/throwing-a-cup-3.jpg"
     alt: Matthew throwing a cup
   paragraphs:
   - "<b>Finish it</b>"
@@ -41,7 +41,7 @@ sections:
     put on pitchers, and decorative patterns can be carved in the clay.
   label: Section 2
 - image:
-    url: "/images/kiln.jpg"
+    url: "/images/workshop/kiln.jpg"
     alt: The kiln stuffed with cups and bowls
   paragraphs:
   - "<b>Fire it</b>"
