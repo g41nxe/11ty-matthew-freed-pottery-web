@@ -210,7 +210,10 @@
     .trust-track {
         display: flex;
         width: max-content;
-        animation: trust-scroll 20s linear infinite;
+        /* 40s, not 20s: the track carries four passes of the sequence and
+           travels half its own width per cycle, so the duration has to scale
+           with the pass count to keep the original reading speed. */
+        animation: trust-scroll 40s linear infinite;
     }
     /* WCAG 2.2.2 pause mechanism: hovering (desktop) or tapping (touch — tap sets
        sticky :hover / :active) holds the ribbon still while the user reads it. */
