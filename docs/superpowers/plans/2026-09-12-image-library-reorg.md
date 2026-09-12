@@ -15,7 +15,14 @@
 - Branch: `feat/site-redesign-v2`. Direkt darauf landen, kein Sub-Branch.
 - **Dieses Repo hat kein Test-Framework.** `npm test` ist ein Stub, der mit 1 endet. Verifikation ist: `npm run build` endet mit 0, plus der Manifest-Vergleich aus Task 1, plus gezielte Greps. **Erfinde keinen Test-Runner.**
 - **Der erste Build nach `npm run clean` dauert rund 200 Sekunden**, weil alle Bildvarianten neu erzeugt werden. Setze das Timeout entsprechend hoch oder lass den Build im Hintergrund laufen.
-- **`eleventy-img` hasht Dateiinhalt und Sharp-Optionen, nicht den Pfad** (`node_modules/@11ty/eleventy-img/src/image.js:432`). Ein reiner Umzug muss `dist/images` byte-identisch lassen. Jede Abweichung im Manifest-Vergleich ist ein Fehler, kein Rauschen.
+- **`eleventy-img` hasht Dateiinhalt und Sharp-Optionen, nicht den Pfad** (`node_modules/@11ty/eleventy-img/src/image.js:432`). Ein reiner Umzug lässt die **erzeugten Varianten** deshalb byte-identisch.
+- **`dist/images` enthält zweierlei.** Die erzeugten Varianten mit Namensmuster `<hash>-<breite>.<format>` und die Passthrough-Kopien der Quelldateien unter ihrem Originalpfad. Nur die Varianten sind der Prüfmaßstab: Sie dürfen sich nicht ändern. Die Passthrough-Kopien wandern selbstverständlich mit, ihre Pfade ändern sich in jeder Task. Vergleiche deshalb mit diesem Filter:
+
+  ```bash
+  varianten() { grep -E -- '-(160|320|640|768|1024|1280|1536|1920)\.(avif|webp|jpeg)$' "$1" | sort; }
+  ```
+
+  **Null neue Varianten** ist die Bedingung, die in jeder Task gelten muss. Verschwundene Varianten sind nur dort erlaubt, wo die Task eine Datei absichtlich aus dem Bestand nimmt.
 - **Alle Verschiebungen mit `git mv`**, nie mit `mv`. Sonst verliert Git die Umbenennungserkennung und der Diff wird unlesbar.
 - **Reihenfolge beim Ersetzen von Pfaden:** immer zuerst die längeren Pfade mit Unterordner (`/images/updates/...`), danach die kurzen aus dem Wurzelordner. Sonst greift eine Teilersetzung ins Leere.
 - **`_archive` liegt im Repo-Wurzelverzeichnis, nicht unter `src`.** Eleventys Eingabeordner ist `src/views`, alle Passthrough-Kopien zeigen auf `src/...`. Deshalb ist an `.eleventy.js` **nichts** zu ändern.
@@ -532,10 +539,10 @@ Erwartet: der erste Befehl findet nur noch den `media_folder`-Eintrag in `src/ad
 ```bash
 npm run build
 find dist/images -type f -exec md5sum {} + | sed 's|dist/images/||' | sort -k2 > after-task4.txt
-diff after-task3.txt after-task4.txt
+diff <(varianten after-task3.txt) <(varianten after-task4.txt)
 ```
 
-Erwartet: keine Ausgabe.
+Erwartet: **keine Ausgabe.** Kein Bild wurde inhaltlich verändert und keines fällt weg, also bleibt die Variantenmenge gleich.
 
 - [ ] **Schritt 5: Committen**
 
@@ -641,10 +648,10 @@ Erwartet: `15 Eintraege, 0 fehlende Dateien`.
 ```bash
 npm run build
 find dist/images -type f -exec md5sum {} + | sed 's|dist/images/||' | sort -k2 > after-task5.txt
-diff after-task4.txt after-task5.txt
+diff <(varianten after-task4.txt) <(varianten after-task5.txt)
 ```
 
-Erwartet: keine Ausgabe.
+Erwartet: **keine Ausgabe.**
 
 - [ ] **Schritt 6: Committen**
 
@@ -754,10 +761,10 @@ Erwartet: keine Ausgabe. Alle Dateien liegen jetzt in einem der fünf Unterordne
 ```bash
 npm run build
 find dist/images -type f -exec md5sum {} + | sed 's|dist/images/||' | sort -k2 > after-task6.txt
-diff after-task5.txt after-task6.txt
+diff <(varianten after-task5.txt) <(varianten after-task6.txt)
 ```
 
-Erwartet: keine Ausgabe.
+Erwartet: **keine Ausgabe.**
 
 - [ ] **Schritt 6: Committen**
 
@@ -1117,10 +1124,11 @@ Die eine verwaiste Datei ist der beabsichtigte Vorrat aus Matthews Joffre-Foto. 
 ```bash
 npm run build
 find dist/images -type f -exec md5sum {} + | sed 's|dist/images/||' | sort -k2 > after-task8.txt
-diff after-task3.txt after-task8.txt
+diff <(varianten after-task3.txt) <(varianten after-task8.txt)
+wc -l < after-task8.txt
 ```
 
-Erwartet: keine Ausgabe. Seit Task 3 wurde keine Bilddatei inhaltlich verändert, nur verschoben und umbenannt. Weicht hier etwas ab, hat einer der Schritte eine Datei ersetzt statt verschoben.
+Erwartet: **keine Ausgabe** aus dem `diff`, und 555 Zeilen im Manifest. Seit Task 3 wurde keine Bilddatei inhaltlich verändert, nur verschoben und umbenannt. Weicht etwas ab, hat ein Schritt eine Datei ersetzt statt verschoben.
 
 - [ ] **Schritt 4: Die PWA-Screenshots prüfen**
 

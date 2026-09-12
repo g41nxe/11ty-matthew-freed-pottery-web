@@ -17,7 +17,7 @@ hero:
     label: All events
     url: /events.html
   image:
-    url: /images/updates/squamish-nights-close.jpg
+    url: /images/glazes/squamish-nights/vase-closeup-hero.jpg
     alt: Close-up of the celestial speckle on a Squamish Nights vase by Matthew Freed
 trust:
   - Gold Medal for Excellence in Craft
@@ -30,7 +30,7 @@ featured_piece:
   text: Cobalt, mocha and amber run in bands across every piece. Tofino is one of my most variable glazes, so no two come out of the kiln alike.
   price: ""
   image:
-    url: /images/tofino-tea-set.jpg
+    url: /images/glazes/tofino/tea-set-feature.jpg
     alt: Tofino teapot, mugs and vase by Matthew Freed on a wooden table
   cta:
     label: View in the shop

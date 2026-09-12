@@ -2,8 +2,8 @@
   "gallery": [
     {
       "image": {
-        "url": "/images/squamish-nights.jpg",
-        "alt": "Squamish Nights Teardrop Vase by Matthew Freed"
+        "url": "/images/glazes/squamish-nights/vase-closeup-hero.jpg",
+        "alt": "Close-up of the celestial speckle on a Squamish Nights vase by Matthew Freed"
       },
       "title": "Squamish Nights Collection",
       "text": "A speckled deep green and blue glaze with a celestial look",
@@ -20,7 +20,7 @@
     },
     {
       "image": {
-        "url": "/images/garibaldi-cropped.jpg",
+        "url": "/images/glazes/garibaldi/large-mug-card.jpg",
         "alt": "Large Garibaldi Mug by Matthew Freed"
       },
       "title": "Garibaldi Collection",
@@ -38,7 +38,7 @@
     },
     {
       "image": {
-        "url": "/images/carousel-yaletown2.jpg",
+        "url": "/images/glazes/yaletown/large-mug-card.jpg",
         "alt": "Large Yaletown Mug by Matthew Freed"
       },
       "title": "Yaletown Collection",
@@ -56,7 +56,7 @@
     },
     {
       "image": {
-        "url": "/images/carousel-galiano.jpg",
+        "url": "/images/glazes/galiano/plates-and-mugs-card.jpg",
         "alt": "Galiano Plates and Mugs by Matthew Freed"
       },
       "title": "Galiano Collection",
@@ -74,7 +74,7 @@
     },
     {
       "image": {
-        "url": "/images/carousel-dogwood3.jpg",
+        "url": "/images/glazes/dogwood/large-bowls-card.jpg",
         "alt": "Dogwood Collection: Large Bowls by Matthew Freed"
       },
       "title": "Dogwood Collection",
@@ -93,7 +93,7 @@
     },
     {
       "image": {
-        "url": "/images/carousel-saltspring2.jpg",
+        "url": "/images/glazes/saltspring/large-platter-card.jpg",
         "alt": "Saltspring Collection: Large Platter by Matthew Freed"
       },
       "title": "Saltspring Collection",
@@ -112,7 +112,7 @@
     },
     {
       "image": {
-        "url": "/images/carousel-jericho2.jpg",
+        "url": "/images/glazes/jericho/bowls-and-platter-card.jpg",
         "alt": "Jericho Collection: Bowls and a Platter by Matthew Freed"
       },
       "title": "Jericho Collection",
@@ -130,7 +130,7 @@
     },
     {
       "image": {
-        "url": "/images/joffre-bowls.jpg",
+        "url": "/images/glazes/joffre/bowls-card.jpg",
         "alt": "Joffre Collection: a stack of bowls by Matthew Freed"
       },
       "title": "Joffre Collection",
@@ -148,7 +148,7 @@
     },
     {
       "image": {
-        "url": "/images/carousel-kitsilano3.jpg",
+        "url": "/images/glazes/kitsilano/bowls-card.jpg",
         "alt": "Kitsilano Collection: Bowls by Matthew Freed"
       },
       "title": "Kitsilano Collection",
@@ -166,7 +166,7 @@
     },
     {
       "image": {
-        "url": "/images/carousel-pemberton-sky2.jpg",
+        "url": "/images/glazes/pemberton-sky/bowl-card.jpg",
         "alt": "Pemberton Sky Collection: A Bowl by Matthew Freed"
       },
       "title": "Pemberton Sky Collection",
@@ -185,7 +185,7 @@
     },
     {
       "image": {
-        "url": "/images/carousel-pemberton-earth2.jpg",
+        "url": "/images/glazes/pemberton-earth/bowls-and-platter-card.jpg",
         "alt": "Pemberton Earth Collection: Bowls and a Platter by Matthew Freed"
       },
       "title": "Pemberton Earth Collection",
@@ -204,7 +204,7 @@
     },
     {
       "image": {
-        "url": "/images/carousel-strathcona2.jpg",
+        "url": "/images/glazes/strathcona/platter-card.jpg",
         "alt": "Strathcona Collection: A Platter by Matthew Freed"
       },
       "title": "Strathcona Collection",
@@ -223,7 +223,7 @@
     },
     {
       "image": {
-        "url": "/images/tofino-tea-set.jpg",
+        "url": "/images/glazes/tofino/tea-set-feature.jpg",
         "alt": "Tofino Collection: teapot, mugs and vase by Matthew Freed"
       },
       "title": "Tofino  Collection",
@@ -241,7 +241,7 @@
     },
     {
       "image": {
-        "url": "/images/carousel-tree-of-life.jpg",
+        "url": "/images/glazes/tree-of-life/bowls-and-jar-card.jpg",
         "alt": "Tree of Life Collection: Bowls and a Jar by Matthew Freed"
       },
       "title": "Tree of Life Collection",
@@ -259,7 +259,7 @@
     },
     {
       "image": {
-        "url": "/images/carousel-zen4.jpg",
+        "url": "/images/glazes/zen/snack-bowl-card.jpg",
         "alt": "Zen Collection: Snack Bowl by Matthew Freed"
       },
       "title": "Zen Collection",
