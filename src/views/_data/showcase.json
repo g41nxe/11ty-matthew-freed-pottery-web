@@ -288,7 +288,7 @@
         "url": "https://shop.matthewfreed.net/products/medium-teapot-tofino"
       },
       "image": {
-        "url": "/images/features/tofino-medium-teapot.jpg",
+        "url": "/images/products/tofino-medium-teapot-tile.jpg",
         "alt": "Tofino Medium Teapot by Matthew Freed"
       },
       "hide": false
@@ -304,7 +304,7 @@
         "url": "https://shop.matthewfreed.net/products/belly-mug-tofino"
       },
       "image": {
-        "url": "/images/features/tofino-belly-mug.jpg",
+        "url": "/images/products/tofino-belly-mug-tile.jpg",
         "alt": "Tofino Belly Mug by Matthew Freed"
       },
       "hide": false
@@ -320,7 +320,7 @@
         "url": "https://shop.matthewfreed.net/products/tofino-vase"
       },
       "image": {
-        "url": "/images/features/tofino-vase.jpg",
+        "url": "/images/products/tofino-vase-tile.jpg",
         "alt": "Tofino Vase by Matthew Freed"
       },
       "hide": false
@@ -336,7 +336,7 @@
         "url": "https://shop.matthewfreed.net/products/dinner-plate-tofino"
       },
       "image": {
-        "url": "/images/features/tofino-dinner-plate.jpg",
+        "url": "/images/products/tofino-dinner-plate-tile.jpg",
         "alt": "Tofino Dinner Plate by Matthew Freed"
       },
       "hide": false
@@ -352,7 +352,7 @@
         "url": "https://shop.matthewfreed.net/products/chopstick-bowl-tofino"
       },
       "image": {
-        "url": "/images/features/tofino-chopstick-bowl.jpg",
+        "url": "/images/products/tofino-chopstick-bowl-tile.jpg",
         "alt": "Tofino Chopstick Bowl by Matthew Freed"
       },
       "hide": false
@@ -368,7 +368,7 @@
         "url": "https://shop.matthewfreed.net/products/copy-teardrop-vase-tofino"
       },
       "image": {
-        "url": "/images/features/jericho-teardrop-vase.jpg",
+        "url": "/images/products/jericho-teardrop-vase-tile.jpg",
         "alt": "Jericho Teardrop Vase by Matthew Freed"
       },
       "hide": false
@@ -384,7 +384,7 @@
         "url": "https://shop.matthewfreed.net/products/shorty-mug-squamish-night"
       },
       "image": {
-        "url": "/images/features/squamish-nights-shorty-mug.jpg",
+        "url": "/images/products/squamish-nights-shorty-mug-tile.jpg",
         "alt": "Squamish Nights Shorty Mug by Matthew Freed"
       },
       "hide": false
@@ -400,7 +400,7 @@
         "url": "https://shop.matthewfreed.net/collections/platters/products/large-square-platter-in-capilano-charcoal"
       },
       "image": {
-        "url": "/images/features/feature-large-square-platter-pemberton-earth.jpg",
+        "url": "/images/products/pemberton-earth-large-square-platter-tile.jpg",
         "alt": "Pemberton Earth Large Square Platter by Matthew Freed"
       },
       "hide": false
@@ -416,7 +416,7 @@
         "url": "https://shop.matthewfreed.net/products/pitcher-tree-of-life"
       },
       "image": {
-        "url": "/images/features/tree-of-life-pitcher.jpg",
+        "url": "/images/products/tree-of-life-pitcher-tile.jpg",
         "alt": "Tree of Life Pitcher by Matthew Freed"
       },
       "hide": false
@@ -431,7 +431,7 @@
         "url": "https://shop.matthewfreed.net/products/copy-large-teapot-tofino"
       },
       "image": {
-        "url": "/images/features/yaletown-red-teapot.jpg",
+        "url": "/images/products/yaletown-red-teapot-tile.jpg",
         "alt": "Yaletown Red Teapot by Matthew Freed"
       },
       "hide": false
@@ -446,7 +446,7 @@
         "url": "https://shop.matthewfreed.net/products/belly-mug-jericho"
       },
       "image": {
-        "url": "/images/features/feature-belly-mug-jericho.jpg",
+        "url": "/images/products/jericho-belly-mug-tile.jpg",
         "alt": "Jericho Belly Mug by Matthew Freed"
       },
       "hide": false
@@ -461,7 +461,7 @@
         "url": "https://shop.matthewfreed.net/products/belly-mug-yaletown-green"
       },
       "image": {
-        "url": "/images/features/feature-belly-mug-yaletown-green.jpg",
+        "url": "/images/products/yaletown-green-belly-mug-tile.jpg",
         "alt": "Yaletown Belly Mug with green rim by Matthew Freed"
       },
       "hide": false
@@ -477,7 +477,7 @@
         "url": "https://shop.matthewfreed.net/products/belly-mug-yaletown-red"
       },
       "image": {
-        "url": "/images/features/feature-belly-mug-yaletown-red.jpg",
+        "url": "/images/products/yaletown-red-belly-mug-tile.jpg",
         "alt": "Yaletown Belly Mug with red rim by Matthew Freed"
       }
     },
@@ -491,7 +491,7 @@
         "url": "https://shop.matthewfreed.net/collections/all/products/chopstick-bowl-joffre"
       },
       "image": {
-        "url": "/images/features/feature-chopstick-bowl-joffre.jpg",
+        "url": "/images/products/joffre-chopstick-bowl-tile.jpg",
         "alt": "Joffre Chopstick Bowl by Matthew Freed"
       },
       "hide": false
@@ -506,7 +506,7 @@
         "url": "https://shop.matthewfreed.net/collections/all/products/chopstick-bowl-yaletown-green"
       },
       "image": {
-        "url": "/images/features/feature-chopstick-bowl-yaletown-green.jpg",
+        "url": "/images/products/yaletown-green-chopstick-bowl-tile.jpg",
         "alt": "Yaletown Chopstick Bowl with green rim by Matthew Freed"
       },
       "hide": false
@@ -521,7 +521,7 @@
         "url": "https://shop.matthewfreed.net/collections/platters/products/wide-rim-platter-strathcona"
       },
       "image": {
-        "url": "/images/features/feature-wide-rim-platter-strathcona.jpg",
+        "url": "/images/products/strathcona-wide-rim-platter-tile.jpg",
         "alt": "Strathcona Wide Rim Platter by Matthew Freed"
       },
       "hide": true
