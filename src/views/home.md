@@ -25,16 +25,16 @@ trust:
   - Free local delivery over $150
 featured_piece:
   eyebrow: Featured piece
-  title: Tree of Life tea set
-  caption: Tree of Life · hand-carved emblem
-  text: Teapot, tumbler, sugar jar and creamer — each carrying the carved tree, no two sets alike.
+  title: Tofino teapot and mugs
+  caption: Tofino · a stormy coastal landscape
+  text: Cobalt, mocha and amber run in bands across every piece. Tofino is one of my most variable glazes, so no two come out of the kiln alike.
   price: ""
   image:
-    url: /images/updates/treeoflife-teaset.jpg
-    alt: Tree of Life tea set by Matthew Freed on a steel plinth
+    url: /images/tofino-tea-set.jpg
+    alt: Tofino teapot, mugs and vase by Matthew Freed on a wooden table
   cta:
     label: View in the shop
-    url: https://shop.matthewfreed.net/collections/all/Tree-of-Life
+    url: https://shop.matthewfreed.net/collections/all/Tofino
 collections_teaser:
   title: Fifteen glazes, fifteen stories
   text: Named for the coasts, mountains and neighbourhoods that shaped their colours — and a few quieter inspirations.
