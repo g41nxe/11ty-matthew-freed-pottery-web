@@ -58,7 +58,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - {label: "url", name: "url", widget: "image", choose_url: false}
+                  - {label: "url", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/glazes", public_folder: "/images/glazes"}
                   - {label: "alt", name: "alt", widget: "string"}
 
           - label: "Trust ribbon (below the hero)"
@@ -82,7 +82,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - {label: "url", name: "url", widget: "image", choose_url: false}
+                  - {label: "url", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/glazes", public_folder: "/images/glazes"}
                   - {label: "alt", name: "alt", widget: "string"}
               - label: "Shop link"
                 name: "cta"
@@ -134,7 +134,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - {label: "url", name: "url", widget: "image", choose_url: false}
+                  - {label: "url", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/workshop", public_folder: "/images/workshop"}
                   - {label: "alt", name: "alt", widget: "string"}
 
           - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
@@ -156,7 +156,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - {label: "URL", name: "url", widget: "image", choose_url: false}
+                  - {label: "URL", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/glazes", public_folder: "/images/glazes"}
                   - {label: "Alt Text", name: "alt", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Text", name: "text", widget: "text"}
@@ -268,7 +268,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - {label: "url", name: "url", widget: "image", choose_url: false}
+                  - {label: "url", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/workshop", public_folder: "/images/workshop"}
                   - {label: "alt", name: "alt", widget: "string"}
               - label: "paragraphs"
                 name: "paragraphs"
@@ -305,7 +305,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - {label: "url", name: "url", widget: "image", choose_url: false}
+                  - {label: "url", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/workshop", public_folder: "/images/workshop"}
                   - {label: "alt", name: "alt", widget: "string"}
               - label: "paragraphs"
                 name: "paragraphs"
@@ -335,7 +335,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - {label: "url", name: "url", widget: "image", choose_url: false}
+                  - {label: "url", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/workshop", public_folder: "/images/workshop"}
                   - {label: "alt", name: "alt", widget: "string"}
               - label: "paragraphs"
                 name: "paragraphs"
@@ -411,7 +411,7 @@ collections:
             name: "image"
             widget: "object"
             fields:
-              - {label: "url", name: "url", widget: "image", choose_url: false}
+              - {label: "url", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/workshop", public_folder: "/images/workshop"}
               - {label: "alt", name: "alt", widget: "string"}
 
           - label: "Stores"
@@ -443,7 +443,7 @@ collections:
             widget: "object"
             collapsed: true
             fields:
-              - {label: "url", name: "url", widget: "image", choose_url: false}
+              - {label: "url", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/workshop", public_folder: "/images/workshop"}
               - {label: "alt", name: "alt", widget: "string"}
 
           - label: "body"
@@ -536,7 +536,7 @@ collections:
               widget: object
               collapsed: true
               fields:
-                - {name: url, widget: image, media_folder: "/src/images/updates/", public_folder: "/images/updates", choose_url: false}
+                - {name: url, widget: image, media_folder: "/src/images/news", public_folder: "/images/news", choose_url: false}
                 - {name: alt, widget: string}
 
       - label: "Events"
@@ -611,7 +611,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - {label: "URL", name: "url", widget: "image", choose_url: false}
+                  - {label: "URL", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/site", public_folder: "/images/site"}
                   - {label: "Alt Text", name: "alt", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Subtitle", name: "subtitle", widget: "string"}
@@ -705,7 +705,7 @@ collections:
           - {label: "Description", name: "description", widget: "text"}
           - {label: "Site URL (no trailing slash)", name: "url", widget: "string", pattern: ["^https?://[^/]+$", "Enter the site URL with no trailing slash, e.g. https://matthewfreed.ca"]}
           - {label: "Author", name: "author", widget: "string"}
-          - {label: "Social share image", name: "image", widget: "image", choose_url: false}
+          - {label: "Social share image", name: "image", widget: "image", choose_url: false, media_folder: "/src/assets", public_folder: "/assets"}
           - label: "Options"
             name: "options"
             widget: "object"
@@ -738,7 +738,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - {label: "URL", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/features", public_folder: "/images/features"}
+                  - {label: "URL", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/products", public_folder: "/images/products"}
                   - {label: "Alt Text", name: "alt", widget: "string"}
               - {label: "Hide", name: "hide", widget: "boolean", default: false}
 
@@ -765,7 +765,7 @@ collections:
             widget: "object"
             collapsed: true
             fields:
-              - {label: "url", name: "url", widget: "image", choose_url: false}
+              - {label: "url", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/workshop", public_folder: "/images/workshop"}
               - {label: "alt", name: "alt", widget: "string"}
 
       - label: "FAQ Sections"

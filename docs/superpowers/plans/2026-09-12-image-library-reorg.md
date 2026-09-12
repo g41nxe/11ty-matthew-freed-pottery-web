@@ -1128,7 +1128,7 @@ diff <(varianten after-task3.txt) <(varianten after-task8.txt)
 wc -l < after-task8.txt
 ```
 
-Erwartet: **keine Ausgabe** aus dem `diff`, und 555 Zeilen im Manifest. Seit Task 3 wurde keine Bilddatei inhaltlich verändert, nur verschoben und umbenannt. Weicht etwas ab, hat ein Schritt eine Datei ersetzt statt verschoben.
+Erwartet: **keine Ausgabe** aus dem `diff`, und 529 Zeilen im Manifest -- 474 erzeugte Varianten plus 55 Passthrough-Kopien. Seit Task 3 wurde keine Bilddatei inhaltlich verändert, nur verschoben und umbenannt. Weicht etwas ab, hat ein Schritt eine Datei ersetzt statt verschoben.
 
 - [ ] **Schritt 4: Die PWA-Screenshots prüfen**
 
