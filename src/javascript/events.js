@@ -77,7 +77,7 @@
                 chip.hidden = past(chip);
                 return !chip.hidden;
             });
-            chips.forEach(function (chip, i) {
+            chips.forEach(function (chip) {
                 var isNextDate = remaining[0] === chip;
                 chip.classList.toggle('bg-sand', isNextDate);
                 chip.classList.toggle('bg-tile', !isNextDate);
@@ -97,19 +97,29 @@
         live.sort(function (a, b) {
             return a.date < b.date ? -1 : a.date > b.date ? 1 : 0;
         });
+        var soonest = live.length ? live[0].card : null;
         cards.forEach(function (card) {
-            markNext(card, live.length > 0 && live[0].card === card);
-            card.classList.toggle('border-blue', live.length > 0 && live[0].card === card);
-            card.classList.toggle('border-hairline', !(live.length > 0 && live[0].card === card));
+            var isNext = card === soonest;
+            markNext(card, isNext);
+            card.classList.toggle('border-blue', isNext);
+            card.classList.toggle('border-hairline', !isNext);
         });
 
         // A section heading with nothing under it would read as a mistake.
+        var shown = {};
         ['special', 'markets'].forEach(function (name) {
             var heading = root.querySelector('p[data-section="' + name + '"]');
             if (!heading) return;
-            heading.hidden = !cards.some(function (card) {
+            shown[name] = cards.some(function (card) {
                 return card.dataset.section === name && !card.hidden;
             });
+            heading.hidden = !shown[name];
+            // The markets heading carries a top margin only because the
+            // special section sits above it. With that section gone the
+            // margin would leave a gap under the intro.
+            if (name === 'markets' && shown.special === false) {
+                heading.classList.remove('mt-10');
+            }
         });
 
         var soon = root.querySelector('[data-events-soon]');
