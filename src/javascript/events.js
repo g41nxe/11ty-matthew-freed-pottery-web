@@ -11,8 +11,11 @@
         String(now.getMonth() + 1).padStart(2, '0') + '-' +
         String(now.getDate()).padStart(2, '0');
 
+    // An event is over once its last day is over, so a multi-day show stays
+    // listed while it is running and a market still shows on its own morning.
+    // data-until carries that last day; a date chip has only itself.
     function past(el) {
-        return el.dataset.date < today;
+        return (el.dataset.until || el.dataset.date) < today;
     }
 
     function markNext(card, isNext) {

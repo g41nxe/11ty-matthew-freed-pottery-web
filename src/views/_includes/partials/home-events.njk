@@ -21,6 +21,7 @@
             <a href="/events.html"
                data-event
                data-date="{{ event.date | date('yyyy-MM-dd') }}"
+               data-until="{{ (event.end_date or event.date) | date('yyyy-MM-dd') }}"
                data-name="{{ event.name | trim }}"
                data-hero="{{ event.date | date('ccc d LLL') }}, {{ event.name | trim }}{% if event.time %}, {{ event.time }}{% endif %}"
                {% if rank < 0 or rank > 3 %}hidden{% endif %}

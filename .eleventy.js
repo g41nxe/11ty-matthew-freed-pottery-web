@@ -63,10 +63,20 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addNunjucksFilter("removeFirst", function (array) {
         return array.slice(1, array.length);
     });
+    // An event stays upcoming until the end of its last day: a multi-day show
+    // is still listed while it is running, and a market still shows on the
+    // morning it happens. Comparing against the start of today rather than
+    // the current instant is what keeps today's date in. `lastDay` guards
+    // against an end_date that predates the start.
+    function lastDay(event) {
+        const start = DateTime.fromFormat(event.date, 'MM-dd-yyyy');
+        if (!event.end_date) return start;
+        const end = DateTime.fromFormat(event.end_date, 'MM-dd-yyyy');
+        return end > start ? end : start;
+    }
     eleventyConfig.addNunjucksFilter("filterFuture", function(array) {
-        return array.filter(el => {
-            return DateTime.fromFormat(el.date, 'MM-dd-yyyy') > DateTime.now();
-        });
+        const today = DateTime.now().startOf('day');
+        return array.filter(el => lastDay(el) >= today);
     });
     eleventyConfig.addNunjucksFilter("filterPast", function(array) {
         return array.filter(el => {
