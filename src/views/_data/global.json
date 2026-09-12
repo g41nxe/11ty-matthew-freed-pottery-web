@@ -29,7 +29,10 @@
   },
   "labels": {
     "at_studio": "At my studio",
-    "directions": "Directions"
+    "directions": "Directions",
+    "next_market": "Next market",
+    "next_up": "Next up",
+    "dates_soon": "New dates go up here as soon as they are booked."
   },
   "footer": {
     "retail": "Retail stores",

@@ -646,6 +646,9 @@ collections:
             fields:
               - {label: "Studio-event badge", name: "at_studio", widget: "string"}
               - {label: "Map link text", name: "directions", widget: "string"}
+              - {label: "Home page, label in front of the next market", name: "next_market", widget: "string"}
+              - {label: "Home page, badge on the next event card", name: "next_up", widget: "string"}
+              - {label: "Shown when every listed date has passed", name: "dates_soon", widget: "string"}
 
           - label: "Contact Information"
             name: "contact"

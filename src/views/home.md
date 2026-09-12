@@ -14,7 +14,7 @@ hero:
   cta_primary:
     label: Shop the collections
   cta_secondary:
-    label: Upcoming events
+    label: All events
     url: /events.html
   image:
     url: /images/updates/squamish-nights-close.jpg

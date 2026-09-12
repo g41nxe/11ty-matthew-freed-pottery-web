@@ -96,6 +96,14 @@ module.exports = function (eleventyConfig) {
             .map(g => { g.dates.sort(byDate); return g; })
             .sort((a, b) => byDate(a.dates[0], b.dates[0]));
     });
+    // Every upcoming event oldest-first. Note the direction: sortByDate
+    // above sorts newest-first. The home band
+    // renders all of them so events.js can refill the grid in the browser
+    // when a date has passed since the last build.
+    eleventyConfig.addNunjucksFilter("byDateAsc", function(array) {
+        return array.slice()
+            .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'));
+    });
     // One entry per event name (its next occurrence), soonest first.
     // Used by the homepage events band to avoid listing the same market twice.
     eleventyConfig.addNunjucksFilter("nextUp", function(array) {
