@@ -438,14 +438,6 @@ collections:
           - {label: "headline", name: "headline", widget: "string"}
           - {label: "intro", name: "intro", widget: "text"}
 
-          - label: "image"
-            name: "image"
-            widget: "object"
-            collapsed: true
-            fields:
-              - {label: "url", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/workshop", public_folder: "/images/workshop"}
-              - {label: "alt", name: "alt", widget: "string"}
-
           - label: "body"
             name: "body"
             widget: "markdown"
@@ -758,15 +750,6 @@ collections:
           - {label: "headline", name: "headline", widget: "string"}
           - {label: "intro", name: "intro", widget: "text"}
           - {label: "load_more", name: "load_more", widget: "string"}
-
-
-          - label: "image"
-            name: "image"
-            widget: "object"
-            collapsed: true
-            fields:
-              - {label: "url", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/workshop", public_folder: "/images/workshop"}
-              - {label: "alt", name: "alt", widget: "string"}
 
       - label: "FAQ Sections"
         name: "faq"
