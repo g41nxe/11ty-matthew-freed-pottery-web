@@ -56,7 +56,11 @@ module.exports = function (eleventyConfig) {
                  - DateTime.fromFormat(a[attribute], 'MM-dd-yyyy').toJSDate();
         });
     });
+    // An optional CMS date field left empty arrives as "" or undefined.
+    // Luxon throws on undefined, which would fail the whole build, so an
+    // empty date renders as an empty string instead.
     eleventyConfig.addNunjucksFilter("date", function (date, format) {
+        if (!date) return "";
         return DateTime.fromFormat(date, 'MM-dd-yyyy').toFormat(format);
     });
     // "Upcoming", not "future": an event stays in this list until the end of
