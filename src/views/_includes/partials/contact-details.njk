@@ -34,6 +34,15 @@
     <p class="mt-1 text-base text-muted">{{ global.contact.address | nl2br | safe }}</p>
 </div>
 
+{# The embed is built from the studio address in Global Settings, so moving
+   studios only means editing that address. Without a key (local builds, or
+   the variable missing on Netlify) the map is left out instead of showing
+   Google's error tile. #}
+{% if env.googleMapsKey %}
 <div id="map" class="mt-6 overflow-hidden rounded-xl">
-    {{ gmaps | safe }}
+    <iframe title="Map of the studio address"
+            src="https://www.google.com/maps/embed/v1/place?key={{ env.googleMapsKey }}&q={{ ('Matthew Freed Pottery, ' ~ global.contact.address) | replace(r/\s*\n\s*/g, ', ') | trim | urlencode }}"
+            class="w-full" height="236" style="border:0" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
 </div>
+{% endif %}

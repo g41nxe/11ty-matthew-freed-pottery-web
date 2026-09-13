@@ -187,7 +187,6 @@ collections:
           - {label: "message", name: "message", widget: "string"}
           - {label: "phone", name: "phone", widget: "string"}
           - {label: "address", name: "address", widget: "string"}
-          - {label: "gmaps", name: "gmaps", widget: "string"}
 
           - label: "contactform"
             name: "contactform"
