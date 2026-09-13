@@ -5,9 +5,9 @@ layout: base
 <article class="mx-auto max-w-3xl px-6 py-12">
     <h1 class="font-display text-4xl font-black leading-tight text-ink">{{ headline | default(title) }}</h1>
     {% if intro %}<p class="mt-4 text-base leading-relaxed text-muted">{{ intro }}</p>{% endif %}
-    {% if image.url %}
+    {% if banner.url %}
     <div class="mt-8 overflow-hidden rounded-xl bg-tile">
-        {% img image.url, image.alt, "(min-width: 768px) 48rem, 100vw", "w-full object-cover" %}
+        {% img banner.url, banner.alt, "(min-width: 768px) 48rem, 100vw", "w-full object-cover" %}
     </div>
     {% endif %}
     <div class="prose-pottery mt-8">{{ content | safe }}</div>

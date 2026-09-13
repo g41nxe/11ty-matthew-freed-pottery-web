@@ -7,9 +7,9 @@ layout: base
     <h1 class="mt-3 font-display text-4xl font-black leading-tight text-ink">{{ headline | default(title) }}</h1>
     {% if intro %}<p class="mt-4 max-w-xl text-base leading-relaxed text-muted">{{ intro }}</p>{% endif %}
 
-    {% if image.url %}
+    {% if banner.url %}
     <div class="mt-8 overflow-hidden rounded-xl bg-tile">
-        {% img image.url, image.alt, "(min-width: 1152px) 720px, (min-width: 768px) 48rem, 100vw", "aspect-[16/9] w-full object-cover" %}
+        {% img banner.url, banner.alt, "(min-width: 1152px) 720px, (min-width: 768px) 48rem, 100vw", "aspect-[16/9] w-full object-cover" %}
     </div>
     {% endif %}
 

@@ -5,6 +5,7 @@
   "author": "Matthew Freed",
   "image": "/assets/blue-arrangement.jpg",
   "options": {
-    "titleDivider": "|"
+    "titleDivider": "|",
+    "imageWithBaseUrl": true
   }
 }

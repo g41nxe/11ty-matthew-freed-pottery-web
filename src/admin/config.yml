@@ -133,12 +133,6 @@ collections:
                   - {label: "url", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/workshop", public_folder: "/images/workshop"}
                   - {label: "alt", name: "alt", widget: "string"}
 
-          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
-          - {label: "author", name: "author", widget: "hidden"}
-          - {label: "excerpt", name: "excerpt", widget: "hidden"}
-          - {label: "image", name: "image", widget: "hidden"}
-          - {label: "ogtype", name: "ogtype", widget: "hidden"}
-
       - label: "Home - Gallery"
         name: "showcase"
         file: "src/views/_data/showcase.json"        
@@ -179,7 +173,6 @@ collections:
           - {label: "title", name: "title", widget: "string"}
           - {label: "permalink", name: "permalink", widget: "string"}
 
-
           - {label: "Small label above the headline", name: "eyebrow", widget: "string", required: false}
           - {label: "headline", name: "headline", widget: "string"}
           - {label: "subheadline", name: "subheadline", widget: "string"}
@@ -219,12 +212,6 @@ collections:
             fields:
               - {label: "key", name: "key", widget: "hidden"}
               - {label: "order", name: "order", widget: "hidden"}
-
-          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
-          - {label: "author", name: "author", widget: "hidden"}
-          - {label: "excerpt", name: "excerpt", widget: "hidden"}
-          - {label: "image", name: "image", widget: "hidden"}
-          - {label: "ogtype", name: "ogtype", widget: "hidden"}
 
       - label: "About - About"
         name: "about"
@@ -268,13 +255,6 @@ collections:
                   - {label: "alt", name: "alt", widget: "string"}
               - {label: "body", name: "body", widget: "markdown"}
 
-          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
-          - {label: "author", name: "author", widget: "hidden"}
-          - {label: "excerpt", name: "excerpt", widget: "hidden"}
-          - {label: "image", name: "image", widget: "hidden"}
-          - {label: "ogtype", name: "ogtype", widget: "hidden"}
-
-
       - label: "About - Pottery"
         name: "pottery"
         file: "src/views/pottery.md"
@@ -309,8 +289,10 @@ collections:
           - {label: "permalink", name: "permalink", widget: "hidden"}
           - {label: "tags", name: "tags", widget: "hidden"}
 
+          - {label: "eyebrow", name: "eyebrow", widget: "string"}
           - {label: "headline", name: "headline", widget: "string"}
           - {label: "intro", name: "intro", widget: "text"}
+          - {label: "Pull quote (shown after the first section)", name: "quote", widget: "text", required: false}
 
           - label: "sections"
             name: "sections"
@@ -331,12 +313,6 @@ collections:
             fields:
               - {label: "key", name: "key", widget: "hidden"}
               - {label: "order", name: "order", widget: "hidden"}
-
-          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
-          - {label: "author", name: "author", widget: "hidden"}
-          - {label: "excerpt", name: "excerpt", widget: "hidden"}
-          - {label: "image", name: "image", widget: "hidden"}
-          - {label: "ogtype", name: "ogtype", widget: "hidden"}
 
       - label: "Collections"
         name: "collections"
@@ -369,12 +345,6 @@ collections:
             widget: "list"
             field: {label: "Filter", name: "filter", widget: "string"}
 
-          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
-          - {label: "author", name: "author", widget: "hidden"}
-          - {label: "excerpt", name: "excerpt", widget: "hidden"}
-          - {label: "image", name: "image", widget: "hidden"}
-          - {label: "ogtype", name: "ogtype", widget: "hidden"}
-
       - label: "Retail Stores"
         name: "retail-stores"
         file: "src/views/retail-stores.md"
@@ -388,8 +358,8 @@ collections:
           - {label: "headline", name: "headline", widget: "string"}
           - {label: "intro", name: "intro", widget: "text"}
 
-          - label: "image"
-            name: "image"
+          - label: "Banner image"
+            name: "banner"
             widget: "object"
             fields:
               - {label: "url", name: "url", widget: "image", choose_url: false, media_folder: "/src/images/workshop", public_folder: "/images/workshop"}
@@ -473,12 +443,6 @@ collections:
 
           - {label: "Text when no events", name: "no_events", widget: "text"}
 
-          - {label: "custom_seo_settings", name: "custom_seo_settings", widget: "hidden"}
-          - {label: "author", name: "author", widget: "hidden"}
-          - {label: "excerpt", name: "excerpt", widget: "hidden"}
-          - {label: "image", name: "image", widget: "hidden"}
-          - {label: "ogtype", name: "ogtype", widget: "hidden"}
-
   - label: "News & Events"
     name: "news-and-events"
     delete: false
@@ -550,9 +514,6 @@ collections:
             - name: gmaps
               label: "Location on Google Maps"
               widget: string
-            - name: featured
-              widget: boolean
-              default: true
             - label: "Takes place at my studio"
               name: atStudio
               widget: boolean
@@ -676,6 +637,7 @@ collections:
             widget: "object"
             fields:
               - {label: "Title Divider", name: "titleDivider", widget: "string"}
+              - {label: "imageWithBaseUrl", name: "imageWithBaseUrl", widget: "hidden", default: true}
 
       - label: "Featured Shop Items"
         name: "features"
