@@ -3,7 +3,6 @@
     {
       "name": "Harmony Arts Festival",
       "time": "2pm -  9pm Friday, 11 am - 9 pm Saturday & Sunday",
-      "featured": true,
       "date": "08-07-2026",
       "multi_day_event": true,
       "end_date": "08-09-2026",
@@ -12,17 +11,12 @@
         "body": "The Harmony Arts Festival takes place from August 7 to 9, 2026. Join us for live music and celebrate visual and culinary art in our community.",
         "title": "Harmony Arts Festival"
       },
-      "image": {
-        "alt": "",
-        "url": ""
-      },
       "gmaps": "Harmony Arts Festival | West Vancouver, 1564 Argyle Ave, West Vancouver, BC V7V 1A1, Kanada",
       "atStudio": false
     },
     {
       "name": "Harmony Arts Festival",
       "time": "2 pm - 9pm Friday, 11 am - 9 pm Saturday, Sunday and Monday",
-      "featured": true,
       "date": "07-31-2026",
       "multi_day_event": true,
       "end_date": "08-03-2026",
@@ -31,17 +25,12 @@
         "body": "The Harmony Arts Festival takes place from July 31 to August 3, 2026. Join us for live music and celebrate visual and culinary art in our community.",
         "title": "Harmony Arts Festival"
       },
-      "image": {
-        "alt": "",
-        "url": ""
-      },
       "gmaps": "Harmony Arts Festival | West Vancouver, 1564 Argyle Ave, West Vancouver, BC V7V 1A1, Kanada",
       "atStudio": false
     },
     {
       "name": "Bespoke Summer Night Market",
       "time": "3 pm to 9 pm",
-      "featured": true,
       "date": "08-04-2026",
       "multi_day_event": true,
       "end_date": "08-06-2026",
@@ -56,7 +45,6 @@
     {
       "name": "Trout Lake Farmer's Market",
       "time": "9 a.m. to 2 p.m.",
-      "featured": true,
       "date": "04-18-2026",
       "multi_day_event": false,
       "end_date": "04-18-2026",
@@ -71,7 +59,6 @@
     {
       "name": "Trout Lake Farmer's Market",
       "time": "9 a.m. to 2 p.m.",
-      "featured": true,
       "date": "05-02-2026",
       "multi_day_event": false,
       "end_date": "05-02-2026",
@@ -86,7 +73,6 @@
     {
       "name": "Trout Lake Farmer's Market",
       "time": "9 a.m. to 2 p.m.",
-      "featured": false,
       "date": "05-23-2026",
       "multi_day_event": false,
       "end_date": "05-23-2026",
@@ -101,7 +87,6 @@
     {
       "name": "Trout Lake Farmer's Market",
       "time": "9 a.m. to 2 p.m.",
-      "featured": true,
       "date": "07-18-2026",
       "multi_day_event": false,
       "end_date": "07-18-2026",
@@ -116,7 +101,6 @@
     {
       "name": "Trout Lake Farmer's Market",
       "time": "9 a.m. to 2 p.m.",
-      "featured": true,
       "date": "09-26-2026",
       "multi_day_event": false,
       "end_date": "09-26-2026",
@@ -131,7 +115,6 @@
     {
       "name": "Trout Lake Farmer's Market",
       "time": "9 a.m. to 2 p.m.",
-      "featured": true,
       "date": "10-17-2026",
       "multi_day_event": false,
       "end_date": "10-17-2026",
@@ -146,7 +129,6 @@
     {
       "name": "Kitsilano Farmer's Market",
       "time": "10 a.m. to 2 p.m.",
-      "featured": true,
       "date": "05-31-2026",
       "multi_day_event": false,
       "end_date": "05-31-2026",
@@ -161,7 +143,6 @@
     {
       "name": "Kitsilano Farmer's Market",
       "time": "10 a.m. to 2 p.m.",
-      "featured": false,
       "date": "06-21-2026",
       "multi_day_event": false,
       "end_date": "06-21-2026",
@@ -176,7 +157,6 @@
     {
       "name": "Kitsilano Farmer's Market",
       "time": "10 a.m. to 2 p.m.",
-      "featured": true,
       "date": "07-05-2026",
       "multi_day_event": false,
       "end_date": "07-05-2026",
@@ -191,7 +171,6 @@
     {
       "name": "Kitsilano Farmer's Market",
       "time": "10 a.m. to 2 p.m.",
-      "featured": true,
       "date": "07-12-2026",
       "multi_day_event": false,
       "end_date": "07-12-2026",
@@ -206,7 +185,6 @@
     {
       "name": "Kitsilano Farmer's Market",
       "time": "10 a.m. to 2 p.m.",
-      "featured": true,
       "date": "09-27-2026",
       "multi_day_event": false,
       "end_date": "09-27-2026",
@@ -221,7 +199,6 @@
     {
       "name": "Kitsilano Farmer's Market",
       "time": "10 a.m. to 2 p.m.",
-      "featured": true,
       "date": "10-18-2026",
       "multi_day_event": false,
       "end_date": "10-18-2026",
@@ -236,7 +213,6 @@
     {
       "name": "West End Farmer's Market",
       "time": "9 a.m. to 2 p.m.",
-      "featured": true,
       "date": "05-09-2026",
       "multi_day_event": false,
       "end_date": "05-09-2026",
@@ -251,7 +227,6 @@
     {
       "name": "West End Farmer's Market",
       "time": "9 a.m. to 2 p.m.",
-      "featured": false,
       "date": "06-20-2026",
       "multi_day_event": false,
       "end_date": "06-20-2026",
@@ -266,7 +241,6 @@
     {
       "name": "West End Farmer's Market",
       "time": "9 a.m. to 2 p.m.",
-      "featured": false,
       "date": "06-06-2026",
       "multi_day_event": false,
       "end_date": "06-06-2026",
@@ -281,7 +255,6 @@
     {
       "name": "West End Farmer's Market",
       "time": "9 a.m. to 2 p.m.",
-      "featured": false,
       "date": "09-19-2026",
       "multi_day_event": false,
       "end_date": "09-19-2026",
@@ -296,7 +269,6 @@
     {
       "name": "West End Farmer's Market",
       "time": "9 a.m. to 2 p.m.",
-      "featured": true,
       "date": "10-03-2026",
       "multi_day_event": false,
       "end_date": "10-03-2026",
@@ -311,7 +283,6 @@
     {
       "name": "Ladner Village Market",
       "time": "10 a.m. to 4 p.m.",
-      "featured": true,
       "date": "06-07-2026",
       "multi_day_event": false,
       "end_date": "06-07-2026",
@@ -326,7 +297,6 @@
     {
       "name": "Ladner Village Market",
       "time": "10 a.m. to 4 p.m.",
-      "featured": true,
       "date": "07-19-2026",
       "multi_day_event": false,
       "end_date": "07-19-2026",
@@ -341,7 +311,6 @@
     {
       "name": "Ladner Village Market",
       "time": "10 a.m. to 4 p.m.",
-      "featured": false,
       "date": "09-20-2026",
       "multi_day_event": false,
       "end_date": "09-20-2026",

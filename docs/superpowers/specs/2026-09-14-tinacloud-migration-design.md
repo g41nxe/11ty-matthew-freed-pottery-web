@@ -87,3 +87,7 @@ Die übrigen Dateien werden in ihrer jeweiligen Scheibe gegen das Schema abgegli
 ## 8. Zurückrollen
 
 Bis zur Umstellung trivial: Decap unter `/admin/` bleibt unberührt, Tina liegt daneben. Nach der Umstellung ist nichts verlustbehaftet, weil die Datenform gleich bleibt. Ein Revert der Tina-Dateien und das Zurückholen von `src/admin` stellen Decap wieder her.
+
+## 9. Befunde aus dem Durchstich
+
+- **Task 1:** `featured` und `image` aus `events.json` entfernt (31 Zeilen, nur Löschungen). Kein Template liest sie, das gebaute HTML aller 11 Seiten ist vorher und nachher identisch.
