@@ -1,18 +1,48 @@
 import type { Collection } from "tinacms";
 
 // Dates stay "MM-DD-YYYY", the format every date filter in .eleventy.js
-// reads. Task 3 of the Durchstich decides whether a date picker replaces
-// this text field.
-const usDate = (value?: string) =>
-  value && !/^\d{2}-\d{2}-\d{4}$/.test(value)
+// reads.
+const US_DATE = /^(\d{2})-(\d{2})-(\d{4})$/;
+
+const usDate = (value: string) =>
+  value && !US_DATE.test(value)
     ? "Use MM-DD-YYYY, for example 10-04-2026"
     : undefined;
 
-// The list label Matthew scans for. Parsed in the editor's browser, so it
-// shows his calendar day for both "MM-DD-YYYY" and ISO values.
+// "10-04-2026" -> "2026-10-04T00:00:00", which every browser reads as local
+// midnight (Safari rejects "10-04-2026" itself).
+const fromUsDate = (value: string): string => {
+  const m = value?.match(US_DATE);
+  return m ? `${m[3]}-${m[1]}-${m[2]}T00:00:00` : value;
+};
+
+// Tina's date picker hands over an ISO timestamp: local midnight when an
+// existing date is changed, the current clock time when the field was
+// empty. Either way the editor's browser shows the day they picked, so only
+// that calendar day is kept and no timezone ever reaches the file.
+const pad = (n: number) => String(n).padStart(2, "0");
+const toUsDate = (value: string): string => {
+  if (!value || US_DATE.test(value)) return value;
+  const day = new Date(value);
+  return isNaN(day.getTime())
+    ? value
+    : `${pad(day.getMonth() + 1)}-${pad(day.getDate())}-${day.getFullYear()}`;
+};
+
+// A string field, not "datetime": Tina's server would rewrite every date in
+// the file to an ISO timestamp in its own timezone.
+const datePicker = {
+  component: "date",
+  dateFormat: "MM-DD-YYYY",
+  parse: toUsDate,
+  format: fromUsDate,
+  validate: usDate,
+};
+
+// The list label Matthew scans for.
 export const dayLabel = (value?: string): string => {
   if (!value) return "";
-  const day = new Date(value);
+  const day = new Date(fromUsDate(value));
   return isNaN(day.getTime())
     ? value
     : day.toLocaleDateString("en-CA", { year: "numeric", month: "short", day: "numeric" });
@@ -39,8 +69,9 @@ export const events: Collection = {
       },
       fields: [
         { type: "boolean", name: "multi_day_event", label: "Is it a multi day event?" },
-        { type: "string", name: "date", label: "Date", required: true, description: "MM-DD-YYYY", ui: { validate: usDate } },
-        { type: "string", name: "end_date", label: "End date", description: "MM-DD-YYYY, only for multi day events", ui: { validate: usDate } },
+        { type: "string", name: "date", label: "Date", required: true, ui: datePicker },
+        // required: false explicitly: otherwise clearing the picker fills in today.
+        { type: "string", name: "end_date", label: "End date", description: "Only for multi day events", required: false, ui: datePicker },
         { type: "string", name: "time", label: "Time" },
         { type: "string", name: "name", label: "Name", required: true },
         { type: "string", name: "location", label: "Location" },

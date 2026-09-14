@@ -5,3 +5,4 @@ dist
 .sass-cache
 .env
 tina/__generated__/
+.playwright-mcp/
