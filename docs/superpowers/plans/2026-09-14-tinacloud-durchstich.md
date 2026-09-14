@@ -26,6 +26,8 @@
 - Commit-Nachrichten auf Deutsch im Stil `typ(bereich): …`, abgeschlossen mit `Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>`.
 - Befunde landen sofort in Abschnitt 9 des Specs, im Commit der jeweiligen Task.
 
+- Nicht in diesem Plan, sondern in späteren Plänen laut Spec Abschnitt 7: News-Umzug nach `events.md`, Trennung von `showcase.json`, die übrigen Collections, die Umstellung und das Aufräumen der alten CMS-Reste. `news.json` und `src/admin/` hier nicht anfassen.
+
 ---
 
 ## Dateien
