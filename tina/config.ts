@@ -1,5 +1,6 @@
 import { defineConfig } from "tinacms";
 import { events } from "./collections/events";
+import { about } from "./collections/about";
 
 export default defineConfig({
   // Netlify sets HEAD to the branch being built, so a deploy preview edits
@@ -13,5 +14,5 @@ export default defineConfig({
   // Decap still owns /admin until the cutover.
   build: { outputFolder: "admin-tina", publicFolder: "dist" },
   media: { tina: { publicFolder: "src", mediaRoot: "images" } },
-  schema: { collections: [events] },
+  schema: { collections: [events, about] },
 });
