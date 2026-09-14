@@ -115,3 +115,4 @@ Bis zur Umstellung trivial: Decap unter `/admin/` bleibt unberührt, Tina liegt 
   - **Token-Branches:** Auch lokal mit richtigem Branch kam 403. Content-Tokens gelten nur für die Branches im Feld „Git branches"; für Deploy-Vorschauen braucht es `*`.
   - **Token im Klartext:** `tinacms build` gibt bei diesem Fehler das Token in der Konsole aus. Netlify maskiert es im Deploy-Log (`****`), lokal nicht.
   - **`NODE_ENV` ist auf Netlify gesetzt:** Abhängigkeiten, die der Build braucht, gehören in `dependencies` (siehe `cross-env`).
+  - **Ursache des 403:** Das erste Content-Token galt nur für den Branch `tina`. TinaCloud prüft das Token pro Branch (`/db/<clientId>/status/<branch>` mit `X-API-KEY`). Ein neues Token für `feat/tinacloud-migration` liefert `200`, „indexing branch succeeded". Für die Umstellung braucht es ein Token, das `main` abdeckt, besser `*` für künftige Vorschauen; das alte Token wird gelöscht.
