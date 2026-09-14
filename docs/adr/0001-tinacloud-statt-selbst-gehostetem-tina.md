@@ -1,6 +1,6 @@
 # 1. TinaCloud statt selbst gehostetem Tina
 
-Wir betreiben TinaCMS über den kostenlosen TinaCloud-Tarif, nicht selbst gehostet. Die laufende Migration auf `feat/tinacms-migration` wird fortgesetzt; nur die Backend-Schicht wird ausgetauscht.
+Wir betreiben TinaCMS über den kostenlosen TinaCloud-Tarif, nicht selbst gehostet. Die Vorarbeit auf `feat/tinacms-migration` bleibt die Grundlage; nur die Backend-Schicht wird ausgetauscht. Umgesetzt wird auf einem neuen Branch von `main` (ADR 0003).
 
 Ersetzt die Zeilen „Hosting", „Database", „Auth" und „Git provider" der Tabelle *Locked decisions* in `docs/superpowers/specs/2026-07-19-tinacms-migration-design.md`.
 

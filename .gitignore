@@ -3,3 +3,5 @@ dist
 .idea
 .DS_Store
 .sass-cache
+.env
+tina/__generated__/

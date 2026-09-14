@@ -1,0 +1,81 @@
+# Migration auf TinaCloud — Design
+
+Datum: 2026-09-14
+Status: Entwurf, Durchstich geplant
+Branch: `feat/tinacloud-migration` (von `main` bei v2.0.3)
+Ersetzt: `docs/superpowers/specs/2026-07-19-tinacms-migration-design.md` und den zugehörigen Plan, beide nur auf dem Archiv-Branch `feat/tinacms-migration`
+Entscheidungen: ADR 0001 (TinaCloud statt Selbsthosting), ADR 0003 (Redesign zuerst, neuer Branch)
+
+## 1. Ziel
+
+Matthew pflegt die Seite künftig in TinaCMS statt in Decap. Inhalte bleiben JSON und Markdown im Repo, Eleventy liest sie weiter direkt von der Platte. Das veröffentlichte Design ändert sich nicht.
+
+Gründe: Decaps Git Gateway ist abgekündigt, und verschachtelte Inhalte sind in Decap mühsam zu bearbeiten.
+
+## 2. Was vom Juli-Stand bleibt und was nicht
+
+Der Juli-Spec plante selbst gehostetes Tina mit MongoDB, Auth.js und einer Netlify-Funktion, dazu die Aufteilung von sechs Datenlisten in eine Datei pro Eintrag. Beides entfällt.
+
+**Übernommen werden Erkenntnisse, kaum Code:**
+
+- **GraphQL-Namen:** Collection-Namen nur mit Buchstaben, Ziffern und Unterstrich. `collection`, `collections`, `node`, `document` und `getOptimizedQuery` sind reserviert. Kein Feldname beginnt mit `__`.
+- **Einzeldateien:** `path` ist der Ordner, die Datei wird über `match: { include: "<name ohne Endung>" }` gewählt, nie über einen vollen Dateipfad.
+- **Frontmatter auf oberster Ebene bleibt erhalten**, auch wenn das Schema es nicht kennt. Nachgewiesen am 2026-07-19 mit `home.md`: `layout`, `permalink`, `eleventyNavigation` und alle anderen Blöcke überlebten ein Speichern. Harmloser Nebeneffekt: Das gespeicherte Feld wandert ans Ende, Werte mit Komma oder `https://` werden in einfache Anführungszeichen gesetzt, am Ende kommt eine Leerzeile dazu.
+- **Typprüfung:** `tsc --noEmit` über `tina/**/*.ts`, weil `tinacms build` mit esbuild übersetzt und dabei keine Typen prüft.
+- **Heap für den Build:** `NODE_OPTIONS=--max-old-space-size=4096` für `tinacms build`.
+
+## 3. Festgelegte Entscheidungen
+
+| Thema | Entscheidung |
+|---|---|
+| Betrieb | TinaCloud, kostenloser Tarif, zwei Nutzer: Dan und Matthew |
+| Vorgehen | Vertikale Scheiben. Erst ein Durchstich mit Events und About, dann ein Tor, dann die übrigen Collections |
+| Datenform | Keine Ordner-Collections, keine Datenbrücken. Jede Datei ist ein Tina-Dokument, Listen bleiben Listen in der Datei |
+| Events, News | Bleiben `events.json` und `news.json`. Vorläufig: Wird die lange Liste im Durchstich unhandlich, teilen wir sie auf |
+| FAQ | Bleibt `faq.json` |
+| Galerie, Features | `showcase.json` wird in `gallery.json` und `features.json` getrennt, jede mit ihrer kompletten Liste. Eigene Scheibe nach dem Tor |
+| Admin-Pfad | Tina baut bis zur Umstellung nach `/admin-tina/`. Decap bleibt unverändert unter `/admin/` |
+| Client-ID | Öffentlich, steht in `tina/config.ts`: `70c9fe54-ade8-4e7d-b8de-e44bc1d0f0bb`. `NEXT_PUBLIC_TINA_CLIENT_ID` hat Vorrang, falls gesetzt |
+| Token | Nur `TINA_TOKEN` in der Umgebung: Netlify für alle Deploy-Kontexte, lokal optional in `.env` (ignoriert). Nie im Repo |
+| Branch in Tina | `GITHUB_BRANCH`, sonst Netlifys `HEAD`, sonst `main` |
+| Build | `clean → styles:prod → tina:build → eleventy`. Zusätzlich `build:site` ohne Tina für lokale Prüfungen ohne Token |
+| Lokal | `tinacms dev -c "npm run eleventy:serve"` im lokalen Modus: kein Login, kein Token, liest und schreibt die Dateien auf der Platte |
+| Medien | Im Repo: `publicFolder: "src"`, `mediaRoot: "images"`. Gespeichert wird `/images/…` wie heute. Die Ordner aus dem Bildumbau vom 2026-09-12 bleiben |
+| Strukturfelder | `layout`, `permalink`, `tags`, `eleventyNavigation` werden nicht modelliert |
+| Felder in Listen und Objekten | Jeder Schlüssel wird modelliert oder vorher bewusst gelöscht. Tina erhält undeklarierte Schlüssel nur auf oberster Ebene im Frontmatter |
+
+## 4. Tote Schlüssel
+
+Nicht im CMS, nirgends gerendert, gehen beim ersten Tina-Speichern verloren. Sie werden vorher in einem eigenen Commit gelöscht, damit der erste Tina-Commit nur die gewollte Änderung zeigt:
+
+- `events.json`: `featured` (alle 23 Events) und `image` (2 Events)
+
+Die übrigen Dateien werden in ihrer jeweiligen Scheibe gegen das Schema abgeglichen.
+
+## 5. Offene Punkte, die der Durchstich klärt
+
+1. **Datum.** Tinas `datetime`-Feld speichert laut Doku einen ISO-Zeitstempel in UTC, umgerechnet aus der Ortszeit des Browsers. Alle Datumsfilter in `.eleventy.js` lesen heute nur `MM-dd-yyyy`.
+   - **Variante A:** Datumsauswahl behalten. Ein toleranter `parseDate` liest beide Formate und rundet ISO-Werte auf die nächste UTC-Mitternacht. Ein in Vancouver gewählter Tag (07:00Z) und ein in Deutschland gewählter (22:00Z am Vortag) ergeben so denselben Kalendertag. Das trägt nur, wenn Tina beim Wählen die Ortszeit auf 00:00 setzt.
+   - **Variante B:** Textfeld mit Prüfung auf `MM-DD-YYYY`. Keine Umrechnung, keine Filteränderung, aber keine Datumsauswahl.
+   - **Messung:** Ein Tag wird im Browser mit Zeitzone `Europe/Berlin` und `America/Vancouver` gewählt, der gespeicherte Wert wird notiert. Setzt Tina 00:00 Ortszeit, gilt A, sonst B.
+2. **Markdown-Texte.** Ob Tinas `rich-text` außerhalb des Datei-Bodys als Markdown-Text oder als AST-Objekt gespeichert wird, sagt die Doku nicht. `markdownify` braucht Text, und `process.md` enthält rohes `<b>`. Standard ist ein mehrzeiliges Textfeld mit Markdown. `rich-text` nur, wenn der Durchstich Markdown-Text mit erhaltenem HTML nachweist.
+3. **Medienverwaltung.** Lassen sich die Unterordner von `src/images` durchsuchen, und landet ein Upload im gewählten Ordner?
+4. **Build auf Netlify.** Läuft `tinacms build` ohne Speicherüberlauf, und findet TinaCloud den Branch?
+5. **Bedienung.** Sind Events und About in Tina für Matthew klar besser als in Decap? Das ist das Tor.
+
+## 6. Risiken für die Umstellung, nicht für den Durchstich
+
+- **Jeder Deploy braucht TinaCloud.** `tinacms build` verlangt Netzzugriff auf TinaCloud. Die veröffentlichte Seite bleibt bei einem Ausfall erreichbar, neue Deploys scheitern aber. Ob der Build dann ohne Admin weiterlaufen soll, entscheidet der Umstellungsplan.
+- **Deploy-Vorschauen fremder Branches.** Ob `tinacms build` auf einem Branch scheitert, den TinaCloud nicht indexiert hat (etwa Dependabot), ist ungeklärt.
+- **Formatierungsrauschen.** Tina schreibt JSON und YAML in eigener Form. Beim ersten Speichern jeder Datei entsteht ein größerer Diff.
+- **Zwei Nutzer sind die Obergrenze.** Ein dritter Bearbeiter kostet 24 Dollar im Monat.
+
+## 7. Phasen
+
+1. **Durchstich** (eigener Plan): Grundgerüst, Events, Datumsmessung, About mit Medien, Deploy-Vorschau, Tor.
+2. **Scheiben** (Plan nach dem Tor): News, Home, Global, SEO, Galerie und Features samt Trennung, FAQ, Process, Pottery, Contact, Collections, Events-Seite, Händler, Datenschutz.
+3. **Umstellung** (eigener Plan): Inhaltssperre, Tina nach `/admin/`, Decap und `src/admin` entfernen, Matthew in TinaCloud einladen, Netlify Identity und Git Gateway abschalten, Release mit vorher getaggtem Live-Stand.
+
+## 8. Zurückrollen
+
+Bis zur Umstellung trivial: Decap unter `/admin/` bleibt unberührt, Tina liegt daneben. Nach der Umstellung ist nichts verlustbehaftet, weil die Datenform gleich bleibt. Ein Revert der Tina-Dateien und das Zurückholen von `src/admin` stellen Decap wieder her.
