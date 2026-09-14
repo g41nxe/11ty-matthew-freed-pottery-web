@@ -38,7 +38,7 @@ Der Juli-Spec plante selbst gehostetes Tina mit MongoDB, Auth.js und einer Netli
 | Admin-Pfad | Tina baut bis zur Umstellung nach `/admin-tina/`. Decap bleibt unverändert unter `/admin/` |
 | Client-ID | Öffentlich, steht in `tina/config.ts`: `70c9fe54-ade8-4e7d-b8de-e44bc1d0f0bb`. `NEXT_PUBLIC_TINA_CLIENT_ID` hat Vorrang, falls gesetzt |
 | Token | Nur `TINA_TOKEN` in der Umgebung: Netlify für alle Deploy-Kontexte, lokal optional in `.env` (ignoriert). Nie im Repo |
-| Branch in Tina | `GITHUB_BRANCH`, sonst Netlifys `HEAD`, sonst `main` |
+| Branch in Tina | Netlifys `HEAD`, sonst `GITHUB_BRANCH` (lokal), sonst `main` |
 | Build | `clean → styles:prod → tina:build → eleventy`. Zusätzlich `build:site` ohne Tina für lokale Prüfungen ohne Token |
 | Lokal | `tinacms dev -c "npm run eleventy:serve"` im lokalen Modus: kein Login, kein Token, liest und schreibt die Dateien auf der Platte |
 | Medien | Im Repo: `publicFolder: "src"`, `mediaRoot: "images"`. Gespeichert wird `/images/…` wie heute. Die Ordner aus dem Bildumbau vom 2026-09-12 bleiben |
@@ -109,3 +109,9 @@ Bis zur Umstellung trivial: Decap unter `/admin/` bleibt unberührt, Tina liegt 
   - **Medienverwaltung:** zeigt alle Unterordner von `src/images` mit „New Folder" und „Upload". Ein Upload in der Medienverwaltung landet im geöffneten Ordner (`src/images/workshop/tina-test.jpg`), gespeichert wird `/images/workshop/tina-test.jpg`, und der `img`-Shortcode verarbeitet das neue Bild. Wird eine Datei dagegen direkt auf das Bildfeld gezogen, landet sie im Wurzelordner `src/images/`. Lokal lädt die Vorschau über den Bilder-Passthrough (`localhost:8080/images/…`); ein frisch hochgeladenes Bild zeigt dort bis zum nächsten Eleventy-Durchlauf kein Vorschaubild.
   - **Rich-Text:** außerhalb des Datei-Bodys als Markdown-Text gespeichert, nicht als AST. Rohes `<b>Think it</b>` erscheint im Editor als gesperrte Marke und bleibt beim Speichern wörtlich erhalten; der übrige Text bleibt Zeichen für Zeichen gleich. Entscheidung: `rich-text` für die Abschnittstexte.
   - **Nur lokal:** Tinas Index übernimmt Änderungen von außen (etwa `git checkout`) nicht immer. Vor dem nächsten Speichern `tina/config.ts` anfassen, sonst schreibt Tina den alten Stand zurück. Uploads in `src/images` lösen einen Eleventy-Neubau aus, der die Admin-Seite neu lädt.
+- **Task 5, erster Anlauf (2026-09-14):** Netlify baut Branch-Deploys, `tina:build` scheitert nach fünf Sekunden mit `403 not authorized to access branch`.
+  - **Falscher Branch:** Auf Netlify stand noch `GITHUB_BRANCH=feat/tinacms-migration` aus dem Selbsthosting-Versuch, und die Config bevorzugte diese Variable. Jetzt gilt `HEAD` zuerst.
+  - **Altlasten in den Netlify-Variablen:** `GITHUB_BRANCH`, `GITHUB_OWNER`, `GITHUB_REPO`, `GITHUB_PERSONAL_ACCESS_TOKEN`, `MONGODB_URI`, `NEXTAUTH_SECRET`, `TINA_PUBLIC_IS_LOCAL`. Laut ADR 0001 entfallen sie; das GitHub-Token und der MongoDB-Zugang gehören widerrufen.
+  - **Token-Branches:** Auch lokal mit richtigem Branch kam 403. Content-Tokens gelten nur für die Branches im Feld „Git branches"; für Deploy-Vorschauen braucht es `*`.
+  - **Token im Klartext:** `tinacms build` gibt bei diesem Fehler das Token in der Konsole aus. Netlify maskiert es im Deploy-Log (`****`), lokal nicht.
+  - **`NODE_ENV` ist auf Netlify gesetzt:** Abhängigkeiten, die der Build braucht, gehören in `dependencies` (siehe `cross-env`).
