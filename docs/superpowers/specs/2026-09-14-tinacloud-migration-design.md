@@ -91,3 +91,9 @@ Bis zur Umstellung trivial: Decap unter `/admin/` bleibt unberührt, Tina liegt 
 ## 9. Befunde aus dem Durchstich
 
 - **Task 1:** `featured` und `image` aus `events.json` entfernt (31 Zeilen, nur Löschungen). Kein Template liest sie, das gebaute HTML aller 11 Seiten ist vorher und nachher identisch.
+- **Task 2:** Events lokal in Tina bearbeitbar. Die Liste zeigt 23 Einträge als „Aug 7, 2026 · Harmony Arts Festival". Ändern, Anlegen und Löschen funktionieren, ein Datum außerhalb von `MM-DD-YYYY` blockiert das Speichern. Das erste Speichern sortiert die Schlüssel jedes Events in Schema-Reihenfolge (74 Zeilen), fügt aber keine leeren Schlüssel hinzu; neue Events enthalten nur ausgefüllte Felder plus die Standardwerte `multi_day_event` und `atStudio`. Inhalt vorher und nachher mit `assert.deepStrictEqual` gleich, gebautes HTML identisch.
+  - **Bedienung:** Das Löschen eines Listeneintrags fragt nicht nach. Bis zum Speichern holt „Reset" ihn zurück.
+  - **Nur lokal:** Jedes Speichern löst einen Eleventy-Neubau von etwa einer Minute aus, danach lädt die Admin-Seite neu und springt zurück zur Liste.
+  - **Abhängigkeiten:** `react` und `react-dom` auf 18.3.1 gepinnt, weil das in Tina gebündelte `react-final-form` React 19 nicht zulässt. `cross-env` steht in `dependencies`, weil `tina:build` es auf Netlify braucht. TypeScript 7 lädt `@types/node` nur mit `"types": ["node"]`.
+  - **`clean`:** `rm -rf` lief in der Windows-Shell des Dev-Servers nicht und ist durch `fs.rmSync` ersetzt.
+  - **Logzeile `Body must be a string`:** kommt von GET-Anfragen an `/graphql` ohne Query, hier von einem Bereitschafts-Check. Harmlos.
