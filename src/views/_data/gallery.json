@@ -1,0 +1,204 @@
+{
+  "items": [
+    {
+      "image": {
+        "url": "/images/glazes/squamish-nights/vase-closeup-hero.jpg",
+        "alt": "Close-up of the celestial speckle on a Squamish Nights vase by Matthew Freed"
+      },
+      "title": "Squamish Nights Collection",
+      "text": "A speckled deep green and blue glaze with a celestial look",
+      "slug": "Squamish",
+      "swatch": "#1F6E88",
+      "filterGroups": [
+        "Blues"
+      ]
+    },
+    {
+      "image": {
+        "url": "/images/glazes/garibaldi/large-mug-card.jpg",
+        "alt": "Large Garibaldi Mug by Matthew Freed"
+      },
+      "title": "Garibaldi Collection",
+      "text": "A deep forest green glaze with speckled cobalt tones and a warm blue accent around the rim",
+      "slug": "Garibaldi",
+      "swatch": "#1D6468",
+      "filterGroups": [
+        "Blues"
+      ]
+    },
+    {
+      "image": {
+        "url": "/images/glazes/yaletown/large-mug-card.jpg",
+        "alt": "Large Yaletown Mug by Matthew Freed"
+      },
+      "title": "Yaletown Collection",
+      "text": "Red, green or blue rims pop on a charcoal glazed base.",
+      "slug": "Yaletown",
+      "swatch": "#2E2C29",
+      "filterGroups": [
+        "Charcoals"
+      ]
+    },
+    {
+      "image": {
+        "url": "/images/glazes/galiano/stacked-bowls-card.jpg",
+        "alt": "Galiano Collection: A stack of bowls by Matthew Freed"
+      },
+      "title": "Galiano Collection",
+      "text": "A multi-tone deep blue glaze.",
+      "slug": "Galiano",
+      "swatch": "#2438A6",
+      "filterGroups": [
+        "Blues"
+      ]
+    },
+    {
+      "image": {
+        "url": "/images/glazes/dogwood/carved-bowl-card.jpg",
+        "alt": "Dogwood Collection: A carved bowl by Matthew Freed"
+      },
+      "title": "Dogwood Collection",
+      "text": "A semi-matte charcoal glaze with a hand-painted dogwood pattern.",
+      "slug": "Dogwood",
+      "swatch": "#38322C",
+      "filterGroups": [
+        "Charcoals",
+        "Patterned"
+      ]
+    },
+    {
+      "image": {
+        "url": "/images/glazes/saltspring/bowls-card.jpg",
+        "alt": "Saltspring Collection: Four bowls by Matthew Freed"
+      },
+      "title": "Saltspring Collection",
+      "text": "A semi-matte charcoal glaze with vibrant bursts of glossy colour.",
+      "slug": "Saltspring",
+      "swatch": "#3A3833",
+      "filterGroups": [
+        "Charcoals",
+        "Patterned"
+      ]
+    },
+    {
+      "image": {
+        "url": "/images/glazes/jericho/bowls-card.jpg",
+        "alt": "Jericho Collection: Bowls by Matthew Freed"
+      },
+      "title": "Jericho Collection",
+      "text": "A pale grey/blue glaze with sand toned speckles.",
+      "slug": "Jericho",
+      "swatch": "#9A93B4",
+      "filterGroups": [
+        "Blues"
+      ]
+    },
+    {
+      "image": {
+        "url": "/images/glazes/joffre/bowls-card.jpg",
+        "alt": "Joffre Collection: a stack of bowls by Matthew Freed"
+      },
+      "title": "Joffre Collection",
+      "text": "A rich green/blue glaze with multi-toned variation.",
+      "slug": "Joffre",
+      "swatch": "#1C6478",
+      "filterGroups": [
+        "Blues"
+      ]
+    },
+    {
+      "image": {
+        "url": "/images/glazes/kitsilano/bowls-card.jpg",
+        "alt": "Kitsilano Collection: Bowls by Matthew Freed"
+      },
+      "title": "Kitsilano Collection",
+      "text": "A satiny smooth lilac glaze with warm blue rim.",
+      "slug": "Kitsilano",
+      "swatch": "#4E5AC4",
+      "filterGroups": [
+        "Blues"
+      ]
+    },
+    {
+      "image": {
+        "url": "/images/glazes/pemberton-sky/bowl-card.jpg",
+        "alt": "Pemberton Sky Collection: A Bowl by Matthew Freed"
+      },
+      "title": "Pemberton Sky Collection",
+      "text": "A hand-painted leafing pattern with a textured finish in a two toned blue glossy finish.",
+      "slug": "Pemberton",
+      "swatch": "#2E4BA0",
+      "filterGroups": [
+        "Blues",
+        "Patterned"
+      ]
+    },
+    {
+      "image": {
+        "url": "/images/glazes/pemberton-earth/bowls-and-platter-card.jpg",
+        "alt": "Pemberton Earth Collection: Bowls and a Platter by Matthew Freed"
+      },
+      "title": "Pemberton Earth Collection",
+      "text": "A hand-painted leafing pattern with a textured finish in a medium brown and charcoal glaze.",
+      "slug": "Pemberton",
+      "swatch": "#443A31",
+      "filterGroups": [
+        "Charcoals",
+        "Patterned"
+      ]
+    },
+    {
+      "image": {
+        "url": "/images/glazes/strathcona/platter-card.jpg",
+        "alt": "Strathcona Collection: A Platter by Matthew Freed"
+      },
+      "title": "Strathcona Collection",
+      "text": "Semi-matte charcoal glaze with a hand-painted gold chevron pattern.",
+      "slug": "Strathcona",
+      "swatch": "#55524A",
+      "filterGroups": [
+        "Charcoals",
+        "Patterned"
+      ]
+    },
+    {
+      "image": {
+        "url": "/images/glazes/tofino/tumbler-card.jpg",
+        "alt": "Tofino Collection: A tumbler by Matthew Freed"
+      },
+      "title": "Tofino  Collection",
+      "text": "A stormy, landscape effect in complimentary hues of cobalt, mocha, and amber.",
+      "slug": "Tofino",
+      "swatch": "#33556E",
+      "filterGroups": [
+        "Blues"
+      ]
+    },
+    {
+      "image": {
+        "url": "/images/glazes/tree-of-life/jug-vase-tumbler-card.jpg",
+        "alt": "Tree of Life Collection: Jug, vase and tumbler by Matthew Freed"
+      },
+      "title": "Tree of Life Collection",
+      "text": "A textured Tree of Life emblem on a semi-matte charcoal glaze.",
+      "slug": "Tree-of-Life",
+      "swatch": "#29261F",
+      "filterGroups": [
+        "Charcoals"
+      ]
+    },
+    {
+      "image": {
+        "url": "/images/glazes/zen/snack-bowl-card.jpg",
+        "alt": "Zen Collection: Snack Bowl by Matthew Freed"
+      },
+      "title": "Zen Collection",
+      "text": "A semi-matte charcoal glaze with a textured gold decorative accent tile.",
+      "slug": "Zen",
+      "swatch": "#3B382F",
+      "filterGroups": [
+        "Charcoals"
+      ]
+    }
+  ]
+}

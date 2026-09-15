@@ -7,6 +7,8 @@ import { processPage } from "./collections/processPage";
 import { home } from "./collections/home";
 import { contact } from "./collections/contact";
 import { collectionsPage } from "./collections/collectionsPage";
+import { gallery } from "./collections/gallery";
+import { features } from "./collections/features";
 
 export default defineConfig({
   // Netlify sets HEAD to the branch being built, so a deploy preview edits
@@ -22,5 +24,5 @@ export default defineConfig({
   // Decap still owns /admin until the cutover.
   build: { outputFolder: "admin-tina", publicFolder: "dist" },
   media: { tina: { publicFolder: "src", mediaRoot: "images" } },
-  schema: { collections: [events, eventsPage, about, pottery, processPage, home, contact, collectionsPage] },
+  schema: { collections: [events, eventsPage, about, pottery, processPage, home, contact, collectionsPage, gallery, features] },
 });

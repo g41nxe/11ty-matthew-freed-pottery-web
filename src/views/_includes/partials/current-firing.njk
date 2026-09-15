@@ -16,7 +16,7 @@
             <span class="btn-outline mt-5">{{ featured_piece.cta.label }}</span>
         </a>
         <div class="grid grid-cols-2 content-start gap-5">
-            {% for item in showcase.features | rejectattr("hide") %}
+            {% for item in features.items | rejectattr("hide") %}
             {% if loop.index <= 4 %}
             <a href="{{ item.cta.url }}" target="_blank" rel="noopener" class="group">
                 <div class="relative overflow-hidden bg-tile">
