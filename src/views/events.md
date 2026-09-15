@@ -1,14 +1,14 @@
 ---
 layout: events-layout
-title: Events
-permalink: "/events.html"
+permalink: /events.html
 eleventyNavigation:
   key: Events
   order: 3
+title: Events
 intro:
   eyebrow: Events
   title: Where to find me
-rhythm: "The annual rhythm: farmers markets through the summer, then the Eastside Culture Crawl and Circle Craft Holiday Market each November."
+rhythm: 'The annual rhythm: farmers markets through the summer, then the Eastside Culture Crawl and Circle Craft Holiday Market each November.'
 section_labels:
   special: Special events
   markets: Market schedule
@@ -16,7 +16,7 @@ section_labels:
   from_studio: From the studio
 studio:
   title: Visit the studio
-  text: Between events, the studio opens by appointment — send a note and come see where the work happens.
+  text: 'Between events, the studio opens by appointment — send a note and come see where the work happens.'
   cta:
     label: Get in touch
     url: /contact.html
@@ -30,3 +30,4 @@ news:
     url: /images/news/busy-studio.jpg
     alt: Busy times in my little studio
 ---
+

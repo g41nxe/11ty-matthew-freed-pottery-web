@@ -1,12 +1,12 @@
 ---
 layout: collections-layout
-title: Collections
 tags: footer
-permalink: "/collections.html"
+permalink: /collections.html
+title: Collections
 intro:
   eyebrow: The field guide
-  title: Fifteen glazes, fifteen stories
-  text: Each glaze began somewhere — a night sky over Squamish, dogwoods on the boulevard, a quiet morning at the wheel. Find yours.
+  title: 'Fifteen glazes, fifteen stories'
+  text: 'Each glaze began somewhere — a night sky over Squamish, dogwoods on the boulevard, a quiet morning at the wheel. Find yours.'
 item_cta: Browse in shop
 filters:
   - All
@@ -14,3 +14,4 @@ filters:
   - Charcoals
   - Patterned
 ---
+

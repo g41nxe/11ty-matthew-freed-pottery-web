@@ -1,16 +1,16 @@
 ---
 layout: home-layout
-title: Home
 permalink: /index.html
 social_flush: true
 eleventyNavigation:
   key: Home
   order: 1
+title: Home
 hero:
   eyebrow: Handthrown in Vancouver
   title: Art for everyday life
   highlight: life
-  text: Functional stoneware in fifteen glazes, each with a name and a story.
+  text: 'Functional stoneware in fifteen glazes, each with a name and a story.'
   cta_primary: Shop the collections
   cta_secondary:
     label: All events
@@ -26,17 +26,17 @@ featured_piece:
   eyebrow: Featured piece
   title: Tofino teapot and mugs
   caption: Tofino · a stormy coastal landscape
-  text: Cobalt, mocha and amber run in bands across every piece. Tofino is one of my most variable glazes, so no two come out of the kiln alike.
-  price: ""
+  text: 'Cobalt, mocha and amber run in bands across every piece. Tofino is one of my most variable glazes, so no two come out of the kiln alike.'
+  price: ''
   image:
     url: /images/glazes/tofino/tea-set-feature.jpg
-    alt: Tofino teapot, mugs and vase by Matthew Freed on a wooden table
+    alt: 'Tofino teapot, mugs and vase by Matthew Freed on a wooden table'
   cta:
     label: View in the shop
-    url: https://shop.matthewfreed.net/collections/all/Tofino
+    url: 'https://shop.matthewfreed.net/collections/all/Tofino'
 collections_teaser:
-  title: Fifteen glazes, fifteen stories
-  text: Named for the coasts, mountains and neighbourhoods that shaped their colours — and a few quieter inspirations.
+  title: 'Fifteen glazes, fifteen stories'
+  text: 'Named for the coasts, mountains and neighbourhoods that shaped their colours — and a few quieter inspirations.'
   item_cta: View in the shop
   link_label: The full field guide — all fifteen glazes
   link_label_short: All fifteen glazes
@@ -56,5 +56,6 @@ story_teaser:
   label: Read my story
   image:
     url: /images/workshop/wheel-centering-plate.jpg
-    alt: Matthew at the pottery wheel, centering a plate
+    alt: 'Matthew at the pottery wheel, centering a plate'
 ---
+

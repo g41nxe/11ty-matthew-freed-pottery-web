@@ -1,29 +1,30 @@
 ---
 layout: retail-layout
-title: Retail Stores
 tags: footer
-permalink: "/retail-stores.html"
+permalink: /retail-stores.html
+title: Retail Stores
 eyebrow: Stockists
 headline: Find my work in person
 intro: These galleries and shops carry a rotating selection of my glaze lines across British Columbia. Call ahead for current stock.
 banner:
-  url: "/images/workshop/seymour-art-gallery.jpg"
+  url: /images/workshop/seymour-art-gallery.jpg
   alt: Display of Matthew Freed's pottery at a gallery gift shop
 stores:
   - name: Arts Off Main
-    url: "http://www.artsoffmain.ca/"
+    url: 'http://www.artsoffmain.ca/'
     address: 1704 Charles Street
     city: Vancouver
   - name: Circle Craft
-    url: "http://ww1.circlecraft.net/"
-    address: 1666 Johnston Street, Granville Island
+    url: 'http://ww1.circlecraft.net/'
+    address: '1666 Johnston Street, Granville Island'
     city: Vancouver
   - name: Seymour Art Gallery Gift Shop
-    url: "https://www.seymourartgallery.com/"
+    url: 'https://www.seymourartgallery.com/'
     address: 4360 Gallant Avenue
     city: North Vancouver
   - name: Side Street Studio
-    url: "https://www.sidestreetstudio.com/"
+    url: 'https://www.sidestreetstudio.com/'
     address: 204 - 2250 Oak Bay Avenue
     city: Victoria
 ---
+

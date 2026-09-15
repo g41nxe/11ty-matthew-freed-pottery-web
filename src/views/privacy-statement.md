@@ -1,12 +1,12 @@
 ---
 layout: general-layout
-title: Privacy Statement
 tags: footer
-permalink: "/privacy-statement.html"
+permalink: /privacy-statement.html
+title: Privacy Statement
 headline: Privacy Policy
-intro: This Privacy Policy describes how your personal information is collected, used,
-  and shared when you visit our site.
+intro: 'This Privacy Policy describes how your personal information is collected, used, and shared when you visit our site.'
 ---
+
 
 ## Personal Information We Collect
 

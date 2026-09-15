@@ -1,8 +1,9 @@
 ---
 layout: faq-layout
-title: FAQ
 tags: footer
-permalink: "/faq.html"
+permalink: /faq.html
+title: FAQ
 headline: Do you have a question?
 intro: Eveything you need to know
 ---
+
