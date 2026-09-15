@@ -1,27 +1,18 @@
 import type { Collection } from "tinacms";
 import { sectionsField } from "../fields/sections";
 
-// layout, tags, permalink and eleventyNavigation stay in the file untouched:
-// Tina keeps top-level frontmatter it has no field for.
-export const about: Collection = {
-  name: "about",
-  label: "About",
+// Exported as processPage: an export named `process` would shadow Node's
+// process in tina/config.ts.
+export const processPage: Collection = {
+  name: "process",
+  label: "Process",
   path: "src/views",
   format: "md",
-  match: { include: "about" },
+  match: { include: "process" },
   ui: { allowedActions: { create: false, delete: false } },
   fields: [
     { type: "string", name: "title", label: "Title" },
     { type: "string", name: "eyebrow", label: "Eyebrow" },
-    {
-      type: "object",
-      name: "medal",
-      label: "Award note (leave the text empty to hide the whole block)",
-      fields: [
-        { type: "string", name: "text", label: "Text", ui: { component: "textarea" } },
-        { type: "string", name: "link_label", label: "Shop link text" },
-      ],
-    },
     { type: "string", name: "headline", label: "Headline" },
     { type: "string", name: "intro", label: "Intro", ui: { component: "textarea" } },
     { type: "string", name: "quote", label: "Pull quote (shown after the first section)", ui: { component: "textarea" } },
