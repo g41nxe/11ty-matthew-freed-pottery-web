@@ -5,5 +5,4 @@ tags: footer
 permalink: "/faq.html"
 headline: Do you have a question?
 intro: Eveything you need to know
-load_more: Load More
 ---
