@@ -13,6 +13,8 @@ import { retail } from "./collections/retail";
 import { privacy } from "./collections/privacy";
 import { faqPage } from "./collections/faqPage";
 import { faq } from "./collections/faq";
+import { global } from "./collections/global";
+import { seo } from "./collections/seo";
 
 export default defineConfig({
   // Netlify sets HEAD to the branch being built, so a deploy preview edits
@@ -28,5 +30,14 @@ export default defineConfig({
   // Decap still owns /admin until the cutover.
   build: { outputFolder: "admin-tina", publicFolder: "dist" },
   media: { tina: { publicFolder: "src", mediaRoot: "images" } },
-  schema: { collections: [events, eventsPage, about, pottery, processPage, home, contact, collectionsPage, gallery, features, retail, privacy, faqPage, faq] },
+  // Order of the admin sidebar: what Matthew edits most comes first.
+  schema: {
+    collections: [
+      events, eventsPage,
+      home, about, pottery, processPage,
+      collectionsPage, gallery, features,
+      retail, contact, faqPage, faq, privacy,
+      global, seo,
+    ],
+  },
 });

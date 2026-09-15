@@ -1,0 +1,68 @@
+import type { Collection } from "tinacms";
+
+export const global: Collection = {
+  name: "global",
+  label: "Site settings",
+  path: "src/views/_data",
+  format: "json",
+  match: { include: "global" },
+  ui: { allowedActions: { create: false, delete: false } },
+  fields: [
+    {
+      type: "object", name: "social", label: "Follow band (bottom of every page)",
+      fields: [
+        { type: "string", name: "title", label: "Heading" },
+        { type: "string", name: "text", label: "Text under the heading" },
+        { type: "string", name: "instagram_label", label: "Instagram button text" },
+        { type: "string", name: "facebook_label", label: "Facebook button text" },
+      ],
+    },
+    {
+      type: "object", name: "contact", label: "Contact information",
+      fields: [
+        { type: "string", name: "address", label: "Address", ui: { component: "textarea" } },
+        { type: "string", name: "phone", label: "Phone" },
+        { type: "string", name: "email", label: "Email" },
+        { type: "string", name: "text", label: "Text in the footer", ui: { component: "textarea" } },
+      ],
+    },
+    {
+      type: "object", name: "shop", label: "Shop",
+      fields: [
+        { type: "string", name: "base", label: "Base URL (no trailing slash)" },
+        { type: "string", name: "collectionsPath", label: "Collections path" },
+      ],
+    },
+    {
+      type: "object", name: "labels", label: "Shared labels (used on more than one page)",
+      fields: [
+        { type: "string", name: "at_studio", label: "Studio-event badge" },
+        { type: "string", name: "directions", label: "Map link text" },
+        { type: "string", name: "next_market", label: "Home page, label in front of the next market" },
+        { type: "string", name: "next_up", label: "Badge on the next event card" },
+        { type: "string", name: "dates_soon", label: "Shown when every listed date has passed" },
+      ],
+    },
+    {
+      type: "object", name: "footer", label: "Footer links (text only)",
+      fields: [
+        { type: "string", name: "retail", label: "Retail stores" },
+        { type: "string", name: "faq", label: "FAQ" },
+        { type: "string", name: "process", label: "Process" },
+        { type: "string", name: "privacy", label: "Privacy" },
+      ],
+    },
+    {
+      type: "object", name: "socialmedia", label: "Social media links",
+      fields: [
+        {
+          type: "object", name: "services", label: "Profiles",
+          fields: [
+            { type: "object", name: "instagram", label: "Instagram", fields: [{ type: "string", name: "url", label: "Profile URL" }] },
+            { type: "object", name: "facebook", label: "Facebook", fields: [{ type: "string", name: "url", label: "Profile URL" }] },
+          ],
+        },
+      ],
+    },
+  ],
+};
