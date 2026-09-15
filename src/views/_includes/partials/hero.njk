@@ -10,7 +10,7 @@
         </div>
         {# The line is filled at build time and corrected in the browser by
            events.js, which reads the same cards the events band renders. #}
-        {% set next = (events.events | filterUpcoming | nextUp) | first %}
+        {% set next = (events | occurrences | filterUpcoming | nextUp) | first %}
         {% if next %}
         <p id="hero-next" class="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
             <span class="h-2 w-2 flex-none rounded-full bg-sand" aria-hidden="true"></span>

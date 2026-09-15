@@ -10,9 +10,9 @@ layout: base
 
 <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10 lg:flex-row">
     <div id="events-list" class="lg:flex-[1.4]">
-        {% set upcoming = events.events | filterUpcoming %}
+        {% set upcoming = events | occurrences | filterUpcoming %}
         {% set special = upcoming | specialEvents %}
-        {% set markets = upcoming | groupByVenue %}
+        {% set markets = upcoming | marketSchedule %}
         {# The soonest event overall sits in exactly one of the two sections,
            so comparing against it marks a single card either way. #}
         {% set soonest = (upcoming | byDateAsc) | first %}
@@ -25,18 +25,18 @@ layout: base
                  data-date="{{ event.date | date('yyyy-MM-dd') }}"
                  data-until="{{ (event.end_date or event.date) | date('yyyy-MM-dd') }}"
                  class="mb-4 flex gap-4 rounded-xl bg-white p-5 last:mb-0 {% if event == soonest %}border-2 border-blue{% else %}border border-hairline{% endif %}">
-            <div class="flex h-fit flex-none flex-col items-center rounded-lg px-4 py-2 {% if event.atStudio %}bg-sand{% else %}bg-tile{% endif %}">
-                <span class="cap-label text-[11px] {% if event.atStudio %}text-ink{% else %}text-soft{% endif %}">{{ event.date | date("MMM") }}</span>
-                <span class="font-display text-xl font-black text-ink">{{ event.date | date("d") }}{% if event.multi_day_event and event.end_date and event.end_date != event.date %}–{{ event.end_date | date("d") }}{% endif %}</span>
+            <div class="flex h-fit flex-none flex-col items-center rounded-lg px-4 py-2 {% if event.at_studio %}bg-sand{% else %}bg-tile{% endif %}">
+                <span class="cap-label text-[11px] {% if event.at_studio %}text-ink{% else %}text-soft{% endif %}">{{ event.date | date("MMM") }}</span>
+                <span class="font-display text-xl font-black text-ink">{{ event.date | date("d") }}{% if event.end_date and event.end_date != event.date %}–{{ event.end_date | date("d") }}{% endif %}</span>
             </div>
             <div>
                 <p data-next-label class="cap-label mb-1 text-[11px] text-blue"{% if event != soonest %} hidden{% endif %}>{{ global.labels.next_up }}</p>
                 <h2 class="font-display text-xl font-black text-ink">
                     {{ event.name }}
-                    {% if event.atStudio %}<span class="cap-label ml-2 text-[11px] text-sand">{{ global.labels.at_studio }}</span>{% endif %}
+                    {% if event.at_studio %}<span class="cap-label ml-2 text-[11px] text-sand">{{ global.labels.at_studio }}</span>{% endif %}
                 </h2>
                 <p class="mt-1 text-sm text-muted">{{ event.location }} · {{ event.time }}</p>
-                {% if event.content.body %}<p class="mt-2 text-sm leading-relaxed text-muted">{{ event.content.body }}</p>{% endif %}
+                {% if event.description %}<p class="mt-2 text-sm leading-relaxed text-muted">{{ event.description }}</p>{% endif %}
                 {% if event.gmaps %}<a href="https://www.google.com/maps/search/?api=1&query={{ event.gmaps | urlencode }}" class="link-underline mt-3 inline-block text-sm">{{ global.labels.directions }}</a>{% endif %}
             </div>
         </article>
@@ -56,7 +56,7 @@ layout: base
                 {% if group.first.gmaps %}<a href="https://www.google.com/maps/search/?api=1&query={{ group.first.gmaps | urlencode }}" class="link-underline text-sm">{{ global.labels.directions }}</a>{% endif %}
             </div>
             <p class="mt-1 text-sm text-muted">{{ group.first.location }} · {{ group.first.time }}</p>
-            {% if group.first.content.body %}<p class="mt-2 text-sm leading-relaxed text-muted">{{ group.first.content.body }}</p>{% endif %}
+            {% if group.first.description %}<p class="mt-2 text-sm leading-relaxed text-muted">{{ group.first.description }}</p>{% endif %}
             <div class="mt-4 flex flex-wrap items-center gap-2">
                 {% for d in group.dates %}
                 <span data-chip
@@ -119,7 +119,7 @@ layout: base
 {
   "@context": "https://schema.org",
   "@graph": [
-    {% for event in events.events | filterUpcoming %}
+    {% for event in upcoming %}
     {
       "@type": "Event",
       "name": {{ event.name | dump | safe }},

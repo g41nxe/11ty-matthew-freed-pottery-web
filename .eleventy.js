@@ -79,28 +79,39 @@ module.exports = function (eleventyConfig) {
         const today = DateTime.now().startOf('day');
         return array.filter(el => lastDay(el) >= today);
     });
-    // Special events: studio openings and multi-day shows (Culture Crawl, Circle Craft).
+    // One entry per day something is on: every date of every market, then
+    // every event, shaped like the flat list the templates were written
+    // for. Market dates carry a `market` key so the schedule groups them
+    // without comparing names.
+    eleventyConfig.addNunjucksFilter("occurrences", function (data) {
+        const markets = (data.markets || []).flatMap((market, index) => {
+            const { dates, ...details } = market;
+            return (dates || [])
+                .filter(Boolean)
+                .map(date => ({ ...details, date, market: `market-${index}` }));
+        });
+        return markets.concat(data.events || []);
+    });
+    // Special events: everything that is not a market date, soonest first.
     // These get the large date-block treatment on the events page.
     eleventyConfig.addNunjucksFilter("specialEvents", function(array) {
         return array
-            .filter(e => e.atStudio || e.multi_day_event)
+            .filter(e => !e.market)
             .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'));
     });
-    // Recurring markets grouped by venue name: one entry per market with all
-    // upcoming dates, soonest venue first. Excludes special events.
-    eleventyConfig.addNunjucksFilter("groupByVenue", function(array) {
+    // Upcoming market dates grouped by market, soonest market first. The
+    // dates are sorted before grouping, so `first` is each market's next
+    // date: the object the template compares with the soonest event.
+    eleventyConfig.addNunjucksFilter("marketSchedule", function(array) {
         const groups = new Map();
         array
-            .filter(e => !(e.atStudio || e.multi_day_event))
+            .filter(e => e.market)
+            .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'))
             .forEach(e => {
-                const key = e.name.trim();
-                if (!groups.has(key)) groups.set(key, { name: key, first: e, dates: [] });
-                groups.get(key).dates.push(e.date);
+                if (!groups.has(e.market)) groups.set(e.market, { name: e.name, first: e, dates: [] });
+                groups.get(e.market).dates.push(e.date);
             });
-        const byDate = (a, b) => DateTime.fromFormat(a, 'MM-dd-yyyy') - DateTime.fromFormat(b, 'MM-dd-yyyy');
-        return Array.from(groups.values())
-            .map(g => { g.dates.sort(byDate); return g; })
-            .sort((a, b) => byDate(a.dates[0], b.dates[0]));
+        return Array.from(groups.values());
     });
     // Every upcoming event oldest-first. Note the direction: sortByDate above
     // sorts newest-first. The home band renders all of them so events.js can
