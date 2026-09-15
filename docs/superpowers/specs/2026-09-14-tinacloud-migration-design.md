@@ -31,10 +31,10 @@ Der Juli-Spec plante selbst gehostetes Tina mit MongoDB, Auth.js und einer Netli
 | Betrieb | TinaCloud, kostenloser Tarif, zwei Nutzer: Dan und Matthew |
 | Vorgehen | Vertikale Scheiben. Erst ein Durchstich mit Events und About, dann ein Tor, dann die übrigen Collections |
 | Datenform | Keine Ordner-Collections, keine Datenbrücken. Jede Datei ist ein Tina-Dokument, Listen bleiben Listen in der Datei |
-| Events | Bleibt `events.json`, ein Dokument mit der Liste aller Events (bestätigt am 2026-09-14) |
+| Events | `events.json` hält zwei Listen (entschieden am 2026-09-15): `markets` (`name`, `location`, `time`, `gmaps`, `description`, `dates` als Liste von `MM-DD-YYYY`) und `events` (`name`, `date`, `end_date`, `time`, `location`, `gmaps`, `description`, `at_studio`). Ein Event mit `end_date` ist mehrtägig; `multi_day_event` und `content.title` entfallen. Begriffe siehe `CONTEXT.md`. Die Seite gruppiert nach Market statt nach Namensgleichheit. Ein Umwandlungsskript läuft bei der Umstellung erneut auf Matthews letztem Stand |
 | News | `news.json` entfällt. Der eine Eintrag wird ein flaches Objekt `news` (`date`, `title`, `body`, `image {url, alt}`) im Frontmatter von `src/views/events.md`, `name` und die Hülle `content` fallen weg. Leerer `title` blendet den News-Teil aus. Umsetzung in der Scheibe „Events-Seite" (bestätigt am 2026-09-14) |
 | FAQ | Bleibt `faq.json` |
-| Galerie, Features | `showcase.json` wird in `gallery.json` und `features.json` getrennt, jede mit ihrer kompletten Liste. Eigene Scheibe nach dem Tor |
+| Galerie, Features | `showcase.json` wird in `gallery.json` und `features.json` getrennt, jede als `{ "items": [...] }`; Templates lesen `gallery.items` und `features.items` |
 | Admin-Pfad | Tina baut bis zur Umstellung nach `/admin-tina/`. Decap bleibt unverändert unter `/admin/` |
 | Client-ID | Öffentlich, steht in `tina/config.ts`: `70c9fe54-ade8-4e7d-b8de-e44bc1d0f0bb`. `NEXT_PUBLIC_TINA_CLIENT_ID` hat Vorrang, falls gesetzt |
 | Token | Nur `TINA_TOKEN` in der Umgebung: Netlify für alle Deploy-Kontexte, lokal optional in `.env` (ignoriert). Nie im Repo |
@@ -49,9 +49,12 @@ Der Juli-Spec plante selbst gehostetes Tina mit MongoDB, Auth.js und einer Netli
 
 Nicht im CMS, nirgends gerendert, gehen beim ersten Tina-Speichern verloren. Sie werden vorher in einem eigenen Commit gelöscht, damit der erste Tina-Commit nur die gewollte Änderung zeigt:
 
-- `events.json`: `featured` (alle 23 Events) und `image` (2 Events)
+- `events.json`: `featured` (alle 23 Events) und `image` (2 Events), entfernt am 2026-09-14
+- `global.json`: `hero` (Bild, Titel, Untertitel), `contact.name`, `socialmedia.title`, `socialmedia.services.*.name` und `socialmedia.services.*.icon`
+- `showcase.json`: `gallery[].style`, `gallery[].cta`, `features[].cta.label`
+- `faq.md`: `load_more`
 
-Die übrigen Dateien werden in ihrer jeweiligen Scheibe gegen das Schema abgeglichen.
+Alle vier werden in Decap angezeigt, aber von keinem Template gelesen (geprüft am 2026-09-15). Sie kommen nicht ins Tina-Schema.
 
 ## 5. Offene Punkte, die der Durchstich klärt
 
@@ -75,8 +78,8 @@ Die übrigen Dateien werden in ihrer jeweiligen Scheibe gegen das Schema abgegli
 ## 7. Phasen
 
 1. **Durchstich** (eigener Plan): Grundgerüst, Events, Datumsmessung, About mit Medien, Deploy-Vorschau, Tor.
-2. **Scheiben** (Plan nach dem Tor): Home, Global, SEO, Galerie und Features samt Trennung, FAQ, Process, Pottery, Contact, Collections, Events-Seite samt News-Umzug, Händler, Datenschutz.
-3. **Umstellung** (eigener Plan): Inhaltssperre, Tina nach `/admin/`, Matthew in TinaCloud einladen, Release mit vorher getaggtem Live-Stand.
+2. **Scheiben** (Plan `2026-09-15-tina-scheiben.md`, auf Dans Wunsch vor dem Tor): Markets und Events, Events-Seite samt News-Umzug, Pottery und Process, Home, Contact, Collections samt Galerie und Features, Händler, Datenschutz, FAQ, Global, SEO.
+3. **Umstellung** (eigener Plan): Inhaltssperre, Umwandlungsskript für Events auf Matthews letztem `events.json` von `main` erneut ausführen, Tina nach `/admin/`, Content-Token für `main` (besser `*`), Medien-Upload auf TinaCloud prüfen, Matthew in TinaCloud einladen, Release mit vorher getaggtem Live-Stand.
 4. **Aufräumen, als letzter Schritt:** Alle Überbleibsel früherer CMS entfernen. Bestand am 2026-09-14:
    - **Forestry:** `.forestry/` (`settings.yml` und zehn Frontmatter-Vorlagen)
    - **Decap:** `src/admin/` (`config.yml`, `custom-widgets.js`, `index.html`), die Passthrough-Zeile `src/admin` in `.eleventy.js`, die Skripte `cms` und `dev:cms` in `package.json`, der Eintrag `pottery-cms` in `.claude/launch.json`
