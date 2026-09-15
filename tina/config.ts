@@ -1,5 +1,6 @@
 import { defineConfig } from "tinacms";
 import { events } from "./collections/events";
+import { eventsPage } from "./collections/eventsPage";
 import { about } from "./collections/about";
 
 export default defineConfig({
@@ -16,5 +17,5 @@ export default defineConfig({
   // Decap still owns /admin until the cutover.
   build: { outputFolder: "admin-tina", publicFolder: "dist" },
   media: { tina: { publicFolder: "src", mediaRoot: "images" } },
-  schema: { collections: [events, about] },
+  schema: { collections: [events, eventsPage, about] },
 });

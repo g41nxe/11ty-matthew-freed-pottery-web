@@ -50,12 +50,6 @@ module.exports = function (eleventyConfig) {
         return generateHTML(metadata, { alt, sizes, loading, class: classes });
       });
 
-    eleventyConfig.addNunjucksFilter("sortByDate", function (arr, attribute="date") {
-        return arr.slice().sort(function(a, b) {
-            return DateTime.fromFormat(b[attribute], 'MM-dd-yyyy').toJSDate()
-                 - DateTime.fromFormat(a[attribute], 'MM-dd-yyyy').toJSDate();
-        });
-    });
     // An optional CMS date field left empty arrives as "" or undefined.
     // Luxon throws on undefined, which would fail the whole build, so an
     // empty date renders as an empty string instead.
@@ -113,9 +107,9 @@ module.exports = function (eleventyConfig) {
             });
         return Array.from(groups.values());
     });
-    // Every upcoming event oldest-first. Note the direction: sortByDate above
-    // sorts newest-first. The home band renders all of them so events.js can
-    // refill the grid in the browser when a date has passed since the build.
+    // Every upcoming event oldest-first. The home band renders all of them so
+    // events.js can refill the grid in the browser when a date has passed
+    // since the build.
     eleventyConfig.addNunjucksFilter("byDateAsc", function(array) {
         return array.slice()
             .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'));
