@@ -4,9 +4,9 @@ import type { Collection } from "tinacms";
 // kept in a constant because the UI type does not declare `field`.
 const paragraphList = { component: "list", field: { component: "textarea" } };
 
-export const contact: Collection = {
-  name: "contact",
-  label: "Contact",
+export const contactPage: Collection = {
+  name: "contact_page",
+  label: "Contact · Page",
   path: "src/views",
   format: "md",
   match: { include: "contact" },

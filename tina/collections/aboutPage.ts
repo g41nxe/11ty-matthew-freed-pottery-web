@@ -3,9 +3,9 @@ import { sectionsField } from "../fields/sections";
 
 // layout, tags, permalink and eleventyNavigation stay in the file untouched:
 // Tina keeps top-level frontmatter it has no field for.
-export const about: Collection = {
-  name: "about",
-  label: "About",
+export const aboutPage: Collection = {
+  name: "about_page",
+  label: "About · Page",
   path: "src/views",
   format: "md",
   match: { include: "about" },

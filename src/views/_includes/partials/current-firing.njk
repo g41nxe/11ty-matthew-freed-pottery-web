@@ -1,23 +1,27 @@
+{# The first set that is not hidden; with every set hidden the section drops out.
+   Rotating through the sets per page load is planned. #}
+{% set shop_set = shop_sets | rejectattr("hide") | first %}
+{% if shop_set %}
+{% set piece = shop_set.featured_piece %}
 <section class="mx-auto max-w-6xl px-6 py-12" aria-label="From the current firing">
     <div class="flex items-baseline justify-between gap-4">
         <h2 class="font-display text-3xl font-black text-ink">{{ products.title }}</h2>
         <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ products.link_label | default("Shop all pieces", true) }}</a>
     </div>
     <div class="mt-8 grid gap-10 md:grid-cols-2 lg:gap-12">
-        <a href="{{ featured_piece.cta.url }}" target="_blank" rel="noopener" class="group">
+        <a href="{{ piece.cta.url }}" target="_blank" rel="noopener" class="group">
             <div class="overflow-hidden bg-tile">
-                {% img featured_piece.image.url, featured_piece.image.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "img-zoom w-full object-cover" %}
+                {% img piece.image.url, piece.image.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "img-zoom w-full object-cover" %}
             </div>
-            {% if featured_piece.eyebrow %}<p class="cap-label mt-4 text-[11px] text-sand">{{ featured_piece.eyebrow }}</p>{% endif %}
-            <h3 class="mt-1 font-display text-2xl font-black text-ink transition-colors group-hover:text-blue">{{ featured_piece.title }}</h3>
-            <p class="cap-label mt-1 text-blue">{{ featured_piece.caption }}</p>
-            <p class="mt-3 text-base text-muted">{{ featured_piece.text }}</p>
-            {% if featured_piece.price %}<p class="mt-3 font-display text-xl font-black text-ink">{{ featured_piece.price }}</p>{% endif %}
-            <span class="btn-outline mt-5">{{ featured_piece.cta.label }}</span>
+            {% if piece.eyebrow %}<p class="cap-label mt-4 text-[11px] text-sand">{{ piece.eyebrow }}</p>{% endif %}
+            <h3 class="mt-1 font-display text-2xl font-black text-ink transition-colors group-hover:text-blue">{{ piece.title }}</h3>
+            <p class="cap-label mt-1 text-blue">{{ piece.caption }}</p>
+            <p class="mt-3 text-base text-muted">{{ piece.text }}</p>
+            {% if piece.price %}<p class="mt-3 font-display text-xl font-black text-ink">{{ piece.price }}</p>{% endif %}
+            <span class="btn-outline mt-5">{{ piece.cta.label }}</span>
         </a>
         <div class="grid grid-cols-2 content-start gap-5">
-            {% for item in shop_items | rejectattr("hide") %}
-            {% if loop.index <= 4 %}
+            {% for item in shop_set.items.slice(0, 4) %}
             <a href="{{ item.cta.url }}" target="_blank" rel="noopener" class="group">
                 <div class="relative overflow-hidden bg-tile">
                     {% img item.image.url, item.image.alt, "(min-width: 1152px) 254px, (min-width: 768px) 25vw, 50vw", "img-zoom w-full object-cover" %}
@@ -34,9 +38,9 @@
                 <p class="cap-label mt-0.5 text-[10px] text-soft">{{ item.title.split(" - ")[0] }}</p>
                 {% if item.overlay.text %}<p class="blurb-inline mt-1.5 text-xs leading-relaxed text-muted md:hidden">{{ item.overlay.text | safe }}</p>{% endif %}
             </a>
-            {% endif %}
             {% endfor %}
         </div>
     </div>
     <p class="mt-6 text-center text-xs text-soft">{{ products.note }}</p>
 </section>
+{% endif %}

@@ -20,11 +20,13 @@
     "directions": "Directions",
     "next_market": "Next market",
     "next_up": "Next up",
-    "dates_soon": "New dates go up here as soon as they are booked."
+    "dates_soon": "New dates go up here as soon as they are booked.",
+    "keep_reading": "Keep reading"
   },
   "footer": {
     "retail": "Retail stores",
     "faq": "FAQ",
+    "art": "Everyday art",
     "process": "My process",
     "privacy": "Privacy"
   },

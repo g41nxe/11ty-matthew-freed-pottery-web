@@ -4,7 +4,7 @@ import { datePicker } from "../fields/date";
 
 export const eventsPage: Collection = {
   name: "events_page",
-  label: "Events page",
+  label: "Events · Page",
   path: "src/views",
   format: "md",
   match: { include: "events" },

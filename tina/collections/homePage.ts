@@ -1,9 +1,9 @@
 import type { Collection } from "tinacms";
 import { imageField, linkField } from "../fields/common";
 
-export const home: Collection = {
-  name: "home",
-  label: "Home",
+export const homePage: Collection = {
+  name: "home_page",
+  label: "Home · Page",
   path: "src/views",
   format: "md",
   match: { include: "home" },
@@ -27,28 +27,39 @@ export const home: Collection = {
       description: "Short claims in the ribbon under the hero. It scrolls on phones, spreads across on desktop and shows in uppercase.",
     },
     {
-      type: "object", name: "featured_piece", label: "Featured piece",
+      type: "object", name: "shop_sets", label: "Shop sets", list: true,
+      description: "The home page shows the first set that is not hidden: its featured piece and up to four shop items.",
+      ui: {
+        itemProps: (set) => ({ label: `${set?.name || "New set"}${set?.hide ? " (hidden)" : ""}` }),
+        defaultItem: { hide: false },
+      },
       fields: [
-        { type: "string", name: "eyebrow", label: "Small label above the title" },
-        { type: "string", name: "title", label: "Title" },
-        { type: "string", name: "caption", label: "Glaze caption" },
-        { type: "string", name: "text", label: "Text", ui: { component: "textarea" } },
-        { type: "string", name: "price", label: "Price" },
-        imageField("image", "Image"),
-        linkField("cta", "Shop link"),
-      ],
-    },
-    {
-      type: "object", name: "shop_items", label: "Featured shop items", list: true,
-      description: "The grid next to the featured piece, in this order",
-      ui: { itemProps: (item) => ({ label: item?.title || "New item" }) },
-      fields: [
-        { type: "string", name: "title", label: "Title", description: "“Glaze - Piece”, for example “Tofino - Belly Mug”" },
-        { type: "object", name: "overlay", label: "Overlay", fields: [{ type: "string", name: "text", label: "Text", ui: { component: "textarea" } }] },
-        { type: "string", name: "price", label: "Price" },
-        imageField("image", "Image"),
-        { type: "boolean", name: "hide", label: "Hide" },
-        { type: "object", name: "cta", label: "Shop link", fields: [{ type: "string", name: "url", label: "URL" }] },
+        { type: "string", name: "name", label: "Name", description: "Only shown here in the CMS, for example “Tofino”" },
+        { type: "boolean", name: "hide", label: "Hide this set" },
+        {
+          type: "object", name: "featured_piece", label: "Featured piece",
+          fields: [
+            { type: "string", name: "eyebrow", label: "Small label above the title" },
+            { type: "string", name: "title", label: "Title" },
+            { type: "string", name: "caption", label: "Glaze caption" },
+            { type: "string", name: "text", label: "Text", ui: { component: "textarea" } },
+            { type: "string", name: "price", label: "Price" },
+            imageField("image", "Image"),
+            linkField("cta", "Shop link"),
+          ],
+        },
+        {
+          type: "object", name: "items", label: "Shop items", list: true,
+          description: "Up to four, shown in this order next to the featured piece",
+          ui: { max: 4, itemProps: (item) => ({ label: item?.title || "New item" }) },
+          fields: [
+            { type: "string", name: "title", label: "Title", description: "“Glaze - Piece”, for example “Tofino - Belly Mug”" },
+            { type: "object", name: "overlay", label: "Overlay", fields: [{ type: "string", name: "text", label: "Text", ui: { component: "textarea" } }] },
+            { type: "string", name: "price", label: "Price" },
+            imageField("image", "Image"),
+            { type: "object", name: "cta", label: "Shop link", fields: [{ type: "string", name: "url", label: "URL" }] },
+          ],
+        },
       ],
     },
     {

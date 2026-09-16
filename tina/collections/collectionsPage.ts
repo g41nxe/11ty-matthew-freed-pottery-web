@@ -3,7 +3,7 @@ import type { Collection } from "tinacms";
 // name "collections_page": "collections" is reserved in Tina's GraphQL.
 export const collectionsPage: Collection = {
   name: "collections_page",
-  label: "Collections page",
+  label: "Collections · Page",
   path: "src/views",
   format: "md",
   match: { include: "collections" },

@@ -1,12 +1,20 @@
 import type { Collection } from "tinacms";
 
-export const privacy: Collection = {
-  name: "privacy",
-  label: "Privacy statement",
+export const privacyStatementPage: Collection = {
+  name: "privacy_statement_page",
+  label: "Privacy statement · Page",
   path: "src/views",
   format: "md",
   match: { include: "privacy-statement" },
-  ui: { allowedActions: { create: false, delete: false } },
+  ui: {
+    allowedActions: { create: false, delete: false },
+    // Tina writes a newline before a string body but reads that newline back
+    // as part of it, so every save would add one more blank line at the top.
+    beforeSubmit: async ({ values }) => ({
+      ...values,
+      body: typeof values.body === "string" ? values.body.replace(/^\s*\n/, "") : values.body,
+    }),
+  },
   fields: [
     { type: "string", name: "title", label: "Title" },
     { type: "string", name: "headline", label: "Headline" },

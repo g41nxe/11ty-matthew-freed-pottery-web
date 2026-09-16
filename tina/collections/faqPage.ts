@@ -2,7 +2,7 @@ import type { Collection } from "tinacms";
 
 export const faqPage: Collection = {
   name: "faq_page",
-  label: "FAQ page",
+  label: "FAQ · Page",
   path: "src/views",
   format: "md",
   match: { include: "faq" },

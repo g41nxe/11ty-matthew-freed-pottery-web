@@ -3,9 +3,9 @@ import { dateList, datePicker, dayLabel } from "../fields/date";
 
 // Field order matches the order scripts/events-to-markets.mjs writes, so a
 // first save does not reorder every entry.
-export const events: Collection = {
-  name: "events",
-  label: "Events",
+export const eventsMarkets: Collection = {
+  name: "events_markets",
+  label: "Events · Markets and events",
   path: "src/views/_data",
   format: "json",
   match: { include: "events" },

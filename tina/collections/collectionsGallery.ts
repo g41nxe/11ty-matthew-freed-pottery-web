@@ -4,9 +4,9 @@ import { imageField } from "../fields/common";
 const hexColour = (value: string) =>
   value && !/^#[0-9A-Fa-f]{6}$/.test(value) ? "Use a hex colour like #1F3A52" : undefined;
 
-export const gallery: Collection = {
-  name: "gallery",
-  label: "Glaze gallery",
+export const collectionsGallery: Collection = {
+  name: "collections_gallery",
+  label: "Collections · Glaze gallery",
   path: "src/views/_data",
   format: "json",
   match: { include: "gallery" },

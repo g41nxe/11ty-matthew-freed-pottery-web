@@ -1,17 +1,17 @@
 import { defineConfig } from "tinacms";
-import { events } from "./collections/events";
+import { eventsMarkets } from "./collections/eventsMarkets";
 import { eventsPage } from "./collections/eventsPage";
-import { about } from "./collections/about";
-import { pottery } from "./collections/pottery";
-import { processPage } from "./collections/processPage";
-import { home } from "./collections/home";
-import { contact } from "./collections/contact";
+import { homePage } from "./collections/homePage";
+import { aboutPage } from "./collections/aboutPage";
+import { aboutArtPage } from "./collections/aboutArtPage";
+import { aboutProcessPage } from "./collections/aboutProcessPage";
 import { collectionsPage } from "./collections/collectionsPage";
-import { gallery } from "./collections/gallery";
-import { retail } from "./collections/retail";
-import { privacy } from "./collections/privacy";
+import { collectionsGallery } from "./collections/collectionsGallery";
+import { retailStoresPage } from "./collections/retailStoresPage";
+import { contactPage } from "./collections/contactPage";
 import { faqPage } from "./collections/faqPage";
-import { global } from "./collections/global";
+import { privacyStatementPage } from "./collections/privacyStatementPage";
+import { settings } from "./collections/settings";
 
 export default defineConfig({
   // Netlify sets HEAD to the branch being built, so a deploy preview edits
@@ -26,15 +26,21 @@ export default defineConfig({
   token: process.env.TINA_TOKEN || null,
   // Decap still owns /admin until the cutover.
   build: { outputFolder: "admin-tina", publicFolder: "dist" },
-  media: { tina: { publicFolder: "src", mediaRoot: "images" } },
+  media: {
+    tina: { publicFolder: "src", mediaRoot: "images" },
+    // Only formats the image pipeline (sharp) can read: an iPhone HEIC
+    // photo would break the build.
+    accept: ["image/jpeg", "image/png", "image/webp"],
+  },
   // Order of the admin sidebar: what Matthew edits most comes first.
   schema: {
     collections: [
-      events, eventsPage,
-      home, about, pottery, processPage,
-      collectionsPage, gallery,
-      retail, contact, faqPage, privacy,
-      global,
+      eventsMarkets, eventsPage,
+      homePage,
+      aboutPage, aboutArtPage, aboutProcessPage,
+      collectionsPage, collectionsGallery,
+      retailStoresPage, contactPage, faqPage, privacyStatementPage,
+      settings,
     ],
   },
 });

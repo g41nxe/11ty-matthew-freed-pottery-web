@@ -1,9 +1,9 @@
 import type { Collection } from "tinacms";
 import { imageField } from "../fields/common";
 
-export const retail: Collection = {
-  name: "retail",
-  label: "Retail stores",
+export const retailStoresPage: Collection = {
+  name: "retail_stores_page",
+  label: "Retail stores · Page",
   path: "src/views",
   format: "md",
   match: { include: "retail-stores" },

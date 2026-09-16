@@ -1,8 +1,8 @@
 import type { Collection } from "tinacms";
 
-export const global: Collection = {
-  name: "global",
-  label: "Site settings",
+export const settings: Collection = {
+  name: "settings",
+  label: "Settings",
   path: "src/views/_data",
   format: "json",
   match: { include: "global" },
@@ -41,6 +41,7 @@ export const global: Collection = {
         { type: "string", name: "next_market", label: "Home page, label in front of the next market" },
         { type: "string", name: "next_up", label: "Badge on the next event card" },
         { type: "string", name: "dates_soon", label: "Shown when every listed date has passed" },
+        { type: "string", name: "keep_reading", label: "Heading above the links at the end of the About pages" },
       ],
     },
     {
@@ -48,6 +49,7 @@ export const global: Collection = {
       fields: [
         { type: "string", name: "retail", label: "Retail stores" },
         { type: "string", name: "faq", label: "FAQ" },
+        { type: "string", name: "art", label: "Art" },
         { type: "string", name: "process", label: "Process" },
         { type: "string", name: "privacy", label: "Privacy" },
       ],
