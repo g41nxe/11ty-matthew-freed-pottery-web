@@ -27,7 +27,7 @@ module.exports = function (eleventyConfig) {
     // (hashed variants) and never references these originals.
     eleventyConfig.addPassthroughCopy({ "src/images" : "images" });
 
-    eleventyConfig.addPlugin(pluginSEO, require("./src/views/_data/seo.json"));
+    eleventyConfig.addPlugin(pluginSEO, require("./src/views/_data/global.json").seo);
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
     // Serve a self-destroying worker at the old SW URL so any previously

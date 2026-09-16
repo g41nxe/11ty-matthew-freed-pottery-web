@@ -34,6 +34,160 @@ featured_piece:
   cta:
     label: View in the shop
     url: 'https://shop.matthewfreed.net/collections/all/Tofino'
+shop_items:
+  - title: Tofino - Medium Teapot
+    overlay:
+      text: 'A medium teapot from the <span class="text-highlight font-bold">Tofino Collection</span>, glazed in bands of cobalt, mocha and amber.'
+    price: $165
+    image:
+      url: /images/products/tofino-medium-teapot-tile.jpg
+      alt: Tofino Medium Teapot by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/products/medium-teapot-tofino'
+  - title: Tofino - Belly Mug
+    overlay:
+      text: 'A large belly mug from the <span class="text-highlight font-bold">Tofino Collection</span>. Tofino is one of my most variable glazes, so no two are alike.'
+    price: $45
+    image:
+      url: /images/products/tofino-belly-mug-tile.jpg
+      alt: Tofino Belly Mug by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/products/belly-mug-tofino'
+  - title: Tofino - Vase
+    overlay:
+      text: 'A tall vase from the <span class="text-highlight font-bold">Tofino Collection</span>, with the stormy landscape running right around it.'
+    price: $125
+    image:
+      url: /images/products/tofino-vase-tile.jpg
+      alt: Tofino Vase by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/products/tofino-vase'
+  - title: Tofino - Dinner Plate
+    overlay:
+      text: 'A dinner plate from the <span class="text-highlight font-bold">Tofino Collection</span>, where the glaze runs in toward the centre.'
+    price: $55
+    image:
+      url: /images/products/tofino-dinner-plate-tile.jpg
+      alt: Tofino Dinner Plate by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/products/dinner-plate-tofino'
+  - title: Tofino - Chopstick Bowl
+    overlay:
+      text: This chopstick bowl from the <span class="text-highlight font-bold">Tofino Collection</span> is one of my best selling items
+    price: $45
+    image:
+      url: /images/products/tofino-chopstick-bowl-tile.jpg
+      alt: Tofino Chopstick Bowl by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/products/chopstick-bowl-tofino'
+  - title: Jericho - Teardrop Vase
+    overlay:
+      text: This teardrop vase from the <span class="text-highlight font-bold">Jericho Collection</span> is one of my best selling items
+    price: $45
+    image:
+      url: /images/products/jericho-teardrop-vase-tile.jpg
+      alt: Jericho Teardrop Vase by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/products/copy-teardrop-vase-tofino'
+  - title: Squamish Nights - Shorty Mug
+    overlay:
+      text: This shorty mug from the <span class="text-highlight font-bold">Squamish Nights Collection</span> is one of my best selling items
+    price: $38
+    image:
+      url: /images/products/squamish-nights-shorty-mug-tile.jpg
+      alt: Squamish Nights Shorty Mug by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/products/shorty-mug-squamish-night'
+  - title: Pemberton Earth - Large Square Platter
+    overlay:
+      text: This large square platter from the <span class="text-highlight font-bold ">Pemberton Earth Collection</span> is such a versatile serving piece!
+    price: $190
+    image:
+      url: /images/products/pemberton-earth-large-square-platter-tile.jpg
+      alt: Pemberton Earth Large Square Platter by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/collections/platters/products/large-square-platter-in-capilano-charcoal'
+  - title: Tree of Life - Pitcher
+    overlay:
+      text: This pitcher from the <span class="text-highlight font-bold">Tree of Life Collection</span> is one of my best selling items
+    price: $135
+    image:
+      url: /images/products/tree-of-life-pitcher-tile.jpg
+      alt: Tree of Life Pitcher by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/products/pitcher-tree-of-life'
+  - title: Yaletown - Red Teapot
+    overlay:
+      text: This medium teapot from the <span class="text-highlight font-bold">Yaletown Collection</span> is one of my best selling items
+    image:
+      url: /images/products/yaletown-red-teapot-tile.jpg
+      alt: Yaletown Red Teapot by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/products/copy-large-teapot-tofino'
+  - title: Jericho - Belly Mug
+    overlay:
+      text: This large belly mug from the <span class="text-highlight font-bold">Jericho Collection</span> is one of my best selling items
+    image:
+      url: /images/products/jericho-belly-mug-tile.jpg
+      alt: Jericho Belly Mug by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/products/belly-mug-jericho'
+  - title: 'Yaletown Green - Belly Mug '
+    overlay:
+      text: Modern and slick simpicity with a pop of chartreuse around the rim - the large belly mug from the <span class="text-highlight font-bold">Yaletown Collection</span> .
+    image:
+      url: /images/products/yaletown-green-belly-mug-tile.jpg
+      alt: Yaletown Belly Mug with green rim by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/products/belly-mug-yaletown-green'
+  - title: 'Yaletown Red - Belly Mug '
+    overlay:
+      text: A classic design - this belly mug from the <span class="text-highlight font-bold">Yaletown Collection</span> .
+    image:
+      url: /images/products/yaletown-red-belly-mug-tile.jpg
+      alt: Yaletown Belly Mug with red rim by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/products/belly-mug-yaletown-red'
+  - title: Joffre - Chopstick Bowl
+    overlay:
+      text: Cozy on up with this chopstick bowl from the <span class="text-highlight font-bold">Joffre Collection</span>.
+    image:
+      url: /images/products/joffre-chopstick-bowl-tile.jpg
+      alt: Joffre Chopstick Bowl by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/collections/all/products/chopstick-bowl-joffre'
+  - title: 'Yaletown Green - Chopstick Bowl '
+    overlay:
+      text: This deep chopstick bowl from the <span class="text-highlight font-bold ">Yaletown Collection</span> is one of my favourites!
+    image:
+      url: /images/products/yaletown-green-chopstick-bowl-tile.jpg
+      alt: Yaletown Chopstick Bowl with green rim by Matthew Freed
+    hide: false
+    cta:
+      url: 'https://shop.matthewfreed.net/collections/all/products/chopstick-bowl-yaletown-green'
+  - title: Strathcona - Wide Rim Platter
+    overlay:
+      text: This wide rim  platter from the <span class="text-highlight font-bold ">Strahtcona Collection</span> is one of my favourites!
+    image:
+      url: /images/products/strathcona-wide-rim-platter-tile.jpg
+      alt: Strathcona Wide Rim Platter by Matthew Freed
+    hide: true
+    cta:
+      url: 'https://shop.matthewfreed.net/collections/platters/products/wide-rim-platter-strathcona'
 collections_teaser:
   title: 'Fifteen glazes, fifteen stories'
   text: 'Named for the coasts, mountains and neighbourhoods that shaped their colours — and a few quieter inspirations.'

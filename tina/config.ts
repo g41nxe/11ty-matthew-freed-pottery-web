@@ -8,13 +8,10 @@ import { home } from "./collections/home";
 import { contact } from "./collections/contact";
 import { collectionsPage } from "./collections/collectionsPage";
 import { gallery } from "./collections/gallery";
-import { features } from "./collections/features";
 import { retail } from "./collections/retail";
 import { privacy } from "./collections/privacy";
 import { faqPage } from "./collections/faqPage";
-import { faq } from "./collections/faq";
 import { global } from "./collections/global";
-import { seo } from "./collections/seo";
 
 export default defineConfig({
   // Netlify sets HEAD to the branch being built, so a deploy preview edits
@@ -35,9 +32,9 @@ export default defineConfig({
     collections: [
       events, eventsPage,
       home, about, pottery, processPage,
-      collectionsPage, gallery, features,
-      retail, contact, faqPage, faq, privacy,
-      global, seo,
+      collectionsPage, gallery,
+      retail, contact, faqPage, privacy,
+      global,
     ],
   },
 });
