@@ -22,13 +22,13 @@ layout: base
 {% endif %}
 {% endfor %}
 
-{% include "about-more.njk" %}
-
 {% if medal.text %}
-<section class="mx-auto max-w-3xl px-6 pb-14 pt-4">
+<section class="mx-auto max-w-3xl px-6 pb-2 pt-4">
     <div class="flex items-center gap-5 rounded-xl border border-hairline bg-white p-6">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C8A876" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14.5 7 22l5-3 5 3-1.5-7.5"/></svg>
         <p class="text-sm leading-relaxed text-muted">{{ medal.text }}{% if medal.link_label %}: <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" target="_blank" rel="noopener" class="font-medium text-blue underline decoration-1 underline-offset-2 transition-colors hover:text-blue-light">{{ medal.link_label }}</a>{% endif %}.</p>
     </div>
 </section>
 {% endif %}
+
+{% include "about-more.njk" %}

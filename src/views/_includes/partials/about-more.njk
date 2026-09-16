@@ -1,6 +1,6 @@
 {# Cards linking the About pages (About, Art, Process) to each other.
    Picture and text come from each page: its first section image, eyebrow and headline. #}
-<section class="mx-auto max-w-5xl px-6 py-10" aria-labelledby="about-more-title">
+<section class="mx-auto max-w-5xl px-6 pb-14 pt-10" aria-labelledby="about-more-title">
     <h2 id="about-more-title" class="font-display text-2xl font-black text-ink">{{ global.labels.keep_reading | default("Keep reading", true) }}</h2>
     <div class="mt-6 grid gap-8 sm:grid-cols-2">
         {% for entry in collections.about | sort(false, true, "url") %}
