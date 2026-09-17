@@ -15,4 +15,4 @@ One day on which a market takes place. A market holds a list of dates; an event 
 The single news entry shown in the "Latest from the studio" box on the events page.
 
 ### Shop set
-One group for the "From the current firing" section on the home page: a featured piece plus up to four shop items, usually from one glaze collection. The home page shows the first set that is not hidden.
+One group for the "From the current firing" section on the home page: a featured piece plus up to four shop items, usually from one glaze collection. The home page shows one set at random on every visit; a hidden set stays out of the rotation.

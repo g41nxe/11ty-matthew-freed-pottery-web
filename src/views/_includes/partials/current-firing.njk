@@ -1,9 +1,12 @@
-{# The first set that is not hidden; with every set hidden the section drops out.
-   Rotating through the sets per page load is planned. #}
-{% set shop_set = shop_sets | rejectattr("hide") | first %}
-{% if shop_set %}
+{# Every set that is not hidden is rendered, all of them hidden, and the script
+   below reveals one at random per page load. They start hidden so the browser
+   fetches only the images of the set it ends up showing — an already visible
+   section would have its images fetched before the script could hide it again.
+   Without JavaScript the first set shows (see the noscript rule). #}
+{% set sets = shop_sets | rejectattr("hide") %}
+{% for shop_set in sets %}
 {% set piece = shop_set.featured_piece %}
-<section class="mx-auto max-w-6xl px-6 py-12" aria-label="From the current firing">
+<section class="mx-auto max-w-6xl px-6 py-12 hidden" aria-label="From the current firing" data-firing-set{% if loop.first %} data-firing-first{% endif %}>
     <div class="flex items-baseline justify-between gap-4">
         <h2 class="font-display text-3xl font-black text-ink">{{ products.title }}</h2>
         <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ products.link_label | default("Shop all pieces", true) }}</a>
@@ -43,4 +46,24 @@
     </div>
     <p class="mt-6 text-center text-xs text-soft">{{ products.note }}</p>
 </section>
+{% endfor %}
+{% if sets.length %}
+{# The sets hide with a class, not the hidden attribute: the browser's own
+   rule for [hidden] is !important, so no stylesheet could bring one back. #}
+<noscript><style>section[data-firing-first] { display: block !important; }</style></noscript>
+{# Inline and right after the sections, so the chosen set is revealed while the
+   page is still parsing and nothing jumps into place later. #}
+<script>
+    (function () {
+        var sets = document.querySelectorAll("[data-firing-set]");
+        if (!sets.length) return;
+        var set = sets[Math.floor(Math.random() * sets.length)];
+        set.classList.remove("hidden");
+        // A lazy image that was display:none while the page loaded stays
+        // unloaded even once its section appears. Setting src again starts
+        // that decision over, with the section visible this time.
+        var images = set.querySelectorAll("img");
+        for (var i = 0; i < images.length; i++) images[i].src = images[i].getAttribute("src");
+    })();
+</script>
 {% endif %}

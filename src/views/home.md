@@ -75,56 +75,260 @@ shop_sets:
         cta:
           url: 'https://shop.matthewfreed.net/products/dinner-plate-tofino'
   - name: Yaletown
-    hide: true
+    hide: false
     featured_piece:
       eyebrow: Featured piece
-      title: Yaletown bowls
+      title: Yaletown at the market
       caption: Yaletown · colourful rims on charcoal
-      text: 'Red, green or blue rims pop on a charcoal glazed base.'
+      text: 'Red, green or blue rims pop on a charcoal glazed base. The red pieces are the ones that sell out first.'
       price: ''
       image:
-        url: /images/glazes/yaletown/mugs-and-bowls-overhead-feature.jpg
-        alt: Yaletown mugs and nested bowls with red, blue and green rims, seen from above, by Matthew Freed
+        url: /images/glazes/yaletown/market-display-feature.jpg
+        alt: 'Yaletown bowls, plates, mugs and a teapot on the market stall by Matthew Freed'
       cta:
         label: View in the shop
         url: 'https://shop.matthewfreed.net/collections/all/Yaletown'
     items:
-      - title: Yaletown Blue - Large Serving Bowl
+      - title: Yaletown Red - Medium Teapot
         overlay:
-          text: 'A large serving bowl from the <span class="text-highlight font-bold">Yaletown Collection</span>, with a bright blue rim on the charcoal glaze. 11" wide.'
-        price: $88
+          text: 'This medium teapot from the <span class="text-highlight font-bold">Yaletown Collection</span> is one of my best selling items.'
+        price: $165
         image:
-          url: /images/products/yaletown-blue-large-serving-bowl-tile.jpg
-          alt: Yaletown Large Serving Bowl with blue rim by Matthew Freed
+          url: /images/products/yaletown-red-teapot-tile.jpg
+          alt: Yaletown Medium Teapot with red rim by Matthew Freed
         cta:
-          url: 'https://shop.matthewfreed.net/products/copy-large-serving-bowl-yaletown-red-1'
-      - title: Yaletown Green - Medium Serving Bowl
+          url: 'https://shop.matthewfreed.net/products/copy-large-teapot-tofino'
+      - title: Yaletown Red - Shorty Mug
         overlay:
-          text: A medium serving bowl from the <span class="text-highlight font-bold">Yaletown Collection</span> with a pop of chartreuse around the rim and a nice depth. 10" wide.
-        price: $78
+          text: 'The smallest of my mugs from the <span class="text-highlight font-bold">Yaletown Collection</span>, with a red rim on the charcoal glaze.'
+        price: $38
         image:
-          url: /images/products/yaletown-green-medium-serving-bowl-tile.jpg
-          alt: Yaletown Medium Serving Bowl with green rim by Matthew Freed
+          url: /images/products/yaletown-red-shorty-mug-tile.jpg
+          alt: Yaletown Shorty Mug with red rim by Matthew Freed
         cta:
-          url: 'https://shop.matthewfreed.net/products/serving-bowl-yaletown-green'
-      - title: Yaletown Red - Meal Bowl
+          url: 'https://shop.matthewfreed.net/products/shorty-mug-yaletown-red'
+      - title: Yaletown Red - Chopstick Bowl
         overlay:
-          text: 'An everyday meal bowl from the <span class="text-highlight font-bold">Yaletown Collection</span>, perfect for cereal, soup or salad.'
-        price: $35
+          text: 'A deep chopstick bowl from the <span class="text-highlight font-bold">Yaletown Collection</span>, with a rest for the chopsticks.'
+        price: $45
         image:
-          url: /images/products/yaletown-red-meal-bowl-tile.jpg
-          alt: Yaletown Meal Bowl with red rim by Matthew Freed
+          url: /images/products/yaletown-red-chopstick-bowl-tile.jpg
+          alt: Yaletown Chopstick Bowl with red rim by Matthew Freed
         cta:
-          url: 'https://shop.matthewfreed.net/products/meal-bowl-yaletown-red'
-      - title: Yaletown Red - Snack Bowl
+          url: 'https://shop.matthewfreed.net/products/chopstick-bowl-yaletown-red'
+      - title: Yaletown Red - Serving Tray
         overlay:
-          text: 'A small bowl from the <span class="text-highlight font-bold">Yaletown Collection</span> for a dip, a side or dessert. I use mine for ice cream.'
-        price: $24
+          text: 'The classic serving tray from the <span class="text-highlight font-bold">Yaletown Collection</span>, a good size for all kinds of serving. 8" x 12".'
+        price: $58
         image:
-          url: /images/products/yaletown-red-snack-bowl-tile.jpg
-          alt: Four Yaletown Snack Bowls with red rims by Matthew Freed
+          url: /images/products/yaletown-red-serving-tray-tile.jpg
+          alt: Yaletown Serving Tray with red rim by Matthew Freed
         cta:
-          url: 'https://shop.matthewfreed.net/products/appetizer-bowl-yaletown-red'
+          url: 'https://shop.matthewfreed.net/products/serving-tray-yaletown-red'
+  - name: Joffre
+    hide: false
+    featured_piece:
+      eyebrow: Featured piece
+      title: Joffre tea set
+      caption: Joffre · a rich green and blue glaze
+      text: 'Turquoise, blue and deep emerald green run together in this glaze, so every teapot, mug and tray comes out with its own mix of tones.'
+      price: ''
+      image:
+        url: /images/glazes/joffre/tea-set-feature.jpg
+        alt: 'Joffre teapot, two mugs, a small dish and a tray by Matthew Freed, with a white flower and a fern'
+      cta:
+        label: View in the shop
+        url: 'https://shop.matthewfreed.net/collections/all/Joffre'
+    items:
+      - title: Joffre - Medium Teapot
+        overlay:
+          text: 'A wide-based teapot from the <span class="text-highlight font-bold">Joffre Collection</span>, in hues of turquoise, blue and deep emerald green.'
+        price: $150
+        image:
+          url: /images/products/joffre-medium-teapot-tile.jpg
+          alt: Joffre Medium Teapot by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/copy-of-narrow-base-teapot-joffre'
+      - title: Joffre - Shorty Mug
+        overlay:
+          text: 'The smallest of my mugs from the <span class="text-highlight font-bold">Joffre Collection</span>, still a good size and very comfortable to hold.'
+        price: $38
+        image:
+          url: /images/products/joffre-shorty-mug-tile.jpg
+          alt: Joffre Shorty Mug by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/shorty-mug-joffre'
+      - title: Joffre - Condiment Cozy
+        overlay:
+          text: 'A little dish from the <span class="text-highlight font-bold">Joffre Collection</span> for condiments, dips, salts or tea bags.'
+        price: $13
+        image:
+          url: /images/products/joffre-condiment-cozy-tile.jpg
+          alt: Four Joffre Condiment Cozies by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/copy-of-condiment-cozy-garibaldi-1'
+      - title: Joffre - Skinny Tray
+        overlay:
+          text: 'The tray from the photo: a long serving tray from the <span class="text-highlight font-bold">Joffre Collection</span> for cheese, sushi, cookies or dessert. 5.5" x 12".'
+        price: $48
+        image:
+          url: /images/products/joffre-skinny-tray-tile.jpg
+          alt: Joffre Skinny Tray by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/copy-skinny-tray-jericho'
+  - name: Oil dispensers
+    hide: false
+    featured_piece:
+      eyebrow: Featured piece
+      title: Pouring bottles
+      caption: One shape, four glazes
+      text: 'A pouring bottle with an insert-able spout, for oil, vinegar or dish soap. The same shape comes out of the kiln differently in every glaze.'
+      price: ''
+      image:
+        url: /images/products/oil-dispensers-feature.jpg
+        alt: 'Four pouring bottles with metal spouts in different glazes by Matthew Freed'
+      cta:
+        label: View in the shop
+        url: 'https://shop.matthewfreed.net/search?q=pouring+bottle'
+    items:
+      - title: Pouring Bottle - Tree of Life
+        overlay:
+          text: 'A pouring bottle in the <span class="text-highlight font-bold">Tree of Life Collection</span>, with the tree emblem on satin charcoal.'
+        price: $65
+        image:
+          url: /images/products/pouring-bottle-tree-of-life-tile.jpg
+          alt: Tree of Life Pouring Bottle by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/pouring-bottle-tree-of-life'
+      - title: Pouring Bottle - Tofino
+        overlay:
+          text: 'A pouring bottle in the <span class="text-highlight font-bold">Tofino Collection</span>, where cobalt, mocha and amber run down the sides.'
+        price: $65
+        image:
+          url: /images/products/pouring-bottle-tofino-tile.jpg
+          alt: Tofino Pouring Bottle by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/pouring-bottle-_-tofino'
+      - title: Pouring Bottle - Jericho
+        overlay:
+          text: 'A pouring bottle in the <span class="text-highlight font-bold">Jericho Collection</span>, a pale grey-blue glaze with sand toned speckles.'
+        price: $65
+        image:
+          url: /images/products/pouring-bottle-jericho-tile.jpg
+          alt: Jericho Pouring Bottle by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/pouring-bottle-jericho'
+      - title: Pouring Bottle - Joffre
+        overlay:
+          text: 'A pouring bottle in the <span class="text-highlight font-bold">Joffre Collection</span>, in turquoise, blue and deep emerald green.'
+        price: $65
+        image:
+          url: /images/products/pouring-bottle-joffre-tile.jpg
+          alt: Joffre Pouring Bottle by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/copy-of-pouring-bottle-jericho'
+  - name: Tree of Life
+    hide: false
+    featured_piece:
+      eyebrow: Featured piece
+      title: Tree of Life bowls and pitcher
+      caption: Tree of Life · a tree emblem on charcoal
+      text: 'A textured Tree of Life emblem on a semi-matte charcoal glaze, pressed into every piece by hand.'
+      price: ''
+      image:
+        url: /images/glazes/tree-of-life/bowls-and-pitcher-feature.jpg
+        alt: 'Tree of Life pitcher and bowls with lemons by Matthew Freed'
+      cta:
+        label: View in the shop
+        url: 'https://shop.matthewfreed.net/collections/all/Tree%20of%20Life'
+    items:
+      - title: Tree of Life - Pitcher
+        overlay:
+          text: 'A pitcher from the <span class="text-highlight font-bold">Tree of Life Collection</span>, the piece on the left of the photo.'
+        price: $135
+        image:
+          url: /images/products/tree-of-life-pitcher-tile.jpg
+          alt: Tree of Life Pitcher by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/pitcher-tree-of-life'
+      - title: Tree of Life - Nesting Bowls
+        overlay:
+          text: 'Three bowls from the <span class="text-highlight font-bold">Tree of Life Collection</span> that stack inside each other.'
+        price: $245
+        image:
+          url: /images/products/tree-of-life-nesting-bowls-tile.jpg
+          alt: Three nesting Tree of Life bowls by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/nesting-bowls-tree-of-life'
+      - title: Tree of Life - Meal Bowl
+        overlay:
+          text: 'An everyday bowl from the <span class="text-highlight font-bold">Tree of Life Collection</span> for cereal, soup or salad.'
+        price: $40
+        image:
+          url: /images/products/tree-of-life-meal-bowl-tile.jpg
+          alt: Tree of Life Meal Bowl by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/meal-bowl-tree-of-life'
+      - title: Tree of Life - Ramen Style Bowl
+        overlay:
+          text: 'A deeper bowl from the <span class="text-highlight font-bold">Tree of Life Collection</span>, made for noodles and broth.'
+        price: $55
+        image:
+          url: /images/products/tree-of-life-ramen-bowl-tile.jpg
+          alt: Tree of Life Ramen Style Bowl by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/serving-bowl-tree-of-life'
+  - name: Strathcona
+    hide: false
+    featured_piece:
+      eyebrow: Featured piece
+      title: Strathcona platters
+      caption: Strathcona · a hand-painted chevron pattern
+      text: 'A semi-matte charcoal glaze with a hand-painted gold chevron pattern that follows the shape of each piece.'
+      price: ''
+      image:
+        url: /images/glazes/strathcona/platters-and-bowl-feature.jpg
+        alt: 'Two Strathcona platters and a serving bowl with a chevron pattern by Matthew Freed'
+      cta:
+        label: View in the shop
+        url: 'https://shop.matthewfreed.net/collections/all/Strathcona'
+    items:
+      - title: Strathcona - Large Serving Bowl
+        overlay:
+          text: 'A large serving bowl from the <span class="text-highlight font-bold">Strathcona Collection</span>, with the chevrons running to the centre.'
+        price: $125
+        image:
+          url: /images/products/strathcona-large-serving-bowl-tile.jpg
+          alt: Strathcona Large Serving Bowl by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/nesting-bowls-strathcona'
+      - title: Strathcona - Large Square Platter
+        overlay:
+          text: 'The big square platter from the <span class="text-highlight font-bold">Strathcona Collection</span>, for a whole table of food.'
+        price: $190
+        image:
+          url: /images/products/strathcona-large-square-platter-tile.jpg
+          alt: Strathcona Large Square Platter by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/large-square-platter-strathcona'
+      - title: Strathcona - Wide Rim Platter
+        overlay:
+          text: 'A platter from the <span class="text-highlight font-bold">Strathcona Collection</span> with a wide rim around the pattern.'
+        price: $175
+        image:
+          url: /images/products/strathcona-wide-rim-platter-tile.jpg
+          alt: Strathcona Wide Rim Platter by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/wide-rim-platter-strathcona'
+      - title: Strathcona - Meal Bowl
+        overlay:
+          text: 'An everyday bowl from the <span class="text-highlight font-bold">Strathcona Collection</span> for cereal, soup or salad.'
+        price: $40
+        image:
+          url: /images/products/strathcona-meal-bowl-tile.jpg
+          alt: Strathcona Meal Bowl by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/meal-bowl-strathcona'
 collections_teaser:
   title: 'Fifteen glazes, fifteen stories'
   text: 'Named for the coasts, mountains and neighbourhoods that shaped their colours — and a few quieter inspirations.'

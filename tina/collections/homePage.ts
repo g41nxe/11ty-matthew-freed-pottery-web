@@ -28,14 +28,14 @@ export const homePage: Collection = {
     },
     {
       type: "object", name: "shop_sets", label: "Shop sets", list: true,
-      description: "The home page shows the first set that is not hidden: its featured piece and up to four shop items.",
+      description: "The home page shows one of these sets at random on every visit: a featured piece and up to four shop items each.",
       ui: {
         itemProps: (set) => ({ label: `${set?.name || "New set"}${set?.hide ? " (hidden)" : ""}` }),
         defaultItem: { hide: false },
       },
       fields: [
         { type: "string", name: "name", label: "Name", description: "Only shown here in the CMS, for example “Tofino”" },
-        { type: "boolean", name: "hide", label: "Hide this set" },
+        { type: "boolean", name: "hide", label: "Hide (leave out of the rotation)" },
         {
           type: "object", name: "featured_piece", label: "Featured piece",
           fields: [
