@@ -104,7 +104,8 @@ Default-Branch. Vorher meldet TinaCloud „Tina Media Not Configured".
 - [ ] Jeder Artikel-Link führt in den richtigen Shop-Artikel (die Handles sind
       teils irreführend, etwa `copy-large-teapot-tofino` für die
       Yaletown-Kanne).
-- [ ] **Events:** `events.json` auf Matthews letztem Stand von `main` erneut
+- [ ] **Events:** erst `main` in den Branch mergen (Abschnitt 7), dann
+      `events.json` auf Matthews letztem Stand erneut
       durch `node scripts/events-to-markets.mjs` schicken (das Skript ist
       idempotent), Diff prüfen, `npm test` grün.
 - [ ] Inhaltssperre: ab dem Umwandlungsskript bis zum Livegang niemand mehr in
@@ -136,6 +137,18 @@ Default-Branch. Vorher meldet TinaCloud „Tina Media Not Configured".
 
 ## 7. Die Umstellung selbst
 
+- [ ] **Zuerst `main` in den Branch mergen,** nicht umgekehrt: Matthew pflegt
+      bis zur Inhaltssperre in Decap weiter, und diese Commits landen auf
+      `main`. `git fetch origin && git merge origin/main`.
+      Am 2026-09-17 war `main` ohne eigene Commits, der Branch 35 voraus —
+      das ändert sich mit jeder Änderung, die Matthew noch speichert.
+- [ ] Konflikte erwartungsgemäß in den Inhaltsdateien: `_data/events.json`,
+      `home.md`, `_data/global.json`, `events.md`. Im Zweifel gewinnt
+      Matthews Fassung von `main`, die Tina-Struktur wird darauf neu
+      angewandt (Abschnitt 5, Umwandlungsskript).
+- [ ] Nach dem Merge alle Prüfungen wiederholen: `npm test`, `npm run
+      typecheck`, Round-Trip über die betroffenen Collections, HTML-Vergleich,
+      Netlify-Build grün.
 - [ ] Live-Stand vorher taggen (Release-Prozess), damit ein Rücksprung möglich
       ist.
 - [ ] Branch nach `main` mergen.
