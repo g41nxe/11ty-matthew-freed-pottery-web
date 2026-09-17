@@ -20,6 +20,20 @@ wann abgebrochen wird.
   erscheint das erste Set.
 - Medienverwaltung **lokal**: Unterordner, Upload, Bild im Feld, Build.
 
+Am 2026-09-18 zusätzlich geprüft (Details in Abschnitt 6):
+
+- Round-Trip erneut über alle 13 Collections, alles unverändert.
+- Vorschau gegen die Live-Seite: acht von zehn Seiten zeichengleich; die drei
+  Abweichungen sind gewollt (Alt-Text des Yaletown-Galeriebilds auf Start- und
+  Collections-Seite, Abstand unter dem Medaillen-Hinweis auf About).
+- Alle 24 Shop-Artikel: Preis im CMS gleich dem Preis im Shop, jeder Link führt
+  in den richtigen Artikel.
+- Keine toten Links: 13 interne Ziele vorhanden, alle Bilddateien da, 33 externe
+  Links (Händler, Social, Shop-Sammlungen) antworten mit 200.
+- Weiterleitungen aus `_redirects` stichprobenartig auf der Vorschau: alle 301
+  auf das erwartete Ziel.
+- `sitemap.xml` listet `/preview-sets.html` nicht.
+
 ## 1. Das Tor: Matthew bedient Tina (Vorschau)
 
 Matthew macht das selbst, Dan schaut zu und notiert, wo er hängen bleibt.
@@ -113,8 +127,10 @@ Default-Branch. Vorher meldet TinaCloud „Tina Media Not Configured".
 
 ## 6. Regression der Website (Vorschau gegen Live)
 
-- [ ] `node scripts/compare-html.mjs <live-build> <vorschau-build>`: nur die
-      gewollten Abweichungen.
+- [x] Vorschau gegen Live verglichen (2026-09-18): nur die gewollten
+      Abweichungen. **Nicht** lokal gegen live vergleichen — Netlify schreibt
+      im Deploy die Links um (`.html` weg, andere Attributreihenfolge), das
+      erzeugt Unterschiede auf jeder Seite.
 - [ ] **Events-Logik:** vergangene Termine fallen raus, „Nächster Markt" und
       „Next up" stimmen, mehrtägige Events bleiben bis zum Enddatum stehen,
       strukturierte Daten (JSON-LD) sind vollständig.
@@ -123,9 +139,12 @@ Default-Branch. Vorher meldet TinaCloud „Tina Media Not Configured".
 - [ ] **About, Art, Process:** Karten am Seitenende verlinken die jeweils
       anderen beiden, Footer-Link „Everyday art" führt auf die Art-Seite.
 - [ ] **Telefon (375 px):** keine waagerechte Scrollleiste, Karten stapeln.
-- [ ] **Kontaktformular** absenden: Netlify Forms mit reCAPTCHA, Ziel
-      `/success` — diese Seite liegt nicht im Repo, also prüfen, was nach dem
-      Absenden erscheint und ob die Nachricht in Netlify ankommt.
+- [ ] **Kontaktformular:** das Formular sendet an `/success`, und diese Seite
+      gibt **auf der Live-Seite wie auf der Vorschau 404** (geprüft
+      2026-09-18). Das ist ein Altbestand, keine Folge der Migration, fällt
+      aber jedem auf, der das Formular abschickt. Entweder eine Dankesseite
+      anlegen (Text von Matthew) oder das Ziel des Formulars ändern. Danach
+      einmal absenden und prüfen, ob die Nachricht in Netlify ankommt.
 - [ ] **Weiterleitungen** aus `src/_redirects` stichprobenartig: `/home/bio`,
       `/updates`, `/shop`, `/about/retail-stores`.
 - [ ] `sitemap.xml` (ohne `/preview-sets.html`), `robots.txt`, Favicons,
@@ -171,7 +190,8 @@ Default-Branch. Vorher meldet TinaCloud „Tina Media Not Configured".
       Forestry-Zeit) samt Passthrough entfernen.
 - [ ] Vergleichsseite entfernen: `src/views/preview-sets.njk`,
       `preview-sets.11tydata.js`, die `showAll`-Zweige in
-      `current-firing.njk` und das `noindex`-Flag in `base.njk`.
+      `current-firing.njk` und der Eintrag in `src/_headers` (die Datei
+      selbst kann bleiben, sie ist dann leer bis auf die Kommentare).
 - [ ] Alte Branches archivieren und löschen: `feat/tinacms-migration`,
       `feat/sveltia-cms-migration`, lokal `decap`, `master`, `backup*`.
 - [ ] Ungeklärte Dateien im Repo-Wurzelverzeichnis (`gc.html`, `matomo.*`,

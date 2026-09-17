@@ -13,6 +13,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "src/assets" : "assets"});
     eleventyConfig.addPassthroughCopy({ "src/javascript" : "js"});
     eleventyConfig.addPassthroughCopy({ "src/_redirects" : "_redirects"});
+    eleventyConfig.addPassthroughCopy({ "src/_headers" : "_headers"});
     eleventyConfig.addPassthroughCopy({ "src/netlify.toml" : "netlify.toml"});
 
 
