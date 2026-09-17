@@ -23,6 +23,7 @@ wann abgebrochen wird.
 Am 2026-09-18 zusätzlich geprüft (Details in Abschnitt 6):
 
 - Round-Trip erneut über alle 13 Collections, alles unverändert.
+- Neue Tests für die Events-Filter, `npm test` mit 13 Tests grün.
 - Vorschau gegen die Live-Seite: acht von zehn Seiten zeichengleich; die drei
   Abweichungen sind gewollt (Alt-Text des Yaletown-Galeriebilds auf Start- und
   Collections-Seite, Abstand unter dem Medaillen-Hinweis auf About).
@@ -131,9 +132,12 @@ Default-Branch. Vorher meldet TinaCloud „Tina Media Not Configured".
       Abweichungen. **Nicht** lokal gegen live vergleichen — Netlify schreibt
       im Deploy die Links um (`.html` weg, andere Attributreihenfolge), das
       erzeugt Unterschiede auf jeder Seite.
-- [ ] **Events-Logik:** vergangene Termine fallen raus, „Nächster Markt" und
-      „Next up" stimmen, mehrtägige Events bleiben bis zum Enddatum stehen,
-      strukturierte Daten (JSON-LD) sind vollständig.
+- [ ] **Events-Logik:** die Filter selbst decken jetzt Tests ab
+      (`test/events-filters.test.mjs`, `npm test`): vergangene Termine fallen
+      raus, heute bleibt drin, mehrtägige Events stehen bis zum Enddatum, die
+      Gruppierung läuft über den Market-Schlüssel statt über den Namen.
+      Auf der Seite bleibt zu prüfen: „Nächster Markt", „Next up" und die
+      strukturierten Daten (JSON-LD).
 - [ ] **Startseite:** Rotation wechselt beim Neuladen, kein Springen beim
       Laden, Seite ohne JavaScript zeigt das erste Set.
 - [ ] **About, Art, Process:** Karten am Seitenende verlinken die jeweils
