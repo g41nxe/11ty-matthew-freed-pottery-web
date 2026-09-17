@@ -16,6 +16,7 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script defer src="/js/nav.js"></script>
 
+    {% if noindex %}<meta name="robots" content="noindex">{% endif %}
     {% seo "" %}
 </head>
 <script>
