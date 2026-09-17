@@ -78,49 +78,53 @@ shop_sets:
     hide: true
     featured_piece:
       eyebrow: Featured piece
-      title: Yaletown Collection
+      title: Yaletown bowls
       caption: Yaletown · colourful rims on charcoal
       text: 'Red, green or blue rims pop on a charcoal glazed base.'
       price: ''
       image:
-        url: /images/glazes/yaletown/large-mug-card.jpg
-        alt: Large Yaletown Mug by Matthew Freed
+        url: /images/glazes/yaletown/mugs-and-bowls-overhead-feature.jpg
+        alt: Yaletown mugs and nested bowls with red, blue and green rims, seen from above, by Matthew Freed
       cta:
         label: View in the shop
         url: 'https://shop.matthewfreed.net/collections/all/Yaletown'
     items:
-      - title: Yaletown - Red Teapot
+      - title: Yaletown Blue - Large Serving Bowl
         overlay:
-          text: This medium teapot from the <span class="text-highlight font-bold">Yaletown Collection</span> is one of my best selling items
+          text: 'A large serving bowl from the <span class="text-highlight font-bold">Yaletown Collection</span>, with a bright blue rim on the charcoal glaze. 11" wide.'
+        price: $88
         image:
-          url: /images/products/yaletown-red-teapot-tile.jpg
-          alt: Yaletown Red Teapot by Matthew Freed
+          url: /images/products/yaletown-blue-large-serving-bowl-tile.jpg
+          alt: Yaletown Large Serving Bowl with blue rim by Matthew Freed
         cta:
-          url: 'https://shop.matthewfreed.net/products/copy-large-teapot-tofino'
-      - title: 'Yaletown Green - Belly Mug '
+          url: 'https://shop.matthewfreed.net/products/copy-large-serving-bowl-yaletown-red-1'
+      - title: Yaletown Green - Medium Serving Bowl
         overlay:
-          text: Modern and slick simpicity with a pop of chartreuse around the rim - the large belly mug from the <span class="text-highlight font-bold">Yaletown Collection</span> .
+          text: A medium serving bowl from the <span class="text-highlight font-bold">Yaletown Collection</span> with a pop of chartreuse around the rim and a nice depth. 10" wide.
+        price: $78
         image:
-          url: /images/products/yaletown-green-belly-mug-tile.jpg
-          alt: Yaletown Belly Mug with green rim by Matthew Freed
+          url: /images/products/yaletown-green-medium-serving-bowl-tile.jpg
+          alt: Yaletown Medium Serving Bowl with green rim by Matthew Freed
         cta:
-          url: 'https://shop.matthewfreed.net/products/belly-mug-yaletown-green'
-      - title: 'Yaletown Red - Belly Mug '
+          url: 'https://shop.matthewfreed.net/products/serving-bowl-yaletown-green'
+      - title: Yaletown Red - Meal Bowl
         overlay:
-          text: A classic design - this belly mug from the <span class="text-highlight font-bold">Yaletown Collection</span> .
+          text: 'An everyday meal bowl from the <span class="text-highlight font-bold">Yaletown Collection</span>, perfect for cereal, soup or salad.'
+        price: $35
         image:
-          url: /images/products/yaletown-red-belly-mug-tile.jpg
-          alt: Yaletown Belly Mug with red rim by Matthew Freed
+          url: /images/products/yaletown-red-meal-bowl-tile.jpg
+          alt: Yaletown Meal Bowl with red rim by Matthew Freed
         cta:
-          url: 'https://shop.matthewfreed.net/products/belly-mug-yaletown-red'
-      - title: 'Yaletown Green - Chopstick Bowl '
+          url: 'https://shop.matthewfreed.net/products/meal-bowl-yaletown-red'
+      - title: Yaletown Red - Snack Bowl
         overlay:
-          text: This deep chopstick bowl from the <span class="text-highlight font-bold ">Yaletown Collection</span> is one of my favourites!
+          text: 'A small bowl from the <span class="text-highlight font-bold">Yaletown Collection</span> for a dip, a side or dessert. I use mine for ice cream.'
+        price: $24
         image:
-          url: /images/products/yaletown-green-chopstick-bowl-tile.jpg
-          alt: Yaletown Chopstick Bowl with green rim by Matthew Freed
+          url: /images/products/yaletown-red-snack-bowl-tile.jpg
+          alt: Four Yaletown Snack Bowls with red rims by Matthew Freed
         cta:
-          url: 'https://shop.matthewfreed.net/collections/all/products/chopstick-bowl-yaletown-green'
+          url: 'https://shop.matthewfreed.net/products/appetizer-bowl-yaletown-red'
 collections_teaser:
   title: 'Fifteen glazes, fifteen stories'
   text: 'Named for the coasts, mountains and neighbourhoods that shaped their colours — and a few quieter inspirations.'
