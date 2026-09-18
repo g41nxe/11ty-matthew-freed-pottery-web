@@ -2,6 +2,7 @@
 // Checkliste (docs/superpowers/plans/2026-09-17-tina-umstellung-checkliste.md).
 //
 //   node scripts/go-live.mjs check      Probelauf: prüft alles, ändert nichts
+//   node scripts/go-live.mjs compare    nur Vorschau gegen Live vergleichen
 //   node scripts/go-live.mjs switch     Abschnitt 3: umschalten
 //   node scripts/go-live.mjs cleanup    Abschnitt 5: aufräumen
 //
@@ -93,9 +94,13 @@ function git(...args) {
 const gitOk = (...args) => spawnSync("git", args, { encoding: "utf8" }).status === 0;
 
 // npm und npx sind unter Windows .cmd-Dateien und brauchen eine Shell.
+// Die Ausgabe erscheint nur, wenn etwas scheitert.
 function run(label, cmd, args) {
-    const res = spawnSync(cmd, args, { stdio: "inherit", shell: process.platform === "win32" });
-    if (res.status !== 0) throw new Stop(`${label} ist gescheitert`, `Ausgabe oben prüfen, beheben, committen und erneut starten.`, 1);
+    const res = spawnSync(cmd, args, { encoding: "utf8", shell: process.platform === "win32" });
+    if (res.status !== 0) {
+        log(`${res.stdout}${res.stderr}`.trim().split("\n").slice(-40).join("\n"));
+        throw new Stop(`${label} ist gescheitert`, "Ausgabe oben prüfen, beheben, committen und erneut starten.", 1);
+    }
     ok(label);
 }
 
@@ -284,6 +289,10 @@ const normalize = (html) =>
         .replace(/<a[^>]*href=['"]\/about\/pottery(\.html)?['"][^>]*>[^<]*<\/a>/g, "")
         .replace(/<link[^>]*fonts\.googleapis\.com\/css2[^>]*>/g, "")
         .replace(/\/(assets|images\/share)\/blue-arrangement\.jpg/g, "/SHARE-IMAGE")
+        // Medaillen-Hinweis rückt auf About näher an die Karten
+        .replace(/(max-w-3xl px-6) pb-(?:14|2) pt-4/g, "$1 pb-X pt-4")
+        // Das Yaletown-Galeriebild ist ein anderes Foto
+        .replace(/alt="(?:Large Yaletown Mug|Three nested Yaletown bowls with blue, green and red rims) by Matthew Freed"/g, 'alt="YALETOWN"')
         .replace(/\/images\/[A-Za-z0-9_-]{10}-\d+\.(avif|webp|jpe?g|png)/g, "/images/HASH")
         .replace(/\s+/g, " ")
         .replace(/'/g, '"')
@@ -633,9 +642,11 @@ async function check() {
 
     heading("Vorschau");
     const sha = git("rev-parse", `origin/${BRANCH}`);
-    const deployed = (await get(`${previewOf(BRANCH)}/build.txt?t=${Date.now()}`)).text.trim();
+    const res = await get(`${previewOf(BRANCH)}/build.txt?t=${Date.now()}`);
+    const deployed = res.status === 200 ? res.text.trim() : "";
     if (deployed === sha) ok(`Vorschau zeigt den letzten Commit (${sha.slice(0, 7)})`);
-    else warn(`Vorschau zeigt ${deployed.slice(0, 7) || "keinen Commit"}, gepusht ist ${sha.slice(0, 7)} (Build läuft oder ist gescheitert)`);
+    else if (deployed) warn(`Vorschau zeigt ${deployed.slice(0, 7)}, gepusht ist ${sha.slice(0, 7)} (Build läuft, ist gescheitert oder wurde übersprungen)`);
+    else warn("Vorschau hat noch keine build.txt (gebaut vor deren Einführung)");
     await comparePreviewWithLive(previewOf(BRANCH));
     log("\n  Probelauf fertig. Nichts wurde gepusht oder getaggt.");
 }
@@ -655,20 +666,25 @@ async function switchOver() {
     await mergeMain();
     await convertEvents();
     await localChecks();
-    heading("Vorschau bauen lassen und mit Live vergleichen");
-    await pushBranchAndWait();
-    await comparePreviewWithLive(previewOf(BRANCH));
+    // Erst umziehen, dann einmal pushen: jeder Build kostet Netlify-Minuten.
     await moveAdmin();
-    heading("Vorschau mit Tina unter /admin/");
+    heading("Vorschau bauen lassen und prüfen");
     await pushBranchAndWait();
     await checkPreviewAdmin();
+    await comparePreviewWithLive(previewOf(BRANCH));
     await release();
     await afterRelease();
 }
 
-const commands = { check, switch: switchOver, cleanup };
+// Nur der Vergleich, etwa nach einem Deploy der Vorschau.
+async function compare() {
+    heading("Vorschau gegen Live");
+    await comparePreviewWithLive(previewOf(BRANCH));
+}
+
+const commands = { check, compare, switch: switchOver, cleanup };
 if (!commands[command]) {
-    console.log("Aufruf: node scripts/go-live.mjs check | switch | cleanup [--ja=<schlüssel>,…] [--version=vX.Y.Z]");
+    console.log("Aufruf: node scripts/go-live.mjs check | compare | switch | cleanup [--ja=<schlüssel>,…] [--version=vX.Y.Z]");
     console.log(`Ablauf und Hintergrund: ${CHECKLIST}`);
     process.exit(2);
 }
