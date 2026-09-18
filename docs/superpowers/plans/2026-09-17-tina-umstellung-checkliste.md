@@ -39,6 +39,50 @@ Am 2026-09-18 zusätzlich geprüft (Details in Abschnitt 6):
 
 Matthew macht das selbst, Dan schaut zu und notiert, wo er hängen bleibt.
 
+**Technisch vorab geprüft am 2026-09-18** (Claude im Admin der Vorschau, mit
+Dans TinaCloud-Login). Alles unten wurde gespeichert, landete je als eigener
+Commit auf dem Branch und stand rund fünf Minuten später auf der Vorschau. Alle
+Testinhalte sind danach zurückgesetzt (`d187f8d`). Matthews eigenes Urteil zur
+Bedienung steht damit noch aus.
+
+- Markets: Termin hinzugefügt und gelöscht, neuen Markt mit zwei Terminen
+  angelegt. Events-Seite und Startseite („Next market") zeigten es richtig.
+- Events: angelegt, mehrtägig, im Studio, eines gelöscht. **Fehler gefunden und
+  behoben** (`b8a3a66`, `4ddaf86`): Ein neues Event zeigte das heutige Datum
+  an, speicherte es aber nicht. Die Events wurden ohne Datum geschrieben, und
+  der Netlify-Build brach daran ab. Jetzt startet ein neues Event mit dem
+  heutigen Datum als echtem Wert, ein leeres Datum sperrt „Save", und der Build
+  überspringt einen Eintrag ohne Datum, statt abzubrechen.
+- Studio-News geändert, Shop-Set umbenannt und versteckt (Liste zeigt
+  „(hidden)"), „+" bei vier Artikeln gesperrt.
+- Rich-Text in About geändert: der Commit enthält nur die geänderte Zeile.
+- Je eine Änderung in Art, Process, Händler, Kontakt, FAQ, Collections,
+  Datenschutz und Settings. Der Datenschutz bekam keine zusätzliche Leerzeile.
+- Galerie: die Farbprüfung sperrt „Save" bei „blue"; „Reset" verwirft
+  ungespeicherte Änderungen nach Rückfrage.
+- **Zweiter Fehler gefunden und behoben** (`0703a86`): Beim Speichern der
+  Settings schrieb Tinas Bildfeld den Pfad des Teilen-Vorschaubilds von
+  `/assets/…` auf `/images/assets/…` um, eine Datei, die es nicht gibt. Das Bild
+  liegt jetzt unter `/images/share/`, der Pfad bleibt beim Speichern erhalten.
+- Nicht prüfbar mit meinen Werkzeugen: Umsortieren per Ziehen (weder Maus- noch
+  Tastatursimulation löst es aus). Früher lokal mit echter Maus nachgewiesen;
+  Matthew probiert es selbst.
+
+Beobachtungen für Matthews Einweisung oder spätere Verbesserungen:
+
+- In der Detailansicht eines Listeneintrags, den man nicht geändert hat, ist
+  der Punkt oben rechts grün und „Save" grau, auch wenn im Dokument noch
+  ungespeicherte Änderungen stecken. Erst eine Ebene höher wird es wieder rot.
+- Neue Einträge landen am Ende der Liste, Termine also unsortiert. Auf der
+  Website ist die Reihenfolge egal, sie sortiert selbst.
+- Löschen fragt nicht nach, und danach rutscht die Liste nach: Der nächste
+  Klick trifft leicht den falschen Eintrag. Ebenso legt ein Fehlklick auf „+"
+  einen leeren Eintrag an. „Reset" hilft, solange nicht gespeichert ist.
+- Die Abschnitte auf About heißen beide „Matthew throwing a cup", weil die
+  Beschriftung aus dem Alt-Text des Bildes kommt und beide gleich sind.
+- Die Werkzeugleiste im Rich-Text hat Tabelle, Code und Einbettung, die Matthew
+  nicht braucht. Tina erlaubt, sie einzuschränken.
+
 - [ ] Login auf `/admin-tina/` mit seinem TinaCloud-Konto.
 - [ ] **Markets:** einen Termin zu einem bestehenden Markt hinzufügen, einen
       entfernen, speichern. Danach: steht der neue Termin auf der Events-Seite
@@ -196,7 +240,10 @@ Default-Branch. Vorher meldet TinaCloud „Tina Media Not Configured".
       `.claude/launch.json`.
 - [ ] Netlify-Identity-Widget und den `netlifyIdentity`-Block aus
       `base.njk`; im Netlify-Dashboard Identity und Git Gateway abschalten.
-- [ ] Bilder-Passthrough `src/images` prüfen: brauchte nur Decaps Vorschau.
+- [ ] Bilder-Passthrough `src/images` prüfen: brauchte ursprünglich nur Decaps
+      Vorschau. **Seit 2026-09-18 hängt das Teilen-Vorschaubild daran**
+      (`/images/share/blue-arrangement.jpg`, als Original ausgeliefert). Fällt
+      der Passthrough weg, braucht dieses Bild einen eigenen.
 - [ ] `src/netlify.toml` (setzt nur eine Python-Version aus der
       Forestry-Zeit) samt Passthrough entfernen.
 - [ ] Vergleichsseite entfernen: `src/views/preview-sets.njk`,
