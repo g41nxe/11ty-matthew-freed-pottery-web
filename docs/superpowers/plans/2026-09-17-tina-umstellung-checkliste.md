@@ -67,7 +67,7 @@ Am 2026-09-18 im Admin der Vorschau durchgetestet. Jede Speicherung wurde ein ei
 - [x] Kontaktformular: nach dem Absenden erscheint Netlifys Dankesseite (eigene Seite für später: `docs/feature/0002-…`)
 - [x] Teilen-Vorschaubild (`og:image`) lädt; alte Adresse leitet weiter
 - [x] `sitemap.xml` ohne `/preview-sets.html`; die Vergleichsseite trägt `noindex`
-- [x] **D** Strukturierte Daten der Events-Seite im Rich-Results-Test von Google (2026-09-18): 7 gültige Elemente vom Typ `Event`, keine Fehler. Je 6 nicht kritische Hinweise auf fehlende optionale Felder (`description`, `image`, `eventStatus`, `organizer`, `performer`, `offers`)
+- [x] **D** Strukturierte Daten der Events-Seite im Rich-Results-Test von Google (2026-09-18): 7 gültige Elemente vom Typ `Event`, keine Fehler. Je 6 nicht kritische Hinweise auf fehlende optionale Felder (`description`, `image`, `eventStatus`, `organizer`, `performer`, `offers`); drei davon für später: `docs/feature/0004-reichere-termindaten-fuer-google.md`
 - [x] **D** `robots.txt` und Sitemap: **Fehler gefunden und behoben** — beide lasen noch `seo.url`, das seit der Migration `global.seo.url` heißt, und schrieben relative Adressen, die Google in einer Sitemap nicht annimmt. Lokal geprüft; kommt mit dem nächsten Vorschau-Build. `go-live compare` vergleicht beide jetzt mit Live
 - [x] **D** Favicons: `favicon.ico`, `favicon.svg` und das Apple-Icon unter `/assets/` antworten. `/apple-touch-icon.png` ist 404, auch auf Live: die zweite Passthrough-Zeile mit derselben Quelle überschreibt die erste. Harmlos, der `<link>` im Kopf zeigt auf `/assets/`
 - [x] **D** Service Worker: `/service-worker.js` ist der selbstabmeldende Worker, alte Installationen räumen sich weiter auf
