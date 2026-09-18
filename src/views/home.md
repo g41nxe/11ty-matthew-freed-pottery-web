@@ -27,7 +27,7 @@ shop_sets:
     hide: false
     featured_piece:
       eyebrow: Featured piece
-      title: Tofino teapot and mugs
+      title: Tofino tea set and vase
       caption: Tofino · a stormy coastal landscape
       text: 'Cobalt, mocha and amber run in bands across every piece. Tofino is one of my most variable glazes, so no two come out of the kiln alike.'
       price: ''
@@ -49,7 +49,7 @@ shop_sets:
           url: 'https://shop.matthewfreed.net/products/medium-teapot-tofino'
       - title: Tofino - Belly Mug
         overlay:
-          text: 'A large belly mug from the <span class="text-highlight font-bold">Tofino Collection</span>. Tofino is one of my most variable glazes, so no two are alike.'
+          text: 'A large belly mug from the <span class="text-highlight font-bold">Tofino Collection</span>. The rounded body gives the glaze room to run, so the bands shift all the way around.'
         price: $45
         image:
           url: /images/products/tofino-belly-mug-tile.jpg
@@ -118,7 +118,7 @@ shop_sets:
           url: 'https://shop.matthewfreed.net/products/chopstick-bowl-yaletown-red'
       - title: Yaletown Red - Medium Serving Bowl
         overlay:
-          text: 'A medium serving bowl from the <span class="text-highlight font-bold">Yaletown Collection</span>, with a red rim on the charcoal glaze.'
+          text: 'A medium serving bowl from the <span class="text-highlight font-bold">Yaletown Collection</span>. The dark glaze inside makes whatever you serve stand out.'
         price: $65
         image:
           url: /images/products/yaletown-red-medium-serving-bowl-tile.jpg
@@ -142,7 +142,7 @@ shop_sets:
     items:
       - title: Joffre - Medium Teapot
         overlay:
-          text: 'A wide-based teapot from the <span class="text-highlight font-bold">Joffre Collection</span>, in hues of turquoise, blue and deep emerald green.'
+          text: 'A wide-based teapot from the <span class="text-highlight font-bold">Joffre Collection</span> that holds about four cups (1 litre).'
         price: $150
         image:
           url: /images/products/joffre-medium-teapot-tile.jpg
@@ -177,7 +177,7 @@ shop_sets:
         cta:
           url: 'https://shop.matthewfreed.net/products/scalloped-tray-joffre'
   - name: Oil dispensers
-    hide: false
+    hide: true
     featured_piece:
       eyebrow: Featured piece
       title: Pouring bottles
@@ -233,7 +233,7 @@ shop_sets:
       eyebrow: Featured piece
       title: Tree of Life bowls and pitcher
       caption: Tree of Life · a tree emblem on charcoal
-      text: 'A textured Tree of Life emblem on a semi-matte charcoal glaze, pressed into every piece by hand.'
+      text: 'A textured Tree of Life emblem on a semi-matte charcoal glaze, added to every piece by hand.'
       price: ''
       image:
         url: /images/glazes/tree-of-life/bowls-and-pitcher-feature.jpg
@@ -244,7 +244,7 @@ shop_sets:
     items:
       - title: Tree of Life - Pitcher
         overlay:
-          text: 'A pitcher from the <span class="text-highlight font-bold">Tree of Life Collection</span>, the piece on the left of the photo.'
+          text: 'A tall pitcher from the <span class="text-highlight font-bold">Tree of Life Collection</span> that holds about six cups (1.5 litres).'
         price: $135
         image:
           url: /images/products/tree-of-life-pitcher-tile.jpg
