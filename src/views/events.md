@@ -24,7 +24,7 @@ studio:
 no_events: Nothing on the calendar right now — new dates go up on Instagram first.
 news:
   date: 10-12-2025
-  title: A busy holiday season is coming!
+  title: TEST news title (Dan)
   body: 'Like clockwork, October 1st is a bit of a rude awakening each year as the limited days to prepare for a busy holiday season become all too clear.  Despite the pressure, I always seem to get done what needs to get done.  It''s always a pleasure to see so many familiar customer faces that think of my work for their gifts.  I hope to see you at some point in the next few months and if I look a bit tired then remind me that i get to rest in January!'
   image:
     url: /images/news/busy-studio.jpg
