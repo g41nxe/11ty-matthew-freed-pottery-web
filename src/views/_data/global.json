@@ -1,12 +1,4 @@
 {
-  "hero": {
-    "image": {
-      "url": "/images/site/hero.jpg",
-      "alt": "2 blue Galliano Bowls on a board by Matthew Freed"
-    },
-    "title": "Matthew Freed Pottery",
-    "subtitle": "Art for everyday life"
-  },
   "social": {
     "title": "Follow along on Instagram",
     "text": "New pieces, firings and market dates go up there first.",
@@ -14,7 +6,6 @@
     "facebook_label": "Facebook"
   },
   "contact": {
-    "name": "Matthew Freed Pottery <sup>&copy;2021</sup>",
     "address": "838 Pender Street East\nVancouver, B.C., V6A 1W1 \nCanada",
     "phone": "1-778-829-4526",
     "email": "mfreed74@gmail.com",
@@ -29,25 +20,34 @@
     "directions": "Directions",
     "next_market": "Next market",
     "next_up": "Next up",
-    "dates_soon": "New dates go up here as soon as they are booked."
+    "dates_soon": "New dates go up here as soon as they are booked.",
+    "keep_reading": "Keep reading",
+    "sold_out": "Sold out"
   },
   "footer": {
     "retail": "Retail stores",
     "faq": "FAQ",
+    "art": "Everyday art",
     "process": "My process",
     "privacy": "Privacy"
   },
+  "seo": {
+    "title": "Matthew Freed Pottery",
+    "description": "Vancouver pottery studio selling elegant kitchen-friendly pottery, mugs, plates, bowls, teapots, pots, trays, bottles, platters.",
+    "url": "https://matthewfreed.ca",
+    "author": "Matthew Freed",
+    "image": "/images/share/blue-arrangement.jpg",
+    "options": {
+      "titleDivider": "|",
+      "imageWithBaseUrl": true
+    }
+  },
   "socialmedia": {
-    "title": "Follow Me",
     "services": {
       "instagram": {
-        "name": "Instagram",
-        "icon": "fa-instagram",
         "url": "https://www.instagram.com/matthewfreedpottery/"
       },
       "facebook": {
-        "name": "Facebook",
-        "icon": "fa-facebook",
         "url": "https://www.facebook.com/matthewfreedpottery/"
       }
     }

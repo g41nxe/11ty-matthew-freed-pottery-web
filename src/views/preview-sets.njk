@@ -1,0 +1,15 @@
+---
+permalink: /preview-sets.html
+layout: base
+title: Shop sets side by side
+eleventyExcludeFromCollections: true
+---
+{# Review page for the shop sets: every set at once instead of one at random.
+   Not linked anywhere and kept out of the sitemap; remove it at the cutover.
+   The sets come from preview-sets.11tydata.js, which reads home.md. #}
+<section class="mx-auto max-w-6xl px-6 pt-10">
+    <h1 class="font-display text-3xl font-black text-ink">{{ title }}</h1>
+    <p class="mt-2 text-sm text-muted">Every set as the home page would show it. Live, the home page picks one of them at random on each visit.</p>
+</section>
+
+{% include "current-firing.njk" %}

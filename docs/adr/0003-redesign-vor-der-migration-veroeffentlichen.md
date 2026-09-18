@@ -24,5 +24,5 @@ Stand 2026-09-13:
 - **Decap bleibt für die Dauer der Migration das produktive CMS**, samt dem abgekündigten Git Gateway. Die feldweisen Bildordner aus dem Bildumbau vom 2026-09-12 werden damit tatsächlich genutzt.
 - **Das fertige Design wird nicht an eine offene Migration gekettet.** Scheitert oder verzögert sich Tina, ist das Redesign trotzdem veröffentlicht.
 - **Zwei überschaubare Umstellungen statt einer großen.** Die Inhaltssperre, die der Migrations-Spec für die Tina-Umstellung vorsieht, betrifft nur diese zweite Umstellung.
-- **Der Migrations-Branch muss `main` aufnehmen.** Welle 0 ist dann auf beiden Seiten vorhanden; die Konflikte aus der Probe vom 2026-09-13 in `.eleventy.js` und der Produktliste bleiben bestehen und werden dort gelöst.
+- **Die Migration startet auf einem neuen Branch von `main`.** Ursprünglich sollte `feat/tinacms-migration` `main` aufnehmen. Nach dem Release von v2.0.3 lag er 50 Commits zurück, und rund die Hälfte seiner 33 eigenen Commits war Selbsthosting, das ADR 0001 wieder entfernt. Am 2026-09-14 fiel deshalb die Entscheidung für `feat/tinacloud-migration` von `main`, mit den wiederverwendbaren Commits per Cherry-Pick. Der alte Branch bleibt als Archiv auf GitHub.
 - **Bis Tina live ist, pflegt Matthew in Decap mit dessen schwacher Bedienung verschachtelter Inhalte.** Das ist der Zustand von heute, nicht schlechter.

@@ -35,3 +35,9 @@
 /about/retail-stores    /retail-stores              301
 /updates.html            /events.html                301
 /updates                 /events.html                301
+
+# Das Teilen-Vorschaubild liegt seit der Tina-Migration im Medienordner.
+/assets/blue-arrangement.jpg   /images/share/blue-arrangement.jpg   301
+
+# Tina lag bis zur Umstellung unter /admin-tina/.
+/admin-tina/*          /admin/                     301

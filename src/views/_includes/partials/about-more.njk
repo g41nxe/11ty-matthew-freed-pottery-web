@@ -1,0 +1,19 @@
+{# Cards linking the About pages (About, Art, Process) to each other.
+   Picture and text come from each page: its first section image, eyebrow and headline. #}
+<section class="mx-auto max-w-5xl px-6 pb-14 pt-10" aria-labelledby="about-more-title">
+    <h2 id="about-more-title" class="font-display text-2xl font-black text-ink">{{ global.labels.keep_reading | default("Keep reading", true) }}</h2>
+    <div class="mt-6 grid gap-8 sm:grid-cols-2">
+        {% for entry in collections.about | sort(false, true, "url") %}
+        {% if entry.url != page.url %}
+        {% set cover = entry.data.sections[0].image %}
+        <a href="{{ entry.url }}" class="group">
+            <div class="aspect-[4/3] w-full overflow-hidden rounded-xl bg-tile">
+                {% if cover.url %}{% img cover.url, cover.alt, "(min-width: 1024px) 472px, (min-width: 640px) 45vw, 100vw", "img-zoom h-full w-full object-cover" %}{% endif %}
+            </div>
+            <p class="cap-label mt-4 text-blue">{{ entry.data.eyebrow | default(entry.data.title) }}</p>
+            <h3 class="mt-1 font-display text-xl font-black text-ink transition-colors group-hover:text-blue">{{ entry.data.headline }}</h3>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>

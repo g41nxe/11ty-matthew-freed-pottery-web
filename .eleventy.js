@@ -6,13 +6,15 @@ const pluginSEO = require("eleventy-plugin-seo");
 const markdownIt = require("markdown-it");
 const md = markdownIt({ html: true }); // html:true is required — process.md's paragraphs include raw <b> tags
 
+const FALLBACK_ALT = "Handmade pottery by Matthew Freed";
+
 module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget("src/javascript/*.js");
 
-    eleventyConfig.addPassthroughCopy({ "src/admin" : "admin"});
     eleventyConfig.addPassthroughCopy({ "src/assets" : "assets"});
     eleventyConfig.addPassthroughCopy({ "src/javascript" : "js"});
     eleventyConfig.addPassthroughCopy({ "src/_redirects" : "_redirects"});
+    eleventyConfig.addPassthroughCopy({ "src/_headers" : "_headers"});
     eleventyConfig.addPassthroughCopy({ "src/netlify.toml" : "netlify.toml"});
 
 
@@ -27,7 +29,7 @@ module.exports = function (eleventyConfig) {
     // (hashed variants) and never references these originals.
     eleventyConfig.addPassthroughCopy({ "src/images" : "images" });
 
-    eleventyConfig.addPlugin(pluginSEO, require("./src/views/_data/seo.json"));
+    eleventyConfig.addPlugin(pluginSEO, require("./src/views/_data/global.json").seo);
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
     // Serve a self-destroying worker at the old SW URL so any previously
@@ -35,9 +37,19 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "src/service-worker.js": "service-worker.js" });
 
 
+    // Content comes from the CMS, so a missing image or alt text must not stop
+    // the deploy: one incomplete entry would block every later change. The
+    // image is left out or gets a generic description, and the build log
+    // names the page so it can be fixed.
     eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="", classes="", loading="lazy") {
-        if(alt === undefined) {
-          throw new Error(`Missing \`alt\` on image from: ${src}`);
+        const page = this.page?.inputPath || "unknown page";
+        if (typeof src !== "string" || !src.trim()) {
+          console.warn(`[img] Image without a file on ${page}, left out`);
+          return "";
+        }
+        if (typeof alt !== "string" || !alt.trim()) {
+          console.warn(`[img] No alt text for ${src} on ${page}, using "${FALLBACK_ALT}"`);
+          alt = FALLBACK_ALT;
         }
 
         let metadata = await Image('src/' + src, {
@@ -50,12 +62,6 @@ module.exports = function (eleventyConfig) {
         return generateHTML(metadata, { alt, sizes, loading, class: classes });
       });
 
-    eleventyConfig.addNunjucksFilter("sortByDate", function (arr, attribute="date") {
-        return arr.slice().sort(function(a, b) {
-            return DateTime.fromFormat(b[attribute], 'MM-dd-yyyy').toJSDate()
-                 - DateTime.fromFormat(a[attribute], 'MM-dd-yyyy').toJSDate();
-        });
-    });
     // An optional CMS date field left empty arrives as "" or undefined.
     // Luxon throws on undefined, which would fail the whole build, so an
     // empty date renders as an empty string instead.
@@ -69,42 +75,62 @@ module.exports = function (eleventyConfig) {
     // the start of today rather than the current instant is what keeps
     // today's date in. `lastDay` guards against an end_date that predates
     // the start.
+    // An entry without a readable date is left out rather than failing the
+    // build: Luxon throws on a missing date, and one bad entry would stop
+    // every deploy until someone fixed the file (seen 2026-09-18, when the
+    // CMS saved two events without a date).
     function lastDay(event) {
+        if (typeof event.date !== 'string') return null;
         const start = DateTime.fromFormat(event.date, 'MM-dd-yyyy');
-        if (!event.end_date) return start;
+        if (!start.isValid) return null;
+        if (typeof event.end_date !== 'string' || !event.end_date) return start;
         const end = DateTime.fromFormat(event.end_date, 'MM-dd-yyyy');
-        return end > start ? end : start;
+        return end.isValid && end > start ? end : start;
     }
     eleventyConfig.addNunjucksFilter("filterUpcoming", function(array) {
         const today = DateTime.now().startOf('day');
-        return array.filter(el => lastDay(el) >= today);
+        return array.filter(el => {
+            const last = lastDay(el);
+            return last !== null && last >= today;
+        });
     });
-    // Special events: studio openings and multi-day shows (Culture Crawl, Circle Craft).
+    // One entry per day something is on: every date of every market, then
+    // every event, shaped like the flat list the templates were written
+    // for. Market dates carry a `market` key so the schedule groups them
+    // without comparing names.
+    eleventyConfig.addNunjucksFilter("occurrences", function (data) {
+        const markets = (data.markets || []).flatMap((market, index) => {
+            const { dates, ...details } = market;
+            return (dates || [])
+                .filter(Boolean)
+                .map(date => ({ ...details, date, market: `market-${index}` }));
+        });
+        return markets.concat(data.events || []);
+    });
+    // Special events: everything that is not a market date, soonest first.
     // These get the large date-block treatment on the events page.
     eleventyConfig.addNunjucksFilter("specialEvents", function(array) {
         return array
-            .filter(e => e.atStudio || e.multi_day_event)
+            .filter(e => !e.market)
             .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'));
     });
-    // Recurring markets grouped by venue name: one entry per market with all
-    // upcoming dates, soonest venue first. Excludes special events.
-    eleventyConfig.addNunjucksFilter("groupByVenue", function(array) {
+    // Upcoming market dates grouped by market, soonest market first. The
+    // dates are sorted before grouping, so `first` is each market's next
+    // date: the object the template compares with the soonest event.
+    eleventyConfig.addNunjucksFilter("marketSchedule", function(array) {
         const groups = new Map();
         array
-            .filter(e => !(e.atStudio || e.multi_day_event))
+            .filter(e => e.market)
+            .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'))
             .forEach(e => {
-                const key = e.name.trim();
-                if (!groups.has(key)) groups.set(key, { name: key, first: e, dates: [] });
-                groups.get(key).dates.push(e.date);
+                if (!groups.has(e.market)) groups.set(e.market, { name: e.name, first: e, dates: [] });
+                groups.get(e.market).dates.push(e.date);
             });
-        const byDate = (a, b) => DateTime.fromFormat(a, 'MM-dd-yyyy') - DateTime.fromFormat(b, 'MM-dd-yyyy');
-        return Array.from(groups.values())
-            .map(g => { g.dates.sort(byDate); return g; })
-            .sort((a, b) => byDate(a.dates[0], b.dates[0]));
+        return Array.from(groups.values());
     });
-    // Every upcoming event oldest-first. Note the direction: sortByDate above
-    // sorts newest-first. The home band renders all of them so events.js can
-    // refill the grid in the browser when a date has passed since the build.
+    // Every upcoming event oldest-first. The home band renders all of them so
+    // events.js can refill the grid in the browser when a date has passed
+    // since the build.
     eleventyConfig.addNunjucksFilter("byDateAsc", function(array) {
         return array.slice()
             .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'));

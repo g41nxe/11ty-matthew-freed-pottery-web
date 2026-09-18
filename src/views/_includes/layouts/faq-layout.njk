@@ -6,7 +6,7 @@ layout: base
     <h1 class="font-display text-4xl font-black text-ink">{{ headline | default(title) }}</h1>
     {% if intro %}<p class="mt-4 text-base leading-relaxed text-muted">{{ intro }}</p>{% endif %}
 
-    {% for section in faq.sections %}
+    {% for section in sections %}
     <h2 class="cap-label mt-10 text-blue">{{ section.title }}</h2>
     <div class="mt-2">
         {% for q in section.questions %}
