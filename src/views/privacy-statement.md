@@ -3,7 +3,7 @@ layout: general-layout
 tags: footer
 permalink: /privacy-statement.html
 title: Privacy Statement
-headline: Privacy Policy
+headline: Privacy Policy TEST
 intro: 'This Privacy Policy describes how your personal information is collected, used, and shared when you visit our site.'
 ---
 
