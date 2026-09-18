@@ -71,4 +71,4 @@ Antwortet der Shop beim Build nicht, bekommt kein Artikel ein Label. Der Build l
 
 - Stand am 2026-09-18: 9 der 24 Artikel in den Shop-Sets sind ausverkauft, davon 4 im versteckten Set Strathcona.
 - Für den Abgleich vor einem Release gibt es das Skript `scripts/shop-check.mjs` (Übersicht mit Bildern, Titeln, Preisen und Verfügbarkeit). Es ersetzt den täglichen Neubau nicht, zeigt aber, wie weit Label und Shop gerade auseinanderliegen.
-- Kontingent prüfen: Netlifys Build-Minuten im aktuellen Tarif gegen rund 30 zusätzliche Builds im Monat.
+- Kontingent prüfen: Netlifys Build-Minuten im aktuellen Tarif gegen rund 30 zusätzliche Builds im Monat. Am 2026-09-18 war schon die Hälfte des Kontingents für 28.08.–28.09. verbraucht (viele Vorschau-Builds während der Migration). Das spricht für die Variante „nur bei Änderung bauen“.

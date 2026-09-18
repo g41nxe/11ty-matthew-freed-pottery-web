@@ -110,6 +110,9 @@ const isAncestor = (a, b) => gitOk("merge-base", "--is-ancestor", a, b);
 const remoteBranchExists = (b) => gitOk("rev-parse", "--verify", "--quiet", `refs/remotes/origin/${b}`);
 const localBranchExists = (b) => gitOk("rev-parse", "--verify", "--quiet", `refs/heads/${b}`);
 const tagExists = (t) => gitOk("rev-parse", "--verify", "--quiet", `refs/tags/${t}`);
+// Commits mit [skip netlify] baut Netlify nicht (so sparen Doku-Pushes
+// Build-Minuten); die Vorschau zeigt dann den letzten Commit davor.
+const lastBuilt = (ref) => git("log", "-1", "--format=%H", "--fixed-strings", "--invert-grep", "--grep=[skip netlify]", "--grep=[skip ci]", ref);
 
 function requireCleanTree() {
     if (fs.existsSync(path.join(git("rev-parse", "--git-dir"), "MERGE_HEAD"))) {
@@ -185,7 +188,7 @@ async function waitForDeploy(base, sha, minutes = 20) {
     process.stdout.write("\n");
     throw new Stop(
         `Nach ${minutes} Minuten ist ${sha.slice(0, 7)} nicht online.`,
-        "Im Netlify-Dashboard nachsehen, ob der Build gescheitert ist. Die bisherige Fassung bleibt so lange online.",
+        "Im Netlify-Dashboard nachsehen, ob der Build gescheitert ist (oder ob ein Push mit [skip netlify] endete und deshalb gar nicht gebaut wurde). Die bisherige Fassung bleibt so lange online.",
         1,
     );
 }
@@ -427,7 +430,7 @@ async function pushBranchAndWait() {
         git("push", "-q", "origin", BRANCH);
         ok(`${BRANCH} gepusht`);
     }
-    await waitForDeploy(previewOf(BRANCH), head);
+    await waitForDeploy(previewOf(BRANCH), lastBuilt("HEAD"));
 }
 
 async function moveAdmin() {
@@ -641,7 +644,7 @@ async function check() {
     await localChecks();
 
     heading("Vorschau");
-    const sha = git("rev-parse", `origin/${BRANCH}`);
+    const sha = lastBuilt(`origin/${BRANCH}`);
     const res = await get(`${previewOf(BRANCH)}/build.txt?t=${Date.now()}`);
     const deployed = res.status === 200 ? res.text.trim() : "";
     if (deployed === sha) ok(`Vorschau zeigt den letzten Commit (${sha.slice(0, 7)})`);

@@ -7,6 +7,8 @@
 | Vorschau | https://feat-tinacloud-migration--mf-pottery.netlify.app |
 | Admin der Vorschau | `/admin-tina/` (Decap bleibt bis zur Umstellung unter `/admin/`) |
 | Alle Shop-Sets auf einen Blick | `/preview-sets.html` |
+| Anleitung für Matthew | https://claude.ai/artifact/874NMeYA5GWXKPkm7Ui88s (privat, vor dem Verschicken freigeben) |
+| Umschalten und Aufräumen | `npm run go-live -- check`, `switch`, `cleanup` (Skill `tina-livegang`) |
 
 **Legende:** `[x]` erledigt, `[ ]` offen. **D** = Dan, **M** = Matthew.
 
@@ -14,11 +16,11 @@
 
 | # | Phase | Stand | Offen | Wer |
 |---|---|---|---|---|
-| 1 | Prüfung auf der Vorschau | technisch erledigt | Matthews Bedienungstest, Inhalte gegenlesen | M, D |
+| 1 | Prüfung auf der Vorschau | technisch erledigt | Anleitung an Matthew, Inhalte gegenlesen | M, D |
 | 2 | Zugang und Netlify | offen | Token für `main`, alte Variablen, Einladung | D |
-| 3 | Umschalten | offen | Merge, Admin-Umzug, Indexierung | D |
+| 3 | Umschalten | per Skript vorbereitet | `go-live switch` | D |
 | 4 | Direkt nach dem Umschalten | offen | Medien auf TinaCloud, Smoke-Test | D, M |
-| 5 | Aufräumen | offen | Decap, Forestry, Identity, Vergleichsseite | D |
+| 5 | Aufräumen | per Skript vorbereitet | `go-live cleanup`, Identity im Dashboard | D |
 | 6 | Eine Woche danach | offen | Rückblick | D, M |
 
 Abbruchkriterien und Rücksprung stehen am Ende. Gefundene Fehler, Hinweise für Matthew und Merksätze stehen in den Anhängen.
@@ -27,18 +29,12 @@ Abbruchkriterien und Rücksprung stehen am Ende. Gefundene Fehler, Hinweise für
 
 ## 1. Prüfung auf der Vorschau
 
-### 1.1 Bedienung durch Matthew — das Tor
+### 1.1 Anleitung für Matthew
 
-Matthew arbeitet selbst, Dan schaut zu und notiert, wo er hängen bleibt. Technisch ist alles schon durchgetestet (1.2); hier geht es um sein Urteil.
+Kein Bedienungstest: Matthew kommt mit CMS-Oberflächen zurecht. Er bekommt eine kurze Anleitung, die nur zeigt, was sich gegenüber Decap ändert (was wohin gewandert ist, Märkte und Events, Shop-Sets, Fotos, zwei Eigenheiten), mit Screenshots aus dem Admin.
 
-- [ ] **M** Login auf `/admin-tina/` mit seinem TinaCloud-Konto
-- [ ] **M** Markets: Termin hinzufügen und entfernen, einen neuen Markt anlegen
-- [ ] **M** Events: einmalig, mehrtägig, „Im Studio"; eines löschen
-- [ ] **M** Studio-News ändern
-- [ ] **M** Home: Shop-Set verstecken, Artikel **per Ziehen umsortieren** (automatisiert nicht prüfbar)
-- [ ] **M** About, Art, Process: Text ändern, Abschnitte umsortieren
-- [ ] **M** Die Namen in der Seitenleiste sind verständlich („Events · Markets and events", „About · Art page", „Settings")
-- [ ] **M** Urteil: Ist Tina für ihn klar besser als Decap? **Wenn nein: hier stoppen.**
+- [x] **D** Anleitung geschrieben (Link oben)
+- [ ] **D** Anleitung freigeben und Matthew schicken, zusammen mit der TinaCloud-Einladung (Abschnitt 2)
 
 ### 1.2 CMS technisch — erledigt
 
@@ -57,6 +53,7 @@ Am 2026-09-18 im Admin der Vorschau durchgetestet. Jede Speicherung wurde ein ei
 - [x] Tina 3.14: Änderungen in einem Listeneintrag überleben das Zurücknavigieren
 - [x] Uploads nur als JPEG, PNG, WebP (HEIC kann der Build nicht lesen)
 - [x] Medienverwaltung **lokal**: Unterordner, Upload, Bild im Feld, Build
+- [x] Alt-Text: Tina sperrt „Save", solange ein gewähltes Bild keinen hat; fehlt er trotzdem, nimmt der Build einen Standardtext und nennt die Seite im Log, statt abzubrechen (`14e170f`)
 
 ### 1.3 Website — fast erledigt
 
@@ -79,8 +76,8 @@ Am 2026-09-18 im Admin der Vorschau durchgetestet. Jede Speicherung wurde ein ei
 - [x] Alle 24 Shop-Artikel: Preis gleich dem Shop, Link führt in den richtigen Artikel (2026-09-18)
 - [x] Ausverkaufte Stücke: zwei getauscht, Strathcona versteckt, übrige tragen automatisch „Sold out"
 - [ ] **M** Die Shop-Sets auf `/preview-sets.html` gegenlesen — Titel, Texte und Preise sind Entwürfe
-- [ ] **D** Entscheiden, ob das Sold-out-Label einen täglichen Neubau braucht (es ist so frisch wie der letzte Build)
-- [ ] **D** Preise und Verfügbarkeit kurz vor dem Livegang erneut prüfen
+- [x] **D** Täglicher Neubau fürs Sold-out-Label (es ist so frisch wie der letzte Build): vertagt, Ticket `docs/feature/0003-taeglicher-neubau-fuer-sold-out-label.md`
+- [ ] **D** Preise und Verfügbarkeit kurz vor dem Livegang erneut prüfen: `npm run shop:check` schreibt `reports/shop-check.html` (Bild von Seite und Shop, Titel, Preis, Verfügbarkeit, Link). Läuft auch in `go-live check` und `switch` mit. Stand 2026-09-18: 24 Artikel, keine Preisabweichung, 9 ausverkauft
 
 ---
 
@@ -98,17 +95,19 @@ Am 2026-09-18 im Admin der Vorschau durchgetestet. Jede Speicherung wurde ein ei
 
 ---
 
-## 3. Umschalten — in dieser Reihenfolge
+## 3. Umschalten — per Skript
 
-1. [ ] **D** Inhaltssperre mit Matthew verabreden: ab jetzt nichts mehr in Decap speichern
-2. [ ] **D** **Zuerst `main` in den Branch mergen**, nicht umgekehrt: `git fetch origin && git merge origin/main` — Matthews Decap-Änderungen liegen auf `main`
-3. [ ] **D** Konflikte lösen (erwartet in `events.json`, `home.md`, `global.json`, `events.md`); im Zweifel gewinnt Matthews Fassung
-4. [ ] **D** `node scripts/events-to-markets.mjs` auf dem gemergten `events.json`, Diff prüfen
-5. [ ] **D** Alle Prüfungen wiederholen: `npm test`, `npm run typecheck`, Round-Trip der betroffenen Collections, Vergleich Vorschau gegen Live, Netlify-Build grün
-6. [ ] **D** Tina von `/admin-tina/` nach `/admin/` umziehen: `outputFolder` auf `admin`, dafür Decaps `src/admin/` samt Passthrough entfernen
-7. [ ] **D** Live-Stand taggen (Release-Prozess), damit ein Rücksprung möglich ist
-8. [ ] **D** Branch nach `main` mergen und pushen
-9. [ ] **D** TinaCloud-Indexierung von `main` abwarten und prüfen
+Vorher `npm run go-live -- check` (Probelauf, ändert nichts), dann `npm run go-live -- switch`. Das Skript arbeitet die Schritte unten ab, erkennt erledigte Schritte und hält an bei Konflikten, gescheiterten Prüfungen und vor jedem Push auf `main`; weiter geht es mit `--ja=<schlüssel>` (Skill `tina-livegang`). Probelauf am 2026-09-18: alles grün bis auf den Token (Abschnitt 2).
+
+1. [ ] **D** Inhaltssperre mit Matthew verabreden: ab jetzt nichts mehr in Decap speichern — *Skript fragt (`sperre`)*
+2. [ ] **D** Branch auf den Stand von GitHub, dann **`main` in den Branch mergen**, nicht umgekehrt — *Skript*
+3. [ ] **D** Konflikte lösen; Matthews Inhalte gewinnen, Struktur und Code vom Branch — *`events.json` übernimmt das Skript; Änderungen an `faq.json`, `news.json`, `seo.json`, `showcase.json` meldet es mit Ziel zum Übertragen von Hand*
+4. [ ] **D** `events.json` in Märkte und Events umwandeln, Ergebnis ansehen — *Skript, listet Märkte und Termine*
+5. [ ] **D** Prüfungen: `npm test`, Typecheck, Round-Trip aller 13 Collections, Shop-Abgleich — *Skript*
+6. [ ] **D** Tina von `/admin-tina/` nach `/admin/`, Decaps `src/admin/` samt Passthrough weg, Weiterleitung `/admin-tina/*` — *Skript*
+7. [ ] **D** Einmal pushen, Vorschau-Build abwarten (`/build.txt`), `/admin/` ist Tina, Vorschau gegen Live — *Skript*
+8. [ ] **D** Live-Stand taggen, Branch nach `main` mergen, Release taggen, pushen — *Skript fragt (`release`)*
+9. [ ] **D** Live-Deploy und TinaCloud-Indexierung von `main` abwarten, `/admin/` prüfen — *Skript*
 
 ---
 
@@ -120,21 +119,23 @@ Medien lassen sich erst jetzt testen: TinaClouds Media-Branch ist fest `main`.
 - [ ] **D** Datei direkt aufs Bildfeld ziehen: landet in `src/images/` (Wurzel) — Matthew darauf hinweisen
 - [ ] **D** Großes Foto (mehrere MB): Upload und Build gehen durch
 - [ ] **D** HEIC vom iPhone wird abgelehnt
-- [ ] **D** Fehlender Alt-Text: Build bricht mit `Missing alt on image` — ist die Meldung im Netlify-Log verständlich?
-- [ ] **M** Smoke-Test auf `matthewfreed.ca`: `/admin/` öffnet Tina, eine Kleinigkeit speichern, Änderung erscheint
+- [x] **D** Fehlender Alt-Text bricht den Build nicht mehr ab (siehe 1.2)
+- [ ] **M** Erste Speicherung auf `matthewfreed.ca/admin/`: eine Kleinigkeit, Änderung erscheint
 - [ ] **M** Alte Decap-Lesezeichen und gespeicherte Logins entfernen
 
 ---
 
-## 5. Aufräumen (eigener Commit)
+## 5. Aufräumen — per Skript
 
-- [ ] **D** `.forestry/` löschen
-- [ ] **D** Decap-Reste (nach dem Umzug in 3.6): Skripte `cms` und `dev:cms`, Eintrag `pottery-cms` in `.claude/launch.json`
-- [ ] **D** Netlify Identity: Widget und `netlifyIdentity`-Block aus `base.njk`; im Dashboard Identity und Git Gateway abschalten
-- [ ] **D** `src/netlify.toml` (nur eine Python-Version aus der Forestry-Zeit) samt Passthrough entfernen
-- [ ] **D** Vergleichsseite entfernen: `preview-sets.njk`, `preview-sets.11tydata.js`, die `showAll`-Zweige in `current-firing.njk`, der Eintrag in `src/_headers`
-- [ ] **D** Passthrough `src/images` **nicht** ersatzlos streichen: das Teilen-Vorschaubild (`/images/share/…`) wird als Original ausgeliefert
-- [ ] **D** Alte Branches archivieren (Tag) und löschen: `feat/tinacms-migration`, `feat/sveltia-cms-migration`, lokal `decap`, `master`, `backup*`
+Die Code-Änderungen liegen fertig auf `chore/aufraeumen-nach-tina` (`930b177`, lokal gebaut: aus den Seiten fallen nur die Identity-Skripte, die Vergleichsseite ist weg). `npm run go-live -- cleanup` merged den Branch nach `main` (fragt vorher), wartet auf den Deploy und archiviert die alten Branches (fragt vorher). Von Hand bleiben Netlify Identity im Dashboard und die Analytics-Dateien.
+
+- [ ] **D** `.forestry/` löschen — *im Branch*
+- [ ] **D** Decap-Reste: Skripte `cms` und `dev:cms`, Eintrag `pottery-cms` in `.claude/launch.json` — *im Branch*
+- [ ] **D** Netlify Identity: Widget und `netlifyIdentity`-Block aus `base.njk` — *im Branch*; im Dashboard Identity und Git Gateway abschalten — *von Hand*
+- [ ] **D** `src/netlify.toml` (nur eine Python-Version aus der Forestry-Zeit) samt Passthrough entfernen — *im Branch*
+- [ ] **D** Vergleichsseite entfernen: `preview-sets.njk`, `preview-sets.11tydata.js`, die `showAll`-Zweige in `current-firing.njk`, `src/_headers` — *im Branch*
+- [x] **D** Passthrough `src/images` bleibt: das Teilen-Vorschaubild (`/images/share/…`) wird als Original ausgeliefert (Kommentar im Branch angepasst)
+- [ ] **D** Alte Branches archivieren (Tag `archiv/<name>`) und löschen: `feat/tinacms-migration`, `feat/sveltia-cms-migration`, lokal `decap`, `master`, `backup*` — *Skript fragt (`branches`); Tags lokaler Branches bleiben lokal*
 - [ ] **D** Analytics-Testdateien im Repo-Wurzelverzeichnis einsortieren oder löschen (`gc.html`, `matomo.*`, `umami*.html`, `u_*.js`, `plaus.html`, `sa.html`, `np.html`, `nfa.html`) — gehören nicht zur Migration
 
 ---
@@ -149,7 +150,6 @@ Medien lassen sich erst jetzt testen: TinaClouds Media-Branch ist fest `main`.
 ## Abbruch und Rücksprung
 
 **Abbrechen, wenn:**
-- Matthew in Tina nicht zurechtkommt (1.1)
 - Medien auf TinaCloud nach dem Merge nicht funktionieren (4)
 - `tinacms build` auf Netlify nicht verlässlich grün ist
 
@@ -169,6 +169,8 @@ Medien lassen sich erst jetzt testen: TinaClouds Media-Branch ist fest `main`.
 
 ## Anhang B: Hinweise für Matthews Einweisung
 
+Was Matthew wissen muss, steht in seiner Anleitung (Link oben). Hier die vollständige Liste:
+
 - **Status oben rechts:** In einem Listeneintrag, den er nicht geändert hat, ist der Punkt grün und „Save" grau, auch wenn im Dokument noch Ungespeichertes steckt. Erst eine Ebene höher wird es wieder rot — dort speichern.
 - **Löschen fragt nicht nach**, und danach rutscht die Liste nach: der nächste Klick trifft leicht den falschen Eintrag. Ein Fehlklick auf „+" legt einen leeren Eintrag an. „Reset" holt beides zurück, solange nicht gespeichert ist.
 - **Neue Einträge landen am Ende**, Markttermine also unsortiert. Die Website sortiert selbst.
@@ -185,3 +187,5 @@ Mögliche Verbesserungen für später:
 - **Vorschau gegen Live vergleichen, nicht lokal gegen Live:** Netlify schreibt beim Deploy die Links um (`.html` weg, andere Attributreihenfolge), das erzeugt auf jeder Seite Unterschiede.
 - **Jede Speicherung im Admin ist ein Commit** auf dem Branch, den das Admin bearbeitet. Vor eigenen Commits erst `git pull`.
 - **Round-Trip über GraphQL umgeht `beforeSubmit`:** der Datenschutz bekommt dort weiter eine Leerzeile; der Round-Trip vergleicht den Body getrimmt.
+- **Build-Minuten sparen:** Am 2026-09-18 war die Hälfte des Netlify-Kontingents (28.08.–28.09.) verbraucht. Commits, die die Website nicht ändern (Doku, Skripte, Tests), bekommen `[skip netlify]` in die Nachricht; Netlify baut dann nicht, sofern der Commit zuoberst im Push liegt.
+- **`/build.txt`** zeigt den Commit, den Netlify zuletzt gebaut hat. Das Skript wartet darauf, statt ins Dashboard zu schauen.
