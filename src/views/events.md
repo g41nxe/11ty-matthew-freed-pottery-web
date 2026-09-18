@@ -23,9 +23,9 @@ studio:
   footnote: Can't make it? Every market and firing gets announced on Instagram.
 no_events: Nothing on the calendar right now — new dates go up on Instagram first.
 news:
-  date: 10-12-2025
-  title: A busy holiday season is coming!
-  body: 'Like clockwork, October 1st is a bit of a rude awakening each year as the limited days to prepare for a busy holiday season become all too clear.  Despite the pressure, I always seem to get done what needs to get done.  It''s always a pleasure to see so many familiar customer faces that think of my work for their gifts.  I hope to see you at some point in the next few months and if I look a bit tired then remind me that i get to rest in January!'
+  date: 09-18-2026
+  title: Introducing my new Skaha glaze
+  body: 'One of my favorite aspects of being a potter is putting on my chemistry hat and creating new glaze combinations.  I''ll happy to launch my new Skaha glaze online.  The Skaha glaze features a deep cobalt glossy glaze beneath a matte stony glaze.  It reminds me of beautiful Skaha Lake in Penticton with it''s cool bue water and the bluffs above it. It is a variable glaze, like Tofino, so the colour and movement of the glaze is different with each piece. I hope you enjoy this new glaze!'
   image:
     url: /images/news/busy-studio.jpg
     alt: Busy times in my little studio
