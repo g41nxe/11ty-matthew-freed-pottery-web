@@ -15,19 +15,15 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "src/assets" : "assets"});
     eleventyConfig.addPassthroughCopy({ "src/javascript" : "js"});
     eleventyConfig.addPassthroughCopy({ "src/_redirects" : "_redirects"});
-    eleventyConfig.addPassthroughCopy({ "src/_headers" : "_headers"});
-    eleventyConfig.addPassthroughCopy({ "src/netlify.toml" : "netlify.toml"});
 
 
     eleventyConfig.addPassthroughCopy({ "src/assets/favicon.ico" : "favicon.ico"});
     eleventyConfig.addPassthroughCopy({ "src/assets/apple-icon-180x180.png" : "apple-touch-icon.png"});
     eleventyConfig.addPassthroughCopy({ "src/assets/apple-icon-180x180.png" : "apple-touch-icon-retina.png"});
 
-    // Serve the original images at /images/ so the Decap CMS editor can render
-    // preview thumbnails (it loads the stored /images/... path). Needed in both
-    // dev and production builds, since the deployed CMS resolves previews via
-    // the public URL too. The live site itself uses the {% img %} shortcode
-    // (hashed variants) and never references these originals.
+    // Serve the original images at /images/. The pages use the {% img %}
+    // shortcode (hashed variants); the originals are for what needs a fixed
+    // address, such as the share image (/images/share/, set in Settings).
     eleventyConfig.addPassthroughCopy({ "src/images" : "images" });
 
     eleventyConfig.addPlugin(pluginSEO, require("./src/views/_data/global.json").seo);

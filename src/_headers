@@ -1,5 +1,0 @@
-# Die Vergleichsseite der Shop-Sets ist nur zum Ansehen da. Der Header statt
-# eines Meta-Tags, weil eleventy-plugin-seo auf jeder Seite "index,follow"
-# schreibt und zwei widersprüchliche Angaben im HTML stünden.
-/preview-sets.html
-  X-Robots-Tag: noindex

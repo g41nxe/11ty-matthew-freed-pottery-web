@@ -3,12 +3,10 @@
    fetches only the images of the set it ends up showing — an already visible
    section would have its images fetched before the script could hide it again.
    Without JavaScript the first set shows (see the noscript rule). #}
-{# preview-sets.njk sets showAll to lay every set out for review, hidden ones included. #}
-{% set sets = shop_sets if showAll else (shop_sets | rejectattr("hide")) %}
+{% set sets = shop_sets | rejectattr("hide") %}
 {% for shop_set in sets %}
 {% set piece = shop_set.featured_piece %}
-<section class="mx-auto max-w-6xl px-6 py-12{% if not showAll %} hidden{% endif %}" aria-label="From the current firing" data-firing-set{% if loop.first %} data-firing-first{% endif %}>
-    {% if showAll %}<p class="cap-label mb-2 text-sand">Version: {{ shop_set.name }}{% if shop_set.hide %} (hidden){% endif %}</p>{% endif %}
+<section class="mx-auto max-w-6xl px-6 py-12 hidden" aria-label="From the current firing" data-firing-set{% if loop.first %} data-firing-first{% endif %}>
     <div class="flex items-baseline justify-between gap-4">
         <h2 class="font-display text-3xl font-black text-ink">{{ products.title }}</h2>
         <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ products.link_label | default("Shop all pieces", true) }}</a>
@@ -51,7 +49,7 @@
     <p class="mt-6 text-center text-xs text-soft">{{ products.note }}</p>
 </section>
 {% endfor %}
-{% if sets.length and not showAll %}
+{% if sets.length %}
 {# The sets hide with a class, not the hidden attribute: the browser's own
    rule for [hidden] is !important, so no stylesheet could bring one back. #}
 <noscript><style>section[data-firing-first] { display: block !important; }</style></noscript>
