@@ -278,6 +278,57 @@ shop_sets:
           alt: Tree of Life Ramen Style Bowl by Matthew Freed
         cta:
           url: 'https://shop.matthewfreed.net/products/serving-bowl-tree-of-life'
+  - name: Jericho
+    hide: false
+    featured_piece:
+      eyebrow: Featured piece
+      title: Jericho tea set
+      caption: Jericho · pale grey-blue with sand speckles
+      text: 'A pale grey-blue glaze with sand toned speckles. Where it thins at the rims, it turns a warm toasted brown.'
+      price: ''
+      image:
+        url: /images/glazes/jericho/tea-set-feature.jpg
+        alt: 'Jericho teapot, two mugs and a lidded honey pot by Matthew Freed on a wooden table, with a fern'
+      cta:
+        label: View in the shop
+        url: 'https://shop.matthewfreed.net/collections/all/Jericho'
+    items:
+      - title: Jericho - Medium Teapot
+        overlay:
+          text: 'A medium teapot from the <span class="text-highlight font-bold">Jericho Collection</span> that holds about five cups (1.2 litres).'
+        price: $165
+        image:
+          url: /images/products/jericho-medium-teapot-tile.jpg
+          alt: Jericho Medium Teapot by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/large-teapot-jericho'
+      - title: Jericho - Belly Mug
+        overlay:
+          text: 'A large belly mug from the <span class="text-highlight font-bold">Jericho Collection</span>. The rim curves inward, so your drink stays warm a little longer.'
+        price: $45
+        image:
+          url: /images/products/jericho-belly-mug-tile.jpg
+          alt: Jericho Belly Mug by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/belly-mug-jericho'
+      - title: Jericho - Shorty Mug
+        overlay:
+          text: 'The smallest of my mugs from the <span class="text-highlight font-bold">Jericho Collection</span>, about 14 fl oz and comfortable in the hand.'
+        price: $38
+        image:
+          url: /images/products/jericho-shorty-mug-tile.jpg
+          alt: Jericho Shorty Mug by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/shorty-mug-jericho'
+      - title: Jericho - Scalloped Tray
+        overlay:
+          text: 'A 15-inch serving tray from the <span class="text-highlight font-bold">Jericho Collection</span>, deep enough for dishes with a sauce and safe in the oven.'
+        price: $95
+        image:
+          url: /images/products/jericho-scalloped-tray-tile.jpg
+          alt: Jericho Scalloped Tray by Matthew Freed
+        cta:
+          url: 'https://shop.matthewfreed.net/products/scalloped-tray-jericho'
   - name: Strathcona
     hide: true
     featured_piece:
