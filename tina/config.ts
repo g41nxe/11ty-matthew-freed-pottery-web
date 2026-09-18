@@ -24,8 +24,7 @@ export default defineConfig({
   // Never commit the token. Netlify provides it; locally `tinacms dev`
   // works without it.
   token: process.env.TINA_TOKEN || null,
-  // Decap still owns /admin until the cutover.
-  build: { outputFolder: "admin-tina", publicFolder: "dist" },
+  build: { outputFolder: "admin", publicFolder: "dist" },
   media: {
     tina: { publicFolder: "src", mediaRoot: "images" },
     // Only formats the image pipeline (sharp) can read: an iPhone HEIC

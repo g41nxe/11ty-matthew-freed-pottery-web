@@ -11,7 +11,6 @@ const FALLBACK_ALT = "Handmade pottery by Matthew Freed";
 module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget("src/javascript/*.js");
 
-    eleventyConfig.addPassthroughCopy({ "src/admin" : "admin"});
     eleventyConfig.addPassthroughCopy({ "src/assets" : "assets"});
     eleventyConfig.addPassthroughCopy({ "src/javascript" : "js"});
     eleventyConfig.addPassthroughCopy({ "src/_redirects" : "_redirects"});
