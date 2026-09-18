@@ -6,3 +6,4 @@ dist
 .env
 tina/__generated__/
 .playwright-mcp/
+reports/
