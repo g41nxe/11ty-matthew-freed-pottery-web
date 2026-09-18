@@ -190,4 +190,5 @@ Mögliche Verbesserungen für später:
 - **Jede Speicherung im Admin ist ein Commit** auf dem Branch, den das Admin bearbeitet. Vor eigenen Commits erst `git pull`.
 - **Round-Trip über GraphQL umgeht `beforeSubmit`:** der Datenschutz bekommt dort weiter eine Leerzeile; der Round-Trip vergleicht den Body getrimmt.
 - **Build-Minuten sparen:** Am 2026-09-18 war die Hälfte des Netlify-Kontingents (28.08.–28.09.) verbraucht. Commits, die die Website nicht ändern (Doku, Skripte, Tests), bekommen `[skip netlify]` in die Nachricht; Netlify baut dann nicht, sofern der Commit zuoberst im Push liegt.
+- **TinaCloud-Medien nach dem Umschalten von Hand anstoßen:** In TinaCloud unter Media „Sync to GitHub default branch" und dann „Resync Media". Der Resync braucht Zeit; beim ersten Mal erschienen nur drei Ordner, ein zweiter Resync holte den Rest.
 - **`/build.txt`** zeigt den Commit, den Netlify zuletzt gebaut hat. Das Skript wartet darauf, statt ins Dashboard zu schauen.
