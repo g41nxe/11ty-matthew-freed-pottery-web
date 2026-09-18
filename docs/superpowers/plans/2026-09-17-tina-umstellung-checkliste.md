@@ -17,7 +17,7 @@
 | # | Phase | Stand | Offen | Wer |
 |---|---|---|---|---|
 | 1 | Prüfung auf der Vorschau | technisch erledigt | Anleitung an Matthew, Inhalte gegenlesen | M, D |
-| 2 | Zugang und Netlify | zum Teil erledigt | altes Token, Zugänge widerrufen, Einladung | D |
+| 2 | Zugang und Netlify | erledigt | – | D |
 | 3 | Umschalten | per Skript vorbereitet | `go-live switch` | D |
 | 4 | Direkt nach dem Umschalten | offen | Medien auf TinaCloud, Smoke-Test | D, M |
 | 5 | Aufräumen | per Skript vorbereitet | `go-live cleanup`, Identity im Dashboard | D |
@@ -34,7 +34,7 @@ Abbruchkriterien und Rücksprung stehen am Ende. Gefundene Fehler, Hinweise für
 Kein Bedienungstest: Matthew kommt mit CMS-Oberflächen zurecht. Er bekommt eine kurze Anleitung, die nur zeigt, was sich gegenüber Decap ändert (was wohin gewandert ist, Märkte und Events, Shop-Sets, Fotos, zwei Eigenheiten), mit Screenshots aus dem Admin.
 
 - [x] **D** Anleitung geschrieben (Link oben)
-- [ ] **D** Anleitung freigeben und Matthew schicken, zusammen mit der TinaCloud-Einladung (Abschnitt 2)
+- [ ] **D** Anleitung freigeben und Matthew schicken, zusammen mit der TinaCloud-Einladung (nach dem Umschalten, Abschnitt 4)
 
 ### 1.2 CMS technisch — erledigt
 
@@ -87,10 +87,8 @@ Am 2026-09-18 im Admin der Vorschau durchgetestet. Jede Speicherung wurde ein ei
 
 - [x] **D** Neues Content-Token in TinaCloud (2026-09-18): liest `main`, `feat/tinacloud-migration` und `chore/aufraeumen-nach-tina`, gilt also für alle Branches. `main` meldet „unknown“, bis dort mit dem Umschalten die Tina-Konfiguration ankommt
 - [x] **D** `TINA_TOKEN` in Netlify und in der lokalen `.env` (Netlify-seitig bestätigt der nächste Build, spätestens beim Umschalten)
-- [ ] **D** Altes Token (nur `feat/tinacloud-migration`) löschen
+- [x] **D** Altes Token (nur `feat/tinacloud-migration`) löschen
 - [x] **D** Alte Variablen löschen: `GITHUB_BRANCH`, `GITHUB_OWNER`, `GITHUB_REPO`, `GITHUB_PERSONAL_ACCESS_TOKEN`, `MONGODB_URI`, `NEXTAUTH_SECRET`, `TINA_PUBLIC_IS_LOCAL`
-- [ ] **D** GitHub-Token und MongoDB-Zugang aus dem Selbsthosting-Versuch widerrufen
-- [ ] **D** Matthew in TinaCloud einladen (zwei Nutzer sind frei, ein dritter kostet)
 - [x] **D** Vorschau eines fremden Branches (z. B. Dependabot): das neue Token gilt für alle Branches, TinaCloud hat auch `chore/aufraeumen-nach-tina` indexiert
 - [ ] **D** TinaCloud-Ausfall simulieren (falsches Token): nur der Deploy scheitert, die Live-Seite bleibt online
 - [x] Netlify-Build des Branches grün, `tinacms build` ohne Speicherüberlauf
@@ -122,6 +120,7 @@ Medien lassen sich erst jetzt testen: TinaClouds Media-Branch ist fest `main`.
 - [ ] **D** Großes Foto (mehrere MB): Upload und Build gehen durch
 - [ ] **D** HEIC vom iPhone wird abgelehnt
 - [x] **D** Fehlender Alt-Text bricht den Build nicht mehr ab (siehe 1.2)
+- [ ] **D** Matthew in TinaCloud einladen (zwei Nutzer sind frei, ein dritter kostet) und ihm die Anleitung schicken
 - [ ] **M** Erste Speicherung auf `matthewfreed.ca/admin/`: eine Kleinigkeit, Änderung erscheint
 - [ ] **M** Alte Decap-Lesezeichen und gespeicherte Logins entfernen
 
@@ -145,6 +144,7 @@ Die Code-Änderungen liegen fertig auf `chore/aufraeumen-nach-tina` (`930b177`, 
 ## 6. Eine Woche danach
 
 - [ ] **D** Buildzeiten und TinaCloud-Kontingent ansehen
+- [ ] **D** GitHub-Token und MongoDB-Zugang aus dem Selbsthosting-Versuch widerrufen (für den Livegang nicht nötig)
 - [ ] **D, M** Pflegt Matthew wirklich selbst? Was hat ihn aufgehalten?
 
 ---
