@@ -25,9 +25,9 @@ no_events: Nothing on the calendar right now — new dates go up on Instagram fi
 news:
   date: 09-18-2026
   title: Introducing my new Skaha glaze
-  body: 'One of my favorite aspects of being a potter is putting on my chemistry hat and creating new glaze combinations.  I''ll happy to launch my new Skaha glaze online.  The Skaha glaze features a deep cobalt glossy glaze beneath a matte stony glaze.  It reminds me of beautiful Skaha Lake in Penticton with it''s cool bue water and the bluffs above it. It is a variable glaze, like Tofino, so the colour and movement of the glaze is different with each piece. I hope you enjoy this new glaze!'
+  body: 'One of my favourite parts of being a potter is putting on my chemistry hat and creating new glaze combinations. I''m happy to launch my new Skaha glaze online. It features a deep, glossy cobalt glaze beneath a matte, stony glaze, and it reminds me of beautiful Skaha Lake in Penticton, with its cool blue water and the bluffs above it. Like Tofino, it is a variable glaze, so the colour and movement are different on every piece. I hope you enjoy this new glaze!'
   image:
-    url: /images/news/busy-studio.jpg
-    alt: Busy times in my little studio
+    url: /images/news/skaha-tumbler.jpg
+    alt: A tumbler in the new Skaha glaze by Matthew Freed
 ---
 
