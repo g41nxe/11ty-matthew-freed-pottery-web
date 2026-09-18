@@ -55,7 +55,7 @@ Am 2026-09-18 im Admin der Vorschau durchgetestet. Jede Speicherung wurde ein ei
 - [x] Medienverwaltung **lokal**: Unterordner, Upload, Bild im Feld, Build
 - [x] Alt-Text: Tina sperrt „Save", solange ein gewähltes Bild keinen hat; fehlt er trotzdem, nimmt der Build einen Standardtext und nennt die Seite im Log, statt abzubrechen (`14e170f`)
 
-### 1.3 Website — fast erledigt
+### 1.3 Website
 
 - [x] Vorschau gegen Live: nur gewollte Abweichungen — Alt-Text des Yaletown-Galeriebilds, Abstand unter dem Medaillen-Hinweis und seit `0703a86` der neue Pfad des Teilen-Vorschaubilds auf jeder Seite
 - [x] Keine toten Links: 13 interne Ziele, alle Bilddateien, 33 externe Links antworten mit 200
@@ -67,9 +67,11 @@ Am 2026-09-18 im Admin der Vorschau durchgetestet. Jede Speicherung wurde ein ei
 - [x] Kontaktformular: nach dem Absenden erscheint Netlifys Dankesseite (eigene Seite für später: `docs/feature/0002-…`)
 - [x] Teilen-Vorschaubild (`og:image`) lädt; alte Adresse leitet weiter
 - [x] `sitemap.xml` ohne `/preview-sets.html`; die Vergleichsseite trägt `noindex`
-- [ ] **D** Strukturierte Daten (JSON-LD) der Events-Seite einmal im Rich-Results-Test prüfen
-- [ ] **D** `robots.txt`, Favicons, Selbstabmeldung des Service Workers
-- [ ] **D** Ladezeit der Startseite messen (HTML trägt alle Sets, etwa 134 KB unkomprimiert)
+- [ ] **D** Strukturierte Daten (JSON-LD) der Events-Seite im Rich-Results-Test von Google prüfen (search.google.com/test/rich-results, URL der Vorschau eingeben). Die Seite liefert 7 Einträge vom Typ `Event` mit Name, Datum und Ort; Warnungen zu fehlenden empfohlenen Feldern (Bild, Beschreibung, Veranstalter) sind kein Fehler
+- [x] **D** `robots.txt` und Sitemap: **Fehler gefunden und behoben** — beide lasen noch `seo.url`, das seit der Migration `global.seo.url` heißt, und schrieben relative Adressen, die Google in einer Sitemap nicht annimmt. Lokal geprüft; kommt mit dem nächsten Vorschau-Build. `go-live compare` vergleicht beide jetzt mit Live
+- [x] **D** Favicons: `favicon.ico`, `favicon.svg` und das Apple-Icon unter `/assets/` antworten. `/apple-touch-icon.png` ist 404, auch auf Live: die zweite Passthrough-Zeile mit derselben Quelle überschreibt die erste. Harmlos, der `<link>` im Kopf zeigt auf `/assets/`
+- [x] **D** Service Worker: `/service-worker.js` ist der selbstabmeldende Worker, alte Installationen räumen sich weiter auf
+- [x] **D** Startseite: 126 KB HTML mit allen Sets, komprimiert 12 KB; Bilder laden nur für das gezeigte Set. Unkritisch
 
 ### 1.4 Inhalte
 

@@ -308,6 +308,11 @@ async function comparePreviewWithLive(preview) {
     const paths = [...sitemap.text.matchAll(/<loc>https?:\/\/[^/<]+([^<]*)<\/loc>/g)].map((m) => m[1] || "/");
     if (!paths.length) throw new Stop("Die Sitemap der Live-Seite ist leer oder nicht erreichbar.", `${LIVE}/sitemap.xml prüfen.`, 1);
     const differing = [];
+    // Suchmaschinen brauchen absolute Adressen; die Einträge müssen gleich bleiben.
+    const [liveRobots, prevRobots, prevSitemap] = await Promise.all([get(`${LIVE}/robots.txt`), get(`${preview}/robots.txt`), get(`${preview}/sitemap.xml`)]);
+    if (liveRobots.text.trim() !== prevRobots.text.trim()) differing.push(`/robots.txt\n      live:     ${liveRobots.text.trim().split("\n")[0]}\n      vorschau: ${prevRobots.text.trim().split("\n")[0]}`);
+    const locs = (xml) => [...xml.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]).sort().join("\n");
+    if (locs(sitemap.text) !== locs(prevSitemap.text)) differing.push(`/sitemap.xml: andere Einträge\n      live:     ${locs(sitemap.text).split("\n")[0]}\n      vorschau: ${locs(prevSitemap.text).split("\n")[0]}`);
     for (const p of paths) {
         const [live, prev] = await Promise.all([get(LIVE + p), get(preview + p)]);
         if (prev.status !== 200) {
