@@ -2,7 +2,7 @@
 layout: collections-layout
 tags: footer
 permalink: /collections.html
-title: Collections
+title: Collections TEST
 intro:
   eyebrow: The field guide
   title: 'Fifteen glazes, fifteen stories'
