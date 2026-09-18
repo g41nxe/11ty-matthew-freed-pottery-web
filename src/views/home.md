@@ -320,15 +320,15 @@ shop_sets:
           alt: Jericho Shorty Mug by Matthew Freed
         cta:
           url: 'https://shop.matthewfreed.net/products/shorty-mug-jericho'
-      - title: Jericho - Scalloped Tray
+      - title: Jericho - Butter Bell
         overlay:
-          text: 'A 15-inch serving tray from the <span class="text-highlight font-bold">Jericho Collection</span>, deep enough for dishes with a sauce and safe in the oven.'
-        price: $95
+          text: 'A domed butter bell from the <span class="text-highlight font-bold">Jericho Collection</span>, 7 inches wide, that keeps the butter covered on the table.'
+        price: $65
         image:
-          url: /images/products/jericho-scalloped-tray-tile.jpg
-          alt: Jericho Scalloped Tray by Matthew Freed
+          url: /images/products/jericho-butter-bell-tile.jpg
+          alt: Jericho Butter Bell by Matthew Freed
         cta:
-          url: 'https://shop.matthewfreed.net/products/scalloped-tray-jericho'
+          url: 'https://shop.matthewfreed.net/products/butter-bell-jericho'
   - name: Strathcona
     hide: true
     featured_piece:
