@@ -6,6 +6,8 @@ const pluginSEO = require("eleventy-plugin-seo");
 const markdownIt = require("markdown-it");
 const md = markdownIt({ html: true }); // html:true is required — process.md's paragraphs include raw <b> tags
 
+const FALLBACK_ALT = "Handmade pottery by Matthew Freed";
+
 module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget("src/javascript/*.js");
 
@@ -36,9 +38,19 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "src/service-worker.js": "service-worker.js" });
 
 
+    // Content comes from the CMS, so a missing image or alt text must not stop
+    // the deploy: one incomplete entry would block every later change. The
+    // image is left out or gets a generic description, and the build log
+    // names the page so it can be fixed.
     eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="", classes="", loading="lazy") {
-        if(alt === undefined) {
-          throw new Error(`Missing \`alt\` on image from: ${src}`);
+        const page = this.page?.inputPath || "unknown page";
+        if (typeof src !== "string" || !src.trim()) {
+          console.warn(`[img] Image without a file on ${page}, left out`);
+          return "";
+        }
+        if (typeof alt !== "string" || !alt.trim()) {
+          console.warn(`[img] No alt text for ${src} on ${page}, using "${FALLBACK_ALT}"`);
+          alt = FALLBACK_ALT;
         }
 
         let metadata = await Image('src/' + src, {
