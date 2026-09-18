@@ -33,6 +33,18 @@ export const datePicker = {
   validate: usDate,
 };
 
+// A required date. Tina shows today in an empty required date field but
+// does not store it: an event created without touching the date was saved
+// with no date at all and never appeared on the site (gate test 2026-09-18).
+// So an empty value is an error here, and new events start with today as a
+// real value (`todayUsDate` in their defaultItem).
+export const requiredDatePicker = {
+  ...datePicker,
+  validate: (value: string) => (value ? usDate(value) : "Pick a date"),
+};
+
+export const todayUsDate = (): string => toUsDate(new Date().toISOString());
+
 // For a list of dates. Tina builds every entry from `ui.field`, so each
 // entry gets the same picker; required: false keeps a new, empty entry
 // from showing today's date. `component: "list"` is Tina's default for a

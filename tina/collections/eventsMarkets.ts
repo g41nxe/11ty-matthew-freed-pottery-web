@@ -1,5 +1,5 @@
 import type { Collection } from "tinacms";
-import { dateList, datePicker, dayLabel } from "../fields/date";
+import { dateList, datePicker, dayLabel, requiredDatePicker, todayUsDate } from "../fields/date";
 
 // Field order matches the order scripts/events-to-markets.mjs writes, so a
 // first save does not reorder every entry.
@@ -36,11 +36,11 @@ export const eventsMarkets: Collection = {
         itemProps: (item) => ({
           label: [dayLabel(item?.date), item?.name].filter(Boolean).join(" · ") || "New event",
         }),
-        defaultItem: { at_studio: false },
+        defaultItem: () => ({ at_studio: false, date: todayUsDate() }),
       },
       fields: [
         { type: "string", name: "name", label: "Name", required: true },
-        { type: "string", name: "date", label: "Date", required: true, ui: datePicker },
+        { type: "string", name: "date", label: "Date", required: true, ui: requiredDatePicker },
         { type: "string", name: "end_date", label: "End date", description: "Only for multi day events", required: false, ui: datePicker },
         { type: "string", name: "time", label: "Time" },
         { type: "string", name: "location", label: "Location" },
