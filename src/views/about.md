@@ -22,7 +22,7 @@ sections:
 
       I moved to Vancouver in 1998 and have since made it my home. It is here that I have gotten reacquainted with pottery. We were casually seeing each other for a few years while I continued to work as a marketer.
 
-      I kept pottery as a hobby but soon came to a realization that it was a passion that I wanted as a central fixture in my life. It was time to make a lifetime commitment to one another.
+      I kept pottery as a hobby but soon came to a realization that it was a passion that I wanted as a central fixture in my life. It was time to make a lifetime commitment to one another. TEST
   - image:
       url: /images/workshop/throwing-a-cup-1.jpg
       alt: Matthew throwing a cup
