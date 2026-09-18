@@ -176,8 +176,8 @@ shop_sets:
           alt: Joffre Scalloped Tray by Matthew Freed
         cta:
           url: 'https://shop.matthewfreed.net/products/scalloped-tray-joffre'
-  - name: Oil dispensers
-    hide: false
+  - name: Oil dispensers TEST
+    hide: true
     featured_piece:
       eyebrow: Featured piece
       title: Pouring bottles
