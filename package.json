@@ -6,6 +6,8 @@
   "scripts": {
     "test": "node --test",
     "tina:roundtrip": "node scripts/tina-roundtrip.mjs",
+    "shop:check": "node scripts/shop-check.mjs",
+    "go-live": "node scripts/go-live.mjs",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "eleventy:default": "npx eleventy",
     "eleventy:serve": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npx eleventy --serve",
