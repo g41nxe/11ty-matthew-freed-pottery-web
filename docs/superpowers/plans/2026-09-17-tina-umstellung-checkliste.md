@@ -77,7 +77,7 @@ Am 2026-09-18 im Admin der Vorschau durchgetestet. Jede Speicherung wurde ein ei
 
 - [x] Alle 24 Shop-Artikel: Preis gleich dem Shop, Link führt in den richtigen Artikel (2026-09-18)
 - [x] Ausverkaufte Stücke: zwei getauscht, Strathcona versteckt, übrige tragen automatisch „Sold out"
-- [ ] **M** Die Shop-Sets auf `/preview-sets.html` gegenlesen — Titel, Texte und Preise sind Entwürfe
+- [x] **D** Shop-Sets durchgesehen (2026-09-18, `54cbaea`): Texte überarbeitet, Preise gegen den Shop geprüft, Ölflaschen versteckt (drei von vier ausverkauft). In der Rotation: Tofino, Yaletown, Joffre, Tree of Life
 - [x] **D** Täglicher Neubau fürs Sold-out-Label (es ist so frisch wie der letzte Build): vertagt, Ticket `docs/feature/0003-taeglicher-neubau-fuer-sold-out-label.md`
 - [ ] **D** Preise und Verfügbarkeit kurz vor dem Livegang erneut prüfen: `npm run shop:check` schreibt `reports/shop-check.html` (Bild von Seite und Shop, Titel, Preis, Verfügbarkeit, Link). Läuft auch in `go-live check` und `switch` mit. Stand 2026-09-18: 24 Artikel, keine Preisabweichung, 9 ausverkauft
 
