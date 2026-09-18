@@ -36,7 +36,7 @@
     "description": "Vancouver pottery studio selling elegant kitchen-friendly pottery, mugs, plates, bowls, teapots, pots, trays, bottles, platters.",
     "url": "https://matthewfreed.ca",
     "author": "Matthew Freed",
-    "image": "/assets/blue-arrangement.jpg",
+    "image": "/images/share/blue-arrangement.jpg",
     "options": {
       "titleDivider": "|",
       "imageWithBaseUrl": true
