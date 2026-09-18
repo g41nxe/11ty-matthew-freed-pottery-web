@@ -20,7 +20,7 @@
 | 2 | Zugang und Netlify | erledigt | – | D |
 | 3 | Umschalten | erledigt, `v2.1.0` | – | D |
 | 4 | Direkt nach dem Umschalten | offen | Medien auf TinaCloud, Smoke-Test | D, M |
-| 5 | Aufräumen | per Skript vorbereitet | `go-live cleanup`, Identity im Dashboard | D |
+| 5 | Aufräumen | Code erledigt | Branches archivieren, Identity im Dashboard, Analytics-Dateien | D |
 | 6 | Eine Woche danach | offen | Rückblick | D, M |
 
 Abbruchkriterien und Rücksprung stehen am Ende. Gefundene Fehler, Hinweise für Matthew und Merksätze stehen in den Anhängen.
@@ -128,13 +128,14 @@ Medien lassen sich erst jetzt testen: TinaClouds Media-Branch ist fest `main`.
 
 ## 5. Aufräumen — per Skript
 
-Die Code-Änderungen liegen fertig auf `chore/aufraeumen-nach-tina` (`930b177`, lokal gebaut: aus den Seiten fallen nur die Identity-Skripte, die Vergleichsseite ist weg). `npm run go-live -- cleanup` merged den Branch nach `main` (fragt vorher), wartet auf den Deploy und archiviert die alten Branches (fragt vorher). Von Hand bleiben Netlify Identity im Dashboard und die Analytics-Dateien.
+**Gemergt und live am 2026-09-18** (`59877ff`). Die Code-Änderungen lagen fertig auf `chore/aufraeumen-nach-tina` (`930b177`, lokal gebaut: aus den Seiten fallen nur die Identity-Skripte, die Vergleichsseite ist weg). `npm run go-live -- cleanup` merged den Branch nach `main` (fragt vorher), wartet auf den Deploy und archiviert die alten Branches (fragt vorher). Von Hand bleiben Netlify Identity im Dashboard und die Analytics-Dateien.
 
-- [ ] **D** `.forestry/` löschen — *im Branch*
-- [ ] **D** Decap-Reste: Skripte `cms` und `dev:cms`, Eintrag `pottery-cms` in `.claude/launch.json` — *im Branch*
-- [ ] **D** Netlify Identity: Widget und `netlifyIdentity`-Block aus `base.njk` — *im Branch*; im Dashboard Identity und Git Gateway abschalten — *von Hand*
-- [ ] **D** `src/netlify.toml` (nur eine Python-Version aus der Forestry-Zeit) samt Passthrough entfernen — *im Branch*
-- [ ] **D** Vergleichsseite entfernen: `preview-sets.njk`, `preview-sets.11tydata.js`, die `showAll`-Zweige in `current-firing.njk`, `src/_headers` — *im Branch*
+- [x] **D** `.forestry/` löschen
+- [x] **D** Decap-Reste: Skripte `cms` und `dev:cms`, Eintrag `pottery-cms` in `.claude/launch.json`
+- [x] **D** Netlify Identity: Widget und `netlifyIdentity`-Block aus `base.njk`
+- [ ] **D** Netlify-Dashboard: Identity und Git Gateway abschalten — *von Hand*
+- [x] **D** `src/netlify.toml` (nur eine Python-Version aus der Forestry-Zeit) samt Passthrough entfernen
+- [x] **D** Vergleichsseite entfernen: `preview-sets.njk`, `preview-sets.11tydata.js`, die `showAll`-Zweige in `current-firing.njk`, `src/_headers`
 - [x] **D** Passthrough `src/images` bleibt: das Teilen-Vorschaubild (`/images/share/…`) wird als Original ausgeliefert (Kommentar im Branch angepasst)
 - [ ] **D** Alte Branches archivieren (Tag `archiv/<name>`) und löschen: `feat/tinacms-migration`, `feat/sveltia-cms-migration`, lokal `decap`, `master`, `backup*` — *Skript fragt (`branches`); Tags lokaler Branches bleiben lokal*
 - [ ] **D** Analytics-Testdateien im Repo-Wurzelverzeichnis einsortieren oder löschen (`gc.html`, `matomo.*`, `umami*.html`, `u_*.js`, `plaus.html`, `sa.html`, `np.html`, `nfa.html`) — gehören nicht zur Migration
