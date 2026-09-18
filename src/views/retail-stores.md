@@ -2,7 +2,7 @@
 layout: retail-layout
 tags: footer
 permalink: /retail-stores.html
-title: Retail Stores TEST
+title: Retail Stores
 eyebrow: Stockists
 headline: Find my work in person
 intro: These galleries and shops carry a rotating selection of my glaze lines across British Columbia. Call ahead for current stock.

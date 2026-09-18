@@ -7,12 +7,12 @@
       "gmaps": "Trout Lake John Hendry Park, Vancouver, BC V5N 2C4, Canada",
       "description": "Weekly Farmer's market",
       "dates": [
+        "04-18-2026",
         "05-02-2026",
         "05-23-2026",
         "07-18-2026",
         "09-26-2026",
-        "10-17-2026",
-        "09-19-2026"
+        "10-17-2026"
       ]
     },
     {
@@ -55,17 +55,6 @@
         "07-19-2026",
         "09-20-2026"
       ]
-    },
-    {
-      "name": "TEST Market (Dan)",
-      "location": "Test Park",
-      "time": "10 a.m. to 3 p.m.",
-      "gmaps": "Trout Lake John Hendry Park, Vancouver, BC",
-      "description": "Test entry from the CMS gate test, will be removed.",
-      "dates": [
-        "10-03-2026",
-        "10-10-2026"
-      ]
     }
   ],
   "events": [
@@ -97,18 +86,6 @@
       "location": "Ambleside",
       "gmaps": "https://maps.app.goo.gl/6ow7uEVtdQA6XBkJ8?g_st=ac",
       "description": "40+ artisans line the street near Ambleside Beach",
-      "at_studio": false
-    },
-    {
-      "name": "TEST At studio (Dan)",
-      "time": "11 a.m. to 4 p.m.",
-      "location": "Matthew's studio",
-      "description": "Test event from the CMS gate test.",
-      "at_studio": true
-    },
-    {
-      "name": "TEST Multi-day (Dan)",
-      "end_date": "09-20-2026",
       "at_studio": false
     }
   ]

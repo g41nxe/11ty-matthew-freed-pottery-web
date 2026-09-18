@@ -7,7 +7,7 @@ eleventyNavigation:
   order: null
 title: Process
 eyebrow: How it's made
-headline: The Process TEST
+headline: The Process
 intro: 'Pottery is complicated. It is an art that requires creativity and a strong sense of design. It is also a science that requires a thorough understanding of natural materials and how they will react in combination with extreme heat. Each piece is a complexity of nature, science, and art. It amazes me.'
 quote: Inspiration can strike in strange ways.
 sections:

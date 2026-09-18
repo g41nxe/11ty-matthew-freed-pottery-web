@@ -3,7 +3,7 @@ layout: about-layout
 tags: about
 permalink: /about/pottery.html
 title: Art
-headline: Everyday art TEST
+headline: Everyday art
 intro: 'Pottery is complicated. It is an art that requires creativity and a strong sense of design. It is also a science that requires a thorough understanding of natural materials and how they will react in combination with extreme heat. '
 sections:
   - image:

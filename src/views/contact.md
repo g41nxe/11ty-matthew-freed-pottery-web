@@ -6,7 +6,7 @@ eleventyNavigation:
   order: 4
 title: Contact
 eyebrow: Get in touch
-headline: Don't be a stranger TEST
+headline: Don't be a stranger
 subheadline: Just say hello.
 social_title: Reach me directly
 intro:

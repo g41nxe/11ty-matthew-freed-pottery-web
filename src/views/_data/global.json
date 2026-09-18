@@ -22,7 +22,7 @@
     "next_up": "Next up",
     "dates_soon": "New dates go up here as soon as they are booked.",
     "keep_reading": "Keep reading",
-    "sold_out": "Sold out TEST"
+    "sold_out": "Sold out"
   },
   "footer": {
     "retail": "Retail stores",
@@ -36,7 +36,7 @@
     "description": "Vancouver pottery studio selling elegant kitchen-friendly pottery, mugs, plates, bowls, teapots, pots, trays, bottles, platters.",
     "url": "https://matthewfreed.ca",
     "author": "Matthew Freed",
-    "image": "/images/assets/blue-arrangement.jpg",
+    "image": "/assets/blue-arrangement.jpg",
     "options": {
       "titleDivider": "|",
       "imageWithBaseUrl": true
