@@ -2,6 +2,19 @@
   "items": [
     {
       "image": {
+        "url": "/images/glazes/skaha/tumbler-card.jpg",
+        "alt": "Skaha Collection: A tumbler by Matthew Freed"
+      },
+      "title": "Skaha Collection",
+      "text": "A deep glossy cobalt beneath a matte, stony glaze, like Skaha Lake below its rock bluffs.",
+      "slug": "Skaha",
+      "swatch": "#3E5873",
+      "filterGroups": [
+        "Blues"
+      ]
+    },
+    {
+      "image": {
         "url": "/images/glazes/squamish-nights/vase-closeup-hero.jpg",
         "alt": "Close-up of the celestial speckle on a Squamish Nights vase by Matthew Freed"
       },
@@ -163,10 +176,10 @@
     },
     {
       "image": {
-        "url": "/images/glazes/tofino/tumbler-card.jpg",
-        "alt": "Tofino Collection: A tumbler by Matthew Freed"
+        "url": "/images/glazes/tofino/chopstick-bowl-card.jpg",
+        "alt": "Tofino Collection: A bowl with chopsticks by Matthew Freed"
       },
-      "title": "Tofino  Collection",
+      "title": "Tofino Collection",
       "text": "A stormy, landscape effect in complimentary hues of cobalt, mocha, and amber.",
       "slug": "Tofino",
       "swatch": "#33556E",
