@@ -137,7 +137,7 @@ Medien lassen sich erst jetzt testen: TinaClouds Media-Branch ist fest `main`.
 - [x] **D** `src/netlify.toml` (nur eine Python-Version aus der Forestry-Zeit) samt Passthrough entfernen
 - [x] **D** Vergleichsseite entfernen: `preview-sets.njk`, `preview-sets.11tydata.js`, die `showAll`-Zweige in `current-firing.njk`, `src/_headers`
 - [x] **D** Passthrough `src/images` bleibt: das Teilen-Vorschaubild (`/images/share/…`) wird als Original ausgeliefert (Kommentar im Branch angepasst)
-- [ ] **D** Alte Branches archivieren (Tag `archiv/<name>`) und löschen: `feat/tinacms-migration`, `feat/sveltia-cms-migration`, lokal `decap`, `master`, `backup*` — *Skript fragt (`branches`); Tags lokaler Branches bleiben lokal*
+- [x] **D** Alte Branches archiviert (2026-09-18): `feat/tinacms-migration` und `feat/sveltia-cms-migration` als Tag `archiv/<name>` auf GitHub, lokal `decap`, `master`, `backup*` als lokale Tags; die Branches sind gelöscht
 - [ ] **D** Analytics-Testdateien im Repo-Wurzelverzeichnis einsortieren oder löschen (`gc.html`, `matomo.*`, `umami*.html`, `u_*.js`, `plaus.html`, `sa.html`, `np.html`, `nfa.html`) — gehören nicht zur Migration
 
 ---
