@@ -42,6 +42,7 @@ export const settings: Collection = {
         { type: "string", name: "next_up", label: "Badge on the next event card" },
         { type: "string", name: "dates_soon", label: "Shown when every listed date has passed" },
         { type: "string", name: "keep_reading", label: "Heading above the links at the end of the About pages" },
+        { type: "string", name: "sold_out", label: "Label on sold-out shop items (set automatically from the shop)" },
       ],
     },
     {

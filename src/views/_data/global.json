@@ -21,7 +21,8 @@
     "next_market": "Next market",
     "next_up": "Next up",
     "dates_soon": "New dates go up here as soon as they are booked.",
-    "keep_reading": "Keep reading"
+    "keep_reading": "Keep reading",
+    "sold_out": "Sold out"
   },
   "footer": {
     "retail": "Retail stores",

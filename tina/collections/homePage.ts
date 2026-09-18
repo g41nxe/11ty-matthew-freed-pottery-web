@@ -50,7 +50,7 @@ export const homePage: Collection = {
         },
         {
           type: "object", name: "items", label: "Shop items", list: true,
-          description: "Up to four, shown in this order next to the featured piece",
+          description: "Up to four, shown in this order next to the featured piece. Sold-out items get a label automatically.",
           ui: { max: 4, itemProps: (item) => ({ label: item?.title || "New item" }) },
           fields: [
             { type: "string", name: "title", label: "Title", description: "“Glaze - Piece”, for example “Tofino - Belly Mug”" },

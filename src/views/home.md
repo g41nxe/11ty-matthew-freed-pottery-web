@@ -91,7 +91,7 @@ shop_sets:
     items:
       - title: Yaletown Red - Medium Teapot
         overlay:
-          text: 'This medium teapot from the <span class="text-highlight font-bold">Yaletown Collection</span> is one of my best selling items.'
+          text: This medium teapot from the <span class="text-highlight font-bold">Yaletown Collection</span> is one of my best selling items.
         price: $165
         image:
           url: /images/products/yaletown-red-teapot-tile.jpg
@@ -116,15 +116,15 @@ shop_sets:
           alt: Yaletown Chopstick Bowl with red rim by Matthew Freed
         cta:
           url: 'https://shop.matthewfreed.net/products/chopstick-bowl-yaletown-red'
-      - title: Yaletown Red - Serving Tray
+      - title: Yaletown Red - Medium Serving Bowl
         overlay:
-          text: 'The classic serving tray from the <span class="text-highlight font-bold">Yaletown Collection</span>, a good size for all kinds of serving. 8" x 12".'
-        price: $58
+          text: 'A medium serving bowl from the <span class="text-highlight font-bold">Yaletown Collection</span>, with a red rim on the charcoal glaze.'
+        price: $65
         image:
-          url: /images/products/yaletown-red-serving-tray-tile.jpg
-          alt: Yaletown Serving Tray with red rim by Matthew Freed
+          url: /images/products/yaletown-red-medium-serving-bowl-tile.jpg
+          alt: Yaletown Medium Serving Bowl with red rim by Matthew Freed
         cta:
-          url: 'https://shop.matthewfreed.net/products/serving-tray-yaletown-red'
+          url: 'https://shop.matthewfreed.net/products/copy-large-serving-bowl-yaletown-red'
   - name: Joffre
     hide: false
     featured_piece:
@@ -167,26 +167,26 @@ shop_sets:
           alt: Four Joffre Condiment Cozies by Matthew Freed
         cta:
           url: 'https://shop.matthewfreed.net/products/copy-of-condiment-cozy-garibaldi-1'
-      - title: Joffre - Skinny Tray
+      - title: Joffre - Scalloped Tray
         overlay:
-          text: 'The tray from the photo: a long serving tray from the <span class="text-highlight font-bold">Joffre Collection</span> for cheese, sushi, cookies or dessert. 5.5" x 12".'
-        price: $48
+          text: A serving tray from the <span class="text-highlight font-bold">Joffre Collection</span> with a bit of depth for dishes with a sauce. Oven safe.
+        price: $95
         image:
-          url: /images/products/joffre-skinny-tray-tile.jpg
-          alt: Joffre Skinny Tray by Matthew Freed
+          url: /images/products/joffre-scalloped-tray-tile.jpg
+          alt: Joffre Scalloped Tray by Matthew Freed
         cta:
-          url: 'https://shop.matthewfreed.net/products/copy-skinny-tray-jericho'
+          url: 'https://shop.matthewfreed.net/products/scalloped-tray-joffre'
   - name: Oil dispensers
     hide: false
     featured_piece:
       eyebrow: Featured piece
       title: Pouring bottles
-      caption: One shape, four glazes
+      caption: 'One shape, four glazes'
       text: 'A pouring bottle with an insert-able spout, for oil, vinegar or dish soap. The same shape comes out of the kiln differently in every glaze.'
       price: ''
       image:
         url: /images/products/oil-dispensers-feature.jpg
-        alt: 'Four pouring bottles with metal spouts in different glazes by Matthew Freed'
+        alt: Four pouring bottles with metal spouts in different glazes by Matthew Freed
       cta:
         label: View in the shop
         url: 'https://shop.matthewfreed.net/search?q=pouring+bottle'
@@ -237,7 +237,7 @@ shop_sets:
       price: ''
       image:
         url: /images/glazes/tree-of-life/bowls-and-pitcher-feature.jpg
-        alt: 'Tree of Life pitcher and bowls with lemons by Matthew Freed'
+        alt: Tree of Life pitcher and bowls with lemons by Matthew Freed
       cta:
         label: View in the shop
         url: 'https://shop.matthewfreed.net/collections/all/Tree%20of%20Life'
@@ -253,7 +253,7 @@ shop_sets:
           url: 'https://shop.matthewfreed.net/products/pitcher-tree-of-life'
       - title: Tree of Life - Nesting Bowls
         overlay:
-          text: 'Three bowls from the <span class="text-highlight font-bold">Tree of Life Collection</span> that stack inside each other.'
+          text: Three bowls from the <span class="text-highlight font-bold">Tree of Life Collection</span> that stack inside each other.
         price: $245
         image:
           url: /images/products/tree-of-life-nesting-bowls-tile.jpg
@@ -279,16 +279,16 @@ shop_sets:
         cta:
           url: 'https://shop.matthewfreed.net/products/serving-bowl-tree-of-life'
   - name: Strathcona
-    hide: false
+    hide: true
     featured_piece:
       eyebrow: Featured piece
       title: Strathcona platters
       caption: Strathcona · a hand-painted chevron pattern
-      text: 'A semi-matte charcoal glaze with a hand-painted gold chevron pattern that follows the shape of each piece.'
+      text: A semi-matte charcoal glaze with a hand-painted gold chevron pattern that follows the shape of each piece.
       price: ''
       image:
         url: /images/glazes/strathcona/platters-and-bowl-feature.jpg
-        alt: 'Two Strathcona platters and a serving bowl with a chevron pattern by Matthew Freed'
+        alt: Two Strathcona platters and a serving bowl with a chevron pattern by Matthew Freed
       cta:
         label: View in the shop
         url: 'https://shop.matthewfreed.net/collections/all/Strathcona'
@@ -313,7 +313,7 @@ shop_sets:
           url: 'https://shop.matthewfreed.net/products/large-square-platter-strathcona'
       - title: Strathcona - Wide Rim Platter
         overlay:
-          text: 'A platter from the <span class="text-highlight font-bold">Strathcona Collection</span> with a wide rim around the pattern.'
+          text: A platter from the <span class="text-highlight font-bold">Strathcona Collection</span> with a wide rim around the pattern.
         price: $175
         image:
           url: /images/products/strathcona-wide-rim-platter-tile.jpg

@@ -24,7 +24,7 @@ Am 2026-09-18 zusätzlich geprüft (Details in Abschnitt 6):
 
 - Round-Trip erneut über alle 13 Collections, alles unverändert.
 - Neue Tests für die Events-Filter, `npm test` mit 13 Tests grün.
-- Vorschau gegen die Live-Seite: acht von zehn Seiten zeichengleich; die drei
+- Vorschau gegen die Live-Seite: sieben von zehn Seiten zeichengleich; die drei
   Abweichungen sind gewollt (Alt-Text des Yaletown-Galeriebilds auf Start- und
   Collections-Seite, Abstand unter dem Medaillen-Hinweis auf About).
 - Alle 24 Shop-Artikel: Preis im CMS gleich dem Preis im Shop, jeder Link führt
@@ -111,10 +111,17 @@ Default-Branch. Vorher meldet TinaCloud „Tina Media Not Configured".
 - [ ] **Shop-Sets:** Matthew liest die sechs Sets auf
       `/preview-sets.html` gegen. Titel, Beschreibungen und Preise sind meine
       Entwürfe aus den Shop-Texten.
-- [ ] **Ausverkaufte Artikel** ersetzen oder die betroffenen Sets verstecken:
-      Yaletown Teekanne und Serviertablett, drei der vier Ölflaschen
-      (nur Tree of Life ist da), beide Strathcona-Platten und die
-      Strathcona-Essschale.
+- [x] **Ausverkaufte Artikel** (2026-09-18): Yaletown-Tablett gegen die rote
+      Medium Serving Bowl getauscht, Joffre Skinny Tray gegen das Scalloped
+      Tray, Strathcona versteckt (drei von vier Stücken ausverkauft, das Set
+      kommt zurück, sobald neue da sind). Alle übrigen ausverkauften Stücke
+      tragen ein Label „Sold out" über dem Bild.
+- [ ] **Das Label ist so frisch wie der letzte Build.** Der Build fragt den Shop
+      je Artikel ab (`_data/soldOut.js`); gebaut wird bei jeder Änderung im
+      CMS. Verkauft sich ein Stück zwischen zwei Builds, fehlt das Label bis zum
+      nächsten. Entscheiden, ob ein täglicher Neubau nötig ist (Netlify-Build-Hook
+      plus Zeitplan). Fällt der Shop beim Build aus, erscheint einfach kein
+      Label.
 - [ ] Preise gegen den Shop prüfen, sie stehen fest im CMS.
 - [ ] Jeder Artikel-Link führt in den richtigen Shop-Artikel (die Handles sind
       teils irreführend, etwa `copy-large-teapot-tofino` für die
