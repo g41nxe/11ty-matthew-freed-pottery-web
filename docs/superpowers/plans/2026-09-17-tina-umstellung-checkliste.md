@@ -17,7 +17,7 @@
 | # | Phase | Stand | Offen | Wer |
 |---|---|---|---|---|
 | 1 | Prüfung auf der Vorschau | technisch erledigt | Anleitung an Matthew, Inhalte gegenlesen | M, D |
-| 2 | Zugang und Netlify | offen | Token für `main`, alte Variablen, Einladung | D |
+| 2 | Zugang und Netlify | zum Teil erledigt | altes Token, Zugänge widerrufen, Einladung | D |
 | 3 | Umschalten | per Skript vorbereitet | `go-live switch` | D |
 | 4 | Direkt nach dem Umschalten | offen | Medien auf TinaCloud, Smoke-Test | D, M |
 | 5 | Aufräumen | per Skript vorbereitet | `go-live cleanup`, Identity im Dashboard | D |
@@ -85,13 +85,13 @@ Am 2026-09-18 im Admin der Vorschau durchgetestet. Jede Speicherung wurde ein ei
 
 ## 2. Zugang und Netlify
 
-- [ ] **D** Neues Content-Token in TinaCloud für `main`, besser `*` (sonst scheitern Vorschauen anderer Branches)
-- [ ] **D** `TINA_TOKEN` in Netlify für alle Deploy-Kontexte
+- [x] **D** Neues Content-Token in TinaCloud (2026-09-18): liest `main`, `feat/tinacloud-migration` und `chore/aufraeumen-nach-tina`, gilt also für alle Branches. `main` meldet „unknown“, bis dort mit dem Umschalten die Tina-Konfiguration ankommt
+- [x] **D** `TINA_TOKEN` in Netlify und in der lokalen `.env` (Netlify-seitig bestätigt der nächste Build, spätestens beim Umschalten)
 - [ ] **D** Altes Token (nur `feat/tinacloud-migration`) löschen
-- [ ] **D** Alte Variablen löschen: `GITHUB_BRANCH`, `GITHUB_OWNER`, `GITHUB_REPO`, `GITHUB_PERSONAL_ACCESS_TOKEN`, `MONGODB_URI`, `NEXTAUTH_SECRET`, `TINA_PUBLIC_IS_LOCAL`
+- [x] **D** Alte Variablen löschen: `GITHUB_BRANCH`, `GITHUB_OWNER`, `GITHUB_REPO`, `GITHUB_PERSONAL_ACCESS_TOKEN`, `MONGODB_URI`, `NEXTAUTH_SECRET`, `TINA_PUBLIC_IS_LOCAL`
 - [ ] **D** GitHub-Token und MongoDB-Zugang aus dem Selbsthosting-Versuch widerrufen
 - [ ] **D** Matthew in TinaCloud einladen (zwei Nutzer sind frei, ein dritter kostet)
-- [ ] **D** Vorschau eines fremden Branches (z. B. Dependabot): läuft `tinacms build`? Sonst Token auf `*` oder dort `build:site` ohne Tina
+- [x] **D** Vorschau eines fremden Branches (z. B. Dependabot): das neue Token gilt für alle Branches, TinaCloud hat auch `chore/aufraeumen-nach-tina` indexiert
 - [ ] **D** TinaCloud-Ausfall simulieren (falsches Token): nur der Deploy scheitert, die Live-Seite bleibt online
 - [x] Netlify-Build des Branches grün, `tinacms build` ohne Speicherüberlauf
 
