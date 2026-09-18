@@ -559,6 +559,17 @@ async function cleanup() {
     } else {
         if (localBranchExists("main")) {
             checkout("main");
+            // Speichert Matthew im CMS, während das Aufräumen auf die
+            // Bestätigung wartet, liegt auf GitHub ein neuer Commit. Ein nur
+            // lokaler Merge des Aufräum-Branchs wird dann neu aufgesetzt.
+            if (!isAncestor("origin/main", "HEAD")) {
+                const own = git("log", "--format=%s", "origin/main..HEAD", `^origin/${CLEANUP_BRANCH}`).split("\n").filter(Boolean);
+                if (own.length !== 1 || !own[0].startsWith(`Merge ${CLEANUP_BRANCH}`)) {
+                    throw new Stop("main ist lokal und auf GitHub auseinandergelaufen.", "Lokale Commits prüfen (git log origin/main..main), dann erneut starten.");
+                }
+                git("reset", "-q", "--hard", "origin/main");
+                warn("Auf GitHub gibt es neue Commits (etwa aus dem CMS); der Merge wird neu aufgesetzt");
+            }
             git("merge", "-q", "--ff-only", "origin/main");
         } else git("checkout", "-q", "-b", "main", "origin/main");
         if (!isAncestor(`origin/${CLEANUP_BRANCH}`, "HEAD")) {
