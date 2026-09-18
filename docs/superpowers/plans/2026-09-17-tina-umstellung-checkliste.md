@@ -143,12 +143,12 @@ Default-Branch. Vorher meldet TinaCloud „Tina Media Not Configured".
 - [ ] **About, Art, Process:** Karten am Seitenende verlinken die jeweils
       anderen beiden, Footer-Link „Everyday art" führt auf die Art-Seite.
 - [ ] **Telefon (375 px):** keine waagerechte Scrollleiste, Karten stapeln.
-- [ ] **Kontaktformular:** das Formular sendet an `/success`, und diese Seite
-      gibt **auf der Live-Seite wie auf der Vorschau 404** (geprüft
-      2026-09-18). Das ist ein Altbestand, keine Folge der Migration, fällt
-      aber jedem auf, der das Formular abschickt. Entweder eine Dankesseite
-      anlegen (Text von Matthew) oder das Ziel des Formulars ändern. Danach
-      einmal absenden und prüfen, ob die Nachricht in Netlify ankommt.
+- [x] **Kontaktformular** (geprüft 2026-09-18 von Dan): nach dem Absenden
+      zeigt Netlify seine Standardseite „Thank you! Your form submission has
+      been received." unter `/success`. Nur ein direkter Aufruf von
+      `/success` ohne Absenden gibt 404 — mein früherer Befund war falsch.
+      Eine eigene Dankesseite ist für später vorgesehen:
+      `docs/feature/0002-eigene-dankesseite-kontaktformular.md`.
 - [ ] **Weiterleitungen** aus `src/_redirects` stichprobenartig: `/home/bio`,
       `/updates`, `/shop`, `/about/retail-stores`.
 - [ ] `sitemap.xml` (ohne `/preview-sets.html`), `robots.txt`, Favicons,
