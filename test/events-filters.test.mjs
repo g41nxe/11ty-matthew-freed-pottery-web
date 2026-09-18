@@ -71,6 +71,17 @@ test("filterUpcoming keeps a multi-day event while it runs", () => {
     assert.deepEqual(result.map((e) => e.name), ["Läuft gerade"]);
 });
 
+test("filterUpcoming skips entries without a readable date instead of throwing", () => {
+    const result = filters.filterUpcoming([
+        { name: "Ohne Datum" },
+        { name: "Leeres Datum", date: "" },
+        { name: "Kaputtes Datum", date: "2026-10-04T00:00:00.000Z" },
+        { name: "Kaputtes Enddatum", date: TODAY, end_date: "bald" },
+        { name: "Morgen", date: TOMORROW },
+    ]);
+    assert.deepEqual(result.map((e) => e.name), ["Kaputtes Enddatum", "Morgen"]);
+});
+
 test("marketSchedule groups by market, not by name", () => {
     const schedule = filters.marketSchedule([
         { name: "Trout Lake", date: NEXT_WEEK, market: "market-0" },

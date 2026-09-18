@@ -64,15 +64,24 @@ module.exports = function (eleventyConfig) {
     // the start of today rather than the current instant is what keeps
     // today's date in. `lastDay` guards against an end_date that predates
     // the start.
+    // An entry without a readable date is left out rather than failing the
+    // build: Luxon throws on a missing date, and one bad entry would stop
+    // every deploy until someone fixed the file (seen 2026-09-18, when the
+    // CMS saved two events without a date).
     function lastDay(event) {
+        if (typeof event.date !== 'string') return null;
         const start = DateTime.fromFormat(event.date, 'MM-dd-yyyy');
-        if (!event.end_date) return start;
+        if (!start.isValid) return null;
+        if (typeof event.end_date !== 'string' || !event.end_date) return start;
         const end = DateTime.fromFormat(event.end_date, 'MM-dd-yyyy');
-        return end > start ? end : start;
+        return end.isValid && end > start ? end : start;
     }
     eleventyConfig.addNunjucksFilter("filterUpcoming", function(array) {
         const today = DateTime.now().startOf('day');
-        return array.filter(el => lastDay(el) >= today);
+        return array.filter(el => {
+            const last = lastDay(el);
+            return last !== null && last >= today;
+        });
     });
     // One entry per day something is on: every date of every market, then
     // every event, shaped like the flat list the templates were written
