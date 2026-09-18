@@ -13,7 +13,7 @@ sections:
           No.
           I have a lot of variety of work - so much so that is difficult to show all available options online.
           If you don't see what you are looking for, you can always <a href="mailto:mfreed74@gmail.com">email</a> me to ask if I have the item available.
-          And it may be possible to request a commissioned piece as well if you provide me with approximate dimensions and a glaze line.
+          And it may be possible to request a commissioned piece as well if you provide me with approximate dimensions and a glaze line. TEST
       - title: 'The item I want is sold out, can I still purchase it?'
         body: |-
           I do not list items for sale if they aren't currently made.
