@@ -30,7 +30,7 @@
             <a href="{{ item.cta.url }}" target="_blank" rel="noopener" class="group">
                 <div class="relative overflow-hidden bg-tile">
                     {# soldOut comes from _data/soldOut.js, which asks the shop at build time. #}
-                    {% if soldOut[item.cta.url] %}<span class="cap-label absolute left-2 top-2 z-10 bg-ink px-2 py-1 text-[10px] text-paper">{{ global.labels.sold_out | default("Sold out", true) }}</span>{% endif %}
+                    {% if soldOut[item.cta.url] %}<span class="cap-label absolute right-2 top-2 z-10 bg-sand px-2 py-1 text-[10px] text-ink">{{ global.labels.sold_out | default("Sold out", true) }}</span>{% endif %}
                     {% img item.image.url, item.image.alt, "(min-width: 1152px) 254px, (min-width: 768px) 25vw, 50vw", "img-zoom w-full object-cover" %}
                     {% if item.overlay.text %}
                     <div class="absolute inset-x-0 bottom-0 hidden translate-y-3 bg-linear-to-t from-ink via-ink/75 to-transparent px-3 pb-3 pt-12 font-display text-sm leading-snug text-paper opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 md:block">
