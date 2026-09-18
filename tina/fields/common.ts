@@ -35,6 +35,10 @@ export const imageField = (name: string, label: string): TinaField => ({
   ],
 });
 
+// Texts that mention how many glaze lines there are. The site replaces the
+// placeholder with the number of entries in the glaze gallery, written out.
+export const glazesHint = "{glazes} becomes the number of glaze lines (e.g. sixteen), {Glazes} the same with a capital";
+
 export const linkField = (name: string, label: string): TinaField => ({
   type: "object",
   name,

@@ -1,5 +1,5 @@
 import type { Collection } from "tinacms";
-import { imageField, linkField } from "../fields/common";
+import { glazesHint, imageField, linkField } from "../fields/common";
 
 export const homePage: Collection = {
   name: "home_page",
@@ -16,7 +16,7 @@ export const homePage: Collection = {
         { type: "string", name: "eyebrow", label: "Eyebrow" },
         { type: "string", name: "title", label: "Title" },
         { type: "string", name: "highlight", label: "Highlight word (shown in sand)", description: "Must appear in the title" },
-        { type: "string", name: "text", label: "Text", ui: { component: "textarea" } },
+        { type: "string", name: "text", label: "Text", description: glazesHint, ui: { component: "textarea" } },
         { type: "string", name: "cta_primary", label: "Primary button" },
         linkField("cta_secondary", "Secondary link"),
         imageField("image", "Image"),
@@ -65,11 +65,11 @@ export const homePage: Collection = {
     {
       type: "object", name: "collections_teaser", label: "Collections teaser",
       fields: [
-        { type: "string", name: "title", label: "Title" },
+        { type: "string", name: "title", label: "Title", description: glazesHint },
         { type: "string", name: "text", label: "Text", ui: { component: "textarea" } },
         { type: "string", name: "item_cta", label: "Link text on each glaze card" },
-        { type: "string", name: "link_label", label: "Field-guide link (wide screens)" },
-        { type: "string", name: "link_label_short", label: "Field-guide link (phones)" },
+        { type: "string", name: "link_label", label: "Field-guide link (wide screens)", description: glazesHint },
+        { type: "string", name: "link_label_short", label: "Field-guide link (phones)", description: glazesHint },
       ],
     },
     {

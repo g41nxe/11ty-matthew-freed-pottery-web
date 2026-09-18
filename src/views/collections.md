@@ -5,7 +5,7 @@ permalink: /collections.html
 title: Collections
 intro:
   eyebrow: The field guide
-  title: 'Fifteen glazes, fifteen stories'
+  title: '{Glazes} glazes, {glazes} stories'
   text: 'Each glaze began somewhere — a night sky over Squamish, dogwoods on the boulevard, a quiet morning at the wheel. Find yours.'
 item_cta: Browse in shop
 filters:

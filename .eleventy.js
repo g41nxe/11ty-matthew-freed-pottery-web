@@ -8,6 +8,16 @@ const md = markdownIt({ html: true }); // html:true is required — process.md's
 
 const FALLBACK_ALT = "Handmade pottery by Matthew Freed";
 
+// 16 -> "sixteen", as the site's copy writes numbers. Above 99 it keeps digits.
+const ONES = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+    "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+const TENS = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+function numberWord(n) {
+    if (!Number.isInteger(n) || n < 0 || n > 99) return String(n);
+    if (n < 20) return ONES[n];
+    return TENS[Math.floor(n / 10)] + (n % 10 ? "-" + ONES[n % 10] : "");
+}
+
 module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget("src/javascript/*.js");
 
@@ -149,6 +159,16 @@ module.exports = function (eleventyConfig) {
             });
     });
     eleventyConfig.addNunjucksFilter("markdownify", (s) => (s ? md.render(s) : ""));
+    // CMS texts write {glazes} (or {Glazes} to start a sentence) instead of
+    // a number, so "fifteen glazes" stays right when a glaze line is added
+    // to or removed from the gallery.
+    eleventyConfig.addNunjucksFilter("glazeCount", (text, count) => {
+        if (typeof text !== "string" || !text.includes("{")) return text;
+        const word = numberWord(count);
+        return text
+            .replace(/\{glazes\}/g, word)
+            .replace(/\{Glazes\}/g, word.charAt(0).toUpperCase() + word.slice(1));
+    });
 
     return {
         dir: {

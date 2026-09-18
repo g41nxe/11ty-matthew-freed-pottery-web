@@ -10,7 +10,7 @@ hero:
   eyebrow: Handthrown in Vancouver
   title: Art for everyday life
   highlight: life
-  text: 'Functional stoneware in fifteen glazes, each with a name and a story.'
+  text: 'Functional stoneware in {glazes} glazes, each with a name and a story.'
   cta_primary: Shop the collections
   cta_secondary:
     label: All events
@@ -381,11 +381,11 @@ shop_sets:
         cta:
           url: 'https://shop.matthewfreed.net/products/meal-bowl-strathcona'
 collections_teaser:
-  title: 'Fifteen glazes, fifteen stories'
+  title: '{Glazes} glazes, {glazes} stories'
   text: 'Named for the coasts, mountains and neighbourhoods that shaped their colours — and a few quieter inspirations.'
   item_cta: View in the shop
-  link_label: The full field guide — all fifteen glazes
-  link_label_short: All fifteen glazes
+  link_label: 'The full field guide — all {glazes} glazes'
+  link_label_short: 'All {glazes} glazes'
 products:
   title: From the current firing
   note: Checkout happens in my Shopify shop.

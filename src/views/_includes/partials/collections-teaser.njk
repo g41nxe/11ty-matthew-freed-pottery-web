@@ -1,6 +1,6 @@
 <section class="mx-auto max-w-6xl px-6 py-12" aria-label="Collections">
     <div>
-        <h2 class="font-display text-3xl font-black text-ink">{{ collections_teaser.title }}</h2>
+        <h2 class="font-display text-3xl font-black text-ink">{{ collections_teaser.title | glazeCount(gallery.items.length) }}</h2>
         <p class="mt-2 max-w-xl text-sm text-muted">{{ collections_teaser.text }}</p>
     </div>
     <div id="glaze-slider" class="no-scrollbar -mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-6 px-6 pb-2">
@@ -19,7 +19,7 @@
         {% endfor %}
     </div>
     <div class="palette-strip mt-8 flex flex-col gap-4 border-y border-hairline py-5 sm:flex-row sm:items-center sm:justify-between">
-        <a href="/collections.html" class="strip-label self-start font-display text-lg font-black text-blue sm:self-auto"><span class="hidden sm:inline">{{ collections_teaser.link_label }}</span><span class="sm:hidden">{{ collections_teaser.link_label_short | default(collections_teaser.link_label, true) }}</span></a>
+        <a href="/collections.html" class="strip-label self-start font-display text-lg font-black text-blue sm:self-auto"><span class="hidden sm:inline">{{ collections_teaser.link_label | glazeCount(gallery.items.length) }}</span><span class="sm:hidden">{{ collections_teaser.link_label_short | default(collections_teaser.link_label, true) | glazeCount(gallery.items.length) }}</span></a>
         <div class="palette-dots -mx-1 flex flex-wrap items-center" aria-label="Jump to a glaze">
             {% for item in gallery.items %}
             <button type="button" data-goto="{{ loop.index0 }}" class="glaze-dot" title="{{ item.title | replace(' Collection', '') }}" aria-label="Show {{ item.title | replace(' Collection', '') }}">
