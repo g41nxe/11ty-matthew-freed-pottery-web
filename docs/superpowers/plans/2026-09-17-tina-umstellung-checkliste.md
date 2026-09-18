@@ -5,7 +5,7 @@
 | Stand | 2026-09-18 |
 | Branch | `feat/tinacloud-migration` |
 | Vorschau | https://feat-tinacloud-migration--mf-pottery.netlify.app |
-| Admin der Vorschau | `/admin-tina/` (Decap bleibt bis zur Umstellung unter `/admin/`) |
+| Admin | `matthewfreed.ca/admin/` (seit `v2.1.0`; vorher Decap) |
 | Alle Shop-Sets auf einen Blick | `/preview-sets.html` |
 | Anleitung für Matthew | https://claude.ai/artifact/874NMeYA5GWXKPkm7Ui88s (privat, vor dem Verschicken freigeben) |
 | Umschalten und Aufräumen | `npm run go-live -- check`, `switch`, `cleanup` (Skill `tina-livegang`) |
@@ -18,7 +18,7 @@
 |---|---|---|---|---|
 | 1 | Prüfung auf der Vorschau | technisch erledigt | Anleitung an Matthew, Inhalte gegenlesen | M, D |
 | 2 | Zugang und Netlify | erledigt | – | D |
-| 3 | Umschalten | per Skript vorbereitet | `go-live switch` | D |
+| 3 | Umschalten | erledigt, `v2.1.0` | – | D |
 | 4 | Direkt nach dem Umschalten | offen | Medien auf TinaCloud, Smoke-Test | D, M |
 | 5 | Aufräumen | per Skript vorbereitet | `go-live cleanup`, Identity im Dashboard | D |
 | 6 | Eine Woche danach | offen | Rückblick | D, M |
@@ -97,17 +97,17 @@ Am 2026-09-18 im Admin der Vorschau durchgetestet. Jede Speicherung wurde ein ei
 
 ## 3. Umschalten — per Skript
 
-Vorher `npm run go-live -- check` (Probelauf, ändert nichts), dann `npm run go-live -- switch`. Das Skript arbeitet die Schritte unten ab, erkennt erledigte Schritte und hält an bei Konflikten, gescheiterten Prüfungen und vor jedem Push auf `main`; weiter geht es mit `--ja=<schlüssel>` (Skill `tina-livegang`). Probelauf am 2026-09-18: alles grün bis auf den Token (Abschnitt 2).
+Vorher `npm run go-live -- check` (Probelauf, ändert nichts), dann `npm run go-live -- switch`. Das Skript arbeitet die Schritte unten ab, erkennt erledigte Schritte und hält an bei Konflikten, gescheiterten Prüfungen und vor jedem Push auf `main`; weiter geht es mit `--ja=<schlüssel>` (Skill `tina-livegang`). **Umgeschaltet am 2026-09-18:** Release `v2.1.0` (Merge `545f9ea`), Live-Stand davor `v2.0.3`. Live-Deploy und TinaCloud-Indexierung von `main` bestätigt, `matthewfreed.ca/admin/` ist Tina, `/admin-tina/` leitet weiter.
 
-1. [ ] **D** Inhaltssperre mit Matthew verabreden: ab jetzt nichts mehr in Decap speichern — *Skript fragt (`sperre`)*
-2. [ ] **D** Branch auf den Stand von GitHub, dann **`main` in den Branch mergen**, nicht umgekehrt — *Skript*
-3. [ ] **D** Konflikte lösen; Matthews Inhalte gewinnen, Struktur und Code vom Branch — *`events.json` übernimmt das Skript; Änderungen an `faq.json`, `news.json`, `seo.json`, `showcase.json` meldet es mit Ziel zum Übertragen von Hand*
-4. [ ] **D** `events.json` in Märkte und Events umwandeln, Ergebnis ansehen — *Skript, listet Märkte und Termine*
-5. [ ] **D** Prüfungen: `npm test`, Typecheck, Round-Trip aller 13 Collections, Shop-Abgleich — *Skript*
-6. [ ] **D** Tina von `/admin-tina/` nach `/admin/`, Decaps `src/admin/` samt Passthrough weg, Weiterleitung `/admin-tina/*` — *Skript*
-7. [ ] **D** Einmal pushen, Vorschau-Build abwarten (`/build.txt`), `/admin/` ist Tina, Vorschau gegen Live — *Skript*
-8. [ ] **D** Live-Stand taggen, Branch nach `main` mergen, Release taggen, pushen — *Skript fragt (`release`)*
-9. [ ] **D** Live-Deploy und TinaCloud-Indexierung von `main` abwarten, `/admin/` prüfen — *Skript*
+1. [x] **D** Inhaltssperre mit Matthew verabreden: ab jetzt nichts mehr in Decap speichern — *Skript fragt (`sperre`)*
+2. [x] **D** Branch auf den Stand von GitHub, dann **`main` in den Branch mergen**, nicht umgekehrt — *Skript*
+3. [x] **D** Konflikte lösen; Matthews Inhalte gewinnen, Struktur und Code vom Branch — *`events.json` übernimmt das Skript; Änderungen an `faq.json`, `news.json`, `seo.json`, `showcase.json` meldet es mit Ziel zum Übertragen von Hand*
+4. [x] **D** `events.json` in Märkte und Events umwandeln, Ergebnis ansehen — *Skript, listet Märkte und Termine*
+5. [x] **D** Prüfungen: `npm test`, Typecheck, Round-Trip aller 13 Collections, Shop-Abgleich — *Skript*
+6. [x] **D** Tina von `/admin-tina/` nach `/admin/`, Decaps `src/admin/` samt Passthrough weg, Weiterleitung `/admin-tina/*` — *Skript*
+7. [x] **D** Einmal pushen, Vorschau-Build abwarten (`/build.txt`), `/admin/` ist Tina, Vorschau gegen Live — *Skript*
+8. [x] **D** Live-Stand taggen, Branch nach `main` mergen, Release taggen, pushen — *Skript fragt (`release`)*
+9. [x] **D** Live-Deploy und TinaCloud-Indexierung von `main` abwarten, `/admin/` prüfen — *Skript*
 
 ---
 
