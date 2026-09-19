@@ -9,10 +9,10 @@
 <section class="mx-auto max-w-6xl px-6 py-12 hidden" aria-label="From the current firing" data-firing-set{% if loop.first %} data-firing-first{% endif %}>
     <div class="flex items-baseline justify-between gap-4">
         <h2 class="font-display text-3xl font-black text-ink">{{ products.title }}</h2>
-        <a href="{{ global.shop.base }}{{ global.shop.collectionsPath }}/" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ products.link_label | default("Shop all pieces", true) }}</a>
+        <a href="{{ (global.shop.base + global.shop.collectionsPath + "/") | shopLink("firing-shop-all") }}" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ products.link_label | default("Shop all pieces", true) }}</a>
     </div>
     <div class="mt-8 grid gap-10 md:grid-cols-2 lg:gap-12">
-        <a href="{{ piece.cta.url }}" target="_blank" rel="noopener" class="group">
+        <a href="{{ piece.cta.url | shopLink("firing-" + shop_set.name + "-featured") }}" target="_blank" rel="noopener" class="group">
             <div class="overflow-hidden bg-tile">
                 {% img piece.image.url, piece.image.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "img-zoom w-full object-cover" %}
             </div>
@@ -25,7 +25,7 @@
         </a>
         <div class="grid grid-cols-2 content-start gap-5">
             {% for item in shop_set.items.slice(0, 4) %}
-            <a href="{{ item.cta.url }}" target="_blank" rel="noopener" class="group">
+            <a href="{{ item.cta.url | shopLink("firing-" + shop_set.name + "-tile" + loop.index) }}" target="_blank" rel="noopener" class="group">
                 <div class="relative overflow-hidden bg-tile">
                     {# soldOut comes from _data/soldOut.js, which asks the shop at build time. #}
                     {% if soldOut[item.cta.url] %}<span class="cap-label absolute right-2 top-2 z-10 bg-sand px-2 py-1 text-[10px] font-bold text-ink">{{ global.labels.sold_out | default("Sold out", true) }}</span>{% endif %}
