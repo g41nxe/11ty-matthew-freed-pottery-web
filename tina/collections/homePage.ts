@@ -34,7 +34,7 @@ export const homePage: Collection = {
         defaultItem: { hide: false },
       },
       fields: [
-        { type: "string", name: "name", label: "Name", description: "Only shown here in the CMS, for example “Tofino”" },
+        { type: "string", name: "name", label: "Name", required: true, description: "Names this set on the website's statistics and in the shop reports. Keep it short and unique; renaming it starts a new row there." },
         { type: "boolean", name: "hide", label: "Hide (leave out of the rotation)" },
         {
           type: "object", name: "featured_piece", label: "Featured piece",
