@@ -51,6 +51,14 @@
     <a href="{{ mapsUrl }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
         {% img "/images/site/studio-map.png", "Street map around the studio", "(min-width: 1152px) 532px, (min-width: 768px) 50vw, 100vw", "block h-[236px] w-full object-cover" %}
     </a>
+    {# Google-Maps-style pin. The picture is centred on the studio and
+       object-cover keeps that centre in the middle of the box, so the tip of
+       the pin sits at the centre. It ignores clicks, which fall through to
+       the picture link. #}
+    <svg class="pointer-events-none absolute left-1/2 top-1/2 h-[43px] w-[27px] -translate-x-1/2 -translate-y-full drop-shadow-sm" viewBox="0 0 27 43" aria-hidden="true" focusable="false">
+        <path d="M13.5 0C6.04 0 0 6.04 0 13.5 0 23.6 13.5 43 13.5 43S27 23.6 27 13.5C27 6.04 20.96 0 13.5 0z" fill="#EA4335" stroke="#B31412"/>
+        <circle cx="13.5" cy="13.5" r="4.5" fill="#B31412"/>
+    </svg>
     <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" class="absolute bottom-1 right-2 bg-paper/90 px-1 py-0.5 text-xs text-ink" aria-label="Map data © OpenStreetMap contributors">© OpenStreetMap contributors</a>
 </div>
 {% endif %}
