@@ -41,9 +41,11 @@
         const url = link && parse(link.href);
         if (!url) return;
         if (url.hostname.startsWith("shop.")) {
+            const firingSet = link.closest("[data-firing-set]");
             track("shop-click", {
                 piece: url.pathname.replace(/^\/+|\/+$/g, ""),
                 placement: url.searchParams.get("utm_content") || "unbenannt",
+                ...(firingSet ? { set: firingSet.dataset.firingName } : {}),
             });
         }
         if (url.hostname.endsWith("google.com") && url.pathname.startsWith("/maps")) {
