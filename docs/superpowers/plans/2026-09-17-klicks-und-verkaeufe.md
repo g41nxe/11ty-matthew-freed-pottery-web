@@ -50,30 +50,37 @@ Shopify-Admin → Marketing → Kampagne „Website" anlegen, damit die Berichte
 
 ## Task 1: Filter `shopLink`
 
+Folgt der Konvention des Repos (Stand `main` nach der Tina-Umstellung): Filter stehen in `.eleventy.js`, Tests laden die Konfiguration mit einem Stub und rufen den registrierten Filter auf (Vorbild `test/glaze-count.test.mjs`). Testnamen und Code-Kommentare auf Englisch wie im übrigen Code.
+
 **Files:**
-- Create: `lib/shop-link.js`
 - Create: `test/shop-link.test.mjs`
-- Modify: `.eleventy.js` (`require`-Block oben, Filterblock ab Zeile 56)
+- Modify: `.eleventy.js` (Filterblock, neben `markdownify`)
 
 **Interfaces:**
-- Produces: `require("./lib/shop-link")` liefert `{ shopLink(url: string, placement?: string): string, slug(value: string): string }`. Nunjucks-Filter heißt `shopLink`, erster Parameter ist die URL, zweiter die Platzierung.
+- Produces: Nunjucks-Filter `shopLink(url: string, placement?: string): string` und `slug(value: string): string`. Erster Parameter von `shopLink` ist die URL, zweiter die Platzierung.
 - Consumes: nichts.
 
 - [ ] **Schritt 1: Test schreiben**
 
-`test/shop-link.test.mjs`. Die Bibliothek ist CommonJS, weil `.eleventy.js` sie per `require` lädt; der Test holt sie über `createRequire`.
+`test/shop-link.test.mjs`:
 
 ```js
-import { test } from "node:test";
+import test from "node:test";
 import assert from "node:assert/strict";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
-const { shopLink, slug } = require("../lib/shop-link.js");
+const filters = {};
+const stub = new Proxy(
+    { addNunjucksFilter: (name, fn) => { filters[name] = fn; } },
+    { get: (target, prop) => target[prop] ?? (() => {}) }
+);
+require("../.eleventy.js")(stub);
+const { shopLink, slug } = filters;
 
 const SHOP = "https://shop.matthewfreed.net/products/belly-mug-tofino";
 
-test("hängt Quelle, Medium und Kampagne an einen Shop-Link", () => {
+test("adds source, medium and campaign to a shop link", () => {
     const url = new URL(shopLink(SHOP));
     assert.equal(url.searchParams.get("utm_source"), "matthewfreed.ca");
     assert.equal(url.searchParams.get("utm_medium"), "referral");
@@ -81,29 +88,29 @@ test("hängt Quelle, Medium und Kampagne an einen Shop-Link", () => {
     assert.equal(url.pathname, "/products/belly-mug-tofino");
 });
 
-test("schreibt die Platzierung als Slug in utm_content", () => {
+test("writes the placement as a slug into utm_content", () => {
     const url = new URL(shopLink(SHOP, "firing-Oil dispensers-tile2"));
     assert.equal(url.searchParams.get("utm_content"), "firing-oil-dispensers-tile2");
 });
 
-test("lässt Links ausserhalb des Shops unberührt", () => {
+test("leaves links outside the shop alone", () => {
     assert.equal(shopLink("/collections.html", "nav"), "/collections.html");
     assert.equal(shopLink("https://matthewfreed.ca/faq.html"), "https://matthewfreed.ca/faq.html");
 });
 
-test("erhält vorhandene Parameter", () => {
+test("keeps parameters the link already has", () => {
     const url = new URL(shopLink(SHOP + "?variant=42", "hero"));
     assert.equal(url.searchParams.get("variant"), "42");
     assert.equal(url.searchParams.get("utm_content"), "hero");
 });
 
-test("gibt leere oder kaputte Werte unverändert zurück", () => {
+test("returns empty or broken values unchanged", () => {
     assert.equal(shopLink(""), "");
     assert.equal(shopLink(undefined), undefined);
-    assert.equal(shopLink("nicht mal eine url", "nav"), "nicht mal eine url");
+    assert.equal(shopLink("not even a url", "nav"), "not even a url");
 });
 
-test("slug kürzt auf Kleinbuchstaben, Ziffern und Bindestriche", () => {
+test("slug keeps lowercase letters, digits and hyphens", () => {
     assert.equal(slug("Tree of Life"), "tree-of-life");
     assert.equal(slug("  --Tofino--  "), "tofino");
 });
@@ -112,84 +119,60 @@ test("slug kürzt auf Kleinbuchstaben, Ziffern und Bindestriche", () => {
 - [ ] **Schritt 2: Test laufen lassen, er muss scheitern**
 
 Run: `npm test`
-Expected: FAIL, `Cannot find module '../lib/shop-link.js'`
+Expected: FAIL in `shop-link.test.mjs`, `shopLink is not a function`
 
-- [ ] **Schritt 3: Bibliothek schreiben**
+- [ ] **Schritt 3: Filter schreiben**
 
-`lib/shop-link.js`:
+In `.eleventy.js` zu den Filtern, neben `markdownify`:
 
 ```js
-// Herkunftsmarke für ausgehende Shop-Links. Sie entsteht beim Bauen, damit im
-// CMS saubere URLs stehen und niemand Parameter von Hand tippt.
-// utm_campaign ist Pflicht: ohne sie zählt Shopify den Besuch nicht als Marketing.
-// utm_content nennt den Ort auf der Seite, nicht das Stück; das Stück kennt
-// Shopify aus der Landeseite, und ein Ort bleibt stabil, wenn Titel sich ändern.
-const CAMPAIGN = {
-    utm_source: "matthewfreed.ca",
-    utm_medium: "referral",
-    utm_campaign: "website",
-};
-
-const slug = (value) =>
-    String(value == null ? "" : value)
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-+|-+$/g, "")
-        .slice(0, 60);
-
-// Nur Hosts, die mit "shop." beginnen: die eigene Domain bleibt unberührt.
-const shopLink = (url, placement) => {
-    if (!url) return url;
-    let parsed;
-    try {
-        parsed = new URL(url);
-    } catch {
-        return url;
-    }
-    if (!parsed.hostname.startsWith("shop.")) return url;
-    for (const [key, value] of Object.entries(CAMPAIGN)) {
-        parsed.searchParams.set(key, value);
-    }
-    const content = slug(placement);
-    if (content) parsed.searchParams.set("utm_content", content);
-    return parsed.toString();
-};
-
-module.exports = { shopLink, slug };
+    // Outgoing shop links get their origin tag at build time, so the CMS
+    // keeps clean URLs and nobody types parameters by hand. Shopify only
+    // counts a visit as marketing when utm_campaign is present. utm_content
+    // names the spot on the page, not the piece: Shopify knows the piece from
+    // the landing page, and a spot keeps its name when a piece is renamed.
+    const slug = (value) =>
+        String(value == null ? "" : value)
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "")
+            .slice(0, 60);
+    eleventyConfig.addNunjucksFilter("slug", slug);
+    eleventyConfig.addNunjucksFilter("shopLink", function (url, placement) {
+        if (!url) return url;
+        let parsed;
+        try {
+            parsed = new URL(url);
+        } catch {
+            return url;
+        }
+        // Only hosts starting with "shop.": the site's own domain stays untouched.
+        if (!parsed.hostname.startsWith("shop.")) return url;
+        parsed.searchParams.set("utm_source", "matthewfreed.ca");
+        parsed.searchParams.set("utm_medium", "referral");
+        parsed.searchParams.set("utm_campaign", "website");
+        const content = slug(placement);
+        if (content) parsed.searchParams.set("utm_content", content);
+        return parsed.toString();
+    });
 ```
+
+`slug` wird in Task 5 für den Set-Namen im HTML gebraucht. Eleventy bringt einen eigenen `slugify` mit, der aber anders mit Sonderzeichen umgeht als die Platzierungen; beide müssen gleich rechnen.
 
 - [ ] **Schritt 4: Test laufen lassen, er muss bestehen**
 
 Run: `npm test`
 Expected: PASS, `# fail 0`
 
-- [ ] **Schritt 5: Filter in Eleventy anmelden**
-
-In `.eleventy.js` oben zu den übrigen `require`-Zeilen:
-
-```js
-const { shopLink, slug } = require("./lib/shop-link");
-```
-
-Und zu den Filtern (neben `markdownify`):
-
-```js
-    // Ausgehende Shop-Links bekommen ihre Herkunftsmarke erst beim Bauen.
-    eleventyConfig.addNunjucksFilter("shopLink", shopLink);
-    eleventyConfig.addNunjucksFilter("slug", slug);
-```
-
-`slug` wird in Task 5 für den Set-Namen im HTML gebraucht; Eleventy bringt zwar einen eigenen `slugify` mit, der aber anders mit Sonderzeichen umgeht als die Platzierungen.
-
-- [ ] **Schritt 6: Prüfen, dass der Build den Filter kennt**
+- [ ] **Schritt 5: Prüfen, dass der Build den Filter kennt**
 
 Run: `node node_modules/@11ty/eleventy/cmd.cjs --output=../tmp-utm-1 --quiet`
-Expected: Build ohne `filter not found`.
+Expected: Build ohne Fehler.
 
-- [ ] **Schritt 7: Commit**
+- [ ] **Schritt 6: Commit**
 
 ```bash
-git add lib/shop-link.js test/shop-link.test.mjs .eleventy.js
+git add test/shop-link.test.mjs .eleventy.js
 git commit -m "feat(messung): Filter shopLink für die Herkunftsmarke
 
 Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
@@ -208,10 +191,10 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 - Modify: `src/views/_includes/layouts/about-layout.njk` (Medaillen-Hinweis)
 
 **Interfaces:**
-- Consumes: `shopLink` aus Task 1.
+- Consumes: `shopLink` aus Task 1 (Filter in `.eleventy.js`).
 - Produces: jeder gerenderte Shop-Link trägt `utm_campaign=website` und ein `utm_content` aus Spec Abschnitt 3.
 
-In jedem Schritt ändert sich nur das `href`; Klassen und übrige Attribute bleiben, wie sie sind.
+In jedem Schritt ändert sich nur das `href`; Klassen und übrige Attribute bleiben, wie sie sind. Der Studio-Button in `events-layout.njk` (`studio.cta.url`) zeigt auf `/contact.html` und bleibt unberührt; der Filter ließe ihn ohnehin durch.
 
 - [ ] **Schritt 1: Navigation, Hero, Medaillen-Hinweis**
 
@@ -417,7 +400,7 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 - Modify: `src/javascript/analytics.js`
 
 **Interfaces:**
-- Consumes: `window.umami` und `analytics.js` aus Task 4, Platzierungen aus Task 2, Filter `slug` aus Task 1.
+- Consumes: `window.umami` und `analytics.js` aus Task 4, Platzierungen aus Task 2, Filter `slug` aus Task 1. Die Rotation (Inline-Skript in `current-firing.njk`) blendet Sets über die Klasse `hidden` aus, nicht über das Attribut.
 - Produces: Ereignisse `firing-shown { set }`, `firing-seen { set }`, `shop-click { piece, placement }`. Hilfsfunktion `track(name, data)` in `analytics.js`, die Task 6 weiterverwendet.
 
 - [ ] **Schritt 1: Set-Namen ins HTML schreiben**
@@ -444,7 +427,8 @@ const track = (name, data) => {
 
 // Welches Shop-Set hat die Rotation gezeigt, und kam es ins Bild?
 // Erst beides zusammen macht die Klickzahlen der Sets vergleichbar.
-const shownSet = document.querySelector("[data-firing-set]:not([hidden])");
+// The rotation hides the other sets with the "hidden" class, not the attribute.
+const shownSet = document.querySelector("[data-firing-set]:not(.hidden)");
 if (shownSet) {
     const set = shownSet.dataset.firingName || "unbenannt";
     track("firing-shown", { set });
@@ -487,7 +471,7 @@ document.addEventListener("click", (event) => {
 
 ```js
 window.umami = { track: (name, data) => console.log("EVENT", name, JSON.stringify(data)) };
-document.querySelector("[data-firing-set]:not([hidden]) a[href*='shop.']").click();
+document.querySelector("[data-firing-set]:not(.hidden) a[href*='shop.']").click();
 ```
 
 Expected: `EVENT shop-click {"piece":"products/…","placement":"firing-<set>-tile1"}` oder `…-featured`. Für `firing-shown` und `firing-seen` im Netzwerk-Tab nach Anfragen an `cloud.umami.is/api/send` sehen: nach dem Laden eine mit `firing-shown`, nach dem Scrollen zum Shop-Teil eine mit `firing-seen`. Mit der Test-ID antwortet Umami mit einem Fehler; es zählt nur, dass die Anfrage mit dem richtigen Namen rausgeht.
@@ -684,4 +668,4 @@ Liegen die `shop-click`-Ereignisse aller Sets zusammen unter etwa 100 im Monat, 
 
 - **Spec-Abdeckung:** UTM-Schema und Platzierung (Abschnitt 3) → Task 1 und 2; Filter statt CMS → Task 1; `/shop` (Abschnitt 2) → Task 3; Umami samt Aktivierung → Task 4; Einblendungen → Task 5; weitere Ereignisse → Task 6; Zugang per Share-URL → Task 0; Datenschutz → Task 7; Rotation nach einem Monat, Auswertung von Hand → Task 9; eigene Besuche nicht ausgenommen → Global Constraints und Task 9 Schritt 2.
 - **Platzhalter:** keine. Jeder Schritt nennt Datei, Code und erwartete Ausgabe.
-- **Namen:** `shopLink` und `slug` in Task 1, 2 und 5; `env.umamiWebsiteId` und `env.umamiScript` in Task 4; `track()` und `parse()` in Task 5 und 6; Ereignisnamen in den Global Constraints, Task 5, 6 und 9 gleich.
+- **Namen:** `shopLink` und `slug` (beide in `.eleventy.js`) in Task 1, 2 und 5; `env.umamiWebsiteId` und `env.umamiScript` in Task 4; `track()` und `parse()` in Task 5 und 6; Ereignisnamen in den Global Constraints, Task 5, 6 und 9 gleich.
