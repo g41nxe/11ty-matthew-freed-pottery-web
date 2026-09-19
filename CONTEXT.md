@@ -16,3 +16,6 @@ The single news entry shown in the "Latest from the studio" box on the events pa
 
 ### Shop set
 One group for the "From the current firing" section on the home page: a featured piece plus up to four shop items, usually from one glaze collection. The home page shows one set at random on every visit; a hidden set stays out of the rotation.
+
+### Placement
+Where on the website a shop link sits, written into its address as `utm_content` when the site is built — for example `firing-tofino-tile2`, `home-teaser-yaletown` or `nav`. It names the spot, not the piece: Shopify already knows the piece from the page the visitor lands on, and a spot keeps its name when a piece is renamed.

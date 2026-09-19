@@ -60,6 +60,8 @@ Ohne eine Zeile Code, sobald die Links Parameter tragen (alle Angaben aus der Sh
 
 Offen: Shopify nennt inzwischen für alle Tarife „200+ reports"; ältere Artikel behaupten, Marketing-Berichte bräuchten Grow. **Im Adminbereich prüfen**, bevor ein Arbeitsablauf darauf aufbaut. Sitzungsdaten reichen nur bis 2022-10-01 zurück, Marketing-Berichte laufen bis zu 24 Stunden nach, Conversion details bis zu 48 Stunden. Der Filter „Human or bot session" (seit 2025-10-27) gehört eingeschaltet.
 
+**Zugriff ungeklärt (Stand 2026-09-19):** Dan hat keinen Shopify-Zugang. Matthew wird per E-Mail (Entwurf, noch nicht verschickt) gebeten, das Projekt freizugeben, und entweder einen vierstelligen Kollaborator-Code zu teilen (Settings > Users > Security), damit Dan Kollaborator-Zugriff mit ausschließlich der Berechtigung „Analytics > Reports" beantragen kann, oder die monatliche Prüfung selbst zu übernehmen. Shopifys Basic-Tarif erlaubt null Staff-Accounts; Kollaborator-Konten zählen nicht gegen dieses Limit, ob sie auf Basic überhaupt funktionieren, ist nicht bestätigt. Ob die oben genannten Berichte auf Matthews Tarif verfügbar sind, bleibt damit weiterhin ungeprüft.
+
 ## 6. Umami, die geprüften Eckdaten
 
 - Skript: `<script defer src="https://cloud.umami.is/script.js" data-website-id="…"></script>`. Optional `data-domains`, damit Vorschau-Deploys und `localhost` nicht mitzählen ([Umami-Doku](https://docs.umami.is/docs/tracker-configuration)).
@@ -67,8 +69,10 @@ Offen: Shopify nennt inzwischen für alle Tarife „200+ reports"; ältere Artik
 - Cookies: „Umami does not use any cookies in the tracking code", Daten anonymisiert, kein Cookie-Hinweis nötig ([Umami-FAQ](https://docs.umami.is/docs/faq)).
 - Share-URL: Lesezugriff ohne Anmeldung, je Website in den Einstellungen einschaltbar ([Umami-Doku](https://docs.umami.is/docs/enable-share-url)).
 - Eigene Besuche ließen sich mit `localStorage.setItem('umami.disabled', 1)` je Browser ausnehmen ([Umami-Doku](https://docs.umami.is/docs/exclude-my-own-visits)) — bewusst nicht genutzt.
-- Kostenloser Tarif laut Recherche: 100 000 Ereignisse im Monat, eine Website, sechs Monate Aufbewahrung. **Bei der Anmeldung gegenprüfen**, Preisseite war maschinell nicht lesbar.
+- Kostenloser Tarif laut Recherche: 100 000 Ereignisse im Monat, eine Website, sechs Monate Aufbewahrung. Bei der Anmeldung am 2026-09-19 nicht gegengeprüft, Preisseite war maschinell nicht lesbar. **Beim nächsten Login prüfen.**
 - Ereignisbudget je Seitenaufruf der Startseite: 1 Aufruf + `firing-shown` + gegebenenfalls `firing-seen` und ein Klick. Bei dieser Größenordnung weit unter dem Kontingent.
+- Konto eingerichtet (Dan, 2026-09-19); die Website-ID steht öffentlich im HTML jeder Seite, `UMAMI_WEBSITE_ID` liegt als Umgebungsvariable auf Netlify.
+- Share-URL für Matthew: Umami → Settings → Websites → Edit → Share URL. Empfohlene Ansichten: Overview, Events, Compare.
 
 ## 7. Risiken
 
