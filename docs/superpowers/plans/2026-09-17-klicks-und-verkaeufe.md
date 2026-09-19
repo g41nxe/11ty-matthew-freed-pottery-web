@@ -418,53 +418,56 @@ data-firing-name="{{ shop_set.name | placementSlug }}"
 `src/javascript/analytics.js` vollständig ersetzen:
 
 ```js
-// Alle Umami-Ereignisse an einer Stelle. Die Datei wird nur eingebunden, wenn
-// eine Website-ID gesetzt ist; track() prüft trotzdem, ob Umami geladen ist,
-// damit ein Werbeblocker keinen Fehler in der Konsole erzeugt.
-// Kein Cookie, kein localStorage: hier wird nichts auf dem Gerät gespeichert.
-const track = (name, data) => {
-    if (typeof window.umami === "undefined") return;
-    window.umami.track(name, data);
-};
+// Every Umami event in one place. The file is only included when a website ID
+// is set; track() still checks that Umami loaded, so an ad blocker does not
+// cause console errors. No cookie, no localStorage: nothing is stored on the device.
+// Wrapped in a function like home-slider.js and events.js, so nothing leaks
+// into the scope that all classic scripts on the page share.
+(function () {
+    const track = (name, data) => {
+        if (typeof window.umami === "undefined") return;
+        window.umami.track(name, data);
+    };
 
-// Welches Shop-Set hat die Rotation gezeigt, und kam es ins Bild?
-// Erst beides zusammen macht die Klickzahlen der Sets vergleichbar.
-// The rotation hides the other sets with the "hidden" class, not the attribute.
-const shownSet = document.querySelector("[data-firing-set]:not(.hidden)");
-if (shownSet) {
-    const set = shownSet.dataset.firingName || "unbenannt";
-    track("firing-shown", { set });
-    if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver((entries) => {
-            if (!entries.some((entry) => entry.isIntersecting)) return;
-            track("firing-seen", { set });
-            observer.disconnect();
-        }, { threshold: 0.3 });
-        observer.observe(shownSet);
+    // Which shop set did the rotation show, and did it come into view?
+    // Only both together make the sets' click counts comparable.
+    // The rotation hides the other sets with the "hidden" class, not the attribute.
+    const shownSet = document.querySelector("[data-firing-set]:not(.hidden)");
+    if (shownSet) {
+        const set = shownSet.dataset.firingName || "unbenannt";
+        track("firing-shown", { set });
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver((entries) => {
+                if (!entries.some((entry) => entry.isIntersecting)) return;
+                track("firing-seen", { set });
+                observer.disconnect();
+            }, { threshold: 0.3 });
+            observer.observe(shownSet);
+        }
     }
-}
 
-const parse = (href) => {
-    try {
-        return new URL(href);
-    } catch {
-        return null;
-    }
-};
+    const parse = (href) => {
+        try {
+            return new URL(href);
+        } catch {
+            return null;
+        }
+    };
 
-// Ein Listener für alle Links statt Attributen an jeder Stelle.
-// Die Platzierung steht schon in der URL (utm_content), gesetzt beim Bauen.
-document.addEventListener("click", (event) => {
-    const link = event.target.closest("a[href]");
-    const url = link && parse(link.href);
-    if (!url) return;
-    if (url.hostname.startsWith("shop.")) {
-        track("shop-click", {
-            piece: url.pathname.replace(/^\/+|\/+$/g, ""),
-            placement: url.searchParams.get("utm_content") || "unbenannt",
-        });
-    }
-});
+    // One listener for every link instead of attributes in each template.
+    // The placement is already in the URL (utm_content), set at build time.
+    document.addEventListener("click", (event) => {
+        const link = event.target.closest("a[href]");
+        const url = link && parse(link.href);
+        if (!url) return;
+        if (url.hostname.startsWith("shop.")) {
+            track("shop-click", {
+                piece: url.pathname.replace(/^\/+|\/+$/g, ""),
+                placement: url.searchParams.get("utm_content") || "unbenannt",
+            });
+        }
+    });
+})();
 ```
 
 - [ ] **Schritt 3: Im Browser prüfen**
@@ -510,7 +513,7 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 
 - [ ] **Schritt 1: Karten-Link im bestehenden Klick-Listener**
 
-Im Klick-Listener aus Task 5, hinter dem `shop-click`-Zweig:
+Im Klick-Listener aus Task 5, hinter dem `shop-click`-Zweig (die Einrückung folgt der umschließenden Funktion):
 
 ```js
     if (url.hostname.endsWith("google.com") && url.pathname.startsWith("/maps")) {
@@ -520,11 +523,11 @@ Im Klick-Listener aus Task 5, hinter dem `shop-click`-Zweig:
 
 - [ ] **Schritt 2: Slider, nur bewusste Nutzung**
 
-Am Ende von `analytics.js`. Der Slider läuft von selbst weiter, deshalb zählt **kein** `scroll`-Ereignis, sondern nur Antippen, Ziehen oder ein Punkt:
+Am Ende von `analytics.js`, **innerhalb** der umschließenden Funktion, also vor der letzten Zeile `})();`, mit derselben Einrückung. Der Slider läuft von selbst weiter, deshalb zählt **kein** `scroll`-Ereignis, sondern nur Antippen, Ziehen oder ein Punkt:
 
 ```js
-// Erste bewusste Nutzung des Glasur-Sliders. Scrollen zählt nicht, weil der
-// Slider von selbst weiterläuft; nur Antippen, Ziehen oder ein Punkt.
+// First deliberate use of the glaze slider. Scrolling does not count because
+// the slider advances on its own; only a tap, a drag or a dot does.
 const slider = document.getElementById("glaze-slider");
 if (slider) {
     let reported = false;
@@ -542,13 +545,13 @@ if (slider) {
 
 - [ ] **Schritt 3: Kontaktformular**
 
-Am Ende von `analytics.js`:
+Ebenfalls innerhalb der umschließenden Funktion, vor `})();`:
 
 ```js
-// Abgeschickt, nicht zugestellt: Die Erfolgsseite liefert Netlify und lädt
-// unser Layout nicht. Das Ereignis kann verloren gehen, wenn der Browser beim
-// Weiterleiten die Anfrage abbricht. Sobald eine eigene Erfolgsseite im
-// Seitenlayout existiert, ist deren Aufruf das verlässlichere Signal.
+// Sent, not delivered: Netlify serves the success page, which does not load
+// our layout. The event can be lost if the browser cancels the request while
+// it navigates. Once a success page in the site layout exists, its page view
+// is the more reliable signal.
 const form = document.getElementById("contact_form");
 if (form) {
     form.addEventListener("submit", () => track("contact-sent", {}));
