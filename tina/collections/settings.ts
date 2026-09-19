@@ -20,7 +20,11 @@ export const settings: Collection = {
     {
       type: "object", name: "contact", label: "Contact information",
       fields: [
-        { type: "string", name: "address", label: "Address", ui: { component: "textarea" } },
+        {
+          type: "string", name: "address", label: "Address",
+          description: "After a move, please let Dan know: the map picture on the contact page is made by hand and stays hidden until it is renewed.",
+          ui: { component: "textarea" },
+        },
         { type: "string", name: "phone", label: "Phone" },
         { type: "string", name: "email", label: "Email" },
         { type: "string", name: "text", label: "Text in the footer", ui: { component: "textarea" } },
@@ -43,6 +47,7 @@ export const settings: Collection = {
         { type: "string", name: "dates_soon", label: "Shown when every listed date has passed" },
         { type: "string", name: "keep_reading", label: "Heading above the links at the end of the About pages" },
         { type: "string", name: "sold_out", label: "Label on sold-out shop items (set automatically from the shop)" },
+        { type: "string", name: "map_link", label: "Contact page: link on the map to Google Maps" },
       ],
     },
     {
