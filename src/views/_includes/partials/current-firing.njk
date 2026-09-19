@@ -6,7 +6,7 @@
 {% set sets = shop_sets | rejectattr("hide") %}
 {% for shop_set in sets %}
 {% set piece = shop_set.featured_piece %}
-<section class="mx-auto max-w-6xl px-6 py-12 hidden" aria-label="From the current firing" data-firing-set{% if loop.first %} data-firing-first{% endif %}>
+<section class="mx-auto max-w-6xl px-6 py-12 hidden" aria-label="From the current firing" data-firing-set data-firing-name="{{ shop_set.name | placementSlug }}"{% if loop.first %} data-firing-first{% endif %}>
     <div class="flex items-baseline justify-between gap-4">
         <h2 class="font-display text-3xl font-black text-ink">{{ products.title }}</h2>
         <a href="{{ (global.shop.base + global.shop.collectionsPath + "/") | shopLink("firing-shop-all") }}" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ products.link_label | default("Shop all pieces", true) }}</a>
