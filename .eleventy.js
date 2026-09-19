@@ -155,6 +155,35 @@ module.exports = function (eleventyConfig) {
             });
     });
     eleventyConfig.addNunjucksFilter("markdownify", (s) => (s ? md.render(s) : ""));
+    // Outgoing shop links get their origin tag at build time, so the CMS
+    // keeps clean URLs and nobody types parameters by hand. Shopify only
+    // counts a visit as marketing when utm_campaign is present. utm_content
+    // names the spot on the page, not the piece: Shopify knows the piece from
+    // the landing page, and a spot keeps its name when a piece is renamed.
+    const placementSlug = (value) =>
+        String(value == null ? "" : value)
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "")
+            .slice(0, 60);
+    eleventyConfig.addNunjucksFilter("placementSlug", placementSlug);
+    eleventyConfig.addNunjucksFilter("shopLink", function (url, placement) {
+        if (!url) return url;
+        let parsed;
+        try {
+            parsed = new URL(url);
+        } catch {
+            return url;
+        }
+        // Only hosts starting with "shop.": the site's own domain stays untouched.
+        if (!parsed.hostname.startsWith("shop.")) return url;
+        parsed.searchParams.set("utm_source", "matthewfreed.ca");
+        parsed.searchParams.set("utm_medium", "referral");
+        parsed.searchParams.set("utm_campaign", "website");
+        const content = placementSlug(placement);
+        if (content) parsed.searchParams.set("utm_content", content);
+        return parsed.toString();
+    });
     // CMS texts write {glazes} (or {Glazes} to start a sentence) instead of
     // a number, so "fifteen glazes" stays right when a glaze line is added
     // to or removed from the gallery.
