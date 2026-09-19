@@ -24,7 +24,6 @@ const ZOOM = 16;
 const WIDTH = 720;
 const HEIGHT = 304;
 const SCALE = 2;
-const PIN = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><circle cx="24" cy="24" r="16" fill="#1F3A52" stroke="#F8F5EE" stroke-width="6"/></svg>`;
 const OUT_IMAGE = path.join(ROOT, "src", "images", "site", "studio-map.png");
 const OUT_DATA = path.join(ROOT, "src", "views", "_data", "mapPreview.json");
 
@@ -39,7 +38,7 @@ export function worldPixel(lat, lon, zoom) {
     };
 }
 
-// The tiles a picture of width × height needs when its pin, at half the
+// The tiles a picture of width × height needs when its centre, at half the
 // width and pinY of the height, lands on the given world pixel; and where
 // the picture starts inside the first tile.
 export function tileWindow(center, width, height, pinY) {
@@ -109,9 +108,10 @@ async function main() {
     const picture = await sharp(mosaic)
         .extract({ left: win.offsetX, top: win.offsetY, width: WIDTH, height: HEIGHT })
         .resize(WIDTH * SCALE, HEIGHT * SCALE, { kernel: "lanczos3" })
-        // Quiet the map into the site's paper palette; the pin keeps its colour.
+        // Quiet the map into the site's paper palette. The studio sits
+        // exactly in the centre of the picture; the contact page template
+        // draws the pin there.
         .modulate({ saturation: 0.25 })
-        .composite([{ input: Buffer.from(PIN), left: (WIDTH * SCALE) / 2 - 24, top: (HEIGHT * SCALE) / 2 - 24 }])
         // The picture is fully opaque; dropping the alpha channel and using a
         // palette lets PNG compress it far smaller than plain RGBA.
         .removeAlpha()
