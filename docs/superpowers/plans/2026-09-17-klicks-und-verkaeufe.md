@@ -582,7 +582,7 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 
 - [ ] **Schritt 1: Absatz über gesammelte Daten ersetzen**
 
-Der heutige Text stammt aus einem Shopify-Baustein und behauptet Cookies und Logdateien, die es auf dieser Seite nicht gibt. Ersetzt werden der Abschnitt `## Personal Information We Collect` samt Unterabschnitt `### We collect Device Information using the following technologies:` (Cookies, Log files). `## How Will We Collect Personal Information?` und alles danach bleibt und wird nur in Schritt 2 geprüft. Zwei Google-Dienste sind live und müssen genannt werden (geprüft 2026-09-19): Google Fonts auf jeder Seite und die eingebettete Google-Karte auf der Kontaktseite. Ersetzen durch:
+Der heutige Text stammt aus einem Shopify-Baustein und behauptet Cookies und Logdateien, die es auf dieser Seite nicht gibt. Ersetzt werden der Abschnitt `## Personal Information We Collect` samt Unterabschnitt `### We collect Device Information using the following technologies:` (Cookies, Log files). `## How Will We Collect Personal Information?` und alles danach bleibt und wird nur in Schritt 2 geprüft. Drei Google-Dienste sind live und müssen genannt werden (geprüft 2026-09-19): Google Fonts auf jeder Seite, die eingebettete Google-Karte auf der Kontaktseite und Googles reCAPTCHA im Kontaktformular, das Netlify einsetzt. Ticket 0005 soll alle drei später überflüssig machen. Ersetzen durch:
 
 ```markdown
 ## What this website collects
@@ -591,7 +591,7 @@ This website itself sets no cookies and does not create a profile of you.
 
 I use Umami, a privacy-friendly analytics service, to count how many people visit, which pages they read, and which parts of a page they use — for example whether a link to my shop was clicked or the directions to a market were opened. Umami stores no cookies, no IP addresses and nothing that identifies you, and it does not follow you to other websites. What I see are totals, never individual visitors.
 
-Two things on this website come from Google. The fonts are loaded from Google Fonts, so Google receives your IP address when a page loads. The map on the contact page is provided by Google Maps, and Google may set its own cookies when the map loads. Google's privacy policy applies to both.
+Three things on this website come from Google. The fonts are loaded from Google Fonts, so Google receives your IP address when a page loads. On the contact page, the map is provided by Google Maps and the contact form is protected against spam by Google reCAPTCHA; both may set Google's own cookies when the page loads. Google's privacy policy applies to all three.
 
 Buying happens in my shop at shop.matthewfreed.net, which is run by Shopify. Links from this website to the shop carry a short marker in the address so I can tell which part of this website sent you there. The shop has its own privacy policy and its own cookies; this policy does not cover it.
 ```
