@@ -17,11 +17,15 @@
         const set = shownSet.dataset.firingName || "unbenannt";
         track("firing-shown", { set });
         if ("IntersectionObserver" in window) {
+            // The section is up to ~1600px tall on a phone in landscape, so a
+            // fraction-of-the-section threshold would never be reached there.
+            // threshold: 0 with a -25% bottom rootMargin fires as soon as any
+            // part of the section enters the top three quarters of the viewport.
             const observer = new IntersectionObserver((entries) => {
                 if (!entries.some((entry) => entry.isIntersecting)) return;
                 track("firing-seen", { set });
                 observer.disconnect();
-            }, { threshold: 0.3 });
+            }, { threshold: 0, rootMargin: "0px 0px -25% 0px" });
             observer.observe(shownSet);
         }
     }
