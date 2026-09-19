@@ -28,6 +28,8 @@
 
 ## Task 0: Voraussetzungen (ohne Code, Dan)
 
+**Stand 2026-09-19:** Konto angelegt, Website-ID `5248032c-eec0-4b7c-aef8-87f2575ced2c`. Die ID ist öffentlich (sie steht in jedem Seiten-HTML) und darf zum lokalen Testen genutzt werden: `data-domains` hält `localhost` und Vorschau-Deploys aus den Zahlen. Offen: Schritt 2 bis 4.
+
 Blockiert nur die Prüfung in Task 5 bis 6 gegen echte Daten; Task 1 bis 4 laufen ohne.
 
 - [ ] **Schritt 1: Umami-Konto anlegen**
@@ -57,7 +59,7 @@ Folgt der Konvention des Repos (Stand `main` nach der Tina-Umstellung): Filter s
 - Modify: `.eleventy.js` (Filterblock, neben `markdownify`)
 
 **Interfaces:**
-- Produces: Nunjucks-Filter `shopLink(url: string, placement?: string): string` und `slug(value: string): string`. Erster Parameter von `shopLink` ist die URL, zweiter die Platzierung.
+- Produces: Nunjucks-Filter `shopLink(url: string, placement?: string): string` und `placementSlug(value: string): string`. Nicht `slug`: Eleventy bringt einen eingebauten Filter dieses Namens mit, den ein eigener still überdecken würde. Erster Parameter von `shopLink` ist die URL, zweiter die Platzierung.
 - Consumes: nichts.
 
 - [ ] **Schritt 1: Test schreiben**
@@ -76,7 +78,7 @@ const stub = new Proxy(
     { get: (target, prop) => target[prop] ?? (() => {}) }
 );
 require("../.eleventy.js")(stub);
-const { shopLink, slug } = filters;
+const { shopLink, placementSlug } = filters;
 
 const SHOP = "https://shop.matthewfreed.net/products/belly-mug-tofino";
 
@@ -110,9 +112,9 @@ test("returns empty or broken values unchanged", () => {
     assert.equal(shopLink("not even a url", "nav"), "not even a url");
 });
 
-test("slug keeps lowercase letters, digits and hyphens", () => {
-    assert.equal(slug("Tree of Life"), "tree-of-life");
-    assert.equal(slug("  --Tofino--  "), "tofino");
+test("placementSlug keeps lowercase letters, digits and hyphens", () => {
+    assert.equal(placementSlug("Tree of Life"), "tree-of-life");
+    assert.equal(placementSlug("  --Tofino--  "), "tofino");
 });
 ```
 
@@ -131,13 +133,13 @@ In `.eleventy.js` zu den Filtern, neben `markdownify`:
     // counts a visit as marketing when utm_campaign is present. utm_content
     // names the spot on the page, not the piece: Shopify knows the piece from
     // the landing page, and a spot keeps its name when a piece is renamed.
-    const slug = (value) =>
+    const placementSlug = (value) =>
         String(value == null ? "" : value)
             .toLowerCase()
             .replace(/[^a-z0-9]+/g, "-")
             .replace(/^-+|-+$/g, "")
             .slice(0, 60);
-    eleventyConfig.addNunjucksFilter("slug", slug);
+    eleventyConfig.addNunjucksFilter("placementSlug", placementSlug);
     eleventyConfig.addNunjucksFilter("shopLink", function (url, placement) {
         if (!url) return url;
         let parsed;
@@ -151,13 +153,13 @@ In `.eleventy.js` zu den Filtern, neben `markdownify`:
         parsed.searchParams.set("utm_source", "matthewfreed.ca");
         parsed.searchParams.set("utm_medium", "referral");
         parsed.searchParams.set("utm_campaign", "website");
-        const content = slug(placement);
+        const content = placementSlug(placement);
         if (content) parsed.searchParams.set("utm_content", content);
         return parsed.toString();
     });
 ```
 
-`slug` wird in Task 5 für den Set-Namen im HTML gebraucht. Eleventy bringt einen eigenen `slugify` mit, der aber anders mit Sonderzeichen umgeht als die Platzierungen; beide müssen gleich rechnen.
+`placementSlug` wird in Task 5 für den Set-Namen im HTML gebraucht. Eleventys eigene `slug`/`slugify` gehen anders mit Sonderzeichen um als die Platzierungen; Set-Name im HTML und in `utm_content` müssen gleich gerechnet werden.
 
 - [ ] **Schritt 4: Test laufen lassen, er muss bestehen**
 
@@ -400,7 +402,7 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 - Modify: `src/javascript/analytics.js`
 
 **Interfaces:**
-- Consumes: `window.umami` und `analytics.js` aus Task 4, Platzierungen aus Task 2, Filter `slug` aus Task 1. Die Rotation (Inline-Skript in `current-firing.njk`) blendet Sets über die Klasse `hidden` aus, nicht über das Attribut.
+- Consumes: `window.umami` und `analytics.js` aus Task 4, Platzierungen aus Task 2, Filter `placementSlug` aus Task 1. Die Rotation (Inline-Skript in `current-firing.njk`) blendet Sets über die Klasse `hidden` aus, nicht über das Attribut.
 - Produces: Ereignisse `firing-shown { set }`, `firing-seen { set }`, `shop-click { piece, placement }`. Hilfsfunktion `track(name, data)` in `analytics.js`, die Task 6 weiterverwendet.
 
 - [ ] **Schritt 1: Set-Namen ins HTML schreiben**
@@ -408,7 +410,7 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 Am `<section … data-firing-set …>` in `current-firing.njk` ergänzen:
 
 ```njk
-data-firing-name="{{ shop_set.name | slug }}"
+data-firing-name="{{ shop_set.name | placementSlug }}"
 ```
 
 - [ ] **Schritt 2: Ereignisse schreiben**
@@ -465,16 +467,26 @@ document.addEventListener("click", (event) => {
 });
 ```
 
-- [ ] **Schritt 3: Im Browser prüfen, ohne Umami-Konto**
+- [ ] **Schritt 3: Im Browser prüfen**
 
-`preview_start` mit `pottery-serve`, dabei `UMAMI_WEBSITE_ID=test-id` gesetzt. Auf der Startseite vor dem Laden in der Konsole Umami ersetzen ist zu spät, deshalb nach dem Laden:
+Lokal sendet Umami nichts: `data-domains="matthewfreed.ca"` lässt `localhost` aus, und genau so soll es sein. Deshalb wird `umami` in der Konsole ersetzt und `analytics.js` danach noch einmal geladen, damit auch die Ereignisse beim Laden (`firing-shown`) den Ersatz treffen.
+
+`preview_start` mit `pottery-serve`, dabei `UMAMI_WEBSITE_ID` gesetzt (die echte ID ist unbedenklich, siehe oben). Auf der Startseite in der Konsole:
 
 ```js
 window.umami = { track: (name, data) => console.log("EVENT", name, JSON.stringify(data)) };
+const again = document.createElement("script");
+again.src = "/js/analytics.js?again";
+document.head.appendChild(again);
+```
+
+Expected sofort: `EVENT firing-shown {"set":"<name>"}`. Dann zum Shop-Teil scrollen: `EVENT firing-seen {"set":"<name>"}`. Dann:
+
+```js
 document.querySelector("[data-firing-set]:not(.hidden) a[href*='shop.']").click();
 ```
 
-Expected: `EVENT shop-click {"piece":"products/…","placement":"firing-<set>-tile1"}` oder `…-featured`. Für `firing-shown` und `firing-seen` im Netzwerk-Tab nach Anfragen an `cloud.umami.is/api/send` sehen: nach dem Laden eine mit `firing-shown`, nach dem Scrollen zum Shop-Teil eine mit `firing-seen`. Mit der Test-ID antwortet Umami mit einem Fehler; es zählt nur, dass die Anfrage mit dem richtigen Namen rausgeht.
+Expected: `EVENT shop-click {"piece":"products/…","placement":"firing-<set>-tile1"}` oder `…-featured` (der Link öffnet einen Tab, der geschlossen werden kann). Die Listener des ersten Ladens rufen dabei das echte Umami auf, das lokal nichts sendet; das ist in Ordnung.
 
 - [ ] **Schritt 4: Commit**
 
@@ -668,4 +680,4 @@ Liegen die `shop-click`-Ereignisse aller Sets zusammen unter etwa 100 im Monat, 
 
 - **Spec-Abdeckung:** UTM-Schema und Platzierung (Abschnitt 3) → Task 1 und 2; Filter statt CMS → Task 1; `/shop` (Abschnitt 2) → Task 3; Umami samt Aktivierung → Task 4; Einblendungen → Task 5; weitere Ereignisse → Task 6; Zugang per Share-URL → Task 0; Datenschutz → Task 7; Rotation nach einem Monat, Auswertung von Hand → Task 9; eigene Besuche nicht ausgenommen → Global Constraints und Task 9 Schritt 2.
 - **Platzhalter:** keine. Jeder Schritt nennt Datei, Code und erwartete Ausgabe.
-- **Namen:** `shopLink` und `slug` (beide in `.eleventy.js`) in Task 1, 2 und 5; `env.umamiWebsiteId` und `env.umamiScript` in Task 4; `track()` und `parse()` in Task 5 und 6; Ereignisnamen in den Global Constraints, Task 5, 6 und 9 gleich.
+- **Namen:** `shopLink` und `placementSlug` (beide in `.eleventy.js`) in Task 1, 2 und 5; `env.umamiWebsiteId` und `env.umamiScript` in Task 4; `track()` und `parse()` in Task 5 und 6; Ereignisnamen in den Global Constraints, Task 5, 6 und 9 gleich.
