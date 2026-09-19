@@ -13,7 +13,7 @@ This website itself sets no cookies and does not create a profile of you.
 
 I use Umami, a privacy-friendly analytics service, to count how many people visit, which pages they read, and which parts of a page they use — for example whether a link to my shop was clicked or the directions to a market were opened. Umami stores no cookies, no IP addresses and nothing that identifies you, and it does not follow you to other websites. What I see are totals, never individual visitors.
 
-Two things on this website come from Google. The fonts are loaded from Google Fonts, so Google receives your IP address when a page loads. The map on the contact page is provided by Google Maps, and Google may set its own cookies when the map loads. Google's privacy policy applies to both.
+Three things on this website come from Google. The fonts are loaded from Google Fonts, so Google receives your IP address when a page loads. On the contact page, the map is provided by Google Maps and the contact form is protected against spam by Google reCAPTCHA; both may set Google's own cookies when the page loads. Google's privacy policy applies to all three.
 
 Buying happens in my shop at shop.matthewfreed.net, which is run by Shopify. Links from this website to the shop carry a short marker in the address so I can tell which part of this website sent you there. The shop has its own privacy policy and its own cookies; this policy does not cover it.
 
