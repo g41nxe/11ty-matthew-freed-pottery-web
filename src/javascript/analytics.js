@@ -14,7 +14,7 @@
     // The rotation hides the other sets with the "hidden" class, not the attribute.
     const shownSet = document.querySelector("[data-firing-set]:not(.hidden)");
     if (shownSet) {
-        const set = shownSet.dataset.firingName || "unbenannt";
+        const set = shownSet.dataset.firingName || "unnamed";
         track("firing-shown", { set });
         if ("IntersectionObserver" in window) {
             // The section is up to ~1600px tall on a phone in landscape, so a
@@ -52,7 +52,7 @@
             const firingSet = link.closest("[data-firing-set]");
             track("shop-click", {
                 piece: url.pathname.replace(/^\/+|\/+$/g, ""),
-                placement: url.searchParams.get("utm_content") || "unbenannt",
+                placement: url.searchParams.get("utm_content") || "unnamed",
                 ...(firingSet ? { set: firingSet.dataset.firingName } : {}),
             });
         }

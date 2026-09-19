@@ -6,8 +6,8 @@ module.exports = {
     // The commit Netlify builds, published as /build.txt so a script can
     // tell when a deploy with that commit is online (scripts/go-live.mjs).
     commit: process.env.COMMIT_REF || "",
-    // Leer, solange kein Umami-Konto hinterlegt ist: dann rendert base.njk
-    // weder Zählskript noch analytics.js, und die Seite lädt nichts Fremdes.
+    // Empty until a Umami account is set up: then base.njk renders neither
+    // the counting script nor analytics.js, and the page loads nothing external.
     umamiWebsiteId: process.env.UMAMI_WEBSITE_ID || "",
     umamiScript: process.env.UMAMI_SCRIPT_URL || "https://cloud.umami.is/script.js",
 };
