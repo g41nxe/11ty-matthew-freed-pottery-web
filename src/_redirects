@@ -24,8 +24,8 @@
 /home/privacy           /privacy-statement          301
 /Home/Privacy           /privacy-statement          301
 
-/shop                   http://shop.matthewfreed.ca 301
-/Shop                   http://shop.matthewfreed.ca 301
+/shop                   https://shop.matthewfreed.net/collections/all?utm_source=matthewfreed.ca&utm_medium=referral&utm_campaign=website&utm_content=redirect-shop 301
+/Shop                   https://shop.matthewfreed.net/collections/all?utm_source=matthewfreed.ca&utm_medium=referral&utm_campaign=website&utm_content=redirect-shop 301
 
 /home/productdetail/*   /                           301
 /Home/ProductDetail/*   /                           301
