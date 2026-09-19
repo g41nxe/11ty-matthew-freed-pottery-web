@@ -13,7 +13,7 @@ This website itself sets no cookies and does not create a profile of you.
 
 I use Umami, a privacy-friendly analytics service, to count how many people visit, which pages they read, and which parts of a page they use — for example whether a link to my shop was clicked or the directions to a market were opened. Umami also records which website sent you here, your browser and type of device, and the country you are visiting from, worked out from your IP address without storing it. Umami stores no cookies, no IP addresses and nothing that identifies you, and it does not follow you to other websites. What I see are totals, never individual visitors.
 
-Three things on this website come from Google. The fonts are loaded from Google Fonts, so Google receives your IP address when a page loads. On the contact page, the map is provided by Google Maps and the contact form is protected against spam by Google reCAPTCHA; both may set Google's own cookies when the page loads. Google's privacy policy applies to all three.
+On the contact page, the form is protected against spam by Google reCAPTCHA, which loads with the page and may set Google's own cookies; Google's privacy policy applies. The map on that page is a picture stored on this website, made from OpenStreetMap data. Google Maps only opens if you follow the link to it.
 
 This website is hosted by Netlify, a company based in the United States. When you send me a message through the contact form, Netlify stores it for me, including your name and email address.
 
