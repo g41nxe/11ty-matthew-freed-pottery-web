@@ -28,7 +28,7 @@
 
 ## Task 0: Voraussetzungen (ohne Code, Dan)
 
-**Stand 2026-09-19:** Konto angelegt, Website-ID `5248032c-eec0-4b7c-aef8-87f2575ced2c`. Die ID ist öffentlich (sie steht in jedem Seiten-HTML) und darf zum lokalen Testen genutzt werden: `data-domains` hält `localhost` und Vorschau-Deploys aus den Zahlen. Offen: Schritt 2 bis 4.
+**Stand 2026-09-19:** Konto angelegt, Website-ID in Netlify als `UMAMI_WEBSITE_ID` hinterlegt (nicht im Repo: Netlifys Secret-Scan bricht den Build ab, sobald ihr Wert in einer Repo-Datei steht). Die ID ist zwar öffentlich (sie steht im Seiten-HTML) und darf zum lokalen Testen genutzt werden: `data-domains` hält `localhost` und Vorschau-Deploys aus den Zahlen. Offen: Schritt 2 bis 4.
 
 Blockiert nur die Prüfung in Task 5 bis 6 gegen echte Daten; Task 1 bis 4 laufen ohne.
 
