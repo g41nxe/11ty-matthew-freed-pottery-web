@@ -34,15 +34,22 @@
     <p class="mt-1 text-base text-muted">{{ global.contact.address | nl2br | safe }}</p>
 </div>
 
-{# The embed is built from the studio address in Global Settings, so moving
-   studios only means editing that address. Without a key (local builds, or
-   the variable missing on Netlify) the map is left out instead of showing
-   Google's error tile. #}
-{% if env.googleMapsKey %}
-<div id="map" class="mt-6 overflow-hidden rounded-xl">
-    <iframe title="Map of the studio address"
-            src="https://www.google.com/maps/embed/v1/place?key={{ env.googleMapsKey }}&q={{ ('Matthew Freed Pottery, ' ~ global.contact.address) | replace(r/\s*\n\s*/g, ', ') | trim | urlencode }}"
-            class="w-full" height="236" style="border:0" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+{# The map is a picture stored with the site, made from OpenStreetMap by
+   scripts/map-preview.mjs, so opening this page contacts no map service
+   (ticket 0005). Google Maps is only a link, built from the studio address
+   in Settings like the links on the events and retail pages. The picture
+   shows only while it was made for the current address, so after a move
+   the page never shows the old place. #}
+{% set mapQuery = ('Matthew Freed Pottery, ' ~ global.contact.address) | replace(r/\s*\n\s*/g, ', ') | trim %}
+{% set mapsUrl = "https://www.google.com/maps/search/?api=1&query=" ~ (mapQuery | urlencode) %}
+{% if mapPreview.address == global.contact.address %}
+<div class="relative mt-6 overflow-hidden rounded-xl bg-tile">
+    {# The text link below is the one for keyboards and screen readers; this
+       one only makes the picture clickable. #}
+    <a href="{{ mapsUrl }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        {% img "/images/site/studio-map.png", "Street map around the studio", "(min-width: 768px) 50vw, 100vw", "block h-[236px] w-full object-cover" %}
+    </a>
+    <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" class="absolute bottom-1 right-2 bg-paper/80 px-1 text-[10px] text-muted">© OpenStreetMap contributors</a>
 </div>
 {% endif %}
+<a href="{{ mapsUrl }}" target="_blank" rel="noopener" class="link-underline mt-3 inline-block text-sm">{{ global.labels.directions }}</a>

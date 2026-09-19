@@ -41,3 +41,7 @@ test("every font the stylesheet declares ships with the site, next to its licenc
         assert.ok(fs.existsSync(path.join(ROOT, "src", "assets", "fonts", licence)), `${licence} is missing`);
     }
 });
+
+test("no page embeds Google Maps; the contact page links to it instead", () => {
+    assert.deepEqual(offendersOf(/google\.com\/maps\/embed|maps\.googleapis\.com/), []);
+});
