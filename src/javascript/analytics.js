@@ -40,7 +40,11 @@
 
     // One listener for every link instead of attributes in each template.
     // The placement is already in the URL (utm_content), set at build time.
-    document.addEventListener("click", (event) => {
+    // Shared between "click" and "auxclick" so a shop link opened in a new
+    // tab by middle-click counts too; auxclick also fires for other non-
+    // primary buttons, so it is limited here to the middle button (1).
+    const handleLinkClick = (event) => {
+        if (event.type === "auxclick" && event.button !== 1) return;
         const link = event.target.closest("a[href]");
         const url = link && parse(link.href);
         if (!url) return;
@@ -55,10 +59,14 @@
         if (url.hostname.endsWith("google.com") && url.pathname.startsWith("/maps")) {
             track("directions", { page: window.location.pathname });
         }
-    });
+    };
+    document.addEventListener("click", handleLinkClick);
+    document.addEventListener("auxclick", handleLinkClick);
 
-    // First deliberate use of the glaze slider. Scrolling does not count because
-    // the slider advances on its own; only a tap, a drag or a dot does.
+    // First deliberate use of the glaze slider: the same interactions
+    // home-slider.js treats as user takeover (pointerdown, wheel, keydown),
+    // reported as "slider", plus a dot click, reported as "dot". Scrolling on
+    // its own does not count because the slider advances by itself.
     const slider = document.getElementById("glaze-slider");
     if (slider) {
         let reported = false;
@@ -67,7 +75,9 @@
             reported = true;
             track("glaze-slider", { how });
         };
-        slider.addEventListener("pointerdown", () => used("swipe"), { once: true, passive: true });
+        ["pointerdown", "wheel", "keydown"].forEach((type) => {
+            slider.addEventListener(type, () => used("slider"), { once: true, passive: true });
+        });
         document.querySelectorAll(".glaze-dot").forEach((dot) => {
             dot.addEventListener("click", () => used("dot"), { once: true });
         });
