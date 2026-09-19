@@ -7,14 +7,15 @@ headline: Privacy Policy
 intro: 'This Privacy Policy describes how your personal information is collected, used, and shared when you visit our site.'
 ---
 
-## Personal Information We Collect
+## What this website collects
 
-When you visit the Site, we may collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device. Additionally, as you browse the Site, we collect information about the individual web pages or products that you view, what websites or search terms referred you to the Site, and information about how you interact with the Site. We refer to this automatically-collected information as “Device Information”.
+This website itself sets no cookies and does not create a profile of you.
 
-### We collect Device Information using the following technologies:  
+I use Umami, a privacy-friendly analytics service, to count how many people visit, which pages they read, and which parts of a page they use — for example whether a link to my shop was clicked or the directions to a market were opened. Umami stores no cookies, no IP addresses and nothing that identifies you, and it does not follow you to other websites. What I see are totals, never individual visitors.
 
-  - “Cookies” are data files that are placed on your device or computer and often include an anonymous unique identifier. For more information about cookies, and how to disable cookies, visit http://www.allaboutcookies.org.  
-  - “Log files” track actions occurring on the Site, and collect data including your IP address, browser type, Internet service provider, referring/exit pages, and date/time stamps.  
+Two things on this website come from Google. The fonts are loaded from Google Fonts, so Google receives your IP address when a page loads. The map on the contact page is provided by Google Maps, and Google may set its own cookies when the map loads. Google's privacy policy applies to both.
+
+Buying happens in my shop at shop.matthewfreed.net, which is run by Shopify. Links from this website to the shop carry a short marker in the address so I can tell which part of this website sent you there. The shop has its own privacy policy and its own cookies; this policy does not cover it.
 
 ## How Will We Collect Personal Information?
 
