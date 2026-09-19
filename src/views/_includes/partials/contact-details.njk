@@ -46,20 +46,27 @@
 {% set mapsUrl = "https://www.google.com/maps/search/?api=1&query=" ~ (mapQuery | urlencode) %}
 {% if (mapPreview.address | replace(r/\s+/g, " ") | trim) == (global.contact.address | replace(r/\s+/g, " ") | trim) %}
 <div class="relative mt-6 overflow-hidden rounded-xl bg-tile">
-    {# The text link below is the one for keyboards and screen readers; this
-       one only makes the picture clickable. #}
-    <a href="{{ mapsUrl }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-        {% img "/images/site/studio-map.png", "Street map around the studio", "(min-width: 1152px) 532px, (min-width: 768px) 50vw, 100vw", "block h-[236px] w-full object-cover" %}
+    {# The whole picture is the link to Google Maps. The chip names it, stays
+       visible on phones (no hover there) and turns blue on hover or keyboard
+       focus while the picture zooms like the shop tiles on the home page. #}
+    <a href="{{ mapsUrl }}" target="_blank" rel="noopener" class="group block focus-visible:outline-none" aria-label="{{ global.labels.map_link }}">
+        {% img "/images/site/studio-map.png", "Street map around the studio", "(min-width: 1152px) 532px, (min-width: 768px) 50vw, 100vw", "img-zoom block h-[236px] w-full object-cover" %}
+        <span class="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1.5 rounded-full border border-hairline bg-white px-3.5 py-1.5 text-sm font-medium text-blue shadow-sm transition-colors duration-300 group-hover:border-blue group-hover:bg-blue group-hover:text-paper group-focus-visible:border-blue group-focus-visible:bg-blue group-focus-visible:text-paper group-focus-visible:outline-2 group-focus-visible:outline-offset-2 group-focus-visible:outline-blue">
+            {{ global.labels.map_link }}
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6M11 13l9-9M15 4h5v5"/></svg>
+        </span>
     </a>
     {# Google-Maps-style pin. The picture is centred on the studio and
-       object-cover keeps that centre in the middle of the box, so the tip of
-       the pin sits at the centre. It ignores clicks, which fall through to
-       the picture link. #}
+       object-cover keeps that centre in the middle of the box (the hover zoom
+       scales around it too), so the tip of the pin sits at the centre. It
+       ignores clicks, which fall through to the picture link. #}
     <svg class="pointer-events-none absolute left-1/2 top-1/2 h-[43px] w-[27px] -translate-x-1/2 -translate-y-full drop-shadow-sm" viewBox="0 0 27 43" aria-hidden="true" focusable="false">
         <path d="M13.5 0C6.04 0 0 6.04 0 13.5 0 23.6 13.5 43 13.5 43S27 23.6 27 13.5C27 6.04 20.96 0 13.5 0z" fill="#EA4335" stroke="#B31412"/>
         <circle cx="13.5" cy="13.5" r="4.5" fill="#B31412"/>
     </svg>
-    <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" class="absolute bottom-1 right-2 bg-paper/90 px-1 py-0.5 text-xs text-ink" aria-label="Map data © OpenStreetMap contributors">© OpenStreetMap contributors</a>
+    <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" class="absolute right-2 top-2 bg-paper/90 px-1 py-0.5 text-xs text-ink" aria-label="Map data © OpenStreetMap contributors">© OpenStreetMap contributors</a>
 </div>
+{% else %}
+{# No picture for the current address yet (after a move): a plain link instead. #}
+<a href="{{ mapsUrl }}" target="_blank" rel="noopener" class="link-underline mt-6 inline-block text-sm">{{ global.labels.map_link }}</a>
 {% endif %}
-<a href="{{ mapsUrl }}" target="_blank" rel="noopener" class="link-underline mt-3 inline-block text-sm">{{ global.labels.directions }}</a>
