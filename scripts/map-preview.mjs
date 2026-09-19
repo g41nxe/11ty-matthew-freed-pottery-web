@@ -63,6 +63,23 @@ async function get(url) {
     return res;
 }
 
+// Parses --lat= and --lon= from the command-line arguments (the documented
+// form; process.argv.slice(2)). Returns null when neither is given (the
+// caller falls back to the address search), { lat, lon } as numbers when
+// both are given and valid, or throws when only one is given or either
+// value is not a finite number — a typo should be a clear error, not a
+// silent fallback to the address search or a NaN coordinate.
+export function parseCoordinates(argv) {
+    const args = Object.fromEntries(argv.map((arg) => arg.replace(/^--/, "").split("=")));
+    if (args.lat === undefined && args.lon === undefined) return null;
+    const lat = Number(args.lat);
+    const lon = Number(args.lon);
+    if (args.lat === undefined || args.lon === undefined || !Number.isFinite(lat) || !Number.isFinite(lon)) {
+        throw new Error("Pass both --lat= and --lon= as numbers, or neither.");
+    }
+    return { lat, lon };
+}
+
 async function geocode(address) {
     const query = address.split("\n").map((line) => line.trim()).filter(Boolean).join(", ");
     const res = await get(`https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`);
@@ -72,10 +89,10 @@ async function geocode(address) {
 }
 
 async function main() {
-    const args = Object.fromEntries(process.argv.slice(2).map((arg) => arg.replace(/^--/, "").split("=")));
-    const global = JSON.parse(fs.readFileSync(path.join(ROOT, "src", "views", "_data", "global.json"), "utf8"));
-    const address = global.contact.address;
-    const { lat, lon } = args.lat && args.lon ? { lat: Number(args.lat), lon: Number(args.lon) } : await geocode(address);
+    const settings = JSON.parse(fs.readFileSync(path.join(ROOT, "src", "views", "_data", "global.json"), "utf8"));
+    const address = settings.contact.address;
+    const coordinates = parseCoordinates(process.argv.slice(2));
+    const { lat, lon } = coordinates ?? (await geocode(address));
 
     const win = tileWindow(worldPixel(lat, lon, ZOOM), WIDTH, HEIGHT, 0.5);
     const tiles = [];
@@ -95,7 +112,10 @@ async function main() {
         // Quiet the map into the site's paper palette; the pin keeps its colour.
         .modulate({ saturation: 0.25 })
         .composite([{ input: Buffer.from(PIN), left: (WIDTH * SCALE) / 2 - 24, top: (HEIGHT * SCALE) / 2 - 24 }])
-        .png()
+        // The picture is fully opaque; dropping the alpha channel and using a
+        // palette lets PNG compress it far smaller than plain RGBA.
+        .removeAlpha()
+        .png({ palette: true, compressionLevel: 9 })
         .toBuffer();
 
     fs.writeFileSync(OUT_IMAGE, picture);
