@@ -1,6 +1,6 @@
 # Feature: Schriften und Karte ohne Google beim Seitenaufruf
 
-> **Status: geplant** (Plan `docs/superpowers/plans/2026-09-19-ohne-google-beim-seitenaufruf.md`), gestapelt auf die Messung. Entstanden bei der Recherche zur cookiefreien Messung (Spec `2026-09-17-klicks-und-verkaeufe-design.md`). Geprüft am 2026-09-19: Die Website lädt heute auf jeder Seite Schriften von Google Fonts, und auf der Kontaktseite eine Google-Maps-Karte und Googles reCAPTCHA (von Netlify ins Kontaktformular eingesetzt). **reCAPTCHA bleibt** (Entscheidung Dan, 2026-09-19); dieses Ticket betrifft nur Schriften und Karte.
+> **Status: umgesetzt auf Branch `feat/ohne-google-main`** (Plan `docs/superpowers/plans/2026-09-19-ohne-google-beim-seitenaufruf.md`), direkt auf `main` und vor der Messung (Entscheidung Dan, 2026-09-19). Die Messung ergänzt beim eigenen Merge ihren Umami-Absatz und den Satz zur Shop-Link-Markierung in der Datenschutzerklärung. Entstanden bei der Recherche zur cookiefreien Messung (Spec `2026-09-17-klicks-und-verkaeufe-design.md`). Geprüft am 2026-09-19: Die Website lädt heute auf jeder Seite Schriften von Google Fonts, und auf der Kontaktseite eine Google-Maps-Karte und Googles reCAPTCHA (von Netlify ins Kontaktformular eingesetzt). **reCAPTCHA bleibt** (Entscheidung Dan, 2026-09-19); dieses Ticket betrifft nur Schriften und Karte.
 
 ## Problemstellung (Problem Statement)
 

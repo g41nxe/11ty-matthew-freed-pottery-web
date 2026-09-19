@@ -12,6 +12,7 @@
 
 ## Global Constraints
 
+- **Nachtrag 2026-09-19 (Entscheidung Dan): umgesetzt auf `feat/ohne-google-main`, direkt von `main`, und vor der Messung released.** Die Commits wurden vom gestapelten Branch übernommen; die Datenschutzerklärung bekommt dort die neue Fassung ohne Umami und ohne Shop-Link-Markierung, die Messung ergänzt beides beim eigenen Merge. Ursprünglich geplant war:
 - **Branch `feat/ohne-google`, gestapelt auf `feat/klicks-und-verkaeufe` (f33c3e7).** Den Google-Absatz, den Task 4 kürzt, gibt es nur dort. Gemergt wird erst nach dem Release der Messung. Fällt die Messung weg, wird der Branch auf `main` umgesetzt und Task 4 neu gefasst.
 - **reCAPTCHA bleibt unverändert** (Entscheidung Dan, 2026-09-19): Kontaktformular, Honeypot und das von Netlify eingesetzte reCAPTCHA werden nicht angefasst.
 - **Keine eingebettete Karte, kein Kartendienst beim Aufruf** (Entscheidung Dan, 2026-09-19). Google Maps ist nur ein Link. Das Kartenbild liegt auf dem eigenen Server. Kein Skript auf der Kontaktseite.
