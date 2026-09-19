@@ -35,8 +35,8 @@ Drei Entscheidungen soll die Messung tragen, in dieser Reihenfolge:
 | Zugang | Konto auf Dan. Matthew bekommt die **Share-URL**, ein Lesezugriff ohne Anmeldung ([Umami-Doku](https://docs.umami.is/docs/enable-share-url)). Der kostenlose Tarif reicht damit für beide |
 | Eigene Besuche | **Werden mitgezählt.** Umami könnte sie per `localStorage`-Schalter ausnehmen; der Aufwand lohnt bei zwei Personen nicht. Beim Lesen der Zahlen mitdenken (Abschnitt 7) |
 | Rotation während der Messung | Alle sechs Sets bleiben drin. Nach einem Monat wird entschieden: unter etwa 100 Shop-Klicks im Monat auf drei Sets kürzen, damit je Set genug zusammenkommt |
-| Auswertung | Von Hand, nach der Liste in Task 8 des Plans. Kein Automatismus, kein API-Schlüssel |
-| Datenschutzerklärung | Wird im selben Schritt an die Wirklichkeit angepasst. Matthew liest den Text gegen, bevor er live geht |
+| Auswertung | Von Hand, nach der Liste in Task 9 des Plans. Kein Automatismus, kein API-Schlüssel |
+| Datenschutzerklärung | Wird im selben Schritt an die Wirklichkeit angepasst. Matthew gibt das Projekt frei; den Text selbst legt Dan ihm nicht vor (Entscheidung 2026-09-19) |
 | Einwilligung | Kein Banner. Umami setzt laut Anbieter keine Cookies und anonymisiert die Daten; die Seite selbst setzt danach weiterhin keine Cookies |
 
 ## 4. Verworfen
@@ -60,7 +60,7 @@ Ohne eine Zeile Code, sobald die Links Parameter tragen (alle Angaben aus der Sh
 
 Offen: Shopify nennt inzwischen für alle Tarife „200+ reports"; ältere Artikel behaupten, Marketing-Berichte bräuchten Grow. **Im Adminbereich prüfen**, bevor ein Arbeitsablauf darauf aufbaut. Sitzungsdaten reichen nur bis 2022-10-01 zurück, Marketing-Berichte laufen bis zu 24 Stunden nach, Conversion details bis zu 48 Stunden. Der Filter „Human or bot session" (seit 2025-10-27) gehört eingeschaltet.
 
-**Zugriff ungeklärt (Stand 2026-09-19):** Dan hat keinen Shopify-Zugang. Matthew wird per E-Mail (Entwurf, noch nicht verschickt) gebeten, das Projekt freizugeben, und entweder einen vierstelligen Kollaborator-Code zu teilen (Settings > Users > Security), damit Dan Kollaborator-Zugriff mit ausschließlich der Berechtigung „Analytics > Reports" beantragen kann, oder die monatliche Prüfung selbst zu übernehmen. Shopifys Basic-Tarif erlaubt null Staff-Accounts; Kollaborator-Konten zählen nicht gegen dieses Limit, ob sie auf Basic überhaupt funktionieren, ist nicht bestätigt. Ob die oben genannten Berichte auf Matthews Tarif verfügbar sind, bleibt damit weiterhin ungeprüft.
+**Zugriff ungeklärt (Stand 2026-09-19):** Dan hat keinen Shopify-Zugang. Matthew wird per E-Mail (Entwurf, noch nicht verschickt) gebeten, das Projekt freizugeben, und entweder einen vierstelligen Kollaborator-Code zu teilen ([Settings > Users > Security](https://help.shopify.com/en/manual/your-account/users/security/collaborator-accounts)), damit Dan Kollaborator-Zugriff mit ausschließlich der Berechtigung [„Analytics > Reports"](https://help.shopify.com/en/manual/your-account/users/roles/permissions/store-permissions) beantragen kann — sie erlaubt, Berichte einschließlich Umsatzangaben einzusehen und zu erstellen —, oder die monatliche Prüfung selbst zu übernehmen. Kollaborator-Konten zählen nicht gegen [Shopifys Nutzer-Limit je Tarif](https://help.shopify.com/en/manual/your-account/users/users-plan-requirements): Basic erlaubt null Staff-Accounts, Grow fünf, Advanced 15, Store-Owner und Kollaboratoren sind ausgenommen (alle Angaben aus der Shopify-Hilfe, geprüft am 2026-09-19). Ob die oben genannten Berichte auf Matthews Tarif verfügbar sind, bleibt damit weiterhin ungeprüft.
 
 ## 6. Umami, die geprüften Eckdaten
 

@@ -12,7 +12,14 @@ Ein Banner war ausgeschlossen: Matthew tippt keine Parameter und pflegt Analytic
 
 Platzierung statt Stückname: Welches Stück gemeint war, weiß Shopify bereits aus der Landeseite. Ein Stückname wäre lesbarer, bricht aber die Historie, sobald Matthew ihn in Tina ändert. Ein Ortsname wie `firing-tofino-tile2` bleibt stabil, weil er den Platz benennt, nicht den Inhalt.
 
-## Folgen
+## Entscheidung
+
+- Jeder Shop-Link bekommt sein `utm_content` zur Bauzeit, in einem Eleventy-Filter statt im CMS: die Platzierung (der Ort auf der Seite), nicht das Stück.
+- Analytics läuft über Umami Cloud im kostenlosen Tarif, cookiefrei, und rendert nur, wenn `UMAMI_WEBSITE_ID` gesetzt ist.
+- Erfasst werden genau sechs Ereignisse: `firing-shown`, `firing-seen`, `shop-click`, `directions`, `glaze-slider`, `contact-sent`.
+- Kein Cookie-Banner: weder die Seite noch Umami setzen Cookies.
+
+## Konsequenzen
 
 - **Ereignis-Kontingent.** Umamis kostenloser Tarif begrenzt die Ereignisse im Monat; bei dieser Besuchergröße bleibt der Verbrauch weit darunter, ein Seitenaufruf der Startseite kostet höchstens vier Ereignisse.
 - **Sechs Monate Aufbewahrung.** Ältere Daten sind weg, sobald der Tarif sie löscht. Ein Vergleich mit dem Vorjahr ist damit nicht möglich; wird das je gebraucht, muss vorher exportiert werden.
