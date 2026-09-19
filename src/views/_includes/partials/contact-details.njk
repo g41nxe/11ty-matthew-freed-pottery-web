@@ -39,17 +39,19 @@
    (ticket 0005). Google Maps is only a link, built from the studio address
    in Settings like the links on the events and retail pages. The picture
    shows only while it was made for the current address, so after a move
-   the page never shows the old place. #}
+   the page never shows the old place; the comparison ignores whitespace
+   differences (spacing, line breaks) so an edit that only reformats the
+   address does not hide the picture. #}
 {% set mapQuery = ('Matthew Freed Pottery, ' ~ global.contact.address) | replace(r/\s*\n\s*/g, ', ') | trim %}
 {% set mapsUrl = "https://www.google.com/maps/search/?api=1&query=" ~ (mapQuery | urlencode) %}
-{% if mapPreview.address == global.contact.address %}
+{% if (mapPreview.address | replace(r/\s+/g, " ") | trim) == (global.contact.address | replace(r/\s+/g, " ") | trim) %}
 <div class="relative mt-6 overflow-hidden rounded-xl bg-tile">
     {# The text link below is the one for keyboards and screen readers; this
        one only makes the picture clickable. #}
     <a href="{{ mapsUrl }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-        {% img "/images/site/studio-map.png", "Street map around the studio", "(min-width: 768px) 50vw, 100vw", "block h-[236px] w-full object-cover" %}
+        {% img "/images/site/studio-map.png", "Street map around the studio", "(min-width: 1152px) 532px, (min-width: 768px) 50vw, 100vw", "block h-[236px] w-full object-cover" %}
     </a>
-    <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" class="absolute bottom-1 right-2 bg-paper/80 px-1 text-[10px] text-muted">© OpenStreetMap contributors</a>
+    <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" class="absolute bottom-1 right-2 bg-paper/90 px-1 py-0.5 text-xs text-ink" aria-label="Map data © OpenStreetMap contributors">© OpenStreetMap contributors</a>
 </div>
 {% endif %}
 <a href="{{ mapsUrl }}" target="_blank" rel="noopener" class="link-underline mt-3 inline-block text-sm">{{ global.labels.directions }}</a>
