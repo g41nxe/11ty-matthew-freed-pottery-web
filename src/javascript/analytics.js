@@ -48,7 +48,7 @@
         const link = event.target.closest("a[href]");
         const url = link && parse(link.href);
         if (!url) return;
-        if (url.hostname.startsWith("shop.")) {
+        if (url.hostname.startsWith("shop.") || url.hostname.endsWith(".myshopify.com")) {
             const firingSet = link.closest("[data-firing-set]");
             track("shop-click", {
                 piece: url.pathname.replace(/^\/+|\/+$/g, ""),
