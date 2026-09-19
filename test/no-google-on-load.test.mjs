@@ -10,6 +10,7 @@ import path from "node:path";
 const ROOT = path.join(import.meta.dirname, "..");
 const VIEWS = path.join(ROOT, "src", "views");
 const STYLES = path.join(ROOT, "src", "styles");
+const JS = path.join(ROOT, "src", "javascript");
 
 function files(dir, ext) {
     return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -19,7 +20,16 @@ function files(dir, ext) {
     });
 }
 
-const sources = () => [...files(VIEWS, ".njk"), ...files(VIEWS, ".md"), ...files(STYLES, ".css")];
+// Includes src/views/_data/*.json (CMS content such as event descriptions,
+// rendered through markdownify with raw HTML allowed) and the site scripts
+// in src/javascript/*.js, alongside the templates and stylesheets.
+const sources = () => [
+    ...files(VIEWS, ".njk"),
+    ...files(VIEWS, ".md"),
+    ...files(VIEWS, ".json"),
+    ...files(STYLES, ".css"),
+    ...files(JS, ".js"),
+];
 const offendersOf = (pattern) =>
     sources()
         .filter((file) => pattern.test(fs.readFileSync(file, "utf8")))
