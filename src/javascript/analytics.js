@@ -46,5 +46,33 @@
                 placement: url.searchParams.get("utm_content") || "unbenannt",
             });
         }
+        if (url.hostname.endsWith("google.com") && url.pathname.startsWith("/maps")) {
+            track("directions", { page: window.location.pathname });
+        }
     });
+
+    // First deliberate use of the glaze slider. Scrolling does not count because
+    // the slider advances on its own; only a tap, a drag or a dot does.
+    const slider = document.getElementById("glaze-slider");
+    if (slider) {
+        let reported = false;
+        const used = (how) => {
+            if (reported) return;
+            reported = true;
+            track("glaze-slider", { how });
+        };
+        slider.addEventListener("pointerdown", () => used("swipe"), { once: true, passive: true });
+        document.querySelectorAll(".glaze-dot").forEach((dot) => {
+            dot.addEventListener("click", () => used("dot"), { once: true });
+        });
+    }
+
+    // Sent, not delivered: Netlify serves the success page, which does not load
+    // our layout. The event can be lost if the browser cancels the request while
+    // it navigates. Once a success page in the site layout exists, its page view
+    // is the more reliable signal.
+    const form = document.getElementById("contact_form");
+    if (form) {
+        form.addEventListener("submit", () => track("contact-sent", {}));
+    }
 })();
