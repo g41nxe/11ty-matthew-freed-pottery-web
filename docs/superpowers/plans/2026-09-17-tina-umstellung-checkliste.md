@@ -20,7 +20,7 @@
 | 2 | Zugang und Netlify | erledigt | – | D |
 | 3 | Umschalten | erledigt, `v2.1.0` | – | D |
 | 4 | Direkt nach dem Umschalten | offen | Medien auf TinaCloud, Smoke-Test | D, M |
-| 5 | Aufräumen | Code erledigt | Branches archivieren, Identity im Dashboard, Analytics-Dateien | D |
+| 5 | Aufräumen | erledigt bis auf zwei Handgriffe | Identity im Dashboard, Analytics-Dateien | D |
 | 6 | Eine Woche danach | offen | Rückblick | D, M |
 
 Abbruchkriterien und Rücksprung stehen am Ende. Gefundene Fehler, Hinweise für Matthew und Merksätze stehen in den Anhängen.
