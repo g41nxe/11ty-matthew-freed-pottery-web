@@ -17,7 +17,7 @@
 - Keine Cookies, kein Banner. Einziger Speicherzugriff ist keiner: `analytics.js` liest und schreibt weder Cookies noch `localStorage`.
 - Keine UTM-Parameter in von Tina gepflegten Inhalten. Sie entstehen ausschließlich im Filter.
 - Platzierungen beschreiben den **Ort**, nie das Stück: keine Titel aus Tina in `utm_content`.
-- Ohne `UMAMI_WEBSITE_ID` rendert kein Analytics-Skript und `analytics.js` wird nicht eingebunden. Das ist der Normalzustand für lokale Builds und Vorschau-Deploys.
+- Ohne `UMAMI_WEBSITE_ID` rendert kein Analytics-Skript und `analytics.js` wird nicht eingebunden. Das ist der Normalzustand für lokale Builds ohne die Variable. Auf Netlify steht die Variable für alle Deploy-Kontexte (Task 0, Schritt 3), Vorschau-Deploys rendern das Skript also mit; `data-domains="matthewfreed.ca"` hält dort nur das Senden von Daten zurück.
 - Eigene Besuche werden nicht ausgenommen (Spec Abschnitt 3).
 - Ereignisnamen höchstens 50 Zeichen. Es gibt genau diese: `firing-shown`, `firing-seen`, `shop-click`, `directions`, `glaze-slider`, `contact-sent`.
 - Jede Task endet grün: `npm test` und `npm run typecheck` ohne Fehler.

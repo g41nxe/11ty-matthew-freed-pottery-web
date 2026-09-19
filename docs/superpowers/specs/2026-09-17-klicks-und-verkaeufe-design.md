@@ -6,7 +6,7 @@ Recherche 2026-09-17, Entscheidungen im Grilling am 2026-09-18 geschärft. Umset
 
 Drei Entscheidungen soll die Messung tragen, in dieser Reihenfolge:
 
-1. **Rotation beschneiden.** Sechs Shop-Sets wechseln sich zufällig ab. Welche verdienen ihren Platz? Dafür zählt die Klickrate je Set, nicht der Umsatz.
+1. **Rotation beschneiden.** Mehrere Shop-Sets wechseln sich zufällig ab (Stand 2026-09-19: 7 Sets, davon 5 nicht versteckt). Welche verdienen ihren Platz? Dafür zählt die Klickrate je Set, nicht der Umsatz.
 2. **Belegen, dass die Seite verkauft.** Eine Zahl im Monat: Umsatz, den Shopify der Domain `matthewfreed.ca` zuordnet.
 3. **Sehen, wo Besucher abspringen.** Welche Seiten werden gelesen, und erreichen die Leute den Shop-Teil überhaupt?
 
@@ -34,7 +34,7 @@ Drei Entscheidungen soll die Messung tragen, in dieser Reihenfolge:
 | Aktivierung | Über `UMAMI_WEBSITE_ID` in der Umgebung. Ohne Variable rendert kein Skript — die Seite bleibt bis zur Anmeldung unverändert |
 | Zugang | Konto auf Dan. Matthew bekommt die **Share-URL**, ein Lesezugriff ohne Anmeldung ([Umami-Doku](https://docs.umami.is/docs/enable-share-url)). Der kostenlose Tarif reicht damit für beide |
 | Eigene Besuche | **Werden mitgezählt.** Umami könnte sie per `localStorage`-Schalter ausnehmen; der Aufwand lohnt bei zwei Personen nicht. Beim Lesen der Zahlen mitdenken (Abschnitt 7) |
-| Rotation während der Messung | Alle sechs Sets bleiben drin. Nach einem Monat wird entschieden: unter etwa 100 Shop-Klicks im Monat auf drei Sets kürzen, damit je Set genug zusammenkommt |
+| Rotation während der Messung | Alle nicht versteckten Sets bleiben drin. Nach einem Monat wird entschieden: unter etwa 100 Shop-Klicks im Monat auf drei Sets kürzen, damit je Set genug zusammenkommt |
 | Auswertung | Von Hand, nach der Liste in Task 9 des Plans. Kein Automatismus, kein API-Schlüssel |
 | Datenschutzerklärung | Wird im selben Schritt an die Wirklichkeit angepasst. Matthew gibt das Projekt frei; den Text selbst legt Dan ihm nicht vor (Entscheidung 2026-09-19) |
 | Einwilligung | Kein Banner. Umami setzt laut Anbieter keine Cookies und anonymisiert die Daten; die Seite selbst setzt danach weiterhin keine Cookies |
@@ -70,14 +70,14 @@ Offen: Shopify nennt inzwischen für alle Tarife „200+ reports"; ältere Artik
 - Share-URL: Lesezugriff ohne Anmeldung, je Website in den Einstellungen einschaltbar ([Umami-Doku](https://docs.umami.is/docs/enable-share-url)).
 - Eigene Besuche ließen sich mit `localStorage.setItem('umami.disabled', 1)` je Browser ausnehmen ([Umami-Doku](https://docs.umami.is/docs/exclude-my-own-visits)) — bewusst nicht genutzt.
 - Kostenloser Tarif laut Recherche: 100 000 Ereignisse im Monat, eine Website, sechs Monate Aufbewahrung. Bei der Anmeldung am 2026-09-19 nicht gegengeprüft, Preisseite war maschinell nicht lesbar. **Beim nächsten Login prüfen.**
-- Ereignisbudget je Seitenaufruf der Startseite: 1 Aufruf + `firing-shown` + gegebenenfalls `firing-seen` und ein Klick. Bei dieser Größenordnung weit unter dem Kontingent.
+- Ereignisse je Seitenaufruf der Startseite: der Seitenaufruf selbst, `firing-shown`, höchstens ein `firing-seen`, höchstens ein `glaze-slider`, dazu ein `shop-click` je geöffnetem Shop-Link (Links öffnen neue Tabs, mehrere sind also möglich). Bei dieser Größenordnung weit unter dem Kontingent.
 - Konto eingerichtet (Dan, 2026-09-19); die Website-ID steht öffentlich im HTML jeder Seite, `UMAMI_WEBSITE_ID` liegt als Umgebungsvariable auf Netlify.
 - Share-URL für Matthew: Umami → Settings → Websites → Edit → Share URL. Empfohlene Ansichten: Overview, Events, Compare.
 
 ## 7. Risiken
 
 - **Kleine Zahlen.** Bei niedriger zweistelliger Bestellmenge im Monat ist keine Aussage je Stück statistisch belastbar. Deshalb ist „steuern, was Matthew töpfert" kein Ziel. Die Messung zeigt Richtungen, keine Beweise.
-- **Sechs Sets teilen den Verkehr.** Jedes Set sieht nur etwa ein Sechstel der Besucher. Die Entscheidung nach einem Monat (Abschnitt 3) ist genau dafür da.
+- **Die Sets teilen sich den Verkehr.** Je mehr Sets in der Rotation sind, desto weniger Besucher sieht jedes einzelne (Stand 2026-09-19: 5 von 7 Sets nicht versteckt, je Set rund ein Fünftel). Die Entscheidung nach einem Monat (Abschnitt 3) ist genau dafür da.
 - **Eigene Besuche sind enthalten.** Wer die Seite während der Arbeit oft öffnet, hebt die Zahlen. Bei auffälligen Ausschlägen zuerst daran denken.
 - **Ein großer „Direct"-Anteil ist normal.** Tippeingaben und Privatmodus verlieren den Verweis; das heißt nicht, dass die Seite nichts bringt.
 - **Sechs Monate Aufbewahrung** im kostenlosen Tarif: ein Vergleich mit dem Vorjahr ist nicht möglich. Wenn das je gebraucht wird, monatlich exportieren.

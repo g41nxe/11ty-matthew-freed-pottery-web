@@ -21,7 +21,7 @@ Platzierung statt Stückname: Welches Stück gemeint war, weiß Shopify bereits 
 
 ## Konsequenzen
 
-- **Ereignis-Kontingent.** Umamis kostenloser Tarif begrenzt die Ereignisse im Monat; bei dieser Besuchergröße bleibt der Verbrauch weit darunter, ein Seitenaufruf der Startseite kostet höchstens vier Ereignisse.
+- **Ereignis-Kontingent.** Umamis kostenloser Tarif begrenzt die Ereignisse im Monat; bei dieser Besuchergröße bleibt der Verbrauch weit darunter. Ein Seitenaufruf der Startseite umfasst den Seitenaufruf selbst, `firing-shown`, höchstens ein `firing-seen`, höchstens ein `glaze-slider`, dazu einen `shop-click` je geöffnetem Shop-Link (Links öffnen neue Tabs, mehrere sind also möglich).
 - **Sechs Monate Aufbewahrung.** Ältere Daten sind weg, sobald der Tarif sie löscht. Ein Vergleich mit dem Vorjahr ist damit nicht möglich; wird das je gebraucht, muss vorher exportiert werden.
 - **Eigene Besuche zählen mit.** Umami könnte sie per `localStorage`-Schalter ausnehmen; der Aufwand lohnt bei zwei Personen nicht. Beim Lesen der Zahlen ist das mitzudenken.
 - **Keine Heatmaps.** Microsoft Clarity hätte Ziel 3 direkter beantwortet, setzt aber Cookies und bräuchte ein Banner. Solange kein Banner gilt, bleibt offen, wo auf einer Seite Besucher tatsächlich hinsehen.
