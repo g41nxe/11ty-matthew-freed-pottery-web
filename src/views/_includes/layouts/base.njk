@@ -16,6 +16,11 @@
 
     <link rel="stylesheet" href="/styles/main.css">
     <script defer src="/js/nav.js"></script>
+    {% if env.umamiWebsiteId %}
+    {# Counts without cookies. data-domains keeps preview deploys and localhost out of the numbers. #}
+    <script defer src="{{ env.umamiScript }}" data-website-id="{{ env.umamiWebsiteId }}" data-domains="matthewfreed.ca"></script>
+    <script defer src="/js/analytics.js"></script>
+    {% endif %}
 
     {% seo "" %}
 </head>

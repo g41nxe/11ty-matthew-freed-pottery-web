@@ -155,6 +155,55 @@ module.exports = function (eleventyConfig) {
             });
     });
     eleventyConfig.addNunjucksFilter("markdownify", (s) => (s ? md.render(s) : ""));
+    // Outgoing shop links get their origin tag at build time, so the CMS
+    // keeps clean URLs and nobody types parameters by hand. Shopify only
+    // counts a visit as marketing when utm_campaign is present. utm_content
+    // names the spot on the page, not the piece: Shopify knows the piece from
+    // the landing page, and a spot keeps its name when a piece is renamed.
+    const placementSlug = (value) =>
+        String(value == null ? "" : value)
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "")
+            .slice(0, 60);
+    eleventyConfig.addNunjucksFilter("placementSlug", placementSlug);
+    // The shop answers on its own domain (shop.) and on Shopify's myshopify
+    // address; the site's own domain stays untouched.
+    const shopUrl = (url) => {
+        let parsed;
+        try {
+            parsed = new URL(url);
+        } catch {
+            return null;
+        }
+        const host = parsed.hostname;
+        return host.startsWith("shop.") || host.endsWith(".myshopify.com") ? parsed : null;
+    };
+    const tagShopUrl = (parsed, placement) => {
+        parsed.searchParams.set("utm_source", "matthewfreed.ca");
+        parsed.searchParams.set("utm_medium", "referral");
+        parsed.searchParams.set("utm_campaign", "website");
+        const content = placementSlug(placement);
+        if (content) parsed.searchParams.set("utm_content", content);
+        return parsed.toString();
+    };
+    eleventyConfig.addNunjucksFilter("shopLink", function (url, placement) {
+        const parsed = url && shopUrl(url);
+        return parsed ? tagShopUrl(parsed, placement) : url;
+    });
+    // Safety net for shop links the templates cannot name: links Matthew
+    // writes into a text field in the CMS. They get "text-" plus the page
+    // (text-events, text-home). Links a template already tagged carry our
+    // utm_source and stay exactly as they are.
+    eleventyConfig.addTransform("shopLinks", function (content) {
+        if (!this.page.outputPath || !this.page.outputPath.endsWith(".html")) return content;
+        const page = placementSlug(this.page.url.replace(/\.html$/, "")) || "home";
+        return content.replace(/(<a\b[^>]*?\shref=)(["'])(.*?)\2/g, (match, start, quote, href) => {
+            const parsed = shopUrl(href.replace(/&amp;/g, "&"));
+            if (!parsed || parsed.searchParams.get("utm_source") === "matthewfreed.ca") return match;
+            return start + quote + tagShopUrl(parsed, "text-" + page).replace(/&/g, "&amp;") + quote;
+        });
+    });
     // CMS texts write {glazes} (or {Glazes} to start a sentence) instead of
     // a number, so "fifteen glazes" stays right when a glaze line is added
     // to or removed from the gallery.
