@@ -34,15 +34,39 @@
     <p class="mt-1 text-base text-muted">{{ global.contact.address | nl2br | safe }}</p>
 </div>
 
-{# The embed is built from the studio address in Global Settings, so moving
-   studios only means editing that address. Without a key (local builds, or
-   the variable missing on Netlify) the map is left out instead of showing
-   Google's error tile. #}
-{% if env.googleMapsKey %}
-<div id="map" class="mt-6 overflow-hidden rounded-xl">
-    <iframe title="Map of the studio address"
-            src="https://www.google.com/maps/embed/v1/place?key={{ env.googleMapsKey }}&q={{ ('Matthew Freed Pottery, ' ~ global.contact.address) | replace(r/\s*\n\s*/g, ', ') | trim | urlencode }}"
-            class="w-full" height="236" style="border:0" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+{# The map is a picture stored with the site, made from OpenStreetMap by
+   scripts/map-preview.mjs, so opening this page contacts no map service
+   (ticket 0005). Google Maps is only a link, built from the studio address
+   in Settings like the links on the events and retail pages. The picture
+   shows only while it was made for the current address, so after a move
+   the page never shows the old place; the comparison ignores whitespace
+   differences (spacing, line breaks) so an edit that only reformats the
+   address does not hide the picture. #}
+{% set mapQuery = ('Matthew Freed Pottery, ' ~ global.contact.address) | replace(r/\s*\n\s*/g, ', ') | trim %}
+{% set mapsUrl = "https://www.google.com/maps/search/?api=1&query=" ~ (mapQuery | urlencode) %}
+{% if (mapPreview.address | replace(r/\s+/g, " ") | trim) == (global.contact.address | replace(r/\s+/g, " ") | trim) %}
+<div class="relative mt-6 overflow-hidden rounded-xl bg-tile">
+    {# The whole picture is the link to Google Maps. The chip names it, stays
+       visible on phones (no hover there) and turns blue on hover or keyboard
+       focus while the picture zooms like the shop tiles on the home page. #}
+    <a href="{{ mapsUrl }}" target="_blank" rel="noopener" class="group block focus-visible:outline-none" aria-label="{{ global.labels.map_link }}">
+        {% img "/images/site/studio-map.png", "Street map around the studio", "(min-width: 1152px) 532px, (min-width: 768px) 50vw, 100vw", "img-zoom block h-[236px] w-full object-cover" %}
+        <span class="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1.5 rounded-full border border-hairline bg-white px-3.5 py-1.5 text-sm font-medium text-blue shadow-sm transition-colors duration-300 group-hover:border-blue group-hover:bg-blue group-hover:text-paper group-focus-visible:border-blue group-focus-visible:bg-blue group-focus-visible:text-paper group-focus-visible:outline-2 group-focus-visible:outline-offset-2 group-focus-visible:outline-blue">
+            {{ global.labels.map_link }}
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6M11 13l9-9M15 4h5v5"/></svg>
+        </span>
+    </a>
+    {# Google-Maps-style pin. The picture is centred on the studio and
+       object-cover keeps that centre in the middle of the box (the hover zoom
+       scales around it too), so the tip of the pin sits at the centre. It
+       ignores clicks, which fall through to the picture link. #}
+    <svg class="pointer-events-none absolute left-1/2 top-1/2 h-[43px] w-[27px] -translate-x-1/2 -translate-y-full drop-shadow-sm" viewBox="0 0 27 43" aria-hidden="true" focusable="false">
+        <path d="M13.5 0C6.04 0 0 6.04 0 13.5 0 23.6 13.5 43 13.5 43S27 23.6 27 13.5C27 6.04 20.96 0 13.5 0z" fill="#EA4335" stroke="#B31412"/>
+        <circle cx="13.5" cy="13.5" r="4.5" fill="#B31412"/>
+    </svg>
+    <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" class="absolute right-2 top-2 bg-paper/90 px-1 py-0.5 text-xs text-ink" aria-label="Map data © OpenStreetMap contributors">© OpenStreetMap contributors</a>
 </div>
+{% else %}
+{# No picture for the current address yet (after a move): a plain link instead. #}
+<a href="{{ mapsUrl }}" target="_blank" rel="noopener" class="link-underline mt-6 inline-block text-sm">{{ global.labels.map_link }}</a>
 {% endif %}
