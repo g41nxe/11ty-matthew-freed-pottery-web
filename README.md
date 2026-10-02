@@ -61,7 +61,7 @@ Werden auf Netlify gesetzt, nie ins Repo geschrieben.
 | `NEXT_PUBLIC_TINA_CLIENT_ID` | TinaCloud-Projekt, hat einen Standardwert in `tina/config.ts` |
 | `HEAD` / `GITHUB_BRANCH` | Branch, den Tina bearbeitet. Netlify setzt `HEAD`, lokal gilt `GITHUB_BRANCH` oder `main` |
 | `COMMIT_REF` | von Netlify gesetzt, erscheint in `/build.txt` |
-| `UMAMI_WEBSITE_ID` | Umami-Messung. Ist auf Netlify schon gesetzt, wird aber erst mit der Messung genutzt (siehe unten) |
+| `UMAMI_WEBSITE_ID` | Umami-Messung (siehe unten). Auf Netlify nicht als geheim markieren, sonst landet der Wert als Sternchen im HTML |
 
 ## Konventionen
 
@@ -74,4 +74,4 @@ Werden auf Netlify gesetzt, nie ins Repo geschrieben.
 
 - **Tina-Migration:** umgeschaltet. Offene Punkte (Medien-Test auf TinaCloud, Matthew einladen, Rückblick nach einer Woche) stehen in der [Checkliste](docs/superpowers/plans/2026-09-17-tina-umstellung-checkliste.md).
 - **Ohne Google beim Seitenaufruf** (Ticket 0005): umgesetzt und auf `main`.
-- **Messung von Klicks und Verkäufen, in Arbeit** auf dem Branch `feat/klicks-und-verkaeufe`. Die Messung kommt ohne Cookies und ohne Banner aus: Jeder Shop-Link bekommt UTM-Parameter mit seiner Platzierung, dazu zählt Umami Cloud sechs Ereignisse (`firing-shown`, `firing-seen`, `shop-click`, `directions`, `glaze-slider`, `contact-sent`). Der Code ist fertig, aber noch nicht gemergt. Offen sind die Share-URL für Matthew, die Shopify-Kampagne und der Zugang zu Shopify. Design, Plan und ADR 0004 liegen auf dem Branch.
+- **Messung von Klicks und Verkäufen:** live seit `v2.4.0` (ADR 0004). Die Messung kommt ohne Cookies und ohne Banner aus: Jeder Shop-Link bekommt UTM-Parameter mit seiner Platzierung, dazu zählt Umami Cloud sechs Ereignisse (`firing-shown`, `firing-seen`, `shop-click`, `directions`, `glaze-slider`, `contact-sent`). Die erste Auswertung steht ab dem 25.10.2026 an, siehe [Plan](docs/superpowers/plans/2026-09-17-klicks-und-verkaeufe.md).
