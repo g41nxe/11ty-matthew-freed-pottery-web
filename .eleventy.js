@@ -1,7 +1,9 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const { DateTime } = require("luxon");
-const Image = require("@11ty/eleventy-img");
-const { generateHTML } = require("@11ty/eleventy-img");
+const eleventyImg = require("@11ty/eleventy-img");
+// eleventy-img 7 is ESM-only: require() hands back the namespace, the function sits under .default
+const Image = eleventyImg.default || eleventyImg;
+const { generateHTML } = eleventyImg;
 const pluginSEO = require("eleventy-plugin-seo");
 const markdownIt = require("markdown-it");
 const md = markdownIt({ html: true }); // html:true is required — process.md's paragraphs include raw <b> tags
