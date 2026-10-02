@@ -62,16 +62,20 @@ Werden auf Netlify gesetzt, nie ins Repo geschrieben.
 | `HEAD` / `GITHUB_BRANCH` | Branch, den Tina bearbeitet. Netlify setzt `HEAD`, lokal gilt `GITHUB_BRANCH` oder `main` |
 | `COMMIT_REF` | von Netlify gesetzt, erscheint in `/build.txt` |
 | `UMAMI_WEBSITE_ID` | Umami-Messung (siehe unten). Auf Netlify nicht als geheim markieren, sonst landet der Wert als Sternchen im HTML |
+| `UMAMI_SCRIPT_URL` | optional, Adresse des Umami-Skripts. Standard ist `https://cloud.umami.is/script.js` |
 
 ## Konventionen
 
 - Commit-Nachrichten auf Deutsch im Format `typ(bereich): …`. Code-Kommentare und Testnamen auf Englisch, Inhalte der Website ebenfalls.
 - Commits, die die Website nicht ändern (Doku, Skripte, Tests), bekommen `[skip netlify]`, damit keine Build-Minuten verbraucht werden.
 - Keine Dienste von Google beim Seitenaufruf: Schriften kommen von der eigenen Seite, die Karte ist ein Bild mit Link. Ein Test prüft das (`test/no-google-on-load.test.mjs`). reCAPTCHA im Kontaktformular bleibt die einzige Ausnahme (Ticket 0005).
+- Releases sind annotierte Tags im Schema `vMAJOR.MINOR.PATCH` auf `main`. Vor einem Release wird der bisherige Live-Stand getaggt, damit er wiederherstellbar bleibt. Reine Build-Korrekturen ohne sichtbare Änderung bekommen keinen Tag.
 - Größere Entscheidungen werden als ADR unter `docs/adr/` festgehalten, Ideen für später als Ticket unter `docs/feature/`.
 
 ## Stand
 
+Letztes Release: `v2.4.0` (25.09.2026).
+
 - **Tina-Migration:** umgeschaltet. Offene Punkte (Medien-Test auf TinaCloud, Matthew einladen, Rückblick nach einer Woche) stehen in der [Checkliste](docs/superpowers/plans/2026-09-17-tina-umstellung-checkliste.md).
-- **Ohne Google beim Seitenaufruf** (Ticket 0005): umgesetzt und auf `main`.
+- **Ohne Google beim Seitenaufruf** (Ticket 0005): live seit `v2.3.0`.
 - **Messung von Klicks und Verkäufen:** live seit `v2.4.0` (ADR 0004). Die Messung kommt ohne Cookies und ohne Banner aus: Jeder Shop-Link bekommt UTM-Parameter mit seiner Platzierung, dazu zählt Umami Cloud sechs Ereignisse (`firing-shown`, `firing-seen`, `shop-click`, `directions`, `glaze-slider`, `contact-sent`). Die erste Auswertung steht ab dem 25.10.2026 an, siehe [Plan](docs/superpowers/plans/2026-09-17-klicks-und-verkaeufe.md).
