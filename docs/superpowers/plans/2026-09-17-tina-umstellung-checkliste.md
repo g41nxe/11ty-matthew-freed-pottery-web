@@ -79,7 +79,7 @@ Am 2026-09-18 im Admin der Vorschau durchgetestet. Jede Speicherung wurde ein ei
 - [x] Ausverkaufte Stücke: zwei getauscht, Strathcona versteckt, übrige tragen automatisch „Sold out"
 - [x] **D** Shop-Sets durchgesehen (2026-09-18, `54cbaea`): Texte überarbeitet, Preise gegen den Shop geprüft, Ölflaschen versteckt (drei von vier ausverkauft). In der Rotation: Tofino, Yaletown, Joffre, Tree of Life
 - [x] **D** Täglicher Neubau fürs Sold-out-Label (es ist so frisch wie der letzte Build): vertagt, Ticket `docs/feature/0003-taeglicher-neubau-fuer-sold-out-label.md`
-- [ ] **D** Preise und Verfügbarkeit kurz vor dem Livegang erneut prüfen: `npm run shop:check` schreibt `reports/shop-check.html` (Bild von Seite und Shop, Titel, Preis, Verfügbarkeit, Link). Läuft auch in `go-live check` und `switch` mit. Stand 2026-09-18: 24 Artikel, keine Preisabweichung, 9 ausverkauft
+- [x] **D** Preise und Verfügbarkeit kurz vor dem Livegang erneut prüfen: `npm run shop:check` schreibt `reports/shop-check.html` (Bild von Seite und Shop, Titel, Preis, Verfügbarkeit, Link). Läuft auch in `go-live check` und `switch` mit. Stand 2026-09-18: 24 Artikel, keine Preisabweichung, 9 ausverkauft — *überholt: der Livegang war am 2026-09-18, der letzte Bericht stammt vom selben Tag*
 
 ---
 
@@ -120,8 +120,8 @@ Medien lassen sich erst jetzt testen: TinaClouds Media-Branch ist fest `main`.
 - [ ] **D** Großes Foto (mehrere MB): Upload und Build gehen durch
 - [ ] **D** HEIC vom iPhone wird abgelehnt
 - [x] **D** Fehlender Alt-Text bricht den Build nicht mehr ab (siehe 1.2)
-- [ ] **D** Matthew in TinaCloud einladen (zwei Nutzer sind frei, ein dritter kostet) und ihm die Anleitung schicken
-- [ ] **M** Erste Speicherung auf `matthewfreed.ca/admin/`: eine Kleinigkeit, Änderung erscheint
+- [x] **D** Matthew in TinaCloud einladen (zwei Nutzer sind frei, ein dritter kostet) und ihm die Anleitung schicken — *eingeladen, Matthew hat am 2026-09-18 gespeichert (`8d8f8c1`); das Verschicken der Anleitung bleibt in Abschnitt 1 offen*
+- [x] **M** Erste Speicherung auf `matthewfreed.ca/admin/`: eine Kleinigkeit, Änderung erscheint — *2026-09-18, `8d8f8c1` (Events-Seite)*
 - [ ] **M** Alte Decap-Lesezeichen und gespeicherte Logins entfernen
 
 ---
@@ -138,7 +138,7 @@ Medien lassen sich erst jetzt testen: TinaClouds Media-Branch ist fest `main`.
 - [x] **D** Vergleichsseite entfernen: `preview-sets.njk`, `preview-sets.11tydata.js`, die `showAll`-Zweige in `current-firing.njk`, `src/_headers`
 - [x] **D** Passthrough `src/images` bleibt: das Teilen-Vorschaubild (`/images/share/…`) wird als Original ausgeliefert (Kommentar im Branch angepasst)
 - [x] **D** Alte Branches archiviert (2026-09-18): `feat/tinacms-migration` und `feat/sveltia-cms-migration` als Tag `archiv/<name>` auf GitHub, lokal `decap`, `master`, `backup*` als lokale Tags; die Branches sind gelöscht
-- [ ] **D** Analytics-Testdateien im Repo-Wurzelverzeichnis einsortieren oder löschen (`gc.html`, `matomo.*`, `umami*.html`, `u_*.js`, `plaus.html`, `sa.html`, `np.html`, `nfa.html`) — gehören nicht zur Migration
+- [x] **D** Analytics-Testdateien im Repo-Wurzelverzeichnis einsortieren oder löschen (`gc.html`, `matomo.*`, `umami*.html`, `u_*.js`, `plaus.html`, `sa.html`, `np.html`, `nfa.html`) — gehören nicht zur Migration — *geprüft am 2026-10-02: keine der Dateien liegt mehr im Repo*
 
 ---
 
