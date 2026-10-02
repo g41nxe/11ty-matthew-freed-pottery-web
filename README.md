@@ -76,6 +76,6 @@ Werden auf Netlify gesetzt, nie ins Repo geschrieben.
 
 Letztes Release: `v2.4.0` (25.09.2026).
 
-- **Tina-Migration:** umgeschaltet. Offene Punkte (Medien-Test auf TinaCloud, Matthew einladen, Rückblick nach einer Woche) stehen in der [Checkliste](docs/superpowers/plans/2026-09-17-tina-umstellung-checkliste.md).
+- **Tina-Migration:** live seit `v2.1.0`, siehe [Checkliste](docs/superpowers/plans/2026-09-17-tina-umstellung-checkliste.md).
 - **Ohne Google beim Seitenaufruf** (Ticket 0005): live seit `v2.3.0`.
 - **Messung von Klicks und Verkäufen:** live seit `v2.4.0` (ADR 0004). Die Messung kommt ohne Cookies und ohne Banner aus: Jeder Shop-Link bekommt UTM-Parameter mit seiner Platzierung, dazu zählt Umami Cloud sechs Ereignisse (`firing-shown`, `firing-seen`, `shop-click`, `directions`, `glaze-slider`, `contact-sent`). Die erste Auswertung steht ab dem 25.10.2026 an, siehe [Plan](docs/superpowers/plans/2026-09-17-klicks-und-verkaeufe.md).
