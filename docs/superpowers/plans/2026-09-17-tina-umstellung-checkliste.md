@@ -115,10 +115,10 @@ Vorher `npm run go-live -- check` (Probelauf, ändert nichts), dann `npm run go-
 
 Medien lassen sich erst jetzt testen: TinaClouds Media-Branch ist fest `main`.
 
-- [ ] **D** Foto in einen Unterordner von `src/images` hochladen, in einem Bildfeld wählen, Build abwarten: Bild erscheint in allen Größen
-- [ ] **D** Datei direkt aufs Bildfeld ziehen: landet in `src/images/` (Wurzel) — Matthew darauf hinweisen
-- [ ] **D** Großes Foto (mehrere MB): Upload und Build gehen durch
-- [ ] **D** HEIC vom iPhone wird abgelehnt
+- [x] **D** Foto in einen Unterordner von `src/images` hochladen, in einem Bildfeld wählen, Build abwarten: Bild erscheint in allen Größen
+- [x] **D** Datei direkt aufs Bildfeld ziehen: landet in `src/images/` (Wurzel) — Matthew darauf hinweisen
+- [x] **D** Großes Foto (mehrere MB): Upload und Build gehen durch
+- [x] **D** HEIC vom iPhone wird abgelehnt
 - [x] **D** Fehlender Alt-Text bricht den Build nicht mehr ab (siehe 1.2)
 - [x] **D** Matthew in TinaCloud einladen (zwei Nutzer sind frei, ein dritter kostet) und ihm die Anleitung schicken — *eingeladen, Matthew hat am 2026-09-18 gespeichert (`8d8f8c1`); das Verschicken der Anleitung bleibt in Abschnitt 1 offen*
 - [x] **M** Erste Speicherung auf `matthewfreed.ca/admin/`: eine Kleinigkeit, Änderung erscheint — *2026-09-18, `8d8f8c1` (Events-Seite)*
