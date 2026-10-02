@@ -34,7 +34,7 @@ Abbruchkriterien und Rücksprung stehen am Ende. Gefundene Fehler, Hinweise für
 Kein Bedienungstest: Matthew kommt mit CMS-Oberflächen zurecht. Er bekommt eine kurze Anleitung, die nur zeigt, was sich gegenüber Decap ändert (was wohin gewandert ist, Märkte und Events, Shop-Sets, Fotos, zwei Eigenheiten), mit Screenshots aus dem Admin.
 
 - [x] **D** Anleitung geschrieben (Link oben)
-- [ ] **D** Anleitung freigeben und Matthew schicken, zusammen mit der TinaCloud-Einladung (nach dem Umschalten, Abschnitt 4)
+- [x] **D** Anleitung freigeben und Matthew schicken, zusammen mit der TinaCloud-Einladung (nach dem Umschalten, Abschnitt 4)
 
 ### 1.2 CMS technisch — erledigt
 
@@ -120,7 +120,7 @@ Medien lassen sich erst jetzt testen: TinaClouds Media-Branch ist fest `main`.
 - [x] **D** Großes Foto (mehrere MB): Upload und Build gehen durch
 - [x] **D** HEIC vom iPhone wird abgelehnt
 - [x] **D** Fehlender Alt-Text bricht den Build nicht mehr ab (siehe 1.2)
-- [x] **D** Matthew in TinaCloud einladen (zwei Nutzer sind frei, ein dritter kostet) und ihm die Anleitung schicken — *eingeladen, Matthew hat am 2026-09-18 gespeichert (`8d8f8c1`); das Verschicken der Anleitung bleibt in Abschnitt 1 offen*
+- [x] **D** Matthew in TinaCloud einladen (zwei Nutzer sind frei, ein dritter kostet) und ihm die Anleitung schicken — *eingeladen, Matthew hat am 2026-09-18 gespeichert (`8d8f8c1`)*
 - [x] **M** Erste Speicherung auf `matthewfreed.ca/admin/`: eine Kleinigkeit, Änderung erscheint — *2026-09-18, `8d8f8c1` (Events-Seite)*
 - [ ] **M** Alte Decap-Lesezeichen und gespeicherte Logins entfernen
 
