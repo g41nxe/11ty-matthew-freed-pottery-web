@@ -122,7 +122,7 @@ Medien lassen sich erst jetzt testen: TinaClouds Media-Branch ist fest `main`.
 - [x] **D** Fehlender Alt-Text bricht den Build nicht mehr ab (siehe 1.2)
 - [x] **D** Matthew in TinaCloud einladen (zwei Nutzer sind frei, ein dritter kostet) und ihm die Anleitung schicken — *eingeladen, Matthew hat am 2026-09-18 gespeichert (`8d8f8c1`)*
 - [x] **M** Erste Speicherung auf `matthewfreed.ca/admin/`: eine Kleinigkeit, Änderung erscheint — *2026-09-18, `8d8f8c1` (Events-Seite)*
-- [ ] **M** Alte Decap-Lesezeichen und gespeicherte Logins entfernen
+- [x] **M** Alte Decap-Lesezeichen und gespeicherte Logins entfernen — *hinfällig: Matthew hatte vermutlich keine, und `/admin/` führt ohnehin zu Tina*
 
 ---
 
