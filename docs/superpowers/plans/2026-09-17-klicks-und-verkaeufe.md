@@ -662,7 +662,7 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 
 ## Task 9: Nach dem Release auswerten (ohne Code, Dan)
 
-- [ ] **Schritt 1: Kommen Daten an? (nach 48 Stunden)**
+- [x] **Schritt 1: Kommen Daten an? (nach 48 Stunden)**
 
 Umami-Dashboard: Besuche und unter Events die sechs Namen aus den Global Constraints. Fehlt `shop-click`, obwohl Besuche gezählt werden, lädt `analytics.js` nicht — im Netzwerk-Tab prüfen. Shopify: *Total sales by referrer* mit Filter „Human or bot session" zeigt die Zeile `matthewfreed.ca`.
 
