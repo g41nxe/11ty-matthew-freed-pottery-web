@@ -44,7 +44,7 @@ Settings → Websites → Edit → Share URL einschalten, Link an Matthew schick
 
 Netlify → Site configuration → Environment variables → `UMAMI_WEBSITE_ID` = die kopierte ID, für alle Deploy-Kontexte. Lokal optional in `.env`.
 
-- [ ] **Schritt 4: Shopify-Kampagne anlegen**
+- [x] **Schritt 4: Shopify-Kampagne anlegen**
 
 Shopify-Admin → Marketing → Kampagne „Website" anlegen, damit die Berichte einen lesbaren Namen zeigen. Prüfen, ob *Total sales by referrer* und *Performance by UTM campaign* im aktuellen Tarif sichtbar sind; Ergebnis in Spec Abschnitt 5 notieren.
 
