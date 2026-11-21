@@ -92,9 +92,13 @@ Sitzungsdaten reichen nur bis 2022-10-01 zurück, Marketing-Berichte laufen bis 
 
 ### 2026-11-21, erste Auswertung (Zeitraum 25.09. bis 21.11.2026)
 
-**Umami.** 147 Besucher, 163 Besuche, 234 Seitenaufrufe, Absprungrate 6 Prozent. Meistbesucht: Startseite 113, Collections 29, About 11, Kontakt 10, Events 8, Händler 7. Herkunft: rund 95 Prozent der Besuche mit erkennbarem Verweis kommen über Google, Instagram taucht praktisch nicht auf. Ereignisse: `firing-shown` 462, `firing-seen` 289 (63 Prozent der Einblendungen kamen ins Bild), `shop-click` 249, `glaze-slider` 85, `directions` 3, `contact-sent` 2.
+**Umami** (Ansicht „Letzte 90 Tage"; die Messung beginnt am 25.09., frühere Tage sind leer). 376 Besucher, 416 Besuche, 596 Seitenaufrufe, Absprungrate 14 Prozent, Verweildauer 38 Sekunden. Meistbesucht: Startseite 326, Collections 82, About 31, Kontakt 29, Events 22, Händler 19. Herkunft: rund 90 Prozent der Besuche mit erkennbarem Verweis kommen über Google, Instagram taucht praktisch nicht auf. Ereignisse: `firing-shown` 472, `firing-seen` 293 (62 Prozent der Einblendungen kamen ins Bild), `shop-click` 250, `glaze-slider` 85, `directions` 3, `contact-sent` 2.
 
-**Shop-Klicks nach Ort.** Menü 55, großer Knopf auf der Startseite 40, Glasuren auf der Collections-Seite 89, Glasur-Karten der Startseite 33, Shop-Bereich der Startseite 37 (davon `firing-shop-all` 7), Gold-Medaille auf About 2. Die Collections-Seite schlägt den Shop-Bereich der Startseite deutlich.
+> **Korrektur vom 2026-11-21.** Die erste Fassung dieses Abschnitts nannte 147 Besucher, 163 Besuche und 234 Aufrufe. Diese Zahlen stammten aus einem von Hand gesetzten Zeitraum, der in Umami nicht wie gedacht gegriffen hat. Richtig sind die Werte oben. Die Ereigniszahlen und alle Verhältnisse waren davon nicht betroffen.
+
+**Geräte.** Auf der Website (Umami, 90 Tage): Mobil 225 Besucher (50 Prozent), Laptop 178 (40 Prozent), Desktop 18 (4 Prozent), Tablet 14 (3 Prozent). Im Shop (Shopify, 24.09. bis 21.11.): 478 Sitzungen vom Mobilgerät (62 Prozent), 286 vom Desktop (37 Prozent), 11 vom Tablet. Im Shop ist der Anteil mobiler Besuche also deutlich höher als auf der Website. Bestellungen je Gerät geben die Berichte dieses Tarifs nicht her, eine Kaufquote je Gerät lässt sich daraus nicht bilden.
+
+**Shop-Klicks nach Ort.** Menü 55, großer Knopf auf der Startseite 40, Glasuren auf der Collections-Seite 89, Glasur-Karten der Startseite 33, Shop-Bereich der Startseite 37 (davon `firing-shop-all` 7), Gold-Medaille auf About 2. Die Collections-Seite schlägt den Shop-Bereich der Startseite deutlich: 82 Besucher erzeugen dort 89 Klicks, während die 326 Besucher der Startseite aus dem Shop-Bereich nur 37 beisteuern.
 
 **Sets.** Gleichmäßig ausgespielt, unterschiedlich erfolgreich:
 
