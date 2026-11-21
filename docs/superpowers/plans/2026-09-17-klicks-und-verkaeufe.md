@@ -666,7 +666,7 @@ Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
 
 Umami-Dashboard: Besuche und unter Events die sechs Namen aus den Global Constraints. Fehlt `shop-click`, obwohl Besuche gezählt werden, lädt `analytics.js` nicht — im Netzwerk-Tab prüfen. Shopify: *Total sales by referrer* mit Filter „Human or bot session" zeigt die Zeile `matthewfreed.ca`.
 
-- [ ] **Schritt 2: Monatlich dieselben vier Blicke**
+- [x] **Schritt 2: Monatlich dieselben vier Blicke** (erstmals am 2026-11-21, Ergebnis in Spec Abschnitt 8; Schritt 4, die Conversion-Details, steht noch aus)
 
 1. **Umsatz der Seite (Ziel 2):** Shopify → *Total sales by referrer* → Zeile `matthewfreed.ca`, Monatssumme notieren.
 2. **Sets vergleichen (Ziel 1):** Umami → Events → je Set `shop-click` geteilt durch `firing-seen`. Das ist die Klickrate. `firing-shown` ohne `firing-seen` heißt: Set gezeigt, Shop-Teil nie erreicht.
@@ -675,7 +675,7 @@ Umami-Dashboard: Besuche und unter Events die sechs Namen aus den Global Constra
 
 Ergebnis als kurzen Absatz mit Datum in Spec Abschnitt 3 unter „Auswertung" festhalten. Eigene Besuche sind enthalten; auffällige Ausschläge zuerst darauf prüfen.
 
-- [ ] **Schritt 3: Nach einem Monat über die Rotation entscheiden**
+- [x] **Schritt 3: Nach einem Monat über die Rotation entscheiden** (2026-11-21: 249 Shop-Klicks in acht Wochen, rund 125 im Monat und damit über der Schwelle — alle Sets bleiben, Yaletown beobachten)
 
 Liegen die `shop-click`-Ereignisse aller Sets zusammen unter etwa 100 im Monat, die Rotation auf die drei Sets mit der besten Klickrate kürzen (in Tina: die übrigen auf „Hide" setzen). Darüber alle sechs laufen lassen und nach einem weiteren Monat erneut prüfen. Entscheidung und Zahlen in der Spec notieren.
 

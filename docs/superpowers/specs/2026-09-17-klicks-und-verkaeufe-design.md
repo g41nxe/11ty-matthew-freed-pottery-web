@@ -35,7 +35,7 @@ Drei Entscheidungen soll die Messung tragen, in dieser Reihenfolge:
 | Zugang | Konto auf Dan. Matthew bekommt die **Share-URL**, ein Lesezugriff ohne Anmeldung ([Umami-Doku](https://docs.umami.is/docs/enable-share-url)). Der kostenlose Tarif reicht damit für beide |
 | Eigene Besuche | **Werden mitgezählt.** Umami könnte sie per `localStorage`-Schalter ausnehmen; der Aufwand lohnt bei zwei Personen nicht. Beim Lesen der Zahlen mitdenken (Abschnitt 7) |
 | Rotation während der Messung | Alle nicht versteckten Sets bleiben drin. Nach einem Monat wird entschieden: unter etwa 100 Shop-Klicks im Monat auf drei Sets kürzen, damit je Set genug zusammenkommt |
-| Auswertung | Von Hand, nach der Liste in Task 9 des Plans. Kein Automatismus, kein API-Schlüssel |
+| Auswertung | Von Hand, nach der Liste in Task 9 des Plans. Kein Automatismus, kein API-Schlüssel. Ergebnisse stehen in Abschnitt 8 |
 | Datenschutzerklärung | Wird im selben Schritt an die Wirklichkeit angepasst. Matthew gibt das Projekt frei; den Text selbst legt Dan ihm nicht vor (Entscheidung 2026-09-19) |
 | Einwilligung | Kein Banner. Umami setzt laut Anbieter keine Cookies und anonymisiert die Daten; die Seite selbst setzt danach weiterhin keine Cookies |
 
@@ -87,3 +87,42 @@ Sitzungsdaten reichen nur bis 2022-10-01 zurück, Marketing-Berichte laufen bis 
 - **Shopify hat zum 2026-01-01 die Cookies `_shopify_y` und `_shopify_s` abgeschafft.** Jede ältere Anleitung, die sie ausliest, ist tot.
 - **Wechsel des Dienstes bleibt möglich.** Die Ereignisse hängen an einer einzigen Stelle (`window.umami.track`); ein Umzug zu Plausible oder Fathom wäre ein Austausch des Skripts und dieser Aufrufe.
 - **Rechtliches.** Quebecs Law 25 ist strenger als PIPEDA. Cookiefreie Messung umgeht die Frage, ersetzt aber keine Rechtsberatung.
+
+## 8. Auswertungen
+
+### 2026-11-21, erste Auswertung (Zeitraum 25.09. bis 21.11.2026)
+
+**Umami.** 147 Besucher, 163 Besuche, 234 Seitenaufrufe, Absprungrate 6 Prozent. Meistbesucht: Startseite 113, Collections 29, About 11, Kontakt 10, Events 8, Händler 7. Herkunft: rund 95 Prozent der Besuche mit erkennbarem Verweis kommen über Google, Instagram taucht praktisch nicht auf. Ereignisse: `firing-shown` 462, `firing-seen` 289 (63 Prozent der Einblendungen kamen ins Bild), `shop-click` 249, `glaze-slider` 85, `directions` 3, `contact-sent` 2.
+
+**Shop-Klicks nach Ort.** Menü 55, großer Knopf auf der Startseite 40, Glasuren auf der Collections-Seite 89, Glasur-Karten der Startseite 33, Shop-Bereich der Startseite 37 (davon `firing-shop-all` 7), Gold-Medaille auf About 2. Die Collections-Seite schlägt den Shop-Bereich der Startseite deutlich.
+
+**Sets.** Gleichmäßig ausgespielt, unterschiedlich erfolgreich:
+
+| Set | gezeigt | Shop-Klicks | Quote |
+|---|---|---|---|
+| Joffre | 84 | 8 | 9,5 % |
+| Jericho | 92 | 8 | 8,7 % |
+| Tree of Life | 96 | 6 | 6,3 % |
+| Tofino | 101 | 6 | 5,9 % |
+| Yaletown | 89 | 2 | 2,2 % |
+
+Abweichung von Task 9: Die Quote ist hier `shop-click` geteilt durch `firing-shown`, nicht durch `firing-seen`, weil Umami `firing-seen` nur insgesamt und nicht je Set ausgibt, ohne je Set zu filtern.
+
+**Shopify** (Bericht „Leistung nach Marketing-Kampagne", letzter indirekter Klick). Insgesamt 13 Bestellungen und 1.548,04 CA$:
+
+| Herkunft | Sitzungen | Bestellungen | Umsatz | Kaufquote |
+|---|---|---|---|---|
+| Kampagne „website" | 441 | 9 | 1.068,19 CA$ | 2,04 % |
+| Direkt | 448 | 3 | 412,16 CA$ | 0,66 % |
+| Google organisch | 22 | 1 | 67,69 CA$ | 4,54 % |
+| Instagram, Facebook, Shop-App | 6 | 0 | 0 CA$ | 0 % |
+
+Damit ist Ziel 2 beantwortet: Die Seite trägt gut zwei Drittel des Umsatzes, und ihre Besucher kaufen dreimal so oft wie direkt eintreffende. Durchschnittsbon 96,33 CA$. Innerhalb der Kampagne verteilt sich der Umsatz auf drei Schreibweisen der Quelle: `matthewfreed.ca` (188 Sitzungen, 4 Bestellungen, 340,45 CA$) aus den getaggten Links, dazu die älteren `matthewfreed` (186, 4, 558,23 CA$) und `matthewfreedpottery` (66, 1, 169,51 CA$).
+
+**Entscheidung zur Rotation.** 249 Shop-Klicks in acht Wochen sind etwa 125 im Monat, also über der Schwelle von 100. Alle Sets bleiben, erneut prüfen bei der nächsten Auswertung. Yaletown fällt mit 2,2 Prozent klar ab und wäre der erste Kandidat zum Austauschen; bei zwei bis acht Klicks je Set trägt der Unterschied aber noch keine Entscheidung.
+
+**Grenzen dieser Auswertung.**
+
+- `utm_content` lässt sich in diesem Shopify-Tarif nicht auswerten: Es gibt keinen UTM-Bericht, und eigene ShopifyQL-Abfragen auf diese Spalte liefern nichts. Welche Platzierung verkauft, zeigen nur die Conversion-Details einzelner Bestellungen.
+- Die Besucherzahlen beider Systeme weichen stark ab: Umami nennt 147 Besucher (Ereignis-Ansicht 414), Shopify 441 Sitzungen aus der Kampagne. Für absolute Zahlen Shopify nehmen, Umami für Trends und für alles, was im Shop nicht ankommt.
+- Zwei Testereignisse von Dan vom 25.09. stecken in den Zahlen: ein Aufruf von `/release-check` und ein Klick auf `firing-shop-all` im Set Jericho.
