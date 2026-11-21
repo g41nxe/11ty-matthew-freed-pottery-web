@@ -1,3 +1,12 @@
+# Die alte Domain matthewfreedpottery.com liefert dieselbe Seite aus. Ohne
+# Weiterleitung bewertet Google denselben Inhalt doppelt, und Shopify zaehlt
+# die Herkunft getrennt (geprueft 2026-11-21). Das Ausrufezeichen erzwingt die
+# Weiterleitung auch dort, wo es die Datei wirklich gibt.
+https://matthewfreedpottery.com/*      https://matthewfreed.ca/:splat   301!
+http://matthewfreedpottery.com/*       https://matthewfreed.ca/:splat   301!
+https://www.matthewfreedpottery.com/*  https://matthewfreed.ca/:splat   301!
+http://www.matthewfreedpottery.com/*   https://matthewfreed.ca/:splat   301!
+
 
 /home/glazes            /                           301
 /Home/Glazes            /                           301
