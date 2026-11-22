@@ -94,12 +94,19 @@ eleventyComputed:
        which a white band collided with. #}
     <section class="bg-blue">
         <div class="mx-auto grid max-w-6xl md:grid-cols-2">
-            {# The same picture on all sixteen pages, and deliberately so:
-               the block is identical everywhere, and a glaze photo here
-               would only repeat what the visitor just clicked on. Aligned
-               to the top because a centred crop cuts his head off. #}
+            {# Matthew's own photo for this glaze if he has one, otherwise the
+               studio picture, which carries the block on its own: the text is
+               about him making a piece, so the same image on all sixteen pages
+               is right rather than a shortcoming. What must NOT go here is the
+               card image of this glaze - the visitor just clicked on it. The
+               studio picture is aligned to the top because a centred crop cuts
+               his head off. #}
             <div class="relative aspect-[4/3] overflow-hidden md:aspect-auto">
+                {% if glaze.page_image %}
+                {% img glaze.page_image.url, glaze.page_image.alt, "(min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover" %}
+                {% else %}
                 {% img "/images/workshop/making-a-batch.jpg", "Matthew Freed at the wheel, the batch he has just thrown drying beside him", "(min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover object-top" %}
+                {% endif %}
             </div>
             <div class="flex flex-col items-start justify-center px-6 py-12 md:px-12">
                 <h2 class="font-display text-2xl font-black text-paper">{{ collections_glaze.ask_title | default("Not in the shop right now?", true) }}</h2>

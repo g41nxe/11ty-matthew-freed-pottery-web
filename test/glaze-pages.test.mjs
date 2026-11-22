@@ -105,3 +105,19 @@ test("every generated page reaches the sitemap, not just the first", () => {
         "without addAllPagesToCollections the sitemap holds one glaze page instead of all of them"
     );
 });
+
+// The blue band shows Matthew's own photo for a glaze when he has one, and the
+// studio picture otherwise. The one picture it must never show is the card
+// image: the visitor clicked on exactly that to get here. An earlier photos
+// field did show it, on all five pages, which is why it was dropped again.
+test("the band never falls back to the card image", () => {
+    for (const page of glazePages) {
+        if (!page.page_image) continue;
+        assert.notEqual(
+            page.page_image.url,
+            page.image.url,
+            `${page.title}: the glaze page would repeat the card image full width`
+        );
+        assert.ok((page.page_image.alt || '').trim(), `${page.title}: page photo without alt text`);
+    }
+});

@@ -22,7 +22,7 @@ export const collectionsGallery: Collection = {
   fields: [
     {
       type: "object", name: "items", label: "Glaze lines", list: true,
-      description: "Shown on the collections page and in the home page teaser, in this order. Fill in both the intro and the page text and the glaze also gets a page of its own.",
+      description: "Shown on the collections page and in the home page teaser, in this order. Fill in both the intro and the page text and the glaze also gets a page of its own. The photo for that page is optional: without one the glaze page shows the studio picture, and the card image above is ignored there because visitors have just clicked on it.",
       ui: { itemProps: (item) => ({ label: item?.title || "New glaze line" }) },
       fields: [
         imageField("image", "Image"),
@@ -42,6 +42,7 @@ export const collectionsGallery: Collection = {
           description: "The rest of the glaze page, directly under the intro. Leave a blank line between paragraphs. Without this no page is built and the card keeps linking to the shop.",
           ui: { component: "textarea" },
         },
+        imageField("page_image", "Photo for the glaze page"),
         { type: "string", name: "slug", label: "Shop collection slug (tail of the shop URL)" },
         { type: "string", name: "swatch", label: "Swatch colour (hex)", ui: { validate: hexColour } },
         { type: "string", name: "filterGroups", label: "Filter groups", list: true, options: ["Blues", "Charcoals", "Patterned"] },
