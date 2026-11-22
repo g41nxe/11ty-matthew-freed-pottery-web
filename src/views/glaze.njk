@@ -116,16 +116,16 @@ eleventyComputed:
         </div>
     </section>
 
-    {# The field guide is the page we want people to keep circling back to,
-       so the other glazes get cards here, not a thin row of links. #}
+    {# The page we want people to keep circling back to, so the other glazes
+       get cards here, not a thin row of links. Always four of them, rotating,
+       see _data/glazePages.js. #}
     <section class="mx-auto max-w-6xl px-6 py-12" aria-label="Other glazes">
         <div class="flex items-baseline justify-between gap-4">
             <h2 class="font-display text-2xl font-black text-ink">{{ collections_glaze.others_title }}</h2>
             <a href="/collections.html" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.back_label }}</a>
         </div>
         <div class="mt-8 grid grid-cols-2 gap-5 md:grid-cols-4">
-            {% for other in glazePages %}
-            {% if other.path != glaze.path %}
+            {% for other in glaze.others %}
             <a href="{{ other.path }}" class="group">
                 {# Square, and backed by the glaze colour, the same tile the
                    slider on the home page uses: same job, same shape. #}
@@ -138,7 +138,6 @@ eleventyComputed:
                 </p>
                 <p class="mt-1 text-sm text-muted">{{ other.text }}</p>
             </a>
-            {% endif %}
             {% endfor %}
         </div>
     </section>

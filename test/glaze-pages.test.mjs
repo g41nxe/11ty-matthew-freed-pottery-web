@@ -56,29 +56,23 @@ test("the story is kept as paragraphs, not one block", () => {
 });
 
 // The pieces on a glaze page come from the shop set of the same name, matched
-// by a plain string. A renamed set would silently leave the page without
-// anything to buy, and nothing on the page would show it.
-test("every glaze page has a shop set of its own name", () => {
-    for (const page of glazePages) {
-        assert.ok(
-            shopSets.byName[page.name],
-            `${page.title}: no shop set named "${page.name}" -- was the set renamed under Home?`
-        );
-    }
-});
-
-// "Hide" takes a set out of the rotation on the home page. The glaze page has
-// no rotation, so the flag could easily have been ignored here -- and then the
-// pieces Matthew just withdrew would be back on a page of their own. Strathcona
-// is exactly that case today: a glaze in the gallery whose set is hidden.
-test("a hidden set never reaches a glaze page", () => {
+// by a plain string. Three outcomes, and all three are legitimate:
+//
+//   visible set of that name -> the page shows it
+//   hidden set               -> the page shows nothing (hide means withdrawn)
+//   no set at all            -> the page shows nothing (Skaha, a new glaze
+//                               with a story but nothing in the shop yet)
+//
+// The earlier version of this test demanded that a set exist, which was true
+// until Skaha and would have blocked every glaze that gets a text before it
+// gets pieces. What it also did was catch a renamed set; that guard is gone,
+// and in its place the CMS now says at the name field: "Must match the glaze
+// name exactly, otherwise that glaze page finds no pieces."
+test("a glaze page shows the set of its name, and only when it is visible", () => {
     for (const page of glazePages) {
         const set = shopSets.byName[page.name];
-        if (set && set.hide) {
-            assert.equal(page.set, null, `${page.title}: hidden set is shown anyway`);
-        } else {
-            assert.equal(page.set, set, `${page.title}: visible set is missing from the page`);
-        }
+        const erwartet = set && !set.hide ? set : null;
+        assert.equal(page.set, erwartet, `${page.title}: wrong set on the page`);
     }
 });
 
@@ -145,4 +139,22 @@ test("the texts that name a glaze keep their placeholder", () => {
             `collections_glaze.json: ${feld} lost its {glaze} placeholder`
         );
     }
+});
+
+// The cards at the foot of each page. Four exactly, because the grid is four
+// wide and five would leave one card alone on a second row -- which is what
+// Skaha's page showed the moment it became the sixth. They rotate, so no
+// glaze collects all the links and none is never linked to.
+test("every page links on to four other glazes, itself never among them", () => {
+    for (const page of glazePages) {
+        assert.equal(page.others.length, Math.min(4, glazePages.length - 1), `${page.title}: wrong number of cards`);
+        assert.ok(!page.others.some((o) => o.path === page.path), `${page.title}: links to itself`);
+        const pfade = page.others.map((o) => o.path);
+        assert.deepEqual(pfade, [...new Set(pfade)], `${page.title}: the same glaze twice`);
+    }
+    // Rotating means every glaze is linked to equally often.
+    const wieoft = {};
+    for (const page of glazePages) for (const o of page.others) wieoft[o.name] = (wieoft[o.name] || 0) + 1;
+    const zahlen = Object.values(wieoft);
+    assert.equal(Math.max(...zahlen) - Math.min(...zahlen), 0, `links are spread unevenly: ${JSON.stringify(wieoft)}`);
 });

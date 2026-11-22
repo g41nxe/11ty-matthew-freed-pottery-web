@@ -47,3 +47,14 @@ module.exports = gallery.items
             paragraphs: (item.story || "").split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean),
         };
     });
+
+// The four other glazes each page links on to. Always four, so the grid never
+// breaks into a row holding one lonely card, and rotating rather than fixed,
+// so every glaze is linked to as often as the others instead of the first
+// four collecting all the links.
+module.exports.forEach((page, i, alle) => {
+    page.others = Array.from(
+        { length: Math.min(4, alle.length - 1) },
+        (_, n) => alle[(i + 1 + n) % alle.length]
+    );
+});
