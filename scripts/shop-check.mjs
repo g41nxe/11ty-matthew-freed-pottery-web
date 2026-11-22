@@ -15,7 +15,6 @@ import path from "node:path";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
-const matter = require("gray-matter");
 const sharp = require("sharp");
 
 const args = process.argv.slice(2);
@@ -203,7 +202,7 @@ function render(sets, checkedAt) {
 `;
 }
 
-const { shop_sets = [] } = matter(fs.readFileSync("src/views/home.md", "utf8")).data;
+const { sets: shop_sets } = JSON.parse(fs.readFileSync("src/views/_data/shop_sets.json", "utf8"));
 const sets = await Promise.all(
     shop_sets.map(async (set) => ({
         name: set.name,

@@ -31,7 +31,7 @@ eleventyComputed:
     <section class="mx-auto max-w-6xl px-6 pt-12">
         <div class="flex flex-wrap items-end justify-between gap-4 border-b border-hairline pb-6">
             <div>
-                <p class="cap-label text-blue">{{ collections_glaze.eyebrow | default("Glaze", true) }}{% if glaze.group %} &middot; {{ glaze.group }}{% endif %}</p>
+                <p class="cap-label text-blue">{{ collections_glaze.eyebrow }}{% if glaze.group %} &middot; {{ glaze.group }}{% endif %}</p>
                 <h1 class="mt-2 flex items-center gap-3 font-display text-4xl font-black leading-tight text-ink">
                     <span class="h-4 w-4 flex-none rounded-full" style="background-color: {{ glaze.swatch }}" aria-hidden="true"></span>
                     {{ glaze.name }}
@@ -41,7 +41,7 @@ eleventyComputed:
                 <p class="mt-3 max-w-2xl text-base leading-relaxed text-muted">{{ paragraph }}</p>
                 {% endfor %}
             </div>
-            <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-shop") }}" target="_blank" rel="noopener" class="btn-outline whitespace-nowrap">{{ collections_glaze.shop_cta | default("Shop this glaze", true) }}</a>
+            <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-shop") }}" target="_blank" rel="noopener" class="btn-outline whitespace-nowrap">{{ collections_glaze.shop_cta }}</a>
         </div>
     </section>
 
@@ -99,19 +99,19 @@ eleventyComputed:
                about him making a piece, so the same image on all sixteen pages
                is right rather than a shortcoming. What must NOT go here is the
                card image of this glaze - the visitor just clicked on it. The
-               studio picture is aligned to the top because a centred crop cuts
-               his head off. #}
+               studio picture comes from Collections - Glaze page in the CMS and
+               is aligned to the top because a centred crop cuts his head off. #}
             <div class="relative aspect-[4/3] overflow-hidden md:aspect-auto">
                 {% if glaze.page_image %}
                 {% img glaze.page_image.url, glaze.page_image.alt, "(min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover" %}
                 {% else %}
-                {% img "/images/workshop/making-a-batch.jpg", "Matthew Freed at the wheel, the batch he has just thrown drying beside him", "(min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover object-top" %}
+                {% img collections_glaze.ask_image.url, collections_glaze.ask_image.alt, "(min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover object-top" %}
                 {% endif %}
             </div>
             <div class="flex flex-col items-start justify-center px-6 py-12 md:px-12">
-                <h2 class="font-display text-2xl font-black text-paper">{{ collections_glaze.ask_title | default("Not in the shop right now?", true) }}</h2>
-                <p class="mt-4 max-w-md text-base leading-relaxed text-paper/80">{{ collections_glaze.ask_text | default("I only list pieces I have actually made, so a glaze sells out from time to time. Tell me what you are after in " + glaze.name + " and I will make it and set it aside for you. A commission works the same way: rough dimensions and the glaze line are enough to start.", true) }}</p>
-                <a href="/contact.html" class="btn-invert mt-6">{{ collections_glaze.ask_cta | default("Ask about " + glaze.name, true) }}</a>
+                <h2 class="font-display text-2xl font-black text-paper">{{ collections_glaze.ask_title }}</h2>
+                <p class="mt-4 max-w-md text-base leading-relaxed text-paper/80">{{ collections_glaze.ask_text | replace("{glaze}", glaze.name) }}</p>
+                <a href="/contact.html" class="btn-invert mt-6">{{ collections_glaze.ask_cta | replace("{glaze}", glaze.name) }}</a>
             </div>
         </div>
     </section>
@@ -120,8 +120,8 @@ eleventyComputed:
        so the other glazes get cards here, not a thin row of links. #}
     <section class="mx-auto max-w-6xl px-6 py-12" aria-label="Other glazes">
         <div class="flex items-baseline justify-between gap-4">
-            <h2 class="font-display text-2xl font-black text-ink">{{ collections_glaze.others_title | default("Other glazes", true) }}</h2>
-            <a href="/collections.html" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.back_label | default("All sixteen glazes", true) }}</a>
+            <h2 class="font-display text-2xl font-black text-ink">{{ collections_glaze.others_title }}</h2>
+            <a href="/collections.html" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.back_label }}</a>
         </div>
         <div class="mt-8 grid grid-cols-2 gap-5 md:grid-cols-4">
             {% for other in glazePages %}

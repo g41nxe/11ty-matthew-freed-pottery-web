@@ -27,42 +27,6 @@ export const homePage: Collection = {
       description: "Short claims in the ribbon under the hero. It scrolls on phones, spreads across on desktop and shows in uppercase.",
     },
     {
-      type: "object", name: "shop_sets", label: "Shop sets", list: true,
-      description: "Two places use these: the home page shows one set at random on every visit, and the glaze page of the same name shows the same pieces. Each set is a featured piece and up to four shop items.",
-      ui: {
-        itemProps: (set) => ({ label: `${set?.name || "New set"}${set?.hide ? " (hidden)" : ""}` }),
-        defaultItem: { hide: false },
-      },
-      fields: [
-        { type: "string", name: "name", label: "Name", required: true, description: "Names this set on the website's statistics and in the shop reports, and it is how the glaze page of the same name finds these pieces. Keep it short and unique; renaming it starts a new row in the reports and leaves that glaze page without pieces." },
-        { type: "boolean", name: "hide", label: "Hide these pieces", description: "Takes the set out of the rotation on the home page and off the glaze page of the same name. The glaze page itself stays, it just shows no pieces." },
-        {
-          type: "object", name: "featured_piece", label: "Featured piece",
-          fields: [
-            { type: "string", name: "eyebrow", label: "Small label above the title" },
-            { type: "string", name: "title", label: "Title" },
-            { type: "string", name: "caption", label: "Glaze caption" },
-            { type: "string", name: "text", label: "Text", ui: { component: "textarea" } },
-            { type: "string", name: "price", label: "Price" },
-            imageField("image", "Image"),
-            linkField("cta", "Shop link"),
-          ],
-        },
-        {
-          type: "object", name: "items", label: "Shop items", list: true,
-          description: "Up to four, shown in this order next to the featured piece. Sold-out items get a label automatically.",
-          ui: { max: 4, itemProps: (item) => ({ label: item?.title || "New item" }) },
-          fields: [
-            { type: "string", name: "title", label: "Title", description: "“Glaze - Piece”, for example “Tofino - Belly Mug”" },
-            { type: "object", name: "overlay", label: "Overlay", fields: [{ type: "string", name: "text", label: "Text", ui: { component: "textarea" } }] },
-            { type: "string", name: "price", label: "Price" },
-            imageField("image", "Image"),
-            { type: "object", name: "cta", label: "Shop link", fields: [{ type: "string", name: "url", label: "URL" }] },
-          ],
-        },
-      ],
-    },
-    {
       type: "object", name: "collections_teaser", label: "Collections teaser",
       fields: [
         { type: "string", name: "title", label: "Title", description: glazesHint },

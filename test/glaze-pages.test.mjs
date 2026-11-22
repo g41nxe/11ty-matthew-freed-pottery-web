@@ -9,6 +9,7 @@ const require = createRequire(import.meta.url);
 const glazePages = require("../src/views/_data/glazePages.js");
 const gallery = require("../src/views/_data/gallery.json");
 const shopSets = require("../src/views/_data/shopSets.js");
+const seitentexte = require("../src/views/_data/collections_glaze.json");
 
 // A glaze gets its own page only once both texts exist: the lead for the top
 // of the page and the search snippet, the story for the body. With just one of
@@ -119,5 +120,29 @@ test("the band never falls back to the card image", () => {
             `${page.title}: the glaze page would repeat the card image full width`
         );
         assert.ok((page.page_image.alt || '').trim(), `${page.title}: page photo without alt text`);
+    }
+});
+
+// Everything on a glaze page that is not the glaze itself comes from this one
+// file, so Matthew can change the wording without touching a template. The
+// template no longer carries fallbacks: a missing key would render as nothing
+// at all, and an empty heading is the kind of thing nobody notices for weeks.
+test("the page furniture is complete and comes from the CMS", () => {
+    for (const feld of ["eyebrow", "shop_cta", "ask_title", "ask_text", "ask_cta", "others_title", "back_label"]) {
+        assert.ok((seitentexte[feld] || '').trim(), `collections_glaze.json: ${feld} is empty`);
+    }
+    assert.ok(seitentexte.ask_image && seitentexte.ask_image.url, 'collections_glaze.json: the blue band has no photo');
+    assert.ok((seitentexte.ask_image.alt || '').trim(), 'collections_glaze.json: the band photo has no alt text');
+});
+
+// Both texts name the glaze, and the template fills it in. Lose the
+// placeholder and the sentence reads "Tell me what you are after in and I",
+// or the button says a bare "Ask about".
+test("the texts that name a glaze keep their placeholder", () => {
+    for (const feld of ["ask_text", "ask_cta"]) {
+        assert.ok(
+            seitentexte[feld].includes("{glaze}"),
+            `collections_glaze.json: ${feld} lost its {glaze} placeholder`
+        );
     }
 });

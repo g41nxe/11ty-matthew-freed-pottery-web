@@ -1,5 +1,4 @@
-const fs = require("fs");
-const matter = require("gray-matter");
+const shopSets = require("./shopSets.js");
 
 // Which items in the shop sets are sold out, asked from the shop at build
 // time: the shop sends no CORS header, so the browser cannot ask it itself.
@@ -26,8 +25,7 @@ async function check(urls, fetchImpl = fetch) {
 }
 
 module.exports = async function () {
-    const { shop_sets = [] } = matter(fs.readFileSync("src/views/home.md", "utf8")).data;
-    const urls = shop_sets.flatMap((set) => (set.items || []).map((item) => item.cta && item.cta.url).filter(Boolean));
+    const urls = shopSets.all.flatMap((set) => (set.items || []).map((item) => item.cta && item.cta.url).filter(Boolean));
     return check([...new Set(urls)]);
 };
 module.exports.check = check;

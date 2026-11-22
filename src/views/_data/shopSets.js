@@ -1,16 +1,19 @@
-// The shop sets still live in the front matter of home.md, where Matthew
-// edits them under Home in the CMS. The glaze pages need the same pieces, so
-// this reads them once and offers them by set name. Should the sets ever move
-// into their own CMS collection, this module is the only place to change.
-const fs = require("node:fs");
-const path = require("node:path");
-const matter = require("gray-matter");
-
-const home = matter(fs.readFileSync(path.join(__dirname, "..", "home.md"), "utf8")).data;
-const sets = home.shop_sets || [];
+// The shop sets: named groups of pieces that the home page rotates through
+// and that the glaze page of the same name shows as its shop grid. They used
+// to sit in the front matter of home.md, which made them look like home page
+// content and sent anyone looking for the pieces of a glaze to the wrong
+// place. They belong to neither page.
+//
+// This module is the one place that reads them. Everything else — the glaze
+// pages, the sold-out check, the link check in scripts/ — goes through here,
+// so a change of storage stays a change of one file.
+const { sets } = require("./shop_sets.json");
 
 module.exports = {
     all: sets,
     // Matched by name, the same string the CMS shows: "Jericho", "Tree of Life".
     byName: Object.fromEntries(sets.map((set) => [set.name, set])),
+    // Only the sets in the home page rotation; a hidden set is withdrawn and
+    // shows neither there nor on its glaze page.
+    visible: sets.filter((set) => !set.hide),
 };

@@ -22,7 +22,7 @@ export const collectionsGallery: Collection = {
   fields: [
     {
       type: "object", name: "items", label: "Glaze lines", list: true,
-      description: "Shown on the collections page and in the home page teaser, in this order. Fill in both the intro and the page text and the glaze also gets a page of its own. The photo for that page is optional: without one the glaze page shows the studio picture, and the card image above is ignored there because visitors have just clicked on it.",
+      description: "Shown on the collections page and in the home page teaser, in this order. Fill in both the intro and the page text and the glaze also gets a page of its own. The photo for that page is optional: without one the glaze page shows the studio picture, and the card image above is ignored there because visitors have just clicked on it. The pieces on a glaze page are not edited here: they come from the shop set of the same name under Home - Page, where the home page takes them from as well.",
       ui: { itemProps: (item) => ({ label: item?.title || "New glaze line" }) },
       fields: [
         imageField("image", "Image"),
