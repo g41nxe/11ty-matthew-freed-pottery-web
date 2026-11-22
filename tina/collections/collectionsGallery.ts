@@ -4,6 +4,14 @@ import { imageField } from "../fields/common";
 const hexColour = (value: string) =>
   value && !/^#[0-9A-Fa-f]{6}$/.test(value) ? "Use a hex colour like #1F3A52" : undefined;
 
+// The lead carries the top of the glaze page and the snippet Google shows.
+// One sentence reads like a caption there, so two are asked for. The page is
+// only built when the story is filled in as well (see _data/glazePages.js).
+const leadLength = (value: string) =>
+  value && value.trim().length < 80
+    ? "Write about two sentences here — this is the opening of the glaze page and the text Google shows."
+    : undefined;
+
 export const collectionsGallery: Collection = {
   name: "collections_gallery",
   label: "Collections · Glaze gallery",
@@ -14,12 +22,26 @@ export const collectionsGallery: Collection = {
   fields: [
     {
       type: "object", name: "items", label: "Glaze lines", list: true,
-      description: "Shown on the collections page and in the home page teaser, in this order",
+      description: "Shown on the collections page and in the home page teaser, in this order. Fill in both the intro and the page text and the glaze also gets a page of its own.",
       ui: { itemProps: (item) => ({ label: item?.title || "New glaze line" }) },
       fields: [
         imageField("image", "Image"),
         { type: "string", name: "title", label: "Title" },
-        { type: "string", name: "text", label: "Text", ui: { component: "textarea" } },
+        {
+          type: "string", name: "text", label: "Card text (one line)",
+          description: "The single line under the name on the cards and in the home page slider.",
+          ui: { component: "textarea" },
+        },
+        {
+          type: "string", name: "lead", label: "Page intro (two sentences)",
+          description: "Opens the glaze page and is the text Google shows in search results. Needs the page text below as well, otherwise no page is built.",
+          ui: { component: "textarea", validate: leadLength },
+        },
+        {
+          type: "string", name: "story", label: "Page text",
+          description: "The rest of the glaze page, directly under the intro. Leave a blank line between paragraphs. Without this no page is built and the card keeps linking to the shop.",
+          ui: { component: "textarea" },
+        },
         { type: "string", name: "slug", label: "Shop collection slug (tail of the shop URL)" },
         { type: "string", name: "swatch", label: "Swatch colour (hex)", ui: { validate: hexColour } },
         { type: "string", name: "filterGroups", label: "Filter groups", list: true, options: ["Blues", "Charcoals", "Patterned"] },

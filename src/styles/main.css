@@ -74,6 +74,13 @@
     .btn-outline {
         @apply inline-block rounded-full border border-blue px-6 py-3 font-sans text-base font-medium text-blue transition-colors hover:bg-blue hover:text-paper;
     }
+    /* The light button for blue bands. Until now a blue band carried text
+       links only (.link-invert), which is too quiet for a call to action:
+       the ask block on a glaze page needs a real button. Blue on paper is
+       10.8:1, blue on the sand hover still 5.2:1. */
+    .btn-invert {
+        @apply inline-block rounded-full bg-paper px-6 py-3 font-sans text-base font-medium text-blue transition-colors hover:bg-sand;
+    }
     /* Tertiary text link — the site-wide standard. Blue on paper, with a
        hairline underline that sweeps in from the left on hover/focus (the same
        motion as .nav-link). currentColor drives the underline so the .link-invert

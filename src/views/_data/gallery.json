@@ -46,11 +46,13 @@
       },
       "title": "Yaletown Collection",
       "text": "Red, green or blue rims pop on a charcoal glazed base.",
+      "lead": "Charcoal underneath, a bright rim on top. Yaletown pairs a dark glazed base with a red, green or blue edge, and the red pieces are the ones that sell out first.",
       "slug": "Yaletown",
       "swatch": "#2E2C29",
       "filterGroups": [
         "Charcoals"
-      ]
+      ],
+      "story": "Inside a serving bowl the dark glaze does quiet work, making whatever you serve stand out."
     },
     {
       "image": {
@@ -100,11 +102,13 @@
       },
       "title": "Jericho Collection",
       "text": "A pale grey/blue glaze with sand toned speckles.",
+      "lead": "Jericho is a pale grey-blue with sand toned speckles. Where the glaze thins at a rim it turns a warm toasted brown, which is why the edges never look flat.",
       "slug": "Jericho",
       "swatch": "#9A93B4",
       "filterGroups": [
         "Blues"
-      ]
+      ],
+      "story": "It is the quietest of my glazes, and the easiest to live with: a mug you reach for every morning, a teapot that stays out on the table."
     },
     {
       "image": {
@@ -113,11 +117,13 @@
       },
       "title": "Joffre Collection",
       "text": "A rich green/blue glaze with multi-toned variation.",
+      "lead": "Turquoise, blue and deep emerald green run together in Joffre. Every teapot, mug and tray comes out with its own mix of tones.",
       "slug": "Joffre",
       "swatch": "#1C6478",
       "filterGroups": [
         "Blues"
-      ]
+      ],
+      "story": "It is a rich glaze that changes with the light and with the shape underneath it."
     },
     {
       "image": {
@@ -181,11 +187,13 @@
       },
       "title": "Tofino Collection",
       "text": "A stormy, landscape effect in complimentary hues of cobalt, mocha, and amber.",
+      "lead": "Tofino is my most variable glaze. Cobalt, mocha and amber run in bands across every piece, and because the glaze keeps moving in the kiln, no two come out alike.",
       "slug": "Tofino",
       "swatch": "#33556E",
       "filterGroups": [
         "Blues"
-      ]
+      ],
+      "story": "The rounder the form, the further the bands travel: on a belly mug they shift all the way around, on a dinner plate they run in toward the centre."
     },
     {
       "image": {
@@ -194,11 +202,13 @@
       },
       "title": "Tree of Life Collection",
       "text": "A textured Tree of Life emblem on a semi-matte charcoal glaze.",
+      "lead": "Tree of Life is the one glaze that carries a mark. A textured tree emblem goes onto every piece by hand, over a semi-matte charcoal glaze.",
       "slug": "Tree-of-Life",
       "swatch": "#29261F",
       "filterGroups": [
         "Charcoals"
-      ]
+      ],
+      "story": "The emblem keeps the surface quiet and lets the tree do the talking. It runs through a whole table: nesting bowls, a meal bowl, a ramen bowl, a pitcher."
     },
     {
       "image": {

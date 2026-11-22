@@ -206,6 +206,15 @@ module.exports = function (eleventyConfig) {
             return start + quote + tagShopUrl(parsed, "text-" + page).replace(/&/g, "&amp;") + quote;
         });
     });
+    // A glaze has a page of its own once Matthew writes a story for it
+    // (see _data/glazePages.js). The cards ask for the path by title and
+    // fall back to the shop link when there is no page yet, so adding a
+    // story is the only step needed to put a glaze card on its own page.
+    eleventyConfig.addNunjucksFilter("glazePath", (title) => {
+        const page = require("./src/views/_data/glazePages.js")
+            .find((candidate) => candidate.title === title);
+        return page ? page.path : "";
+    });
     // CMS texts write {glazes} (or {Glazes} to start a sentence) instead of
     // a number, so "fifteen glazes" stays right when a glaze line is added
     // to or removed from the gallery.
