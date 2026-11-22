@@ -7,17 +7,6 @@ http://matthewfreedpottery.com/*       https://matthewfreed.ca/:splat   301!
 https://www.matthewfreedpottery.com/*  https://matthewfreed.ca/:splat   301!
 http://www.matthewfreedpottery.com/*   https://matthewfreed.ca/:splat   301!
 
-# Dasselbe fuer matthewfreed.net: die Domain liefert denselben Build aus, und
-# der Link in Matthews Instagram-Profil zeigt darauf. Umami zaehlt dort nichts,
-# weil das Zaehlskript ueber data-domains auf matthewfreed.ca festgelegt ist --
-# saemtliche Besucher aus Instagram fehlten damit in jeder Zahl (geprueft
-# 2026-11-22). Die Weiterleitung behaelt die UTM-Parameter des Links. Der Shop
-# unter shop.matthewfreed.net bleibt davon unberuehrt.
-https://matthewfreed.net/*             https://matthewfreed.ca/:splat   301!
-http://matthewfreed.net/*              https://matthewfreed.ca/:splat   301!
-https://www.matthewfreed.net/*         https://matthewfreed.ca/:splat   301!
-http://www.matthewfreed.net/*          https://matthewfreed.ca/:splat   301!
-
 
 /home/glazes            /                           301
 /Home/Glazes            /                           301
