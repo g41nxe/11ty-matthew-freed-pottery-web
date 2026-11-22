@@ -8,6 +8,9 @@
         "title": "Tofino tea set and vase",
         "caption": "Tofino · a stormy coastal landscape",
         "text": "Cobalt, mocha and amber run in bands across every piece. Tofino is one of my most variable glazes, so no two come out of the kiln alike.",
+        "overlay": {
+          "text": "Tea on the table, and a vase for whatever is in season."
+        },
         "price": "",
         "image": {
           "url": "/images/glazes/tofino/tea-set-feature.jpg",
@@ -85,6 +88,9 @@
         "title": "Yaletown at the market",
         "caption": "Yaletown · colourful rims on charcoal",
         "text": "Red, green or blue rims pop on a charcoal glazed base. The red pieces are the ones that sell out first.",
+        "overlay": {
+          "text": "A market morning, everything still in its place."
+        },
         "price": "",
         "image": {
           "url": "/images/glazes/yaletown/market-display-feature.jpg",
@@ -162,6 +168,9 @@
         "title": "Joffre tea set",
         "caption": "Joffre · a rich green and blue glaze",
         "text": "Turquoise, blue and deep emerald green run together in this glaze, so every teapot, mug and tray comes out with its own mix of tones.",
+        "overlay": {
+          "text": "A tray, a pot, and the rest of the afternoon."
+        },
         "price": "",
         "image": {
           "url": "/images/glazes/joffre/tea-set-feature.jpg",
@@ -316,6 +325,9 @@
         "title": "Tree of Life bowls and pitcher",
         "caption": "Tree of Life · a tree emblem on charcoal",
         "text": "A textured Tree of Life emblem on a semi-matte charcoal glaze, added to every piece by hand.",
+        "overlay": {
+          "text": "Lemons on the counter and a pitcher within reach."
+        },
         "price": "",
         "image": {
           "url": "/images/glazes/tree-of-life/bowls-and-pitcher-feature.jpg",
@@ -393,6 +405,9 @@
         "title": "Jericho tea set",
         "caption": "Jericho · pale grey-blue with sand speckles",
         "text": "A pale grey-blue glaze with sand toned speckles. Where it thins at the rims, it turns a warm toasted brown.",
+        "overlay": {
+          "text": "A teapot that stays out on the table, and no hurry about the second cup."
+        },
         "price": "",
         "image": {
           "url": "/images/glazes/jericho/tea-set-feature.jpg",

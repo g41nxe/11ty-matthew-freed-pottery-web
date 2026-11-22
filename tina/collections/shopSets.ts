@@ -28,10 +28,15 @@ export const shopSets: Collection = {
           type: "object", name: "featured_piece", label: "Featured piece",
           description: "The large piece on the left, on the home page and on the glaze page.",
           fields: [
-            { type: "string", name: "eyebrow", label: "Small label above the title", description: "Home page only." },
+            { type: "string", name: "eyebrow", label: "Small label above the title", description: "Stands over the title on the home page and on the glaze page." },
             { type: "string", name: "title", label: "Title" },
             { type: "string", name: "caption", label: "Glaze caption", description: "Home page only." },
             { type: "string", name: "text", label: "Text", ui: { component: "textarea" }, description: "Home page only: the glaze page carries its own description above." },
+            {
+              type: "object", name: "overlay", label: "Overlay",
+              description: "One line about the piece itself, shown under the title on the glaze page. The text above describes the glaze and stays on the home page.",
+              fields: [{ type: "string", name: "text", label: "Text", ui: { component: "textarea" } }],
+            },
             { type: "string", name: "price", label: "Price" },
             imageField("image", "Image"),
             linkField("cta", "Shop link"),
