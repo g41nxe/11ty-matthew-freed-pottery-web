@@ -8,6 +8,7 @@ import matter from "gray-matter";
 const require = createRequire(import.meta.url);
 const glazePages = require("../src/views/_data/glazePages.js");
 const gallery = require("../src/views/_data/gallery.json");
+const shopSets = require("../src/views/_data/shopSets.js");
 
 // A glaze gets its own page only once both texts exist: the lead for the top
 // of the page and the search snippet, the story for the body. With just one of
@@ -53,11 +54,37 @@ test("the story is kept as paragraphs, not one block", () => {
     }
 });
 
-// The pieces on a glaze page come from the shop set of the same name. A
-// renamed set would silently leave the page without anything to buy.
-test("every glaze page finds its shop set", () => {
+// The pieces on a glaze page come from the shop set of the same name, matched
+// by a plain string. A renamed set would silently leave the page without
+// anything to buy, and nothing on the page would show it.
+test("every glaze page has a shop set of its own name", () => {
     for (const page of glazePages) {
-        assert.ok(page.set, `${page.title}: no shop set named "${page.name}"`);
+        assert.ok(
+            shopSets.byName[page.name],
+            `${page.title}: no shop set named "${page.name}" -- was the set renamed under Home?`
+        );
+    }
+});
+
+// "Hide" takes a set out of the rotation on the home page. The glaze page has
+// no rotation, so the flag could easily have been ignored here -- and then the
+// pieces Matthew just withdrew would be back on a page of their own. Strathcona
+// is exactly that case today: a glaze in the gallery whose set is hidden.
+test("a hidden set never reaches a glaze page", () => {
+    for (const page of glazePages) {
+        const set = shopSets.byName[page.name];
+        if (set && set.hide) {
+            assert.equal(page.set, null, `${page.title}: hidden set is shown anyway`);
+        } else {
+            assert.equal(page.set, set, `${page.title}: visible set is missing from the page`);
+        }
+    }
+});
+
+// A set that is shown has to be worth showing: the featured piece needs a link
+// into the shop, and the grid beside it holds four tiles.
+test("a set on the page is complete", () => {
+    for (const page of glazePages.filter((p) => p.set)) {
         assert.ok(page.set.featured_piece && page.set.featured_piece.cta.url, `${page.title}: featured piece without a shop link`);
         assert.ok((page.set.items || []).length >= 4, `${page.title}: fewer than four pieces`);
     }

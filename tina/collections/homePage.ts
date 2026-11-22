@@ -28,14 +28,14 @@ export const homePage: Collection = {
     },
     {
       type: "object", name: "shop_sets", label: "Shop sets", list: true,
-      description: "The home page shows one of these sets at random on every visit: a featured piece and up to four shop items each.",
+      description: "Two places use these: the home page shows one set at random on every visit, and the glaze page of the same name shows the same pieces. Each set is a featured piece and up to four shop items.",
       ui: {
         itemProps: (set) => ({ label: `${set?.name || "New set"}${set?.hide ? " (hidden)" : ""}` }),
         defaultItem: { hide: false },
       },
       fields: [
-        { type: "string", name: "name", label: "Name", required: true, description: "Names this set on the website's statistics and in the shop reports. Keep it short and unique; renaming it starts a new row there." },
-        { type: "boolean", name: "hide", label: "Hide (leave out of the rotation)" },
+        { type: "string", name: "name", label: "Name", required: true, description: "Names this set on the website's statistics and in the shop reports, and it is how the glaze page of the same name finds these pieces. Keep it short and unique; renaming it starts a new row in the reports and leaves that glaze page without pieces." },
+        { type: "boolean", name: "hide", label: "Hide these pieces", description: "Takes the set out of the rotation on the home page and off the glaze page of the same name. The glaze page itself stays, it just shows no pieces." },
         {
           type: "object", name: "featured_piece", label: "Featured piece",
           fields: [

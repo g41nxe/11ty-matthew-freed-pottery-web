@@ -26,9 +26,16 @@ module.exports = gallery.items
             // collections page filters by, used as the line above the name.
             group: (item.filterGroups || [])[0] || "",
             path: `/collections/${urlSlug(name)}/`,
-            // The pieces come from the shop set of the same name. Without one
-            // the page still works, it just shows no pieces of its own.
-            set: shopSets.byName[name] || null,
+            // The pieces come from the shop set of the same name. A hidden set
+            // counts as no set: "hide" is how Matthew takes pieces out of the
+            // rotation on the home page, and showing them here anyway would put
+            // the very things he withdrew back in front of visitors. Without a
+            // set the page still works, it just shows no pieces of its own and
+            // leads to the shop and the ask block instead.
+            set: (() => {
+                const set = shopSets.byName[name];
+                return set && !set.hide ? set : null;
+            })(),
             // Blank lines separate paragraphs, the way the CMS textarea writes them.
             paragraphs: (item.story || "").split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean),
         };
