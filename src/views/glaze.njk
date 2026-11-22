@@ -123,19 +123,16 @@ eleventyComputed:
        which a white band collided with. #}
     <section class="bg-blue">
         <div class="mx-auto grid max-w-6xl md:grid-cols-2">
-            {# Matthew's own photo for this glaze if he has one, otherwise the
-               studio picture, which carries the block on its own: the text is
-               about him making a piece, so the same image on all sixteen pages
-               is right rather than a shortcoming. What must NOT go here is the
-               card image of this glaze - the visitor just clicked on it. The
-               studio picture comes from Collections - Glaze page in the CMS and
-               is aligned to the top because a centred crop cuts his head off. #}
+            {# One picture for all sixteen bands: pots Matthew has thrown and not
+               yet glazed. The text beside it offers to make a piece, and the
+               picture shows exactly that moment -- a finished, glazed piece
+               would argue against the sentence. A per-glaze photo was tried and
+               dropped: on two pages it showed a glazed piece under "not in the
+               shop right now", and the card image must never appear here at all,
+               because the visitor clicked on it to get here. The picture comes
+               from Collections - Glaze page in the CMS. #}
             <div class="relative aspect-[4/3] overflow-hidden md:aspect-auto">
-                {% if glaze.page_image %}
-                {% img glaze.page_image.url, glaze.page_image.alt, "(min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover" %}
-                {% else %}
-                {% img collections_glaze.ask_image.url, collections_glaze.ask_image.alt, "(min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover object-top" %}
-                {% endif %}
+                {% img collections_glaze.ask_image.url, collections_glaze.ask_image.alt, "(min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover" %}
             </div>
             {# Same shape as the About teaser on the home page (story-teaser.njk):
                label, heading, text, action, on the same spacing. Both are

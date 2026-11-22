@@ -101,20 +101,21 @@ test("every generated page reaches the sitemap, not just the first", () => {
     );
 });
 
-// The blue band shows Matthew's own photo for a glaze when he has one, and the
-// studio picture otherwise. The one picture it must never show is the card
-// image: the visitor clicked on exactly that to get here. An earlier photos
-// field did show it, on all five pages, which is why it was dropped again.
-test("the band never falls back to the card image", () => {
+// One picture for all sixteen bands, and it comes from the CMS. The two
+// things it must never be: missing (the band is half empty then) and a glaze
+// card image. A per-glaze photo field existed twice and went wrong both times
+// -- first it repeated the card the visitor had just clicked, then it put a
+// glazed piece under "not in the shop right now".
+test("the blue band has one picture, and it is not a glaze card", () => {
+    const bild = seitentexte.ask_image;
+    assert.ok(bild && (bild.url || "").trim(), "collections_glaze.json: the blue band has no photo");
+    assert.ok((bild.alt || "").trim(), "collections_glaze.json: the band photo has no alt text");
     for (const page of glazePages) {
-        if (!page.page_image) continue;
-        assert.notEqual(
-            page.page_image.url,
-            page.image.url,
-            `${page.title}: the glaze page would repeat the card image full width`
-        );
-        assert.ok((page.page_image.alt || '').trim(), `${page.title}: page photo without alt text`);
+        assert.notEqual(bild.url, page.image.url, `${page.title}: the band would repeat the card image`);
     }
+    const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
+    const band = vorlage.slice(vorlage.indexOf('<section class="bg-blue">'));
+    assert.ok(!band.includes("page_image"), "the band picks a picture per glaze again");
 });
 
 // Everything on a glaze page that is not the glaze itself comes from this one

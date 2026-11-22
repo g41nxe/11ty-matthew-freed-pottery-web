@@ -36,13 +36,6 @@ module.exports = gallery.items
                 const set = shopSets.byName[name];
                 return set && !set.hide ? set : null;
             })(),
-            // Matthew's own photo for the blue band, or null. Never the card
-            // image: the visitor clicked on that one to get here, and showing
-            // it again full width is what the old photos field got wrong.
-            page_image:
-                item.page_image && item.page_image.url && item.page_image.url !== item.image.url
-                    ? item.page_image
-                    : null,
             // Blank lines separate paragraphs, the way the CMS textarea writes them.
             paragraphs: (item.story || "").split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean),
         };

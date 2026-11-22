@@ -19,10 +19,11 @@ const altRequiredWithImage = (value: string, allValues: Record<string, unknown>,
 // as an image is picked. The build still copes without it (the shortcode
 // falls back to a generic description), so this is about a description
 // that fits the photo, not about keeping the deploy alive.
-export const imageField = (name: string, label: string): TinaField => ({
+export const imageField = (name: string, label: string, description?: string): TinaField => ({
   type: "object",
   name,
   label,
+  ...(description ? { description } : {}),
   fields: [
     { type: "image", name: "url", label: "Image" },
     {
