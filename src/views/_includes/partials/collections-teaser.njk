@@ -5,17 +5,24 @@
     </div>
     <div id="glaze-slider" class="no-scrollbar -mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-6 px-6 pb-2">
         {% for item in gallery.items %}
-        <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + item.slug) | shopLink("home-teaser-" + item.slug) }}" target="_blank" rel="noopener" class="group w-[86%] flex-none snap-start sm:w-[45%] md:w-[31%]">
+        {# A glaze with a page of its own is sent there, the way the cards on the
+           collections page are. Image and name lead to the page, the line
+           underneath still goes straight to the shop, so neither route is lost.
+           Glazes without a page keep the old behaviour and link to the shop. #}
+        {% set glazePage = item.title | glazePath %}
+        <div class="group w-[86%] flex-none snap-start sm:w-[45%] md:w-[31%]">
             <div class="aspect-[4/3] w-full overflow-hidden" style="background-color: {{ item.swatch }}">
+                {% if glazePage %}<a href="{{ glazePage }}" tabindex="-1" aria-hidden="true">{% endif %}
                 {% if item.image.url %}{% img item.image.url, item.image.alt, "(min-width: 1152px) 342px, (min-width: 768px) 31vw, 86vw", "img-zoom h-full w-full object-cover" %}{% endif %}
+                {% if glazePage %}</a>{% endif %}
             </div>
             <p class="mt-3 flex items-center gap-2 font-display text-base font-black text-ink transition-colors group-hover:text-blue">
                 <span class="h-2.5 w-2.5 flex-none rounded-full" style="background-color: {{ item.swatch }}" aria-hidden="true"></span>
-                {{ item.title | replace(" Collection", "") }}
+                {% if glazePage %}<a href="{{ glazePage }}" class="transition-colors hover:text-blue">{{ item.title | replace(" Collection", "") }}</a>{% else %}{{ item.title | replace(" Collection", "") }}{% endif %}
             </p>
             <p class="mt-1 text-sm text-muted">{{ item.text }}</p>
-            <span class="link-underline mt-2 inline-block text-sm">{{ collections_teaser.item_cta | default("View in the shop", true) }}</span>
-        </a>
+            <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + item.slug) | shopLink("home-teaser-" + item.slug) }}" target="_blank" rel="noopener" class="link-underline mt-2 inline-block text-sm">{{ collections_teaser.item_cta | default("View in the shop", true) }}</a>
+        </div>
         {% endfor %}
     </div>
     <div class="palette-strip mt-8 flex flex-col gap-4 border-y border-hairline py-5 sm:flex-row sm:items-center sm:justify-between">
