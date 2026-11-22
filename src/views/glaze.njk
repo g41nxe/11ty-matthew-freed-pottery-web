@@ -4,6 +4,11 @@ pagination:
   data: glazePages
   size: 1
   alias: glaze
+  # Without this only the first of the generated pages lands in
+  # collections.all, and the sitemap would list one glaze instead of all
+  # of them -- on pages built to be found in search, that is the whole
+  # point missed.
+  addAllPagesToCollections: true
 permalink: "{{ glaze.path }}"
 eleventyComputed:
   # "Jericho" alone means nothing in a search result, "Jericho glaze" does.

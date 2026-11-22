@@ -1,6 +1,9 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createRequire } from "node:module";
+import fs from "node:fs";
+import path from "node:path";
+import matter from "gray-matter";
 
 const require = createRequire(import.meta.url);
 const glazePages = require("../src/views/_data/glazePages.js");
@@ -58,4 +61,20 @@ test("every glaze page finds its shop set", () => {
         assert.ok(page.set.featured_piece && page.set.featured_piece.cta.url, `${page.title}: featured piece without a shop link`);
         assert.ok((page.set.items || []).length >= 4, `${page.title}: fewer than four pieces`);
     }
+});
+
+// These pages exist to be found in search, so being listed in the sitemap is
+// not a detail. Eleventy adds only the FIRST page of a paginated template to
+// collections.all unless told otherwise, and the sitemap loops over exactly
+// that collection. Without the flag below it listed Yaletown and none of the
+// other four, which went unnoticed because every page itself was built fine.
+test("every generated page reaches the sitemap, not just the first", () => {
+    const template = path.join(import.meta.dirname, "..", "src", "views", "glaze.njk");
+    const { pagination } = matter(fs.readFileSync(template, "utf8")).data;
+    assert.equal(pagination.data, "glazePages");
+    assert.equal(
+        pagination.addAllPagesToCollections,
+        true,
+        "without addAllPagesToCollections the sitemap holds one glaze page instead of all of them"
+    );
 });
