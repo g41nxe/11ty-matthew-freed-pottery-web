@@ -122,7 +122,7 @@ test("the band never falls back to the card image", () => {
 // template no longer carries fallbacks: a missing key would render as nothing
 // at all, and an empty heading is the kind of thing nobody notices for weeks.
 test("the page furniture is complete and comes from the CMS", () => {
-    for (const feld of ["eyebrow", "shop_cta", "ask_title", "ask_text", "ask_cta", "others_title", "back_label"]) {
+    for (const feld of ["eyebrow", "pieces_title", "shop_cta_all", "ask_title", "ask_text", "ask_cta", "others_title", "back_label"]) {
         assert.ok((seitentexte[feld] || '').trim(), `collections_glaze.json: ${feld} is empty`);
     }
     assert.ok(seitentexte.ask_image && seitentexte.ask_image.url, 'collections_glaze.json: the blue band has no photo');
@@ -133,7 +133,7 @@ test("the page furniture is complete and comes from the CMS", () => {
 // placeholder and the sentence reads "Tell me what you are after in and I",
 // or the button says a bare "Ask about".
 test("the texts that name a glaze keep their placeholder", () => {
-    for (const feld of ["ask_text", "ask_cta"]) {
+    for (const feld of ["ask_text", "ask_cta", "shop_cta_all"]) {
         assert.ok(
             seitentexte[feld].includes("{glaze}"),
             `collections_glaze.json: ${feld} lost its {glaze} placeholder`
@@ -157,4 +157,41 @@ test("every page links on to four other glazes, itself never among them", () => 
     for (const page of glazePages) for (const o of page.others) wieoft[o.name] = (wieoft[o.name] || 0) + 1;
     const zahlen = Object.values(wieoft);
     assert.equal(Math.max(...zahlen) - Math.min(...zahlen), 0, `links are spread unevenly: ${JSON.stringify(wieoft)}`);
+});
+
+// Skaha showed what the old template got wrong: its shop link sat inside the
+// block that renders the pieces, so the one glaze with nothing curated for it
+// was also the one page that led nowhere. A glaze without a set can still have
+// items in the shop -- the set is Matthew's selection, not the shop's stock.
+test("every page can build a link into the shop", () => {
+    for (const page of glazePages) {
+        assert.ok(
+            (page.slug || "").trim(),
+            `${page.title}: no shop collection slug, so the page's shop link would go nowhere`
+        );
+    }
+});
+
+// The one shape that differs between pages, and the only branch left in the
+// template: pieces or no pieces. Both shapes have to carry a way into the shop.
+test("the template leads to the shop in both shapes", () => {
+    const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
+    const block = vorlage.slice(vorlage.indexOf('aria-label="Pieces in this glaze"'));
+    const mitTeilen = block.slice(0, block.indexOf("{% else %}"));
+    const ohneTeile = block.slice(block.indexOf("{% else %}"));
+    assert.match(mitTeilen, /link-underline[^>]*>{{ collections_glaze.shop_cta_all/, "the row over the pieces lost its shop link");
+    assert.match(ohneTeile, /btn-outline[^>]*>{{ collections_glaze.shop_cta_all/, "a glaze without pieces lost its shop button");
+    assert.ok(!vorlage.includes("shop-bottom"), "the second shop link in the header is back");
+});
+
+// The header is the same on all sixteen pages: label, name, text. The image
+// column and the two shop links that used to live there are gone, and each of
+// them is the kind of thing that creeps back in one page at a time.
+test("the header holds nothing but label, name and text", () => {
+    const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
+    const kopf = vorlage.slice(vorlage.indexOf("<article>"), vorlage.indexOf('aria-label="Pieces in this glaze"'));
+    assert.ok(!kopf.includes("btn-outline"), "the shop button is back in the header");
+    assert.ok(!kopf.includes("link-underline"), "the shop link at the top right is back");
+    assert.ok(!kopf.includes("{% img"), "the header carries a picture again");
+    assert.ok(!kopf.includes("md:grid-cols"), "the header has a second column again");
 });

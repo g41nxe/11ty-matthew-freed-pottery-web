@@ -42,8 +42,11 @@ export const collectionsGallery: Collection = {
           description: "The rest of the glaze page, directly under the intro. Leave a blank line between paragraphs. Without this no page is built and the card keeps linking to the shop.",
           ui: { component: "textarea" },
         },
-        imageField("page_image", "Photo for the glaze page"),
-        { type: "string", name: "slug", label: "Shop collection slug (tail of the shop URL)" },
+        imageField("page_image", "Photo in the blue band of the glaze page"),
+        {
+          type: "string", name: "slug", label: "Shop collection slug (tail of the shop URL)",
+          description: "The glaze page links to the shop with this: shop address from Settings + collections path + this slug. Without it the link goes nowhere.",
+        },
         { type: "string", name: "swatch", label: "Swatch colour (hex)", ui: { validate: hexColour } },
         { type: "string", name: "filterGroups", label: "Filter groups", list: true, options: ["Blues", "Charcoals", "Patterned"] },
       ],

@@ -29,35 +29,58 @@ eleventyComputed:
    snippet needs two sentences, not the whole text. #}
 <article>
     <section class="mx-auto max-w-6xl px-6 pt-12">
-        <div class="flex flex-wrap items-end justify-between gap-4 border-b border-hairline pb-6">
-            <div>
-                <p class="cap-label text-blue">{{ collections_glaze.eyebrow }}{% if glaze.group %} &middot; {{ glaze.group }}{% endif %}</p>
-                <h1 class="mt-2 flex items-center gap-3 font-display text-4xl font-black leading-tight text-ink">
-                    <span class="h-4 w-4 flex-none rounded-full" style="background-color: {{ glaze.swatch }}" aria-hidden="true"></span>
-                    {{ glaze.name }}
-                </h1>
-                <p class="mt-3 max-w-2xl text-base leading-relaxed text-muted">{{ glaze.lead }}</p>
-                {% for paragraph in glaze.paragraphs %}
-                <p class="mt-3 max-w-2xl text-base leading-relaxed text-muted">{{ paragraph }}</p>
-                {% endfor %}
-            </div>
-            <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-shop") }}" target="_blank" rel="noopener" class="btn-outline whitespace-nowrap">{{ collections_glaze.shop_cta }}</a>
+        {# One header for every glaze page: label, name, text. The same shape on
+           all sixteen, whether or not the glaze has pieces in the shop right
+           now. The shop link used to stand here twice, once at the top right
+           and once as a button under the text -- both before the visitor had
+           seen a single piece. It now belongs to the block that actually shows
+           them. #}
+        <p class="cap-label text-blue">{{ collections_glaze.eyebrow }}{% if glaze.group %} &middot; {{ glaze.group }}{% endif %}</p>
+        <h1 class="mt-2 flex items-center gap-3 font-display text-4xl font-black leading-tight text-ink">
+            <span class="h-4 w-4 flex-none rounded-full" style="background-color: {{ glaze.swatch }}" aria-hidden="true"></span>
+            {{ glaze.name }}
+        </h1>
+        <div class="mt-3 border-b border-hairline pb-6">
+            <p class="max-w-2xl text-base leading-relaxed text-muted">{{ glaze.lead }}</p>
+            {% for paragraph in glaze.paragraphs %}
+            <p class="mt-3 max-w-2xl text-base leading-relaxed text-muted">{{ paragraph }}</p>
+            {% endfor %}
         </div>
     </section>
 
-    {% if glaze.set %}
-    {% set piece = glaze.set.featured_piece %}
-    <section class="mx-auto max-w-6xl px-6 py-10" aria-label="Pieces in this glaze">
-        <div class="grid gap-10 md:grid-cols-2 lg:gap-12">
+    {# Every glaze page leads to the shop, with or without pieces picked out
+       for it: a glaze Matthew has not curated a set for can still have items
+       in his shop, and the link is built from the shop address in Settings and
+       the glaze's own collection slug, both of them CMS fields.
+
+       With pieces it is the small link beside the heading, the row the home
+       page uses over the same pieces and "Other glazes" uses further down. It
+       stands with the pieces rather than above the text, because that is where
+       the visitor is looking at them. Without pieces the button is all this
+       section holds. #}
+    <section class="mx-auto max-w-6xl px-6 py-12" aria-label="Pieces in this glaze">
+        {% set shopUrl = (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-shop") %}
+        {% if glaze.set %}
+        {% set piece = glaze.set.featured_piece %}
+        <div class="flex items-baseline justify-between gap-4">
+            <h2 class="font-display text-2xl font-black text-ink">{{ collections_glaze.pieces_title }}</h2>
+            <a href="{{ shopUrl }}" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.shop_cta_all | replace("{glaze}", glaze.name) }}</a>
+        </div>
+        <div class="mt-8 grid gap-10 md:grid-cols-2 lg:gap-12">
             <a href="{{ piece.cta.url | shopLink("glaze-" + glaze.name + "-featured") }}" target="_blank" rel="noopener" class="group">
                 <div class="overflow-hidden bg-tile">
                     {% img piece.image.url, piece.image.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "img-zoom w-full object-cover" %}
                 </div>
-                {# The set's own text describes the glaze, because on the home
-                   page it is the only introduction there is. Here the glaze is
-                   already described above, so the piece shows its name, its
-                   price and nothing that repeats the first paragraph. #}
-                <h2 class="mt-4 font-display text-2xl font-black text-ink transition-colors group-hover:text-blue">{{ piece.title }}</h2>
+                {# The set's own text and caption describe the glaze, because on
+                   the home page they are the only introduction there is. Here the
+                   glaze is described above. The line under the title is the one
+                   Matthew wrote about his teapot, moved down here from the story so
+                   it stands with the picture it describes instead of three
+                   paragraphs above it. Same field as the tiles use: text describes
+                   the glaze, overlay describes the piece. #}
+                {% if piece.eyebrow %}<p class="cap-label mt-4 text-[11px] text-sand">{{ piece.eyebrow }}</p>{% endif %}
+                <h2 class="mt-1 font-display text-2xl font-black text-ink transition-colors group-hover:text-blue">{{ piece.title }}</h2>
+                {% if piece.overlay.text %}<p class="mt-3 text-base leading-relaxed text-muted">{{ piece.overlay.text | safe }}</p>{% endif %}
                 {% if piece.price %}<p class="mt-3 font-display text-xl font-black text-ink">{{ piece.price }}</p>{% endif %}
                 <span class="btn-outline mt-5">{{ piece.cta.label }}</span>
             </a>
@@ -78,8 +101,14 @@ eleventyComputed:
                 {% endfor %}
             </div>
         </div>
+        {# Same line the home page carries under the same pieces: every tile
+           here leaves the site, and saying so once under the block is friendlier
+           than finding out at the checkout. #}
+        <p class="mt-6 text-center text-xs text-soft">{{ collections_glaze.pieces_note }}</p>
+        {% else %}
+        <a href="{{ shopUrl }}" target="_blank" rel="noopener" class="btn-outline">{{ collections_glaze.shop_cta_all | replace("{glaze}", glaze.name) }}</a>
+        {% endif %}
     </section>
-    {% endif %}
 
     {# Half the tiles can be sold out at any time, and the shop never holds
        everything Matthew has made. Without this the page is a dead end for
@@ -108,10 +137,15 @@ eleventyComputed:
                 {% img collections_glaze.ask_image.url, collections_glaze.ask_image.alt, "(min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover object-top" %}
                 {% endif %}
             </div>
-            <div class="flex flex-col items-start justify-center px-6 py-12 md:px-12">
-                <h2 class="font-display text-2xl font-black text-paper">{{ collections_glaze.ask_title }}</h2>
+            {# Same shape as the About teaser on the home page (story-teaser.njk):
+               label, heading, text, action, on the same spacing. Both are
+               Matthew speaking in blue, and two blue bands built differently
+               would read as two different kinds of thing. #}
+            <div class="flex flex-col items-start justify-center px-6 py-12 md:px-12 md:py-14">
+                {% if collections_glaze.ask_eyebrow %}<p class="cap-label text-sand">{{ collections_glaze.ask_eyebrow }}</p>{% endif %}
+                <h2 class="mt-3 font-display text-3xl font-black leading-tight text-paper">{{ collections_glaze.ask_title }}</h2>
                 <p class="mt-4 max-w-md text-base leading-relaxed text-paper/80">{{ collections_glaze.ask_text | replace("{glaze}", glaze.name) }}</p>
-                <a href="/contact.html" class="btn-invert mt-6">{{ collections_glaze.ask_cta | replace("{glaze}", glaze.name) }}</a>
+                <a href="/contact.html" class="link-underline link-invert mt-8 inline-block text-sm">{{ collections_glaze.ask_cta | replace("{glaze}", glaze.name) }}</a>
             </div>
         </div>
     </section>
