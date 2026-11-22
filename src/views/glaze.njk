@@ -58,7 +58,7 @@ eleventyComputed:
        stands with the pieces rather than above the text, because that is where
        the visitor is looking at them. Without pieces the button is all this
        section holds. #}
-    <section class="mx-auto max-w-6xl px-6 py-12" aria-label="Pieces in this glaze">
+    <section class="mx-auto max-w-6xl px-6 py-12" aria-label="This glaze in the shop">
         {% set shopUrl = (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-shop") %}
         {% if glaze.set %}
         {% set piece = glaze.set.featured_piece %}
@@ -104,7 +104,7 @@ eleventyComputed:
         {# Same line the home page carries under the same pieces: every tile
            here leaves the site, and saying so once under the block is friendlier
            than finding out at the checkout. #}
-        <p class="mt-6 text-center text-xs text-soft">{{ collections_glaze.pieces_note }}</p>
+        {% if collections_glaze.pieces_note %}<p class="mt-6 text-center text-xs text-soft">{{ collections_glaze.pieces_note }}</p>{% endif %}
         {% else %}
         <a href="{{ shopUrl }}" target="_blank" rel="noopener" class="btn-outline">{{ collections_glaze.shop_cta_all | replace("{glaze}", glaze.name) }}</a>
         {% endif %}

@@ -176,7 +176,7 @@ test("every page can build a link into the shop", () => {
 // template: pieces or no pieces. Both shapes have to carry a way into the shop.
 test("the template leads to the shop in both shapes", () => {
     const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
-    const block = vorlage.slice(vorlage.indexOf('aria-label="Pieces in this glaze"'));
+    const block = vorlage.slice(vorlage.indexOf('aria-label="This glaze in the shop"'));
     const mitTeilen = block.slice(0, block.indexOf("{% else %}"));
     const ohneTeile = block.slice(block.indexOf("{% else %}"));
     assert.match(mitTeilen, /link-underline[^>]*>{{ collections_glaze.shop_cta_all/, "the row over the pieces lost its shop link");
@@ -189,7 +189,7 @@ test("the template leads to the shop in both shapes", () => {
 // them is the kind of thing that creeps back in one page at a time.
 test("the header holds nothing but label, name and text", () => {
     const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
-    const kopf = vorlage.slice(vorlage.indexOf("<article>"), vorlage.indexOf('aria-label="Pieces in this glaze"'));
+    const kopf = vorlage.slice(vorlage.indexOf("<article>"), vorlage.indexOf('aria-label="This glaze in the shop"'));
     assert.ok(!kopf.includes("btn-outline"), "the shop button is back in the header");
     assert.ok(!kopf.includes("link-underline"), "the shop link at the top right is back");
     assert.ok(!kopf.includes("{% img"), "the header carries a picture again");
