@@ -17,8 +17,13 @@
     <link rel="stylesheet" href="/styles/main.css">
     <script defer src="/js/nav.js"></script>
     {% if env.umamiWebsiteId %}
-    {# Counts without cookies. data-domains keeps preview deploys and localhost out of the numbers. #}
-    <script defer src="{{ env.umamiScript }}" data-website-id="{{ env.umamiWebsiteId }}" data-domains="matthewfreed.ca"></script>
+    {# Counts without cookies. data-domains keeps preview deploys and localhost
+       out of the numbers -- the script switches itself off on every hostname
+       that is not listed. matthewfreed.net has to be in the list because the
+       same build is served there too and the link in Matthew's Instagram
+       profile points at it: without this line not a single visitor from
+       Instagram appeared in any number, page views and shop clicks alike. #}
+    <script defer src="{{ env.umamiScript }}" data-website-id="{{ env.umamiWebsiteId }}" data-domains="matthewfreed.ca,matthewfreed.net,www.matthewfreed.net"></script>
     <script defer src="/js/analytics.js"></script>
     {% endif %}
 
