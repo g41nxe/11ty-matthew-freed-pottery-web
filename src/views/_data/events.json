@@ -121,6 +121,7 @@
       "date": "12-20-2026",
       "time": "10 am to 2 pm",
       "location": "Kitsilano Secondary School Parking Lot",
+      "gmaps": "49.262719,-123.163601",
       "description": "Weekly winter market featuring a selection of local goods",
       "at_studio": false
     }
