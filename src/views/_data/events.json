@@ -115,6 +115,14 @@
       "location": "Riley Park, Vancouver ",
       "description": "Weekly winter Farmer's market near Nat Bailey Stadium",
       "at_studio": false
+    },
+    {
+      "name": "Kitsilano Winter Farmer's Market",
+      "date": "12-20-2026",
+      "time": "10 am to 2 pm",
+      "location": "Kitsilano Secondary School Parking Lot",
+      "description": "Weekly winter market featuring a selection of local goods",
+      "at_studio": false
     }
   ]
 }
