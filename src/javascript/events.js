@@ -32,14 +32,19 @@
         var cards = Array.prototype.slice.call(root.querySelectorAll('[data-event]'));
         if (!cards.length) return;
 
+        // Same order as the build (see nextUp in .eleventy.js): one card per
+        // market first, then further dates of those markets fill the places
+        // that are left.
         var seen = {};
-        var live = cards.filter(function (card) {
+        var first = [];
+        var rest = [];
+        cards.filter(function (card) {
             return !past(card);
-        }).filter(function (card) {
-            if (seen[card.dataset.name]) return false;
-            seen[card.dataset.name] = true;
-            return true;
-        }).slice(0, 4);
+        }).forEach(function (card) {
+            if (seen[card.dataset.name]) rest.push(card);
+            else { seen[card.dataset.name] = true; first.push(card); }
+        });
+        var live = first.concat(rest).slice(0, 4);
 
         cards.forEach(function (card) {
             var isNext = live[0] === card;
