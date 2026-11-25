@@ -55,6 +55,28 @@
         "07-19-2026",
         "09-20-2026"
       ]
+    },
+    {
+      "name": "Riley Park Winter Farmers Market",
+      "location": "Riley Park, Vancouver",
+      "time": "10 a.m. to 2 p.m.",
+      "gmaps": "Riley Park Winter Farmers Market, 30th Avenue & Ontario Street, Vancouver, BC",
+      "description": "Weekly winter Farmer's market near Nat Bailey Stadium",
+      "dates": [
+        "12-05-2026",
+        "12-19-2026"
+      ]
+    },
+    {
+      "name": "Kitsilano Winter Farmers Market",
+      "location": "Kitsilano Secondary School Parking Lot",
+      "time": "10 a.m. to 2 p.m.",
+      "gmaps": "Kitsilano Secondary School, 2706 Trafalgar St, Vancouver, BC V6K 2J6",
+      "description": "Weekly winter Farmer's market with a selection of local goods",
+      "dates": [
+        "12-06-2026",
+        "12-20-2026"
+      ]
     }
   ],
   "events": [
