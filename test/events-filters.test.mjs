@@ -107,15 +107,30 @@ test("specialEvents keeps everything without a market, soonest first", () => {
     assert.deepEqual(events.map((e) => e.name), ["Früher", "Später"]);
 });
 
-test("nextUp lists each name once, with its next date", () => {
+test("nextUp puts every market's next date first", () => {
     const shortlist = filters.nextUp([
         { name: "Trout Lake ", date: NEXT_WEEK },
         { name: "Trout Lake", date: TOMORROW },
         { name: "Kitsilano", date: TODAY },
     ]);
     assert.deepEqual(
-        shortlist.map((e) => [e.name.trim(), e.date]),
+        shortlist.slice(0, 2).map((e) => [e.name.trim(), e.date]),
         [["Kitsilano", TODAY], ["Trout Lake", TOMORROW]]
+    );
+});
+
+// The band has four places. Keeping only one date per market emptied two of
+// them the moment Matthew was down to two winter markets -- with four dates
+// standing ready. The second round fills what the first leaves over.
+test("nextUp fills the places left over with further dates", () => {
+    const shortlist = filters.nextUp([
+        { name: "Riley Park", date: TOMORROW },
+        { name: "Riley Park", date: NEXT_WEEK },
+        { name: "Kitsilano", date: TODAY },
+    ]);
+    assert.deepEqual(
+        shortlist.map((e) => [e.name, e.date]),
+        [["Kitsilano", TODAY], ["Riley Park", TOMORROW], ["Riley Park", NEXT_WEEK]]
     );
 });
 

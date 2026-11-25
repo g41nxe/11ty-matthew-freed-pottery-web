@@ -145,16 +145,25 @@ module.exports = function (eleventyConfig) {
     });
     // One entry per event name (its next occurrence), soonest first.
     // Used by the homepage events band to avoid listing the same market twice.
+    // The order the home band fills its four places in: first the next date of
+    // every market, so one weekly market cannot take all four, then the
+    // remaining dates of those same markets. Stopping after the first round
+    // left places empty as soon as there were fewer markets than places --
+    // Matthew's winter, with two markets on two dates each, showed two of
+    // four. The band takes the first four of this list; the rest is rendered
+    // and hidden, so events.js can move a date up once an earlier one passes.
     eleventyConfig.addNunjucksFilter("nextUp", function(array) {
         const seen = new Set();
-        return array.slice()
+        const first = [];
+        const rest = [];
+        array.slice()
             .sort((a, b) => DateTime.fromFormat(a.date, 'MM-dd-yyyy') - DateTime.fromFormat(b.date, 'MM-dd-yyyy'))
-            .filter(e => {
+            .forEach(e => {
                 const key = e.name.trim();
-                if (seen.has(key)) return false;
-                seen.add(key);
-                return true;
+                if (seen.has(key)) rest.push(e);
+                else { seen.add(key); first.push(e); }
             });
+        return first.concat(rest);
     });
     eleventyConfig.addNunjucksFilter("markdownify", (s) => (s ? md.render(s) : ""));
     // Outgoing shop links get their origin tag at build time, so the CMS
