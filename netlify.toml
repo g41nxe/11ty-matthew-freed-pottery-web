@@ -1,0 +1,12 @@
+# Nur der Cache steht hier. Der Build-Befehl bleibt bewusst in der Netlify-
+# Oberfläche: Zwei Orte, die dasselbe bestimmen, laufen irgendwann auseinander.
+# Netlify übersteuert nur Einstellungen, die in dieser Datei stehen.
+#
+# Ohne das Plugin fängt jeder Deploy mit leerem .cache an. Dann rechnet
+# eleventy-img alle Bildableitungen neu -- 82 Quellbilder werden zu rund 900
+# Dateien, gemessen vier Minuten -- und die zwischengespeicherten Antworten des
+# Shops wären weg, mit denen die Seiten einen Shopify-Ausfall überstehen.
+#
+# Das Plugin liegt im Repo statt als Paket: siehe plugins/bildcache/index.js.
+[[plugins]]
+package = "/plugins/bildcache"

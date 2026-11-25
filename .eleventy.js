@@ -1,3 +1,4 @@
+const fs = require("node:fs");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const { DateTime } = require("luxon");
 const eleventyImg = require("@11ty/eleventy-img");
@@ -9,6 +10,9 @@ const markdownIt = require("markdown-it");
 const md = markdownIt({ html: true }); // html:true is required — process.md's paragraphs include raw <b> tags
 
 const FALLBACK_ALT = "Handmade pottery by Matthew Freed";
+// Netlify keeps this folder between deploys (see netlify.toml), so the image
+// derivatives and the shop answers survive a build.
+const BILDCACHE = ".cache/images";
 
 // 16 -> "sixteen", as the site's copy writes numbers. Above 99 it keeps digits.
 const ONES = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
@@ -64,7 +68,14 @@ module.exports = function (eleventyConfig) {
           widths: [160, 320, 640, 768, 1024, 1280, 1536, 1920],
           formats: ["avif", "webp", "jpg"],
           urlPath: "/images/",
-          outputDir: "./dist/images/",
+          // Written to the cache, not to dist: the build starts with "clean",
+          // and eighty source images make nine hundred derivatives that took
+          // three and a half minutes to compute every single time. eleventy-img
+          // skips a file it finds already there, so the work only happens for
+          // an image that is new or changed -- its name carries a hash of its
+          // contents. BILDCACHE copies the folder into dist when the build is
+          // done; a passthrough copy would run before these files exist.
+          outputDir: BILDCACHE + "/",
         });
 
         return generateHTML(metadata, { alt, sizes, loading, class: classes });
@@ -233,6 +244,14 @@ module.exports = function (eleventyConfig) {
         return text
             .replace(/\{glazes\}/g, word)
             .replace(/\{Glazes\}/g, word.charAt(0).toUpperCase() + word.slice(1));
+    });
+
+    // The derivatives live in the cache; dist gets a copy once every page has
+    // asked for the images it needs. fs.cp leaves what is already there, so a
+    // second run costs nothing.
+    eleventyConfig.on("eleventy.after", async () => {
+        if (!fs.existsSync(BILDCACHE)) return;
+        await fs.promises.cp(BILDCACHE, "dist/images", { recursive: true, force: false, errorOnExist: false });
     });
 
     return {
