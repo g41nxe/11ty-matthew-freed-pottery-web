@@ -1,0 +1,90 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { createRequire } from "node:module";
+
+const require = createRequire(import.meta.url);
+const shopPieces = require("../src/views/_data/shopPieces.js");
+const { gruppiere, preis, ohneGlasur } = shopPieces;
+
+// Was der Shop auf /collections/all/products.json liefert, auf das
+// zusammengestrichen, was die Glasurseite davon benutzt.
+const produkt = (werte) => ({
+    title: "Meal Bowl - Jericho",
+    handle: "meal-bowl-jericho",
+    tags: ["Jericho"],
+    images: [{ src: "https://cdn.shopify.com/bild.jpg", alt: "Eine Schale" }],
+    variants: [{ price: "40.00", available: true }],
+    published_at: "2024-02-03T00:00:00-08:00",
+    ...werte,
+});
+
+test("ein Produkt landet unter jedem seiner Tags, klein geschrieben", () => {
+    const nachTag = gruppiere([produkt({ tags: ["Jericho", "Tree-of-life"] })]);
+    assert.deepEqual(Object.keys(nachTag).sort(), ["jericho", "tree-of-life"]);
+    assert.equal(nachTag.jericho[0].title, "Meal Bowl - Jericho");
+});
+
+// Der Shop ist ein Katalog der Formen, kein Verzeichnis dessen, was gerade
+// da ist: Die Produkte stammen aus 2020 bis 2026, und das Anlagedatum sagt
+// nichts über den letzten Brand. Verfügbar zu sein ist das einzige Signal.
+test("verfügbare Stücke stehen vorn, dann die zuletzt angelegten", () => {
+    const nachTag = gruppiere([
+        produkt({ handle: "a", published_at: "2026-01-01", variants: [{ price: "10", available: false }] }),
+        produkt({ handle: "b", published_at: "2020-01-01", variants: [{ price: "20", available: true }] }),
+        produkt({ handle: "c", published_at: "2025-01-01", variants: [{ price: "30", available: false }] }),
+        produkt({ handle: "d", published_at: "2021-01-01", variants: [{ price: "40", available: true }] }),
+    ]);
+    // Innerhalb jeder Gruppe gilt dasselbe: zuletzt angelegt zuerst.
+    assert.deepEqual(nachTag.jericho.map((s) => s.handle), ["d", "b", "a", "c"]);
+});
+
+test("ein Stück gilt als verfügbar, sobald eine Variante es ist", () => {
+    const nachTag = gruppiere([
+        produkt({ variants: [{ price: "40", available: false }, { price: "40", available: true }] }),
+    ]);
+    assert.equal(nachTag.jericho[0].available, true);
+});
+
+// Matthew schreibt "$165" ins CMS, Shopify liefert "165.00". Die Kacheln
+// sollen gleich aussehen, egal woher der Preis kommt.
+test("Preise sehen aus wie im CMS", () => {
+    assert.equal(preis("165.00"), "$165");
+    assert.equal(preis("24.50"), "$24.50");
+    assert.equal(preis("0.00"), "$0");
+    assert.equal(preis(undefined), "");
+    assert.equal(preis("keine Zahl"), "");
+});
+
+// "Medium Teapot - Jericho" steht auf der Jericho-Seite unter einer
+// Überschrift, die schon Jericho heißt.
+test("der Glasurname fällt aus dem Kacheltitel", () => {
+    assert.equal(ohneGlasur("Medium Teapot - Jericho", "Jericho"), "Medium Teapot");
+    assert.equal(ohneGlasur("Meal Bowl - Pemberton Sky", "Pemberton Sky"), "Meal Bowl");
+    assert.equal(ohneGlasur("Teardrop Vase - jericho", "Jericho"), "Teardrop Vase");
+    // Nur am Ende und nur die eigene Glasur: Sonst verstümmelt der Schnitt
+    // Titel, in denen der Name mitten im Satz steht oder einer anderen
+    // Glasur gehört.
+    assert.equal(ohneGlasur("Jericho Short Vase/utensil Caddy", "Jericho"), "Jericho Short Vase/utensil Caddy");
+    assert.equal(ohneGlasur("Meal Bowl - Pemberton Earth", "Pemberton Sky"), "Meal Bowl - Pemberton Earth");
+});
+
+// Ein Produkt ohne Foto oder ohne Variante darf den Build nicht anhalten:
+// Es kommt aus dem Shop, und dort kann alles passieren.
+test("ein unvollständiges Produkt bricht nichts ab", () => {
+    const nachTag = gruppiere([produkt({ images: [], variants: [] })]);
+    const stueck = nachTag.jericho[0];
+    assert.equal(stueck.image, null);
+    assert.equal(stueck.price, "");
+    assert.equal(stueck.available, false);
+    assert.equal(stueck.alt, "Meal Bowl - Jericho");
+});
+
+test("ohne Alt-Text im Shop steht der Titel als Beschreibung", () => {
+    const nachTag = gruppiere([produkt({ images: [{ src: "x.jpg" }] })]);
+    assert.equal(nachTag.jericho[0].alt, "Meal Bowl - Jericho");
+});
+
+test("die Adresse des Stücks zeigt in Matthews Shop", () => {
+    const nachTag = gruppiere([produkt({ handle: "belly-mug-tofino" })]);
+    assert.equal(nachTag.jericho[0].url, "https://shop.matthewfreed.net/products/belly-mug-tofino");
+});
