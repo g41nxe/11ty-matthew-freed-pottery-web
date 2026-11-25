@@ -64,19 +64,33 @@ module.exports = function (eleventyConfig) {
           alt = FALLBACK_ALT;
         }
 
-        let metadata = await Image('src/' + src, {
-          widths: [160, 320, 640, 768, 1024, 1280, 1536, 1920],
-          formats: ["avif", "webp", "jpg"],
-          urlPath: "/images/",
-          // Written to the cache, not to dist: the build starts with "clean",
-          // and eighty source images make nine hundred derivatives that took
-          // three and a half minutes to compute every single time. eleventy-img
-          // skips a file it finds already there, so the work only happens for
-          // an image that is new or changed -- its name carries a hash of its
-          // contents. BILDCACHE copies the folder into dist when the build is
-          // done; a passthrough copy would run before these files exist.
-          outputDir: BILDCACHE + "/",
-        });
+        // A piece from the shop arrives as a full address, an image from the
+        // CMS as a path under src/. eleventy-img downloads a remote one itself
+        // and puts it in the same cache as the derivatives, which survives the
+        // deploy -- measured two seconds the first time, nothing after that.
+        const entfernt = src.startsWith("http://") || src.startsWith("https://");
+        let metadata;
+        try {
+          metadata = await Image(entfernt ? src : 'src/' + src, {
+            widths: [160, 320, 640, 768, 1024, 1280, 1536, 1920],
+            formats: ["avif", "webp", "jpg"],
+            urlPath: "/images/",
+            // Written to the cache, not to dist: the build starts with "clean",
+            // and eighty source images make nine hundred derivatives that took
+            // three and a half minutes to compute every single time. eleventy-img
+            // skips a file it finds already there, so the work only happens for
+            // an image that is new or changed -- its name carries a hash of its
+            // contents. BILDCACHE copies the folder into dist when the build is
+            // done; a passthrough copy would run before these files exist.
+            outputDir: BILDCACHE + "/",
+            cacheOptions: { duration: "1d", directory: ".cache" },
+          });
+        } catch (fehler) {
+          // A piece the shop no longer has must not cost a deploy: the tile
+          // appears without a picture, and the build log names which one.
+          console.warn(`[img] ${src} on ${page} could not be loaded, left out: ${fehler.message}`);
+          return "";
+        }
 
         return generateHTML(metadata, { alt, sizes, loading, class: classes });
       });
