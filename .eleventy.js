@@ -190,6 +190,10 @@ module.exports = function (eleventyConfig) {
             });
         return first.concat(rest);
     });
+    // "Medium Teapot - Jericho" steht auf der Jericho-Seite unter einer
+    // Überschrift, die schon Jericho heißt. Der Schnitt sitzt in
+    // _data/shopPieces.js, damit Vorlage und Tests dieselbe Regel benutzen.
+    eleventyConfig.addNunjucksFilter("withoutGlaze", require("./src/views/_data/shopPieces.js").ohneGlasur);
     eleventyConfig.addNunjucksFilter("markdownify", (s) => (s ? md.render(s) : ""));
     // Outgoing shop links get their origin tag at build time, so the CMS
     // keeps clean URLs and nobody types parameters by hand. Shopify only
@@ -245,7 +249,9 @@ module.exports = function (eleventyConfig) {
     // fall back to the shop link when there is no page yet, so adding a
     // story is the only step needed to put a glaze card on its own page.
     eleventyConfig.addNunjucksFilter("glazePath", (title) => {
-        const page = require("./src/views/_data/glazePages.js")
+        // .seiten ist die Liste ohne den Shop: Pfade hängen nicht daran,
+        // welche Stücke Shopify gerade führt.
+        const page = require("./src/views/_data/glazePages.js").seiten
             .find((candidate) => candidate.title === title);
         return page ? page.path : "";
     });
@@ -265,7 +271,9 @@ module.exports = function (eleventyConfig) {
     // second run costs nothing.
     eleventyConfig.on("eleventy.after", async () => {
         if (!fs.existsSync(BILDCACHE)) return;
+        const vorher = fs.existsSync("dist/images") ? fs.readdirSync("dist/images").length : 0;
         await fs.promises.cp(BILDCACHE, "dist/images", { recursive: true, force: false, errorOnExist: false });
+        console.log("[bildcache] dist/images " + vorher + " -> " + fs.readdirSync("dist/images").length + ", Cache " + fs.readdirSync(BILDCACHE).length);
     });
 
     return {

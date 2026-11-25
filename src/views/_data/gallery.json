@@ -54,6 +54,10 @@
       "text": "Red, green or blue rims pop on a charcoal glazed base.",
       "lead": "Charcoal underneath, a bright rim on top. Yaletown pairs a dark glazed base with a red, green or blue edge.  The glaze has a modern and contemporary feel that reminds me of the design traits around Yaletown.",
       "story": "Inside a serving bowl the dark glaze does quiet work, making whatever you serve stand out.",
+      "feature_image": {
+        "url": "/images/glazes/yaletown/market-display-feature.jpg",
+        "alt": "Yaletown bowls, plates, mugs and a teapot on the market stall by Matthew Freed"
+      },
       "slug": "Yaletown",
       "swatch": "#2E2C29",
       "filterGroups": [
@@ -116,6 +120,10 @@
       "text": "A pale grey/blue glaze with sand toned speckles.",
       "lead": "Jericho is a pale grey-blue with sand toned speckles. Where the glaze thins at a rim it turns a warm toasted brown, which is why the edges never look flat.  The tones remind me of one of my favourite local beaches - Jericho.",
       "story": "It is the quietest of my glazes, and the easiest to live with: a mug you reach for every morning.",
+      "feature_image": {
+        "url": "/images/glazes/jericho/tea-set-feature.jpg",
+        "alt": "Jericho teapot, two mugs and a lidded honey pot by Matthew Freed on a wooden table, with a fern"
+      },
       "slug": "Jericho",
       "swatch": "#9A93B4",
       "filterGroups": [
@@ -131,6 +139,10 @@
       "text": "A rich green/blue glaze with multi-toned variation.",
       "lead": "Turquoise, blue and deep emerald green run together in Joffre. Every teapot, mug and tray comes out with its own mix of tones.  The vibrant yet cool tones remind me of the beautiful Joffre Lake.",
       "story": "It is a rich glaze that changes with the light and with the shape underneath it.",
+      "feature_image": {
+        "url": "/images/glazes/joffre/tea-set-feature.jpg",
+        "alt": "Joffre teapot, two mugs, a small dish and a tray by Matthew Freed, with a white flower and a fern"
+      },
       "slug": "Joffre",
       "swatch": "#1C6478",
       "filterGroups": [
@@ -193,6 +205,10 @@
       "text": "Semi-matte charcoal glaze with a hand-painted gold chevron pattern.",
       "lead": "This bold patterned collection is a nod to the busy streets of my neighborhood- Strathcona.  I've lived and created my craft here for over 20 years.",
       "story": "A bold linear pattern creates the strong look of this glaze collection.",
+      "feature_image": {
+        "url": "/images/glazes/strathcona/platters-and-bowl-feature.jpg",
+        "alt": "Two Strathcona platters and a serving bowl with a chevron pattern by Matthew Freed"
+      },
       "slug": "Strathcona",
       "swatch": "#55524A",
       "filterGroups": [
@@ -209,6 +225,10 @@
       "text": "A stormy, landscape effect in complimentary hues of cobalt, mocha, and amber.",
       "lead": "Tofino is my most variable glaze. Cobalt, mocha and amber run in bands across every piece, and because the glaze keeps moving in the kiln, no two come out alike.",
       "story": "The rounder the form, the further the bands travel: on a belly mug they shift all the way around, on a dinner plate they run in toward the centre.",
+      "feature_image": {
+        "url": "/images/glazes/tofino/tea-set-feature.jpg",
+        "alt": "Tofino teapot, mugs and vase by Matthew Freed on a wooden table"
+      },
       "slug": "Tofino",
       "swatch": "#33556E",
       "filterGroups": [
@@ -224,6 +244,10 @@
       "text": "A textured Tree of Life emblem on a semi-matte charcoal glaze.",
       "lead": "Tree of Life is the one glaze that carries a mark. A textured tree emblem goes onto every piece by hand, over a semi-matte charcoal glaze.",
       "story": "The emblem keeps the surface quiet and lets the tree do the talking. It runs through a whole table: nesting bowls, a meal bowl, a ramen bowl, a pitcher.",
+      "feature_image": {
+        "url": "/images/glazes/tree-of-life/bowls-and-pitcher-feature.jpg",
+        "alt": "Tree of Life pitcher and bowls with lemons by Matthew Freed"
+      },
       "slug": "Tree-of-Life",
       "swatch": "#29261F",
       "filterGroups": [

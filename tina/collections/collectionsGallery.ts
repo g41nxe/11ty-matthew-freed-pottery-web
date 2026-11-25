@@ -42,6 +42,11 @@ export const collectionsGallery: Collection = {
           description: "The rest of the glaze page, directly under the intro. Leave a blank line between paragraphs. Without this no page is built and the card keeps linking to the shop.",
           ui: { component: "textarea" },
         },
+        imageField(
+          "feature_image",
+          "Group photo for the glaze page",
+          "The large picture beside the pieces: several pieces of this glaze together, no single product. Without one the page shows the card image above, which works but repeats itself."
+        ),
         {
           type: "string", name: "slug", label: "Shop collection slug (tail of the shop URL)", required: true,
           description: "The glaze page links to the shop with this: shop address from Settings + collections path + this slug. Without it the link goes nowhere.",

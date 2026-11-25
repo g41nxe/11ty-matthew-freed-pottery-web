@@ -6,7 +6,10 @@ import path from "node:path";
 import matter from "gray-matter";
 
 const require = createRequire(import.meta.url);
-const glazePages = require("../src/views/_data/glazePages.js");
+// Die Seiten ohne den Shop: Pfade, Texte und Querverweise hängen nicht
+// daran, welche Stücke Shopify gerade führt (siehe mitStuecken).
+const glazeModul = require("../src/views/_data/glazePages.js");
+const glazePages = glazeModul.seiten;
 const gallery = require("../src/views/_data/gallery.json");
 const shopSets = require("../src/views/_data/shopSets.js");
 const seitentexte = require("../src/views/_data/collections_glaze.json");
@@ -68,12 +71,32 @@ test("the story is kept as paragraphs, not one block", () => {
 // gets pieces. What it also did was catch a renamed set; that guard is gone,
 // and in its place the CMS now says at the name field: "Must match the glaze
 // name exactly, otherwise that glaze page finds no pieces."
-test("a glaze page shows the set of its name, and only when it is visible", () => {
+// Vom Shop-Set bleibt eine Reihenfolge: welche Adressen zuerst stehen sollen.
+// Ein verstecktes Set zählt wie keins -- "hide" ist Matthews Griff, Stücke aus
+// der Auslage zu nehmen, und er darf nicht dadurch wirkungslos werden, dass
+// die Stücke jetzt aus dem Shop kommen.
+test("ein verstecktes Shop-Set gibt keinen Vorrang", () => {
     for (const page of glazePages) {
         const set = shopSets.byName[page.name];
-        const erwartet = set && !set.hide ? set : null;
-        assert.equal(page.set, erwartet, `${page.title}: wrong set on the page`);
+        const erwartet = set && !set.hide ? (set.items || []).length : 0;
+        assert.equal(page.vorrang.length, erwartet, `${page.title}: falsche Vorrangliste`);
     }
+});
+
+// Die Vorrangliste bestimmt nur den Anfang, der Shop den Rest -- und mehr als
+// vier Kacheln zeigt die Seite nie.
+test("die Vorrangliste steht vorn, der Shop füllt auf", () => {
+    const stueck = (handle, verfuegbar = true) => ({ handle, title: handle, available: verfuegbar, published: "2024-01-01" });
+    const seite = { slug: "Jericho", vorrang: ["https://shop.matthewfreed.net/products/c"] };
+    const nachTag = { jericho: [stueck("a"), stueck("b"), stueck("c"), stueck("d"), stueck("e")] };
+    const [ergebnis] = glazeModul.mitStuecken([seite], nachTag);
+    assert.deepEqual(ergebnis.pieces.map((s) => s.handle), ["c", "a", "b", "d"]);
+});
+
+test("eine Glasur ohne Stücke im Shop bekommt eine leere Liste", () => {
+    const seite = { slug: "Skaha", vorrang: [] };
+    const [ergebnis] = glazeModul.mitStuecken([seite], {});
+    assert.deepEqual(ergebnis.pieces, []);
 });
 
 // A set that is shown has to be worth showing: the featured piece needs a link
