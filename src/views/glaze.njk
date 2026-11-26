@@ -65,10 +65,12 @@ eleventyComputed:
             <a href="{{ shopUrl }}" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.shop_cta_all | replace("{glaze}", glaze.name) }}</a>
         </div>
         <div class="mt-8 grid gap-10 md:grid-cols-2 lg:gap-12">
-            <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-feature") }}" target="_blank" rel="noopener" class="group">
-                <div class="overflow-hidden bg-tile">
-                    {% img glaze.feature.url, glaze.feature.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "img-zoom w-full object-cover" %}
-                </div>
+            <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-feature") }}" target="_blank" rel="noopener" class="group relative aspect-[4/3] overflow-hidden bg-tile md:aspect-auto">
+                {# Füllt die Spalte auf volle Höhe, damit sie nicht früher endet
+                   als die zwei Kachelreihen daneben -- dieselbe Technik wie im
+                   blauen Band. Auf dem Telefon steht das Bild allein, da gibt
+                   ein Seitenverhältnis die Höhe vor. #}
+                {% img glaze.feature.url, glaze.feature.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "img-zoom absolute inset-0 h-full w-full object-cover" %}
             </a>
             {% if glaze.pieces.length %}
             <div class="grid grid-cols-2 content-start gap-5">
