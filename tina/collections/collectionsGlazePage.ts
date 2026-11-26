@@ -31,6 +31,15 @@ export const collectionsGlazePage: Collection = {
       description: "The same line stands under the pieces on the home page. Every piece links into the Shopify shop, and this says so before anyone clicks.",
     },
     {
+      type: "string", name: "pieces_empty_label", label: "Small label on the empty tile",
+      description: "Stands where the pieces would be, on a glaze that has nothing in the shop right now.",
+    },
+    {
+      type: "string", name: "pieces_empty", label: "Text on the empty tile",
+      description: "One line, beside the photo of the glaze. There is no link on this tile: the shop collection would be empty, and the blue band below already offers to make a piece. " + withName,
+      ui: { component: "textarea" },
+    },
+    {
       type: "string", name: "shop_cta_all", label: "Link to the shop collection", required: true,
       description:
         "Beside the heading above the pieces, and the button on glazes that have none. It goes to the shop collection built from the shop address in Settings and the slug beside the glaze in Collections · Glaze gallery. " +

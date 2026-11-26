@@ -193,6 +193,33 @@ module.exports = function (eleventyConfig) {
     // "Medium Teapot - Jericho" steht auf der Jericho-Seite unter einer
     // Überschrift, die schon Jericho heißt. Der Schnitt sitzt in
     // _data/shopPieces.js, damit Vorlage und Tests dieselbe Regel benutzen.
+    // Welche Schrift auf einer Glasurfarbe lesbar ist. Die sechzehn Farben
+    // reichen von hellem Flieder bis zu fast schwarzem Anthrazit; eine feste
+    // Wahl wäre auf einem Teil davon unlesbar. Gerechnet wird der Kontrast
+    // nach WCAG gegen beide Hausfarben, und es gewinnt die bessere. Bei
+    // Jericho etwa trägt Papier nur 2,6:1, Tinte dagegen 4,8:1.
+    const PAPIER = "#F8F5EE";
+    const TINTE = "#2A2822";
+    const helligkeit = (hex) => {
+        const teil = String(hex || "").replace("#", "");
+        if (teil.length !== 6) return null;
+        const kanal = (n) => {
+            const wert = parseInt(teil.slice(n, n + 2), 16) / 255;
+            return wert <= 0.03928 ? wert / 12.92 : Math.pow((wert + 0.055) / 1.055, 2.4);
+        };
+        return 0.2126 * kanal(0) + 0.7152 * kanal(2) + 0.0722 * kanal(4);
+    };
+    const kontrast = (a, b) => {
+        const [hell, dunkel] = [helligkeit(a), helligkeit(b)].sort((x, y) => y - x);
+        return (hell + 0.05) / (dunkel + 0.05);
+    };
+    eleventyConfig.addNunjucksFilter("schriftAuf", (hex) => {
+        if (helligkeit(hex) === null) return "var(--color-paper)";
+        return kontrast(hex, PAPIER) >= kontrast(hex, TINTE) ? "var(--color-paper)" : "var(--color-ink)";
+    });
+    eleventyConfig.addNunjucksFilter("kontrastAuf", (hex) =>
+        Math.round(Math.max(kontrast(hex, PAPIER), kontrast(hex, TINTE)) * 10) / 10
+    );
     eleventyConfig.addNunjucksFilter("withoutGlaze", require("./src/views/_data/shopPieces.js").ohneGlasur);
     eleventyConfig.addNunjucksFilter("markdownify", (s) => (s ? md.render(s) : ""));
     // Outgoing shop links get their origin tag at build time, so the CMS

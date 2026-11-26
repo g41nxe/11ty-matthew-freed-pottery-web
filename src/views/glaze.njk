@@ -62,7 +62,9 @@ eleventyComputed:
         {% set shopUrl = (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-shop") %}
         <div class="flex items-baseline justify-between gap-4">
             <h2 class="font-display text-2xl font-black text-ink">{{ collections_glaze.pieces_title }}</h2>
-            <a href="{{ shopUrl }}" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.shop_cta_all | replace("{glaze}", glaze.name) }}</a>
+            {# Ohne Stücke führt der Link auf eine leere Sammlung im Shop, und
+               die Kachel daneben sagt gerade, dass es nichts gibt. #}
+            {% if glaze.pieces.length %}<a href="{{ shopUrl }}" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.shop_cta_all | replace("{glaze}", glaze.name) }}</a>{% endif %}
         </div>
         <div class="mt-8 grid gap-10 md:grid-cols-2 lg:gap-12">
             <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-feature") }}" target="_blank" rel="noopener" class="group relative aspect-[4/3] overflow-hidden bg-tile md:aspect-auto">
@@ -90,11 +92,25 @@ eleventyComputed:
                 {% endfor %}
             </div>
             {% else %}
-            {# Skaha has nothing in the shop at all. The column keeps the shape
-               and carries the way there, rather than leaving half the row empty. #}
-            <div class="flex items-center">
-                <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-shop-empty") }}" target="_blank" rel="noopener" class="btn-outline">{{ collections_glaze.shop_cta_all | replace("{glaze}", glaze.name) }}</a>
-            </div>
+            {# Skaha has nothing in the shop at all. Rather than half an empty
+               row, the column says so in the same shape the pieces would have
+               had: the tile colour, a label, one line. No button -- the blue
+               band right below is the answer to "nothing here", and two calls
+               in a row is what this page had before. #}
+            {# Kein Stück im Shop, also auch kein Foto -- die Fläche trägt
+               stattdessen die Glasurfarbe, dieselbe, die unter "Other glazes"
+               hinter den Fotos liegt und als Punkt neben dem Namen steht. Die
+               Beschriftung sitzt darunter wie bei jeder anderen Kachel, und der
+               Link führt in den Shop insgesamt: Die Sammlung dieser Glasur wäre
+               leer, der Shop ist es nicht. #}
+            <a href="{{ (global.shop.base + global.shop.collectionsPath) | shopLink("glaze-" + glaze.name + "-shop-empty") }}" target="_blank" rel="noopener" class="group flex flex-col">
+                <div class="flex aspect-[4/3] w-full items-end p-6" style="background-color: {{ glaze.swatch }}">
+                    <p class="font-display text-3xl font-black leading-tight" style="color: {{ glaze.swatch | schriftAuf }}">{{ glaze.name }}</p>
+                </div>
+                <p class="cap-label mt-3 text-soft">{{ collections_glaze.pieces_empty_label }}</p>
+                <p class="mt-1 max-w-sm text-base leading-relaxed text-muted">{{ collections_glaze.pieces_empty | replace("{glaze}", glaze.name) }}</p>
+                <span class="link-underline mt-3 inline-block text-sm">{{ collections_glaze.pieces_empty_cta }}</span>
+            </a>
             {% endif %}
         </div>
         {# Same line the home page carries under the same pieces: every tile

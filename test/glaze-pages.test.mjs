@@ -198,14 +198,47 @@ test("every page can build a link into the shop", () => {
 
 // The one shape that differs between pages, and the only branch left in the
 // template: pieces or no pieces. Both shapes have to carry a way into the shop.
-test("the template leads to the shop in both shapes", () => {
+// Mit Stücken führt die Zeile über ihnen in den Shop. Ohne Stücke führt sie
+// nirgendwo hin -- die Sammlung im Shop wäre leer, und die Kachel daneben sagt
+// gerade, dass es nichts gibt. Das ist eine Abkehr von "jede Seite führt in den
+// Shop": Ein Link auf eine leere Seite ist kein Weg, sondern eine Sackgasse.
+test("der Shop-Link steht nur da, wo es auch Stücke gibt", () => {
     const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
     const block = vorlage.slice(vorlage.indexOf('aria-label="This glaze in the shop"'));
-    const mitTeilen = block.slice(0, block.indexOf("{% else %}"));
+    const zeile = block.slice(0, block.indexOf("{% else %}"));
+    assert.match(zeile, /{% if glaze.pieces.length %}<a [^>]*link-underline/, "der Shop-Link hängt nicht mehr an den Stücken");
+    assert.ok(!vorlage.includes("shop-bottom"), "der zweite Shop-Link im Kopf ist zurück");
+});
+
+// Die Stelle, an der sonst die Kacheln stehen, bleibt nicht leer: Sie sagt,
+// woran es liegt, in derselben Fläche und im selben Ton wie die Stücke.
+// Wo die Kacheln stünden, steht sonst ein Farbmuster der Glasur mit ihrem
+// Namen -- kein leeres Feld, das nach einem nicht geladenen Bild aussieht.
+// Der Link führt in den Shop insgesamt: Die Sammlung dieser Glasur wäre leer.
+test("ohne Stücke steht dort ein Farbmuster der Glasur", () => {
+    const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
+    const block = vorlage.slice(vorlage.indexOf('aria-label="This glaze in the shop"'));
     const ohneTeile = block.slice(block.indexOf("{% else %}"));
-    assert.match(mitTeilen, /link-underline[^>]*>{{ collections_glaze.shop_cta_all/, "the row over the pieces lost its shop link");
-    assert.match(ohneTeile, /btn-outline[^>]*>{{ collections_glaze.shop_cta_all/, "a glaze without pieces lost its shop button");
-    assert.ok(!vorlage.includes("shop-bottom"), "the second shop link in the header is back");
+    assert.match(ohneTeile, /background-color: {{ glaze.swatch }}/, "das Farbmuster trägt nicht mehr die Glasurfarbe");
+    assert.match(ohneTeile, /glaze.swatch | schriftAuf/, "die Schriftfarbe wird nicht mehr aus der Glasurfarbe berechnet");
+    assert.match(ohneTeile, /collections_glaze.pieces_empty/, "die Kachel holt ihren Text nicht mehr aus dem CMS");
+    assert.ok(!ohneTeile.includes("glaze.slug"), "der Link zeigt wieder auf die leere Sammlung dieser Glasur");
+});
+
+// Auf den sechzehn Glasurfarben muss der Name lesbar bleiben. Die hellste,
+// Jericho, trägt Papier nur mit 2,6:1 -- deshalb entscheidet der Kontrast und
+// nicht ein fester Wert.
+test("der Name auf dem Farbmuster bleibt lesbar", () => {
+    const filter = {};
+    const attrappe = new Proxy(
+        { addNunjucksFilter: (name, fn) => { filter[name] = fn; } },
+        { get: (ziel, name) => ziel[name] ?? (() => {}) }
+    );
+    require("../.eleventy.js")(attrappe);
+    for (const eintrag of gallery.items) {
+        const wert = filter.kontrastAuf(eintrag.swatch);
+        assert.ok(wert >= 4.5, `${eintrag.title}: Kontrast nur ${wert}:1 auf ${eintrag.swatch}`);
+    }
 });
 
 // The header is the same on all sixteen pages: label, name, text. The image
