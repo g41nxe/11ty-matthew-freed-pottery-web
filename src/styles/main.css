@@ -249,9 +249,16 @@
        glaze's colour. It sweeps in on hover like the link's does.
        --glaze comes from the element's style attribute. */
     .glaze-mark {
-        background-image: linear-gradient(transparent 62%, color-mix(in srgb, var(--glaze) 45%, transparent) 62%);
+        /* Same stroke, same place under the letters. The link on the home
+           page stands in a roomy line (28px for 18px type), so its stroke
+           runs from 0.14em above the baseline to 0.44em below it. The heading
+           is set tight (45px for 36px), and with the link's 62% the stroke
+           sat higher and stopped right under the letters. The padding gives
+           it the room below, the 58.6% puts its top edge where the link's is. */
+        background-image: linear-gradient(transparent 58.6%, color-mix(in srgb, var(--glaze) 45%, transparent) 58.6%);
         background-repeat: no-repeat;
         background-size: 0% 100%;
+        padding-bottom: 0.172em;
         transition: background-size 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .glaze-mark:hover {
