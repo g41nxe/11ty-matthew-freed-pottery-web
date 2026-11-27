@@ -146,7 +146,7 @@ test("the blue band has one picture, and it is not a glaze card", () => {
 // template no longer carries fallbacks: a missing key would render as nothing
 // at all, and an empty heading is the kind of thing nobody notices for weeks.
 test("the page furniture is complete and comes from the CMS", () => {
-    for (const feld of ["eyebrow", "pieces_title", "shop_cta_all", "ask_title", "ask_text", "ask_cta", "others_title", "back_label"]) {
+    for (const feld of ["eyebrow", "pieces_title", "shop_cta_all", "shop_all_label", "market_title", "market_text", "market_cta", "ask_title", "ask_text", "ask_cta", "others_title", "back_label"]) {
         assert.ok((seitentexte[feld] || '').trim(), `collections_glaze.json: ${feld} is empty`);
     }
     assert.ok(seitentexte.ask_image && seitentexte.ask_image.url, 'collections_glaze.json: the blue band has no photo');
@@ -196,34 +196,40 @@ test("every page can build a link into the shop", () => {
     }
 });
 
-// Mit Stücken führt die Zeile über ihnen in den Shop. Ohne Stücke führt sie
-// nirgendwo hin -- die Sammlung im Shop wäre leer. Das ist eine Abkehr von
-// "jede Seite führt in den Shop": Ein Link auf eine leere Seite ist kein Weg,
-// sondern eine Sackgasse. Hinaus führt dort die Marktkachel.
-test("der Shop-Link steht nur da, wo es auch Stücke gibt", () => {
+// Zu den Stücken dieser Glasur führen der Knopf im Kopf und das Foto daneben.
+// Ohne Stücke führen beide nirgendwo hin -- die Sammlung im Shop wäre leer,
+// und ein Link auf eine leere Seite ist kein Weg, sondern eine Sackgasse.
+// Hinaus führen dort die Marktkachel und der Link in den ganzen Shop, der auf
+// allen sechzehn Seiten neben der Überschrift steht.
+test("zu den Stücken der Glasur führt nur etwas, wo es welche gibt", () => {
     const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
-    const block = vorlage.slice(vorlage.indexOf('aria-label="This glaze in the shop"'));
-    const zeile = block.slice(0, block.indexOf("grid grid-cols-2"));
-    assert.match(zeile, /{% if glaze.pieces.length %}<a [^>]*link-underline/, "der Shop-Link hängt nicht mehr an den Stücken");
-    assert.ok(!vorlage.includes("shop-bottom"), "der zweite Shop-Link im Kopf ist zurück");
+    const grenze = vorlage.indexOf('aria-label="This glaze in the shop"');
+    const kopf = vorlage.slice(0, grenze);
+    const block = vorlage.slice(grenze);
+    assert.match(kopf, /{% if glaze.pieces.length %}<a [^>]*btn-outline/, "der Knopf zur Sammlung hängt nicht mehr an den Stücken");
+    assert.match(kopf, /{% if glaze.pieces.length %}\s*<a [^>]*-feature/, "das Foto verlinkt auch eine leere Sammlung");
+    const zeile = block.slice(0, block.indexOf('id="glaze-markets"'));
+    assert.match(zeile, /<a [^>]*-shop-all[^>]*>{{ collections_glaze.shop_all_label }}/, "der Link in den ganzen Shop fehlt neben der Überschrift");
+    assert.ok(!zeile.includes("{% if glaze.pieces.length %}<a"), "der Link in den ganzen Shop hängt jetzt an den Stücken");
 });
 
-// Zweimal beim Umbau verschwunden, zweimal erst im Browser aufgefallen: Das
-// Gruppenfoto und der Wrapper, der die beiden Spalten nebeneinander stellt.
-// Ohne sie rutscht das Kachelraster in die Überschriftzeile und die Seite
-// steht ohne Bild da.
-test("das Gruppenfoto steht neben den Kacheln", () => {
+// Das Gruppenfoto steht im Kopf neben dem Namen, fest in 4:3. Vorher hing es
+// neben den Kacheln und streckte sich auf deren Höhe: auf jeder Seite ein
+// anderer Ausschnitt, bei Jericho ohne Tülle, bei Skaha ein Streifen. Die
+// Stücke stehen darunter als Viererreihe, jedes ganz zu sehen.
+test("das Foto steht im Kopf, die Stücke als Reihe darunter", () => {
     const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
-    const block = vorlage.slice(vorlage.indexOf('aria-label="This glaze in the shop"'));
-    const raster = block.indexOf("md:grid-cols-2");
-    const foto = block.indexOf("glaze.feature.url");
-    const kacheln = block.indexOf('id="glaze-markets"');
-    assert.ok(raster > -1, "die beiden Spalten stehen nicht mehr nebeneinander");
-    assert.ok(foto > raster, "das Gruppenfoto steht nicht mehr in der ersten Spalte");
-    assert.ok(kacheln > foto, "die Kacheln stehen nicht mehr hinter dem Foto");
+    const grenze = vorlage.indexOf('aria-label="This glaze in the shop"');
+    const kopf = vorlage.slice(0, grenze);
+    const block = vorlage.slice(grenze, vorlage.indexOf('<section class="bg-blue">'));
+    assert.ok(kopf.indexOf("<h1") > -1 && kopf.indexOf("glaze.feature.url") > kopf.indexOf("<h1"), "das Gruppenfoto steht nicht mehr im Kopf hinter dem Namen");
+    assert.ok(!kopf.includes("md:aspect-auto"), "das Gruppenfoto streckt sich wieder auf eine fremde Höhe");
+    assert.ok(!block.includes("glaze.feature.url"), "das Gruppenfoto steht wieder neben den Kacheln");
+    assert.match(block, /id="glaze-markets"[^>]*md:grid-cols-4/, "die Stücke stehen nicht mehr als Viererreihe");
+    assert.match(block, /img piece\.image[^%]*aspect-square[^%]*object-contain/, "die Kachelbilder haben kein festes Format mehr oder werden beschnitten");
 });
 
-// Die Spalte neben dem Foto hat vier Plätze. Die Stücke füllen sie von vorn,
+// Die Reihe unter dem Kopf hat vier Plätze. Die Stücke füllen sie von vorn,
 // und was frei bleibt, bekommt die Märkte: eine Kachel mit der Aussage, dann
 // die nächsten Termine. Daran hängen zwei Zahlen, die leicht auseinanderlaufen
 // -- wie viele Termine der Bau sichtbar lässt und wie viele events.js im
@@ -256,16 +262,19 @@ test("der Name auf dem Farbmuster bleibt lesbar", () => {
     }
 });
 
-// The header is the same on all sixteen pages: label, name, text. The image
-// column and the two shop links that used to live there are gone, and each of
-// them is the kind of thing that creeps back in one page at a time.
-test("the header holds nothing but label, name and text", () => {
+// The header is the same on all sixteen pages: label, name, tagline, text on
+// the left, the group photo on the right. An earlier version kept the header
+// to text alone and held the photo beside the tiles; that stretched the photo
+// to a different crop on every page and left half the header empty, so the
+// photo moved up (and with it one button to the glaze's pieces). What must not
+// creep back is a second shop link beside it.
+test("the header holds the text, one button and the group photo", () => {
     const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
     const kopf = vorlage.slice(vorlage.indexOf("<article>"), vorlage.indexOf('aria-label="This glaze in the shop"'));
-    assert.ok(!kopf.includes("btn-outline"), "the shop button is back in the header");
-    assert.ok(!kopf.includes("link-underline"), "the shop link at the top right is back");
-    assert.ok(!kopf.includes("{% img"), "the header carries a picture again");
-    assert.ok(!kopf.includes("md:grid-cols"), "the header has a second column again");
+    assert.equal(kopf.split("btn-outline").length - 1, 1, "the header should carry exactly one button");
+    assert.ok(!kopf.includes("link-underline"), "a text link to the shop is back in the header");
+    assert.ok(kopf.includes("md:grid-cols-2"), "text and photo no longer stand side by side");
+    assert.ok(kopf.includes("glaze.text"), "the one-line tagline under the name is gone");
 });
 
 // Squamish Nights stand mit dem Slug "Squamish" im CMS und zeigte kein

@@ -18,10 +18,10 @@ The single news entry shown in the "Latest from the studio" box on the events pa
 The pieces of one glaze that come first on its glaze page, named after that glaze. Everything else beside them comes from the shop, so a set says "these before the others", not "only these". A set holds up to four pieces and no photo of its own (ADR 0006).
 
 ### Group photo
-The large picture on a glaze page, beside the pieces: several pieces of that glaze together, no price, no single product behind it. It belongs to the glaze, not to its pieces, so a glaze can have one without having anything in the shop. Until Matthew has taken one, the glaze's card image stands in its place.
+The large picture at the top of a glaze page, beside the name and text: several pieces of that glaze together, no price, no single product behind it. It belongs to the glaze, not to its pieces, so a glaze can have one without having anything in the shop. Until Matthew has taken one, the glaze's card image stands in its place.
 
 ### Glaze page
-One page per glaze, built from the glaze's own intro and page text: name, text, four tiles beside the group photo, the band asking for a commission, and four other glazes. The four tiles hold the pieces from the shop first and the market tile plus the next dates after them. A glaze without both texts gets no page, and its card keeps linking straight to the shop.
+One page per glaze, built from the glaze's own intro and page text: name and text beside the group photo, a row of four tiles, the band asking for a commission, and four other glazes. The four tiles hold the pieces from the shop first and the market tile plus the next dates after them. A glaze without both texts gets no page, and its card keeps linking straight to the shop.
 
 ### Market tile
 The tile on a glaze page that says the glaze can also be seen at a market, standing in the first place the pieces leave free. There is one of it, never two, and the places behind it hold the next market dates. It is what a glaze page offers when the shop holds fewer than four pieces of that glaze — three, or none at all.

@@ -24,7 +24,7 @@ export const collectionsGlazePage: Collection = {
     },
     {
       type: "string", name: "pieces_title", label: "Heading above the pieces", required: true,
-      description: 'Stands over the pieces of this glaze, the way "From the current firing" does on the home page. Only shown while the glaze has pieces.',
+      description: 'Stands over the row of four tiles, the way "From the current firing" does on the home page. The row holds the pieces of this glaze and, where the shop has fewer than four, the market dates.',
     },
     {
       type: "string", name: "pieces_note", label: "Note under the pieces",
@@ -46,9 +46,13 @@ export const collectionsGlazePage: Collection = {
       type: "string", name: "market_cta", label: "Market tile: link to the events page", required: true,
     },
     {
-      type: "string", name: "shop_cta_all", label: "Link to the shop collection", required: true,
+      type: "string", name: "shop_all_label", label: "Link to the whole shop", required: true,
+      description: 'Beside the heading above the pieces, on every glaze page: the way into the shop as a whole, like "Shop all pieces" on the home page.',
+    },
+    {
+      type: "string", name: "shop_cta_all", label: "Button to this glaze in the shop", required: true,
       description:
-        "Beside the heading above the pieces, and only while the glaze has some. It goes to the shop collection built from the shop address in Settings and the slug beside the glaze in Collections · Glaze gallery. " +
+        "The button under the text at the top of the page, and only while the glaze has pieces. It goes to the shop collection built from the shop address in Settings and the slug beside the glaze in Collections · Glaze gallery. " +
         withName,
     },
     {
