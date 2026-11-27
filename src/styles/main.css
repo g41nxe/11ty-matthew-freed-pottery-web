@@ -245,26 +245,6 @@
         background-size: 100% 100%;
     }
 
-    /* The same marker stroke under a glaze's name on its own page, in the
-       glaze's colour. It sweeps in on hover like the link's does.
-       --glaze comes from the element's style attribute. */
-    .glaze-mark {
-        /* Same stroke, same place under the letters. The link on the home
-           page stands in a roomy line (28px for 18px type), so its stroke
-           runs from 0.14em above the baseline to 0.44em below it. The heading
-           is set tight (45px for 36px), and with the link's 62% the stroke
-           sat higher and stopped right under the letters. The padding gives
-           it the room below, the 58.6% puts its top edge where the link's is. */
-        background-image: linear-gradient(transparent 58.6%, color-mix(in srgb, var(--glaze) 45%, transparent) 58.6%);
-        background-repeat: no-repeat;
-        background-size: 0% 100%;
-        padding-bottom: 0.172em;
-        transition: background-size 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .glaze-mark:hover {
-        background-size: 100% 100%;
-    }
-
     /* Trust ribbon — a single-line auto-scrolling marquee on mobile (keeps it a
        thin ribbon); the static spread row takes over at md. Reduced-motion hides
        the marquee and shows the static layout so every claim stays readable. */
