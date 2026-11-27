@@ -42,6 +42,10 @@ const seiten = gallery.items
             // Webseite kennt Sky und Earth -- kann im CMS eine Liste stehen, die
             // das Tag für diese eine Seite ersetzt.
             nurDiese: (item.pieces || []).filter(Boolean),
+            // Die Gegenrichtung: einzelne Stücke aus dem Tag heraushalten.
+            // Pemberton Earth nimmt weiter alles unter "Pemberton", nur die
+            // drei blauen Sky-Stücke nicht.
+            nichtDiese: (item.exclude || []).filter(Boolean),
             vorrang: (() => {
                 const set = shopSets.byName[name];
                 if (!set || set.hide) return [];
@@ -93,9 +97,11 @@ function mitStuecken(liste, nachTag) {
 
     for (const page of liste) {
         const kuratiert = (page.nurDiese || []).map(handleAus).filter(Boolean);
-        const alle = kuratiert.length
+        const ausgeschlossen = new Set((page.nichtDiese || []).map(handleAus).filter(Boolean));
+        const alle = (kuratiert.length
             ? kuratiert.map((handle) => nachHandle[handle]).filter(Boolean)
-            : nachTag[shopPieces.tagSchluessel(page.slug)] || [];
+            : nachTag[shopPieces.tagSchluessel(page.slug)] || []
+        ).filter((stueck) => !ausgeschlossen.has(stueck.handle));
         const vorn = page.vorrang
             .map((url) => handleAus(url))
             .map((handle) => alle.find((stueck) => stueck.handle === handle))

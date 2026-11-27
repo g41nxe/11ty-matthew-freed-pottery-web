@@ -334,3 +334,23 @@ test("die kuratierte Liste findet ihr Stück unter jedem Tag", () => {
     }], nachTag);
     assert.deepEqual(seite.pieces.map((p) => p.handle), ["shorty-mug"]);
 });
+
+// Die Gegenrichtung zur kuratierten Liste: Pemberton Earth nimmt weiter alles
+// unter seinem Tag, nur die drei blauen Sky-Stücke nicht. Ohne das rutscht eine
+// blaue Schale auf die braune Seite, sobald Earth unter vier verfügbare fällt.
+test("ausgeschlossene Stücke bleiben von der Seite weg", () => {
+    const stueck = (handle, available) => ({ handle, title: handle, url: "", price: "", image: null, alt: "", available, published: "" });
+    const nachTag = {
+        pemberton: [stueck("earth-1", true), stueck("sky-1", false), stueck("earth-2", true), stueck("sky-2", false)],
+    };
+    const [seite] = glazeModul.mitStuecken([{
+        slug: "pemberton",
+        name: "Pemberton Earth",
+        vorrang: [],
+        nichtDiese: [
+            "https://shop.matthewfreed.net/products/sky-1",
+            "https://shop.matthewfreed.net/products/sky-2",
+        ],
+    }], nachTag);
+    assert.deepEqual(seite.pieces.map((p) => p.handle), ["earth-1", "earth-2"]);
+});
