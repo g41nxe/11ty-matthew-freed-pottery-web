@@ -62,20 +62,36 @@ eleventyComputed:
         {% set shopUrl = (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-shop") %}
         <div class="flex items-baseline justify-between gap-4">
             <h2 class="font-display text-2xl font-black text-ink">{{ collections_glaze.pieces_title }}</h2>
-            {# Ohne Stücke führt der Link auf eine leere Sammlung im Shop, und
-               die Kachel daneben sagt gerade, dass es nichts gibt. #}
+            {# Ohne Stücke führt der Link auf eine leere Sammlung im Shop. Hinaus
+               führt dort die Marktkachel. #}
             {% if glaze.pieces.length %}<a href="{{ shopUrl }}" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.shop_cta_all | replace("{glaze}", glaze.name) }}</a>{% endif %}
         </div>
         <div class="mt-8 grid gap-10 md:grid-cols-2 lg:gap-12">
             <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-feature") }}" target="_blank" rel="noopener" class="group relative aspect-[4/3] overflow-hidden bg-tile md:aspect-auto">
                 {# Füllt die Spalte auf volle Höhe, damit sie nicht früher endet
-                   als die zwei Kachelreihen daneben -- dieselbe Technik wie im
-                   blauen Band. Auf dem Telefon steht das Bild allein, da gibt
-                   ein Seitenverhältnis die Höhe vor. #}
+                   als die Kacheln daneben -- dieselbe Technik wie im blauen Band.
+                   Auf dem Telefon steht das Bild allein, da gibt ein
+                   Seitenverhältnis die Höhe vor. #}
                 {% img glaze.feature.url, glaze.feature.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "img-zoom absolute inset-0 h-full w-full object-cover" %}
             </a>
-            {% if glaze.pieces.length %}
-            <div class="grid grid-cols-2 content-start gap-5">
+            {# Vier Plätze hat die Spalte. Die Stücke füllen sie von vorn, und
+               was frei bleibt, bekommt die Märkte: erst eine Kachel, die sagt,
+               dass es dort mehr gibt, dann die nächsten Termine. So entsteht
+               weder eine Lücke, wenn der Shop nur drei Stücke hält, noch eine
+               leere Spalte, wenn er keines hält -- und die Spalte behält ihre
+               Höhe, an der sich das Foto daneben ausrichtet.
+
+               Die Aussage steht genau einmal. Die Termin-Kacheln tragen nur
+               das Datum, denn das ist ihre Aufgabe; die große Zahl wäre in der
+               Aussage-Kachel das Lauteste und würde "Termin" rufen, wo "es gibt
+               mehr davon" stehen soll. #}
+            {% set upcoming = events | occurrences | filterUpcoming | byDateAsc %}
+            {% set shortlist = upcoming | nextUp %}
+            {% set plaetze = 3 - glaze.pieces.length %}
+            {# Vier Stücke lassen keinen Platz übrig; ohne diese Zeile stünde
+               dort eine negative Zahl, die events.js von hinten abzählen würde. #}
+            {% if plaetze < 0 %}{% set plaetze = 0 %}{% endif %}
+            <div id="glaze-markets" data-slots="{{ plaetze }}" class="grid grid-cols-2 content-start gap-5">
                 {% for piece in glaze.pieces %}
                 <a href="{{ piece.url | shopLink("glaze-" + glaze.name + "-tile" + loop.index) }}" target="_blank" rel="noopener" class="group">
                     <div class="relative overflow-hidden bg-tile">
@@ -90,33 +106,55 @@ eleventyComputed:
                     </div>
                 </a>
                 {% endfor %}
+
+                {% if glaze.pieces.length < 4 %}
+                {# Der blaue Rahmen trennt sie von den Stücken daneben, die
+                   keinen haben. Dieselbe Markierung trägt auf der Events-Seite
+                   der nächste Termin. #}
+                <a href="/events.html" class="group flex h-full flex-col rounded-xl border-2 border-blue bg-white p-4 md:p-5">
+                    <p class="font-display text-lg font-black leading-tight text-ink transition-colors group-hover:text-blue md:text-2xl">{{ collections_glaze.market_title | replace("{glaze}", glaze.name) }}</p>
+                    {# Ohne Termin stimmt der Satz über die Märkte nicht mehr,
+                       also steht dort dieselbe Zeile wie im Terminband. events.js
+                       tauscht sie, wenn der letzte Termin vorbeigezogen ist,
+                       seit die Seite gebaut wurde. #}
+                    <p data-market-text class="mt-2 text-sm leading-relaxed text-muted"{% if not shortlist.length %} hidden{% endif %}>{{ collections_glaze.market_text }}</p>
+                    <p data-market-soon class="mt-2 text-sm leading-relaxed text-muted"{% if shortlist.length %} hidden{% endif %}>{{ global.labels.dates_soon }}</p>
+                    <span class="link-underline mt-auto inline-block self-start pt-4 text-sm">{{ collections_glaze.market_cta }}</span>
+                </a>
+                {% endif %}
+
+                {# Wie im Terminband steht jeder kommende Termin im HTML, und nur
+                   die ersten paar sind sichtbar: events.js wiederholt die Auswahl
+                   im Browser, damit ein Markt verschwindet, der seit dem Bau
+                   vorbei ist. #}
+                {% for event in upcoming %}
+                {% set rank = shortlist.indexOf(event) %}
+                <a href="/events.html"
+                   data-event
+                   data-date="{{ event.date | date('yyyy-MM-dd') }}"
+                   data-until="{{ (event.end_date or event.date) | date('yyyy-MM-dd') }}"
+                   data-name="{{ event.name | trim }}"
+                   {% if rank < 0 or rank >= plaetze %}hidden{% endif %}
+                   class="group flex h-full flex-col rounded-xl border border-hairline bg-white p-4 md:p-5">
+                    <p data-next-label class="cap-label mb-2 text-[11px] text-blue"{% if rank != 0 %} hidden{% endif %}>{{ global.labels.next_up }}</p>
+                    <p class="flex items-baseline gap-2">
+                        <span class="font-display text-2xl font-black text-ink md:text-3xl">{{ event.date | date("d") }}</span>
+                        <span class="cap-label text-[11px] text-soft">{{ event.date | date("MMM") }}</span>
+                    </p>
+                    <p class="mt-3 font-display text-base font-black leading-snug text-ink transition-colors group-hover:text-blue">{{ event.name }}</p>
+                    <p class="mt-1 text-sm text-muted">{{ event.location }}</p>
+                    {% if event.time %}<p class="mt-1 text-sm text-muted">{{ event.time }}</p>{% endif %}
+                </a>
+                {% endfor %}
             </div>
-            {% else %}
-            {# Skaha has nothing in the shop at all. Rather than half an empty
-               row, the column says so in the same shape the pieces would have
-               had: the tile colour, a label, one line. No button -- the blue
-               band right below is the answer to "nothing here", and two calls
-               in a row is what this page had before. #}
-            {# Kein Stück im Shop, also auch kein Foto -- die Fläche trägt
-               stattdessen die Glasurfarbe, dieselbe, die unter "Other glazes"
-               hinter den Fotos liegt und als Punkt neben dem Namen steht. Die
-               Beschriftung sitzt darunter wie bei jeder anderen Kachel, und der
-               Link führt in den Shop insgesamt: Die Sammlung dieser Glasur wäre
-               leer, der Shop ist es nicht. #}
-            <a href="{{ (global.shop.base + global.shop.collectionsPath) | shopLink("glaze-" + glaze.name + "-shop-empty") }}" target="_blank" rel="noopener" class="group flex flex-col">
-                <div class="flex aspect-[4/3] w-full items-end p-6" style="background-color: {{ glaze.swatch }}">
-                    <p class="font-display text-3xl font-black leading-tight" style="color: {{ glaze.swatch | schriftAuf }}">{{ glaze.name }}</p>
-                </div>
-                <p class="cap-label mt-3 text-soft">{{ collections_glaze.pieces_empty_label }}</p>
-                <p class="mt-1 max-w-sm text-base leading-relaxed text-muted">{{ collections_glaze.pieces_empty | replace("{glaze}", glaze.name) }}</p>
-                <span class="link-underline mt-3 inline-block text-sm">{{ collections_glaze.pieces_empty_cta }}</span>
-            </a>
-            {% endif %}
         </div>
         {# Same line the home page carries under the same pieces: every tile
            here leaves the site, and saying so once under the block is friendlier
            than finding out at the checkout. #}
         {% if collections_glaze.pieces_note and glaze.pieces.length %}<p class="mt-6 text-center text-xs text-soft">{{ collections_glaze.pieces_note }}</p>{% endif %}
+        {# Dieselbe Datei wie im Terminband: Sie entfernt Termine, die seit
+           dem Bau vorbei sind, und zieht die dahinter nach. #}
+        <script defer src="/js/events.js"></script>
     </section>
 
     {# Half the tiles can be sold out at any time, and the shop never holds

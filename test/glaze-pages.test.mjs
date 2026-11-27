@@ -196,33 +196,48 @@ test("every page can build a link into the shop", () => {
     }
 });
 
-// The one shape that differs between pages, and the only branch left in the
-// template: pieces or no pieces. Both shapes have to carry a way into the shop.
 // Mit Stücken führt die Zeile über ihnen in den Shop. Ohne Stücke führt sie
-// nirgendwo hin -- die Sammlung im Shop wäre leer, und die Kachel daneben sagt
-// gerade, dass es nichts gibt. Das ist eine Abkehr von "jede Seite führt in den
-// Shop": Ein Link auf eine leere Seite ist kein Weg, sondern eine Sackgasse.
+// nirgendwo hin -- die Sammlung im Shop wäre leer. Das ist eine Abkehr von
+// "jede Seite führt in den Shop": Ein Link auf eine leere Seite ist kein Weg,
+// sondern eine Sackgasse. Hinaus führt dort die Marktkachel.
 test("der Shop-Link steht nur da, wo es auch Stücke gibt", () => {
     const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
     const block = vorlage.slice(vorlage.indexOf('aria-label="This glaze in the shop"'));
-    const zeile = block.slice(0, block.indexOf("{% else %}"));
+    const zeile = block.slice(0, block.indexOf("grid grid-cols-2"));
     assert.match(zeile, /{% if glaze.pieces.length %}<a [^>]*link-underline/, "der Shop-Link hängt nicht mehr an den Stücken");
     assert.ok(!vorlage.includes("shop-bottom"), "der zweite Shop-Link im Kopf ist zurück");
 });
 
-// Die Stelle, an der sonst die Kacheln stehen, bleibt nicht leer: Sie sagt,
-// woran es liegt, in derselben Fläche und im selben Ton wie die Stücke.
-// Wo die Kacheln stünden, steht sonst ein Farbmuster der Glasur mit ihrem
-// Namen -- kein leeres Feld, das nach einem nicht geladenen Bild aussieht.
-// Der Link führt in den Shop insgesamt: Die Sammlung dieser Glasur wäre leer.
-test("ohne Stücke steht dort ein Farbmuster der Glasur", () => {
+// Zweimal beim Umbau verschwunden, zweimal erst im Browser aufgefallen: Das
+// Gruppenfoto und der Wrapper, der die beiden Spalten nebeneinander stellt.
+// Ohne sie rutscht das Kachelraster in die Überschriftzeile und die Seite
+// steht ohne Bild da.
+test("das Gruppenfoto steht neben den Kacheln", () => {
     const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
     const block = vorlage.slice(vorlage.indexOf('aria-label="This glaze in the shop"'));
-    const ohneTeile = block.slice(block.indexOf("{% else %}"));
-    assert.match(ohneTeile, /background-color: {{ glaze.swatch }}/, "das Farbmuster trägt nicht mehr die Glasurfarbe");
-    assert.match(ohneTeile, /glaze.swatch | schriftAuf/, "die Schriftfarbe wird nicht mehr aus der Glasurfarbe berechnet");
-    assert.match(ohneTeile, /collections_glaze.pieces_empty/, "die Kachel holt ihren Text nicht mehr aus dem CMS");
-    assert.ok(!ohneTeile.includes("glaze.slug"), "der Link zeigt wieder auf die leere Sammlung dieser Glasur");
+    const raster = block.indexOf("md:grid-cols-2");
+    const foto = block.indexOf("glaze.feature.url");
+    const kacheln = block.indexOf('id="glaze-markets"');
+    assert.ok(raster > -1, "die beiden Spalten stehen nicht mehr nebeneinander");
+    assert.ok(foto > raster, "das Gruppenfoto steht nicht mehr in der ersten Spalte");
+    assert.ok(kacheln > foto, "die Kacheln stehen nicht mehr hinter dem Foto");
+});
+
+// Die Spalte neben dem Foto hat vier Plätze. Die Stücke füllen sie von vorn,
+// und was frei bleibt, bekommt die Märkte: eine Kachel mit der Aussage, dann
+// die nächsten Termine. Daran hängen zwei Zahlen, die leicht auseinanderlaufen
+// -- wie viele Termine der Bau sichtbar lässt und wie viele events.js im
+// Browser nachrücken lässt. Beide lesen dieselbe.
+test("was an Stücken fehlt, füllen die Märkte auf", () => {
+    const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
+    const block = vorlage.slice(vorlage.indexOf('aria-label="This glaze in the shop"'));
+    assert.match(block, /{% set plaetze = 3 - glaze\.pieces\.length %}/, "die freien Plätze werden nicht mehr aus der Stückzahl berechnet");
+    assert.match(block, /data-slots="{{ plaetze }}"/, "events.js erfährt die Zahl der Plätze nicht mehr");
+    assert.match(block, /{% if glaze\.pieces\.length < 4 %}/, "die Marktkachel steht jetzt auch auf einer vollen Seite");
+    for (const feld of ["market_title", "market_text", "market_cta"]) {
+        assert.ok(block.includes("collections_glaze." + feld), `die Marktkachel holt ${feld} nicht mehr aus dem CMS`);
+    }
+    assert.ok(!block.includes("glaze.swatch | schriftAuf"), "das Farbmuster ist zurück, wo jetzt die Märkte stehen");
 });
 
 // Auf den sechzehn Glasurfarben muss der Name lesbar bleiben. Die hellste,

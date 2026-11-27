@@ -31,18 +31,24 @@ export const collectionsGlazePage: Collection = {
       description: "The same line stands under the pieces on the home page. Every piece links into the Shopify shop, and this says so before anyone clicks.",
     },
     {
-      type: "string", name: "pieces_empty_label", label: "Small label on the empty tile",
-      description: "Stands where the pieces would be, on a glaze that has nothing in the shop right now.",
+      type: "string", name: "market_title", label: "Market tile: heading", required: true,
+      description:
+        "The glaze page shows four tiles. Where the shop holds fewer than four pieces, this tile fills the first free place and says that there is more to see at a market. " +
+        withName,
     },
     {
-      type: "string", name: "pieces_empty", label: "Text on the empty tile",
-      description: "One line, beside the photo of the glaze. There is no link on this tile: the shop collection would be empty, and the blue band below already offers to make a piece. " + withName,
+      type: "string", name: "market_text", label: "Market tile: text", required: true,
+      description:
+        "Two short lines under the heading. It stands above the blue band, so it should not repeat what the band already offers: the band is about pieces made to order, this one is about coming by in person. Without an upcoming date the tile shows the line from Settings instead.",
       ui: { component: "textarea" },
+    },
+    {
+      type: "string", name: "market_cta", label: "Market tile: link to the events page", required: true,
     },
     {
       type: "string", name: "shop_cta_all", label: "Link to the shop collection", required: true,
       description:
-        "Beside the heading above the pieces, and the button on glazes that have none. It goes to the shop collection built from the shop address in Settings and the slug beside the glaze in Collections · Glaze gallery. " +
+        "Beside the heading above the pieces, and only while the glaze has some. It goes to the shop collection built from the shop address in Settings and the slug beside the glaze in Collections · Glaze gallery. " +
         withName,
     },
     {

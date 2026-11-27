@@ -21,7 +21,10 @@ The pieces of one glaze that come first on its glaze page, named after that glaz
 The large picture on a glaze page, beside the pieces: several pieces of that glaze together, no price, no single product behind it. It belongs to the glaze, not to its pieces, so a glaze can have one without having anything in the shop. Until Matthew has taken one, the glaze's card image stands in its place.
 
 ### Glaze page
-One page per glaze, built from the glaze's own intro and page text: name, text, the pieces from the shop with their group photo, the band asking for a commission, and four other glazes. A glaze without both texts gets no page, and its card keeps linking straight to the shop.
+One page per glaze, built from the glaze's own intro and page text: name, text, four tiles beside the group photo, the band asking for a commission, and four other glazes. The four tiles hold the pieces from the shop first and the market tile plus the next dates after them. A glaze without both texts gets no page, and its card keeps linking straight to the shop.
+
+### Market tile
+The tile on a glaze page that says the glaze can also be seen at a market, standing in the first place the pieces leave free. There is one of it, never two, and the places behind it hold the next market dates. It is what a glaze page offers when the shop holds fewer than four pieces of that glaze — three, or none at all.
 
 ### Placement
 Where on the website a shop link sits, written into its address as `utm_content` when the site is built — for example `firing-tofino-tile2`, `home-teaser-yaletown` or `nav`; a shop link Matthew writes into a text field gets `text-` plus the page, like `text-events`. It names the spot, not the piece: Shopify already knows the piece from the page the visitor lands on, and a spot keeps its name when a piece is renamed.
