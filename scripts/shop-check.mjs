@@ -1,4 +1,5 @@
-// Checks every shop item on the home page against the live shop and writes
+// Checks every shop item on the home page against the live shop, checks that
+// every glaze finds its pieces there, and writes
 // an overview page: the site's photo next to the shop's, both titles, both
 // prices, availability and the link. Run it shortly before a release, since
 // prices and stock change in the shop, not in the CMS.
@@ -16,6 +17,9 @@ import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
 const sharp = require("sharp");
+// Dieselbe Umrechnung, die der Build benutzt: Aus dem Tag "Squamish Nights"
+// und aus dem Slug "squamish-nights" wird derselbe Schlüssel.
+const { tagSchluessel } = require("../src/views/_data/shopPieces.js");
 
 const args = process.argv.slice(2);
 const strict = args.includes("--strict");
@@ -112,7 +116,24 @@ const STATUS = {
     "no-product": ["Link is not a product", "bad"],
 };
 
-function render(sets, checkedAt) {
+function glazeSection(glasuren) {
+    const zeile = (g) => `<tr class="${g.status}">
+    <td>${escape(g.name)}</td>
+    <td><code>${escape(g.slug || "–")}</code></td>
+    <td>${g.tag ? escape(g.tag) : "<b>no tag in the shop</b>"}</td>
+    <td>${g.anzahl}</td>
+    <td>${g.verfuegbar}</td>
+  </tr>`;
+    return `<section>
+  <h2>Glazes against the shop's tags</h2>
+  <table class="glazes">
+    <thead><tr><th>Glaze</th><th>Slug in the CMS</th><th>Tag in the shop</th><th>Pieces</th><th>Available</th></tr></thead>
+    <tbody>${glasuren.map(zeile).join("\n")}</tbody>
+  </table>
+</section>`;
+}
+
+function render(sets, glasuren, checkedAt) {
     const items = sets.flatMap((s) => s.items);
     const count = (st) => items.filter((i) => i.status === st).length;
     const summary = [
@@ -121,6 +142,7 @@ function render(sets, checkedAt) {
         ["Sold out", count("sold-out"), "warn"],
         ["Price differs", count("price"), "bad"],
         ["Not found", count("unreachable") + count("no-product"), "bad"],
+        ["Glazes without pieces", glasuren.filter((g) => g.status === "bad").length, "bad"],
     ];
     const card = (i) => {
         const [label, tone] = STATUS[i.status];
@@ -186,6 +208,10 @@ function render(sets, checkedAt) {
   dl { margin:0; display:grid; grid-template-columns:auto 1fr; gap:2px 10px; font-size:.9rem; }
   dt { color:var(--muted); } dd { margin:0; }
   a { color:var(--blue); overflow-wrap:anywhere; font-size:.85rem; }
+  table.glazes { border-collapse:collapse; width:100%; font-size:.9rem; }
+  table.glazes th { text-align:left; color:var(--muted); font-weight:600; }
+  table.glazes th, table.glazes td { border-bottom:1px solid var(--line); padding:4px 10px 4px 0; }
+  table.glazes tr.bad td { color:var(--bad); } table.glazes tr.warn td { color:var(--warn); }
 </style>
 </head>
 <body>
@@ -195,12 +221,58 @@ function render(sets, checkedAt) {
     <p class="meta">Home page shop sets against shop.matthewfreed.net · ${escape(checkedAt)}</p>
   </header>
   <ul class="summary">${summary.map(([l, n, t]) => `<li class="${t}"><b>${n}</b>${l}</li>`).join("")}</ul>
+  ${glazeSection(glasuren)}
   ${sets.map(section).join("\n")}
 </main>
 </body>
 </html>
 `;
 }
+
+// Jede Glasur findet ihre Stücke über genau einen Wert: den Slug neben ihr
+// im CMS. Trifft er kein Tag, steht die Seite ohne Kacheln da, und ihr
+// Shop-Link zeigt auf eine Sammlung, die es nicht gibt. Beides sieht man der
+// Seite nicht an, solange man sie nicht aufruft.
+const SHOP = "https://shop.matthewfreed.net";
+
+async function tagsAusDemShop() {
+    const nachSchluessel = {};
+    for (let seite = 1; seite <= 4; seite++) {
+        const res = await fetchWithTimeout(`${SHOP}/collections/all/products.json?limit=250&page=${seite}`, 15000);
+        if (!res.ok) break;
+        const daten = await res.json();
+        if (!daten.products || !daten.products.length) break;
+        for (const produkt of daten.products) {
+            const zuHaben = (produkt.variants || []).some((v) => v.available);
+            for (const tag of produkt.tags || []) {
+                const schluessel = tagSchluessel(tag);
+                const eintrag = (nachSchluessel[schluessel] ||= { tag, anzahl: 0, verfuegbar: 0 });
+                eintrag.anzahl++;
+                if (zuHaben) eintrag.verfuegbar++;
+            }
+        }
+    }
+    return nachSchluessel;
+}
+
+const tagsImShop = await tagsAusDemShop();
+const { items: galerie } = JSON.parse(fs.readFileSync("src/views/_data/gallery.json", "utf8"));
+const glasuren = galerie.map((eintrag) => {
+    const name = eintrag.title.replace(" Collection", "");
+    const slug = eintrag.slug || "";
+    const treffer = tagsImShop[tagSchluessel(slug)];
+    return {
+        name,
+        slug,
+        tag: treffer ? treffer.tag : null,
+        anzahl: treffer ? treffer.anzahl : 0,
+        verfuegbar: treffer ? treffer.verfuegbar : 0,
+        // Ohne Slug und ohne Treffer ist die Seite leer; vier Stücke füllen
+        // ihre Kacheln, darunter springen die Märkte ein (nicht kaputt,
+        // aber einen Blick wert, bevor es live geht).
+        status: !slug || !treffer ? "bad" : treffer.anzahl < 4 ? "warn" : "ok",
+    };
+});
 
 const { sets: shop_sets } = JSON.parse(fs.readFileSync("src/views/_data/shop_sets.json", "utf8"));
 const sets = await Promise.all(
@@ -215,7 +287,13 @@ const sets = await Promise.all(
 
 const checkedAt = new Date().toLocaleString("en-CA", { dateStyle: "medium", timeStyle: "short" });
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
-fs.writeFileSync(OUT, render(sets, checkedAt));
+fs.writeFileSync(OUT, render(sets, glasuren, checkedAt));
+
+console.log("\nGlazes against the shop's tags");
+for (const g of glasuren) {
+    const marke = g.status === "bad" ? "NO TAG" : g.status === "warn" ? "few" : "ok";
+    console.log(`  ${marke.padEnd(7)} ${String(g.anzahl).padStart(3)} pieces (${g.verfuegbar} available)  ${g.name} -> ${g.slug || "–"}`);
+}
 
 for (const set of sets) {
     console.log(`\n${set.name}${set.hide ? " (hidden)" : ""}  featured link: ${set.featuredStatus ?? "–"}`);
@@ -227,6 +305,8 @@ for (const set of sets) {
 const items = sets.flatMap((s) => s.items);
 const problems = items.filter((i) => ["price", "unreachable", "no-product"].includes(i.status));
 const badLinks = sets.filter((s) => s.featuredUrl && s.featuredStatus !== 200);
+const ohneTag = glasuren.filter((g) => g.status === "bad");
 console.log(`\n${items.length} items, ${problems.length} problem(s), ${items.filter((i) => i.status === "sold-out").length} sold out, ${badLinks.length} featured link(s) not OK`);
+console.log(`${glasuren.length} glazes, ${ohneTag.length} without a tag in the shop`);
 console.log(`Report: ${path.resolve(OUT)}`);
-if (strict && (problems.length || badLinks.length)) process.exit(1);
+if (strict && (problems.length || badLinks.length || ohneTag.length)) process.exit(1);

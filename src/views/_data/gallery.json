@@ -9,7 +9,7 @@
       "text": "A deep glossy cobalt beneath a matte, stony glaze, like Skaha Lake below its rock bluffs.",
       "lead": "Skaha is a deep glossy cobalt beneath a matte, stony glaze. It is the newest glaze in the studio and has a great deal of movement and textural variety.",
       "story": "Skaha Lake lies in Penticton, in the interior of British Columbia. The deep blue of the water with the rock bluffs above it is what this glaze reminds me of, and that is where the name came from.",
-      "slug": "Skaha",
+      "slug": "skaha",
       "swatch": "#3E5873",
       "filterGroups": [
         "Blues"
@@ -39,7 +39,7 @@
       "text": "A deep forest green glaze with speckled cobalt tones and a warm blue accent around the rim",
       "lead": "The Garibaldi glaze has a rich interplay between green and blue tones.\nIt reminds me of the natural colours of the lakes and trees in Garibaldi Park.",
       "story": "Forest green tones and cool lake blue tones accent pieces made in the Garibaldi collection.",
-      "slug": "Garibaldi",
+      "slug": "garibaldi",
       "swatch": "#1D6468",
       "filterGroups": [
         "Blues"
@@ -58,7 +58,7 @@
         "url": "/images/glazes/yaletown/market-display-feature.jpg",
         "alt": "Yaletown bowls, plates, mugs and a teapot on the market stall by Matthew Freed"
       },
-      "slug": "Yaletown",
+      "slug": "yaletown",
       "swatch": "#2E2C29",
       "filterGroups": [
         "Charcoals"
@@ -73,7 +73,7 @@
       "text": "A multi-tone deep blue glaze.",
       "lead": "The rich blue tones of the Galiano glaze remind me of the ocean waters around Galiano island.  You can dive right into these blues!",
       "story": "Sailing the waters around Galiano island inspires the name of this glaze line.",
-      "slug": "Galiano",
+      "slug": "galiano",
       "swatch": "#2438A6",
       "filterGroups": [
         "Blues"
@@ -88,7 +88,7 @@
       "text": "A semi-matte charcoal glaze with a hand-painted dogwood pattern.",
       "lead": "This is my most time consuming glaze collection as the pattern is carefully painted.  The result is a subtle contrast featuring a nod to the dogwood tree flowers of BC.",
       "story": "Each spring here in British Columbia we are treated to the blooming flowers of the dogwood trees.",
-      "slug": "Dogwood",
+      "slug": "dogwood",
       "swatch": "#38322C",
       "filterGroups": [
         "Charcoals",
@@ -104,7 +104,7 @@
       "text": "A semi-matte charcoal glaze with vibrant bursts of glossy colour.",
       "lead": "The Saltspring collection feature vibrant bursts of colour that are offset against a charcoal glaze.  The colors remind me of tie-dye and the hippie culture of Saltspring island.",
       "story": "Each piece in the saltspring collection is a surprise for me - I am never quite sure how the colours will turn out.",
-      "slug": "Saltspring",
+      "slug": "saltspring",
       "swatch": "#3A3833",
       "filterGroups": [
         "Charcoals",
@@ -124,7 +124,7 @@
         "url": "/images/glazes/jericho/tea-set-feature.jpg",
         "alt": "Jericho teapot, two mugs and a lidded honey pot by Matthew Freed on a wooden table, with a fern"
       },
-      "slug": "Jericho",
+      "slug": "jericho",
       "swatch": "#9A93B4",
       "filterGroups": [
         "Blues"
@@ -143,7 +143,7 @@
         "url": "/images/glazes/joffre/tea-set-feature.jpg",
         "alt": "Joffre teapot, two mugs, a small dish and a tray by Matthew Freed, with a white flower and a fern"
       },
-      "slug": "Joffre",
+      "slug": "joffre",
       "swatch": "#1C6478",
       "filterGroups": [
         "Blues"
@@ -158,7 +158,7 @@
       "text": "A satiny smooth lilac glaze with warm blue rim.",
       "lead": "I was very determined to create a purple toned glaze!  The Kitsilano glaze has a summery beachy vibe.",
       "story": "I enjoy the contrast of texture and tone in this glaze line - a glossy vibrant blue and a satin lilac tone.",
-      "slug": "Kitsilano",
+      "slug": "kitsilano",
       "swatch": "#4E5AC4",
       "filterGroups": [
         "Blues"
@@ -173,7 +173,7 @@
       "text": "A hand-painted leafing pattern with a textured finish in a two toned blue glossy finish.",
       "lead": "An intricate leafing pattern pops on the vibrant blue glaze.  Inspired by the beautifully patterned leaves in Pemberton.",
       "story": "The fluid lines of this pattern create a gentle movement.",
-      "slug": "Pemberton",
+      "slug": "pemberton",
       "swatch": "#2E4BA0",
       "filterGroups": [
         "Blues",
@@ -189,7 +189,7 @@
       "text": "A hand-painted leafing pattern with a textured finish in a medium brown and charcoal glaze.",
       "lead": "This is a classic glaze line of mine.  A little extra TLC goes into creating these pieces and they remain some of my personal favorites.",
       "story": "This pattern is inspired by the beautifully patterned leaves in Pemberton.",
-      "slug": "Pemberton",
+      "slug": "pemberton",
       "swatch": "#443A31",
       "filterGroups": [
         "Charcoals",
@@ -209,7 +209,7 @@
         "url": "/images/glazes/strathcona/platters-and-bowl-feature.jpg",
         "alt": "Two Strathcona platters and a serving bowl with a chevron pattern by Matthew Freed"
       },
-      "slug": "Strathcona",
+      "slug": "strathcona",
       "swatch": "#55524A",
       "filterGroups": [
         "Charcoals",
@@ -229,7 +229,7 @@
         "url": "/images/glazes/tofino/tea-set-feature.jpg",
         "alt": "Tofino teapot, mugs and vase by Matthew Freed on a wooden table"
       },
-      "slug": "Tofino",
+      "slug": "tofino",
       "swatch": "#33556E",
       "filterGroups": [
         "Blues"
@@ -248,7 +248,7 @@
         "url": "/images/glazes/tree-of-life/bowls-and-pitcher-feature.jpg",
         "alt": "Tree of Life pitcher and bowls with lemons by Matthew Freed"
       },
-      "slug": "Tree-of-Life",
+      "slug": "tree-of-life",
       "swatch": "#29261F",
       "filterGroups": [
         "Charcoals"
@@ -263,7 +263,7 @@
       "text": "A semi-matte charcoal glaze with a textured gold decorative accent tile.",
       "lead": "The Zen line is a classic line of mine.   Although I don't revisit it often, many customers appreciate its simple and clean aesthetic.",
       "story": "The gentle fluid movement on the zen emblem is meant to suggest that as life flows we should aspire to maintain calm.",
-      "slug": "Zen",
+      "slug": "zen",
       "swatch": "#3B382F",
       "filterGroups": [
         "Charcoals"

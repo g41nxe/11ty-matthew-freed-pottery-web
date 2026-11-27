@@ -4,6 +4,15 @@ import { imageField } from "../fields/common";
 const hexColour = (value: string) =>
   value && !/^#[0-9A-Fa-f]{6}$/.test(value) ? "Use a hex colour like #1F3A52" : undefined;
 
+// Der Slug ist zugleich das Tag am Produkt, nur in der Schreibweise, in der
+// Shopify daraus eine Adresse baut: klein, Leerzeichen als Bindestrich. Ein
+// "Squamish Nights" in diesem Feld trifft kein einziges Produkt und führt auf
+// eine Sammlung, die es nicht gibt -- genau das ist ein Jahr lang passiert.
+const shopSlug = (value: string) =>
+  value && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(value)
+    ? 'Write it the way the shop writes it in its address: all lowercase, spaces as hyphens, as in "squamish-nights".'
+    : undefined;
+
 // The lead carries the top of the glaze page and the snippet Google shows.
 // One sentence reads like a caption there, so two are asked for. The page is
 // only built when the story is filled in as well (see _data/glazePages.js).
@@ -48,8 +57,12 @@ export const collectionsGallery: Collection = {
           "The large picture beside the pieces: several pieces of this glaze together, no single product. Without one the page shows the card image above, which works but repeats itself."
         ),
         {
-          type: "string", name: "slug", label: "Shop collection slug (tail of the shop URL)", required: true,
-          description: "The glaze page links to the shop with this: shop address from Settings + collections path + this slug. Without it the link goes nowhere.",
+          type: "string", name: "slug", label: "Shop tag, spelled the way the shop URL spells it", required: true,
+          description:
+            "This one value does two jobs: the glaze page links to the shop with it, and the pieces it shows are the products carrying this tag in Shopify. " +
+            "Write it as the shop writes it in its address - all lowercase, spaces as hyphens: the tag \"Squamish Nights\" is \"squamish-nights\" here. " +
+            "Easiest way: open the glaze in your shop and copy the last part of the address. A wrong value leaves the page without pieces and the link on a page that does not exist.",
+          ui: { validate: shopSlug },
         },
         { type: "string", name: "swatch", label: "Swatch colour (hex)", ui: { validate: hexColour } },
         { type: "string", name: "filterGroups", label: "Filter groups", list: true, options: ["Blues", "Charcoals", "Patterned"] },
