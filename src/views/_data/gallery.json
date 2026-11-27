@@ -179,10 +179,17 @@
         "Blues",
         "Patterned"
       ],
-      "pieces": [
-        "https://shop.matthewfreed.net/products/medium-serving-bowl-pemberton-sky",
-        "https://shop.matthewfreed.net/products/meal-bowl-pemberton-sky",
-        "https://shop.matthewfreed.net/products/snack-bowl-pemberton-sky"
+      "exclude": [
+        "https://shop.matthewfreed.net/products/large-serving-bowl-no-rim-pemberton-earth",
+        "https://shop.matthewfreed.net/products/copy-of-ramen-bowl-strathcona",
+        "https://shop.matthewfreed.net/products/large-serving-bowl-pemberton-earth",
+        "https://shop.matthewfreed.net/products/meal-bowl-pemberton-earth",
+        "https://shop.matthewfreed.net/products/snack-bowl-pemberton-earth",
+        "https://shop.matthewfreed.net/products/large-square-platter-in-capilano-charcoal",
+        "https://shop.matthewfreed.net/products/copy-large-square-platter-pemberton-earth-1",
+        "https://shop.matthewfreed.net/products/medium-serving-bowl-pemberton-earth",
+        "https://shop.matthewfreed.net/products/large-handle-tray-pemberton-earth",
+        "https://shop.matthewfreed.net/products/scalloped-tray-pemberton-earth"
       ]
     },
     {
