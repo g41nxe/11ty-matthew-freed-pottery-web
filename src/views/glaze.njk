@@ -51,8 +51,8 @@ eleventyComputed:
                 {# Label and heading as on every other page of the site: blue label, ink heading, mt-3 between them (collections, events, about, the home hero). #}
                 <p class="cap-label text-blue">{{ collections_glaze.eyebrow }}{% if glaze.group %} &middot; {{ glaze.group }}{% endif %}</p>
                 <h1 class="mt-3 flex items-start gap-3.5 font-display text-4xl font-black leading-tight text-ink">
-                    {# The dot that stands beside a glaze's name everywhere on the site, here large enough to read as a sample of the colour: a fine ring keeps even the palest glaze off the paper. It stands at the first line (mt-2 centres 30px in a 45px line), so a name that wraps -- Squamish Nights on a phone -- does not leave it hanging between two lines. A marker stroke in the glaze colour was tried here and dropped -- the heading is not a link, and at half strength the colours went dull, the charcoals to a grey bar. #}
-                    <span class="mt-2 h-7.5 w-7.5 flex-none rounded-full ring-1 ring-hairline ring-offset-4 ring-offset-paper" style="background-color: {{ glaze.swatch }}" aria-hidden="true"></span>
+                    {# The dot that stands beside a glaze's name everywhere on the site, here large enough to read as a sample of the colour. No ring around it: it pushed the dot five pixels out past the left edge the label and the text share, and the palest glaze stands off the paper without one. It stands at the first line (mt-2 centres 30px in a 45px line), so a name that wraps -- Squamish Nights on a phone -- does not leave it hanging between two lines. A marker stroke in the glaze colour was tried here and dropped -- the heading is not a link, and at half strength the colours went dull, the charcoals to a grey bar. #}
+                    <span class="mt-2 h-7.5 w-7.5 flex-none rounded-full" style="background-color: {{ glaze.swatch }}" aria-hidden="true"></span>
                     {{ glaze.name }}
                 </h1>
                 {# The card's one-liner in blue capitals under the name, the way the featured piece on the home page carries its caption (cap-label text-blue under the title). Without that line the header was one grey text block under a heading. #}
@@ -91,7 +91,7 @@ eleventyComputed:
     <section class="mx-auto max-w-6xl px-6 py-12" aria-label="This glaze in the shop">
         <div class="flex items-baseline justify-between gap-4">
             {# "From the current firing" over a row of market dates would promise pieces that are not there. With nothing in the shop the heading says why instead, and the market tile below it says where to go. #}
-            <h2 class="font-display text-2xl font-black text-ink">{% if glaze.pieces.length %}{{ collections_glaze.pieces_title | replace("{glaze}", glaze.name) }}{% else %}{{ collections_glaze.pieces_title_empty }}{% endif %}</h2>
+            <h2 class="font-display text-2xl font-black text-ink">{% if glaze.pieces.length %}{{ collections_glaze.pieces_title | replace("{glaze}", glaze.name) }}{% else %}{{ collections_glaze.pieces_title_empty | replace("{glaze}", glaze.name) }}{% endif %}</h2>
             {# Der Weg in den ganzen Shop, auf allen sechzehn Seiten gleich. Der
                Weg zu den Stücken dieser Glasur ist der Knopf im Kopf. #}
             <a href="{{ (global.shop.base + global.shop.collectionsPath + "/") | shopLink("glaze-" + glaze.name + "-shop-all") }}" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.shop_all_label }}</a>

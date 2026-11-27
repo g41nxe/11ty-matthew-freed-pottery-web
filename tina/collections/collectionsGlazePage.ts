@@ -28,7 +28,7 @@ export const collectionsGlazePage: Collection = {
     },
     {
       type: "string", name: "pieces_title_empty", label: "Heading when the shop has no pieces", required: true,
-      description: 'Takes the place of the heading above on a glaze with nothing in the shop. The row then holds only the market tile and the next dates, so "From the current firing" would promise pieces that are not there.',
+      description: 'Takes the place of the heading above on a glaze with nothing in the shop. The row then holds only the market tile and the next dates, so a heading that speaks of pieces in the shop would promise what is not there. ' + withName,
     },
     {
       type: "string", name: "pieces_note", label: "Note under the pieces",
