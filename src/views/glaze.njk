@@ -112,7 +112,8 @@ eleventyComputed:
         {# Vier Stücke lassen keinen Platz übrig; ohne diese Zeile stünde dort
            eine negative Zahl, die events.js von hinten abzählen würde. #}
         {% if plaetze < 0 %}{% set plaetze = 0 %}{% endif %}
-        <div id="glaze-markets" data-slots="{{ plaetze }}" class="mt-8 grid grid-cols-2 gap-5 md:grid-cols-4">
+        {# Without pieces the row holds four cards, and on a phone they stand two by two. The first row carries the market tile and the "Next up" label and came out taller than the second; auto-rows-fr gives both rows the height of the taller one. With pieces in the row it stays off: a row of photos and a row of cards are different things and may differ in height. #}
+        <div id="glaze-markets" data-slots="{{ plaetze }}" class="mt-8 grid grid-cols-2 gap-5 md:grid-cols-4{% if not glaze.pieces.length %} auto-rows-fr{% endif %}">
             {% for piece in glaze.pieces %}
             <a href="{{ piece.url | shopLink("glaze-" + glaze.name + "-tile" + loop.index) }}" target="_blank" rel="noopener" class="group">
                 <div class="relative overflow-hidden bg-white">
