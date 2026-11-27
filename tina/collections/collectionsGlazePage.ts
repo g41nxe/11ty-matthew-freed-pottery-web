@@ -27,6 +27,10 @@ export const collectionsGlazePage: Collection = {
       description: 'Stands over the row of four tiles, the way "From the current firing" does on the home page. The row holds the pieces of this glaze and, where the shop has fewer than four, the market dates.',
     },
     {
+      type: "string", name: "pieces_title_empty", label: "Heading when the shop has no pieces", required: true,
+      description: 'Takes the place of the heading above on a glaze with nothing in the shop. The row then holds only the market tile and the next dates, so "From the current firing" would promise pieces that are not there.',
+    },
+    {
       type: "string", name: "pieces_note", label: "Note under the pieces",
       description: "The same line stands under the pieces on the home page. Every piece links into the Shopify shop, and this says so before anyone clicks.",
     },
@@ -39,7 +43,8 @@ export const collectionsGlazePage: Collection = {
     {
       type: "string", name: "market_text", label: "Market tile: text", required: true,
       description:
-        "Two short lines under the heading. It stands above the blue band, so it should not repeat what the band already offers: the band is about pieces made to order, this one is about coming by in person. Without an upcoming date the tile shows the line from Settings instead.",
+        "Two short lines under the heading: an apology that the shop holds little of this glaze right now, and where the pieces go instead. The tile only shows when there are fewer than four. It stands above the blue band, so it should not repeat what the band already offers: the band is about pieces made to order, this one is about coming by in person. Without an upcoming date the tile shows the line from Settings instead. " +
+        withName,
       ui: { component: "textarea" },
     },
     {

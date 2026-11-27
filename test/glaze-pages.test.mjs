@@ -146,7 +146,7 @@ test("the blue band has one picture, and it is not a glaze card", () => {
 // template no longer carries fallbacks: a missing key would render as nothing
 // at all, and an empty heading is the kind of thing nobody notices for weeks.
 test("the page furniture is complete and comes from the CMS", () => {
-    for (const feld of ["eyebrow", "pieces_title", "shop_cta_all", "shop_all_label", "market_title", "market_text", "market_cta", "ask_title", "ask_text", "ask_cta", "others_title", "back_label"]) {
+    for (const feld of ["eyebrow", "pieces_title", "pieces_title_empty", "shop_cta_all", "shop_all_label", "market_title", "market_text", "market_cta", "ask_title", "ask_text", "ask_cta", "others_title", "back_label"]) {
         assert.ok((seitentexte[feld] || '').trim(), `collections_glaze.json: ${feld} is empty`);
     }
     assert.ok(seitentexte.ask_image && seitentexte.ask_image.url, 'collections_glaze.json: the blue band has no photo');

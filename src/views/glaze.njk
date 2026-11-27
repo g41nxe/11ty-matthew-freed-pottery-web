@@ -41,12 +41,14 @@ eleventyComputed:
         {% set shopUrl = (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-shop") %}
         <div class="grid items-center gap-10 md:grid-cols-2 lg:gap-12">
             <div>
-                <p class="cap-label text-[11px] text-sand">{{ collections_glaze.eyebrow }}{% if glaze.group %} &middot; {{ glaze.group }}{% endif %}</p>
-                <h1 class="mt-2 flex items-center gap-3 font-display text-4xl font-black leading-tight text-ink">
+                {# Label and heading as on every other page of the site: blue label, ink heading, mt-3 between them (collections, events, about, the home hero). #}
+                <p class="cap-label text-blue">{{ collections_glaze.eyebrow }}{% if glaze.group %} &middot; {{ glaze.group }}{% endif %}</p>
+                <h1 class="mt-3 flex items-center gap-3 font-display text-4xl font-black leading-tight text-ink">
                     <span class="h-4 w-4 flex-none rounded-full" style="background-color: {{ glaze.swatch }}" aria-hidden="true"></span>
-                    {{ glaze.name }}
+                    {# The marker stroke of the "full field guide" link on the home page, here in the glaze's own colour; it sweeps in on hover (see .glaze-mark). #}
+                    <span class="glaze-mark" style="--glaze: {{ glaze.swatch }}">{{ glaze.name }}</span>
                 </h1>
-                {# Same three voices as the featured piece on the home page: a sand label above the name, the name in the display face, and the card's one-liner in blue capitals below it. Without that line the header was one grey text block under a heading. #}
+                {# The card's one-liner in blue capitals under the name, the way the featured piece on the home page carries its caption (cap-label text-blue under the title). Without that line the header was one grey text block under a heading. #}
                 {% if glaze.text %}<p class="cap-label mt-2 text-blue">{{ glaze.text | trim | replace(r/\.$/, "") }}</p>{% endif %}
                 <p class="mt-4 text-base leading-relaxed text-muted">{{ glaze.lead }}</p>
                 {% for paragraph in glaze.paragraphs %}
@@ -78,7 +80,8 @@ eleventyComputed:
        which pieces come first. #}
     <section class="mx-auto max-w-6xl px-6 py-12" aria-label="This glaze in the shop">
         <div class="flex items-baseline justify-between gap-4">
-            <h2 class="font-display text-2xl font-black text-ink">{{ collections_glaze.pieces_title }}</h2>
+            {# "From the current firing" over a row of market dates would promise pieces that are not there. With nothing in the shop the heading says why instead, and the market tile below it says where to go. #}
+            <h2 class="font-display text-2xl font-black text-ink">{% if glaze.pieces.length %}{{ collections_glaze.pieces_title }}{% else %}{{ collections_glaze.pieces_title_empty }}{% endif %}</h2>
             {# Der Weg in den ganzen Shop, auf allen sechzehn Seiten gleich. Der
                Weg zu den Stücken dieser Glasur ist der Knopf im Kopf. #}
             <a href="{{ (global.shop.base + global.shop.collectionsPath + "/") | shopLink("glaze-" + glaze.name + "-shop-all") }}" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.shop_all_label }}</a>
@@ -109,7 +112,8 @@ eleventyComputed:
                     {% img piece.image, piece.alt, "(min-width: 1152px) 264px, (min-width: 768px) 25vw, 50vw", "img-zoom aspect-square w-full object-contain" %}
                 </div>
                 <div class="mt-2 flex items-baseline justify-between gap-2">
-                    <p class="font-display text-sm font-black text-ink transition-colors group-hover:text-blue">{{ piece.title | withoutGlaze(glaze.name) }}</p>
+                    {# Always two lines high: "Medium Teapot - Yaletown Red" wraps, "Shorty Mug" does not, and a row whose captions end at different heights reads as restless. A third line is cut. #}
+                    <p class="line-clamp-2 min-h-10 font-display text-sm font-black text-ink transition-colors group-hover:text-blue">{{ piece.title | withoutGlaze(glaze.name) }}</p>
                     {% if piece.price %}<p class="flex-none text-sm font-medium text-muted">{{ piece.price }}</p>{% endif %}
                 </div>
             </a>
@@ -125,7 +129,7 @@ eleventyComputed:
                    also steht dort dieselbe Zeile wie im Terminband. events.js
                    tauscht sie, wenn der letzte Termin vorbeigezogen ist,
                    seit die Seite gebaut wurde. #}
-                <p data-market-text class="mt-2 text-sm leading-relaxed text-muted"{% if not shortlist.length %} hidden{% endif %}>{{ collections_glaze.market_text }}</p>
+                <p data-market-text class="mt-2 text-sm leading-relaxed text-muted"{% if not shortlist.length %} hidden{% endif %}>{{ collections_glaze.market_text | replace("{glaze}", glaze.name) }}</p>
                 <p data-market-soon class="mt-2 text-sm leading-relaxed text-muted"{% if shortlist.length %} hidden{% endif %}>{{ global.labels.dates_soon }}</p>
                 <span class="link-underline mt-auto inline-block self-start pt-4 text-sm">{{ collections_glaze.market_cta }}</span>
             </a>
