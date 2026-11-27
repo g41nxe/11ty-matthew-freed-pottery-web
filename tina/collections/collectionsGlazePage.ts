@@ -20,11 +20,11 @@ export const collectionsGlazePage: Collection = {
   fields: [
     {
       type: "string", name: "eyebrow", label: "Small label above the name", required: true,
-      description: 'Stands above the glaze name, followed by its group: "Glaze · Blues".',
+      description: 'Stands above the glaze name, followed by its group: "The field guide · Blues". The Collections page carries the same label, so a glaze page reads as a leaf out of it.',
     },
     {
       type: "string", name: "pieces_title", label: "Heading above the pieces", required: true,
-      description: 'Stands over the row of four tiles, the way "From the current firing" does on the home page. The row holds the pieces of this glaze and, where the shop has fewer than four, the market dates.',
+      description: 'Stands over the row of four tiles. The row holds the pieces of this glaze and, where the shop has fewer than four, the market dates. ' + withName,
     },
     {
       type: "string", name: "pieces_title_empty", label: "Heading when the shop has no pieces", required: true,

@@ -39,18 +39,39 @@ eleventyComputed:
        glaze's own card otherwise. #}
     <section class="mx-auto max-w-6xl px-6 pt-12">
         {% set shopUrl = (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-shop") %}
-        <div class="grid items-center gap-10 md:grid-cols-2 lg:gap-12">
-            <div>
+        {# Three parts: name, photo, text. On a phone they stand in that order,
+           so the photo comes right after the name and not below a screenful
+           of text -- it used to start at 631 of 812 pixels. From md up the
+           photo takes the right column over both rows, and the two text parts
+           meet in the middle of the left one: the name sits at the bottom of
+           its row, the text at the top of the next, and the free height is
+           shared evenly above and below. #}
+        <div class="grid gap-x-10 gap-y-6 md:grid-cols-2 md:gap-y-0 lg:gap-x-12">
+            <div class="md:self-end">
                 {# Label and heading as on every other page of the site: blue label, ink heading, mt-3 between them (collections, events, about, the home hero). #}
                 <p class="cap-label text-blue">{{ collections_glaze.eyebrow }}{% if glaze.group %} &middot; {{ glaze.group }}{% endif %}</p>
-                <h1 class="mt-3 flex items-center gap-3.5 font-display text-4xl font-black leading-tight text-ink">
-                    {# The dot that stands beside a glaze's name everywhere on the site, here large enough to read as a sample of the colour: a fine ring keeps even the palest glaze off the paper. A marker stroke in the glaze colour was tried here and dropped -- the heading is not a link, and at half strength the colours went dull, the charcoals to a grey bar. #}
-                    <span class="h-7.5 w-7.5 flex-none rounded-full ring-1 ring-hairline ring-offset-4 ring-offset-paper" style="background-color: {{ glaze.swatch }}" aria-hidden="true"></span>
+                <h1 class="mt-3 flex items-start gap-3.5 font-display text-4xl font-black leading-tight text-ink">
+                    {# The dot that stands beside a glaze's name everywhere on the site, here large enough to read as a sample of the colour: a fine ring keeps even the palest glaze off the paper. It stands at the first line (mt-2 centres 30px in a 45px line), so a name that wraps -- Squamish Nights on a phone -- does not leave it hanging between two lines. A marker stroke in the glaze colour was tried here and dropped -- the heading is not a link, and at half strength the colours went dull, the charcoals to a grey bar. #}
+                    <span class="mt-2 h-7.5 w-7.5 flex-none rounded-full ring-1 ring-hairline ring-offset-4 ring-offset-paper" style="background-color: {{ glaze.swatch }}" aria-hidden="true"></span>
                     {{ glaze.name }}
                 </h1>
                 {# The card's one-liner in blue capitals under the name, the way the featured piece on the home page carries its caption (cap-label text-blue under the title). Without that line the header was one grey text block under a heading. #}
                 {% if glaze.text %}<p class="cap-label mt-2 text-blue">{{ glaze.text | trim | replace(r/\.$/, "") }}</p>{% endif %}
-                <p class="mt-4 text-base leading-relaxed text-muted">{{ glaze.lead }}</p>
+            </div>
+            {# Das erste Bild der Seite und meist ihr größtes: Es lädt sofort,
+               nicht erst beim Scrollen. Ein Link ist es nur, solange die
+               Sammlung dahinter nicht leer ist. #}
+            {% if glaze.pieces.length %}
+            <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-feature") }}" target="_blank" rel="noopener" class="group relative block aspect-[4/3] overflow-hidden bg-tile md:col-start-2 md:row-span-2 md:row-start-1 md:self-center">
+                {% img glaze.feature.url, glaze.feature.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "img-zoom absolute inset-0 h-full w-full object-cover", "eager" %}
+            </a>
+            {% else %}
+            <div class="relative aspect-[4/3] overflow-hidden bg-tile md:col-start-2 md:row-span-2 md:row-start-1 md:self-center">
+                {% img glaze.feature.url, glaze.feature.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover", "eager" %}
+            </div>
+            {% endif %}
+            <div class="md:self-start">
+                <p class="text-base leading-relaxed text-muted md:mt-4">{{ glaze.lead }}</p>
                 {% for paragraph in glaze.paragraphs %}
                 <p class="mt-3 text-base leading-relaxed text-muted">{{ paragraph }}</p>
                 {% endfor %}
@@ -58,18 +79,6 @@ eleventyComputed:
                    Hinaus führt dort die Marktkachel weiter unten. #}
                 {% if glaze.pieces.length %}<a href="{{ shopUrl }}" target="_blank" rel="noopener" class="btn-primary mt-6">{{ collections_glaze.shop_cta_all | replace("{glaze}", glaze.name) }}</a>{% endif %}
             </div>
-            {# Das erste Bild der Seite und meist ihr größtes: Es lädt sofort,
-               nicht erst beim Scrollen. Ein Link ist es nur, solange die
-               Sammlung dahinter nicht leer ist. #}
-            {% if glaze.pieces.length %}
-            <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-feature") }}" target="_blank" rel="noopener" class="group relative block aspect-[4/3] overflow-hidden bg-tile">
-                {% img glaze.feature.url, glaze.feature.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "img-zoom absolute inset-0 h-full w-full object-cover", "eager" %}
-            </a>
-            {% else %}
-            <div class="relative aspect-[4/3] overflow-hidden bg-tile">
-                {% img glaze.feature.url, glaze.feature.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover", "eager" %}
-            </div>
-            {% endif %}
         </div>
     </section>
 
@@ -81,7 +90,7 @@ eleventyComputed:
     <section class="mx-auto max-w-6xl px-6 py-12" aria-label="This glaze in the shop">
         <div class="flex items-baseline justify-between gap-4">
             {# "From the current firing" over a row of market dates would promise pieces that are not there. With nothing in the shop the heading says why instead, and the market tile below it says where to go. #}
-            <h2 class="font-display text-2xl font-black text-ink">{% if glaze.pieces.length %}{{ collections_glaze.pieces_title }}{% else %}{{ collections_glaze.pieces_title_empty }}{% endif %}</h2>
+            <h2 class="font-display text-2xl font-black text-ink">{% if glaze.pieces.length %}{{ collections_glaze.pieces_title | replace("{glaze}", glaze.name) }}{% else %}{{ collections_glaze.pieces_title_empty }}{% endif %}</h2>
             {# Der Weg in den ganzen Shop, auf allen sechzehn Seiten gleich. Der
                Weg zu den Stücken dieser Glasur ist der Knopf im Kopf. #}
             <a href="{{ (global.shop.base + global.shop.collectionsPath + "/") | shopLink("glaze-" + glaze.name + "-shop-all") }}" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.shop_all_label }}</a>
