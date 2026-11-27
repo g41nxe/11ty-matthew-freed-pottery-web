@@ -88,3 +88,12 @@ test("die Adresse des Stücks zeigt in Matthews Shop", () => {
     const nachTag = gruppiere([produkt({ handle: "belly-mug-tofino" })]);
     assert.equal(nachTag.jericho[0].url, "https://shop.matthewfreed.net/products/belly-mug-tofino");
 });
+
+// Das Tag am Produkt heißt "Squamish Nights", die Sammlung im Shop liegt
+// unter /squamish-nights, und im CMS steht die eine oder die andere
+// Schreibweise. Neun Stücke waren damit ein Jahr lang unsichtbar, weil der
+// Abgleich nur kleingeschrieben hat und nicht umgerechnet.
+test("Leerzeichen und Bindestrich im Tag führen zum selben Platz", () => {
+    const nachTag = gruppiere([produkt({ tags: ["Squamish Nights", "Tree of Life"] })]);
+    assert.deepEqual(Object.keys(nachTag).sort(), ["squamish-nights", "tree-of-life"]);
+});

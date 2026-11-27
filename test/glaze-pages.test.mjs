@@ -267,3 +267,16 @@ test("the header holds nothing but label, name and text", () => {
     assert.ok(!kopf.includes("{% img"), "the header carries a picture again");
     assert.ok(!kopf.includes("md:grid-cols"), "the header has a second column again");
 });
+
+// Squamish Nights stand mit dem Slug "Squamish" im CMS und zeigte kein
+// einziges Stück, obwohl neun das Tag tragen. Der Slug ist jetzt richtig,
+// aber beide Schreibweisen müssen treffen: Sonst fällt derselbe Fehler bei
+// der nächsten zweiteiligen Glasur wieder niemandem auf.
+test("der Slug findet seine Stücke in jeder Schreibweise", () => {
+    const stueck = (handle) => ({ handle, title: handle, url: "", price: "", image: null, alt: "", available: true, published: "" });
+    const nachTag = { "squamish-nights": [stueck("a"), stueck("b")] };
+    for (const slug of ["squamish-nights", "Squamish Nights", "Squamish-Nights"]) {
+        const [seite] = glazeModul.mitStuecken([{ slug, name: "Squamish Nights", vorrang: [] }], nachTag);
+        assert.equal(seite.pieces.length, 2, `Slug "${slug}" findet die Stücke nicht`);
+    }
+});

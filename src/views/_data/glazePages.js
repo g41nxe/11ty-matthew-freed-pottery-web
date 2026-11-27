@@ -79,7 +79,7 @@ const handleAus = (url) => {
 
 function mitStuecken(liste, nachTag) {
     for (const page of liste) {
-        const alle = nachTag[(page.slug || "").toLowerCase()] || [];
+        const alle = nachTag[shopPieces.tagSchluessel(page.slug)] || [];
         const vorn = page.vorrang
             .map((url) => handleAus(url))
             .map((handle) => alle.find((stueck) => stueck.handle === handle))

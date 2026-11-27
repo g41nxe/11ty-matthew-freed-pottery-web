@@ -20,6 +20,16 @@ const SHOP = "https://shop.matthewfreed.net";
 // 200 products today, and the shop sends at most 250 per page.
 const SEITEN = 4;
 
+// A tag and a shop collection slug are the same name in two spellings:
+// Shopify tags a piece "Squamish Nights" and serves its collection at
+// /squamish-nights. Both become the same key here, so a glaze finds its
+// pieces whether the CMS holds one spelling or the other.
+const tagSchluessel = (wert) =>
+    String(wert == null ? "" : wert)
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+
 // "165.00" from Shopify, "$165" on the page -- the same way Matthew writes a
 // price into the CMS. Half dollars stay ("$12.50"), whole ones lose the zeros.
 const preis = (wert) => {
@@ -66,7 +76,7 @@ function gruppiere(alle) {
             published: produkt.published_at || "",
         };
         for (const tag of produkt.tags || []) {
-            (nachTag[tag.trim().toLowerCase()] ||= []).push(stueck);
+            (nachTag[tagSchluessel(tag)] ||= []).push(stueck);
         }
     }
 
@@ -95,3 +105,4 @@ module.exports = async function () {
 module.exports.preis = preis;
 module.exports.ohneGlasur = ohneGlasur;
 module.exports.gruppiere = gruppiere;
+module.exports.tagSchluessel = tagSchluessel;
