@@ -206,7 +206,7 @@ test("zu den Stücken der Glasur führt nur etwas, wo es welche gibt", () => {
     const grenze = vorlage.indexOf('aria-label="This glaze in the shop"');
     const kopf = vorlage.slice(0, grenze);
     const block = vorlage.slice(grenze);
-    assert.match(kopf, /{% if glaze.pieces.length %}<a [^>]*btn-outline/, "der Knopf zur Sammlung hängt nicht mehr an den Stücken");
+    assert.match(kopf, /{% if glaze.pieces.length %}<a [^>]*btn-primary/, "der Knopf zur Sammlung hängt nicht mehr an den Stücken");
     assert.match(kopf, /{% if glaze.pieces.length %}\s*<a [^>]*-feature/, "das Foto verlinkt auch eine leere Sammlung");
     const zeile = block.slice(0, block.indexOf('id="glaze-markets"'));
     assert.match(zeile, /<a [^>]*-shop-all[^>]*>{{ collections_glaze.shop_all_label }}/, "der Link in den ganzen Shop fehlt neben der Überschrift");
@@ -271,7 +271,7 @@ test("der Name auf dem Farbmuster bleibt lesbar", () => {
 test("the header holds the text, one button and the group photo", () => {
     const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
     const kopf = vorlage.slice(vorlage.indexOf("<article>"), vorlage.indexOf('aria-label="This glaze in the shop"'));
-    assert.equal(kopf.split("btn-outline").length - 1, 1, "the header should carry exactly one button");
+    assert.equal(kopf.split(/btn-(?:primary|outline)/).length - 1, 1, "the header should carry exactly one button");
     assert.ok(!kopf.includes("link-underline"), "a text link to the shop is back in the header");
     assert.ok(kopf.includes("md:grid-cols-2"), "text and photo no longer stand side by side");
     assert.ok(kopf.includes("glaze.text"), "the one-line tagline under the name is gone");

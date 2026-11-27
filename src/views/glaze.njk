@@ -43,10 +43,12 @@ eleventyComputed:
             <div>
                 {# Label and heading as on every other page of the site: blue label, ink heading, mt-3 between them (collections, events, about, the home hero). #}
                 <p class="cap-label text-blue">{{ collections_glaze.eyebrow }}{% if glaze.group %} &middot; {{ glaze.group }}{% endif %}</p>
-                <h1 class="mt-3 flex items-center gap-3 font-display text-4xl font-black leading-tight text-ink">
-                    <span class="h-4 w-4 flex-none rounded-full" style="background-color: {{ glaze.swatch }}" aria-hidden="true"></span>
-                    {# The marker stroke of the "full field guide" link on the home page, here in the glaze's own colour; it sweeps in on hover (see .glaze-mark). #}
-                    <span class="glaze-mark" style="--glaze: {{ glaze.swatch }}">{{ glaze.name }}</span>
+                <h1 class="mt-3 font-display text-4xl font-black leading-tight text-ink">
+                    {# The marker stroke of the "full field guide" link on the home page, here in the glaze's own colour; it sweeps in on hover (see .glaze-mark). Dot and name share one box, so the stroke starts under the dot and either of them sets it off. #}
+                    <span class="glaze-mark flex w-fit items-center gap-3" style="--glaze: {{ glaze.swatch }}">
+                        <span class="h-4 w-4 flex-none rounded-full" style="background-color: {{ glaze.swatch }}" aria-hidden="true"></span>
+                        {{ glaze.name }}
+                    </span>
                 </h1>
                 {# The card's one-liner in blue capitals under the name, the way the featured piece on the home page carries its caption (cap-label text-blue under the title). Without that line the header was one grey text block under a heading. #}
                 {% if glaze.text %}<p class="cap-label mt-2 text-blue">{{ glaze.text | trim | replace(r/\.$/, "") }}</p>{% endif %}
@@ -56,7 +58,7 @@ eleventyComputed:
                 {% endfor %}
                 {# Ohne Stücke führte der Knopf auf eine leere Sammlung im Shop.
                    Hinaus führt dort die Marktkachel weiter unten. #}
-                {% if glaze.pieces.length %}<a href="{{ shopUrl }}" target="_blank" rel="noopener" class="btn-outline mt-6">{{ collections_glaze.shop_cta_all | replace("{glaze}", glaze.name) }}</a>{% endif %}
+                {% if glaze.pieces.length %}<a href="{{ shopUrl }}" target="_blank" rel="noopener" class="btn-primary mt-6">{{ collections_glaze.shop_cta_all | replace("{glaze}", glaze.name) }}</a>{% endif %}
             </div>
             {# Das erste Bild der Seite und meist ihr größtes: Es lädt sofort,
                nicht erst beim Scrollen. Ein Link ist es nur, solange die
