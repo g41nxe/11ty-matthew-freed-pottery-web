@@ -64,6 +64,13 @@ export const collectionsGallery: Collection = {
             "Easiest way: open the glaze in your shop and copy the last part of the address. A wrong value leaves the page without pieces and the link on a page that does not exist.",
           ui: { validate: shopSlug },
         },
+        {
+          type: "string", name: "pieces", label: "Only these pieces (shop links)", list: true,
+          description:
+            "Leave this empty and the page shows what carries the tag above - that is the normal case, and it keeps itself up to date. " +
+            "Fill it in only where the shop cannot tell two glazes apart: Pemberton Sky and Pemberton Earth share one tag, so without a list here each page shows the other one's pieces. " +
+            "Paste the shop address of each piece, in the order they should appear. Photo, price and whether it is sold out still come from the shop.",
+        },
         { type: "string", name: "swatch", label: "Swatch colour (hex)", ui: { validate: hexColour } },
         { type: "string", name: "filterGroups", label: "Filter groups", list: true, options: ["Blues", "Charcoals", "Patterned"] },
       ],

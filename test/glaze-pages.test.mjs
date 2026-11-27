@@ -280,3 +280,57 @@ test("der Slug findet seine Stücke in jeder Schreibweise", () => {
         assert.equal(seite.pieces.length, 2, `Slug "${slug}" findet die Stücke nicht`);
     }
 });
+
+// Pemberton Sky und Pemberton Earth teilen sich im Shop ein Tag. Ohne eine
+// Liste zeigte die blaue Seite die braunen Schalen der anderen. Die Liste
+// ersetzt das Tag für diese eine Seite -- Foto, Preis und Verfügbarkeit kommen
+// weiter aus dem Shop, nur die Auswahl nicht.
+test("eine kuratierte Liste ersetzt das Tag", () => {
+    const stueck = (handle) => ({ handle, title: handle, url: "", price: "", image: null, alt: "", available: true, published: "" });
+    const nachTag = { pemberton: [stueck("meal-bowl-earth"), stueck("meal-bowl-sky"), stueck("snack-bowl-sky")] };
+
+    const [earth] = glazeModul.mitStuecken([{ slug: "pemberton", name: "Pemberton Earth", vorrang: [] }], nachTag);
+    assert.equal(earth.pieces.length, 3, "ohne Liste zeigt die Seite weiter alles unter ihrem Tag");
+
+    const [sky] = glazeModul.mitStuecken([{
+        slug: "pemberton",
+        name: "Pemberton Sky",
+        vorrang: [],
+        nurDiese: [
+            "https://shop.matthewfreed.net/products/meal-bowl-sky",
+            "https://shop.matthewfreed.net/products/snack-bowl-sky",
+        ],
+    }], nachTag);
+    assert.deepEqual(sky.pieces.map((p) => p.handle), ["meal-bowl-sky", "snack-bowl-sky"]);
+});
+
+// Die Liste bestimmt auch die Reihenfolge, und eine Adresse, die der Shop
+// nicht mehr führt, fällt still heraus statt eine leere Kachel zu hinterlassen.
+test("die kuratierte Liste bestimmt die Reihenfolge", () => {
+    const stueck = (handle) => ({ handle, title: handle, url: "", price: "", image: null, alt: "", available: false, published: "" });
+    const nachTag = { pemberton: [stueck("a"), stueck("b")] };
+    const [seite] = glazeModul.mitStuecken([{
+        slug: "pemberton",
+        name: "Pemberton Sky",
+        vorrang: [],
+        nurDiese: [
+            "https://shop.matthewfreed.net/products/b",
+            "https://shop.matthewfreed.net/products/verkauft-und-geloescht",
+            "https://shop.matthewfreed.net/products/a",
+        ],
+    }], nachTag);
+    assert.deepEqual(seite.pieces.map((p) => p.handle), ["b", "a"]);
+});
+
+// Shopify darf das Stück unter einem anderen Tag führen: Die Liste ist die
+// Angabe, die das Tag ersetzt, also darf sie nicht von ihm abhängen.
+test("die kuratierte Liste findet ihr Stück unter jedem Tag", () => {
+    const nachTag = { garibaldi: [{ handle: "shorty-mug", title: "Shorty Mug", url: "", price: "", image: null, alt: "", available: true, published: "" }] };
+    const [seite] = glazeModul.mitStuecken([{
+        slug: "squamish-nights",
+        name: "Squamish Nights",
+        vorrang: [],
+        nurDiese: ["https://shop.matthewfreed.net/products/shorty-mug"],
+    }], nachTag);
+    assert.deepEqual(seite.pieces.map((p) => p.handle), ["shorty-mug"]);
+});

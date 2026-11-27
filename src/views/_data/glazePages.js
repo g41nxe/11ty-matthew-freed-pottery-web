@@ -37,6 +37,11 @@ const seiten = gallery.items
             // Adressen zuerst kommen sollen. Titel, Preis, Foto und
             // Verfügbarkeit holt die Seite beim Shop, damit nichts veraltet
             // (ADR 0006). Ein verstecktes Set zählt wie keins.
+            // Normalerweise holt die Seite ihre Stücke über das Tag. Wo zwei
+            // Glasuren sich eines teilen -- Shopify kennt nur "Pemberton", die
+            // Webseite kennt Sky und Earth -- kann im CMS eine Liste stehen, die
+            // das Tag für diese eine Seite ersetzt.
+            nurDiese: (item.pieces || []).filter(Boolean),
             vorrang: (() => {
                 const set = shopSets.byName[name];
                 if (!set || set.hide) return [];
@@ -78,8 +83,19 @@ const handleAus = (url) => {
 };
 
 function mitStuecken(liste, nachTag) {
+    // Eine kuratierte Adresse soll ihr Stück auch dann finden, wenn dessen
+    // Tag nicht zur Seite passt -- sonst wäre die Liste von derselben Angabe
+    // abhängig, die sie gerade ersetzt.
+    const nachHandle = {};
+    for (const gruppe of Object.values(nachTag)) {
+        for (const stueck of gruppe) nachHandle[stueck.handle] = stueck;
+    }
+
     for (const page of liste) {
-        const alle = nachTag[shopPieces.tagSchluessel(page.slug)] || [];
+        const kuratiert = (page.nurDiese || []).map(handleAus).filter(Boolean);
+        const alle = kuratiert.length
+            ? kuratiert.map((handle) => nachHandle[handle]).filter(Boolean)
+            : nachTag[shopPieces.tagSchluessel(page.slug)] || [];
         const vorn = page.vorrang
             .map((url) => handleAus(url))
             .map((handle) => alle.find((stueck) => stueck.handle === handle))
