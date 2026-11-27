@@ -56,7 +56,7 @@ eleventyComputed:
                     {{ glaze.name }}
                 </h1>
                 {# The card's one-liner in blue capitals under the name, the way the featured piece on the home page carries its caption (cap-label text-blue under the title). Without that line the header was one grey text block under a heading. #}
-                {% if glaze.text %}<p class="cap-label mt-2 text-blue">{{ glaze.text | trim | replace(r/\.$/, "") }}</p>{% endif %}
+                {% if glaze.text %}<p class="cap-label mt-2 text-balance text-blue">{{ glaze.text | trim | replace(r/\.$/, "") }}</p>{% endif %}
             </div>
             {# Das erste Bild der Seite und meist ihr größtes: Es lädt sofort,
                nicht erst beim Scrollen. Ein Link ist es nur, solange die
@@ -71,9 +71,10 @@ eleventyComputed:
             </div>
             {% endif %}
             <div class="md:self-start">
-                <p class="text-base leading-relaxed text-muted md:mt-4">{{ glaze.lead }}</p>
+                {# text-pretty keeps a paragraph from ending on one stranded word ("... design traits around / Yaletown."), text-balance evens out a tagline that runs to two lines. Paragraphs stand 16px apart, the same step as between tagline and text: at 12px, under half a line of this type, they read as one block. #}
+                <p class="text-pretty text-base leading-relaxed text-muted md:mt-4">{{ glaze.lead }}</p>
                 {% for paragraph in glaze.paragraphs %}
-                <p class="mt-3 text-base leading-relaxed text-muted">{{ paragraph }}</p>
+                <p class="mt-4 text-pretty text-base leading-relaxed text-muted">{{ paragraph }}</p>
                 {% endfor %}
                 {# Ohne Stücke führte der Knopf auf eine leere Sammlung im Shop.
                    Hinaus führt dort die Marktkachel weiter unten. #}
