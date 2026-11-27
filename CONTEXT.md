@@ -15,7 +15,7 @@ One day on which a market takes place. A market holds a list of dates; an event 
 The single news entry shown in the "Latest from the studio" box on the events page.
 
 ### Shop set
-The pieces of one glaze that come first on its glaze page, named after that glaze. Everything else beside them comes from the shop, so a set says "these before the others", not "only these". A set holds up to four pieces and no photo of its own (ADR 0006).
+A hand-picked group of pieces for the "From the current firing" block on the home page, which shows one set at random per visit. A set no longer reaches into a glaze page: there the shop alone decides which pieces stand and in what order (available ones first). A set holds a featured piece and four tiles (ADR 0006).
 
 ### Group photo
 The large picture at the top of a glaze page, beside the name and text: several pieces of that glaze together, no price, no single product behind it. It belongs to the glaze, not to its pieces, so a glaze can have one without having anything in the shop. Until Matthew has taken one, the glaze's card image stands in its place.

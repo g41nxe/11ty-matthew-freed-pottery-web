@@ -58,54 +58,33 @@ test("the story is kept as paragraphs, not one block", () => {
     }
 });
 
-// The pieces on a glaze page come from the shop set of the same name, matched
-// by a plain string. Three outcomes, and all three are legitimate:
-//
-//   visible set of that name -> the page shows it
-//   hidden set               -> the page shows nothing (hide means withdrawn)
-//   no set at all            -> the page shows nothing (Skaha, a new glaze
-//                               with a story but nothing in the shop yet)
-//
-// The earlier version of this test demanded that a set exist, which was true
-// until Skaha and would have blocked every glaze that gets a text before it
-// gets pieces. What it also did was catch a renamed set; that guard is gone,
-// and in its place the CMS now says at the name field: "Must match the glaze
-// name exactly, otherwise that glaze page finds no pieces."
-// Vom Shop-Set bleibt eine Reihenfolge: welche Adressen zuerst stehen sollen.
-// Ein verstecktes Set zählt wie keins -- "hide" ist Matthews Griff, Stücke aus
-// der Auslage zu nehmen, und er darf nicht dadurch wirkungslos werden, dass
-// die Stücke jetzt aus dem Shop kommen.
-test("ein verstecktes Shop-Set gibt keinen Vorrang", () => {
-    for (const page of glazePages) {
-        const set = shopSets.byName[page.name];
-        const erwartet = set && !set.hide ? (set.items || []).length : 0;
-        assert.equal(page.vorrang.length, erwartet, `${page.title}: falsche Vorrangliste`);
-    }
-});
-
-// Die Vorrangliste bestimmt nur den Anfang, der Shop den Rest -- und mehr als
-// vier Kacheln zeigt die Seite nie.
-test("die Vorrangliste steht vorn, der Shop füllt auf", () => {
-    const stueck = (handle, verfuegbar = true) => ({ handle, title: handle, available: verfuegbar, published: "2024-01-01" });
-    const seite = { slug: "Jericho", vorrang: ["https://shop.matthewfreed.net/products/c"] };
+// Welche Stücke eine Glasurseite zeigt, entscheidet allein der Shop: was das
+// Tag der Glasur trägt, in der Reihenfolge, die shopPieces.js liefert
+// (verfügbare zuerst). Eine Vorrangliste aus den Shop-Sets stand hier und ist
+// wieder weg: Vier handverlesene Stücke füllten alle Plätze, auch
+// ausverkauft, und Yaletown zeigte drei "Sold out", während der Shop sieben
+// verfügbare führte.
+test("der Shop bestimmt Auswahl und Reihenfolge, höchstens vier", () => {
+    const stueck = (handle) => ({ handle, title: handle, available: true, published: "2024-01-01" });
+    const seite = { slug: "Jericho" };
     const nachTag = { jericho: [stueck("a"), stueck("b"), stueck("c"), stueck("d"), stueck("e")] };
     const [ergebnis] = glazeModul.mitStuecken([seite], nachTag);
-    assert.deepEqual(ergebnis.pieces.map((s) => s.handle), ["c", "a", "b", "d"]);
+    assert.deepEqual(ergebnis.pieces.map((s) => s.handle), ["a", "b", "c", "d"]);
+});
+
+test("kein Shop-Set greift mehr in eine Glasurseite ein", () => {
+    for (const page of glazePages) {
+        assert.ok(!("vorrang" in page), `${page.title}: trägt wieder eine Vorrangliste`);
+        assert.ok(!("nurDiese" in page), `${page.title}: trägt wieder eine handverlesene Liste`);
+    }
+    const quelle = fs.readFileSync(path.join("src", "views", "_data", "glazePages.js"), "utf8");
+    assert.ok(!quelle.includes("shopSets"), "glazePages.js liest wieder die Shop-Sets");
 });
 
 test("eine Glasur ohne Stücke im Shop bekommt eine leere Liste", () => {
-    const seite = { slug: "Skaha", vorrang: [] };
+    const seite = { slug: "Skaha" };
     const [ergebnis] = glazeModul.mitStuecken([seite], {});
     assert.deepEqual(ergebnis.pieces, []);
-});
-
-// A set that is shown has to be worth showing: the featured piece needs a link
-// into the shop, and the grid beside it holds four tiles.
-test("a set on the page is complete", () => {
-    for (const page of glazePages.filter((p) => p.set)) {
-        assert.ok(page.set.featured_piece && page.set.featured_piece.cta.url, `${page.title}: featured piece without a shop link`);
-        assert.ok((page.set.items || []).length >= 4, `${page.title}: fewer than four pieces`);
-    }
 });
 
 // These pages exist to be found in search, so being listed in the sitemap is
@@ -285,68 +264,14 @@ test("der Slug findet seine Stücke in jeder Schreibweise", () => {
     const stueck = (handle) => ({ handle, title: handle, url: "", price: "", image: null, alt: "", available: true, published: "" });
     const nachTag = { "squamish-nights": [stueck("a"), stueck("b")] };
     for (const slug of ["squamish-nights", "Squamish Nights", "Squamish-Nights"]) {
-        const [seite] = glazeModul.mitStuecken([{ slug, name: "Squamish Nights", vorrang: [] }], nachTag);
+        const [seite] = glazeModul.mitStuecken([{ slug, name: "Squamish Nights" }], nachTag);
         assert.equal(seite.pieces.length, 2, `Slug "${slug}" findet die Stücke nicht`);
     }
 });
 
-// Pemberton Sky und Pemberton Earth teilen sich im Shop ein Tag. Ohne eine
-// Liste zeigte die blaue Seite die braunen Schalen der anderen. Die Liste
-// ersetzt das Tag für diese eine Seite -- Foto, Preis und Verfügbarkeit kommen
-// weiter aus dem Shop, nur die Auswahl nicht.
-test("eine kuratierte Liste ersetzt das Tag", () => {
-    const stueck = (handle) => ({ handle, title: handle, url: "", price: "", image: null, alt: "", available: true, published: "" });
-    const nachTag = { pemberton: [stueck("meal-bowl-earth"), stueck("meal-bowl-sky"), stueck("snack-bowl-sky")] };
-
-    const [earth] = glazeModul.mitStuecken([{ slug: "pemberton", name: "Pemberton Earth", vorrang: [] }], nachTag);
-    assert.equal(earth.pieces.length, 3, "ohne Liste zeigt die Seite weiter alles unter ihrem Tag");
-
-    const [sky] = glazeModul.mitStuecken([{
-        slug: "pemberton",
-        name: "Pemberton Sky",
-        vorrang: [],
-        nurDiese: [
-            "https://shop.matthewfreed.net/products/meal-bowl-sky",
-            "https://shop.matthewfreed.net/products/snack-bowl-sky",
-        ],
-    }], nachTag);
-    assert.deepEqual(sky.pieces.map((p) => p.handle), ["meal-bowl-sky", "snack-bowl-sky"]);
-});
-
-// Die Liste bestimmt auch die Reihenfolge, und eine Adresse, die der Shop
-// nicht mehr führt, fällt still heraus statt eine leere Kachel zu hinterlassen.
-test("die kuratierte Liste bestimmt die Reihenfolge", () => {
-    const stueck = (handle) => ({ handle, title: handle, url: "", price: "", image: null, alt: "", available: false, published: "" });
-    const nachTag = { pemberton: [stueck("a"), stueck("b")] };
-    const [seite] = glazeModul.mitStuecken([{
-        slug: "pemberton",
-        name: "Pemberton Sky",
-        vorrang: [],
-        nurDiese: [
-            "https://shop.matthewfreed.net/products/b",
-            "https://shop.matthewfreed.net/products/verkauft-und-geloescht",
-            "https://shop.matthewfreed.net/products/a",
-        ],
-    }], nachTag);
-    assert.deepEqual(seite.pieces.map((p) => p.handle), ["b", "a"]);
-});
-
-// Shopify darf das Stück unter einem anderen Tag führen: Die Liste ist die
-// Angabe, die das Tag ersetzt, also darf sie nicht von ihm abhängen.
-test("die kuratierte Liste findet ihr Stück unter jedem Tag", () => {
-    const nachTag = { garibaldi: [{ handle: "shorty-mug", title: "Shorty Mug", url: "", price: "", image: null, alt: "", available: true, published: "" }] };
-    const [seite] = glazeModul.mitStuecken([{
-        slug: "squamish-nights",
-        name: "Squamish Nights",
-        vorrang: [],
-        nurDiese: ["https://shop.matthewfreed.net/products/shorty-mug"],
-    }], nachTag);
-    assert.deepEqual(seite.pieces.map((p) => p.handle), ["shorty-mug"]);
-});
-
-// Die Gegenrichtung zur kuratierten Liste: Pemberton Earth nimmt weiter alles
-// unter seinem Tag, nur die drei blauen Sky-Stücke nicht. Ohne das rutscht eine
-// blaue Schale auf die braune Seite, sobald Earth unter vier verfügbare fällt.
+// Pemberton Sky und Pemberton Earth teilen sich im Shop ein Tag. Jede Seite
+// nimmt alles unter diesem Tag, nur die Stücke der anderen nicht -- der einzige
+// Eingriff von Hand, den eine Glasurseite noch kennt.
 test("ausgeschlossene Stücke bleiben von der Seite weg", () => {
     const stueck = (handle, available) => ({ handle, title: handle, url: "", price: "", image: null, alt: "", available, published: "" });
     const nachTag = {
@@ -355,8 +280,7 @@ test("ausgeschlossene Stücke bleiben von der Seite weg", () => {
     const [seite] = glazeModul.mitStuecken([{
         slug: "pemberton",
         name: "Pemberton Earth",
-        vorrang: [],
-        nichtDiese: [
+                nichtDiese: [
             "https://shop.matthewfreed.net/products/sky-1",
             "https://shop.matthewfreed.net/products/sky-2",
         ],

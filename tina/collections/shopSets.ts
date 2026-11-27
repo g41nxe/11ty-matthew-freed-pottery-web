@@ -22,7 +22,7 @@ export const shopSets: Collection = {
         defaultItem: { hide: false },
       },
       fields: [
-        { type: "string", name: "name", label: "Name", required: true, description: "Must match the glaze name exactly, otherwise that glaze page finds no pieces. It also names this set in the website's statistics and in the shop reports, so renaming starts a new row there." },
+        { type: "string", name: "name", label: "Name", required: true, description: "Names this set in the website's statistics and in the shop reports, so renaming starts a new row there. The sets feed the home page only; a glaze page takes its pieces straight from the shop." },
         { type: "boolean", name: "hide", label: "Hide these pieces", description: "Takes the set out of the rotation on the home page and off the glaze page of the same name. The glaze page itself stays, it just shows no pieces." },
         {
           type: "object", name: "featured_piece", label: "Featured piece",

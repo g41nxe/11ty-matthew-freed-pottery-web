@@ -65,16 +65,9 @@ export const collectionsGallery: Collection = {
           ui: { validate: shopSlug },
         },
         {
-          type: "string", name: "pieces", label: "Only these pieces (shop links)", list: true,
-          description:
-            "Leave this empty and the page shows what carries the tag above - that is the normal case, and it keeps itself up to date. " +
-            "Fill it in only where the shop cannot tell two glazes apart: Pemberton Sky and Pemberton Earth share one tag, so without a list here each page shows the other one's pieces. " +
-            "Paste the shop address of each piece, in the order they should appear. Photo, price and whether it is sold out still come from the shop.",
-        },
-        {
           type: "string", name: "exclude", label: "Never these pieces (shop links)", list: true,
           description:
-            "The other way round: keep single pieces off this page while everything else under the tag stays. " +
+            "Normally leave this empty: the page shows what carries the tag above, available pieces first. Fill it in only to keep single pieces off this page while everything else under the tag stays. " +
             "Pemberton Earth uses it for the three blue Sky bowls, which carry the same tag. Paste the shop address of each piece.",
         },
         { type: "string", name: "swatch", label: "Swatch colour (hex)", ui: { validate: hexColour } },
