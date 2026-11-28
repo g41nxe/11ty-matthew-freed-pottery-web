@@ -6,7 +6,7 @@
   "market_title": "Find {glaze} at the market",
   "market_text": "Sorry, not much {glaze} in the shop right now. Each firing goes to the markets with me first.",
   "market_cta": "All events",
-  "empty_note": "Sorry, sold out for now",
+  "empty_note": "Sorry,\nsold out for now",
   "shop_cta_all": "See all {glaze} pieces",
   "shop_all_label": "Shop all pieces",
   "ask_eyebrow": "Made to order",

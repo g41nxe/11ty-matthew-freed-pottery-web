@@ -226,9 +226,9 @@ test("was an Stücken fehlt, füllen die Märkte auf", () => {
     assert.match(block, /{% set leer = plaetze - terminBreit %}/, "die leeren Plätze werden nicht mehr gezählt");
     // Leere Plätze: weiß wie der Grund der Produktfotos, Linie und Blume in
     // der Glasurfarbe, unter dem Zeiger eine Zeile aus dem CMS.
-    assert.match(block, /group-hover:opacity-0[^"]*">{% include "dogwood\.njk" %}/, "auf den leeren Plätzen steht nicht mehr die Blume der Seite");
+    assert.match(block, /lg:group-hover:opacity-0[^"]*">{% include "dogwood\.njk" %}/, "auf den leeren Plätzen steht nicht mehr die Blume der Seite");
     assert.match(block, /range\(0, kreuze\)[\s\S]*?bg-white[^"]*"[^>]*style="color: {{ glaze\.swatch }}"/, "die leeren Plätze zeigen kein X mehr in der Glasurfarbe auf Weiß");
-    assert.match(block, /group-hover:opacity-100">{{ collections_glaze\.empty_note }}/, "der Text unter dem Zeiger kommt nicht mehr aus dem CMS");
+    assert.match(block, /whitespace-pre-line[^"]*lg:group-hover:opacity-100">{{ collections_glaze\.empty_note }}/, "der Text auf den leeren Plätzen kommt nicht mehr aus dem CMS, oder verliert seinen Zeilenumbruch");
     assert.ok((seitentexte.empty_note || "").trim(), "collections_glaze.json: empty_note fehlt");
     assert.ok(!block.includes("placeholder_image"), "das Platzhalter-Foto ist zurück");
     // Unter lg zwei Spalten: Eine ungerade Zahl von Stücken bekommt einen Platzhalter

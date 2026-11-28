@@ -169,18 +169,20 @@ eleventyComputed:
                the collections page, here marking a spot on the shelf where
                nothing stands. It was a field of glaze colour with a pale X
                first, and two of those side by side outweighed the photos.
-               Under the pointer the flower gives way to one line that says
-               why the place is empty. In the HTML they come right after the
+               One line says why the place is empty. From lg up it takes the
+               flower's place while the pointer is on the tile; below lg,
+               where there is no pointer, it stands above the flower all the
+               time. The line break comes from the CMS (whitespace-pre-line). In the HTML they come right after the
                pieces, where two columns need the one that fills the gap; from
                lg up order-1 moves them behind the cards. Which of them a
                width shows is counted separately: below lg the first "luecke",
                from lg up the first "leer". They say nothing a screen reader
                needs: the market tile says the same in a sentence. #}
             {% for n in range(0, kreuze) %}
-            <div class="group relative aspect-square self-start bg-white lg:order-1{% if n >= luecke %} max-lg:hidden{% endif %}{% if n >= leer %} lg:hidden{% endif %}" style="color: {{ glaze.swatch }}" aria-hidden="true">
+            <div class="group relative flex aspect-square flex-col items-center justify-center gap-2.5 self-start bg-white lg:order-1{% if n >= luecke %} max-lg:hidden{% endif %}{% if n >= leer %} lg:hidden{% endif %}" style="color: {{ glaze.swatch }}" aria-hidden="true">
                 <span class="absolute inset-2.5 border border-current"></span>
-                <span class="absolute left-1/2 top-1/2 h-[26%] w-[26%] -translate-x-1/2 -translate-y-1/2 transition-opacity group-hover:opacity-0 [&>svg]:h-full [&>svg]:w-full">{% include "dogwood.njk" %}</span>
-                {% if collections_glaze.empty_note %}<span class="cap-label absolute inset-0 flex items-center justify-center px-6 text-center text-sm leading-6 text-ink opacity-0 transition-opacity group-hover:opacity-100">{{ collections_glaze.empty_note }}</span>{% endif %}
+                {% if collections_glaze.empty_note %}<span class="cap-label whitespace-pre-line px-4 text-center text-[11px] leading-4 text-ink sm:text-sm sm:leading-6 lg:absolute lg:inset-0 lg:flex lg:items-center lg:justify-center lg:px-6 lg:opacity-0 lg:transition-opacity lg:group-hover:opacity-100">{{ collections_glaze.empty_note }}</span>{% endif %}
+                <span class="h-[26%] w-[26%] lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:transition-opacity lg:group-hover:opacity-0 [&>svg]:h-full [&>svg]:w-full">{% include "dogwood.njk" %}</span>
             </div>
             {% endfor %}
 

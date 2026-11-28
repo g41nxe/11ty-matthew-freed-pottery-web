@@ -51,9 +51,10 @@ export const collectionsGlazePage: Collection = {
       type: "string", name: "market_cta", label: "Market tile: link to the events page", required: true,
     },
     {
-      type: "string", name: "empty_note", label: "Empty places: text under the pointer",
+      type: "string", name: "empty_note", label: "Empty places: text",
       description:
-        "A glaze page has four places. Those the shop cannot fill show a white tile with the dogwood flower in the colour of the glaze. This short line takes the place of the flower while the pointer is on the tile. Leave it empty and the flower stays.",
+        "A glaze page has four places. Those the shop cannot fill show a white tile with the dogwood flower in the colour of the glaze. On a computer this short line takes the place of the flower while the pointer is on the tile; on a phone or tablet it stands above the flower. A line break here is a line break on the page. Leave it empty and only the flower shows.",
+      ui: { component: "textarea" },
     },
     {
       type: "string", name: "shop_all_label", label: "Link to the whole shop", required: true,
