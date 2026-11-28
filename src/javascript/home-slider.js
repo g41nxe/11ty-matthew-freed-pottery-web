@@ -7,7 +7,9 @@
     if (!slider) return;
     const cards = Array.from(slider.children);
     const dots = Array.from(document.querySelectorAll(".glaze-dot"));
-    if (!cards.length || !dots.length) return;
+    // The dots are optional: a glaze page uses this slider without the strip
+    // of dots, and it should still advance on its own there.
+    if (!cards.length) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
