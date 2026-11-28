@@ -221,7 +221,7 @@ test("die Reihe ist ein Slider: Stücke, Platzhalter, Marktkachel, nächster Mar
     // Slider -- home-slider.js erkennt ihn an data-slider. events.js hält in
     // beiden Fällen genau einen Termin sichtbar.
     assert.ok(block.includes("{% set alsSlider = glaze.pieces.length > 2 %}"), "die Reihe ist auch mit vier Karten ein Slider, oder nie");
-    assert.match(block, /id="glaze-markets"{% if alsSlider %} data-slider{% endif %} data-slots="1"/, "home-slider.js erkennt die Reihe nicht mehr, oder events.js erfährt den einen Termin-Platz nicht");
+    assert.match(block, /id="glaze-markets"{% if alsSlider %} data-slider="still"{% endif %} data-slots="1"/, "home-slider.js erkennt die Reihe nicht mehr, sie läuft wieder von selbst weiter, oder events.js erfährt den einen Termin-Platz nicht");
     assert.match(block, /{% if alsSlider %}[^{]*overflow-x-auto[^{]*{% else %}grid grid-cols-2[^{]*lg:grid-cols-4{% endif %}/, "ohne Slider stehen die vier Karten nicht mehr als Raster");
     const slider = fs.readFileSync(path.join("src", "javascript", "home-slider.js"), "utf8");
     assert.ok(slider.includes('querySelectorAll("[data-slider]")'), "home-slider.js bewegt die Reihe der Stücke nicht mehr");

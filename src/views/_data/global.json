@@ -23,7 +23,9 @@
     "dates_soon": "New dates go up here as soon as they are booked.",
     "keep_reading": "Keep reading",
     "sold_out": "Sold out",
-    "map_link": "Directions on Google Maps"
+    "map_link": "Directions on Google Maps",
+    "slider_prev": "Previous",
+    "slider_next": "Next"
   },
   "footer": {
     "retail": "Retail stores",

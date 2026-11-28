@@ -19,7 +19,7 @@ const seitentexte = require("../src/views/_data/collections_glaze.json");
 const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8").replace(/\r\n/g, "\n");
 const anfang = vorlage.indexOf("{% set upcoming = ");
 const ende = vorlage.indexOf("{# Same line the home page carries");
-const block = vorlage.slice(anfang, vorlage.lastIndexOf("</div>", ende) + "</div>".length).replace(/{%\s*img [^%]*%}/g, "<img>");
+const block = vorlage.slice(anfang, ende).replace(/{%\s*img [^%]*%}/g, "<img>");
 
 const env = new nunjucks.Environment(new nunjucks.FileSystemLoader(path.join("src", "views", "_includes", "partials")), { autoescape: true });
 for (const name of ["occurrences", "filterUpcoming", "byDateAsc", "nextUp", "shopLink", "withoutGlaze"]) env.addFilter(name, (wert) => wert);
@@ -34,7 +34,7 @@ function reihe(stuecke, termine) {
         },
         events: Array.from({ length: termine }, (_, i) => ({ name: "Market " + i, date: "2026-12-0" + (i + 5), location: "Vancouver", time: "10 a.m." })),
         collections_glaze: seitentexte,
-        global: { labels: { next_up: "Next up", dates_soon: "New dates soon", sold_out: "Sold out" } },
+        global: { labels: { next_up: "Next up", dates_soon: "New dates soon", sold_out: "Sold out", slider_prev: "Previous", slider_next: "Next" } },
     });
     assert.ok(anfang > -1 && ende > anfang && html.includes('id="glaze-markets"'), "der Block der Reihe ist in glaze.njk nicht mehr zu finden");
     const stelle = (teil) => html.indexOf(teil);
@@ -62,6 +62,9 @@ test("die Reihe hält für jede Stückzahl die richtigen Karten in der richtigen
         assert.ok(karten >= 4, `${fall}: nur ${karten} Karten, die Reihe hat ein Loch`);
         // Genau vier Karten stehen fest, mehr gleiten.
         assert.equal(r.slider, karten > 4, `${fall}: ${karten} Karten, Slider ${r.slider}`);
+        // Wer gleitet, bekommt die Linie und die Pfeile darunter; vier feste Karten brauchen keine.
+        assert.equal(r.html.includes('data-slider-nav="glaze-markets"'), r.slider, `${fall}: die Leiste unter der Reihe passt nicht zum Slider`);
+        if (r.slider) assert.match(r.html, /<button type="button" data-slider-prev disabled aria-label="Previous"[\s\S]*<button type="button" data-slider-next aria-label="Next"/, `${fall}: die Pfeile fehlen oder haben keinen Namen`);
         assert.deepEqual([...r.folge].sort((a, b) => a - b), r.folge, `${fall}: die Folge ist nicht Stücke, Platzhalter, Marktkachel, Termin`);
         // Zwei Platzhalter tragen den Satz nur einmal.
         if (seitentexte.empty_note) assert.equal(r.texte, Math.min(r.platzhalter, 1), `${fall}: der Satz der Platzhalter steht nicht genau einmal`);

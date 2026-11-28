@@ -126,10 +126,12 @@ eleventyComputed:
            card that is not a piece is a square like the photos and ends on
            their lower edge. #}
         {% set karte = "w-[45%] flex-none snap-start lg:w-[22.5%]" if alsSlider else "" %}
-        {# data-slider: home-slider.js moves this row like the glaze slider on
-           the home page. data-slots: events.js keeps one date visible and
+        {# data-slider: home-slider.js gives this row the line and the arrows
+           below it (slider-nav.njk). "still" keeps it from advancing on its
+           own the way the glaze sliders do: someone reading prices should
+           not have the row pulled away. data-slots: events.js keeps one date visible and
            lets the next one move up when it has passed. #}
-        <div id="glaze-markets"{% if alsSlider %} data-slider{% endif %} data-slots="1" class="mt-8 {% if alsSlider %}no-scrollbar -mx-6 flex snap-x snap-mandatory items-start gap-5 overflow-x-auto scroll-px-6 px-6 pb-2{% else %}grid grid-cols-2 items-start gap-5 lg:grid-cols-4{% endif %}">
+        <div id="glaze-markets"{% if alsSlider %} data-slider="still"{% endif %} data-slots="1" class="mt-8 {% if alsSlider %}no-scrollbar -mx-6 flex snap-x snap-mandatory items-start gap-5 overflow-x-auto scroll-px-6 px-6 pb-2{% else %}grid grid-cols-2 items-start gap-5 lg:grid-cols-4{% endif %}">
             {% for piece in glaze.pieces %}
             <a href="{{ piece.url | shopLink("glaze-" + glaze.name + "-tile" + loop.index) }}" target="_blank" rel="noopener" class="group {{ karte }}">
                 {# The square belongs to the frame, not to the image: a piece
@@ -248,6 +250,7 @@ eleventyComputed:
             </a>
             {% endfor %}
         </div>
+        {% if alsSlider %}{% set sliderZiel = "glaze-markets" %}{% include "slider-nav.njk" %}{% endif %}
         {# Same line the home page carries under the same pieces: every tile
            here leaves the site, and saying so once under the block is friendlier
            than finding out at the checkout. #}
@@ -323,6 +326,8 @@ eleventyComputed:
             </a>
             {% endfor %}
         </div>
+        {# No colour dots here, so the line and the arrows take their place. #}
+        {% set sliderZiel = "glaze-slider" %}{% include "slider-nav.njk" %}
         <script defer src="/js/home-slider.js"></script>
     </section>
 </article>

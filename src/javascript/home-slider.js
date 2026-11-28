@@ -8,6 +8,11 @@
 // slides that glaze into view -- and on a glaze page without the dots. Any
 // other row marked data-slider (the pieces on a glaze page) moves the same way
 // and never has dots.
+//
+// A slider without dots can have a bar below it instead (slider-nav.njk,
+// found by the slider's id): a line whose thumb shows the position, and two
+// arrows that move one view at a time. data-slider="still" switches the
+// auto-advance off for that row.
 (function () {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -67,6 +72,7 @@
                 ticking = true;
                 requestAnimationFrame(function () {
                     setCurrent(leadingIndex());
+                    aktualisiere();
                     ticking = false;
                 });
             },
@@ -75,7 +81,43 @@
 
         setCurrent(0);
 
-        if (reduceMotion) return;
+        // The bar below the slider, if it has one.
+        const nav = slider.id ? document.querySelector('[data-slider-nav="' + slider.id + '"]') : null;
+        const thumb = nav && nav.querySelector("[data-slider-thumb]");
+        const prev = nav && nav.querySelector("[data-slider-prev]");
+        const next = nav && nav.querySelector("[data-slider-next]");
+
+        function aktualisiere() {
+            if (!nav) return;
+            const rest = slider.scrollWidth - slider.clientWidth;
+            // Nothing to scroll: every card is in view, and a bar would point nowhere.
+            nav.hidden = rest <= 2;
+            if (thumb) {
+                thumb.style.width = (slider.clientWidth / slider.scrollWidth) * 100 + "%";
+                thumb.style.left = (slider.scrollLeft / slider.scrollWidth) * 100 + "%";
+            }
+            if (prev) prev.disabled = slider.scrollLeft <= 2;
+            if (next) next.disabled = slider.scrollLeft >= rest - 2;
+        }
+
+        // One view at a time: as many whole cards as fit, so the card that
+        // was cut off at the edge leads the next view.
+        function blaettere(richtung) {
+            const sichtbar = cards();
+            const schritt = sichtbar.length > 1 ? sichtbar[1].getBoundingClientRect().left - sichtbar[0].getBoundingClientRect().left : slider.clientWidth;
+            const proAnsicht = Math.max(1, Math.floor(slider.clientWidth / schritt));
+            slider.scrollBy({ left: richtung * schritt * proAnsicht, behavior: reduceMotion ? "auto" : "smooth" });
+        }
+        if (prev) prev.addEventListener("click", function () { blaettere(-1); });
+        if (next) next.addEventListener("click", function () { blaettere(1); });
+
+        aktualisiere();
+        window.addEventListener("resize", aktualisiere);
+        // events.js may hide a market date that has passed, and images settle
+        // the widths: measure once more when the page has loaded.
+        window.addEventListener("load", aktualisiere);
+
+        if (reduceMotion || slider.dataset.slider === "still") return;
 
         let timer = null;
         let dir = 1;
@@ -114,6 +156,9 @@
         });
         dots.forEach(function (dot) {
             dot.addEventListener("click", stop);
+        });
+        [prev, next].forEach(function (knopf) {
+            if (knopf) knopf.addEventListener("click", stop);
         });
 
         ["pointerenter", "focusin"].forEach(function (e) {

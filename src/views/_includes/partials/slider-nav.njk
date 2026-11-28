@@ -1,0 +1,25 @@
+{# The line and the two arrows under a slider that has no strip of colour dots
+   (the pieces and "Other glazes" on a glaze page; the glaze slider on the home
+   page keeps its dots). The line shows how far along the row one is and how
+   much is left -- on a phone too, where nothing else says that the row goes
+   on. The arrows are for a mouse: without them the cards past the first view
+   could only be reached with the Tab key or Shift and the wheel. They stand
+   from lg up; on a phone one swipes.
+
+   Set sliderZiel to the id of the slider before including this file.
+   home-slider.js finds the bar by that id, moves the thumb, switches an arrow
+   off at either end and hides the whole bar when nothing can be scrolled. The
+   thumb's width here is only what shows before the script has run. #}
+<div data-slider-nav="{{ sliderZiel }}" class="mt-5 flex items-center gap-5">
+    <div class="relative h-0.5 flex-1 bg-hairline" aria-hidden="true">
+        <span data-slider-thumb class="absolute -top-px left-0 h-1 w-1/4 rounded-full bg-blue"></span>
+    </div>
+    <div class="hidden gap-2 lg:flex">
+        <button type="button" data-slider-prev disabled aria-label="{{ global.labels.slider_prev | default('Previous', true) }}" class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-hairline bg-white text-blue transition-colors hover:border-blue disabled:cursor-default disabled:opacity-35 disabled:hover:border-hairline">
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg>
+        </button>
+        <button type="button" data-slider-next aria-label="{{ global.labels.slider_next | default('Next', true) }}" class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-hairline bg-white text-blue transition-colors hover:border-blue disabled:cursor-default disabled:opacity-35 disabled:hover:border-hairline">
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg>
+        </button>
+    </div>
+</div>
