@@ -6,10 +6,6 @@
   "market_title": "Find {glaze} at the market",
   "market_text": "Sorry, not much {glaze} in the shop right now. Each firing goes to the markets with me first.",
   "market_cta": "All events",
-  "placeholder_image": {
-    "url": "/images/workshop/unglazed-mugs.jpg",
-    "alt": "Unglazed mugs waiting on the studio shelf, one held up in a hand"
-  },
   "shop_cta_all": "See all {glaze} pieces",
   "shop_all_label": "Shop all pieces",
   "ask_eyebrow": "Made to order",

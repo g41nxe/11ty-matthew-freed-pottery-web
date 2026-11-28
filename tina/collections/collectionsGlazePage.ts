@@ -50,11 +50,6 @@ export const collectionsGlazePage: Collection = {
     {
       type: "string", name: "market_cta", label: "Market tile: link to the events page", required: true,
     },
-    imageField(
-      "placeholder_image",
-      "Empty places: photo",
-      "A glaze page has four places. Where the shop holds fewer than three pieces, the places left after the market tile and the next date show this photo, tinted in the colour of the glaze. It should show work that is not finished yet - unglazed pots are ideal - because it stands for pieces that are still to come."
-    ),
     {
       type: "string", name: "shop_all_label", label: "Link to the whole shop", required: true,
       description: 'Beside the heading above the pieces, on every glaze page: the way into the shop as a whole, like "Shop all pieces" on the home page.',

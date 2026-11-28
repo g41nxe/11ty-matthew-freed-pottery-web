@@ -221,13 +221,18 @@ test("was an Stücken fehlt, füllen die Märkte auf", () => {
     // Höchstens ein Termin; was darüber hinaus frei ist, zeigt das leere Regal.
     assert.match(block, /{% set termine = 1 if plaetze > 0 else 0 %}/, "es stehen wieder mehrere Termine nebeneinander");
     assert.match(block, /{% set leer = plaetze - termine %}/, "die leeren Plätze werden nicht mehr gezählt");
-    assert.match(block, /range\(0, leer \+ fueller\)[\s\S]*placeholder_image/, "die leeren Plätze zeigen das Platzhalter-Foto nicht mehr");
-    assert.ok((seitentexte.placeholder_image || {}).url, "collections_glaze.json: das Platzhalter-Foto fehlt");
+    // Leere Plätze tragen ein X auf der Glasurfarbe, in Papier oder Tinte, je nachdem, was darauf lesbar ist.
+    assert.match(block, /range\(0, kreuze\)[\s\S]*glaze\.swatch \| schriftAuf/, "die leeren Plätze zeigen kein X mehr in lesbarer Farbe");
+    assert.ok(!block.includes("placeholder_image"), "das Platzhalter-Foto ist zurück");
+    // Telefon: Eine ungerade Zahl von Stücken bekommt ein X daneben, die
+    // Marktkachel steht in voller Breite darunter, die Terminkachel entfällt.
+    assert.match(block, /{% set luecke = glaze\.pieces\.length % 2 %}/, "auf dem Telefon bleibt neben einem einzelnen Stück wieder ein Loch");
+    assert.match(block, /href="\/events\.html" class="group col-span-2 [^"]*md:col-span-1 md:aspect-square/, "die Marktkachel steht auf dem Telefon nicht mehr in voller Breite unter den Stücken");
+    assert.match(block, /data-event[\s\S]*?class="[^"]*max-md:hidden/, "die Terminkachel steht wieder auf dem Telefon");
     assert.match(block, /{% if glaze\.pieces\.length < 4 %}/, "die Marktkachel steht jetzt auch auf einer vollen Seite");
     for (const feld of ["market_title", "market_text", "market_cta"]) {
         assert.ok(block.includes("collections_glaze." + feld), `die Marktkachel holt ${feld} nicht mehr aus dem CMS`);
     }
-    assert.ok(!block.includes("glaze.swatch | schriftAuf"), "das Farbmuster ist zurück, wo jetzt die Märkte stehen");
 });
 
 // Auf den sechzehn Glasurfarben muss der Name lesbar bleiben. Die hellste,

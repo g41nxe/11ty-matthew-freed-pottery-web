@@ -55,8 +55,8 @@ eleventyComputed:
                     <span class="mt-2 h-7.5 w-7.5 flex-none rounded-full" style="background-color: {{ glaze.swatch }}" aria-hidden="true"></span>
                     {{ glaze.name }}
                 </h1>
-                {# The card's one-liner in blue capitals under the name, the way the featured piece on the home page carries its caption (cap-label text-blue under the title). Without that line the header was one grey text block under a heading. mt-3 puts it as far below the name as the label stands above it (measured ink to ink: 26 and 25 pixels; with mt-2 it was 26 and 21), and leading-5 gives a tagline of two lines room between them. #}
-                {% if glaze.text %}<p class="cap-label mt-3 text-balance leading-5 text-blue">{{ glaze.text | trim | replace(r/\.$/, "") }}</p>{% endif %}
+                {# The card's one-liner under the name, as a sentence in the display serif: the second voice of the page between the heavy name and the grey text. It was blue capitals first, the way the featured piece on the home page carries its caption, but a line this long (Skaha's runs to eighty characters) is three rows of capitals and reads as a block, not as a caption. Ink, not blue: blue is the colour of labels and links here. #}
+                {% if glaze.text %}<p class="mt-3 text-balance font-display text-lg font-medium leading-7 text-ink md:text-xl">{{ glaze.text | trim | replace(r/\.$/, "") }}.</p>{% endif %}
             </div>
             {# Das erste Bild der Seite und meist ihr größtes: Es lädt sofort,
                nicht erst beim Scrollen. Ein Link ist es nur, solange die
@@ -113,29 +113,29 @@ eleventyComputed:
            eine negative Zahl, die events.js von hinten abzählen würde. #}
         {% if plaetze < 0 %}{% set plaetze = 0 %}{% endif %}
         {# Von den freien Plätzen bekommt höchstens einer einen Termin. Was dann
-           noch frei ist, zeigt das leere Regal: Matthews unglasierte Becher, in
-           die Farbe der Glasur getönt. Drei Termine nebeneinander machten aus
-           einer Glasurseite einen Marktkalender; der steht auf der Events-Seite.
-           Bei drei Stücken kommt auf dem Telefon ein Platzhalter dazu, der den
-           Platz neben dem dritten füllt (siehe kartenform). #}
+           noch frei ist, bleibt sichtbar leer: die Glasurfarbe mit einem X, wie
+           ein Platz im Regal, an dem gerade nichts steht. Drei Termine
+           nebeneinander machten aus einer Glasurseite einen Marktkalender; der
+           steht auf der Events-Seite. #}
         {% set termine = 1 if plaetze > 0 else 0 %}
         {% set leer = plaetze - termine %}
-        {% set fueller = 1 if glaze.pieces.length == 3 else 0 %}
-        {# Beside photos the cards are as tall as the photos, a square, and end
-           on the photos' lower edge; stretched to the full row they ran on
-           past it, down to the line with the prices. On a phone a square is
-           some 160 pixels and does not hold the market tile's text, so there
-           the cards leave the two columns and stand below the pieces at full
-           width, with all their text; beside a photo there is then only
-           another photo or a placeholder. Without any pieces there is no
-           photo to line up with, and the cards size themselves. #}
-        {% set kartenform = "col-span-2 md:col-span-1 md:aspect-square md:self-start" if glaze.pieces.length else "h-full" %}
-        {# Without pieces the row holds four cards, and they stand the way the
-           events band on the home page does: one below the other on a phone, two
-           by two from sm, four in a row from lg. Two by two on a phone gave the
-           market tile 150 pixels for five lines of text and left the date cards
-           beside it half empty. From sm up the rows share one height. #}
-        <div id="glaze-markets" data-slots="{{ termine }}" class="mt-8 grid gap-5 {% if glaze.pieces.length %}grid-cols-2 md:grid-cols-4{% else %}sm:auto-rows-fr sm:grid-cols-2 lg:grid-cols-4{% endif %}">
+        {# On a phone the pieces stand two by two, and an odd number would
+           leave a hole beside the last one. One X fills it. #}
+        {% set luecke = glaze.pieces.length % 2 %}
+        {% set kreuze = leer if leer > luecke else luecke %}
+        {# Two layouts from one list.
+
+           From md up, four squares in a row: the pieces, the market tile, one
+           date, and an X on every place still free. Each ends on the lower
+           edge of the photos.
+
+           On a phone a square is some 160 pixels and does not hold the market
+           tile's text. So there the photos keep the two columns to themselves
+           (with one X where a place beside a photo would stay empty), and the
+           market tile stands below them at full width with all its text. The
+           date tile is left out: the market tile leads to the dates. With no
+           pieces at all the market tile stands alone. #}
+        <div id="glaze-markets" data-slots="{{ termine }}" class="mt-8 grid grid-cols-2 gap-5 md:grid-cols-4">
             {% for piece in glaze.pieces %}
             <a href="{{ piece.url | shopLink("glaze-" + glaze.name + "-tile" + loop.index) }}" target="_blank" rel="noopener" class="group">
                 <div class="relative overflow-hidden bg-white">
@@ -152,19 +152,18 @@ eleventyComputed:
             </a>
             {% endfor %}
 
-            {# The empty shelf. The photo lies in greyscale over the glaze colour
-               and takes its tone (mix-blend-luminosity), so one picture serves
-               all sixteen glazes. It stands right after the pieces, where a
-               phone needs it to sit beside a photo; from md up order-1 moves
-               it behind the cards. Beside photos it is a square like them;
-               without pieces it fills the height of the card row and is left
-               out on a phone, where the cards stand one below the other and
-               two colour fields would only be distance. Every second one is mirrored, so two
-               side by side do not read as the same picture twice. It says
-               nothing a screen reader needs. #}
-            {% for n in range(0, leer + fueller) %}
-            <div class="relative order-1 overflow-hidden {% if glaze.pieces.length %}aspect-square self-start{% if n >= leer %} md:hidden{% endif %}{% else %}hidden h-full min-h-40 sm:block{% endif %}" style="background-color: {{ glaze.swatch }}" aria-hidden="true">
-                {% img collections_glaze.placeholder_image.url, "", "(min-width: 1152px) 264px, (min-width: 768px) 25vw, 50vw", "absolute inset-0 h-full w-full object-cover opacity-60 mix-blend-luminosity grayscale" ~ (" -scale-x-100" if n % 2 else "") %}
+            {# The empty places: the glaze colour, a fine line inside the edge
+               and an X, the way a shelf marks a spot where nothing stands.
+               Line and X take paper or ink, whichever reads better on the
+               colour (schriftAuf). In the HTML they come right after the
+               pieces, where a phone needs the one that fills the gap; from md
+               up order-1 moves them behind the cards. Which of them a width
+               shows is counted separately: a phone the first "luecke", md and
+               up the first "leer". They say nothing a screen reader needs. #}
+            {% for n in range(0, kreuze) %}
+            <div class="relative aspect-square self-start md:order-1{% if n >= luecke %} max-md:hidden{% endif %}{% if n >= leer %} md:hidden{% endif %}" style="background-color: {{ glaze.swatch }}; color: {{ glaze.swatch | schriftAuf }}" aria-hidden="true">
+                <span class="absolute inset-2.5 border border-current opacity-40"></span>
+                <svg class="absolute left-1/2 top-1/2 h-[28%] w-[28%] -translate-x-1/2 -translate-y-1/2 opacity-90" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l28 28M34 6L6 34"/></svg>
             </div>
             {% endfor %}
 
@@ -172,7 +171,7 @@ eleventyComputed:
             {# Der blaue Rahmen trennt sie von den Stücken daneben, die
                keinen haben. Dieselbe Markierung trägt auf der Events-Seite
                der nächste Termin. #}
-            <a href="/events.html" class="group flex {{ kartenform }} flex-col rounded-xl border-2 border-blue bg-white p-4 md:p-5">
+            <a href="/events.html" class="group col-span-2 flex flex-col rounded-xl border-2 border-blue bg-white p-4 md:col-span-1 md:aspect-square md:self-start md:p-5">
                 <p class="font-display text-lg font-black leading-tight text-ink transition-colors group-hover:text-blue md:text-2xl">{{ collections_glaze.market_title | replace("{glaze}", glaze.name) }}</p>
                 {# Ohne Termin stimmt der Satz über die Märkte nicht mehr,
                    also steht dort dieselbe Zeile wie im Terminband. events.js
@@ -186,11 +185,12 @@ eleventyComputed:
             {% endif %}
 
             {# Wie im Terminband steht jeder kommende Termin im HTML, und nur
-               die ersten paar sind sichtbar: events.js wiederholt die Auswahl
-               im Browser, damit ein Markt verschwindet, der seit dem Bau
-               vorbei ist. Beim Überfahren wird die Haarlinie blau und der Name auch -- so reagieren
-               weiße Flächen auf dieser Seite überall (Kartenknopf, Formularfelder).
-               Eine andere Flächenfarbe gibt es nur im blauen Terminband. #}
+               der erste ist sichtbar: events.js wiederholt die Auswahl im
+               Browser, damit ein Markt verschwindet, der seit dem Bau vorbei
+               ist. Beim Überfahren wird die Haarlinie blau und der Name auch --
+               so reagieren weiße Flächen auf dieser Seite überall (Kartenknopf,
+               Formularfelder). Eine andere Flächenfarbe gibt es nur im blauen
+               Terminband. Auf dem Telefon steht keine Terminkachel (max-md:hidden). #}
             {% for event in upcoming %}
             {% set rank = shortlist.indexOf(event) %}
             <a href="/events.html"
@@ -199,10 +199,10 @@ eleventyComputed:
                data-until="{{ (event.end_date or event.date) | date('yyyy-MM-dd') }}"
                data-name="{{ event.name | trim }}"
                {% if rank < 0 or rank >= termine %}hidden{% endif %}
-               class="group flex {{ kartenform }} flex-col rounded-xl border border-hairline bg-white p-4 transition-colors hover:border-blue md:p-5">
+               class="group flex aspect-square flex-col self-start rounded-xl border border-hairline bg-white p-5 transition-colors hover:border-blue max-md:hidden">
                 <p data-next-label class="cap-label mb-2 text-[11px] text-blue"{% if rank != 0 %} hidden{% endif %}>{{ global.labels.next_up }}</p>
                 <p class="flex items-baseline gap-2">
-                    <span class="font-display text-2xl font-black text-ink md:text-3xl">{{ event.date | date("d") }}</span>
+                    <span class="font-display text-3xl font-black text-ink">{{ event.date | date("d") }}</span>
                     <span class="cap-label text-[11px] text-soft">{{ event.date | date("MMM") }}</span>
                 </p>
                 <p class="mt-3 font-display text-base font-black leading-snug text-ink transition-colors group-hover:text-blue">{{ event.name }}</p>
