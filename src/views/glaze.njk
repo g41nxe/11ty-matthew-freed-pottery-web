@@ -195,8 +195,13 @@ eleventyComputed:
                sie, wenn der letzte Termin vorbeigezogen ist, seit die Seite
                gebaut wurde. #}
             {# The glaze name stands out the way a glaze does in the blurbs on the home page: .text-highlight, blue in its light variant (.blurb-inline). #}
+            {# Unter 390 Pixeln misst eine Karte rund 140, und weder der Satz der
+               Marktkachel noch ein Marktname in drei Zeilen passt in ein Quadrat
+               dieser Größe. Dort sind Marktkachel und Termin deshalb so hoch wie
+               die Karten daneben mit Foto und Titel (max-[389px]:aspect-auto und
+               self-stretch) statt wie die Fotos allein. #}
             {% set glasurname = '<span class="text-highlight font-bold">' ~ glaze.name ~ '</span>' %}
-            <a href="/events.html" class="group flex aspect-square flex-col rounded-xl border-2 border-blue bg-white p-3 sm:p-5 lg:p-4 {{ karte }}">
+            <a href="/events.html" class="group flex aspect-square flex-col rounded-xl border-2 border-blue bg-white p-3 max-[389px]:aspect-auto max-[389px]:self-stretch sm:p-5 lg:p-4 {{ karte }}">
                 <p class="font-display text-sm font-black leading-tight text-ink transition-colors group-hover:text-blue sm:text-2xl lg:text-lg xl:text-xl">{{ collections_glaze.market_title | replace("{glaze}", glaze.name) }}</p>
                 <p data-market-text class="blurb-inline mt-1.5 text-xs leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed"{% if not shortlist.length %} hidden{% endif %}>{{ collections_glaze.market_text | replace("{glaze}", glasurname) | safe }}{% if collections_glaze.market_text_more %}<span class="max-sm:hidden lg:max-xl:hidden"> {{ collections_glaze.market_text_more }}</span>{% endif %}</p>
                 <p data-market-soon class="mt-1.5 text-xs leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed"{% if shortlist.length %} hidden{% endif %}>{{ global.labels.dates_soon }}</p>
@@ -219,7 +224,7 @@ eleventyComputed:
                data-until="{{ (event.end_date or event.date) | date('yyyy-MM-dd') }}"
                data-name="{{ event.name | trim }}"
                {% if rank != 0 %}hidden{% endif %}
-               class="group flex aspect-square flex-col rounded-xl border border-hairline bg-white p-3 transition-colors hover:border-blue sm:p-5 lg:p-4 {{ karte }}">
+               class="group flex aspect-square flex-col rounded-xl border border-hairline bg-white p-3 transition-colors hover:border-blue max-[389px]:aspect-auto max-[389px]:self-stretch sm:p-5 lg:p-4 {{ karte }}">
                 <p data-next-label class="cap-label mb-1 text-[11px] text-blue sm:mb-2"{% if rank != 0 %} hidden{% endif %}>{{ global.labels.next_up }}</p>
                 <p class="flex items-baseline gap-2">
                     <span class="font-display text-2xl font-black text-ink sm:text-3xl">{{ event.date | date("d") }}</span>
