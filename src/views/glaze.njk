@@ -214,12 +214,17 @@ eleventyComputed:
                die Karten daneben mit Foto und Titel (max-[389px]:aspect-auto und
                self-stretch) statt wie die Fotos allein. #}
             {# The sentence and the name are escaped first, then the name goes in as markup: "| safe" at the end covers the whole string, and without the escape an ampersand typed into the CMS would reach the page raw. #}
+            {# The type follows the card, not the screen. A card is widest on a
+               tablet, where two share the row (some 350 pixels from md up),
+               and narrower again from lg, where four do (220 to 260). So the
+               sizes go up at md and back down at lg -- with one size from sm
+               up, the tablet card stood half empty under small type. #}
             {% set glasurname = '<span class="text-highlight font-bold">' ~ (glaze.name | escape) ~ '</span>' %}
             <a href="/events.html" data-market-tile class="group flex aspect-square flex-col rounded-xl border-2 border-blue bg-white p-3 max-[389px]:aspect-auto max-[389px]:self-stretch sm:p-5 lg:p-4 {{ karte }}">
-                <p class="font-display text-sm font-black leading-tight text-ink transition-colors group-hover:text-blue sm:text-2xl lg:text-lg min-[1152px]:text-xl">{{ collections_glaze.market_title | replace("{glaze}", glaze.name) }}</p>
-                <p data-market-text class="blurb-inline mt-1.5 text-xs leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed"{% if not shortlist.length %} hidden{% endif %}>{{ collections_glaze.market_text | escape | replace("{glaze}", glasurname) | safe }}{% if collections_glaze.market_text_more %}<span class="max-sm:hidden lg:max-[1151px]:hidden"> {{ collections_glaze.market_text_more }}</span>{% endif %}</p>
-                <p data-market-soon class="mt-1.5 text-xs leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed"{% if shortlist.length %} hidden{% endif %}>{{ global.labels.dates_soon }}</p>
-                <span class="link-underline mt-auto inline-block self-start pt-4 text-sm max-sm:hidden">{{ collections_glaze.market_cta }}</span>
+                <p class="font-display text-sm font-black leading-tight text-ink transition-colors group-hover:text-blue sm:text-2xl md:text-3xl lg:text-lg min-[1152px]:text-xl">{{ collections_glaze.market_title | replace("{glaze}", glaze.name) }}</p>
+                <p data-market-text class="blurb-inline mt-1.5 text-xs leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed md:text-base md:leading-relaxed lg:text-sm"{% if not shortlist.length %} hidden{% endif %}>{{ collections_glaze.market_text | escape | replace("{glaze}", glasurname) | safe }}{% if collections_glaze.market_text_more %}<span class="max-sm:hidden lg:max-[1151px]:hidden"> {{ collections_glaze.market_text_more }}</span>{% endif %}</p>
+                <p data-market-soon class="mt-1.5 text-xs leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed md:text-base md:leading-relaxed lg:text-sm"{% if shortlist.length %} hidden{% endif %}>{{ global.labels.dates_soon }}</p>
+                <span class="link-underline mt-auto inline-block self-start pt-4 text-sm max-sm:hidden md:text-base lg:text-sm">{{ collections_glaze.market_cta }}</span>
             </a>
 
             {# Wie im Terminband steht jeder kommende Termin im HTML, und nur
@@ -239,14 +244,14 @@ eleventyComputed:
                data-name="{{ event.name | trim }}"
                {% if rank != 0 %}hidden{% endif %}
                class="group flex aspect-square flex-col rounded-xl border border-hairline bg-white p-3 transition-colors hover:border-blue max-[389px]:aspect-auto max-[389px]:self-stretch sm:p-5 lg:p-4 {{ karte }}">
-                <p data-next-label class="cap-label mb-1 text-[11px] text-blue sm:mb-2"{% if rank != 0 %} hidden{% endif %}>{{ global.labels.next_up }}</p>
+                <p data-next-label class="cap-label mb-1 text-[11px] text-blue sm:mb-2 md:text-xs lg:text-[11px]"{% if rank != 0 %} hidden{% endif %}>{{ global.labels.next_up }}</p>
                 <p class="flex items-baseline gap-2">
-                    <span class="font-display text-2xl font-black text-ink sm:text-3xl">{{ event.date | date("d") }}</span>
-                    <span class="cap-label text-[11px] text-soft">{{ event.date | date("MMM") }}</span>
+                    <span class="font-display text-2xl font-black text-ink sm:text-3xl md:text-4xl lg:text-3xl">{{ event.date | date("d") }}</span>
+                    <span class="cap-label text-[11px] text-soft md:text-xs lg:text-[11px]">{{ event.date | date("MMM") }}</span>
                 </p>
-                <p class="mt-2 font-display text-sm font-black leading-snug text-ink transition-colors group-hover:text-blue sm:mt-3 sm:text-base">{{ event.name }}</p>
-                <p class="mt-1 text-sm text-muted max-sm:hidden">{{ event.location }}</p>
-                {% if event.time %}<p class="mt-1 text-sm text-muted max-sm:hidden">{{ event.time }}</p>{% endif %}
+                <p class="mt-2 font-display text-sm font-black leading-snug text-ink transition-colors group-hover:text-blue sm:mt-3 sm:text-base md:text-xl lg:text-base">{{ event.name }}</p>
+                <p class="mt-1 text-sm text-muted max-sm:hidden md:text-base lg:text-sm">{{ event.location }}</p>
+                {% if event.time %}<p class="mt-1 text-sm text-muted max-sm:hidden md:text-base lg:text-sm">{{ event.time }}</p>{% endif %}
             </a>
             {% endfor %}
         </div>
