@@ -1,5 +1,9 @@
 ---
 layout: base
+# The page ends on the strip under the glaze slider, which carries its own
+# hairlines above and below. The Instagram block's top line right under it
+# made three rules in a row; the home page switches it off the same way.
+social_flush: true
 pagination:
   data: glazePages
   size: 1
@@ -55,8 +59,8 @@ eleventyComputed:
                     <span class="mt-2 h-7.5 w-7.5 flex-none rounded-full" style="background-color: {{ glaze.swatch }}" aria-hidden="true"></span>
                     {{ glaze.name }}
                 </h1>
-                {# The card's one-liner in blue capitals under the name, the way the featured piece on the home page carries its caption (cap-label text-blue under the title). Without that line the header was one grey text block under a heading. #}
-                {% if glaze.text %}<p class="cap-label mt-2 text-balance text-blue">{{ glaze.text | trim | replace(r/\.$/, "") }}</p>{% endif %}
+                {# The card's one-liner in blue capitals under the name, the way the featured piece on the home page carries its caption (cap-label text-blue under the title). Without that line the header was one grey text block under a heading. mt-3 puts it as far below the name as the label stands above it (measured ink to ink: 26 and 25 pixels; with mt-2 it was 26 and 21), and leading-5 gives a tagline of two lines room between them. #}
+                {% if glaze.text %}<p class="cap-label mt-3 text-balance leading-5 text-blue">{{ glaze.text | trim | replace(r/\.$/, "") }}</p>{% endif %}
             </div>
             {# Das erste Bild der Seite und meist ihr größtes: Es lädt sofort,
                nicht erst beim Scrollen. Ein Link ist es nur, solange die
@@ -112,8 +116,12 @@ eleventyComputed:
         {# Vier Stücke lassen keinen Platz übrig; ohne diese Zeile stünde dort
            eine negative Zahl, die events.js von hinten abzählen würde. #}
         {% if plaetze < 0 %}{% set plaetze = 0 %}{% endif %}
-        {# Without pieces the row holds four cards, and on a phone they stand two by two. The first row carries the market tile and the "Next up" label and came out taller than the second; auto-rows-fr gives both rows the height of the taller one. With pieces in the row it stays off: a row of photos and a row of cards are different things and may differ in height. #}
-        <div id="glaze-markets" data-slots="{{ plaetze }}" class="mt-8 grid grid-cols-2 gap-5 md:grid-cols-4{% if not glaze.pieces.length %} auto-rows-fr{% endif %}">
+        {# Without pieces the row holds four cards, and they stand the way the
+           events band on the home page does: one below the other on a phone, two
+           by two from sm, four in a row from lg. Two by two on a phone gave the
+           market tile 150 pixels for five lines of text and left the date cards
+           beside it half empty. From sm up the rows share one height. #}
+        <div id="glaze-markets" data-slots="{{ plaetze }}" class="mt-8 grid gap-5 {% if glaze.pieces.length %}grid-cols-2 md:grid-cols-4{% else %}sm:auto-rows-fr sm:grid-cols-2 lg:grid-cols-4{% endif %}">
             {% for piece in glaze.pieces %}
             <a href="{{ piece.url | shopLink("glaze-" + glaze.name + "-tile" + loop.index) }}" target="_blank" rel="noopener" class="group">
                 <div class="relative overflow-hidden bg-white">
@@ -217,20 +225,18 @@ eleventyComputed:
     </section>
 
     {# The page we want people to keep circling back to, so the other glazes
-       get cards here, not a thin row of links. Always four of them, rotating,
-       see _data/glazePages.js. #}
+       get cards here, not a thin row of links. It is the slider from the home
+       page, markup and script unchanged (home-slider.js looks for #glaze-slider
+       and .glaze-dot): all fifteen other glazes can be reached from here, where
+       a grid of four showed the next four and hid the rest. The order starts
+       with the glaze after this one, see _data/glazePages.js. #}
     <section class="mx-auto max-w-6xl px-6 py-12" aria-label="Other glazes">
-        <div class="flex items-baseline justify-between gap-4">
-            <h2 class="font-display text-2xl font-black text-ink">{{ collections_glaze.others_title }}</h2>
-            <a href="/collections.html" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.back_label }}</a>
-        </div>
-        <div class="mt-8 grid grid-cols-2 gap-5 md:grid-cols-4">
+        <h2 class="font-display text-2xl font-black text-ink">{{ collections_glaze.others_title }}</h2>
+        <div id="glaze-slider" class="no-scrollbar -mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-6 px-6 pb-2">
             {% for other in glaze.others %}
-            <a href="{{ other.path }}" class="group">
-                {# Square, and backed by the glaze colour, the same tile the
-                   slider on the home page uses: same job, same shape. #}
+            <a href="{{ other.path }}" class="group w-[86%] flex-none snap-start sm:w-[45%] md:w-[31%]">
                 <div class="aspect-[4/3] w-full overflow-hidden" style="background-color: {{ other.swatch }}">
-                    {% img other.image.url, other.image.alt, "(min-width: 768px) 25vw, 50vw", "img-zoom h-full w-full object-cover" %}
+                    {% img other.image.url, other.image.alt, "(min-width: 1152px) 342px, (min-width: 768px) 31vw, 86vw", "img-zoom h-full w-full object-cover" %}
                 </div>
                 <p class="mt-3 flex items-center gap-2 font-display text-base font-black text-ink transition-colors group-hover:text-blue">
                     <span class="h-2.5 w-2.5 flex-none rounded-full" style="background-color: {{ other.swatch }}" aria-hidden="true"></span>
@@ -240,5 +246,19 @@ eleventyComputed:
             </a>
             {% endfor %}
         </div>
+        {# The strip under the slider, as on the home page: the way back to all
+           glazes on the left, one dot per glaze on the right. A dot shows where
+           the slider stands and jumps to its glaze. #}
+        <div class="palette-strip mt-8 flex flex-col gap-4 border-y border-hairline py-5 sm:flex-row sm:items-center sm:justify-between">
+            <a href="/collections.html" class="strip-label self-start font-display text-lg font-black text-blue sm:self-auto">{{ collections_glaze.back_label }}</a>
+            <div class="palette-dots -mx-1 flex flex-wrap items-center" aria-label="Jump to a glaze">
+                {% for other in glaze.others %}
+                <button type="button" data-goto="{{ loop.index0 }}" class="glaze-dot" title="{{ other.name }}" aria-label="Show {{ other.name }}">
+                    <span class="dot" style="background-color: {{ other.swatch }}"></span>
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+        <script defer src="/js/home-slider.js"></script>
     </section>
 </article>

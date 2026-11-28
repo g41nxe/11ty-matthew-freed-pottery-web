@@ -41,13 +41,13 @@ const seiten = gallery.items
         };
     });
 
-// The four other glazes each page links on to. Always four, so the grid never
-// breaks into a row holding one lonely card, and rotating rather than fixed,
-// so every glaze is linked to as often as the others instead of the first
-// four collecting all the links.
+// The other glazes each page links on to, for the slider at the foot of the
+// page: all of them, starting with the one after this glaze, so every page
+// opens on a different neighbour instead of sixteen sliders all starting at
+// Skaha.
 seiten.forEach((page, i, alle) => {
     page.others = Array.from(
-        { length: Math.min(4, alle.length - 1) },
+        { length: alle.length - 1 },
         (_, n) => alle[(i + 1 + n) % alle.length]
     );
 });

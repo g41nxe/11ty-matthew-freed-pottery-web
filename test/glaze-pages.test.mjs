@@ -148,9 +148,9 @@ test("the texts that name a glaze keep their placeholder", () => {
 // wide and five would leave one card alone on a second row -- which is what
 // Skaha's page showed the moment it became the sixth. They rotate, so no
 // glaze collects all the links and none is never linked to.
-test("every page links on to four other glazes, itself never among them", () => {
+test("every page links on to every other glaze, itself never among them", () => {
     for (const page of glazePages) {
-        assert.equal(page.others.length, Math.min(4, glazePages.length - 1), `${page.title}: wrong number of cards`);
+        assert.equal(page.others.length, glazePages.length - 1, `${page.title}: the slider does not hold every other glaze`);
         assert.ok(!page.others.some((o) => o.path === page.path), `${page.title}: links to itself`);
         const pfade = page.others.map((o) => o.path);
         assert.deepEqual(pfade, [...new Set(pfade)], `${page.title}: the same glaze twice`);
