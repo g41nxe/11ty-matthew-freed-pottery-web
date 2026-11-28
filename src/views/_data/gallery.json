@@ -81,6 +81,9 @@
       "lead": "The rich blue tones of the Galiano glaze remind me of the ocean waters around Galiano island.  You can dive right into these blues!",
       "story": "Sailing the waters around Galiano island inspires the name of this glaze line.",
       "slug": "galiano",
+      "exclude": [
+        "https://shop.matthewfreed.net/products/copy-of-lidded-jar-whistler-blue"
+      ],
       "swatch": "#2438A6",
       "filterGroups": [
         "Blues"

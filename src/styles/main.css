@@ -81,6 +81,14 @@
     .link-underline {
         @apply relative font-sans font-medium text-blue transition-colors;
     }
+    /* A text link is one line of type, some twenty pixels high -- too small
+       to hit with a thumb. This invisible field around it brings the target
+       to 44 pixels and more without moving anything on the page. */
+    .link-underline::before {
+        content: "";
+        position: absolute;
+        inset: -0.875rem -0.375rem;
+    }
     .link-underline::after {
         content: "";
         position: absolute;
