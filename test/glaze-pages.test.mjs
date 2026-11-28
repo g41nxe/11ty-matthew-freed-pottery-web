@@ -217,7 +217,12 @@ test("was an Stücken fehlt, füllen die Märkte auf", () => {
     const vorlage = fs.readFileSync(path.join("src", "views", "glaze.njk"), "utf8");
     const block = vorlage.slice(vorlage.indexOf('aria-label="This glaze in the shop"'));
     assert.match(block, /{% set plaetze = 3 - glaze\.pieces\.length %}/, "die freien Plätze werden nicht mehr aus der Stückzahl berechnet");
-    assert.match(block, /data-slots="{{ plaetze }}"/, "events.js erfährt die Zahl der Plätze nicht mehr");
+    assert.match(block, /data-slots="{{ termine }}"/, "events.js erfährt die Zahl der Termin-Plätze nicht mehr");
+    // Höchstens ein Termin; was darüber hinaus frei ist, zeigt das leere Regal.
+    assert.match(block, /{% set termine = 1 if plaetze > 0 else 0 %}/, "es stehen wieder mehrere Termine nebeneinander");
+    assert.match(block, /{% set leer = plaetze - termine %}/, "die leeren Plätze werden nicht mehr gezählt");
+    assert.match(block, /range\(0, leer \+ fueller\)[\s\S]*placeholder_image/, "die leeren Plätze zeigen das Platzhalter-Foto nicht mehr");
+    assert.ok((seitentexte.placeholder_image || {}).url, "collections_glaze.json: das Platzhalter-Foto fehlt");
     assert.match(block, /{% if glaze\.pieces\.length < 4 %}/, "die Marktkachel steht jetzt auch auf einer vollen Seite");
     for (const feld of ["market_title", "market_text", "market_cta"]) {
         assert.ok(block.includes("collections_glaze." + feld), `die Marktkachel holt ${feld} nicht mehr aus dem CMS`);

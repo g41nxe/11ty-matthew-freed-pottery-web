@@ -112,19 +112,30 @@ eleventyComputed:
         {# Vier Stücke lassen keinen Platz übrig; ohne diese Zeile stünde dort
            eine negative Zahl, die events.js von hinten abzählen würde. #}
         {% if plaetze < 0 %}{% set plaetze = 0 %}{% endif %}
+        {# Von den freien Plätzen bekommt höchstens einer einen Termin. Was dann
+           noch frei ist, zeigt das leere Regal: Matthews unglasierte Becher, in
+           die Farbe der Glasur getönt. Drei Termine nebeneinander machten aus
+           einer Glasurseite einen Marktkalender; der steht auf der Events-Seite.
+           Bei drei Stücken kommt auf dem Telefon ein Platzhalter dazu, der den
+           Platz neben dem dritten füllt (siehe kartenform). #}
+        {% set termine = 1 if plaetze > 0 else 0 %}
+        {% set leer = plaetze - termine %}
+        {% set fueller = 1 if glaze.pieces.length == 3 else 0 %}
         {# Beside photos the cards are as tall as the photos, a square, and end
            on the photos' lower edge; stretched to the full row they ran on
-           past it, down to the line with the prices. Below md the columns
-           are too narrow for the market tile's text to fit a square, so
-           there the cards keep the height of their row. Without any pieces
-           there is no photo to line up with, and the cards size themselves. #}
-        {% set kartenform = "h-full md:aspect-square md:h-auto md:self-start" if glaze.pieces.length else "h-full" %}
+           past it, down to the line with the prices. On a phone a square is
+           some 160 pixels and does not hold the market tile's text, so there
+           the cards leave the two columns and stand below the pieces at full
+           width, with all their text; beside a photo there is then only
+           another photo or a placeholder. Without any pieces there is no
+           photo to line up with, and the cards size themselves. #}
+        {% set kartenform = "col-span-2 md:col-span-1 md:aspect-square md:self-start" if glaze.pieces.length else "h-full" %}
         {# Without pieces the row holds four cards, and they stand the way the
            events band on the home page does: one below the other on a phone, two
            by two from sm, four in a row from lg. Two by two on a phone gave the
            market tile 150 pixels for five lines of text and left the date cards
            beside it half empty. From sm up the rows share one height. #}
-        <div id="glaze-markets" data-slots="{{ plaetze }}" class="mt-8 grid gap-5 {% if glaze.pieces.length %}grid-cols-2 md:grid-cols-4{% else %}sm:auto-rows-fr sm:grid-cols-2 lg:grid-cols-4{% endif %}">
+        <div id="glaze-markets" data-slots="{{ termine }}" class="mt-8 grid gap-5 {% if glaze.pieces.length %}grid-cols-2 md:grid-cols-4{% else %}sm:auto-rows-fr sm:grid-cols-2 lg:grid-cols-4{% endif %}">
             {% for piece in glaze.pieces %}
             <a href="{{ piece.url | shopLink("glaze-" + glaze.name + "-tile" + loop.index) }}" target="_blank" rel="noopener" class="group">
                 <div class="relative overflow-hidden bg-white">
@@ -141,6 +152,22 @@ eleventyComputed:
             </a>
             {% endfor %}
 
+            {# The empty shelf. The photo lies in greyscale over the glaze colour
+               and takes its tone (mix-blend-luminosity), so one picture serves
+               all sixteen glazes. It stands right after the pieces, where a
+               phone needs it to sit beside a photo; from md up order-1 moves
+               it behind the cards. Beside photos it is a square like them;
+               without pieces it fills the height of the card row and is left
+               out on a phone, where the cards stand one below the other and
+               two colour fields would only be distance. Every second one is mirrored, so two
+               side by side do not read as the same picture twice. It says
+               nothing a screen reader needs. #}
+            {% for n in range(0, leer + fueller) %}
+            <div class="relative order-1 overflow-hidden {% if glaze.pieces.length %}aspect-square self-start{% if n >= leer %} md:hidden{% endif %}{% else %}hidden h-full min-h-40 sm:block{% endif %}" style="background-color: {{ glaze.swatch }}" aria-hidden="true">
+                {% img collections_glaze.placeholder_image.url, "", "(min-width: 1152px) 264px, (min-width: 768px) 25vw, 50vw", "absolute inset-0 h-full w-full object-cover opacity-60 mix-blend-luminosity grayscale" ~ (" -scale-x-100" if n % 2 else "") %}
+            </div>
+            {% endfor %}
+
             {% if glaze.pieces.length < 4 %}
             {# Der blaue Rahmen trennt sie von den Stücken daneben, die
                keinen haben. Dieselbe Markierung trägt auf der Events-Seite
@@ -151,7 +178,8 @@ eleventyComputed:
                    also steht dort dieselbe Zeile wie im Terminband. events.js
                    tauscht sie, wenn der letzte Termin vorbeigezogen ist,
                    seit die Seite gebaut wurde. #}
-                <p data-market-text class="mt-2 text-sm leading-relaxed text-muted"{% if not shortlist.length %} hidden{% endif %}>{{ collections_glaze.market_text | replace("{glaze}", glaze.name) }}</p>
+                {# The glaze name stands out the way a glaze does in the blurbs on the home page: .text-highlight, blue in its light variant (.blurb-inline). #}
+                <p data-market-text class="blurb-inline mt-2 text-sm leading-relaxed text-muted"{% if not shortlist.length %} hidden{% endif %}>{{ collections_glaze.market_text | replace("{glaze}", '<span class="text-highlight font-bold">' ~ glaze.name ~ '</span>') | safe }}</p>
                 <p data-market-soon class="mt-2 text-sm leading-relaxed text-muted"{% if shortlist.length %} hidden{% endif %}>{{ global.labels.dates_soon }}</p>
                 <span class="link-underline mt-auto inline-block self-start pt-4 text-sm">{{ collections_glaze.market_cta }}</span>
             </a>
@@ -170,7 +198,7 @@ eleventyComputed:
                data-date="{{ event.date | date('yyyy-MM-dd') }}"
                data-until="{{ (event.end_date or event.date) | date('yyyy-MM-dd') }}"
                data-name="{{ event.name | trim }}"
-               {% if rank < 0 or rank >= plaetze %}hidden{% endif %}
+               {% if rank < 0 or rank >= termine %}hidden{% endif %}
                class="group flex {{ kartenform }} flex-col rounded-xl border border-hairline bg-white p-4 transition-colors hover:border-blue md:p-5">
                 <p data-next-label class="cap-label mb-2 text-[11px] text-blue"{% if rank != 0 %} hidden{% endif %}>{{ global.labels.next_up }}</p>
                 <p class="flex items-baseline gap-2">
