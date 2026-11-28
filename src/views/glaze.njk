@@ -160,15 +160,19 @@ eleventyComputed:
                nothing a screen reader needs: the market tile says the same in
                a sentence. #}
             {% for n in range(0, platzhalter) %}
+            {# Two of them side by side, with the same flowers and the same
+               line, looked like one tile printed twice. So the flowers fade
+               across both as one row of six, and the line stands under the
+               first only. #}
+            {% set stufen = ["", "opacity-45", "opacity-20"] %}
+            {% if platzhalter > 1 %}{% set stufen = ["", "opacity-60", "opacity-35"] if n == 0 else ["opacity-20", "opacity-10", "opacity-5"] %}{% endif %}
             <div class="{{ karte }}" aria-hidden="true">
                 <div class="relative flex aspect-square items-center justify-center bg-white" style="color: {{ glaze.swatch }}">
                     <span class="flex w-[62%] items-center justify-between [&>span]:w-[28%] [&_svg]:h-auto [&_svg]:w-full">
-                        <span>{% include "dogwood.njk" %}</span>
-                        <span class="opacity-45">{% include "dogwood.njk" %}</span>
-                        <span class="opacity-20">{% include "dogwood.njk" %}</span>
+                        {% for stufe in stufen %}<span class="{{ stufe }}">{% include "dogwood.njk" %}</span>{% endfor %}
                     </span>
                 </div>
-                {% if collections_glaze.empty_note %}<p class="mt-2 min-h-10 whitespace-pre-line font-display text-sm font-black text-ink">{{ collections_glaze.empty_note }}</p>{% endif %}
+                {% if collections_glaze.empty_note and n == 0 %}<p class="mt-2 min-h-10 whitespace-pre-line font-display text-sm font-black text-ink">{{ collections_glaze.empty_note }}</p>{% endif %}
             </div>
             {% endfor %}
 

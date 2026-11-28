@@ -254,8 +254,12 @@ test("die Reihe ist ein Slider: Stücke, Platzhalter, Marktkachel, nächster Mar
     assert.match(block, /<p class="mt-2 min-h-10 whitespace-pre-line font-display text-sm font-black text-ink">{{ collections_glaze\.empty_note }}/, "der Text der leeren Plätze steht nicht mehr unter der Kachel, kommt nicht mehr aus dem CMS oder verliert seinen Zeilenumbruch");
     assert.ok(!/group-hover:opacity-(0|100)/.test(block), "der Text der leeren Plätze hängt wieder am Zeiger");
     // Drei Blumen der Seite nebeneinander, von voll bis blass: "es kommt noch mehr", ohne ein Wort.
-    assert.equal(block.split('{% include "dogwood.njk" %}').length - 1, 3, "auf den leeren Plätzen stehen nicht mehr drei Blumen");
-    assert.match(block, /<span>{% include "dogwood\.njk" %}<\/span>\s*<span class="opacity-45">{% include "dogwood\.njk" %}<\/span>\s*<span class="opacity-20">/, "die drei Blumen verblassen nicht mehr von links nach rechts");
+    assert.ok(block.includes('{% for stufe in stufen %}<span class="{{ stufe }}">{% include "dogwood.njk" %}</span>{% endfor %}'), "auf den leeren Plätzen stehen nicht mehr drei Blumen der Seite");
+    assert.ok(block.includes('{% set stufen = ["", "opacity-45", "opacity-20"] %}'), "die drei Blumen eines einzelnen Platzhalters verblassen nicht mehr von links nach rechts");
+    // Zwei Platzhalter sind eine Geste, nicht zweimal dieselbe Kachel: Die
+    // Blumen verblassen über beide hinweg, und der Satz steht nur unter der ersten.
+    assert.ok(block.includes('{% set stufen = ["", "opacity-60", "opacity-35"] if n == 0 else ["opacity-20", "opacity-10", "opacity-5"] %}'), "zwei Platzhalter sehen wieder gleich aus");
+    assert.ok(block.includes("{% if collections_glaze.empty_note and n == 0 %}"), "der Satz steht wieder unter beiden Platzhaltern");
     assert.ok((seitentexte.empty_note || "").trim(), "collections_glaze.json: empty_note fehlt");
     assert.ok(!block.includes("placeholder_image"), "das Platzhalter-Foto ist zurück");
 

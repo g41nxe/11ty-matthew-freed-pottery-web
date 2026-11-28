@@ -63,7 +63,7 @@ export const collectionsGlazePage: Collection = {
     {
       type: "string", name: "empty_note", label: "Empty places: text",
       description:
-        "The row of pieces on a glaze page holds at least four cards. Where a glaze has fewer than two pieces in the shop, the gap shows a white tile with three dogwood flowers in the colour of the glaze, fading from left to right. This short line stands under the tile, where a piece carries its name. A line break here is a line break on the page; two lines are what a name takes. Leave it empty and only the flower shows.",
+        "The row of pieces on a glaze page holds at least four cards. Where a glaze has fewer than two pieces in the shop, the gap shows a white tile with three dogwood flowers in the colour of the glaze, fading from left to right. This short line stands under the tile, where a piece carries its name; where two such tiles stand side by side, under the first only. A line break here is a line break on the page; two lines are what a name takes. Leave it empty and only the flower shows.",
       ui: { component: "textarea" },
     },
     {
