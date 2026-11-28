@@ -112,6 +112,13 @@ eleventyComputed:
         {# Vier Stücke lassen keinen Platz übrig; ohne diese Zeile stünde dort
            eine negative Zahl, die events.js von hinten abzählen würde. #}
         {% if plaetze < 0 %}{% set plaetze = 0 %}{% endif %}
+        {# Beside photos the cards are as tall as the photos, a square, and end
+           on the photos' lower edge; stretched to the full row they ran on
+           past it, down to the line with the prices. Below md the columns
+           are too narrow for the market tile's text to fit a square, so
+           there the cards keep the height of their row. Without any pieces
+           there is no photo to line up with, and the cards size themselves. #}
+        {% set kartenform = "h-full md:aspect-square md:h-auto md:self-start" if glaze.pieces.length else "h-full" %}
         {# Without pieces the row holds four cards, and they stand the way the
            events band on the home page does: one below the other on a phone, two
            by two from sm, four in a row from lg. Two by two on a phone gave the
@@ -138,7 +145,7 @@ eleventyComputed:
             {# Der blaue Rahmen trennt sie von den Stücken daneben, die
                keinen haben. Dieselbe Markierung trägt auf der Events-Seite
                der nächste Termin. #}
-            <a href="/events.html" class="group flex h-full flex-col rounded-xl border-2 border-blue bg-white p-4 md:p-5">
+            <a href="/events.html" class="group flex {{ kartenform }} flex-col rounded-xl border-2 border-blue bg-white p-4 md:p-5">
                 <p class="font-display text-lg font-black leading-tight text-ink transition-colors group-hover:text-blue md:text-2xl">{{ collections_glaze.market_title | replace("{glaze}", glaze.name) }}</p>
                 {# Ohne Termin stimmt der Satz über die Märkte nicht mehr,
                    also steht dort dieselbe Zeile wie im Terminband. events.js
@@ -164,7 +171,7 @@ eleventyComputed:
                data-until="{{ (event.end_date or event.date) | date('yyyy-MM-dd') }}"
                data-name="{{ event.name | trim }}"
                {% if rank < 0 or rank >= plaetze %}hidden{% endif %}
-               class="group flex h-full flex-col rounded-xl border border-hairline bg-white p-4 transition-colors hover:border-blue md:p-5">
+               class="group flex {{ kartenform }} flex-col rounded-xl border border-hairline bg-white p-4 transition-colors hover:border-blue md:p-5">
                 <p data-next-label class="cap-label mb-2 text-[11px] text-blue"{% if rank != 0 %} hidden{% endif %}>{{ global.labels.next_up }}</p>
                 <p class="flex items-baseline gap-2">
                     <span class="font-display text-2xl font-black text-ink md:text-3xl">{{ event.date | date("d") }}</span>
