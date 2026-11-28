@@ -24,7 +24,7 @@ The large picture at the top of a glaze page, beside the name and text: several 
 One page per glaze, built from the glaze's own intro and page text: name and text beside the group photo, the row of pieces, the band asking for a commission, and a slider of the other glazes. The row holds every piece of the glaze the shop has for sale (sold-out ones only fill up to four), then the market tile and the next market date. With two pieces or fewer that makes four cards, which stand as a fixed row with a placeholder for each piece missing; with more the row is a slider. A glaze without both texts gets no page, and its card keeps linking straight to the shop.
 
 ### Placeholder
-A white tile in the row of pieces on a glaze page, with the dogwood flower in the glaze's colour and one line below it where a piece carries its name. It fills the row up to four cards where a glaze has fewer than two pieces in the shop.
+A white tile in the row of pieces on a glaze page, with three dogwood flowers in the glaze's colour, fading from left to right, and one line below it where a piece carries its name. It fills the row up to four cards where a glaze has fewer than two pieces in the shop.
 
 ### Market tile
 The tile on a glaze page that says the glaze can also be seen at a market. It stands at the end of the row of pieces on every glaze page, followed by the next market date. Its first sentence depends on the shop: an apology while fewer than four pieces of the glaze are for sale, an invitation to come by otherwise.

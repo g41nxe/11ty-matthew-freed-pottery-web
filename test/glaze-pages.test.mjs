@@ -253,7 +253,9 @@ test("die Reihe ist ein Slider: Stücke, Platzhalter, Marktkachel, nächster Mar
     // Der Satz steht unter dem Quadrat, wo ein Stück seinen Namen trägt, in derselben Schrift -- ohne Zeiger sichtbar.
     assert.match(block, /<p class="mt-2 min-h-10 whitespace-pre-line font-display text-sm font-black text-ink">{{ collections_glaze\.empty_note }}/, "der Text der leeren Plätze steht nicht mehr unter der Kachel, kommt nicht mehr aus dem CMS oder verliert seinen Zeilenumbruch");
     assert.ok(!/group-hover:opacity-(0|100)/.test(block), "der Text der leeren Plätze hängt wieder am Zeiger");
-    assert.match(block, /\[&>svg\]:w-full">{% include "dogwood\.njk" %}/, "auf den leeren Plätzen steht nicht mehr die Blume der Seite");
+    // Drei Blumen der Seite nebeneinander, von voll bis blass: "es kommt noch mehr", ohne ein Wort.
+    assert.equal(block.split('{% include "dogwood.njk" %}').length - 1, 3, "auf den leeren Plätzen stehen nicht mehr drei Blumen");
+    assert.match(block, /<span>{% include "dogwood\.njk" %}<\/span>\s*<span class="opacity-45">{% include "dogwood\.njk" %}<\/span>\s*<span class="opacity-20">/, "die drei Blumen verblassen nicht mehr von links nach rechts");
     assert.ok((seitentexte.empty_note || "").trim(), "collections_glaze.json: empty_note fehlt");
     assert.ok(!block.includes("placeholder_image"), "das Platzhalter-Foto ist zurück");
 

@@ -145,10 +145,11 @@ eleventyComputed:
 
             {# The empty places are built like a piece: a white square like the
                ground of the product photos, and a line of text below it where
-               a piece carries its name. In the square stands the dogwood flower
-               in the glaze colour -- the flower from under the heading of the
-               collections page, here marking a spot on the shelf where nothing
-               stands yet. A fine line inside the edge was tried and read as a
+               a piece carries its name. In the square stand three dogwood
+               flowers in the glaze colour -- the flower from under the heading
+               of the collections page -- each paler than the one before, the
+               way three dots trail off: more is on its way. One flower alone
+               only marked the spot and left the saying to the text. A fine line inside the edge was tried and read as a
                frame around nothing. The line below says what to expect,
                in the type of the piece names; its line break comes from the
                CMS (whitespace-pre-line), and two lines are what a name takes.
@@ -161,7 +162,11 @@ eleventyComputed:
             {% for n in range(0, platzhalter) %}
             <div class="{{ karte }}" aria-hidden="true">
                 <div class="relative flex aspect-square items-center justify-center bg-white" style="color: {{ glaze.swatch }}">
-                    <span class="h-[26%] w-[26%] [&>svg]:h-full [&>svg]:w-full">{% include "dogwood.njk" %}</span>
+                    <span class="flex w-[62%] items-center justify-between [&>span]:w-[28%] [&_svg]:h-auto [&_svg]:w-full">
+                        <span>{% include "dogwood.njk" %}</span>
+                        <span class="opacity-45">{% include "dogwood.njk" %}</span>
+                        <span class="opacity-20">{% include "dogwood.njk" %}</span>
+                    </span>
                 </div>
                 {% if collections_glaze.empty_note %}<p class="mt-2 min-h-10 whitespace-pre-line font-display text-sm font-black text-ink">{{ collections_glaze.empty_note }}</p>{% endif %}
             </div>
