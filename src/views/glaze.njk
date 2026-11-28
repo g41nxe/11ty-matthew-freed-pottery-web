@@ -1,9 +1,5 @@
 ---
 layout: base
-# The page ends on the strip under the glaze slider, which carries its own
-# hairlines above and below. The Instagram block's top line right under it
-# made three rules in a row; the home page switches it off the same way.
-social_flush: true
 pagination:
   data: glazePages
   size: 1
@@ -142,7 +138,7 @@ eleventyComputed:
             {# Der blaue Rahmen trennt sie von den Stücken daneben, die
                keinen haben. Dieselbe Markierung trägt auf der Events-Seite
                der nächste Termin. #}
-            <a href="/events.html" class="group flex h-full flex-col rounded-xl border-2 border-blue bg-white p-4 md:p-5">
+            <a href="/events.html" class="group flex h-full flex-col rounded-xl border-2 border-blue bg-white p-4 transition-colors hover:bg-tile md:p-5">
                 <p class="font-display text-lg font-black leading-tight text-ink transition-colors group-hover:text-blue md:text-2xl">{{ collections_glaze.market_title | replace("{glaze}", glaze.name) }}</p>
                 {# Ohne Termin stimmt der Satz über die Märkte nicht mehr,
                    also steht dort dieselbe Zeile wie im Terminband. events.js
@@ -157,7 +153,9 @@ eleventyComputed:
             {# Wie im Terminband steht jeder kommende Termin im HTML, und nur
                die ersten paar sind sichtbar: events.js wiederholt die Auswahl
                im Browser, damit ein Markt verschwindet, der seit dem Bau
-               vorbei ist. #}
+               vorbei ist. Beim Überfahren wechselt die Fläche die Farbe wie
+               im Terminband: dort hellt Blau auf, hier geht Weiß in die
+               Kachelfarbe und die Haarlinie in Blau. #}
             {% for event in upcoming %}
             {% set rank = shortlist.indexOf(event) %}
             <a href="/events.html"
@@ -166,7 +164,7 @@ eleventyComputed:
                data-until="{{ (event.end_date or event.date) | date('yyyy-MM-dd') }}"
                data-name="{{ event.name | trim }}"
                {% if rank < 0 or rank >= plaetze %}hidden{% endif %}
-               class="group flex h-full flex-col rounded-xl border border-hairline bg-white p-4 md:p-5">
+               class="group flex h-full flex-col rounded-xl border border-hairline bg-white p-4 transition-colors hover:border-blue hover:bg-tile md:p-5">
                 <p data-next-label class="cap-label mb-2 text-[11px] text-blue"{% if rank != 0 %} hidden{% endif %}>{{ global.labels.next_up }}</p>
                 <p class="flex items-baseline gap-2">
                     <span class="font-display text-2xl font-black text-ink md:text-3xl">{{ event.date | date("d") }}</span>
@@ -249,7 +247,8 @@ eleventyComputed:
         {# The strip under the slider, as on the home page: the way back to all
            glazes on the left, one dot per glaze on the right. A dot shows where
            the slider stands and jumps to its glaze. #}
-        <div class="palette-strip mt-8 flex flex-col gap-4 border-y border-hairline py-5 sm:flex-row sm:items-center sm:justify-between">
+        {# Only a line above: the page-wide line over the Instagram block closes the strip from below. With a line of its own underneath there were three rules in a row at the foot of the page. #}
+        <div class="palette-strip mt-8 flex flex-col gap-4 border-t border-hairline pt-5 sm:flex-row sm:items-center sm:justify-between">
             <a href="/collections.html" class="strip-label self-start font-display text-lg font-black text-blue sm:self-auto">{{ collections_glaze.back_label }}</a>
             <div class="palette-dots -mx-1 flex flex-wrap items-center" aria-label="Jump to a glaze">
                 {% for other in glaze.others %}
