@@ -1,14 +1,14 @@
 import type { Collection } from "tinacms";
 import { imageField, linkField } from "../fields/common";
 
-// The pieces Matthew is currently showing, grouped by glaze. They feed two
-// places at once — the rotating block on the home page and the shop grid on
-// the glaze page of the same name — which is why they are a collection of
-// their own and no longer part of "Home · Page". Anyone looking for the
-// pieces of a glaze used to end up in the wrong place.
+// The hand-picked sets for "From the current firing" on the home page, which
+// shows one of them at random per visit. They belong to the home page and
+// carry its prefix in the CMS. They used to feed the glaze pages as well;
+// those take their pieces straight from the shop now (ADR 0006), so a set no
+// longer reaches beyond the home page.
 export const shopSets: Collection = {
   name: "shop_sets",
-  label: "Shop sets",
+  label: "Home · Shop sets",
   path: "src/views/_data",
   format: "json",
   match: { include: "shop_sets" },
