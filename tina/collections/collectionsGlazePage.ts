@@ -41,15 +41,9 @@ export const collectionsGlazePage: Collection = {
         withName,
     },
     {
-      type: "string", name: "market_text", label: "Market tile: first sentence when the shop holds little", required: true,
+      type: "string", name: "market_text", label: "Market tile: first sentence", required: true,
       description:
-        "One sentence under the heading, shown while the shop has fewer than four pieces of the glaze to buy: an apology for that. On a phone this sentence stands alone, so keep it short. Without an upcoming date the tile shows the line from Settings instead. " +
-        withName,
-    },
-    {
-      type: "string", name: "market_text_stocked", label: "Market tile: first sentence when the shop holds enough", required: true,
-      description:
-        "Takes the place of the sentence above while the shop has four or more pieces of the glaze to buy. An apology would be wrong beside a full row, so this one gives a reason to come by anyway. " +
+        "One sentence under the heading. The tile stands beside the pieces on every glaze page, whether the shop holds none of the glaze or a dozen, so the sentence has to be true in both cases. On a phone it stands alone, so keep it short. Without an upcoming date the tile shows the line from Settings instead. " +
         withName,
     },
     {

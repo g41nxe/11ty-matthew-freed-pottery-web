@@ -77,10 +77,7 @@ function mitStuecken(liste, nachTag) {
         const alle = (nachTag[shopPieces.tagSchluessel(page.slug)] || [])
             .filter((stueck) => !ausgeschlossen.has(stueck.handle));
         const frei = alle.filter((stueck) => stueck.available);
-        // stocked: Der Shop hält genug von dieser Glasur. Daran hängt, was die
-        // Marktkachel sagt -- eine Entschuldigung neben zwölf Stücken wäre falsch.
-        page.stocked = frei.length >= MINDESTENS;
-        page.pieces = page.stocked
+        page.pieces = frei.length >= MINDESTENS
             ? frei
             : frei.concat(alle.filter((stueck) => !stueck.available)).slice(0, MINDESTENS);
     }

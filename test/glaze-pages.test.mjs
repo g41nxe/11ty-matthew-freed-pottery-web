@@ -70,11 +70,9 @@ test("alle verfügbaren Stücke, ausverkaufte nur zum Auffüllen auf vier", () =
     // Sechs verfügbare: alle sechs, das ausverkaufte dahinter bleibt weg.
     const voll = seite({ jericho: [stueck("a"), stueck("b"), stueck("c"), stueck("d"), stueck("e"), stueck("f"), stueck("x", false)] });
     assert.deepEqual(voll.pieces.map((s) => s.handle), ["a", "b", "c", "d", "e", "f"]);
-    assert.equal(voll.stocked, true, "sechs verfügbare Stücke gelten nicht als genug");
     // Eins verfügbar: Es steht vorn, drei ausverkaufte füllen auf, das vierte bleibt weg.
     const knapp = seite({ jericho: [stueck("x", false), stueck("a"), stueck("y", false), stueck("z", false), stueck("w", false)] });
     assert.deepEqual(knapp.pieces.map((s) => s.handle), ["a", "x", "y", "z"]);
-    assert.equal(knapp.stocked, false, "ein verfügbares Stück gilt als genug");
 });
 
 test("kein Shop-Set greift mehr in eine Glasurseite ein", () => {
@@ -130,7 +128,7 @@ test("the blue band has one picture, and it is not a glaze card", () => {
 // template no longer carries fallbacks: a missing key would render as nothing
 // at all, and an empty heading is the kind of thing nobody notices for weeks.
 test("the page furniture is complete and comes from the CMS", () => {
-    for (const feld of ["eyebrow", "pieces_title", "pieces_title_empty", "shop_cta_all", "shop_all_label", "market_title", "market_text", "market_text_stocked", "market_cta", "ask_title", "ask_text", "ask_cta", "others_title", "back_label"]) {
+    for (const feld of ["eyebrow", "pieces_title", "pieces_title_empty", "shop_cta_all", "shop_all_label", "market_title", "market_text", "market_cta", "ask_title", "ask_text", "ask_cta", "others_title", "back_label"]) {
         assert.ok((seitentexte[feld] || '').trim(), `collections_glaze.json: ${feld} is empty`);
     }
     assert.ok(seitentexte.ask_image && seitentexte.ask_image.url, 'collections_glaze.json: the blue band has no photo');
@@ -263,10 +261,10 @@ test("die Reihe ist ein Slider: Stücke, Platzhalter, Marktkachel, nächster Mar
     assert.ok((seitentexte.empty_note || "").trim(), "collections_glaze.json: empty_note fehlt");
     assert.ok(!block.includes("placeholder_image"), "das Platzhalter-Foto ist zurück");
 
-    // Die Marktkachel steht immer; ihr erster Satz hängt am Bestand.
+    // Die Marktkachel steht immer, mit einem Satz, der bei leerem wie bei vollem Shop stimmt.
     assert.ok(!block.includes("{% if glaze.pieces.length < 4 %}"), "die Marktkachel fehlt wieder auf einer vollen Seite");
-    assert.ok(block.includes("{% set marktsatz = collections_glaze.market_text_stocked if glaze.stocked else collections_glaze.market_text %}"), "die Marktkachel entschuldigt sich auch neben einer vollen Reihe");
-    for (const feld of ["market_title", "market_text", "market_text_stocked", "market_text_more", "market_cta"]) {
+    assert.ok(!block.includes("stocked"), "die Marktkachel hat wieder zwei Sätze je nach Bestand");
+    for (const feld of ["market_title", "market_text", "market_text_more", "market_cta"]) {
         assert.ok(block.includes("collections_glaze." + feld), `die Marktkachel holt ${feld} nicht mehr aus dem CMS`);
     }
     // Genau ein Termin ist sichtbar, der nächste.

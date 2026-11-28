@@ -180,10 +180,12 @@ eleventyComputed:
                keinen haben. Dieselbe Markierung trägt auf der Events-Seite
                der nächste Termin.
 
-               Der erste Satz hängt am Bestand: Hält der Shop weniger als vier
-               verfügbare Stücke, entschuldigt er sich dafür; sonst lädt er
-               ein, die Stücke in die Hand zu nehmen. Der zweite Satz ist
-               immer derselbe und entfällt, wo die Kachel für ihn zu schmal
+               Der erste Satz gilt bei leerem wie bei vollem Shop. Eine
+               Entschuldigung ("Sorry, not much ... in the shop") stand hier
+               zuerst und passte nicht mehr, seit die Kachel auch neben zwölf
+               Stücken steht; zwei Sätze je nach Bestand waren ein Feld mehr,
+               als die Aussage braucht. Der zweite Satz entfällt, wo die
+               Kachel für ihn zu schmal
                ist: auf dem Telefon (rund 155 Pixel) und zwischen lg und xl
                (rund 220). Aus demselben Grund steht dort die
                Linkzeile nicht -- die ganze Kachel führt zu den Terminen.
@@ -194,10 +196,9 @@ eleventyComputed:
                gebaut wurde. #}
             {# The glaze name stands out the way a glaze does in the blurbs on the home page: .text-highlight, blue in its light variant (.blurb-inline). #}
             {% set glasurname = '<span class="text-highlight font-bold">' ~ glaze.name ~ '</span>' %}
-            {% set marktsatz = collections_glaze.market_text_stocked if glaze.stocked else collections_glaze.market_text %}
             <a href="/events.html" class="group flex aspect-square flex-col rounded-xl border-2 border-blue bg-white p-3 sm:p-5 lg:p-4 {{ karte }}">
-                <p class="font-display text-base font-black leading-tight text-ink transition-colors group-hover:text-blue sm:text-2xl lg:text-xl">{{ collections_glaze.market_title | replace("{glaze}", glaze.name) }}</p>
-                <p data-market-text class="blurb-inline mt-1.5 text-xs leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed"{% if not shortlist.length %} hidden{% endif %}>{{ marktsatz | replace("{glaze}", glasurname) | safe }}{% if collections_glaze.market_text_more %}<span class="max-sm:hidden lg:max-xl:hidden"> {{ collections_glaze.market_text_more }}</span>{% endif %}</p>
+                <p class="font-display text-sm font-black leading-tight text-ink transition-colors group-hover:text-blue sm:text-2xl lg:text-lg xl:text-xl">{{ collections_glaze.market_title | replace("{glaze}", glaze.name) }}</p>
+                <p data-market-text class="blurb-inline mt-1.5 text-xs leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed"{% if not shortlist.length %} hidden{% endif %}>{{ collections_glaze.market_text | replace("{glaze}", glasurname) | safe }}{% if collections_glaze.market_text_more %}<span class="max-sm:hidden lg:max-xl:hidden"> {{ collections_glaze.market_text_more }}</span>{% endif %}</p>
                 <p data-market-soon class="mt-1.5 text-xs leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed"{% if shortlist.length %} hidden{% endif %}>{{ global.labels.dates_soon }}</p>
                 <span class="link-underline mt-auto inline-block self-start pt-4 text-sm max-sm:hidden">{{ collections_glaze.market_cta }}</span>
             </a>

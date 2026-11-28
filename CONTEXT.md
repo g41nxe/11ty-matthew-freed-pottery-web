@@ -27,7 +27,7 @@ One page per glaze, built from the glaze's own intro and page text: name and tex
 A white tile in the row of pieces on a glaze page, with three dogwood flowers in the glaze's colour, fading from left to right, and one line below it where a piece carries its name. It fills the row up to four cards where a glaze has fewer than two pieces in the shop.
 
 ### Market tile
-The tile on a glaze page that says the glaze can also be seen at a market. It stands at the end of the row of pieces on every glaze page, followed by the next market date. Its first sentence depends on the shop: an apology while fewer than four pieces of the glaze are for sale, an invitation to come by otherwise.
+The tile on a glaze page that says the glaze can also be seen at a market. It stands at the end of the row of pieces on every glaze page, followed by the next market date. Its text is the same whether the shop holds none of the glaze or a dozen pieces.
 
 ### Placement
 Where on the website a shop link sits, written into its address as `utm_content` when the site is built — for example `firing-tofino-tile2`, `home-teaser-yaletown` or `nav`; a shop link Matthew writes into a text field gets `text-` plus the page, like `text-events`. It names the spot, not the piece: Shopify already knows the piece from the page the visitor lands on, and a spot keeps its name when a piece is renamed.
