@@ -16,7 +16,7 @@ quote: Pottery can be somewhat unpredictable and moody — so we fight on occasi
 sections:
   - image:
       url: /images/workshop/throwing-a-cup-2.jpg
-      alt: Matthew throwing a cup
+      alt: Matthew at work in the studio, looking down in concentration
     body: |
       We toyed with the idea, but neither of us was into the long distance relationship thing at the time. We were young and not terribly interested in long-term commitments.
 
@@ -25,7 +25,7 @@ sections:
       I kept pottery as a hobby but soon came to a realization that it was a passion that I wanted as a central fixture in my life. It was time to make a lifetime commitment to one another.
   - image:
       url: /images/workshop/throwing-a-cup-1.jpg
-      alt: Matthew throwing a cup
+      alt: Hands shaping a cup on the wheel
     body: |
       It was a frightening leap to make, but I got down on one knee and we got engaged. Soon after we moved in together (a natural progression of our relationship), and have blossomed as a pair over the past 18 years.
 

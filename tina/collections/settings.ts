@@ -48,6 +48,8 @@ export const settings: Collection = {
         { type: "string", name: "keep_reading", label: "Heading above the links at the end of the About pages" },
         { type: "string", name: "sold_out", label: "Label on sold-out shop items (set automatically from the shop)" },
         { type: "string", name: "map_link", label: "Contact page: link on the map to Google Maps" },
+        { type: "string", name: "slider_prev", label: "Slider: what a screen reader calls the arrow back" },
+        { type: "string", name: "slider_next", label: "Slider: what a screen reader calls the arrow forward" },
       ],
     },
     {

@@ -20,7 +20,7 @@ layout: base
                 <a href="{{ store.url }}" target="_blank" rel="noopener" class="nav-link font-display text-xl font-black text-ink transition-colors hover:text-blue">{{ store.name }}
                     <span class="ml-1 inline-block text-sand" aria-hidden="true">&#8599;</span>
                 </a>
-                <span class="cap-label text-[11px] text-soft">{{ store.city }}</span>
+                <span class="cap-label text-muted">{{ store.city }}</span>
             </div>
             <p class="mt-1 text-sm text-muted">{{ store.address }}</p>
             <a href="https://www.google.com/maps/search/?api=1&query={{ (store.address + ', ' + store.city + ', BC') | urlencode }}" target="_blank" rel="noopener" class="link-underline mt-3 inline-block text-sm">{{ global.labels.directions }}</a>

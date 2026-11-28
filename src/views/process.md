@@ -13,7 +13,7 @@ quote: Inspiration can strike in strange ways.
 sections:
   - image:
       url: /images/workshop/throwing-a-cup-1.jpg
-      alt: Matthew throwing a cup
+      alt: Hands shaping a cup on the wheel
     body: |
       <b>Think it</b>
 
@@ -26,7 +26,7 @@ sections:
       Before beginning to throw a pot on the wheel, clay is wedged (kneaded like dough) to remove any air pockets and to get the molecules in the clay moving. Once the clay is centered on the wheel, it is ready to be formed. The piece is formed by combining clay, water, and careful manipulation of hands, fingers, and some funny looking tools made of wood, plastic or metal.
   - image:
       url: /images/workshop/throwing-a-cup-3.jpg
-      alt: Matthew throwing a cup
+      alt: A hand painting the dogwood pattern onto a plate with a fine brush
     body: |
       <b>Finish it</b>
 

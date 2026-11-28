@@ -31,3 +31,15 @@ test("leaves an entry without an image out instead of failing the build", async 
     assert.equal(await img(undefined, "A cup"), "");
     assert.equal(await img("", "A cup"), "");
 });
+
+// Ein Stück aus dem Shop kommt als volle Adresse, kein Pfad unter src/.
+// Der erste Versuch unterschied beides mit einem regulären Ausdruck, dessen
+// Schrägstriche beim Schreiben verloren gingen -- danach galt jedes Bild als
+// entfernt, und keines wurde mehr gefunden.
+test("ein Pfad aus dem CMS wird unter src/ gesucht, eine Adresse nicht", async () => {
+    assert.notEqual(await img(IMAGE, "Eine Tasse"), "");
+});
+
+test("eine unerreichbare Adresse lässt die Kachel ohne Bild, statt den Build anzuhalten", async () => {
+    assert.equal(await img("https://cdn.shopify.com/gibt-es-nicht-" + Date.now() + ".jpg", "Eine Tasse"), "");
+});

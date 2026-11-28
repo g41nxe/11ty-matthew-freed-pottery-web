@@ -7,7 +7,9 @@
       },
       "title": "Skaha Collection",
       "text": "A deep glossy cobalt beneath a matte, stony glaze, like Skaha Lake below its rock bluffs.",
-      "slug": "Skaha",
+      "lead": "Skaha is a deep glossy cobalt beneath a matte, stony glaze. It is the newest glaze in the studio and has a great deal of movement and textural variety.",
+      "story": "Skaha Lake lies in Penticton, in the interior of British Columbia. The deep blue of the water with the rock bluffs above it is what this glaze reminds me of, and that is where the name came from.",
+      "slug": "skaha",
       "swatch": "#3E5873",
       "filterGroups": [
         "Blues"
@@ -20,11 +22,17 @@
       },
       "title": "Squamish Nights Collection",
       "text": "A speckled deep green and blue glaze with a celestial look",
-      "slug": "Squamish",
+      "lead": "A deep green glaze with cobalt speckling that reminds me of the night sky.\nReminiscent of a night when I was staring at the sky in Squamish while on a camping trip.",
+      "story": "Squamish is halfway between Whistler and Vancouver and is renowned for outdoor adventure.",
+      "slug": "squamish-nights",
       "swatch": "#1F6E88",
       "filterGroups": [
         "Blues"
-      ]
+      ],
+      "feature_image": {
+        "url": "/images/glazes/squamish-nights/mug-feature.jpg",
+        "alt": "A Squamish Nights mug by Matthew Freed, its speckled glaze running down from the rim, with a white flower"
+      }
     },
     {
       "image": {
@@ -33,7 +41,12 @@
       },
       "title": "Garibaldi Collection",
       "text": "A deep forest green glaze with speckled cobalt tones and a warm blue accent around the rim",
-      "slug": "Garibaldi",
+      "lead": "The Garibaldi glaze has a rich interplay between green and blue tones.\nIt reminds me of the natural colours of the lakes and trees in Garibaldi Park.",
+      "story": "Forest green tones and cool lake blue tones accent pieces made in the Garibaldi collection.",
+      "slug": "garibaldi",
+      "exclude": [
+        "https://shop.matthewfreed.net/products/shorty-mug-squamish-night"
+      ],
       "swatch": "#1D6468",
       "filterGroups": [
         "Blues"
@@ -46,7 +59,13 @@
       },
       "title": "Yaletown Collection",
       "text": "Red, green or blue rims pop on a charcoal glazed base.",
-      "slug": "Yaletown",
+      "lead": "Charcoal underneath, a bright rim on top. Yaletown pairs a dark glazed base with a red, green or blue edge.  The glaze has a modern and contemporary feel that reminds me of the design traits around Yaletown.",
+      "story": "Inside a serving bowl the dark glaze does quiet work, making whatever you serve stand out.",
+      "feature_image": {
+        "url": "/images/glazes/yaletown/mugs-and-bowls-overhead-feature.jpg",
+        "alt": "Yaletown mugs and nested bowls seen from above by Matthew Freed, with red, blue and yellow rims on charcoal"
+      },
+      "slug": "yaletown",
       "swatch": "#2E2C29",
       "filterGroups": [
         "Charcoals"
@@ -59,11 +78,20 @@
       },
       "title": "Galiano Collection",
       "text": "A multi-tone deep blue glaze.",
-      "slug": "Galiano",
+      "lead": "The rich blue tones of the Galiano glaze remind me of the ocean waters around Galiano island.  You can dive right into these blues!",
+      "story": "Sailing the waters around Galiano island inspires the name of this glaze line.",
+      "slug": "galiano",
+      "exclude": [
+        "https://shop.matthewfreed.net/products/copy-of-lidded-jar-whistler-blue"
+      ],
       "swatch": "#2438A6",
       "filterGroups": [
         "Blues"
-      ]
+      ],
+      "feature_image": {
+        "url": "/images/glazes/galiano/bowls-and-croissant-feature.jpg",
+        "alt": "A stack of Galiano bowls beside a Galiano tray with an almond croissant, by Matthew Freed"
+      }
     },
     {
       "image": {
@@ -72,7 +100,9 @@
       },
       "title": "Dogwood Collection",
       "text": "A semi-matte charcoal glaze with a hand-painted dogwood pattern.",
-      "slug": "Dogwood",
+      "lead": "This is my most time consuming glaze collection as the pattern is carefully painted.  The result is a subtle contrast featuring a nod to the dogwood tree flowers of BC.",
+      "story": "Each spring here in British Columbia we are treated to the blooming flowers of the dogwood trees.",
+      "slug": "dogwood",
       "swatch": "#38322C",
       "filterGroups": [
         "Charcoals",
@@ -86,12 +116,18 @@
       },
       "title": "Saltspring Collection",
       "text": "A semi-matte charcoal glaze with vibrant bursts of glossy colour.",
-      "slug": "Saltspring",
+      "lead": "The Saltspring collection feature vibrant bursts of colour that are offset against a charcoal glaze.  The colors remind me of tie-dye and the hippie culture of Saltspring island.",
+      "story": "Each piece in the saltspring collection is a surprise for me - I am never quite sure how the colours will turn out.",
+      "slug": "saltspring",
       "swatch": "#3A3833",
       "filterGroups": [
         "Charcoals",
         "Patterned"
-      ]
+      ],
+      "feature_image": {
+        "url": "/images/glazes/saltspring/plates-and-dishes-feature.jpg",
+        "alt": "Saltspring plates fanned out beside three small dishes by Matthew Freed, each with a burst of colour on charcoal"
+      }
     },
     {
       "image": {
@@ -100,7 +136,13 @@
       },
       "title": "Jericho Collection",
       "text": "A pale grey/blue glaze with sand toned speckles.",
-      "slug": "Jericho",
+      "lead": "Jericho is a pale grey-blue with sand toned speckles. Where the glaze thins at a rim it turns a warm toasted brown, which is why the edges never look flat.  The tones remind me of one of my favourite local beaches - Jericho.",
+      "story": "It is the quietest of my glazes, and the easiest to live with: a mug you reach for every morning.",
+      "feature_image": {
+        "url": "/images/glazes/jericho/tea-set-feature.jpg",
+        "alt": "Jericho teapot, two mugs and a lidded honey pot by Matthew Freed on a wooden table, with a fern"
+      },
+      "slug": "jericho",
       "swatch": "#9A93B4",
       "filterGroups": [
         "Blues"
@@ -113,7 +155,13 @@
       },
       "title": "Joffre Collection",
       "text": "A rich green/blue glaze with multi-toned variation.",
-      "slug": "Joffre",
+      "lead": "Turquoise, blue and deep emerald green run together in Joffre. Every teapot, mug and tray comes out with its own mix of tones.  The vibrant yet cool tones remind me of the beautiful Joffre Lake.",
+      "story": "It is a rich glaze that changes with the light and with the shape underneath it.",
+      "feature_image": {
+        "url": "/images/glazes/joffre/tea-set-feature.jpg",
+        "alt": "Joffre teapot, two mugs, a small dish and a tray by Matthew Freed, with a white flower and a fern"
+      },
+      "slug": "joffre",
       "swatch": "#1C6478",
       "filterGroups": [
         "Blues"
@@ -126,11 +174,17 @@
       },
       "title": "Kitsilano Collection",
       "text": "A satiny smooth lilac glaze with warm blue rim.",
-      "slug": "Kitsilano",
+      "lead": "I was very determined to create a purple toned glaze!  The Kitsilano glaze has a summery beachy vibe.",
+      "story": "I enjoy the contrast of texture and tone in this glaze line - a glossy vibrant blue and a satin lilac tone.",
+      "slug": "kitsilano",
       "swatch": "#4E5AC4",
       "filterGroups": [
         "Blues"
-      ]
+      ],
+      "feature_image": {
+        "url": "/images/glazes/kitsilano/plates-mug-vase-feature.jpg",
+        "alt": "Kitsilano bowls, a mug and a vase with yellow flowers by Matthew Freed"
+      }
     },
     {
       "image": {
@@ -139,11 +193,25 @@
       },
       "title": "Pemberton Sky Collection",
       "text": "A hand-painted leafing pattern with a textured finish in a two toned blue glossy finish.",
-      "slug": "Pemberton",
+      "lead": "An intricate leafing pattern pops on the vibrant blue glaze.  Inspired by the beautifully patterned leaves in Pemberton.",
+      "story": "The fluid lines of this pattern create a gentle movement.",
+      "slug": "pemberton",
       "swatch": "#2E4BA0",
       "filterGroups": [
         "Blues",
         "Patterned"
+      ],
+      "exclude": [
+        "https://shop.matthewfreed.net/products/large-serving-bowl-no-rim-pemberton-earth",
+        "https://shop.matthewfreed.net/products/copy-of-ramen-bowl-strathcona",
+        "https://shop.matthewfreed.net/products/large-serving-bowl-pemberton-earth",
+        "https://shop.matthewfreed.net/products/meal-bowl-pemberton-earth",
+        "https://shop.matthewfreed.net/products/snack-bowl-pemberton-earth",
+        "https://shop.matthewfreed.net/products/large-square-platter-in-capilano-charcoal",
+        "https://shop.matthewfreed.net/products/copy-large-square-platter-pemberton-earth-1",
+        "https://shop.matthewfreed.net/products/medium-serving-bowl-pemberton-earth",
+        "https://shop.matthewfreed.net/products/large-handle-tray-pemberton-earth",
+        "https://shop.matthewfreed.net/products/scalloped-tray-pemberton-earth"
       ]
     },
     {
@@ -153,12 +221,23 @@
       },
       "title": "Pemberton Earth Collection",
       "text": "A hand-painted leafing pattern with a textured finish in a medium brown and charcoal glaze.",
-      "slug": "Pemberton",
+      "lead": "This is a classic glaze line of mine.  A little extra TLC goes into creating these pieces and they remain some of my personal favorites.",
+      "story": "This pattern is inspired by the beautifully patterned leaves in Pemberton.",
+      "slug": "pemberton",
       "swatch": "#443A31",
       "filterGroups": [
         "Charcoals",
         "Patterned"
-      ]
+      ],
+      "exclude": [
+        "https://shop.matthewfreed.net/products/medium-serving-bowl-pemberton-sky",
+        "https://shop.matthewfreed.net/products/meal-bowl-pemberton-sky",
+        "https://shop.matthewfreed.net/products/snack-bowl-pemberton-sky"
+      ],
+      "feature_image": {
+        "url": "/images/glazes/pemberton-earth/tray-and-bowl-feature.jpg",
+        "alt": "A Pemberton Earth tray and serving bowl with a carved leaf pattern by Matthew Freed, with three apples and a fern"
+      }
     },
     {
       "image": {
@@ -167,7 +246,13 @@
       },
       "title": "Strathcona Collection",
       "text": "Semi-matte charcoal glaze with a hand-painted gold chevron pattern.",
-      "slug": "Strathcona",
+      "lead": "This bold patterned collection is a nod to the busy streets of my neighborhood- Strathcona.  I've lived and created my craft here for over 20 years.",
+      "story": "A bold linear pattern creates the strong look of this glaze collection.",
+      "feature_image": {
+        "url": "/images/glazes/strathcona/platters-and-bowl-feature.jpg",
+        "alt": "Two Strathcona platters and a serving bowl with a chevron pattern by Matthew Freed"
+      },
+      "slug": "strathcona",
       "swatch": "#55524A",
       "filterGroups": [
         "Charcoals",
@@ -181,7 +266,13 @@
       },
       "title": "Tofino Collection",
       "text": "A stormy, landscape effect in complimentary hues of cobalt, mocha, and amber.",
-      "slug": "Tofino",
+      "lead": "Tofino is my most variable glaze. Cobalt, mocha and amber run in bands across every piece, and because the glaze keeps moving in the kiln, no two come out alike.",
+      "story": "The rounder the form, the further the bands travel: on a belly mug they shift all the way around, on a dinner plate they run in toward the centre.",
+      "feature_image": {
+        "url": "/images/glazes/tofino/tea-set-feature.jpg",
+        "alt": "Tofino teapot, mugs and vase by Matthew Freed on a wooden table"
+      },
+      "slug": "tofino",
       "swatch": "#33556E",
       "filterGroups": [
         "Blues"
@@ -194,7 +285,13 @@
       },
       "title": "Tree of Life Collection",
       "text": "A textured Tree of Life emblem on a semi-matte charcoal glaze.",
-      "slug": "Tree-of-Life",
+      "lead": "Tree of Life is the one glaze that carries a mark. A textured tree emblem goes onto every piece by hand, over a semi-matte charcoal glaze.",
+      "story": "The emblem keeps the surface quiet and lets the tree do the talking. It runs through a whole table: nesting bowls, a meal bowl, a ramen bowl, a pitcher.",
+      "feature_image": {
+        "url": "/images/glazes/tree-of-life/bowls-and-pitcher-feature.jpg",
+        "alt": "Tree of Life pitcher and bowls with lemons by Matthew Freed"
+      },
+      "slug": "tree-of-life",
       "swatch": "#29261F",
       "filterGroups": [
         "Charcoals"
@@ -207,11 +304,35 @@
       },
       "title": "Zen Collection",
       "text": "A semi-matte charcoal glaze with a textured gold decorative accent tile.",
-      "slug": "Zen",
+      "lead": "The Zen line is a classic line of mine.   Although I don't revisit it often, many customers appreciate its simple and clean aesthetic.",
+      "story": "The gentle fluid movement on the zen emblem is meant to suggest that as life flows we should aspire to maintain calm.",
+      "slug": "zen",
       "swatch": "#3B382F",
       "filterGroups": [
         "Charcoals"
       ]
     }
-  ]
+  ],
+  "page": {
+    "eyebrow": "The field guide",
+    "pieces_title": "{glaze} out of the kiln",
+    "pieces_note": "Checkout happens in my Shopify shop.",
+    "market_title": "Find {glaze} at the market",
+    "market_text": "There is always more {glaze} at the market than in the shop.",
+    "market_text_more": "Each firing goes to the markets with me first.",
+    "market_cta": "All events",
+    "empty_note": "More coming soon",
+    "shop_cta_all": "See all {glaze} pieces",
+    "shop_all_label": "Shop all pieces",
+    "ask_eyebrow": "Made to order",
+    "ask_title": "Not in the shop right now?",
+    "ask_text": "I only list pieces I have actually made, so a glaze sells out from time to time. Tell me what you are after in {glaze} and I will make it and set it aside for you. A commission works the same way: rough dimensions and the glaze line are enough to start.",
+    "ask_cta": "Ask about {glaze}",
+    "ask_image": {
+      "url": "/images/workshop/out-of-the-kiln.webp",
+      "alt": "A teapot lifted out of the kiln in a gloved hand, more finished pots still standing inside"
+    },
+    "others_title": "Other glazes",
+    "back_label": "All {glazes} glazes"
+  }
 }

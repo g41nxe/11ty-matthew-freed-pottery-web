@@ -130,4 +130,40 @@
         var soon = root.querySelector('[data-events-soon]');
         if (soon) soon.hidden = live.length > 0;
     })();
+
+    // The glaze page: the row of pieces ends with the market tile and the next
+    // market date. Every upcoming date is in the HTML and data-slots says how
+    // many may show (one). A date that has passed since the build drops out
+    // and the one behind it moves up.
+    (function glaze() {
+        var root = document.getElementById('glaze-markets');
+        if (!root) return;
+        var slots = parseInt(root.dataset.slots || '0', 10);
+        var cards = Array.prototype.slice.call(root.querySelectorAll('[data-event]'));
+
+        var seen = {};
+        var first = [];
+        var rest = [];
+        cards.filter(function (card) {
+            return !past(card);
+        }).forEach(function (card) {
+            if (seen[card.dataset.name]) rest.push(card);
+            else { seen[card.dataset.name] = true; first.push(card); }
+        });
+        var offen = first.concat(rest);
+        var live = offen.slice(0, slots);
+
+        cards.forEach(function (card) {
+            card.hidden = live.indexOf(card) === -1;
+            var label = card.querySelector('[data-next-label]');
+            if (label) label.hidden = live[0] !== card;
+        });
+
+        // With every date gone the tile would promise a market that is not
+        // booked yet, so it says the same thing the events band says.
+        var text = root.querySelector('[data-market-text]');
+        var soon = root.querySelector('[data-market-soon]');
+        if (text) text.hidden = !offen.length;
+        if (soon) soon.hidden = offen.length > 0;
+    })();
 })();

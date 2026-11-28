@@ -5,9 +5,14 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     {% for page in collections.all %}
+        {# Kein lastmod: Auf Netlify ist page.date der Zeitpunkt des frischen
+           Git-Checkouts, nicht der letzten Änderung am Inhalt. Alle zehn
+           Adressen trugen damit denselben Zeitstempel, und jeder Deploy rief
+           "alles neu". Google lernt, so eine Angabe zu ignorieren -- und
+           genau das Signal brauchen wir, wenn sechzehn Glasurseiten dazu-
+           kommen. Keine Angabe ist besser als eine falsche. #}
         <url>
             <loc>{{ global.seo.url }}{{ page.url | url }}</loc>
-            <lastmod>{{ page.date.toISOString() }}</lastmod>
             <changefreq>{{ page.data.changeFreq if page.data.changeFreq else "monthly" }}</changefreq>
         </url>
     {% endfor %}

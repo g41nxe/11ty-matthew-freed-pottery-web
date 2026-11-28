@@ -2,6 +2,7 @@ import { defineConfig } from "tinacms";
 import { eventsMarkets } from "./collections/eventsMarkets";
 import { eventsPage } from "./collections/eventsPage";
 import { homePage } from "./collections/homePage";
+import { shopSets } from "./collections/shopSets";
 import { aboutPage } from "./collections/aboutPage";
 import { aboutArtPage } from "./collections/aboutArtPage";
 import { aboutProcessPage } from "./collections/aboutProcessPage";
@@ -35,7 +36,7 @@ export default defineConfig({
   schema: {
     collections: [
       eventsMarkets, eventsPage,
-      homePage,
+      homePage, shopSets,
       aboutPage, aboutArtPage, aboutProcessPage,
       collectionsPage, collectionsGallery,
       retailStoresPage, contactPage, faqPage, privacyStatementPage,

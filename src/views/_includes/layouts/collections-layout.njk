@@ -17,14 +17,19 @@ layout: base
 
 <section class="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 py-10 sm:grid-cols-2 md:grid-cols-3" id="collection-grid" aria-label="All collections">
     {% for item in gallery.items %}
+    {# Glazes with a story of their own get a page; the others keep leading
+       straight to the shop, exactly as before. #}
+    {% set glazePage = item.title | glazePath %}
     <article class="group overflow-hidden rounded-xl border border-hairline bg-white" data-group="{{ item.filterGroups | join(" ") | lower }}">
         <div class="aspect-[4/3] overflow-hidden" style="background-color: {{ item.swatch }}">
+            {% if glazePage %}<a href="{{ glazePage }}" tabindex="-1" aria-hidden="true">{% endif %}
             {% if item.image.url %}{% img item.image.url, item.image.alt, "(min-width: 1152px) 350px, (min-width: 768px) 33vw, 50vw", "img-zoom h-full w-full object-cover" %}{% endif %}
+            {% if glazePage %}</a>{% endif %}
         </div>
         <div class="p-4">
             <h2 class="flex items-center gap-2 font-display text-lg font-black text-ink">
                 <span class="h-2.5 w-2.5 flex-none rounded-full" style="background-color: {{ item.swatch }}" aria-hidden="true"></span>
-                {{ item.title | replace(" Collection", "") }}
+                {% if glazePage %}<a href="{{ glazePage }}" class="transition-colors hover:text-blue">{{ item.title | replace(" Collection", "") }}</a>{% else %}{{ item.title | replace(" Collection", "") }}{% endif %}
             </h2>
             <p class="mt-1 text-sm text-muted">{{ item.text }}</p>
             <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + item.slug) | shopLink("collections-" + item.slug) }}" target="_blank" rel="noopener" class="link-underline mt-3 inline-block text-sm">{{ item_cta | default("Browse in shop", true) }}</a>

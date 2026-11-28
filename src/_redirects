@@ -7,6 +7,15 @@ http://matthewfreedpottery.com/*       https://matthewfreed.ca/:splat   301!
 https://www.matthewfreedpottery.com/*  https://matthewfreed.ca/:splat   301!
 http://www.matthewfreedpottery.com/*   https://matthewfreed.ca/:splat   301!
 
+# Dasselbe fuer die nackte Netlify-Adresse: Sie liefert denselben Build aus,
+# traegt kein noindex und war damit eine dritte crawlbare Kopie der Seite --
+# bei einer Property, die Google seit dem 21.11.2026 kennt und deren Seiten
+# noch auf ihren ersten Besuch warten (geprueft 2026-11-26). Die Vorschauen
+# unter <branch>--mf-pottery.netlify.app sind nicht betroffen: anderer Host,
+# und sie tragen ohnehin x-robots-tag: noindex.
+https://mf-pottery.netlify.app/*       https://matthewfreed.ca/:splat   301!
+http://mf-pottery.netlify.app/*        https://matthewfreed.ca/:splat   301!
+
 
 /home/glazes            /                           301
 /Home/Glazes            /                           301

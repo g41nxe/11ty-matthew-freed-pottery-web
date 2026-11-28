@@ -71,6 +71,8 @@ Werden auf Netlify gesetzt, nie ins Repo geschrieben.
 - Keine Dienste von Google beim Seitenaufruf: Schriften kommen von der eigenen Seite, die Karte ist ein Bild mit Link. Ein Test prüft das (`test/no-google-on-load.test.mjs`). reCAPTCHA im Kontaktformular bleibt die einzige Ausnahme (Ticket 0005).
 - Releases sind annotierte Tags im Schema `vMAJOR.MINOR.PATCH` auf `main`. Vor einem Release wird der bisherige Live-Stand getaggt, damit er wiederherstellbar bleibt. Reine Build-Korrekturen ohne sichtbare Änderung bekommen keinen Tag.
 - Größere Entscheidungen werden als ADR unter `docs/adr/` festgehalten, Ideen für später als Ticket unter `docs/feature/`.
+- Wer das Tina-Schema unter `tina/collections/` ändert, muss `tina/tina-lock.json` mitliefern. TinaCloud liest das Schema aus dieser Datei, nicht aus dem TypeScript; fehlt die Änderung dort, bricht `tinacms build` auf Netlify mit `ERR_CLOUD_CHECK_FAILED` ab. Geschrieben wird die Datei nur von `tinacms dev`, nicht von `tinacms build`. Ohne laufenden Dev-Server lässt sie sich nach einem `npx tinacms build --skip-cloud-checks` aus den drei erzeugten Dateien zusammensetzen: `{ schema, lookup, graphql }` aus `tina/__generated__/_schema.json`, `_lookup.json` und `_graphql.json`.
+- Vor dem Push einer Schema-Änderung lohnt `npm run build` statt `npm run build:site`: nur der volle Befehl ruft `tinacms build` auf und findet solche Fehler lokal.
 
 ## Stand
 

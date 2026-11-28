@@ -53,30 +53,57 @@ module.exports = function (eleventyConfig) {
     // the deploy: one incomplete entry would block every later change. The
     // image is left out or gets a generic description, and the build log
     // names the page so it can be fixed.
-    eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="", classes="", loading="lazy") {
+    eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="", classes="", loading="lazy", dekorativ=false) {
         const page = this.page?.inputPath || "unknown page";
         if (typeof src !== "string" || !src.trim()) {
           console.warn(`[img] Image without a file on ${page}, left out`);
           return "";
         }
         if (typeof alt !== "string" || !alt.trim()) {
-          console.warn(`[img] No alt text for ${src} on ${page}, using "${FALLBACK_ALT}"`);
-          alt = FALLBACK_ALT;
+          // A photo whose name stands right beside it (the piece tiles on a
+          // glaze page) is decoration and gets an empty description on
+          // purpose; everything else must describe itself.
+          if (dekorativ) {
+            alt = "";
+          } else {
+            console.warn(`[img] No alt text for ${src} on ${page}, using "${FALLBACK_ALT}"`);
+            alt = FALLBACK_ALT;
+          }
         }
 
-        let metadata = await Image('src/' + src, {
-          widths: [160, 320, 640, 768, 1024, 1280, 1536, 1920],
-          formats: ["avif", "webp", "jpg"],
-          urlPath: "/images/",
-          // Written to the cache, not to dist: the build starts with "clean",
-          // and eighty source images make nine hundred derivatives that took
-          // three and a half minutes to compute every single time. eleventy-img
-          // skips a file it finds already there, so the work only happens for
-          // an image that is new or changed -- its name carries a hash of its
-          // contents. BILDCACHE copies the folder into dist when the build is
-          // done; a passthrough copy would run before these files exist.
-          outputDir: BILDCACHE + "/",
-        });
+        // A piece from the shop arrives as a full address, an image from the
+        // CMS as a path under src/. eleventy-img downloads a remote one itself
+        // and puts it in the same cache as the derivatives, which survives the
+        // deploy -- measured two seconds the first time, nothing after that.
+        const entfernt = src.startsWith("http://") || src.startsWith("https://");
+        let metadata;
+        try {
+          metadata = await Image(entfernt ? src : 'src/' + src, {
+            widths: [160, 320, 640, 768, 1024, 1280, 1536, 1920],
+            formats: ["avif", "webp", "jpg"],
+            urlPath: "/images/",
+            // Written to the cache, not to dist: the build starts with "clean",
+            // and eighty source images make nine hundred derivatives that took
+            // three and a half minutes to compute every single time. eleventy-img
+            // skips a file it finds already there, so the work only happens for
+            // an image that is new or changed -- its name carries a hash of its
+            // contents. BILDCACHE copies the folder into dist when the build is
+            // done; a passthrough copy would run before these files exist.
+            outputDir: BILDCACHE + "/",
+            // A year, not a day: this only concerns remote images, the pieces from
+            // the shop. Shopify puts a version into each image address (?v=...), so
+            // a changed photo arrives under a new address and is fetched anyway.
+            // With one day, the first build after 24 hours downloaded every shop
+            // image again and recomputed its derivatives -- measured 366 seconds
+            // against 15 with a fresh cache, without one new file.
+            cacheOptions: { duration: "1y", directory: ".cache" },
+          });
+        } catch (fehler) {
+          // A piece the shop no longer has must not cost a deploy: the tile
+          // appears without a picture, and the build log names which one.
+          console.warn(`[img] ${src} on ${page} could not be loaded, left out: ${fehler.message}`);
+          return "";
+        }
 
         return generateHTML(metadata, { alt, sizes, loading, class: classes });
       });
@@ -176,6 +203,10 @@ module.exports = function (eleventyConfig) {
             });
         return first.concat(rest);
     });
+    // "Medium Teapot - Jericho" steht auf der Jericho-Seite unter einer
+    // Überschrift, die schon Jericho heißt. Der Schnitt sitzt in
+    // _data/shopPieces.js, damit Vorlage und Tests dieselbe Regel benutzen.
+    eleventyConfig.addNunjucksFilter("withoutGlaze", require("./src/views/_data/shopPieces.js").ohneGlasur);
     eleventyConfig.addNunjucksFilter("markdownify", (s) => (s ? md.render(s) : ""));
     // Outgoing shop links get their origin tag at build time, so the CMS
     // keeps clean URLs and nobody types parameters by hand. Shopify only
@@ -226,6 +257,17 @@ module.exports = function (eleventyConfig) {
             return start + quote + tagShopUrl(parsed, "text-" + page).replace(/&/g, "&amp;") + quote;
         });
     });
+    // A glaze has a page of its own once Matthew writes a story for it
+    // (see _data/glazePages.js). The cards ask for the path by title and
+    // fall back to the shop link when there is no page yet, so adding a
+    // story is the only step needed to put a glaze card on its own page.
+    eleventyConfig.addNunjucksFilter("glazePath", (title) => {
+        // .seiten ist die Liste ohne den Shop: Pfade hängen nicht daran,
+        // welche Stücke Shopify gerade führt.
+        const page = require("./src/views/_data/glazePages.js").seiten
+            .find((candidate) => candidate.title === title);
+        return page ? page.path : "";
+    });
     // CMS texts write {glazes} (or {Glazes} to start a sentence) instead of
     // a number, so "fifteen glazes" stays right when a glaze line is added
     // to or removed from the gallery.
@@ -242,7 +284,9 @@ module.exports = function (eleventyConfig) {
     // second run costs nothing.
     eleventyConfig.on("eleventy.after", async () => {
         if (!fs.existsSync(BILDCACHE)) return;
+        const vorher = fs.existsSync("dist/images") ? fs.readdirSync("dist/images").length : 0;
         await fs.promises.cp(BILDCACHE, "dist/images", { recursive: true, force: false, errorOnExist: false });
+        console.log("[bildcache] dist/images " + vorher + " -> " + fs.readdirSync("dist/images").length + ", Cache " + fs.readdirSync(BILDCACHE).length);
     });
 
     return {

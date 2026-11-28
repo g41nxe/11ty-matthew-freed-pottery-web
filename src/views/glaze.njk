@@ -1,0 +1,341 @@
+---
+layout: base
+pagination:
+  data: glazePages
+  size: 1
+  alias: glaze
+  # Without this only the first of the generated pages lands in
+  # collections.all, and the sitemap would list one glaze instead of all
+  # of them -- on pages built to be found in search, that is the whole
+  # point missed.
+  addAllPagesToCollections: true
+permalink: "{{ glaze.path }}"
+eleventyComputed:
+  # "Jericho" alone means nothing in a search result, "Jericho glaze" does.
+  # safe, in both: the SEO plugin escapes what it writes into the head. Without
+  # it the apostrophe in "I don't revisit it often" was escaped twice and
+  # reached the search snippet as "don&#39;t".
+  title: "{{ glaze.name | safe }} glaze"
+  # eleventy-plugin-seo reads "excerpt" as the page description (ADR 0002).
+  excerpt: "{{ glaze.lead | safe }}"
+---
+{# One page per glaze, generated from the gallery entries (see
+   _data/glazePages.js). The page stays in the site's own palette: paper,
+   white and blue. The glaze colour appears only as the dot beside the name,
+   the way it does on the cards — a band in the glaze colour would drag
+   sixteen foreign colours into the design.
+
+   Order follows what the numbers showed: the pieces sell, so they come
+   early, under the full description. A second text block below the pieces
+   was tried and dropped — with the same headings on sixteen pages it would
+   read as filler. The lead stays a separate field only because the search
+   snippet needs two sentences, not the whole text. #}
+<article>
+    {# The glaze and its picture open the page together: name and text on the
+       left, the group photo on the right. Someone arriving from a search has
+       not seen the card yet, so the page shows what the glaze looks like
+       before it says anything else. The photo keeps its 4:3 on every page --
+       it used to stretch to the height of the tiles beside it, which gave it
+       a different crop on all sixteen and cut teapots off at the spout.
+
+       The picture is Matthew's group photo where he has taken one and the
+       glaze's own card otherwise. #}
+    <section class="mx-auto max-w-6xl px-6 pt-12">
+        {% set shopUrl = (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-shop") %}
+        {# Three parts: name, photo, text. On a phone they stand in that order,
+           so the photo comes right after the name and not below a screenful
+           of text -- it used to start at 631 of 812 pixels. From md up the
+           photo takes the right column over both rows, and the two text parts
+           meet in the middle of the left one: the name sits at the bottom of
+           its row, the text at the top of the next, and the free height is
+           shared evenly above and below. #}
+        <div class="grid gap-x-10 gap-y-6 md:grid-cols-2 md:gap-y-0 lg:gap-x-12">
+            <div class="md:self-end">
+                {# Label and heading as on every other page of the site: blue label, ink heading, mt-3 between them (collections, events, about, the home hero). #}
+                <p class="cap-label text-blue">{{ gallery.page.eyebrow }}{% if glaze.group %} &middot; {{ glaze.group }}{% endif %}</p>
+                <h1 class="mt-3 flex items-start gap-3.5 font-display text-4xl font-black leading-tight text-ink">
+                    {# The dot that stands beside a glaze's name everywhere on the site, here large enough to read as a sample of the colour. No ring around it: it pushed the dot five pixels out past the left edge the label and the text share, and the palest glaze stands off the paper without one. It stands at the first line (mt-2 centres 30px in a 45px line), so a name that wraps -- Squamish Nights on a phone -- does not leave it hanging between two lines. A marker stroke in the glaze colour was tried here and dropped -- the heading is not a link, and at half strength the colours went dull, the charcoals to a grey bar. #}
+                    <span class="mt-2 h-7.5 w-7.5 flex-none rounded-full" style="background-color: {{ glaze.swatch }}" aria-hidden="true"></span>
+                    {{ glaze.name }}
+                </h1>
+                {# The card's one-liner under the name, as a sentence in the display serif: the second voice of the page between the heavy name and the grey text. It was blue capitals first, the way the featured piece on the home page carries its caption, but a line this long (Skaha's runs to eighty characters) is three rows of capitals and reads as a block, not as a caption. Ink, not blue: blue is the colour of labels and links here. #}
+                {% if glaze.text %}<p class="mt-3 text-balance font-display text-lg font-medium leading-7 text-ink md:text-xl">{{ glaze.text | trim | replace(r/\.$/, "") }}.</p>{% endif %}
+            </div>
+            {# Das erste Bild der Seite und meist ihr größtes: Es lädt sofort,
+               nicht erst beim Scrollen. Ein Link ist es nur, solange es in
+               der Sammlung dahinter etwas zu kaufen gibt (glaze.available). #}
+            {% if glaze.available %}
+            <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-feature") }}" target="_blank" rel="noopener" class="group relative block aspect-[4/3] overflow-hidden bg-tile md:col-start-2 md:row-span-2 md:row-start-1 md:self-center">
+                {% img glaze.feature.url, glaze.feature.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "img-zoom absolute inset-0 h-full w-full object-cover", "eager" %}
+            </a>
+            {% else %}
+            <div class="relative aspect-[4/3] overflow-hidden bg-tile md:col-start-2 md:row-span-2 md:row-start-1 md:self-center">
+                {% img glaze.feature.url, glaze.feature.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover", "eager" %}
+            </div>
+            {% endif %}
+            <div class="md:self-start">
+                {# text-pretty keeps a paragraph from ending on one stranded word ("... design traits around / Yaletown."), text-balance evens out a tagline that runs to two lines. Paragraphs stand 16px apart, the same step as between tagline and text: at 12px, under half a line of this type, they read as one block. #}
+                <p class="text-pretty text-base leading-relaxed text-muted md:mt-4">{{ glaze.lead }}</p>
+                {% for paragraph in glaze.paragraphs %}
+                <p class="mt-4 text-pretty text-base leading-relaxed text-muted">{{ paragraph }}</p>
+                {% endfor %}
+                {# Ohne verfügbare Stücke führte der Knopf auf eine leere
+                   Sammlung im Shop oder auf eine, in der alles ausverkauft
+                   ist (Dogwood: vier von vier). Hinaus führt dort die
+                   Marktkachel weiter unten. #}
+                {% if glaze.available %}<a href="{{ shopUrl }}" target="_blank" rel="noopener" class="btn-primary mt-6">{{ gallery.page.shop_cta_all | replace("{glaze}", glaze.name) }}</a>{% endif %}
+            </div>
+        </div>
+    </section>
+
+    {# The pieces of this glaze, as a slider. They come from the shop, not
+       from the CMS: a list typed in once was stale two months later, with
+       fifteen of twenty tiles sold out while the shop held fifty-seven pieces
+       (ADR 0006). Every piece that can be bought is here; sold-out ones only
+       fill up to four (see _data/glazePages.js). #}
+    <section class="mx-auto max-w-6xl px-6 py-12" aria-label="This glaze in the shop">
+        <div class="flex items-baseline justify-between gap-4">
+            <h2 class="font-display text-2xl font-black text-ink">{{ gallery.page.pieces_title | replace("{glaze}", glaze.name) }}</h2>
+            {# Der Weg in den ganzen Shop, auf allen sechzehn Seiten gleich. Der
+               Weg zu den Stücken dieser Glasur ist der Knopf im Kopf. #}
+            <a href="{{ (global.shop.base + global.shop.collectionsPath + "/") | shopLink("glaze-" + glaze.name + "-shop-all") }}" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ gallery.page.shop_all_label }}</a>
+        </div>
+        {# Die Reihe hat eine feste Folge: erst die Stücke, am Ende immer die
+           Marktkachel und der nächste Markt. Sind das zusammen weniger als
+           vier Karten, stehen dazwischen Platzhalter -- so ist die erste
+           Ansicht auch bei einer Glasur ohne Stücke voll, und die Reihe
+           läuft sichtbar weiter.
+
+           Vorher war die Reihe ein Raster mit vier Plätzen, und was die
+           Stücke frei ließen, bekamen Marktkachel, Termin und Platzhalter.
+           Das brauchte für Telefon, Tablet und Schreibtisch je eine eigene
+           Regel und zeigte nie mehr als vier Stücke, auch wenn der Shop zwölf
+           verfügbare hielt. #}
+        {% set upcoming = events | occurrences | filterUpcoming | byDateAsc %}
+        {% set shortlist = upcoming | nextUp %}
+        {% set platzhalter = 2 - glaze.pieces.length %}
+        {% if platzhalter < 0 %}{% set platzhalter = 0 %}{% endif %}
+        {# With two pieces or fewer the row holds exactly four cards, and they
+           simply stand there: four in a row from lg up, two by two below. A
+           slider with nothing to slide would only be a row that can be
+           nudged. From three pieces on there are more cards than fit, and
+           the row becomes a slider. #}
+        {% set alsSlider = glaze.pieces.length > 2 %}
+        {# As a slider the row shows four cards to a view from lg up and two
+           below, and in both a strip of the next one at the right edge. At
+           exactly a quarter each, four pixels of the fifth were left and
+           nothing said that the row goes on; 22.5% leaves some fifty. Every
+           card that is not a piece is a square like the photos and ends on
+           their lower edge. #}
+        {% set karte = "w-[45%] flex-none snap-start lg:w-[22.5%]" if alsSlider else "" %}
+        {# data-slider: home-slider.js gives this row the line and the arrows
+           below it (slider-nav.njk). "still" keeps it from advancing on its
+           own the way the glaze sliders do: someone reading prices should
+           not have the row pulled away. data-slots: events.js keeps one date visible and
+           lets the next one move up when it has passed. #}
+        <div id="glaze-markets"{% if alsSlider %} data-slider="still"{% endif %} data-slots="1" class="mt-8 {% if alsSlider %}no-scrollbar -mx-6 flex snap-x snap-mandatory items-start gap-5 overflow-x-auto scroll-px-6 px-6 pb-2{% else %}grid grid-cols-2 items-start gap-5 lg:grid-cols-4{% endif %}">
+            {% for piece in glaze.pieces %}
+            <a href="{{ piece.url | shopLink("glaze-" + glaze.name + "-tile" + loop.index) }}" target="_blank" rel="noopener" class="group {{ karte }}">
+                {# The square belongs to the frame, not to the image: a piece
+                   the shop lists without a photo keeps its place in the row. #}
+                <div class="relative aspect-square overflow-hidden bg-white">
+                    {# The shop says in the same answer whether a piece is to
+                       be had, so no second request is needed for the label. #}
+                    {% if not piece.available %}<span class="cap-label absolute right-2 top-2 z-10 bg-sand px-2 py-1 font-bold text-ink">{{ global.labels.sold_out | default("Sold out", true) }}</span>{% endif %}
+                    {# sizes: the widest a card gets -- a quarter of the row without the slider, a little less with it. #}
+                    {% img piece.image, piece.alt, "(min-width: 1152px) 264px, (min-width: 1024px) 25vw, 50vw", "img-zoom h-full w-full object-contain", "lazy", true %}
+                </div>
+                <div class="mt-2 flex items-baseline justify-between gap-2">
+                    {# Always two lines high: "Medium Teapot - Yaletown Red" wraps, "Shorty Mug" does not, and a row whose captions end at different heights reads as restless. A third line is cut. #}
+                    <p class="line-clamp-2 min-h-10 font-display text-sm font-black text-ink transition-colors group-hover:text-blue">{{ piece.title | withoutGlaze(glaze.name) }}</p>
+                    {% if piece.price %}<p class="flex-none text-sm font-medium text-muted">{{ piece.price }}</p>{% endif %}
+                </div>
+            </a>
+            {% endfor %}
+
+            {# The empty places are built like a piece: a white square like the
+               ground of the product photos, and a line of text below it where
+               a piece carries its name. In the square stand three dogwood
+               flowers in the glaze colour -- the flower from under the heading
+               of the collections page -- each paler than the one before, the
+               way three dots trail off: more is on its way. One flower alone
+               only marked the spot and left the saying to the text. A fine line inside the edge was tried and read as a
+               frame around nothing. The line below says what to expect,
+               in the type of the piece names; its line break comes from the
+               CMS (whitespace-pre-line), and two lines are what a name takes.
+
+               Tried before: a field of glaze colour with a pale X, which
+               outweighed the photos beside it, and the text in place of the
+               flower under the pointer, which a phone never showed. They say
+               nothing a screen reader needs: the market tile says the same in
+               a sentence. #}
+            {% for n in range(0, platzhalter) %}
+            {# Two of them side by side, with the same flowers and the same
+               line, looked like one tile printed twice. So the flowers fade
+               across both as one row of six, and the line stands under the
+               first only. #}
+            {% set stufen = ["", "opacity-45", "opacity-20"] %}
+            {% if platzhalter > 1 %}{% set stufen = ["", "opacity-60", "opacity-35"] if n == 0 else ["opacity-20", "opacity-10", "opacity-5"] %}{% endif %}
+            <div class="{{ karte }}" aria-hidden="true">
+                <div class="relative flex aspect-square items-center justify-center bg-white" style="color: {{ glaze.swatch }}">
+                    <span class="flex w-[62%] items-center justify-between [&>span]:w-[28%] [&_svg]:h-auto [&_svg]:w-full">
+                        {% for stufe in stufen %}<span class="{{ stufe }}">{% include "dogwood.njk" %}</span>{% endfor %}
+                    </span>
+                </div>
+                {% if gallery.page.empty_note and n == 0 %}<p class="mt-2 min-h-10 whitespace-pre-line font-display text-sm font-black text-ink">{{ gallery.page.empty_note }}</p>{% endif %}
+            </div>
+            {% endfor %}
+
+            {# Der blaue Rahmen trennt sie von den Stücken daneben, die
+               keinen haben. Dieselbe Markierung trägt auf der Events-Seite
+               der nächste Termin.
+
+               Der erste Satz gilt bei leerem wie bei vollem Shop. Eine
+               Entschuldigung ("Sorry, not much ... in the shop") stand hier
+               zuerst und passte nicht mehr, seit die Kachel auch neben zwölf
+               Stücken steht; zwei Sätze je nach Bestand waren ein Feld mehr,
+               als die Aussage braucht. Der zweite Satz entfällt, wo die
+               Kachel für ihn zu schmal
+               ist: auf dem Telefon (rund 155 Pixel) und von lg bis 1151 Pixel
+               (rund 220). Ab 1152 hat die Seite ihre volle Breite (max-w-6xl)
+               und die Kachel 248 Pixel; xl wäre mit 1280 zu spät gewesen. Auf
+               dem Telefon steht auch die Linkzeile nicht -- die ganze Kachel
+               führt zu den Terminen.
+
+               Steht kein Termin neben ihr, nimmt die Kachel dessen Platz mit
+               ein (main.css, [data-market-tile]).
+
+               Ohne Termin stimmt der Satz über die Märkte nicht mehr, also
+               steht dort dieselbe Zeile wie im Terminband. events.js tauscht
+               sie, wenn der letzte Termin vorbeigezogen ist, seit die Seite
+               gebaut wurde. #}
+            {# The glaze name stands out the way a glaze does in the blurbs on the home page: .text-highlight, blue in its light variant (.blurb-inline). #}
+            {# Auf dem Telefon misst eine Karte 130 bis 155 Pixel. In ein Quadrat
+               dieser Größe passen Satz und Marktname nur in 12 Pixel Schrift,
+               und die war zu klein. Dort sind Marktkachel und Termin deshalb
+               keine Quadrate, sondern so hoch, wie ihr Text in lesbarer Größe
+               braucht (max-sm:aspect-auto und self-stretch); die Karten der
+               Reihe strecken sich gemeinsam. Ab sm sind es wieder Quadrate. #}
+            {# The type follows the card, not the screen. A card is widest on a
+               tablet, where two share the row (some 350 pixels from md up),
+               and narrower again from lg, where four do (220 to 260). So the
+               sizes go up at md and back down at lg -- with one size from sm
+               up, the tablet card stood half empty under small type. #}
+            {% set glasurname = '<span class="text-highlight font-bold">' ~ (glaze.name | escape) ~ '</span>' %}
+            <a href="/events.html" data-market-tile class="group flex aspect-square flex-col rounded-xl border-2 border-blue bg-white p-3 max-sm:aspect-auto max-sm:self-stretch sm:p-5 lg:p-4 {{ karte }}">
+                <p class="font-display text-base font-black leading-tight text-ink transition-colors group-hover:text-blue sm:text-2xl md:text-3xl lg:text-lg min-[1152px]:text-xl">{{ gallery.page.market_title | replace("{glaze}", glaze.name) }}</p>
+                <p data-market-text class="blurb-inline mt-1.5 text-sm leading-snug text-muted sm:mt-2 sm:leading-relaxed md:text-base lg:text-sm"{% if not shortlist.length %} hidden{% endif %}>{{ gallery.page.market_text | escape | replace("{glaze}", glasurname) | safe }}{% if gallery.page.market_text_more %}<span class="max-sm:hidden lg:max-[1151px]:hidden"> {{ gallery.page.market_text_more }}</span>{% endif %}</p>
+                <p data-market-soon class="mt-1.5 text-sm leading-snug text-muted sm:mt-2 sm:leading-relaxed md:text-base lg:text-sm"{% if shortlist.length %} hidden{% endif %}>{{ global.labels.dates_soon }}</p>
+                <span class="link-underline mt-auto inline-block self-start pt-4 text-sm max-sm:hidden md:text-base lg:text-sm">{{ gallery.page.market_cta }}</span>
+            </a>
+
+            {# Wie im Terminband steht jeder kommende Termin im HTML, und nur
+               der erste ist sichtbar: events.js wiederholt die Auswahl im
+               Browser, damit ein Markt verschwindet, der seit dem Bau vorbei
+               ist. Beim Überfahren wird die Haarlinie blau und der Name auch --
+               so reagieren weiße Flächen auf dieser Seite überall (Kartenknopf,
+               Formularfelder). Eine andere Flächenfarbe gibt es nur im blauen
+               Terminband. Ort und Uhrzeit stehen ab sm; auf dem Telefon hält
+               die Kachel nur Tag und Markt. #}
+            {% for event in upcoming %}
+            {% set rank = shortlist.indexOf(event) %}
+            <a href="/events.html"
+               data-event
+               data-date="{{ event.date | date('yyyy-MM-dd') }}"
+               data-until="{{ (event.end_date or event.date) | date('yyyy-MM-dd') }}"
+               data-name="{{ event.name | trim }}"
+               {% if rank != 0 %}hidden{% endif %}
+               class="group flex aspect-square flex-col rounded-xl border border-hairline bg-white p-3 transition-colors hover:border-blue max-sm:aspect-auto max-sm:self-stretch sm:p-5 lg:p-4 {{ karte }}">
+                <p data-next-label class="cap-label mb-1 text-blue sm:mb-2"{% if rank != 0 %} hidden{% endif %}>{{ global.labels.next_up }}</p>
+                <p class="flex items-baseline gap-2">
+                    <span class="font-display text-2xl font-black text-ink sm:text-3xl md:text-4xl lg:text-3xl">{{ event.date | date("d") }}</span>
+                    <span class="cap-label text-muted">{{ event.date | date("MMM") }}</span>
+                </p>
+                <p class="mt-2 font-display text-base font-black leading-snug text-ink transition-colors group-hover:text-blue sm:mt-3 md:text-xl lg:text-base">{{ event.name }}</p>
+                <p class="mt-1 text-sm text-muted max-sm:hidden md:text-base lg:text-sm">{{ event.location }}</p>
+                {% if event.time %}<p class="mt-1 text-sm text-muted max-sm:hidden md:text-base lg:text-sm">{{ event.time }}</p>{% endif %}
+            </a>
+            {% endfor %}
+        </div>
+        {% if alsSlider %}{% set sliderZiel = "glaze-markets" %}{% include "slider-nav.njk" %}{% endif %}
+        {# Same line the home page carries under the same pieces: every tile
+           here leaves the site, and saying so once under the block is friendlier
+           than finding out at the checkout. #}
+        {% if gallery.page.pieces_note and glaze.pieces.length %}<p class="mt-6 text-center text-xs text-muted">{{ gallery.page.pieces_note }}</p>{% endif %}
+        {# Dieselbe Datei wie im Terminband: Sie entfernt Termine, die seit
+           dem Bau vorbei sind, und zieht die dahinter nach. #}
+        <script defer src="/js/events.js"></script>
+    </section>
+
+    {# Half the tiles can be sold out at any time, and the shop never holds
+       everything Matthew has made. Without this the page is a dead end for
+       exactly the visitor who wants this glaze most. Wording follows his own
+       answers in the FAQ.
+
+       Blue, because on this site blue is the colour of Matthew speaking for
+       himself: the events band and the About teaser are the only other two,
+       and both are on the home page. This block is him in the first person,
+       so it belongs with those and not with the paper and white the shop
+       content uses. It also catches the dark bottom edge of the photo above,
+       which a white band collided with. #}
+    <section class="bg-blue">
+        <div class="mx-auto grid max-w-6xl md:grid-cols-2">
+            {# One picture for all sixteen bands: a teapot lifted out of the
+               kiln, more pots still standing inside. The text beside it offers
+               to make a piece, and the picture shows the making -- a product
+               shot of one finished piece would read as "this one", not as
+               "yours next". A per-glaze photo was tried and dropped: on two
+               pages it showed a glazed piece under "not in the shop right
+               now", and the card image must never appear here at all, because
+               the visitor clicked on it to get here. The picture comes from
+               Collections - Glazes in the CMS, under
+               "Wording on every glaze page". #}
+            <div class="relative aspect-[4/3] overflow-hidden md:aspect-auto">
+                {% img gallery.page.ask_image.url, gallery.page.ask_image.alt, "(min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover" %}
+            </div>
+            {# Same shape as the About teaser on the home page (story-teaser.njk):
+               label, heading, text, action, on the same spacing. Both are
+               Matthew speaking in blue, and two blue bands built differently
+               would read as two different kinds of thing. #}
+            <div class="flex flex-col items-start justify-center px-6 py-12 md:px-12 md:py-14">
+                {% if gallery.page.ask_eyebrow %}<p class="cap-label text-sand">{{ gallery.page.ask_eyebrow }}</p>{% endif %}
+                <h2 class="mt-3 font-display text-3xl font-black leading-tight text-paper">{{ gallery.page.ask_title }}</h2>
+                {# The glaze name stands out here as it does in the market tile above: .text-highlight, which is sand on a dark ground. #}
+                <p class="mt-4 max-w-md text-base leading-relaxed text-paper/80">{{ gallery.page.ask_text | escape | replace("{glaze}", '<span class="text-highlight font-bold">' ~ (glaze.name | escape) ~ '</span>') | safe }}</p>
+                <a href="/contact.html" class="link-underline link-invert mt-8 inline-block text-sm">{{ gallery.page.ask_cta | replace("{glaze}", glaze.name) }}</a>
+            </div>
+        </div>
+    </section>
+
+    {# The page we want people to keep circling back to, so the other glazes
+       get cards here, not a thin row of links. It is the slider from the home
+       page (home-slider.js looks for #glaze-slider): all fifteen other glazes
+       can be reached from here, where a grid of four showed the next four and
+       hid the rest. The strip of dots the home page carries under it is left
+       out -- with it the foot of the page was a second navigation, and the
+       way back to all glazes stands beside the heading instead. The order starts
+       with the glaze after this one, see _data/glazePages.js. #}
+    <section class="mx-auto max-w-6xl px-6 py-12" aria-label="Other glazes">
+        <div class="flex items-baseline justify-between gap-4">
+            <h2 class="font-display text-2xl font-black text-ink">{{ gallery.page.others_title }}</h2>
+            <a href="/collections.html" class="link-underline whitespace-nowrap text-sm">{{ gallery.page.back_label | glazeCount(gallery.items.length) }}</a>
+        </div>
+        <div id="glaze-slider" class="no-scrollbar -mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-6 px-6 pb-2">
+            {% for other in glaze.others %}
+            <a href="{{ other.path }}" class="group w-[86%] flex-none snap-start sm:w-[45%] md:w-[31%]">
+                <div class="aspect-[4/3] w-full overflow-hidden" style="background-color: {{ other.swatch }}">
+                    {% img other.image.url, other.image.alt, "(min-width: 1152px) 342px, (min-width: 768px) 31vw, 86vw", "img-zoom h-full w-full object-cover" %}
+                </div>
+                <p class="mt-3 flex items-center gap-2 font-display text-base font-black text-ink transition-colors group-hover:text-blue">
+                    <span class="h-2.5 w-2.5 flex-none rounded-full" style="background-color: {{ other.swatch }}" aria-hidden="true"></span>
+                    {{ other.name }}
+                </p>
+                <p class="mt-1 text-sm text-muted">{{ other.text }}</p>
+            </a>
+            {% endfor %}
+        </div>
+        {# No colour dots here, so the line and the arrows take their place. #}
+        {% set sliderZiel = "glaze-slider" %}{% include "slider-nav.njk" %}
+        <script defer src="/js/home-slider.js"></script>
+    </section>
+</article>
