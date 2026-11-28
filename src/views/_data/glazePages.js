@@ -77,6 +77,10 @@ function mitStuecken(liste, nachTag) {
         const alle = (nachTag[shopPieces.tagSchluessel(page.slug)] || [])
             .filter((stueck) => !ausgeschlossen.has(stueck.handle));
         const frei = alle.filter((stueck) => stueck.available);
+        // Wie viele davon zu kaufen sind. Daran hängen der Knopf und der
+        // Fotolink zur Sammlung im Shop: Vier ausverkaufte Stücke füllen die
+        // Reihe, aber ein Knopf "See all pieces" führte dann ins Leere.
+        page.available = frei.length;
         page.pieces = frei.length >= MINDESTENS
             ? frei
             : frei.concat(alle.filter((stueck) => !stueck.available)).slice(0, MINDESTENS);

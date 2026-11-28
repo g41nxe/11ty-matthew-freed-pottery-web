@@ -53,15 +53,22 @@ module.exports = function (eleventyConfig) {
     // the deploy: one incomplete entry would block every later change. The
     // image is left out or gets a generic description, and the build log
     // names the page so it can be fixed.
-    eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="", classes="", loading="lazy") {
+    eleventyConfig.addNunjucksAsyncShortcode("img", async function(src, alt, sizes="", classes="", loading="lazy", dekorativ=false) {
         const page = this.page?.inputPath || "unknown page";
         if (typeof src !== "string" || !src.trim()) {
           console.warn(`[img] Image without a file on ${page}, left out`);
           return "";
         }
         if (typeof alt !== "string" || !alt.trim()) {
-          console.warn(`[img] No alt text for ${src} on ${page}, using "${FALLBACK_ALT}"`);
-          alt = FALLBACK_ALT;
+          // A photo whose name stands right beside it (the piece tiles on a
+          // glaze page) is decoration and gets an empty description on
+          // purpose; everything else must describe itself.
+          if (dekorativ) {
+            alt = "";
+          } else {
+            console.warn(`[img] No alt text for ${src} on ${page}, using "${FALLBACK_ALT}"`);
+            alt = FALLBACK_ALT;
+          }
         }
 
         // A piece from the shop arrives as a full address, an image from the

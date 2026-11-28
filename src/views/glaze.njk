@@ -62,9 +62,9 @@ eleventyComputed:
                 {% if glaze.text %}<p class="mt-3 text-balance font-display text-lg font-medium leading-7 text-ink md:text-xl">{{ glaze.text | trim | replace(r/\.$/, "") }}.</p>{% endif %}
             </div>
             {# Das erste Bild der Seite und meist ihr größtes: Es lädt sofort,
-               nicht erst beim Scrollen. Ein Link ist es nur, solange die
-               Sammlung dahinter nicht leer ist. #}
-            {% if glaze.pieces.length %}
+               nicht erst beim Scrollen. Ein Link ist es nur, solange es in
+               der Sammlung dahinter etwas zu kaufen gibt (glaze.available). #}
+            {% if glaze.available %}
             <a href="{{ (global.shop.base + global.shop.collectionsPath + "/" + glaze.slug) | shopLink("glaze-" + glaze.name + "-feature") }}" target="_blank" rel="noopener" class="group relative block aspect-[4/3] overflow-hidden bg-tile md:col-start-2 md:row-span-2 md:row-start-1 md:self-center">
                 {% img glaze.feature.url, glaze.feature.alt, "(min-width: 1152px) 528px, (min-width: 768px) 50vw, 100vw", "img-zoom absolute inset-0 h-full w-full object-cover", "eager" %}
             </a>
@@ -79,9 +79,11 @@ eleventyComputed:
                 {% for paragraph in glaze.paragraphs %}
                 <p class="mt-4 text-pretty text-base leading-relaxed text-muted">{{ paragraph }}</p>
                 {% endfor %}
-                {# Ohne Stücke führte der Knopf auf eine leere Sammlung im Shop.
-                   Hinaus führt dort die Marktkachel weiter unten. #}
-                {% if glaze.pieces.length %}<a href="{{ shopUrl }}" target="_blank" rel="noopener" class="btn-primary mt-6">{{ collections_glaze.shop_cta_all | replace("{glaze}", glaze.name) }}</a>{% endif %}
+                {# Ohne verfügbare Stücke führte der Knopf auf eine leere
+                   Sammlung im Shop oder auf eine, in der alles ausverkauft
+                   ist (Dogwood: vier von vier). Hinaus führt dort die
+                   Marktkachel weiter unten. #}
+                {% if glaze.available %}<a href="{{ shopUrl }}" target="_blank" rel="noopener" class="btn-primary mt-6">{{ collections_glaze.shop_cta_all | replace("{glaze}", glaze.name) }}</a>{% endif %}
             </div>
         </div>
     </section>
@@ -139,9 +141,9 @@ eleventyComputed:
                 <div class="relative aspect-square overflow-hidden bg-white">
                     {# The shop says in the same answer whether a piece is to
                        be had, so no second request is needed for the label. #}
-                    {% if not piece.available %}<span class="cap-label absolute right-2 top-2 z-10 bg-sand px-2 py-1 text-[10px] font-bold text-ink">{{ global.labels.sold_out | default("Sold out", true) }}</span>{% endif %}
+                    {% if not piece.available %}<span class="cap-label absolute right-2 top-2 z-10 bg-sand px-2 py-1 font-bold text-ink">{{ global.labels.sold_out | default("Sold out", true) }}</span>{% endif %}
                     {# sizes: the widest a card gets -- a quarter of the row without the slider, a little less with it. #}
-                    {% img piece.image, piece.alt, "(min-width: 1152px) 264px, (min-width: 1024px) 25vw, 50vw", "img-zoom h-full w-full object-contain" %}
+                    {% img piece.image, piece.alt, "(min-width: 1152px) 264px, (min-width: 1024px) 25vw, 50vw", "img-zoom h-full w-full object-contain", "lazy", true %}
                 </div>
                 <div class="mt-2 flex items-baseline justify-between gap-2">
                     {# Always two lines high: "Medium Teapot - Yaletown Red" wraps, "Shorty Mug" does not, and a row whose captions end at different heights reads as restless. A third line is cut. #}
@@ -208,22 +210,22 @@ eleventyComputed:
                sie, wenn der letzte Termin vorbeigezogen ist, seit die Seite
                gebaut wurde. #}
             {# The glaze name stands out the way a glaze does in the blurbs on the home page: .text-highlight, blue in its light variant (.blurb-inline). #}
-            {# Unter 390 Pixeln misst eine Karte rund 140, und weder der Satz der
-               Marktkachel noch ein Marktname in drei Zeilen passt in ein Quadrat
-               dieser Größe. Dort sind Marktkachel und Termin deshalb so hoch wie
-               die Karten daneben mit Foto und Titel (max-[389px]:aspect-auto und
-               self-stretch) statt wie die Fotos allein. #}
-            {# The sentence and the name are escaped first, then the name goes in as markup: "| safe" at the end covers the whole string, and without the escape an ampersand typed into the CMS would reach the page raw. #}
+            {# Auf dem Telefon misst eine Karte 130 bis 155 Pixel. In ein Quadrat
+               dieser Größe passen Satz und Marktname nur in 12 Pixel Schrift,
+               und die war zu klein. Dort sind Marktkachel und Termin deshalb
+               keine Quadrate, sondern so hoch, wie ihr Text in lesbarer Größe
+               braucht (max-sm:aspect-auto und self-stretch); die Karten der
+               Reihe strecken sich gemeinsam. Ab sm sind es wieder Quadrate. #}
             {# The type follows the card, not the screen. A card is widest on a
                tablet, where two share the row (some 350 pixels from md up),
                and narrower again from lg, where four do (220 to 260). So the
                sizes go up at md and back down at lg -- with one size from sm
                up, the tablet card stood half empty under small type. #}
             {% set glasurname = '<span class="text-highlight font-bold">' ~ (glaze.name | escape) ~ '</span>' %}
-            <a href="/events.html" data-market-tile class="group flex aspect-square flex-col rounded-xl border-2 border-blue bg-white p-3 max-[389px]:aspect-auto max-[389px]:self-stretch sm:p-5 lg:p-4 {{ karte }}">
-                <p class="font-display text-sm font-black leading-tight text-ink transition-colors group-hover:text-blue sm:text-2xl md:text-3xl lg:text-lg min-[1152px]:text-xl">{{ collections_glaze.market_title | replace("{glaze}", glaze.name) }}</p>
-                <p data-market-text class="blurb-inline mt-1.5 text-xs leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed md:text-base md:leading-relaxed lg:text-sm"{% if not shortlist.length %} hidden{% endif %}>{{ collections_glaze.market_text | escape | replace("{glaze}", glasurname) | safe }}{% if collections_glaze.market_text_more %}<span class="max-sm:hidden lg:max-[1151px]:hidden"> {{ collections_glaze.market_text_more }}</span>{% endif %}</p>
-                <p data-market-soon class="mt-1.5 text-xs leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed md:text-base md:leading-relaxed lg:text-sm"{% if shortlist.length %} hidden{% endif %}>{{ global.labels.dates_soon }}</p>
+            <a href="/events.html" data-market-tile class="group flex aspect-square flex-col rounded-xl border-2 border-blue bg-white p-3 max-sm:aspect-auto max-sm:self-stretch sm:p-5 lg:p-4 {{ karte }}">
+                <p class="font-display text-base font-black leading-tight text-ink transition-colors group-hover:text-blue sm:text-2xl md:text-3xl lg:text-lg min-[1152px]:text-xl">{{ collections_glaze.market_title | replace("{glaze}", glaze.name) }}</p>
+                <p data-market-text class="blurb-inline mt-1.5 text-sm leading-snug text-muted sm:mt-2 sm:leading-relaxed md:text-base lg:text-sm"{% if not shortlist.length %} hidden{% endif %}>{{ collections_glaze.market_text | escape | replace("{glaze}", glasurname) | safe }}{% if collections_glaze.market_text_more %}<span class="max-sm:hidden lg:max-[1151px]:hidden"> {{ collections_glaze.market_text_more }}</span>{% endif %}</p>
+                <p data-market-soon class="mt-1.5 text-sm leading-snug text-muted sm:mt-2 sm:leading-relaxed md:text-base lg:text-sm"{% if shortlist.length %} hidden{% endif %}>{{ global.labels.dates_soon }}</p>
                 <span class="link-underline mt-auto inline-block self-start pt-4 text-sm max-sm:hidden md:text-base lg:text-sm">{{ collections_glaze.market_cta }}</span>
             </a>
 
@@ -243,13 +245,13 @@ eleventyComputed:
                data-until="{{ (event.end_date or event.date) | date('yyyy-MM-dd') }}"
                data-name="{{ event.name | trim }}"
                {% if rank != 0 %}hidden{% endif %}
-               class="group flex aspect-square flex-col rounded-xl border border-hairline bg-white p-3 transition-colors hover:border-blue max-[389px]:aspect-auto max-[389px]:self-stretch sm:p-5 lg:p-4 {{ karte }}">
-                <p data-next-label class="cap-label mb-1 text-[11px] text-blue sm:mb-2 md:text-xs lg:text-[11px]"{% if rank != 0 %} hidden{% endif %}>{{ global.labels.next_up }}</p>
+               class="group flex aspect-square flex-col rounded-xl border border-hairline bg-white p-3 transition-colors hover:border-blue max-sm:aspect-auto max-sm:self-stretch sm:p-5 lg:p-4 {{ karte }}">
+                <p data-next-label class="cap-label mb-1 text-blue sm:mb-2"{% if rank != 0 %} hidden{% endif %}>{{ global.labels.next_up }}</p>
                 <p class="flex items-baseline gap-2">
                     <span class="font-display text-2xl font-black text-ink sm:text-3xl md:text-4xl lg:text-3xl">{{ event.date | date("d") }}</span>
-                    <span class="cap-label text-[11px] text-soft md:text-xs lg:text-[11px]">{{ event.date | date("MMM") }}</span>
+                    <span class="cap-label text-muted">{{ event.date | date("MMM") }}</span>
                 </p>
-                <p class="mt-2 font-display text-sm font-black leading-snug text-ink transition-colors group-hover:text-blue sm:mt-3 sm:text-base md:text-xl lg:text-base">{{ event.name }}</p>
+                <p class="mt-2 font-display text-base font-black leading-snug text-ink transition-colors group-hover:text-blue sm:mt-3 md:text-xl lg:text-base">{{ event.name }}</p>
                 <p class="mt-1 text-sm text-muted max-sm:hidden md:text-base lg:text-sm">{{ event.location }}</p>
                 {% if event.time %}<p class="mt-1 text-sm text-muted max-sm:hidden md:text-base lg:text-sm">{{ event.time }}</p>{% endif %}
             </a>
@@ -259,7 +261,7 @@ eleventyComputed:
         {# Same line the home page carries under the same pieces: every tile
            here leaves the site, and saying so once under the block is friendlier
            than finding out at the checkout. #}
-        {% if collections_glaze.pieces_note and glaze.pieces.length %}<p class="mt-6 text-center text-xs text-soft">{{ collections_glaze.pieces_note }}</p>{% endif %}
+        {% if collections_glaze.pieces_note and glaze.pieces.length %}<p class="mt-6 text-center text-xs text-muted">{{ collections_glaze.pieces_note }}</p>{% endif %}
         {# Dieselbe Datei wie im Terminband: Sie entfernt Termine, die seit
            dem Bau vorbei sind, und zieht die dahinter nach. #}
         <script defer src="/js/events.js"></script>

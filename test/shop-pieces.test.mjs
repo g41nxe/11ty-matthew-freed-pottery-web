@@ -61,11 +61,16 @@ test("der Glasurname fällt aus dem Kacheltitel", () => {
     assert.equal(ohneGlasur("Medium Teapot - Jericho", "Jericho"), "Medium Teapot");
     assert.equal(ohneGlasur("Meal Bowl - Pemberton Sky", "Pemberton Sky"), "Meal Bowl");
     assert.equal(ohneGlasur("Teardrop Vase - jericho", "Jericho"), "Teardrop Vase");
-    // Nur am Ende und nur die eigene Glasur: Sonst verstümmelt der Schnitt
-    // Titel, in denen der Name mitten im Satz steht oder einer anderen
-    // Glasur gehört.
-    assert.equal(ohneGlasur("Jericho Short Vase/utensil Caddy", "Jericho"), "Jericho Short Vase/utensil Caddy");
+    // Auch vorn und mitten im Titel: Mit dem Namen liefen elf Titel auf dem
+    // Telefon über ihre zwei Zeilen und wurden abgeschnitten.
+    assert.equal(ohneGlasur("Jericho Short Vase/utensil Caddy", "Jericho"), "Short Vase/utensil Caddy");
+    assert.equal(ohneGlasur("Medium Serving Bowl - Yaletown Red", "Yaletown"), "Medium Serving Bowl - Red");
+    assert.equal(ohneGlasur("Yaletown Red - Chopstick Bowl", "Yaletown"), "Red - Chopstick Bowl");
+    assert.equal(ohneGlasur("Tofino - Belly Mug", "Tofino"), "Belly Mug");
+    // Nur die eigene Glasur, nur als eigenes Wort, und nie bis nichts bleibt.
     assert.equal(ohneGlasur("Meal Bowl - Pemberton Earth", "Pemberton Sky"), "Meal Bowl - Pemberton Earth");
+    assert.equal(ohneGlasur("Zenith Bowl", "Zen"), "Zenith Bowl");
+    assert.equal(ohneGlasur("Jericho", "Jericho"), "Jericho");
 });
 
 // Ein Produkt ohne Foto oder ohne Variante darf den Build nicht anhalten:
@@ -76,12 +81,19 @@ test("ein unvollständiges Produkt bricht nichts ab", () => {
     assert.equal(stueck.image, null);
     assert.equal(stueck.price, "");
     assert.equal(stueck.available, false);
-    assert.equal(stueck.alt, "Meal Bowl - Jericho");
+    assert.equal(stueck.alt, "");
 });
 
-test("ohne Alt-Text im Shop steht der Titel als Beschreibung", () => {
-    const nachTag = gruppiere([produkt({ images: [{ src: "x.jpg" }] })]);
-    assert.equal(nachTag.jericho[0].alt, "Meal Bowl - Jericho");
+// Die Bildbeschreibung des Shops wiederholt meist den Titel, der direkt unter
+// dem Foto steht; ein Screenreader las dann jeden Namen zweimal. Sie bleibt
+// nur, wo sie etwas Eigenes sagt. Leer heißt: Das Foto ist Schmuck, der Name
+// steht im selben Link.
+test("die Bildbeschreibung bleibt nur, wo sie mehr sagt als der Titel", () => {
+    const alt = (images, title = "Teardrop Vase") => gruppiere([produkt({ title, images })]).jericho[0].alt;
+    assert.equal(alt([{ src: "x.jpg" }]), "", "ohne Beschreibung im Shop steht wieder der Titel als Beschreibung");
+    assert.equal(alt([{ src: "x.jpg", alt: "Teardrop Vase - jericho" }]), "", "eine Beschreibung, die nur den Titel wiederholt, wird wieder vorgelesen");
+    assert.equal(alt([{ src: "x.jpg", alt: "Teardrop" }]), "");
+    assert.equal(alt([{ src: "x.jpg", alt: "A small vase with a narrow neck, held in a hand" }]), "A small vase with a narrow neck, held in a hand");
 });
 
 test("die Adresse des Stücks zeigt in Matthews Shop", () => {

@@ -72,6 +72,10 @@ test("alle verfügbaren Stücke, ausverkaufte nur zum Auffüllen auf vier", () =
     // Eins verfügbar: Es steht vorn, drei ausverkaufte füllen auf, das vierte bleibt weg.
     const knapp = seite({ jericho: [stueck("x", false), stueck("a"), stueck("y", false), stueck("z", false), stueck("w", false)] });
     assert.deepEqual(knapp.pieces.map((s) => s.handle), ["a", "x", "y", "z"]);
+    // Gezählt wird, was zu kaufen ist: daran hängen Knopf und Fotolink.
+    assert.equal(voll.available, 6);
+    assert.equal(knapp.available, 1);
+    assert.equal(seite({ jericho: [stueck("x", false), stueck("y", false)] }).available, 0);
 });
 
 test("kein Shop-Set greift mehr in eine Glasurseite ein", () => {
@@ -184,8 +188,8 @@ test("zu den Stücken der Glasur führt nur etwas, wo es welche gibt", () => {
     const grenze = vorlage.indexOf('aria-label="This glaze in the shop"');
     const kopf = vorlage.slice(0, grenze);
     const block = vorlage.slice(grenze);
-    assert.match(kopf, /{% if glaze.pieces.length %}<a [^>]*btn-primary/, "der Knopf zur Sammlung hängt nicht mehr an den Stücken");
-    assert.match(kopf, /{% if glaze.pieces.length %}\s*<a [^>]*-feature/, "das Foto verlinkt auch eine leere Sammlung");
+    assert.match(kopf, /{% if glaze.available %}<a [^>]*btn-primary/, "der Knopf zur Sammlung hängt nicht mehr daran, dass etwas zu kaufen ist");
+    assert.match(kopf, /{% if glaze.available %}\s*<a [^>]*-feature/, "das Foto verlinkt auch eine Sammlung ohne Kaufbares");
     const zeile = block.slice(0, block.indexOf('id="glaze-markets"'));
     assert.match(zeile, /<a [^>]*-shop-all[^>]*>{{ collections_glaze.shop_all_label }}/, "der Link in den ganzen Shop fehlt neben der Überschrift");
     assert.ok(!zeile.includes("{% if glaze.pieces.length %}<a"), "der Link in den ganzen Shop hängt jetzt an den Stücken");

@@ -39,9 +39,43 @@ const preis = (wert) => {
 };
 
 // "Medium Teapot - Jericho" is a teapot on the Jericho page; the glaze in the
-// title would only repeat the heading above it.
-const ohneGlasur = (titel, glasur) =>
-    titel.replace(new RegExp("\\s*[-–]\\s*" + glasur.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\s*$", "i"), "").trim();
+// title would only repeat the heading above it. The name goes wherever it
+// stands as a word of its own, not only at the end: "Medium Serving Bowl -
+// Yaletown Red" becomes "Medium Serving Bowl - Red" and "Jericho Short Vase"
+// becomes "Short Vase". With the name left in, eleven titles ran past their
+// two lines on a phone and were cut off. Another glaze's name stays, and so
+// does a title that would be empty without the name.
+const istWortzeichen = (zeichen) => zeichen !== undefined && /[a-z0-9]/i.test(zeichen);
+const ohneGlasur = (titel, glasur) => {
+    const text = String(titel == null ? "" : titel);
+    const klein = text.toLowerCase();
+    const name = String(glasur == null ? "" : glasur).toLowerCase().trim();
+    let rest = "";
+    let i = 0;
+    while (name && i < text.length) {
+        const j = klein.indexOf(name, i);
+        if (j < 0) break;
+        const eigenesWort = !istWortzeichen(text[j - 1]) && !istWortzeichen(text[j + name.length]);
+        rest += text.slice(i, eigenesWort ? j : j + name.length);
+        i = j + name.length;
+    }
+    rest += text.slice(i);
+    // What the cut leaves behind: double spaces, a dash with nothing before or after it.
+    const sauber = rest.replace(/\s+/g, " ").replace(/^[\s\-–/]+|[\s\-–/]+$/g, "");
+    return sauber || text.trim();
+};
+
+// The shop's image description is used only where it says something the title
+// does not. Mostly it repeats the title ("Teardrop Vase - jericho" on the photo
+// of the "Teardrop Vase"), and a screen reader then read every piece's name
+// twice. An empty description marks the photo as decoration; the name stands
+// right below it in the same link.
+const kern = (text) => String(text == null ? "" : text).toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+const eigeneBeschreibung = (beschreibung, titel) => {
+    const b = kern(beschreibung);
+    const t = kern(titel);
+    return b && !(b.startsWith(t) || t.startsWith(b)) ? String(beschreibung).trim() : "";
+};
 
 async function produkte() {
     const alle = [];
@@ -71,7 +105,7 @@ function gruppiere(alle) {
             url: `${SHOP}/products/${produkt.handle}`,
             price: preis(variante.price),
             image: bild ? bild.src : null,
-            alt: (bild && bild.alt) || produkt.title,
+            alt: eigeneBeschreibung(bild && bild.alt, produkt.title),
             available: (produkt.variants || []).some((v) => v.available),
             published: produkt.published_at || "",
         };

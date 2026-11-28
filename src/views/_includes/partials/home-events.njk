@@ -26,17 +26,17 @@
                data-hero="{{ event.date | date('ccc d LLL') }}, {{ event.name | trim }}{% if event.time %}, {{ event.time }}{% endif %}"
                {% if rank < 0 or rank > 3 %}hidden{% endif %}
                class="group rounded-xl p-5 transition-colors hover:bg-blue-light {% if isNext %}border-2 border-sand{% else %}border border-blue-light{% endif %}">
-                <p data-next-label class="cap-label mb-2 text-[11px] text-sand"{% if not isNext %} hidden{% endif %}>{{ global.labels.next_up }}</p>
+                <p data-next-label class="cap-label mb-2 text-sand"{% if not isNext %} hidden{% endif %}>{{ global.labels.next_up }}</p>
                 <p class="flex items-baseline gap-2">
                     <span class="font-display text-3xl font-black text-paper">{{ event.date | date("d") }}</span>
-                    <span class="cap-label text-[11px] text-sand">{{ event.date | date("MMM") }}</span>
+                    <span class="cap-label text-sand">{{ event.date | date("MMM") }}</span>
                 </p>
                 <p class="mt-3 font-display text-base font-black leading-snug text-paper">
                     {{ event.name }}
                 </p>
                 <p class="mt-1 text-sm text-paper/70">{{ event.location }}</p>
                 {% if event.time %}<p class="mt-1 text-sm text-paper/70">{{ event.time }}</p>{% endif %}
-                {% if event.at_studio %}<p class="cap-label mt-2 text-[11px] text-sand">{{ global.labels.at_studio }}</p>{% endif %}
+                {% if event.at_studio %}<p class="cap-label mt-2 text-sand">{{ global.labels.at_studio }}</p>{% endif %}
             </a>
             {% endfor %}
         </div>
