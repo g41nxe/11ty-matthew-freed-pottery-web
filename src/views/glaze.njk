@@ -52,7 +52,7 @@ eleventyComputed:
         <div class="grid gap-x-10 gap-y-6 md:grid-cols-2 md:gap-y-0 lg:gap-x-12">
             <div class="md:self-end">
                 {# Label and heading as on every other page of the site: blue label, ink heading, mt-3 between them (collections, events, about, the home hero). #}
-                <p class="cap-label text-blue">{{ collections_glaze.eyebrow }}{% if glaze.group %} &middot; {{ glaze.group }}{% endif %}</p>
+                <p class="cap-label text-blue">{{ gallery.page.eyebrow }}{% if glaze.group %} &middot; {{ glaze.group }}{% endif %}</p>
                 <h1 class="mt-3 flex items-start gap-3.5 font-display text-4xl font-black leading-tight text-ink">
                     {# The dot that stands beside a glaze's name everywhere on the site, here large enough to read as a sample of the colour. No ring around it: it pushed the dot five pixels out past the left edge the label and the text share, and the palest glaze stands off the paper without one. It stands at the first line (mt-2 centres 30px in a 45px line), so a name that wraps -- Squamish Nights on a phone -- does not leave it hanging between two lines. A marker stroke in the glaze colour was tried here and dropped -- the heading is not a link, and at half strength the colours went dull, the charcoals to a grey bar. #}
                     <span class="mt-2 h-7.5 w-7.5 flex-none rounded-full" style="background-color: {{ glaze.swatch }}" aria-hidden="true"></span>
@@ -83,7 +83,7 @@ eleventyComputed:
                    Sammlung im Shop oder auf eine, in der alles ausverkauft
                    ist (Dogwood: vier von vier). Hinaus führt dort die
                    Marktkachel weiter unten. #}
-                {% if glaze.available %}<a href="{{ shopUrl }}" target="_blank" rel="noopener" class="btn-primary mt-6">{{ collections_glaze.shop_cta_all | replace("{glaze}", glaze.name) }}</a>{% endif %}
+                {% if glaze.available %}<a href="{{ shopUrl }}" target="_blank" rel="noopener" class="btn-primary mt-6">{{ gallery.page.shop_cta_all | replace("{glaze}", glaze.name) }}</a>{% endif %}
             </div>
         </div>
     </section>
@@ -95,10 +95,10 @@ eleventyComputed:
        fill up to four (see _data/glazePages.js). #}
     <section class="mx-auto max-w-6xl px-6 py-12" aria-label="This glaze in the shop">
         <div class="flex items-baseline justify-between gap-4">
-            <h2 class="font-display text-2xl font-black text-ink">{{ collections_glaze.pieces_title | replace("{glaze}", glaze.name) }}</h2>
+            <h2 class="font-display text-2xl font-black text-ink">{{ gallery.page.pieces_title | replace("{glaze}", glaze.name) }}</h2>
             {# Der Weg in den ganzen Shop, auf allen sechzehn Seiten gleich. Der
                Weg zu den Stücken dieser Glasur ist der Knopf im Kopf. #}
-            <a href="{{ (global.shop.base + global.shop.collectionsPath + "/") | shopLink("glaze-" + glaze.name + "-shop-all") }}" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.shop_all_label }}</a>
+            <a href="{{ (global.shop.base + global.shop.collectionsPath + "/") | shopLink("glaze-" + glaze.name + "-shop-all") }}" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ gallery.page.shop_all_label }}</a>
         </div>
         {# Die Reihe hat eine feste Folge: erst die Stücke, am Ende immer die
            Marktkachel und der nächste Markt. Sind das zusammen weniger als
@@ -182,7 +182,7 @@ eleventyComputed:
                         {% for stufe in stufen %}<span class="{{ stufe }}">{% include "dogwood.njk" %}</span>{% endfor %}
                     </span>
                 </div>
-                {% if collections_glaze.empty_note and n == 0 %}<p class="mt-2 min-h-10 whitespace-pre-line font-display text-sm font-black text-ink">{{ collections_glaze.empty_note }}</p>{% endif %}
+                {% if gallery.page.empty_note and n == 0 %}<p class="mt-2 min-h-10 whitespace-pre-line font-display text-sm font-black text-ink">{{ gallery.page.empty_note }}</p>{% endif %}
             </div>
             {% endfor %}
 
@@ -223,10 +223,10 @@ eleventyComputed:
                up, the tablet card stood half empty under small type. #}
             {% set glasurname = '<span class="text-highlight font-bold">' ~ (glaze.name | escape) ~ '</span>' %}
             <a href="/events.html" data-market-tile class="group flex aspect-square flex-col rounded-xl border-2 border-blue bg-white p-3 max-sm:aspect-auto max-sm:self-stretch sm:p-5 lg:p-4 {{ karte }}">
-                <p class="font-display text-base font-black leading-tight text-ink transition-colors group-hover:text-blue sm:text-2xl md:text-3xl lg:text-lg min-[1152px]:text-xl">{{ collections_glaze.market_title | replace("{glaze}", glaze.name) }}</p>
-                <p data-market-text class="blurb-inline mt-1.5 text-sm leading-snug text-muted sm:mt-2 sm:leading-relaxed md:text-base lg:text-sm"{% if not shortlist.length %} hidden{% endif %}>{{ collections_glaze.market_text | escape | replace("{glaze}", glasurname) | safe }}{% if collections_glaze.market_text_more %}<span class="max-sm:hidden lg:max-[1151px]:hidden"> {{ collections_glaze.market_text_more }}</span>{% endif %}</p>
+                <p class="font-display text-base font-black leading-tight text-ink transition-colors group-hover:text-blue sm:text-2xl md:text-3xl lg:text-lg min-[1152px]:text-xl">{{ gallery.page.market_title | replace("{glaze}", glaze.name) }}</p>
+                <p data-market-text class="blurb-inline mt-1.5 text-sm leading-snug text-muted sm:mt-2 sm:leading-relaxed md:text-base lg:text-sm"{% if not shortlist.length %} hidden{% endif %}>{{ gallery.page.market_text | escape | replace("{glaze}", glasurname) | safe }}{% if gallery.page.market_text_more %}<span class="max-sm:hidden lg:max-[1151px]:hidden"> {{ gallery.page.market_text_more }}</span>{% endif %}</p>
                 <p data-market-soon class="mt-1.5 text-sm leading-snug text-muted sm:mt-2 sm:leading-relaxed md:text-base lg:text-sm"{% if shortlist.length %} hidden{% endif %}>{{ global.labels.dates_soon }}</p>
-                <span class="link-underline mt-auto inline-block self-start pt-4 text-sm max-sm:hidden md:text-base lg:text-sm">{{ collections_glaze.market_cta }}</span>
+                <span class="link-underline mt-auto inline-block self-start pt-4 text-sm max-sm:hidden md:text-base lg:text-sm">{{ gallery.page.market_cta }}</span>
             </a>
 
             {# Wie im Terminband steht jeder kommende Termin im HTML, und nur
@@ -261,7 +261,7 @@ eleventyComputed:
         {# Same line the home page carries under the same pieces: every tile
            here leaves the site, and saying so once under the block is friendlier
            than finding out at the checkout. #}
-        {% if collections_glaze.pieces_note and glaze.pieces.length %}<p class="mt-6 text-center text-xs text-muted">{{ collections_glaze.pieces_note }}</p>{% endif %}
+        {% if gallery.page.pieces_note and glaze.pieces.length %}<p class="mt-6 text-center text-xs text-muted">{{ gallery.page.pieces_note }}</p>{% endif %}
         {# Dieselbe Datei wie im Terminband: Sie entfernt Termine, die seit
            dem Bau vorbei sind, und zieht die dahinter nach. #}
         <script defer src="/js/events.js"></script>
@@ -288,20 +288,21 @@ eleventyComputed:
                pages it showed a glazed piece under "not in the shop right
                now", and the card image must never appear here at all, because
                the visitor clicked on it to get here. The picture comes from
-               Collections - Glaze page in the CMS. #}
+               Collections - Glazes in the CMS, under
+               "Wording on every glaze page". #}
             <div class="relative aspect-[4/3] overflow-hidden md:aspect-auto">
-                {% img collections_glaze.ask_image.url, collections_glaze.ask_image.alt, "(min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover" %}
+                {% img gallery.page.ask_image.url, gallery.page.ask_image.alt, "(min-width: 768px) 50vw, 100vw", "absolute inset-0 h-full w-full object-cover" %}
             </div>
             {# Same shape as the About teaser on the home page (story-teaser.njk):
                label, heading, text, action, on the same spacing. Both are
                Matthew speaking in blue, and two blue bands built differently
                would read as two different kinds of thing. #}
             <div class="flex flex-col items-start justify-center px-6 py-12 md:px-12 md:py-14">
-                {% if collections_glaze.ask_eyebrow %}<p class="cap-label text-sand">{{ collections_glaze.ask_eyebrow }}</p>{% endif %}
-                <h2 class="mt-3 font-display text-3xl font-black leading-tight text-paper">{{ collections_glaze.ask_title }}</h2>
+                {% if gallery.page.ask_eyebrow %}<p class="cap-label text-sand">{{ gallery.page.ask_eyebrow }}</p>{% endif %}
+                <h2 class="mt-3 font-display text-3xl font-black leading-tight text-paper">{{ gallery.page.ask_title }}</h2>
                 {# The glaze name stands out here as it does in the market tile above: .text-highlight, which is sand on a dark ground. #}
-                <p class="mt-4 max-w-md text-base leading-relaxed text-paper/80">{{ collections_glaze.ask_text | escape | replace("{glaze}", '<span class="text-highlight font-bold">' ~ (glaze.name | escape) ~ '</span>') | safe }}</p>
-                <a href="/contact.html" class="link-underline link-invert mt-8 inline-block text-sm">{{ collections_glaze.ask_cta | replace("{glaze}", glaze.name) }}</a>
+                <p class="mt-4 max-w-md text-base leading-relaxed text-paper/80">{{ gallery.page.ask_text | escape | replace("{glaze}", '<span class="text-highlight font-bold">' ~ (glaze.name | escape) ~ '</span>') | safe }}</p>
+                <a href="/contact.html" class="link-underline link-invert mt-8 inline-block text-sm">{{ gallery.page.ask_cta | replace("{glaze}", glaze.name) }}</a>
             </div>
         </div>
     </section>
@@ -316,8 +317,8 @@ eleventyComputed:
        with the glaze after this one, see _data/glazePages.js. #}
     <section class="mx-auto max-w-6xl px-6 py-12" aria-label="Other glazes">
         <div class="flex items-baseline justify-between gap-4">
-            <h2 class="font-display text-2xl font-black text-ink">{{ collections_glaze.others_title }}</h2>
-            <a href="/collections.html" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.back_label | glazeCount(gallery.items.length) }}</a>
+            <h2 class="font-display text-2xl font-black text-ink">{{ gallery.page.others_title }}</h2>
+            <a href="/collections.html" class="link-underline whitespace-nowrap text-sm">{{ gallery.page.back_label | glazeCount(gallery.items.length) }}</a>
         </div>
         <div id="glaze-slider" class="no-scrollbar -mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-6 px-6 pb-2">
             {% for other in glaze.others %}

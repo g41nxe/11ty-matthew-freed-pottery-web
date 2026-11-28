@@ -312,5 +312,27 @@
         "Charcoals"
       ]
     }
-  ]
+  ],
+  "page": {
+    "eyebrow": "The field guide",
+    "pieces_title": "{glaze} out of the kiln",
+    "pieces_note": "Checkout happens in my Shopify shop.",
+    "market_title": "Find {glaze} at the market",
+    "market_text": "There is always more {glaze} at the market than in the shop.",
+    "market_text_more": "Each firing goes to the markets with me first.",
+    "market_cta": "All events",
+    "empty_note": "More coming soon",
+    "shop_cta_all": "See all {glaze} pieces",
+    "shop_all_label": "Shop all pieces",
+    "ask_eyebrow": "Made to order",
+    "ask_title": "Not in the shop right now?",
+    "ask_text": "I only list pieces I have actually made, so a glaze sells out from time to time. Tell me what you are after in {glaze} and I will make it and set it aside for you. A commission works the same way: rough dimensions and the glaze line are enough to start.",
+    "ask_cta": "Ask about {glaze}",
+    "ask_image": {
+      "url": "/images/workshop/out-of-the-kiln.webp",
+      "alt": "A teapot lifted out of the kiln in a gloved hand, more finished pots still standing inside"
+    },
+    "others_title": "Other glazes",
+    "back_label": "All {glazes} glazes"
+  }
 }

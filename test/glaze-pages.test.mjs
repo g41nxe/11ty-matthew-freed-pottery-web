@@ -11,7 +11,7 @@ const require = createRequire(import.meta.url);
 const glazeModul = require("../src/views/_data/glazePages.js");
 const glazePages = glazeModul.seiten;
 const gallery = require("../src/views/_data/gallery.json");
-const seitentexte = require("../src/views/_data/collections_glaze.json");
+const seitentexte = require("../src/views/_data/gallery.json").page;
 
 // A glaze gets its own page only once both texts exist: the lead for the top
 // of the page and the search snippet, the story for the body. With just one of
@@ -116,8 +116,8 @@ test("every generated page reaches the sitemap, not just the first", () => {
 // glazed piece under "not in the shop right now".
 test("the blue band has one picture, and it is not a glaze card", () => {
     const bild = seitentexte.ask_image;
-    assert.ok(bild && (bild.url || "").trim(), "collections_glaze.json: the blue band has no photo");
-    assert.ok((bild.alt || "").trim(), "collections_glaze.json: the band photo has no alt text");
+    assert.ok(bild && (bild.url || "").trim(), "gallery.json, page: the blue band has no photo");
+    assert.ok((bild.alt || "").trim(), "gallery.json, page: the band photo has no alt text");
     for (const page of glazePages) {
         assert.notEqual(bild.url, page.image.url, `${page.title}: the band would repeat the card image`);
     }
@@ -132,10 +132,10 @@ test("the blue band has one picture, and it is not a glaze card", () => {
 // at all, and an empty heading is the kind of thing nobody notices for weeks.
 test("the page furniture is complete and comes from the CMS", () => {
     for (const feld of ["eyebrow", "pieces_title", "shop_cta_all", "shop_all_label", "market_title", "market_text", "market_cta", "ask_title", "ask_text", "ask_cta", "others_title", "back_label"]) {
-        assert.ok((seitentexte[feld] || '').trim(), `collections_glaze.json: ${feld} is empty`);
+        assert.ok((seitentexte[feld] || '').trim(), `gallery.json, page: ${feld} is empty`);
     }
-    assert.ok(seitentexte.ask_image && seitentexte.ask_image.url, 'collections_glaze.json: the blue band has no photo');
-    assert.ok((seitentexte.ask_image.alt || '').trim(), 'collections_glaze.json: the band photo has no alt text');
+    assert.ok(seitentexte.ask_image && seitentexte.ask_image.url, 'gallery.json, page: the blue band has no photo');
+    assert.ok((seitentexte.ask_image.alt || '').trim(), 'gallery.json, page: the band photo has no alt text');
 });
 
 // Both texts name the glaze, and the template fills it in. Lose the
@@ -145,7 +145,7 @@ test("the texts that name a glaze keep their placeholder", () => {
     for (const feld of ["ask_text", "ask_cta", "shop_cta_all"]) {
         assert.ok(
             seitentexte[feld].includes("{glaze}"),
-            `collections_glaze.json: ${feld} lost its {glaze} placeholder`
+            `gallery.json, page: ${feld} lost its {glaze} placeholder`
         );
     }
 });
@@ -191,7 +191,7 @@ test("zu den Stücken der Glasur führt nur etwas, wo es welche gibt", () => {
     assert.match(kopf, /{% if glaze.available %}<a [^>]*btn-primary/, "der Knopf zur Sammlung hängt nicht mehr daran, dass etwas zu kaufen ist");
     assert.match(kopf, /{% if glaze.available %}\s*<a [^>]*-feature/, "das Foto verlinkt auch eine Sammlung ohne Kaufbares");
     const zeile = block.slice(0, block.indexOf('id="glaze-markets"'));
-    assert.match(zeile, /<a [^>]*-shop-all[^>]*>{{ collections_glaze.shop_all_label }}/, "der Link in den ganzen Shop fehlt neben der Überschrift");
+    assert.match(zeile, /<a [^>]*-shop-all[^>]*>{{ gallery.page.shop_all_label }}/, "der Link in den ganzen Shop fehlt neben der Überschrift");
     assert.ok(!zeile.includes("{% if glaze.pieces.length %}<a"), "der Link in den ganzen Shop hängt jetzt an den Stücken");
 });
 
@@ -249,7 +249,7 @@ test("die Reihe ist ein Slider: Stücke, Platzhalter, Marktkachel, nächster Mar
     assert.match(block, /{% set platzhalter = 2 - glaze\.pieces\.length %}/, "die Platzhalter werden nicht mehr aus der Stückzahl berechnet");
     assert.match(block, /range\(0, platzhalter\)[\s\S]*?aspect-square[^"]*bg-white" style="color: {{ glaze\.swatch }}"/, "die leeren Plätze zeigen die Blume nicht mehr in der Glasurfarbe auf Weiß");
     // Der Satz steht unter dem Quadrat, wo ein Stück seinen Namen trägt, in derselben Schrift -- ohne Zeiger sichtbar.
-    assert.match(block, /<p class="mt-2 min-h-10 whitespace-pre-line font-display text-sm font-black text-ink">{{ collections_glaze\.empty_note }}/, "der Text der leeren Plätze steht nicht mehr unter der Kachel, kommt nicht mehr aus dem CMS oder verliert seinen Zeilenumbruch");
+    assert.match(block, /<p class="mt-2 min-h-10 whitespace-pre-line font-display text-sm font-black text-ink">{{ gallery\.page\.empty_note }}/, "der Text der leeren Plätze steht nicht mehr unter der Kachel, kommt nicht mehr aus dem CMS oder verliert seinen Zeilenumbruch");
     assert.ok(!/group-hover:opacity-(0|100)/.test(block), "der Text der leeren Plätze hängt wieder am Zeiger");
     // Drei Blumen der Seite nebeneinander, von voll bis blass: "es kommt noch mehr", ohne ein Wort.
     assert.ok(block.includes('{% for stufe in stufen %}<span class="{{ stufe }}">{% include "dogwood.njk" %}</span>{% endfor %}'), "auf den leeren Plätzen stehen nicht mehr drei Blumen der Seite");
@@ -257,14 +257,14 @@ test("die Reihe ist ein Slider: Stücke, Platzhalter, Marktkachel, nächster Mar
     // Zwei Platzhalter sind eine Geste, nicht zweimal dieselbe Kachel: Die
     // Blumen verblassen über beide hinweg, und der Satz steht nur unter der ersten.
     assert.ok(block.includes('{% set stufen = ["", "opacity-60", "opacity-35"] if n == 0 else ["opacity-20", "opacity-10", "opacity-5"] %}'), "zwei Platzhalter sehen wieder gleich aus");
-    assert.ok(block.includes("{% if collections_glaze.empty_note and n == 0 %}"), "der Satz steht wieder unter beiden Platzhaltern");
+    assert.ok(block.includes("{% if gallery.page.empty_note and n == 0 %}"), "der Satz steht wieder unter beiden Platzhaltern");
     assert.ok(!block.includes("placeholder_image"), "das Platzhalter-Foto ist zurück");
 
     // Die Marktkachel steht immer, mit einem Satz, der bei leerem wie bei vollem Shop stimmt.
     assert.ok(!block.includes("{% if glaze.pieces.length < 4 %}"), "die Marktkachel fehlt wieder auf einer vollen Seite");
     assert.ok(!block.includes("stocked"), "die Marktkachel hat wieder zwei Sätze je nach Bestand");
     for (const feld of ["market_title", "market_text", "market_text_more", "market_cta"]) {
-        assert.ok(block.includes("collections_glaze." + feld), `die Marktkachel holt ${feld} nicht mehr aus dem CMS`);
+        assert.ok(block.includes("gallery.page." + feld), `die Marktkachel holt ${feld} nicht mehr aus dem CMS`);
     }
     // Genau ein Termin ist sichtbar, der nächste.
     assert.ok(block.includes("{% if rank != 0 %}hidden{% endif %}"), "es stehen wieder mehrere Termine nebeneinander, oder keiner");

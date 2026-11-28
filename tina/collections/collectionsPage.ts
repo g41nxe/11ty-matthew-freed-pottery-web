@@ -4,7 +4,7 @@ import { glazesHint } from "../fields/common";
 // name "collections_page": "collections" is reserved in Tina's GraphQL.
 export const collectionsPage: Collection = {
   name: "collections_page",
-  label: "Collections · Page",
+  label: "Collections · Overview page",
   path: "src/views",
   format: "md",
   match: { include: "collections" },

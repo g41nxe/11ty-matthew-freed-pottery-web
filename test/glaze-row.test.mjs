@@ -6,7 +6,7 @@ import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
 const nunjucks = require("nunjucks");
-const seitentexte = require("../src/views/_data/collections_glaze.json");
+const seitentexte = require("../src/views/_data/gallery.json").page;
 
 // Die Reihe unter "... out of the kiln" wird hier wirklich gerendert, für jede
 // Stückzahl mit und ohne Termin, und dann werden die Karten gezählt. Die Tests
@@ -33,7 +33,7 @@ function reihe(stuecke, termine) {
             pieces: Array.from({ length: stuecke }, (_, i) => ({ url: "https://shop.example/p" + i, title: "Piece " + i, image: "x.jpg", alt: "", price: "$10", available: true })),
         },
         events: Array.from({ length: termine }, (_, i) => ({ name: "Market " + i, date: "2026-12-0" + (i + 5), location: "Vancouver", time: "10 a.m." })),
-        collections_glaze: seitentexte,
+        gallery: { page: seitentexte, items: [] },
         global: { labels: { next_up: "Next up", dates_soon: "New dates soon", sold_out: "Sold out", slider_prev: "Previous", slider_next: "Next" } },
     });
     assert.ok(anfang > -1 && ende > anfang && html.includes('id="glaze-markets"'), "der Block der Reihe ist in glaze.njk nicht mehr zu finden");

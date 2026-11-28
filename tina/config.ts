@@ -8,7 +8,6 @@ import { aboutArtPage } from "./collections/aboutArtPage";
 import { aboutProcessPage } from "./collections/aboutProcessPage";
 import { collectionsPage } from "./collections/collectionsPage";
 import { collectionsGallery } from "./collections/collectionsGallery";
-import { collectionsGlazePage } from "./collections/collectionsGlazePage";
 import { retailStoresPage } from "./collections/retailStoresPage";
 import { contactPage } from "./collections/contactPage";
 import { faqPage } from "./collections/faqPage";
@@ -39,7 +38,7 @@ export default defineConfig({
       eventsMarkets, eventsPage,
       homePage, shopSets,
       aboutPage, aboutArtPage, aboutProcessPage,
-      collectionsPage, collectionsGallery, collectionsGlazePage,
+      collectionsPage, collectionsGallery,
       retailStoresPage, contactPage, faqPage, privacyStatementPage,
       settings,
     ],

@@ -1,5 +1,6 @@
 import type { Collection } from "tinacms";
 import { imageField } from "../fields/common";
+import { glazePageField } from "../fields/glazePage";
 
 const hexColour = (value: string) =>
   value && !/^#[0-9A-Fa-f]{6}$/.test(value) ? "Use a hex colour like #1F3A52" : undefined;
@@ -23,7 +24,7 @@ const leadLength = (value: string) =>
 
 export const collectionsGallery: Collection = {
   name: "collections_gallery",
-  label: "Collections · Glaze gallery",
+  label: "Collections · Glazes",
   path: "src/views/_data",
   format: "json",
   match: { include: "gallery" },
@@ -31,7 +32,7 @@ export const collectionsGallery: Collection = {
   fields: [
     {
       type: "object", name: "items", label: "Glaze lines", list: true,
-      description: "Shown on the collections page and in the home page teaser, in this order. Fill in both the intro and the page text and the glaze also gets a page of its own. Two things on that page are not edited here: its pieces come straight from the shop, by the shop tag set below, and the wording around them from “Collections · Glaze page”.",
+      description: "Shown on the collections page and in the home page teaser, in this order. Fill in both the intro and the page text and the glaze also gets a page of its own. Its pieces are not edited here: they come straight from the shop, by the shop tag set below. The wording all glaze pages share is further down, under “Wording on every glaze page”.",
       ui: { itemProps: (item) => ({ label: item?.title || "New glaze line" }) },
       fields: [
         imageField("image", "Image"),
@@ -74,5 +75,6 @@ export const collectionsGallery: Collection = {
         { type: "string", name: "filterGroups", label: "Filter groups", list: true, options: ["Blues", "Charcoals", "Patterned"] },
       ],
     },
+    glazePageField,
   ],
 };
