@@ -51,6 +51,11 @@ export const collectionsGlazePage: Collection = {
       type: "string", name: "market_cta", label: "Market tile: link to the events page", required: true,
     },
     {
+      type: "string", name: "empty_note", label: "Empty places: text under the pointer",
+      description:
+        "A glaze page has four places. Those the shop cannot fill show a white tile with the dogwood flower in the colour of the glaze. This short line takes the place of the flower while the pointer is on the tile. Leave it empty and the flower stays.",
+    },
+    {
       type: "string", name: "shop_all_label", label: "Link to the whole shop", required: true,
       description: 'Beside the heading above the pieces, on every glaze page: the way into the shop as a whole, like "Shop all pieces" on the home page.',
     },

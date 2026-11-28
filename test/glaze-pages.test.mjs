@@ -204,7 +204,7 @@ test("das Foto steht im Kopf, die Stücke als Reihe darunter", () => {
     assert.ok(kopf.indexOf("<h1") > -1 && kopf.indexOf("glaze.feature.url") > kopf.indexOf("<h1"), "das Gruppenfoto steht nicht mehr im Kopf hinter dem Namen");
     assert.ok(!kopf.includes("md:aspect-auto"), "das Gruppenfoto streckt sich wieder auf eine fremde Höhe");
     assert.ok(!block.includes("glaze.feature.url"), "das Gruppenfoto steht wieder neben den Kacheln");
-    assert.match(block, /id="glaze-markets"[^>]*md:grid-cols-4/, "die Stücke stehen nicht mehr als Viererreihe");
+    assert.match(block, /id="glaze-markets"[^>]*grid-cols-2[^>]*lg:grid-cols-4/, "die Stücke stehen nicht mehr als Viererreihe (zu zweit unter lg)");
     assert.match(block, /img piece\.image[^%]*aspect-square[^%]*object-contain/, "die Kachelbilder haben kein festes Format mehr oder werden beschnitten");
 });
 
@@ -219,16 +219,30 @@ test("was an Stücken fehlt, füllen die Märkte auf", () => {
     assert.match(block, /{% set plaetze = 3 - glaze\.pieces\.length %}/, "die freien Plätze werden nicht mehr aus der Stückzahl berechnet");
     assert.match(block, /data-slots="{{ termine }}"/, "events.js erfährt die Zahl der Termin-Plätze nicht mehr");
     // Höchstens ein Termin; was darüber hinaus frei ist, zeigt das leere Regal.
-    assert.match(block, /{% set termine = 1 if plaetze > 0 else 0 %}/, "es stehen wieder mehrere Termine nebeneinander");
-    assert.match(block, /{% set leer = plaetze - termine %}/, "die leeren Plätze werden nicht mehr gezählt");
-    // Leere Plätze tragen ein X auf der Glasurfarbe, in Papier oder Tinte, je nachdem, was darauf lesbar ist.
-    assert.match(block, /range\(0, kreuze\)[\s\S]*glaze\.swatch \| schriftAuf/, "die leeren Plätze zeigen kein X mehr in lesbarer Farbe");
+    assert.match(block, /{% set termine = 1 if glaze\.pieces\.length < 4 else 0 %}/, "es stehen wieder mehrere Termine nebeneinander, oder keiner neben der Marktkachel");
+    // In der Viererreihe hat der Termin nur Platz, wenn hinter der Marktkachel einer frei ist.
+    assert.match(block, /{% set terminBreit = 1 if plaetze > 0 else 0 %}/, "der Termin drängt sich bei drei Stücken als fünfte Kachel in die Viererreihe");
+    assert.match(block, /{% if not terminBreit %} lg:hidden{% endif %}/, "der Termin drängt sich bei drei Stücken als fünfte Kachel in die Viererreihe");
+    assert.match(block, /{% set leer = plaetze - terminBreit %}/, "die leeren Plätze werden nicht mehr gezählt");
+    // Leere Plätze: weiß wie der Grund der Produktfotos, Linie und Blume in
+    // der Glasurfarbe, unter dem Zeiger eine Zeile aus dem CMS.
+    assert.match(block, /group-hover:opacity-0[^"]*">{% include "dogwood\.njk" %}/, "auf den leeren Plätzen steht nicht mehr die Blume der Seite");
+    assert.match(block, /range\(0, kreuze\)[\s\S]*?bg-white[^"]*"[^>]*style="color: {{ glaze\.swatch }}"/, "die leeren Plätze zeigen kein X mehr in der Glasurfarbe auf Weiß");
+    assert.match(block, /group-hover:opacity-100">{{ collections_glaze\.empty_note }}/, "der Text unter dem Zeiger kommt nicht mehr aus dem CMS");
+    assert.ok((seitentexte.empty_note || "").trim(), "collections_glaze.json: empty_note fehlt");
     assert.ok(!block.includes("placeholder_image"), "das Platzhalter-Foto ist zurück");
-    // Telefon: Eine ungerade Zahl von Stücken bekommt ein X daneben, die
-    // Marktkachel steht in voller Breite darunter, die Terminkachel entfällt.
-    assert.match(block, /{% set luecke = glaze\.pieces\.length % 2 %}/, "auf dem Telefon bleibt neben einem einzelnen Stück wieder ein Loch");
-    assert.match(block, /href="\/events\.html" class="group col-span-2 [^"]*md:col-span-1 md:aspect-square/, "die Marktkachel steht auf dem Telefon nicht mehr in voller Breite unter den Stücken");
-    assert.match(block, /data-event[\s\S]*?class="[^"]*max-md:hidden/, "die Terminkachel steht wieder auf dem Telefon");
+    // Unter lg zwei Spalten: Eine ungerade Zahl von Stücken bekommt einen Platzhalter
+    // daneben, die Karten stehen in einer eigenen Reihe darunter. Auf dem
+    // Telefon nimmt die Marktkachel die volle Breite, die Terminkachel entfällt.
+    assert.match(block, /{% set luecke = glaze\.pieces\.length % 2 %}/, "neben einem einzelnen Stück bleibt wieder ein Loch");
+    assert.match(block, /href="\/events\.html" data-market-tile[^>]*class="group col-span-2 [^"]*sm:col-span-1[^"]*lg:aspect-square/, "die Marktkachel steht auf dem Telefon nicht mehr in voller Breite unter den Stücken, oder ist ab lg kein Quadrat mehr");
+    assert.match(block, /data-event[\s\S]*?class="[^"]*max-sm:hidden[^"]*lg:aspect-square/, "die Terminkachel steht wieder auf dem Telefon, oder ist ab lg kein Quadrat mehr");
+    assert.ok(!/md:aspect-square/.test(block), "Quadrate schon ab md: bei 165 Pixeln Spaltenbreite läuft der Text der Marktkachel über");
+    // Ohne Termin daneben nimmt die Marktkachel dessen Platz mit ein, statt
+    // die Reihe mit einem Loch enden zu lassen. Die Regel steht in main.css.
+    assert.match(block, /data-market-tile{% if terminBreit %} data-spare{% endif %}/, "die Marktkachel ist für main.css nicht mehr zu erkennen");
+    const css = fs.readFileSync(path.join("src", "styles", "main.css"), "utf8");
+    assert.match(css, /#glaze-markets:not\(:has\(\[data-event\]:not\(\[hidden\]\)\)\) > \[data-market-tile\] \{\s*grid-column: span 2;/, "ohne Termin daneben steht die Marktkachel wieder halb breit neben einem Loch");
     assert.match(block, /{% if glaze\.pieces\.length < 4 %}/, "die Marktkachel steht jetzt auch auf einer vollen Seite");
     for (const feld of ["market_title", "market_text", "market_cta"]) {
         assert.ok(block.includes("collections_glaze." + feld), `die Marktkachel holt ${feld} nicht mehr aus dem CMS`);
