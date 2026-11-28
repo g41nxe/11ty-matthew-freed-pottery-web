@@ -131,10 +131,10 @@
         if (soon) soon.hidden = live.length > 0;
     })();
 
-    // The glaze page: the free places beside the pieces hold the next market
-    // dates. How many there are depends on how many pieces the shop had at
-    // build time, so the number travels in data-slots. A date that has passed
-    // since then drops out and the one behind it moves up.
+    // The glaze page: the row of pieces ends with the market tile and the next
+    // market date. Every upcoming date is in the HTML and data-slots says how
+    // many may show (one). A date that has passed since the build drops out
+    // and the one behind it moves up.
     (function glaze() {
         var root = document.getElementById('glaze-markets');
         if (!root) return;

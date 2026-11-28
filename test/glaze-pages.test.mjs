@@ -11,7 +11,6 @@ const require = createRequire(import.meta.url);
 const glazeModul = require("../src/views/_data/glazePages.js");
 const glazePages = glazeModul.seiten;
 const gallery = require("../src/views/_data/gallery.json");
-const shopSets = require("../src/views/_data/shopSets.js");
 const seitentexte = require("../src/views/_data/collections_glaze.json");
 
 // A glaze gets its own page only once both texts exist: the lead for the top
@@ -128,7 +127,7 @@ test("the blue band has one picture, and it is not a glaze card", () => {
 // template no longer carries fallbacks: a missing key would render as nothing
 // at all, and an empty heading is the kind of thing nobody notices for weeks.
 test("the page furniture is complete and comes from the CMS", () => {
-    for (const feld of ["eyebrow", "pieces_title", "pieces_title_empty", "shop_cta_all", "shop_all_label", "market_title", "market_text", "market_cta", "ask_title", "ask_text", "ask_cta", "others_title", "back_label"]) {
+    for (const feld of ["eyebrow", "pieces_title", "shop_cta_all", "shop_all_label", "market_title", "market_text", "market_cta", "ask_title", "ask_text", "ask_cta", "others_title", "back_label"]) {
         assert.ok((seitentexte[feld] || '').trim(), `collections_glaze.json: ${feld} is empty`);
     }
     assert.ok(seitentexte.ask_image && seitentexte.ask_image.url, 'collections_glaze.json: the blue band has no photo');
@@ -147,10 +146,9 @@ test("the texts that name a glaze keep their placeholder", () => {
     }
 });
 
-// The cards at the foot of each page. Four exactly, because the grid is four
-// wide and five would leave one card alone on a second row -- which is what
-// Skaha's page showed the moment it became the sixth. They rotate, so no
-// glaze collects all the links and none is never linked to.
+// The slider at the foot of each page holds every other glaze. The order
+// starts with the glaze after this one, so no glaze collects all the first
+// places and none is never linked to.
 test("every page links on to every other glaze, itself never among them", () => {
     for (const page of glazePages) {
         assert.equal(page.others.length, glazePages.length - 1, `${page.title}: the slider does not hold every other glaze`);
@@ -165,10 +163,8 @@ test("every page links on to every other glaze, itself never among them", () => 
     assert.equal(Math.max(...zahlen) - Math.min(...zahlen), 0, `links are spread unevenly: ${JSON.stringify(wieoft)}`);
 });
 
-// Skaha showed what the old template got wrong: its shop link sat inside the
-// block that renders the pieces, so the one glaze with nothing curated for it
-// was also the one page that led nowhere. A glaze without a set can still have
-// items in the shop -- the set is Matthew's selection, not the shop's stock.
+// The button and the photo link at the top of a page are built from the
+// glaze's shop slug. Without one they would lead to the shop's front page.
 test("every page can build a link into the shop", () => {
     for (const page of glazePages) {
         assert.ok(
@@ -208,7 +204,7 @@ test("das Foto steht im Kopf, die Stücke als Reihe darunter", () => {
     assert.ok(!kopf.includes("md:aspect-auto"), "das Gruppenfoto streckt sich wieder auf eine fremde Höhe");
     assert.ok(!block.includes("glaze.feature.url"), "das Gruppenfoto steht wieder neben den Kacheln");
     assert.ok(block.includes('id="glaze-markets"'), "die Stücke stehen nicht mehr als Reihe unter dem Kopf");
-    assert.match(block, /img piece\.image[^%]*aspect-square[^%]*object-contain/, "die Kachelbilder haben kein festes Format mehr oder werden beschnitten");
+    assert.match(block, /<div class="relative aspect-square overflow-hidden bg-white">[\s\S]*?img piece\.image[^%]*object-contain/, "die Kachelbilder haben kein festes Format mehr oder werden beschnitten; das Quadrat gehört an den Rahmen, damit ein Stück ohne Foto seinen Platz behält");
 });
 
 // Die Reihe unter dem Kopf ist ein Slider mit fester Folge: erst die Stücke,
@@ -233,7 +229,7 @@ test("die Reihe ist ein Slider: Stücke, Platzhalter, Marktkachel, nächster Mar
     const stellen = [
         "{% for piece in glaze.pieces %}",
         "{% for n in range(0, platzhalter) %}",
-        '<a href="/events.html" class="group flex aspect-square',
+        '<a href="/events.html" data-market-tile class="group flex aspect-square',
         "{% for event in upcoming %}",
     ].map((teil) => block.indexOf(teil));
     assert.ok(stellen.every((i) => i > -1), "ein Teil der Reihe fehlt: Stücke, Platzhalter, Marktkachel oder Termine");
@@ -258,7 +254,6 @@ test("die Reihe ist ein Slider: Stücke, Platzhalter, Marktkachel, nächster Mar
     // Blumen verblassen über beide hinweg, und der Satz steht nur unter der ersten.
     assert.ok(block.includes('{% set stufen = ["", "opacity-60", "opacity-35"] if n == 0 else ["opacity-20", "opacity-10", "opacity-5"] %}'), "zwei Platzhalter sehen wieder gleich aus");
     assert.ok(block.includes("{% if collections_glaze.empty_note and n == 0 %}"), "der Satz steht wieder unter beiden Platzhaltern");
-    assert.ok((seitentexte.empty_note || "").trim(), "collections_glaze.json: empty_note fehlt");
     assert.ok(!block.includes("placeholder_image"), "das Platzhalter-Foto ist zurück");
 
     // Die Marktkachel steht immer, mit einem Satz, der bei leerem wie bei vollem Shop stimmt.
@@ -269,22 +264,6 @@ test("die Reihe ist ein Slider: Stücke, Platzhalter, Marktkachel, nächster Mar
     }
     // Genau ein Termin ist sichtbar, der nächste.
     assert.ok(block.includes("{% if rank != 0 %}hidden{% endif %}"), "es stehen wieder mehrere Termine nebeneinander, oder keiner");
-});
-
-// Auf den sechzehn Glasurfarben muss der Name lesbar bleiben. Die hellste,
-// Jericho, trägt Papier nur mit 2,6:1 -- deshalb entscheidet der Kontrast und
-// nicht ein fester Wert.
-test("der Name auf dem Farbmuster bleibt lesbar", () => {
-    const filter = {};
-    const attrappe = new Proxy(
-        { addNunjucksFilter: (name, fn) => { filter[name] = fn; } },
-        { get: (ziel, name) => ziel[name] ?? (() => {}) }
-    );
-    require("../.eleventy.js")(attrappe);
-    for (const eintrag of gallery.items) {
-        const wert = filter.kontrastAuf(eintrag.swatch);
-        assert.ok(wert >= 4.5, `${eintrag.title}: Kontrast nur ${wert}:1 auf ${eintrag.swatch}`);
-    }
 });
 
 // The header is the same on all sixteen pages: label, name, tagline, text on

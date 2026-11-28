@@ -1,7 +1,6 @@
 {
   "eyebrow": "The field guide",
   "pieces_title": "{glaze} out of the kiln",
-  "pieces_title_empty": "{glaze} out of the kiln",
   "pieces_note": "Checkout happens in my Shopify shop.",
   "market_title": "Find {glaze} at the market",
   "market_text": "There is always more {glaze} at the market than in the shop.",
@@ -19,5 +18,5 @@
     "alt": "A teapot lifted out of the kiln in a gloved hand, more finished pots still standing inside"
   },
   "others_title": "Other glazes",
-  "back_label": "All sixteen glazes"
+  "back_label": "All {glazes} glazes"
 }

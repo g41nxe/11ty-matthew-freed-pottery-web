@@ -278,6 +278,24 @@
     }
 }
 
+/* Glaze page, the row under "... out of the kiln". The row ends with the
+   market tile and the next market date. Where no date stands beside the tile
+   -- none coming up, or the last one has passed since the build and events.js
+   hid it -- the tile takes the date's place as well, so the row does not end
+   in a hole: two columns in the fixed row of four, the rest of the track in a
+   slider of three pieces, which then holds exactly four cards. Outside the
+   layers on purpose: it has to win over the utilities on the tile. */
+#glaze-markets:not(:has([data-event]:not([hidden]))) > [data-market-tile] {
+    aspect-ratio: auto;
+    align-self: stretch;
+}
+#glaze-markets:not([data-slider]):not(:has([data-event]:not([hidden]))) > [data-market-tile] {
+    grid-column: span 2;
+}
+#glaze-markets[data-slider]:not(:has([data-event]:not([hidden]))) > [data-market-tile]:nth-child(4) {
+    flex-grow: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         transition-duration: 0.01ms !important;

@@ -3,7 +3,7 @@ import { imageField } from "../fields/common";
 
 // The wording and the one photo that every glaze page shares. The glaze
 // itself — name, intro, page text — lives in "Collections · Glaze gallery",
-// its pieces in "Shop sets"; this is the frame around both. Without this
+// its pieces come from the shop by tag; this is the frame around both. Without this
 // collection the texts would sit in the template, where Matthew cannot reach
 // them. Everything the page renders without a fallback is required here, so
 // an empty field is refused in the CMS instead of leaving a hole on sixteen
@@ -24,11 +24,7 @@ export const collectionsGlazePage: Collection = {
     },
     {
       type: "string", name: "pieces_title", label: "Heading above the pieces", required: true,
-      description: 'Stands over the row of four tiles. The row holds the pieces of this glaze and, where the shop has fewer than four, the market dates. ' + withName,
-    },
-    {
-      type: "string", name: "pieces_title_empty", label: "Heading when the shop has no pieces", required: true,
-      description: 'Takes the place of the heading above on a glaze with nothing in the shop. The row then holds only the market tile and the next dates, so a heading that speaks of pieces in the shop would promise what is not there. ' + withName,
+      description: 'Stands over the row of pieces. The row holds every piece of this glaze the shop has for sale, then the market tile and the next market date. ' + withName,
     },
     {
       type: "string", name: "pieces_note", label: "Note under the pieces",
@@ -49,7 +45,7 @@ export const collectionsGlazePage: Collection = {
     {
       type: "string", name: "market_text_more", label: "Market tile: second sentence",
       description:
-        "Follows either first sentence on tablets and computers. A phone leaves it out, the tile is too small there. It stands above the blue band, so it should not repeat what the band offers: the band is about pieces made to order, this is about coming by in person.",
+        "Follows the first sentence on tablets and wide screens. A phone and a narrow laptop window leave it out, the tile is too small there. It stands above the blue band, so it should not repeat what the band offers: the band is about pieces made to order, this is about coming by in person.",
     },
     {
       type: "string", name: "market_cta", label: "Market tile: link to the events page", required: true,
@@ -86,11 +82,14 @@ export const collectionsGlazePage: Collection = {
     imageField(
       "ask_image",
       "Blue band: photo",
-      "The same photo on all sixteen glaze pages. It stands beside an offer to make a piece, so it should show work in progress rather than a finished, glazed piece — and never a photo that is also a glaze card, because the visitor clicked on that one to get here."
+      "The same photo on all sixteen glaze pages. It stands beside an offer to make a piece, so it should show the making — a kiln being unloaded, the wheel, the studio — rather than a product shot of one finished piece. Never a photo that is also a glaze card, because the visitor clicked on that one to get here."
     ),
     {
       type: "string", name: "others_title", label: "Heading above the other glazes", required: true,
     },
-    { type: "string", name: "back_label", label: "Link to all glazes", required: true },
+    {
+      type: "string", name: "back_label", label: "Link to all glazes", required: true,
+      description: 'Write {glazes} where the number of glazes belongs: "All {glazes} glazes" reads "All sixteen glazes" today and counts along when a glaze is added.',
+    },
   ],
 };

@@ -97,3 +97,19 @@ test("Leerzeichen und Bindestrich im Tag führen zum selben Platz", () => {
     const nachTag = gruppiere([produkt({ tags: ["Squamish Nights", "Tree of Life"] })]);
     assert.deepEqual(Object.keys(nachTag).sort(), ["squamish-nights", "tree-of-life"]);
 });
+
+// Antwortet der Shop nicht und gibt es keinen gespeicherten Stand, kämen ohne
+// diese Regel sechzehn Glasurseiten ohne Stücke, ohne Knopf und mit "More
+// coming soon" online. Auf Netlify bricht der Build deshalb ab, und der letzte
+// Stand bleibt stehen; am eigenen Rechner baut die Seite ohne Stücke weiter.
+test("ohne Shop und ohne Cache bricht der Build auf Netlify ab", () => {
+    const fehler = new Error("fetch failed");
+    assert.throws(() => shopPieces.beiAusfall(fehler, { NETLIFY: "true" }), /Der Shop hat nicht geantwortet/);
+    const warn = console.warn;
+    console.warn = () => {};
+    try {
+        assert.deepEqual(shopPieces.beiAusfall(fehler, {}), {});
+    } finally {
+        console.warn = warn;
+    }
+});

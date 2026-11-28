@@ -91,16 +91,28 @@ function gruppiere(alle) {
     return nachTag;
 }
 
+// Der Shop antwortet nicht, und es gibt keinen gespeicherten Stand. Auf
+// Netlify bricht der Build dann ab, und die Seite bleibt, wie sie ist: Ohne
+// Stücke verlöre jede der sechzehn Glasurseiten ihren Knopf und ihren Fotolink
+// in den Shop und zeigte "More coming soon" -- sechzehn falsche Seiten sind
+// schlechter als ein Deploy, der einen Moment wartet. Am eigenen Rechner baut
+// die Seite weiter, damit man auch ohne Netz an ihr arbeiten kann.
+function beiAusfall(fehler, umgebung) {
+    if (umgebung.NETLIFY) {
+        throw new Error(`[shopPieces] Der Shop hat nicht geantwortet und es gibt keinen gespeicherten Stand; der Build bricht ab, damit keine Glasurseiten ohne Stücke online gehen: ${fehler.message}`);
+    }
+    console.warn(`[shopPieces] Der Shop hat nicht geantwortet, die Glasurseiten zeigen keine Stücke: ${fehler.message}`);
+    return {};
+}
+
 module.exports = async function () {
     try {
         return gruppiere(await produkte());
     } catch (fehler) {
-        // No answer and nothing cached: the pages show their group photo and
-        // the link into the shop, and the next build fills the tiles again.
-        console.warn(`[shopPieces] Der Shop hat nicht geantwortet, die Glasurseiten zeigen keine Stücke: ${fehler.message}`);
-        return {};
+        return beiAusfall(fehler, process.env);
     }
 };
+module.exports.beiAusfall = beiAusfall;
 
 module.exports.preis = preis;
 module.exports.ohneGlasur = ohneGlasur;
