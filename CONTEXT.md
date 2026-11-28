@@ -21,10 +21,13 @@ A hand-picked group of pieces for the "From the current firing" block on the hom
 The large picture at the top of a glaze page, beside the name and text: several pieces of that glaze together, no price, no single product behind it. It belongs to the glaze, not to its pieces, so a glaze can have one without having anything in the shop. Until Matthew has taken one, the glaze's card image stands in its place.
 
 ### Glaze page
-One page per glaze, built from the glaze's own intro and page text: name and text beside the group photo, a row of four tiles, the band asking for a commission, and four other glazes. The four tiles hold the pieces from the shop first and the market tile plus the next dates after them. A glaze without both texts gets no page, and its card keeps linking straight to the shop.
+One page per glaze, built from the glaze's own intro and page text: name and text beside the group photo, the row of pieces, the band asking for a commission, and a slider of the other glazes. The row holds every piece of the glaze the shop has for sale (sold-out ones only fill up to four), then the market tile and the next market date. With two pieces or fewer that makes four cards, which stand as a fixed row with a placeholder for each piece missing; with more the row is a slider. A glaze without both texts gets no page, and its card keeps linking straight to the shop.
+
+### Placeholder
+A white tile in the row of pieces on a glaze page, with the dogwood flower in the glaze's colour and one line below it where a piece carries its name. It fills the row up to four cards where a glaze has fewer than two pieces in the shop.
 
 ### Market tile
-The tile on a glaze page that says the glaze can also be seen at a market, standing in the first place the pieces leave free. There is one of it, never two, and the places behind it hold the next market dates. It is what a glaze page offers when the shop holds fewer than four pieces of that glaze — three, or none at all.
+The tile on a glaze page that says the glaze can also be seen at a market. It stands at the end of the row of pieces on every glaze page, followed by the next market date. Its first sentence depends on the shop: an apology while fewer than four pieces of the glaze are for sale, an invitation to come by otherwise.
 
 ### Placement
 Where on the website a shop link sits, written into its address as `utm_content` when the site is built — for example `firing-tofino-tile2`, `home-teaser-yaletown` or `nav`; a shop link Matthew writes into a text field gets `text-` plus the page, like `text-events`. It names the spot, not the piece: Shopify already knows the piece from the page the visitor lands on, and a spot keeps its name when a piece is renamed.

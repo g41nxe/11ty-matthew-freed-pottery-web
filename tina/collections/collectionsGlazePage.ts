@@ -37,15 +37,25 @@ export const collectionsGlazePage: Collection = {
     {
       type: "string", name: "market_title", label: "Market tile: heading", required: true,
       description:
-        "The glaze page shows four tiles. Where the shop holds fewer than four pieces, this tile fills the first free place and says that there is more to see at a market. " +
+        "The row of pieces on a glaze page always ends with this tile and the next market date. It says that the glaze can be found at a market. " +
         withName,
     },
     {
-      type: "string", name: "market_text", label: "Market tile: text", required: true,
+      type: "string", name: "market_text", label: "Market tile: first sentence when the shop holds little", required: true,
       description:
-        "Two short lines under the heading: an apology that the shop holds little of this glaze right now, and where the pieces go instead. The tile only shows when there are fewer than four. It stands above the blue band, so it should not repeat what the band already offers: the band is about pieces made to order, this one is about coming by in person. Without an upcoming date the tile shows the line from Settings instead. " +
+        "One sentence under the heading, shown while the shop has fewer than four pieces of the glaze to buy: an apology for that. On a phone this sentence stands alone, so keep it short. Without an upcoming date the tile shows the line from Settings instead. " +
         withName,
-      ui: { component: "textarea" },
+    },
+    {
+      type: "string", name: "market_text_stocked", label: "Market tile: first sentence when the shop holds enough", required: true,
+      description:
+        "Takes the place of the sentence above while the shop has four or more pieces of the glaze to buy. An apology would be wrong beside a full row, so this one gives a reason to come by anyway. " +
+        withName,
+    },
+    {
+      type: "string", name: "market_text_more", label: "Market tile: second sentence",
+      description:
+        "Follows either first sentence on tablets and computers. A phone leaves it out, the tile is too small there. It stands above the blue band, so it should not repeat what the band offers: the band is about pieces made to order, this is about coming by in person.",
     },
     {
       type: "string", name: "market_cta", label: "Market tile: link to the events page", required: true,
@@ -53,7 +63,7 @@ export const collectionsGlazePage: Collection = {
     {
       type: "string", name: "empty_note", label: "Empty places: text",
       description:
-        "A glaze page has four places. Those the shop cannot fill show a white tile with the dogwood flower in the colour of the glaze. On a computer this short line takes the place of the flower while the pointer is on the tile; on a phone or tablet it stands above the flower. A line break here is a line break on the page. Leave it empty and only the flower shows.",
+        "The row of pieces on a glaze page holds at least four cards. Where a glaze has fewer than two pieces in the shop, the gap shows a white tile with the dogwood flower in the colour of the glaze. This short line stands under the tile, where a piece carries its name. A line break here is a line break on the page; two lines are what a name takes. Leave it empty and only the flower shows.",
       ui: { component: "textarea" },
     },
     {

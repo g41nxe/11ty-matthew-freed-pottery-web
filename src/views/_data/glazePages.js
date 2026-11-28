@@ -52,12 +52,16 @@ seiten.forEach((page, i, alle) => {
     );
 });
 
-// Vier Stücke je Glasur, aus dem Shop: die verfügbaren zuerst, dann die
-// zuletzt eingestellten (so sortiert shopPieces.js). Eine Vorrangliste aus den
-// Shop-Sets gab es hier und ist wieder weg -- vier handverlesene Stücke
-// füllten alle vier Plätze, auch ausverkauft, während der Shop verfügbare
-// führte, die niemand sah. Getrennt vom Netzaufruf, damit die Regel ohne Shop
-// prüfbar ist.
+// Die Stücke je Glasur, aus dem Shop: alle, die zu haben sind, die zuletzt
+// eingestellten zuerst (so sortiert shopPieces.js). Ausverkaufte füllen nur
+// auf, bis vier beisammen sind -- von 198 Stücken mit Glasur-Tag waren im
+// November 2026 nur 55 verfügbar, und eine Reihe aus 22 "Sold out" verkauft
+// nichts. Eine Vorrangliste aus den Shop-Sets gab es hier und ist wieder weg:
+// vier handverlesene Stücke füllten alle Plätze, auch ausverkauft, während
+// der Shop verfügbare führte, die niemand sah. Getrennt vom Netzaufruf, damit
+// die Regel ohne Shop prüfbar ist.
+const MINDESTENS = 4;
+
 // Aus "https://shop.../products/medium-teapot-jericho?x=1" wird
 // "medium-teapot-jericho". Ein Vergleich mit includes() traf auch dann, wenn
 // der Name nur zufällig irgendwo in der Adresse steckte -- "a" steht schon in
@@ -70,9 +74,15 @@ const handleAus = (url) => {
 function mitStuecken(liste, nachTag) {
     for (const page of liste) {
         const ausgeschlossen = new Set((page.nichtDiese || []).map(handleAus).filter(Boolean));
-        page.pieces = (nachTag[shopPieces.tagSchluessel(page.slug)] || [])
-            .filter((stueck) => !ausgeschlossen.has(stueck.handle))
-            .slice(0, 4);
+        const alle = (nachTag[shopPieces.tagSchluessel(page.slug)] || [])
+            .filter((stueck) => !ausgeschlossen.has(stueck.handle));
+        const frei = alle.filter((stueck) => stueck.available);
+        // stocked: Der Shop hält genug von dieser Glasur. Daran hängt, was die
+        // Marktkachel sagt -- eine Entschuldigung neben zwölf Stücken wäre falsch.
+        page.stocked = frei.length >= MINDESTENS;
+        page.pieces = page.stocked
+            ? frei
+            : frei.concat(alle.filter((stueck) => !stueck.available)).slice(0, MINDESTENS);
     }
     return liste;
 }

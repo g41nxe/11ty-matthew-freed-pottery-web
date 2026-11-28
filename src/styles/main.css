@@ -278,29 +278,6 @@
     }
 }
 
-/* Glaze page, the row under "... out of the kiln". The market tile shares its
-   row with the next date. Where no date stands beside it -- none coming up,
-   or the last one has passed since the build and events.js hid it -- the tile
-   takes the date's place as well, so the row does not end in a hole. Below sm
-   it has the full width anyway. From lg up it only does so while the row of
-   four has a place for a date (data-spare); with three pieces it is the
-   fourth tile and stays a square. Outside the layers on purpose: it has to
-   win over the utilities on the tile. */
-@media (min-width: 640px) {
-    #glaze-markets:not(:has([data-event]:not([hidden]))) > [data-market-tile] {
-        grid-column: span 2;
-    }
-}
-@media (min-width: 1024px) {
-    #glaze-markets:not(:has([data-event]:not([hidden]))) > [data-market-tile]:not([data-spare]) {
-        grid-column: span 1;
-    }
-    #glaze-markets:not(:has([data-event]:not([hidden]))) > [data-market-tile][data-spare] {
-        aspect-ratio: auto;
-        align-self: stretch;
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         transition-duration: 0.01ms !important;

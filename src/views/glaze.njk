@@ -83,77 +83,57 @@ eleventyComputed:
         </div>
     </section>
 
-    {# Four places in a row, the same grid "Other glazes" uses further down.
-       The pieces come from the shop, not from the CMS: a list typed in once
-       was stale two months later, with fifteen of twenty tiles sold out while
-       the shop held fifty-seven pieces (ADR 0006). A shop set now only says
-       which pieces come first. #}
+    {# The pieces of this glaze, as a slider. They come from the shop, not
+       from the CMS: a list typed in once was stale two months later, with
+       fifteen of twenty tiles sold out while the shop held fifty-seven pieces
+       (ADR 0006). Every piece that can be bought is here; sold-out ones only
+       fill up to four (see _data/glazePages.js). #}
     <section class="mx-auto max-w-6xl px-6 py-12" aria-label="This glaze in the shop">
         <div class="flex items-baseline justify-between gap-4">
-            {# "From the current firing" over a row of market dates would promise pieces that are not there. With nothing in the shop the heading says why instead, and the market tile below it says where to go. #}
             <h2 class="font-display text-2xl font-black text-ink">{% if glaze.pieces.length %}{{ collections_glaze.pieces_title | replace("{glaze}", glaze.name) }}{% else %}{{ collections_glaze.pieces_title_empty | replace("{glaze}", glaze.name) }}{% endif %}</h2>
             {# Der Weg in den ganzen Shop, auf allen sechzehn Seiten gleich. Der
                Weg zu den Stücken dieser Glasur ist der Knopf im Kopf. #}
             <a href="{{ (global.shop.base + global.shop.collectionsPath + "/") | shopLink("glaze-" + glaze.name + "-shop-all") }}" target="_blank" rel="noopener" class="link-underline whitespace-nowrap text-sm">{{ collections_glaze.shop_all_label }}</a>
         </div>
-        {# Vier Plätze hat die Reihe. Die Stücke füllen sie von vorn, und was
-           frei bleibt, bekommt die Märkte: erst eine Kachel, die sagt, dass es
-           dort mehr gibt, dann die nächsten Termine. So entsteht weder eine
-           Lücke, wenn der Shop nur drei Stücke hält, noch eine leere Reihe,
-           wenn er keines hält.
+        {# Die Reihe hat eine feste Folge: erst die Stücke, am Ende immer die
+           Marktkachel und der nächste Markt. Sind das zusammen weniger als
+           vier Karten, stehen dazwischen Platzhalter -- so ist die erste
+           Ansicht auch bei einer Glasur ohne Stücke voll, und die Reihe
+           läuft sichtbar weiter.
 
-           Die Aussage steht genau einmal. Die Termin-Kacheln tragen nur das
-           Datum, denn das ist ihre Aufgabe; die große Zahl wäre in der
-           Aussage-Kachel das Lauteste und würde "Termin" rufen, wo "es gibt
-           mehr davon" stehen soll. #}
+           Vorher war die Reihe ein Raster mit vier Plätzen, und was die
+           Stücke frei ließen, bekamen Marktkachel, Termin und Platzhalter.
+           Das brauchte für Telefon, Tablet und Schreibtisch je eine eigene
+           Regel und zeigte nie mehr als vier Stücke, auch wenn der Shop zwölf
+           verfügbare hielt. #}
         {% set upcoming = events | occurrences | filterUpcoming | byDateAsc %}
         {% set shortlist = upcoming | nextUp %}
-        {% set plaetze = 3 - glaze.pieces.length %}
-        {# Vier Stücke lassen keinen Platz übrig; ohne diese Zeile stünde dort
-           eine negative Zahl, die events.js von hinten abzählen würde. #}
-        {% if plaetze < 0 %}{% set plaetze = 0 %}{% endif %}
-        {# Von den freien Plätzen bekommt höchstens einer einen Termin. Was dann
-           noch frei ist, bleibt sichtbar leer: die Glasurfarbe mit einem X, wie
-           ein Platz im Regal, an dem gerade nichts steht. Drei Termine
-           nebeneinander machten aus einer Glasurseite einen Marktkalender; der
-           steht auf der Events-Seite. #}
-        {# Ein Termin steht im HTML, sobald die Marktkachel steht, also bei
-           weniger als vier Stücken. In der Viererreihe ab lg hat er nur Platz,
-           wenn hinter der Marktkachel noch einer frei ist (terminBreit); bei
-           drei Stücken zeigt ihn nur die schmalere Ansicht, wo er neben der
-           Marktkachel steht. #}
-        {% set termine = 1 if glaze.pieces.length < 4 else 0 %}
-        {% set terminBreit = 1 if plaetze > 0 else 0 %}
-        {% set leer = plaetze - terminBreit %}
-        {# Below lg the pieces stand two by two, and an odd number would
-           leave a hole beside the last one. One X fills it. #}
-        {% set luecke = glaze.pieces.length % 2 %}
-        {% set kreuze = leer if leer > luecke else luecke %}
-        {# Three widths from one list.
-
-           From lg up, four squares in a row: the pieces, the market tile, one
-           date, and an X on every place still free. Each ends on the lower
-           edge of the photos. Four across starts at lg, as in the events band
-           on the home page: at md a column is 165 pixels, and the market
-           tile's text ran to twice the height of the photo beside it.
-
-           Below lg two columns. The photos keep them to themselves (with one
-           X where a place beside a photo would stay empty), and the cards
-           follow in a row of their own: market tile and next date side by
-           side, as tall as their text.
-
-           Below sm a column is some 160 pixels and holds neither card. The
-           market tile takes the full width, and the date tile is left out:
-           the market tile leads to the dates. With no pieces at all the
-           market tile stands alone. #}
-        <div id="glaze-markets" data-slots="{{ termine }}" class="mt-8 grid grid-cols-2 gap-5 lg:grid-cols-4">
+        {% set platzhalter = 2 - glaze.pieces.length %}
+        {% if platzhalter < 0 %}{% set platzhalter = 0 %}{% endif %}
+        {# With two pieces or fewer the row holds exactly four cards, and they
+           simply stand there: four in a row from lg up, two by two below. A
+           slider with nothing to slide would only be a row that can be
+           nudged. From three pieces on there are more cards than fit, and
+           the row becomes a slider. #}
+        {% set alsSlider = glaze.pieces.length > 2 %}
+        {# As a slider the row shows four cards to a view from lg up and two
+           below, and in both a strip of the next one at the right edge. At
+           exactly a quarter each, four pixels of the fifth were left and
+           nothing said that the row goes on; 22.5% leaves some fifty. Every
+           card that is not a piece is a square like the photos and ends on
+           their lower edge. #}
+        {% set karte = "w-[45%] flex-none snap-start lg:w-[22.5%]" if alsSlider else "" %}
+        {# data-slider: home-slider.js moves this row like the glaze slider on
+           the home page. data-slots: events.js keeps one date visible and
+           lets the next one move up when it has passed. #}
+        <div id="glaze-markets"{% if alsSlider %} data-slider{% endif %} data-slots="1" class="mt-8 {% if alsSlider %}no-scrollbar -mx-6 flex snap-x snap-mandatory items-start gap-5 overflow-x-auto scroll-px-6 px-6 pb-2{% else %}grid grid-cols-2 items-start gap-5 lg:grid-cols-4{% endif %}">
             {% for piece in glaze.pieces %}
-            <a href="{{ piece.url | shopLink("glaze-" + glaze.name + "-tile" + loop.index) }}" target="_blank" rel="noopener" class="group">
+            <a href="{{ piece.url | shopLink("glaze-" + glaze.name + "-tile" + loop.index) }}" target="_blank" rel="noopener" class="group {{ karte }}">
                 <div class="relative overflow-hidden bg-white">
                     {# The shop says in the same answer whether a piece is to
                        be had, so no second request is needed for the label. #}
                     {% if not piece.available %}<span class="cap-label absolute right-2 top-2 z-10 bg-sand px-2 py-1 text-[10px] font-bold text-ink">{{ global.labels.sold_out | default("Sold out", true) }}</span>{% endif %}
-                    {% img piece.image, piece.alt, "(min-width: 1152px) 264px, (min-width: 768px) 25vw, 50vw", "img-zoom aspect-square w-full object-contain" %}
+                    {% img piece.image, piece.alt, "(min-width: 1152px) 264px, (min-width: 1024px) 25vw, 50vw", "img-zoom aspect-square w-full object-contain" %}
                 </div>
                 <div class="mt-2 flex items-baseline justify-between gap-2">
                     {# Always two lines high: "Medium Teapot - Yaletown Red" wraps, "Shorty Mug" does not, and a row whose captions end at different heights reads as restless. A third line is cut. #}
@@ -163,47 +143,55 @@ eleventyComputed:
             </a>
             {% endfor %}
 
-            {# The empty places: a white square like the ground of the product
-               photos, with a line inside the edge and the dogwood flower in
-               the glaze colour -- the flower that stands under the heading of
-               the collections page, here marking a spot on the shelf where
-               nothing stands. It was a field of glaze colour with a pale X
-               first, and two of those side by side outweighed the photos.
-               One line says why the place is empty. From lg up it takes the
-               flower's place while the pointer is on the tile; below lg,
-               where there is no pointer, it stands above the flower all the
-               time. The line break comes from the CMS (whitespace-pre-line). In the HTML they come right after the
-               pieces, where two columns need the one that fills the gap; from
-               lg up order-1 moves them behind the cards. Which of them a
-               width shows is counted separately: below lg the first "luecke",
-               from lg up the first "leer". They say nothing a screen reader
-               needs: the market tile says the same in a sentence. #}
-            {% for n in range(0, kreuze) %}
-            <div class="group relative flex aspect-square flex-col items-center justify-center gap-2.5 self-start bg-white lg:order-1{% if n >= luecke %} max-lg:hidden{% endif %}{% if n >= leer %} lg:hidden{% endif %}" style="color: {{ glaze.swatch }}" aria-hidden="true">
-                <span class="absolute inset-2.5 border border-current"></span>
-                {% if collections_glaze.empty_note %}<span class="cap-label whitespace-pre-line px-4 text-center text-[11px] leading-4 text-ink sm:text-sm sm:leading-6 lg:absolute lg:inset-0 lg:flex lg:items-center lg:justify-center lg:px-6 lg:opacity-0 lg:transition-opacity lg:group-hover:opacity-100">{{ collections_glaze.empty_note }}</span>{% endif %}
-                <span class="h-[26%] w-[26%] lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:transition-opacity lg:group-hover:opacity-0 [&>svg]:h-full [&>svg]:w-full">{% include "dogwood.njk" %}</span>
+            {# The empty places are built like a piece: a white square like the
+               ground of the product photos, and a line of text below it where
+               a piece carries its name. In the square stands the dogwood flower
+               in the glaze colour -- the flower from under the heading of the
+               collections page, here marking a spot on the shelf where nothing
+               stands yet. A fine line inside the edge was tried and read as a
+               frame around nothing. The line below says what to expect,
+               in the type of the piece names; its line break comes from the
+               CMS (whitespace-pre-line), and two lines are what a name takes.
+
+               Tried before: a field of glaze colour with a pale X, which
+               outweighed the photos beside it, and the text in place of the
+               flower under the pointer, which a phone never showed. They say
+               nothing a screen reader needs: the market tile says the same in
+               a sentence. #}
+            {% for n in range(0, platzhalter) %}
+            <div class="{{ karte }}" aria-hidden="true">
+                <div class="relative flex aspect-square items-center justify-center bg-white" style="color: {{ glaze.swatch }}">
+                    <span class="h-[26%] w-[26%] [&>svg]:h-full [&>svg]:w-full">{% include "dogwood.njk" %}</span>
+                </div>
+                {% if collections_glaze.empty_note %}<p class="mt-2 min-h-10 whitespace-pre-line font-display text-sm font-black text-ink">{{ collections_glaze.empty_note }}</p>{% endif %}
             </div>
             {% endfor %}
 
-            {% if glaze.pieces.length < 4 %}
             {# Der blaue Rahmen trennt sie von den Stücken daneben, die
                keinen haben. Dieselbe Markierung trägt auf der Events-Seite
-               der nächste Termin. Steht kein Termin neben ihr, nimmt sie
-               dessen Platz mit ein (main.css, #glaze-markets); data-spare
-               sagt, dass die Viererreihe dafür einen Platz frei hat. #}
-            <a href="/events.html" data-market-tile{% if terminBreit %} data-spare{% endif %} class="group col-span-2 flex flex-col rounded-xl border-2 border-blue bg-white p-4 sm:col-span-1 sm:p-5 lg:aspect-square lg:self-start">
-                <p class="font-display text-lg font-black leading-tight text-ink transition-colors group-hover:text-blue sm:text-2xl">{{ collections_glaze.market_title | replace("{glaze}", glaze.name) }}</p>
-                {# Ohne Termin stimmt der Satz über die Märkte nicht mehr,
-                   also steht dort dieselbe Zeile wie im Terminband. events.js
-                   tauscht sie, wenn der letzte Termin vorbeigezogen ist,
-                   seit die Seite gebaut wurde. #}
-                {# The glaze name stands out the way a glaze does in the blurbs on the home page: .text-highlight, blue in its light variant (.blurb-inline). #}
-                <p data-market-text class="blurb-inline mt-2 text-sm leading-relaxed text-muted"{% if not shortlist.length %} hidden{% endif %}>{{ collections_glaze.market_text | replace("{glaze}", '<span class="text-highlight font-bold">' ~ glaze.name ~ '</span>') | safe }}</p>
-                <p data-market-soon class="mt-2 text-sm leading-relaxed text-muted"{% if shortlist.length %} hidden{% endif %}>{{ global.labels.dates_soon }}</p>
-                <span class="link-underline mt-auto inline-block self-start pt-4 text-sm">{{ collections_glaze.market_cta }}</span>
+               der nächste Termin.
+
+               Der erste Satz hängt am Bestand: Hält der Shop weniger als vier
+               verfügbare Stücke, entschuldigt er sich dafür; sonst lädt er
+               ein, die Stücke in die Hand zu nehmen. Der zweite Satz ist
+               immer derselbe und entfällt, wo die Kachel für ihn zu schmal
+               ist: auf dem Telefon (rund 155 Pixel) und zwischen lg und xl
+               (rund 220). Aus demselben Grund steht dort die
+               Linkzeile nicht -- die ganze Kachel führt zu den Terminen.
+
+               Ohne Termin stimmt der Satz über die Märkte nicht mehr, also
+               steht dort dieselbe Zeile wie im Terminband. events.js tauscht
+               sie, wenn der letzte Termin vorbeigezogen ist, seit die Seite
+               gebaut wurde. #}
+            {# The glaze name stands out the way a glaze does in the blurbs on the home page: .text-highlight, blue in its light variant (.blurb-inline). #}
+            {% set glasurname = '<span class="text-highlight font-bold">' ~ glaze.name ~ '</span>' %}
+            {% set marktsatz = collections_glaze.market_text_stocked if glaze.stocked else collections_glaze.market_text %}
+            <a href="/events.html" class="group flex aspect-square flex-col rounded-xl border-2 border-blue bg-white p-3 sm:p-5 lg:p-4 {{ karte }}">
+                <p class="font-display text-base font-black leading-tight text-ink transition-colors group-hover:text-blue sm:text-2xl lg:text-xl">{{ collections_glaze.market_title | replace("{glaze}", glaze.name) }}</p>
+                <p data-market-text class="blurb-inline mt-1.5 text-xs leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed"{% if not shortlist.length %} hidden{% endif %}>{{ marktsatz | replace("{glaze}", glasurname) | safe }}{% if collections_glaze.market_text_more %}<span class="max-sm:hidden lg:max-xl:hidden"> {{ collections_glaze.market_text_more }}</span>{% endif %}</p>
+                <p data-market-soon class="mt-1.5 text-xs leading-snug text-muted sm:mt-2 sm:text-sm sm:leading-relaxed"{% if shortlist.length %} hidden{% endif %}>{{ global.labels.dates_soon }}</p>
+                <span class="link-underline mt-auto inline-block self-start pt-4 text-sm max-sm:hidden">{{ collections_glaze.market_cta }}</span>
             </a>
-            {% endif %}
 
             {# Wie im Terminband steht jeder kommende Termin im HTML, und nur
                der erste ist sichtbar: events.js wiederholt die Auswahl im
@@ -211,7 +199,8 @@ eleventyComputed:
                ist. Beim Überfahren wird die Haarlinie blau und der Name auch --
                so reagieren weiße Flächen auf dieser Seite überall (Kartenknopf,
                Formularfelder). Eine andere Flächenfarbe gibt es nur im blauen
-               Terminband. Auf dem Telefon steht keine Terminkachel (max-sm:hidden). #}
+               Terminband. Ort und Uhrzeit stehen ab sm; auf dem Telefon hält
+               die Kachel nur Tag und Markt. #}
             {% for event in upcoming %}
             {% set rank = shortlist.indexOf(event) %}
             <a href="/events.html"
@@ -219,16 +208,16 @@ eleventyComputed:
                data-date="{{ event.date | date('yyyy-MM-dd') }}"
                data-until="{{ (event.end_date or event.date) | date('yyyy-MM-dd') }}"
                data-name="{{ event.name | trim }}"
-               {% if rank < 0 or rank >= termine %}hidden{% endif %}
-               class="group flex flex-col rounded-xl border border-hairline bg-white p-5 transition-colors hover:border-blue max-sm:hidden lg:aspect-square lg:self-start{% if not terminBreit %} lg:hidden{% endif %}">
-                <p data-next-label class="cap-label mb-2 text-[11px] text-blue"{% if rank != 0 %} hidden{% endif %}>{{ global.labels.next_up }}</p>
+               {% if rank != 0 %}hidden{% endif %}
+               class="group flex aspect-square flex-col rounded-xl border border-hairline bg-white p-3 transition-colors hover:border-blue sm:p-5 lg:p-4 {{ karte }}">
+                <p data-next-label class="cap-label mb-1 text-[11px] text-blue sm:mb-2"{% if rank != 0 %} hidden{% endif %}>{{ global.labels.next_up }}</p>
                 <p class="flex items-baseline gap-2">
-                    <span class="font-display text-3xl font-black text-ink">{{ event.date | date("d") }}</span>
+                    <span class="font-display text-2xl font-black text-ink sm:text-3xl">{{ event.date | date("d") }}</span>
                     <span class="cap-label text-[11px] text-soft">{{ event.date | date("MMM") }}</span>
                 </p>
-                <p class="mt-3 font-display text-base font-black leading-snug text-ink transition-colors group-hover:text-blue">{{ event.name }}</p>
-                <p class="mt-1 text-sm text-muted">{{ event.location }}</p>
-                {% if event.time %}<p class="mt-1 text-sm text-muted">{{ event.time }}</p>{% endif %}
+                <p class="mt-2 font-display text-sm font-black leading-snug text-ink transition-colors group-hover:text-blue sm:mt-3 sm:text-base">{{ event.name }}</p>
+                <p class="mt-1 text-sm text-muted max-sm:hidden">{{ event.location }}</p>
+                {% if event.time %}<p class="mt-1 text-sm text-muted max-sm:hidden">{{ event.time }}</p>{% endif %}
             </a>
             {% endfor %}
         </div>
